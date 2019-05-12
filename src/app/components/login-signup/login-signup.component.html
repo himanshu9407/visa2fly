@@ -1,0 +1,37 @@
+<div class="container">
+  <div>
+    <div class="row" style="margin-top: 100px;">
+
+      <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 ">
+
+        <div class="homeform" style="background-color: white;">
+          <div  style="width: 50%;margin-left: 25%;margin-top: 0px;">
+            <div class="row" style="margin-top: 20px;">
+              <div  (click)="showSignup()" id="SignUp" class="col-sm-6 signup-capsule" style="margin-top: 40px;">
+                Sign Up
+              </div>
+              <div (click)="showLogin()" id="Login" class="col-sm-6 login-capsule" style="margin-top: 40px;">
+                Sign In
+              </div>
+            </div>
+          </div>
+          <div class="cardheader" style="margin-top: 20px;">
+          </div>
+
+            <div class="card-body">
+              <app-login *ngIf="show_login" ></app-login>
+              <app-signup *ngIf="show_signup"></app-signup>
+            </div>
+
+          <div class="card-footer" style="background-color: white">
+
+            <div class="d-flex justify-content-center">
+              <a href="#">Forgot your password?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
