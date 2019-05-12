@@ -12,6 +12,8 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
 import { LoginComponent } from './components/login-signup/login/login.component';
 import { SignupComponent } from './components/login-signup/signup/signup.component';
 import { MiniCarouselComponent } from './components/mini-carousel/mini-carousel.component';
+import { TestimonialComponent } from './components/testimonial/testimonial.component';
+import { RequirementsComponent } from './components/requirements/requirements.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MiniCarouselComponent } from './components/mini-carousel/mini-carousel.
     LoginSignupComponent,
     LoginComponent,
     SignupComponent,
-    MiniCarouselComponent
+    MiniCarouselComponent,
+    TestimonialComponent,
+    RequirementsComponent
   ],
   imports: [
     BrowserModule,
