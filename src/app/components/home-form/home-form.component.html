@@ -1,456 +1,672 @@
 <div style="margin-top: 150px;">
-  <div class="chkInBox os-animation homePageFocus ng-isolate-scope animated fadeInUp" when-visible="animateElementIn" data-anim="fadeInUp" data-anim-delay="0.2s" style="animation-delay: 0.2s;">
-          <div class="container focusHome">
-           <form name="myForm" class="ng-pristine ng-valid">
-            <!-- <div class="hometab">
-               <div class="countrytab active"><span>Single Country</span></div>
-               <div class="countrytab multSelBtn" data-toggle="modal" ng-click="showMutipleCountry()"><span>Multiple Countries</span></div>
-             </div> -->
-           <div class="chkInCont">
-            <div class="chkIn chkInSec1 removeradius">
-             <div class="chkIp chkIp1">
-              <label class="chkLabel">Destination</label>
-              <div class="icon-s1-plane pull-left"></div>
-              <div class="img-loader ldr1">
-                  <div class="icon-s1-small-loader" alt="small"></div>
-              </div>
-             <select id="ddlCountry" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="countryId" ng-change="getPurposesById(countryId, 'ldr1')">
-                 <option value="0" data-isschengen="False">Select</option>
-                     <option value="73" data-isschengen="False">Argentina</option>
-                     <option value="33" data-isschengen="False">Australia</option>
-                     <option value="70" data-isschengen="True">Austria</option>
-                     <option value="126" data-isschengen="False">Azerbaijan</option>
-                     <option value="127" data-isschengen="False">Bahrain</option>
-                     <option value="43" data-isschengen="True">Belgium</option>
-                     <option value="71" data-isschengen="False">Brazil</option>
-                     <option value="108" data-isschengen="False">Cambodia</option>
-                     <option value="29" data-isschengen="False">Canada</option>
-                     <option value="36" data-isschengen="False">China</option>
-                     <option value="40" data-isschengen="False">Croatia</option>
-                     <option value="123" data-isschengen="False">Cyprus</option>
-                     <option value="44" data-isschengen="True">Czech Republic</option>
-                     <option value="45" data-isschengen="True">Denmark</option>
-                     <option value="142" data-isschengen="False">Egypt</option>
-                     <option value="46" data-isschengen="True">Estonia</option>
-                     <option value="47" data-isschengen="True">Finland</option>
-                     <option value="68" data-isschengen="True">France</option>
-                     <option value="117" data-isschengen="False">Georgia</option>
-                     <option value="48" data-isschengen="True">Germany</option>
-                     <option value="49" data-isschengen="True">Greece</option>
-                     <option value="115" data-isschengen="False">Hong Kong</option>
-                     <option value="50" data-isschengen="True">Hungary</option>
-                     <option value="53" data-isschengen="True">Iceland</option>
-                     <option value="106" data-isschengen="False">Indonesia</option>
-                     <option value="35" data-isschengen="False">Ireland</option>
-                     <option value="138" data-isschengen="False">Israel</option>
-                     <option value="66" data-isschengen="True">Italy</option>
-                     <option value="26" data-isschengen="False">Japan</option>
-                     <option value="83" data-isschengen="False">Kenya</option>
-                     <option value="157" data-isschengen="False">Laos</option>
-                     <option value="51" data-isschengen="True">Latvia</option>
-                     <option value="69" data-isschengen="True">Liechtenstein</option>
-                     <option value="52" data-isschengen="True">Lithuania</option>
-                     <option value="55" data-isschengen="True">Luxembourg</option>
-                     <option value="38" data-isschengen="False">Malaysia</option>
-                     <option value="107" data-isschengen="False">Maldives</option>
-                     <option value="56" data-isschengen="True">Malta</option>
-                     <option value="99" data-isschengen="False">Mexico</option>
-                     <option value="140" data-isschengen="False">Myanmar</option>
-                     <option value="57" data-isschengen="True">Netherlands</option>
-                     <option value="34" data-isschengen="False">New Zealand</option>
-                     <option value="86" data-isschengen="False">Nigeria</option>
-                     <option value="58" data-isschengen="True">Norway</option>
-                     <option value="131" data-isschengen="False">Oman</option>
-                     <option value="74" data-isschengen="False">Peru</option>
-                     <option value="143" data-isschengen="False">Philippines</option>
-                     <option value="59" data-isschengen="True">Poland</option>
-                     <option value="60" data-isschengen="True">Portugal</option>
-                     <option value="37" data-isschengen="False">Russia</option>
-                     <option value="90" data-isschengen="False">Rwanda</option>
-                     <option value="67" data-isschengen="False">Singapore</option>
-                     <option value="61" data-isschengen="True">Slovakia</option>
-                     <option value="62" data-isschengen="True">Slovenia</option>
-                     <option value="41" data-isschengen="False">South Africa</option>
-                     <option value="39" data-isschengen="False">South Korea</option>
-                     <option value="63" data-isschengen="True">Spain</option>
-                     <option value="28" data-isschengen="False">Sri Lanka</option>
-                     <option value="64" data-isschengen="True">Sweden</option>
-                     <option value="65" data-isschengen="True">Switzerland</option>
-                     <option value="128" data-isschengen="False">Taiwan (ROC)</option>
-                     <option value="30" data-isschengen="False">Thailand</option>
-                     <option value="27" data-isschengen="False">Turkey</option>
-                     <option value="75" data-isschengen="False">Uganda</option>
-                     <option value="32" data-isschengen="False">United Kingdom</option>
-                     <option value="31" data-isschengen="False">United States of America</option>
-                     <option value="77" data-isschengen="False">Venezuela</option>
-                     <option value="152" data-isschengen="False">Vietnam</option>
-                     <option value="120" data-isschengen="False">Zimbabwe</option>
-             </select>
-              <div id="spnCountry" class="error ng-binding"></div>
-             </div>
-             <div class="chkIp chkIp2">
-              <label class="chkLabel">Purpose</label>
-              <!-- <img src="~/Contents/Images/purpose.png" alt="img"/> -->
-              <div class="icon-s1-purpose pull-left"></div>
-              <div class="img-loader ldr2">
-                   <div class="icon-s1-small-loader" alt="small"></div>
-              </div>
-              <select id="ddlPurpose" ng-model="purposeId" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="getAccesTypes('ldr2','purposeId')">
-               <option value="0">Select</option>
-               <option value="1">Business</option>
-               <option value="2">Travel</option>
-               <!-- ngRepeat: purpose in Purposes -->
-              </select>
-              <div id="spnPurpose" class="error ng-binding"></div>
-             </div>
-             <div class="chkIp chkIp3">
-              <label class="chkLabel">I Reside in </label>
-              <!-- <img src="~/Contents/Images/location.png" alt="img" /> -->
-              <div class="icon-s1-location pull-left"></div>
-                 <div class="img-loader ldr3">
-                    <div class="icon-s1-small-loader" alt="small"></div>
-                 </div>
-                 <select id="ddlJurisction" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="jurisctionId" ng-change="getAccesTypes('ldr3','jurisctionId')">
+        <div class="chkInBox os-animation homePageFocus ng-isolate-scope animated fadeInUp" when-visible="animateElementIn" data-anim="fadeInUp" data-anim-delay="0.2s" style="animation-delay: 0.2s;">
+                <div class="container focusHome">
+                 <form name="myForm" class="ng-pristine ng-valid">
+                  <!-- <div class="hometab">
+                     <div class="countrytab active"><span>Single Country</span></div>
+                     <div class="countrytab multSelBtn" data-toggle="modal" ng-click="showMutipleCountry()"><span>Multiple Countries</span></div>
+                   </div> -->
+                 <div class="chkInCont">
+                  <div class="chkIn chkInSec1 removeradius">
+                   <div class="chkIp chkIp1">
+                    <label class="chkLabel">Destination</label>
+                    <div class="icon-s1-plane pull-left"></div>
+                    <div class="img-loader ldr1">
+                        <div class="icon-s1-small-loader" alt="small"></div>
+                    </div>
+                   <select id="ddlCountry" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="countryId" ng-change="getPurposesById(countryId, 'ldr1')">
+                       <option value="0" data-isschengen="False">Select</option>
+                           <option value="73" data-isschengen="False">Argentina</option>
+                           <option value="33" data-isschengen="False">Australia</option>
+                           <option value="70" data-isschengen="True">Austria</option>
+                           <option value="126" data-isschengen="False">Azerbaijan</option>
+                           <option value="127" data-isschengen="False">Bahrain</option>
+                           <option value="43" data-isschengen="True">Belgium</option>
+                           <option value="71" data-isschengen="False">Brazil</option>
+                           <option value="108" data-isschengen="False">Cambodia</option>
+                           <option value="29" data-isschengen="False">Canada</option>
+                           <option value="36" data-isschengen="False">China</option>
+                           <option value="40" data-isschengen="False">Croatia</option>
+                           <option value="123" data-isschengen="False">Cyprus</option>
+                           <option value="44" data-isschengen="True">Czech Republic</option>
+                           <option value="45" data-isschengen="True">Denmark</option>
+                           <option value="142" data-isschengen="False">Egypt</option>
+                           <option value="46" data-isschengen="True">Estonia</option>
+                           <option value="47" data-isschengen="True">Finland</option>
+                           <option value="68" data-isschengen="True">France</option>
+                           <option value="117" data-isschengen="False">Georgia</option>
+                           <option value="48" data-isschengen="True">Germany</option>
+                           <option value="49" data-isschengen="True">Greece</option>
+                           <option value="115" data-isschengen="False">Hong Kong</option>
+                           <option value="50" data-isschengen="True">Hungary</option>
+                           <option value="53" data-isschengen="True">Iceland</option>
+                           <option value="106" data-isschengen="False">Indonesia</option>
+                           <option value="35" data-isschengen="False">Ireland</option>
+                           <option value="138" data-isschengen="False">Israel</option>
+                           <option value="66" data-isschengen="True">Italy</option>
+                           <option value="26" data-isschengen="False">Japan</option>
+                           <option value="83" data-isschengen="False">Kenya</option>
+                           <option value="157" data-isschengen="False">Laos</option>
+                           <option value="51" data-isschengen="True">Latvia</option>
+                           <option value="69" data-isschengen="True">Liechtenstein</option>
+                           <option value="52" data-isschengen="True">Lithuania</option>
+                           <option value="55" data-isschengen="True">Luxembourg</option>
+                           <option value="38" data-isschengen="False">Malaysia</option>
+                           <option value="107" data-isschengen="False">Maldives</option>
+                           <option value="56" data-isschengen="True">Malta</option>
+                           <option value="99" data-isschengen="False">Mexico</option>
+                           <option value="140" data-isschengen="False">Myanmar</option>
+                           <option value="57" data-isschengen="True">Netherlands</option>
+                           <option value="34" data-isschengen="False">New Zealand</option>
+                           <option value="86" data-isschengen="False">Nigeria</option>
+                           <option value="58" data-isschengen="True">Norway</option>
+                           <option value="131" data-isschengen="False">Oman</option>
+                           <option value="74" data-isschengen="False">Peru</option>
+                           <option value="143" data-isschengen="False">Philippines</option>
+                           <option value="59" data-isschengen="True">Poland</option>
+                           <option value="60" data-isschengen="True">Portugal</option>
+                           <option value="37" data-isschengen="False">Russia</option>
+                           <option value="90" data-isschengen="False">Rwanda</option>
+                           <option value="67" data-isschengen="False">Singapore</option>
+                           <option value="61" data-isschengen="True">Slovakia</option>
+                           <option value="62" data-isschengen="True">Slovenia</option>
+                           <option value="41" data-isschengen="False">South Africa</option>
+                           <option value="39" data-isschengen="False">South Korea</option>
+                           <option value="63" data-isschengen="True">Spain</option>
+                           <option value="28" data-isschengen="False">Sri Lanka</option>
+                           <option value="64" data-isschengen="True">Sweden</option>
+                           <option value="65" data-isschengen="True">Switzerland</option>
+                           <option value="128" data-isschengen="False">Taiwan (ROC)</option>
+                           <option value="30" data-isschengen="False">Thailand</option>
+                           <option value="27" data-isschengen="False">Turkey</option>
+                           <option value="75" data-isschengen="False">Uganda</option>
+                           <option value="32" data-isschengen="False">United Kingdom</option>
+                           <option value="31" data-isschengen="False">United States of America</option>
+                           <option value="77" data-isschengen="False">Venezuela</option>
+                           <option value="152" data-isschengen="False">Vietnam</option>
+                           <option value="120" data-isschengen="False">Zimbabwe</option>
+                   </select>
+                    <div id="spnCountry" class="error ng-binding"></div>
+                   </div>
+                   <div class="chkIp chkIp2">
+                    <label class="chkLabel">Purpose</label>
+                    <!-- <img src="~/Contents/Images/purpose.png" alt="img"/> -->
+                    <div class="icon-s1-purpose pull-left"></div>
+                    <div class="img-loader ldr2">
+                         <div class="icon-s1-small-loader" alt="small"></div>
+                    </div>
+                    <select id="ddlPurpose" ng-model="purposeId" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="getAccesTypes('ldr2','purposeId')">
                      <option value="0">Select</option>
-                         <option value="1">Andaman &amp; Nicobar Islands</option>
-                         <option value="2">Andhra Pradesh</option>
-                         <option value="3">Arunachal Pradesh</option>
-                         <option value="4">Assam</option>
-                         <option value="5">Bihar</option>
-                         <option value="6">Chandigarh</option>
-                         <option value="7">Chattisgarh</option>
-                         <option value="8">Dadra &amp; Nagar Haveli</option>
-                         <option value="9">Daman &amp; Diu</option>
-                         <option value="10">Delhi</option>
-                         <option value="11">Goa</option>
-                         <option value="12">Gujarat</option>
-                         <option value="13">Haryana</option>
-                         <option value="14">Himachal Pradesh</option>
-                         <option value="15">Jammu &amp; Kashmir</option>
-                         <option value="16">Jharkhand</option>
-                         <option value="17">Karnataka</option>
-                         <option value="18">Kerala</option>
-                         <option value="19">Lakshadweep</option>
-                         <option value="20">Madhya Pradesh</option>
-                         <option value="21">Maharashtra</option>
-                         <option value="37">MAH-Mum/NMum/Thane</option>
-                         <option value="22">Manipur</option>
-                         <option value="23">Meghalaya</option>
-                         <option value="24">Mizoram</option>
-                         <option value="25">Nagaland</option>
-                         <option value="26">Odisha</option>
-                         <option value="27">Poducherry</option>
-                         <option value="28">Punjab</option>
-                         <option value="29">Rajasthan</option>
-                         <option value="30">Sikkim</option>
-                         <option value="31">Tamil Nadu</option>
-                         <option value="32">Telangana</option>
-                         <option value="33">Tripura</option>
-                         <option value="34">Uttar Pradesh</option>
-                         <option value="35">Uttarakhand</option>
-                         <option value="36">West Bengal</option>
-                 </select>
-              <div id="spnJurisction" class="error ng-binding"> </div>
-             </div>
-             <div class="chkIp chkIp8">
-             <label class="chkLabel">Visa Type</label>
-             <!-- <img src="~/Contents/Images/calender.png" alt="img" /> -->
-             <div class="icon-s1-calender pull-left"></div>
-             <select id="ddlPurpose" ng-model="accessType" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="removerErrorrForAnuglar('accessType')">
-             <option value="0">Select</option>
-             <!-- ngRepeat: accessType in AccessTypes -->
-             </select>
-             <div id="spnAccessType" class="error ng-binding"> </div>
-             </div>
-                <!-- Edit for mobile purpose -->
-                <div class="main-wrapper-button">
-                    <button class="chkIp chkSubmit serchcountrybtn" ng-click="getNextFields()" > Next </button>
-                </div>
-                <!-- end mobile -->
-             
-             <div class="clear"></div> 
-            </div>
-            <div class="chkIn chkInSec2" ng-class="{true:'nextFieldsIn'}[nextFields]" style="width: 100%;">
-             <div class="chkIp chkIpBack"> <span ng-click="nextFields = false"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> </div>
-             <div class="chkIp chkIp1">
-              <label class="chkLabel">Adult</label>
-               <!-- <img src="~/Contents/Images/user.png" alt="img" /> -->
-               <div class="icon-s1-user pull-left"></div>
-                <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="adult">
-                 <option value="1">1</option>
-                 <option value="2">2</option>
-                 <option value="3">3</option>
-                 <option value="4">4</option>
-                </select>
-               </div>
-             <div class="chkIp chkIp2">
-             <label class="chkLabel">Child</label>
-             <!-- <img src="~/Contents/Images/user.png" alt="img"/> -->
-             <div class="icon-s1-user pull-left"></div>
-             <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
-             <option value="0">0</option>  
-             <option value="1">1</option>
-             <option value="2">2</option>
-             <option value="3">3</option>
-             <option value="4">4</option>
-             </select>
-             </div>
-             <div class="chkIp chkIp3" ng-init="isTicketBooked='0';">
-              <label class="chkLabel">flight tickets</label>
-              <!-- <img src="~/Contents/Images/ticket.png"/> -->
-              <div class="icon-s1-ticket pull-left"></div>
-               <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
-                <option value="0">Select</option>  
-                <option value="1">Booked</option>  
-                <option value="2">Not Booked</option>
-               </select>
-               <div id="spnFlightTktBooked" class="error ng-binding"></div>
-              </div>
-             <div class="chkIp chkIp8">
-             <label class="chkLabel">travel date</label>
-             <!-- <img src="img/calender.png" alt="img" /> -->
-             <div class="input-group date homeDate chkselect">
-                 <input id="dtpTravelDate" type="text" class="form-control bagcalendar ng-pristine ng-untouched ng-valid ng-empty" placeholder="Select Date" ng-model="dateDepart" data-provide="datepicker">
-             <div class="input-group-addon">
-             <span class="glyphicon glyphicon-th"></span>
-             </div>
-             </div>
-             </div>
-                <div class="main-wrapper-button">
-                    <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" ng-click="nextFields = false">Back</button>
-                    <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()" >Search</button>
-                </div>
-                
-                   <div class="clear"></div> 
-                 </div>
-               </div>
-               <div class="chkInCont">
-                      <div class="chkIn chkInSec1 removeradius">
-                       <div class="chkIp chkIp1">
-                        <label class="chkLabel">Destination</label>
-                        <div class="icon-s1-plane pull-left"></div>
-                        <div class="img-loader ldr1" style="display: none;">
-                            <div class="icon-s1-small-loader" alt="small"></div>
-                        </div>
-                       <select id="ddlCountry" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="countryId" ng-change="getPurposesById(countryId, 'ldr1')" style="">
-                           <option value="0" data-isschengen="False">Select</option>
-                               <option value="73" data-isschengen="False">Argentina</option>
-                               <option value="33" data-isschengen="False">Australia</option>
-                               <option value="70" data-isschengen="True">Austria</option>
-                               <option value="126" data-isschengen="False">Azerbaijan</option>
-                               <option value="127" data-isschengen="False">Bahrain</option>
-                               <option value="43" data-isschengen="True">Belgium</option>
-                               <option value="71" data-isschengen="False">Brazil</option>
-                               <option value="108" data-isschengen="False">Cambodia</option>
-                               <option value="29" data-isschengen="False">Canada</option>
-                               <option value="36" data-isschengen="False">China</option>
-                               <option value="40" data-isschengen="False">Croatia</option>
-                               <option value="123" data-isschengen="False">Cyprus</option>
-                               <option value="44" data-isschengen="True">Czech Republic</option>
-                               <option value="45" data-isschengen="True">Denmark</option>
-                               <option value="142" data-isschengen="False">Egypt</option>
-                               <option value="46" data-isschengen="True">Estonia</option>
-                               <option value="47" data-isschengen="True">Finland</option>
-                               <option value="68" data-isschengen="True">France</option>
-                               <option value="117" data-isschengen="False">Georgia</option>
-                               <option value="48" data-isschengen="True">Germany</option>
-                               <option value="49" data-isschengen="True">Greece</option>
-                               <option value="115" data-isschengen="False">Hong Kong</option>
-                               <option value="50" data-isschengen="True">Hungary</option>
-                               <option value="53" data-isschengen="True">Iceland</option>
-                               <option value="106" data-isschengen="False">Indonesia</option>
-                               <option value="35" data-isschengen="False">Ireland</option>
-                               <option value="138" data-isschengen="False">Israel</option>
-                               <option value="66" data-isschengen="True">Italy</option>
-                               <option value="26" data-isschengen="False">Japan</option>
-                               <option value="83" data-isschengen="False">Kenya</option>
-                               <option value="157" data-isschengen="False">Laos</option>
-                               <option value="51" data-isschengen="True">Latvia</option>
-                               <option value="69" data-isschengen="True">Liechtenstein</option>
-                               <option value="52" data-isschengen="True">Lithuania</option>
-                               <option value="55" data-isschengen="True">Luxembourg</option>
-                               <option value="38" data-isschengen="False">Malaysia</option>
-                               <option value="107" data-isschengen="False">Maldives</option>
-                               <option value="56" data-isschengen="True">Malta</option>
-                               <option value="99" data-isschengen="False">Mexico</option>
-                               <option value="140" data-isschengen="False">Myanmar</option>
-                               <option value="57" data-isschengen="True">Netherlands</option>
-                               <option value="34" data-isschengen="False">New Zealand</option>
-                               <option value="86" data-isschengen="False">Nigeria</option>
-                               <option value="58" data-isschengen="True">Norway</option>
-                               <option value="131" data-isschengen="False">Oman</option>
-                               <option value="74" data-isschengen="False">Peru</option>
-                               <option value="143" data-isschengen="False">Philippines</option>
-                               <option value="59" data-isschengen="True">Poland</option>
-                               <option value="60" data-isschengen="True">Portugal</option>
-                               <option value="37" data-isschengen="False">Russia</option>
-                               <option value="90" data-isschengen="False">Rwanda</option>
-                               <option value="67" data-isschengen="False">Singapore</option>
-                               <option value="61" data-isschengen="True">Slovakia</option>
-                               <option value="62" data-isschengen="True">Slovenia</option>
-                               <option value="41" data-isschengen="False">South Africa</option>
-                               <option value="39" data-isschengen="False">South Korea</option>
-                               <option value="63" data-isschengen="True">Spain</option>
-                               <option value="28" data-isschengen="False">Sri Lanka</option>
-                               <option value="64" data-isschengen="True">Sweden</option>
-                               <option value="65" data-isschengen="True">Switzerland</option>
-                               <option value="128" data-isschengen="False">Taiwan (ROC)</option>
-                               <option value="30" data-isschengen="False">Thailand</option>
-                               <option value="27" data-isschengen="False">Turkey</option>
-                               <option value="75" data-isschengen="False">Uganda</option>
-                               <option value="32" data-isschengen="False">United Kingdom</option>
-                               <option value="31" data-isschengen="False">United States of America</option>
-                               <option value="77" data-isschengen="False">Venezuela</option>
-                               <option value="152" data-isschengen="False">Vietnam</option>
-                               <option value="120" data-isschengen="False">Zimbabwe</option>
+                     <!-- ngRepeat: purpose in Purposes -->
+                    </select>
+                    <div id="spnPurpose" class="error ng-binding"></div>
+                   </div>
+                   <div class="chkIp chkIp3">
+                    <label class="chkLabel">I Reside in </label>
+                    <!-- <img src="~/Contents/Images/location.png" alt="img" /> -->
+                    <div class="icon-s1-location pull-left"></div>
+                       <div class="img-loader ldr3">
+                          <div class="icon-s1-small-loader" alt="small"></div>
+                       </div>
+                       <select id="ddlJurisction" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="jurisctionId" ng-change="getAccesTypes('ldr3','jurisctionId')">
+                           <option value="0">Select</option>
+                               <option value="1">Andaman &amp; Nicobar Islands</option>
+                               <option value="2">Andhra Pradesh</option>
+                               <option value="3">Arunachal Pradesh</option>
+                               <option value="4">Assam</option>
+                               <option value="5">Bihar</option>
+                               <option value="6">Chandigarh</option>
+                               <option value="7">Chattisgarh</option>
+                               <option value="8">Dadra &amp; Nagar Haveli</option>
+                               <option value="9">Daman &amp; Diu</option>
+                               <option value="10">Delhi</option>
+                               <option value="11">Goa</option>
+                               <option value="12">Gujarat</option>
+                               <option value="13">Haryana</option>
+                               <option value="14">Himachal Pradesh</option>
+                               <option value="15">Jammu &amp; Kashmir</option>
+                               <option value="16">Jharkhand</option>
+                               <option value="17">Karnataka</option>
+                               <option value="18">Kerala</option>
+                               <option value="19">Lakshadweep</option>
+                               <option value="20">Madhya Pradesh</option>
+                               <option value="21">Maharashtra</option>
+                               <option value="37">MAH-Mum/NMum/Thane</option>
+                               <option value="22">Manipur</option>
+                               <option value="23">Meghalaya</option>
+                               <option value="24">Mizoram</option>
+                               <option value="25">Nagaland</option>
+                               <option value="26">Odisha</option>
+                               <option value="27">Poducherry</option>
+                               <option value="28">Punjab</option>
+                               <option value="29">Rajasthan</option>
+                               <option value="30">Sikkim</option>
+                               <option value="31">Tamil Nadu</option>
+                               <option value="32">Telangana</option>
+                               <option value="33">Tripura</option>
+                               <option value="34">Uttar Pradesh</option>
+                               <option value="35">Uttarakhand</option>
+                               <option value="36">West Bengal</option>
                        </select>
-                        <div id="spnCountry" class="error ng-binding"></div>
-                       </div>
-                       <div class="chkIp chkIp2">
-                        <label class="chkLabel">Purpose</label>
-                        <!-- <img src="~/Contents/Images/purpose.png" alt="img"/> -->
-                        <div class="icon-s1-purpose pull-left"></div>
-                        <div class="img-loader ldr2">
-                             <div class="icon-s1-small-loader" alt="small"></div>
-                        </div>
-                        <select id="ddlPurpose" ng-model="purposeId" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="getAccesTypes('ldr2','purposeId')" style="">
-                         <option value="0">Select</option>
-                         <!-- ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="21" class="ng-binding ng-scope" style="">Business</option><!-- end ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="22" class="ng-binding ng-scope">Tourist</option><!-- end ngRepeat: purpose in Purposes -->
-                        </select>
-                        <div id="spnPurpose" class="error ng-binding"></div>
-                       </div>
-                       <div class="chkIp chkIp3">
-                        <label class="chkLabel">I Reside in </label>
-                        <!-- <img src="~/Contents/Images/location.png" alt="img" /> -->
-                        <div class="icon-s1-location pull-left"></div>
-                           <div class="img-loader ldr3" style="display: none;">
-                              <div class="icon-s1-small-loader" alt="small"></div>
-                           </div>
-                           <select id="ddlJurisction" class="chkselect ng-valid ng-not-empty ng-dirty ng-touched ng-valid-parse" ng-model="jurisctionId" ng-change="getAccesTypes('ldr3','jurisctionId')" style="">
-                               <option value="0">Select</option>
-                                   <option value="1">Andaman &amp; Nicobar Islands</option>
-                                   <option value="2">Andhra Pradesh</option>
-                                   <option value="3">Arunachal Pradesh</option>
-                                   <option value="4">Assam</option>
-                                   <option value="5">Bihar</option>
-                                   <option value="6">Chandigarh</option>
-                                   <option value="7">Chattisgarh</option>
-                                   <option value="8">Dadra &amp; Nagar Haveli</option>
-                                   <option value="9">Daman &amp; Diu</option>
-                                   <option value="10">Delhi</option>
-                                   <option value="11">Goa</option>
-                                   <option value="12">Gujarat</option>
-                                   <option value="13">Haryana</option>
-                                   <option value="14">Himachal Pradesh</option>
-                                   <option value="15">Jammu &amp; Kashmir</option>
-                                   <option value="16">Jharkhand</option>
-                                   <option value="17">Karnataka</option>
-                                   <option value="18">Kerala</option>
-                                   <option value="19">Lakshadweep</option>
-                                   <option value="20">Madhya Pradesh</option>
-                                   <option value="21">Maharashtra</option>
-                                   <option value="37">MAH-Mum/NMum/Thane</option>
-                                   <option value="22">Manipur</option>
-                                   <option value="23">Meghalaya</option>
-                                   <option value="24">Mizoram</option>
-                                   <option value="25">Nagaland</option>
-                                   <option value="26">Odisha</option>
-                                   <option value="27">Poducherry</option>
-                                   <option value="28">Punjab</option>
-                                   <option value="29">Rajasthan</option>
-                                   <option value="30">Sikkim</option>
-                                   <option value="31">Tamil Nadu</option>
-                                   <option value="32">Telangana</option>
-                                   <option value="33">Tripura</option>
-                                   <option value="34">Uttar Pradesh</option>
-                                   <option value="35">Uttarakhand</option>
-                                   <option value="36">West Bengal</option>
-                           </select>
-                        <div id="spnJurisction" class="error ng-binding"> </div>
-                       </div>
-                       <div class="chkIp chkIp8">
-                       <label class="chkLabel">Visa Type</label>
-                       <!-- <img src="~/Contents/Images/calender.png" alt="img" /> -->
-                       <div class="icon-s1-calender pull-left"></div>
-                       <select id="ddlPurpose" ng-model="accessType" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="removerErrorrForAnuglar('accessType')" style="">
-                       <option value="0">Select</option>
-                       <!-- ngRepeat: accessType in AccessTypes --><option ng-repeat="accessType in AccessTypes" value="1" class="ng-binding ng-scope" style="">Single Entry</option><!-- end ngRepeat: accessType in AccessTypes -->
-                       </select>
-                       <div id="spnAccessType" class="error ng-binding"> </div>
-                       </div>
-                          <!-- Edit for mobile purpose -->
-                          <div class="main-wrapper-button">
-                              <button class="chkIp chkSubmit serchcountrybtn" ng-click="getNextFields()"> Next </button>
-                          </div>
-                          <!-- end mobile -->
-                       
-                       <div class="clear"></div> 
+                    <div id="spnJurisction" class="error ng-binding"> </div>
+                   </div>
+                   <div class="chkIp chkIp8">
+                   <label class="chkLabel">Visa Type</label>
+                   <!-- <img src="~/Contents/Images/calender.png" alt="img" /> -->
+                   <div class="icon-s1-calender pull-left"></div>
+                   <select id="ddlPurpose" ng-model="accessType" class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="removerErrorrForAnuglar('accessType')">
+                   <option value="0">Select</option>
+                   <!-- ngRepeat: accessType in AccessTypes -->
+                   </select>
+                   <div id="spnAccessType" class="error ng-binding"> </div>
+                   </div>
+                      <!-- Edit for mobile purpose -->
+                      <div class="main-wrapper-button">
+                          <!-- <button class="chkIp chkSubmit serchcountrybtn" ng-click="getNextFields()" > Next </button> -->
                       </div>
-                      <div class="chkIn chkInSec2 nextFieldsIn" ng-class="{true:'nextFieldsIn'}[nextFields]" style="width: 100%;">
-                       <div class="chkIp chkIpBack"> <span ng-click="nextFields = false"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> </div>
-                       <div class="chkIp chkIp1">
-                        <label class="chkLabel">Adult</label>
-                         <!-- <img src="~/Contents/Images/user.png" alt="img" /> -->
-                         <div class="icon-s1-user pull-left"></div>
-                          <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="adult">
-                           <option value="1">1</option>
-                           <option value="2">2</option>
-                           <option value="3">3</option>
-                           <option value="4">4</option>
-                          </select>
-                         </div>
-                       <div class="chkIp chkIp2">
-                       <label class="chkLabel">Child</label>
-                       <!-- <img src="~/Contents/Images/user.png" alt="img"/> -->
-                       <div class="icon-s1-user pull-left"></div>
-                       <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
-                       <option value="0">0</option>  
+                      <!-- end mobile -->
+                   
+                   <div class="clear"></div> 
+                  </div>
+                  <div class="chkIn chkInSec2" ng-class="{true:'nextFieldsIn'}[nextFields]" style="width: 100%;">
+                   <!-- <div class="chkIp chkIpBack"> <span ng-click="nextFields = false"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> </div> -->
+                   <div class="chkIp chkIp1">
+                    <label class="chkLabel">Adult</label>
+                     <!-- <img src="~/Contents/Images/user.png" alt="img" /> -->
+                     <div class="icon-s1-user pull-left"></div>
+                      <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="adult">
                        <option value="1">1</option>
                        <option value="2">2</option>
                        <option value="3">3</option>
                        <option value="4">4</option>
-                       </select>
+                      </select>
+                     </div>
+                   <div class="chkIp chkIp2">
+                   <label class="chkLabel">Child</label>
+                   <!-- <img src="~/Contents/Images/user.png" alt="img"/> -->
+                   <div class="icon-s1-user pull-left"></div>
+                   <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
+                   <option value="0">0</option>  
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   </select>
+                   </div>
+                   <div class="chkIp chkIp3" ng-init="isTicketBooked='0';">
+                    <label class="chkLabel">flight tickets</label>
+                    <!-- <img src="~/Contents/Images/ticket.png"/> -->
+                    <div class="icon-s1-ticket pull-left"></div>
+                     <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
+                      <option value="0">Select</option>  
+                      <option value="1">Booked</option>  
+                      <option value="2">Not Booked</option>
+                     </select>
+                     <div id="spnFlightTktBooked" class="error ng-binding"></div>
+                    </div>
+                   <div class="chkIp chkIp8">
+                   <label class="chkLabel">travel date</label>
+                   <!-- <img src="img/calender.png" alt="img" /> -->
+                   <div class="input-group date homeDate chkselect">
+                       <input id="dtpTravelDate" type="text" class="form-control bagcalendar ng-pristine ng-untouched ng-valid ng-empty" placeholder="Select Date" ng-model="dateDepart" data-provide="datepicker">
+                   <div class="input-group-addon">
+                   <span class="glyphicon glyphicon-th"></span>
+                   </div>
+                   </div>
+                   </div>
+                      <div class="main-wrapper-button">
+                          <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" ng-click="nextFields = false">Back</button>
+                          <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()" >Search</button>
+                      </div>
+                      
+                         <div class="clear"></div> 
                        </div>
-                       <div class="chkIp chkIp3" ng-init="isTicketBooked='0';">
-                        <label class="chkLabel">flight tickets</label>
-                        <!-- <img src="~/Contents/Images/ticket.png"/> -->
-                        <div class="icon-s1-ticket pull-left"></div>
-                         <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
-                          <option value="0">Select</option>  
-                          <option value="1">Booked</option>  
-                          <option value="2">Not Booked</option>
-                         </select>
-                         <div id="spnFlightTktBooked" class="error ng-binding"></div>
-                        </div>
-                       <div class="chkIp chkIp8">
-                       <label class="chkLabel">travel date</label>
-                       <!-- <img src="img/calender.png" alt="img" /> -->
-                       <div class="input-group date homeDate chkselect">
-                           <input id="dtpTravelDate" type="date" class="form-control bagcalendar ng-pristine ng-untouched ng-valid ng-empty" placeholder="Select Date" ng-model="dateDepart" data-provide="datepicker">
-                       <div class="input-group-addon">
-                       <span class="glyphicon glyphicon-th"></span>
-                       </div>
-                       </div>
-                       </div>
-                          <div class="main-wrapper-button">
-                              <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" ng-click="nextFields = false">Back</button>
-                              <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()">Search</button>
-                          </div>
-                          
+                     </div>
+                     <div class="chkInCont">
+                            <div class="chkIn chkInSec1 removeradius">
+                             <div class="chkIp chkIp1">
+                              <label class="chkLabel">Destination</label>
+                              <div class="icon-s1-plane pull-left"></div>
+                              <div class="img-loader ldr1" style="display: none;">
+                                  <div class="icon-s1-small-loader" alt="small"></div>
+                              </div>
+                             <select id="ddlCountry" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="countryId" ng-change="getPurposesById(countryId, 'ldr1')" style="">
+                                 <option value="0" data-isschengen="False">Select</option>
+                                     <option value="73" data-isschengen="False">Argentina</option>
+                                     <option value="33" data-isschengen="False">Australia</option>
+                                     <option value="70" data-isschengen="True">Austria</option>
+                                     <option value="126" data-isschengen="False">Azerbaijan</option>
+                                     <option value="127" data-isschengen="False">Bahrain</option>
+                                     <option value="43" data-isschengen="True">Belgium</option>
+                                     <option value="71" data-isschengen="False">Brazil</option>
+                                     <option value="108" data-isschengen="False">Cambodia</option>
+                                     <option value="29" data-isschengen="False">Canada</option>
+                                     <option value="36" data-isschengen="False">China</option>
+                                     <option value="40" data-isschengen="False">Croatia</option>
+                                     <option value="123" data-isschengen="False">Cyprus</option>
+                                     <option value="44" data-isschengen="True">Czech Republic</option>
+                                     <option value="45" data-isschengen="True">Denmark</option>
+                                     <option value="142" data-isschengen="False">Egypt</option>
+                                     <option value="46" data-isschengen="True">Estonia</option>
+                                     <option value="47" data-isschengen="True">Finland</option>
+                                     <option value="68" data-isschengen="True">France</option>
+                                     <option value="117" data-isschengen="False">Georgia</option>
+                                     <option value="48" data-isschengen="True">Germany</option>
+                                     <option value="49" data-isschengen="True">Greece</option>
+                                     <option value="115" data-isschengen="False">Hong Kong</option>
+                                     <option value="50" data-isschengen="True">Hungary</option>
+                                     <option value="53" data-isschengen="True">Iceland</option>
+                                     <option value="106" data-isschengen="False">Indonesia</option>
+                                     <option value="35" data-isschengen="False">Ireland</option>
+                                     <option value="138" data-isschengen="False">Israel</option>
+                                     <option value="66" data-isschengen="True">Italy</option>
+                                     <option value="26" data-isschengen="False">Japan</option>
+                                     <option value="83" data-isschengen="False">Kenya</option>
+                                     <option value="157" data-isschengen="False">Laos</option>
+                                     <option value="51" data-isschengen="True">Latvia</option>
+                                     <option value="69" data-isschengen="True">Liechtenstein</option>
+                                     <option value="52" data-isschengen="True">Lithuania</option>
+                                     <option value="55" data-isschengen="True">Luxembourg</option>
+                                     <option value="38" data-isschengen="False">Malaysia</option>
+                                     <option value="107" data-isschengen="False">Maldives</option>
+                                     <option value="56" data-isschengen="True">Malta</option>
+                                     <option value="99" data-isschengen="False">Mexico</option>
+                                     <option value="140" data-isschengen="False">Myanmar</option>
+                                     <option value="57" data-isschengen="True">Netherlands</option>
+                                     <option value="34" data-isschengen="False">New Zealand</option>
+                                     <option value="86" data-isschengen="False">Nigeria</option>
+                                     <option value="58" data-isschengen="True">Norway</option>
+                                     <option value="131" data-isschengen="False">Oman</option>
+                                     <option value="74" data-isschengen="False">Peru</option>
+                                     <option value="143" data-isschengen="False">Philippines</option>
+                                     <option value="59" data-isschengen="True">Poland</option>
+                                     <option value="60" data-isschengen="True">Portugal</option>
+                                     <option value="37" data-isschengen="False">Russia</option>
+                                     <option value="90" data-isschengen="False">Rwanda</option>
+                                     <option value="67" data-isschengen="False">Singapore</option>
+                                     <option value="61" data-isschengen="True">Slovakia</option>
+                                     <option value="62" data-isschengen="True">Slovenia</option>
+                                     <option value="41" data-isschengen="False">South Africa</option>
+                                     <option value="39" data-isschengen="False">South Korea</option>
+                                     <option value="63" data-isschengen="True">Spain</option>
+                                     <option value="28" data-isschengen="False">Sri Lanka</option>
+                                     <option value="64" data-isschengen="True">Sweden</option>
+                                     <option value="65" data-isschengen="True">Switzerland</option>
+                                     <option value="128" data-isschengen="False">Taiwan (ROC)</option>
+                                     <option value="30" data-isschengen="False">Thailand</option>
+                                     <option value="27" data-isschengen="False">Turkey</option>
+                                     <option value="75" data-isschengen="False">Uganda</option>
+                                     <option value="32" data-isschengen="False">United Kingdom</option>
+                                     <option value="31" data-isschengen="False">United States of America</option>
+                                     <option value="77" data-isschengen="False">Venezuela</option>
+                                     <option value="152" data-isschengen="False">Vietnam</option>
+                                     <option value="120" data-isschengen="False">Zimbabwe</option>
+                             </select>
+                              <div id="spnCountry" class="error ng-binding"></div>
+                             </div>
+                             <div class="chkIp chkIp2">
+                              <label class="chkLabel">Purpose</label>
+                              <!-- <img src="~/Contents/Images/purpose.png" alt="img"/> -->
+                              <div class="icon-s1-purpose pull-left"></div>
+                              <div class="img-loader ldr2">
+                                   <div class="icon-s1-small-loader" alt="small"></div>
+                              </div>
+                              <select id="ddlPurpose" ng-model="purposeId" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="getAccesTypes('ldr2','purposeId')" style="">
+                               <option value="0">Select</option>
+                               <!-- ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="21" class="ng-binding ng-scope" style="">Business</option><!-- end ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="22" class="ng-binding ng-scope">Tourist</option><!-- end ngRepeat: purpose in Purposes -->
+                              </select>
+                              <div id="spnPurpose" class="error ng-binding"></div>
+                             </div>
+                             <div class="chkIp chkIp3">
+                              <label class="chkLabel">I Reside in </label>
+                              <!-- <img src="~/Contents/Images/location.png" alt="img" /> -->
+                              <div class="icon-s1-location pull-left"></div>
+                                 <div class="img-loader ldr3" style="display: none;">
+                                    <div class="icon-s1-small-loader" alt="small"></div>
+                                 </div>
+                                 <select id="ddlJurisction" class="chkselect ng-valid ng-not-empty ng-dirty ng-touched ng-valid-parse" ng-model="jurisctionId" ng-change="getAccesTypes('ldr3','jurisctionId')" style="">
+                                     <option value="0">Select</option>
+                                         <option value="1">Andaman &amp; Nicobar Islands</option>
+                                         <option value="2">Andhra Pradesh</option>
+                                         <option value="3">Arunachal Pradesh</option>
+                                         <option value="4">Assam</option>
+                                         <option value="5">Bihar</option>
+                                         <option value="6">Chandigarh</option>
+                                         <option value="7">Chattisgarh</option>
+                                         <option value="8">Dadra &amp; Nagar Haveli</option>
+                                         <option value="9">Daman &amp; Diu</option>
+                                         <option value="10">Delhi</option>
+                                         <option value="11">Goa</option>
+                                         <option value="12">Gujarat</option>
+                                         <option value="13">Haryana</option>
+                                         <option value="14">Himachal Pradesh</option>
+                                         <option value="15">Jammu &amp; Kashmir</option>
+                                         <option value="16">Jharkhand</option>
+                                         <option value="17">Karnataka</option>
+                                         <option value="18">Kerala</option>
+                                         <option value="19">Lakshadweep</option>
+                                         <option value="20">Madhya Pradesh</option>
+                                         <option value="21">Maharashtra</option>
+                                         <option value="37">MAH-Mum/NMum/Thane</option>
+                                         <option value="22">Manipur</option>
+                                         <option value="23">Meghalaya</option>
+                                         <option value="24">Mizoram</option>
+                                         <option value="25">Nagaland</option>
+                                         <option value="26">Odisha</option>
+                                         <option value="27">Poducherry</option>
+                                         <option value="28">Punjab</option>
+                                         <option value="29">Rajasthan</option>
+                                         <option value="30">Sikkim</option>
+                                         <option value="31">Tamil Nadu</option>
+                                         <option value="32">Telangana</option>
+                                         <option value="33">Tripura</option>
+                                         <option value="34">Uttar Pradesh</option>
+                                         <option value="35">Uttarakhand</option>
+                                         <option value="36">West Bengal</option>
+                                 </select>
+                              <div id="spnJurisction" class="error ng-binding"> </div>
+                             </div>
+                             <div class="chkIp chkIp8">
+                             <label class="chkLabel">Visa Type</label>
+                             <!-- <img src="~/Contents/Images/calender.png" alt="img" /> -->
+                             <div class="icon-s1-calender pull-left"></div>
+                             <select id="ddlPurpose" ng-model="accessType" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="removerErrorrForAnuglar('accessType')" style="">
+                             <option value="0">Select</option>
+                             <!-- ngRepeat: accessType in AccessTypes --><option ng-repeat="accessType in AccessTypes" value="1" class="ng-binding ng-scope" style="">Single Entry</option><!-- end ngRepeat: accessType in AccessTypes -->
+                             </select>
+                             <div id="spnAccessType" class="error ng-binding"> </div>
+                             </div>
+                                <!-- Edit for mobile purpose -->
+                                <div class="main-wrapper-button">
+                                    <!-- <button class="chkIp chkSubmit serchcountrybtn" ng-click="getNextFields()"> Next </button> -->
+                                </div>
+                                <!-- end mobile -->
+                             
                              <div class="clear"></div> 
-                        </div>
-                         </div>
-             <!-- <p class="srchTxt">Start an easy online visa process for your business and leisure travel</p> -->
-              </form>
-             </div>
-          </div>
+                            </div>
+                            <div class="chkIn chkInSec2 nextFieldsIn" ng-class="{true:'nextFieldsIn'}[nextFields]" style="width: 100%;">
+                             <!-- <div class="chkIp chkIpBack"> <span ng-click="nextFields = false"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> </div> -->
+                             <div class="chkIp chkIp1">
+                              <label class="chkLabel">Adult</label>
+                               <!-- <img src="~/Contents/Images/user.png" alt="img" /> -->
+                               <div class="icon-s1-user pull-left"></div>
+                                <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="adult">
+                                 <option value="1">1</option>
+                                 <option value="2">2</option>
+                                 <option value="3">3</option>
+                                 <option value="4">4</option>
+                                </select>
+                               </div>
+                             <div class="chkIp chkIp2">
+                             <label class="chkLabel">Child</label>
+                             <!-- <img src="~/Contents/Images/user.png" alt="img"/> -->
+                             <div class="icon-s1-user pull-left"></div>
+                             <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
+                             <option value="0">0</option>  
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             </select>
+                             </div>
+                             <div class="chkIp chkIp3" ng-init="isTicketBooked='0';">
+                              <label class="chkLabel">flight tickets</label>
+                              <!-- <img src="~/Contents/Images/ticket.png"/> -->
+                              <div class="icon-s1-ticket pull-left"></div>
+                               <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
+                                <option value="0">Select</option>  
+                                <option value="1">Booked</option>  
+                                <option value="2">Not Booked</option>
+                               </select>
+                               <div id="spnFlightTktBooked" class="error ng-binding"></div>
+                              </div>
+                             <div class="chkIp chkIp8">
+                             <label class="chkLabel">travel date</label>
+                             <!-- <img src="img/calender.png" alt="img" /> -->
+                             <div class="input-group date homeDate chkselect">
+                                 <input id="dtpTravelDate" type="text" class="form-control bagcalendar ng-pristine ng-untouched ng-valid ng-empty" placeholder="Select Date" ng-model="dateDepart" data-provide="datepicker">
+                             <div class="input-group-addon">
+                             <span class="glyphicon glyphicon-th"></span>
+                             </div>
+                             </div>
+                             </div>
+                                <div class="main-wrapper-button">
+                                    <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" ng-click="nextFields = false">Back</button>
+                                    <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()">Search</button>
+                                </div>
+                                
+                                   <div class="clear"></div> 
+                                 </div>
+                               </div>
+
+                               
+                   <!-- <p class="srchTxt">Start an easy online visa process for your business and leisure travel</p> -->
+                    </form>
+                   </div>
+                </div>
 </div>
 
+         
+        <ng-container *ngIf="!show">
+                <div class="chkIn chkInSec1 removeradius">
+                        <div class="chkIp chkIp1">
+                         <label class="chkLabel">Destination</label>
+                         <div class="icon-s1-plane pull-left"></div>
+                         <div class="img-loader ldr1" style="display: none;">
+                             <div class="icon-s1-small-loader" alt="small"></div>
+                         </div>
+                        <select id="ddlCountry" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="countryId" ng-change="getPurposesById(countryId, 'ldr1')" style="">
+                            <option value="0" data-isschengen="False">Select</option>
+                                <option value="73" data-isschengen="False">Argentina</option>
+                                <option value="33" data-isschengen="False">Australia</option>
+                                <option value="70" data-isschengen="True">Austria</option>
+                                <option value="126" data-isschengen="False">Azerbaijan</option>
+                                <option value="127" data-isschengen="False">Bahrain</option>
+                                <option value="43" data-isschengen="True">Belgium</option>
+                                <option value="71" data-isschengen="False">Brazil</option>
+                                <option value="108" data-isschengen="False">Cambodia</option>
+                                <option value="29" data-isschengen="False">Canada</option>
+                                <option value="36" data-isschengen="False">China</option>
+                                <option value="40" data-isschengen="False">Croatia</option>
+                                <option value="123" data-isschengen="False">Cyprus</option>
+                                <option value="44" data-isschengen="True">Czech Republic</option>
+                                <option value="45" data-isschengen="True">Denmark</option>
+                                <option value="142" data-isschengen="False">Egypt</option>
+                                <option value="46" data-isschengen="True">Estonia</option>
+                                <option value="47" data-isschengen="True">Finland</option>
+                                <option value="68" data-isschengen="True">France</option>
+                                <option value="117" data-isschengen="False">Georgia</option>
+                                <option value="48" data-isschengen="True">Germany</option>
+                                <option value="49" data-isschengen="True">Greece</option>
+                                <option value="115" data-isschengen="False">Hong Kong</option>
+                                <option value="50" data-isschengen="True">Hungary</option>
+                                <option value="53" data-isschengen="True">Iceland</option>
+                                <option value="106" data-isschengen="False">Indonesia</option>
+                                <option value="35" data-isschengen="False">Ireland</option>
+                                <option value="138" data-isschengen="False">Israel</option>
+                                <option value="66" data-isschengen="True">Italy</option>
+                                <option value="26" data-isschengen="False">Japan</option>
+                                <option value="83" data-isschengen="False">Kenya</option>
+                                <option value="157" data-isschengen="False">Laos</option>
+                                <option value="51" data-isschengen="True">Latvia</option>
+                                <option value="69" data-isschengen="True">Liechtenstein</option>
+                                <option value="52" data-isschengen="True">Lithuania</option>
+                                <option value="55" data-isschengen="True">Luxembourg</option>
+                                <option value="38" data-isschengen="False">Malaysia</option>
+                                <option value="107" data-isschengen="False">Maldives</option>
+                                <option value="56" data-isschengen="True">Malta</option>
+                                <option value="99" data-isschengen="False">Mexico</option>
+                                <option value="140" data-isschengen="False">Myanmar</option>
+                                <option value="57" data-isschengen="True">Netherlands</option>
+                                <option value="34" data-isschengen="False">New Zealand</option>
+                                <option value="86" data-isschengen="False">Nigeria</option>
+                                <option value="58" data-isschengen="True">Norway</option>
+                                <option value="131" data-isschengen="False">Oman</option>
+                                <option value="74" data-isschengen="False">Peru</option>
+                                <option value="143" data-isschengen="False">Philippines</option>
+                                <option value="59" data-isschengen="True">Poland</option>
+                                <option value="60" data-isschengen="True">Portugal</option>
+                                <option value="37" data-isschengen="False">Russia</option>
+                                <option value="90" data-isschengen="False">Rwanda</option>
+                                <option value="67" data-isschengen="False">Singapore</option>
+                                <option value="61" data-isschengen="True">Slovakia</option>
+                                <option value="62" data-isschengen="True">Slovenia</option>
+                                <option value="41" data-isschengen="False">South Africa</option>
+                                <option value="39" data-isschengen="False">South Korea</option>
+                                <option value="63" data-isschengen="True">Spain</option>
+                                <option value="28" data-isschengen="False">Sri Lanka</option>
+                                <option value="64" data-isschengen="True">Sweden</option>
+                                <option value="65" data-isschengen="True">Switzerland</option>
+                                <option value="128" data-isschengen="False">Taiwan (ROC)</option>
+                                <option value="30" data-isschengen="False">Thailand</option>
+                                <option value="27" data-isschengen="False">Turkey</option>
+                                <option value="75" data-isschengen="False">Uganda</option>
+                                <option value="32" data-isschengen="False">United Kingdom</option>
+                                <option value="31" data-isschengen="False">United States of America</option>
+                                <option value="77" data-isschengen="False">Venezuela</option>
+                                <option value="152" data-isschengen="False">Vietnam</option>
+                                <option value="120" data-isschengen="False">Zimbabwe</option>
+                        </select>
+                         <div id="spnCountry" class="error ng-binding"></div>
+                        </div>
+                        <div class="chkIp chkIp2">
+                         <label class="chkLabel">Purpose</label>
+                         <!-- <img src="~/Contents/Images/purpose.png" alt="img"/> -->
+                         <div class="icon-s1-purpose pull-left"></div>
+                         <div class="img-loader ldr2">
+                              <div class="icon-s1-small-loader" alt="small"></div>
+                         </div>
+                         <select id="ddlPurpose" ng-model="purposeId" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="getAccesTypes('ldr2','purposeId')" style="">
+                          <option value="0">Select</option>
+                          <!-- ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="21" class="ng-binding ng-scope" style="">Business</option><!-- end ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="22" class="ng-binding ng-scope">Tourist</option><!-- end ngRepeat: purpose in Purposes -->
+                         </select>
+                         <div id="spnPurpose" class="error ng-binding"></div>
+                        </div>
+                        <div class="chkIp chkIp3">
+                         <label class="chkLabel">I Reside in </label>
+                         <!-- <img src="~/Contents/Images/location.png" alt="img" /> -->
+                         <div class="icon-s1-location pull-left"></div>
+                            <div class="img-loader ldr3" style="display: none;">
+                               <div class="icon-s1-small-loader" alt="small"></div>
+                            </div>
+                            <select id="ddlJurisction" class="chkselect ng-valid ng-not-empty ng-dirty ng-touched ng-valid-parse" ng-model="jurisctionId" ng-change="getAccesTypes('ldr3','jurisctionId')" style="">
+                                <option value="0">Select</option>
+                                    <option value="1">Andaman &amp; Nicobar Islands</option>
+                                    <option value="2">Andhra Pradesh</option>
+                                    <option value="3">Arunachal Pradesh</option>
+                                    <option value="4">Assam</option>
+                                    <option value="5">Bihar</option>
+                                    <option value="6">Chandigarh</option>
+                                    <option value="7">Chattisgarh</option>
+                                    <option value="8">Dadra &amp; Nagar Haveli</option>
+                                    <option value="9">Daman &amp; Diu</option>
+                                    <option value="10">Delhi</option>
+                                    <option value="11">Goa</option>
+                                    <option value="12">Gujarat</option>
+                                    <option value="13">Haryana</option>
+                                    <option value="14">Himachal Pradesh</option>
+                                    <option value="15">Jammu &amp; Kashmir</option>
+                                    <option value="16">Jharkhand</option>
+                                    <option value="17">Karnataka</option>
+                                    <option value="18">Kerala</option>
+                                    <option value="19">Lakshadweep</option>
+                                    <option value="20">Madhya Pradesh</option>
+                                    <option value="21">Maharashtra</option>
+                                    <option value="37">MAH-Mum/NMum/Thane</option>
+                                    <option value="22">Manipur</option>
+                                    <option value="23">Meghalaya</option>
+                                    <option value="24">Mizoram</option>
+                                    <option value="25">Nagaland</option>
+                                    <option value="26">Odisha</option>
+                                    <option value="27">Poducherry</option>
+                                    <option value="28">Punjab</option>
+                                    <option value="29">Rajasthan</option>
+                                    <option value="30">Sikkim</option>
+                                    <option value="31">Tamil Nadu</option>
+                                    <option value="32">Telangana</option>
+                                    <option value="33">Tripura</option>
+                                    <option value="34">Uttar Pradesh</option>
+                                    <option value="35">Uttarakhand</option>
+                                    <option value="36">West Bengal</option>
+                            </select>
+                         <div id="spnJurisction" class="error ng-binding"> </div>
+                        </div>
+                        <div class="chkIp chkIp8">
+                        <label class="chkLabel">Visa Type</label>
+                        <!-- <img src="~/Contents/Images/calender.png" alt="img" /> -->
+                        <div class="icon-s1-calender pull-left"></div>
+                        <select id="ddlPurpose" ng-model="accessType" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="removerErrorrForAnuglar('accessType')" style="">
+                        <option value="0">Select</option>
+                        <!-- ngRepeat: accessType in AccessTypes --><option ng-repeat="accessType in AccessTypes" value="1" class="ng-binding ng-scope" style="">Single Entry</option><!-- end ngRepeat: accessType in AccessTypes -->
+                        </select>
+                        <div id="spnAccessType" class="error ng-binding"> </div>
+                        </div>
+                           <!-- Edit for mobile purpose -->
+                           <div class="main-wrapper-button">
+                               <button class="chkIp chkSubmit serchcountrybtn" (click)="toggle()"> Next </button>
+                           </div>
+                           <!-- end mobile -->
+                        
+                        <div class="clear"></div> 
+                       </div>
+        </ng-container>
+        <ng-container *ngIf="show">
+                <div style="margin: 0 auto;text-align: left;">
+                    
+                    <div class="chkIn chkInSec2 nextFieldsIn" ng-class="{true:'nextFieldsIn'}[nextFields]" style="margin-top: 150px;">
+                            <div class="chkIp chkIpBack"> <span (click)="toggle()"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> </div>
+                            <div class="chkIp chkIp1">
+                             <label class="chkLabel">Adult</label>
+                              <!-- <img src="~/Contents/Images/user.png" alt="img" /> -->
+                              <div class="icon-s1-user pull-left"></div>
+                               <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="adult">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                               </select>
+                              </div>
+                            <div class="chkIp chkIp2">
+                            <label class="chkLabel">Child</label>
+                            <!-- <img src="~/Contents/Images/user.png" alt="img"/> -->
+                            <div class="icon-s1-user pull-left"></div>
+                            <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
+                            <option value="0">0</option>  
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            </select>
+                            </div>
+                            <div class="chkIp chkIp3" ng-init="isTicketBooked='0';">
+                             <label class="chkLabel">flight tickets</label>
+                             <!-- <img src="~/Contents/Images/ticket.png"/> -->
+                             <div class="icon-s1-ticket pull-left"></div>
+                              <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
+                               <option value="0">Select</option>  
+                               <option value="1">Booked</option>  
+                               <option value="2">Not Booked</option>
+                              </select>
+                              <div id="spnFlightTktBooked" class="error ng-binding"></div>
+                             </div>
+                            <div class="chkIp chkIp8">
+                            <label class="chkLabel">travel date</label>
+                            <!-- <img src="img/calender.png" alt="img" /> -->
+                            <div class="input-group date homeDate chkselect">
+                                <input id="dtpTravelDate" type="text" class="form-control bagcalendar ng-pristine ng-untouched ng-valid ng-empty" placeholder="Select Date" ng-model="dateDepart" data-provide="datepicker">
+                            <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                            </div>
+                            </div>
+                               <div class="main-wrapper-button">
+                                   <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" ng-click="nextFields = false">Back</button>
+                                   <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()">Search</button>
+                               </div>
+                               
+                                  <div class="clear"></div> 
+                                </div>
+                              </div>
+            </ng-container>
 
 <!-- homeform -->
-
-<!--<button (click)="toggle()" id="bt">-->
-<!--{{buttonName}}-->
-<!--</button>-->
-
-

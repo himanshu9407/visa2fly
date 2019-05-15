@@ -10,8 +10,13 @@ export class HomeFormComponent implements OnInit {
 
     constructor() { }
   
-    ngOnInit() {
-    }
+    public show:boolean = false;
+    public buttonName:any = 'Show';
   
+    ngOnInit () {  }
+  
+    toggle() {
+      this.show = !this.show;
+    }
   }
   
