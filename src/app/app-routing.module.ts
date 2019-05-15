@@ -10,9 +10,9 @@ import { NgModule } from '@angular/core';
     import { LoginComponent } from './components/login-signup/login/login.component';
     import { SignupComponent } from './components/login-signup/signup/signup.component';
     import { MiniCarouselComponent } from './components/mini-carousel/mini-carousel.component';
-import { HomecomponentComponent } from './homecomponent/homecomponent.component';
+import { HomeContainerComponent } from './components/home-container/home-container.component';
     const routes: Routes = [
-         {  path: '',component: HomecomponentComponent},
+         {  path: 'home',component:HomeContainerComponent},
          {  path: 'login',component:LoginSignupComponent},
          {  path: 'mini',component:MiniCarouselComponent},
          {  path: 'hf',component:HomeFormComponent},
