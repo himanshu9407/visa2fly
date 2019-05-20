@@ -16,7 +16,7 @@ public show_signup:boolean = true;
   showSignup() {
   if(this.show_signup == false) {
     this.show_signup = true;
-    }
+  }
   this.show_login = false;
   $('#Login').css("border-radius","0px 20px 20px 0px");
 

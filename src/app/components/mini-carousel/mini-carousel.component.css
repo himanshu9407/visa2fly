@@ -2,6 +2,52 @@ body {
 	background: #ebebeb;
 	font-family: "Open Sans", sans-serif;
 }
+
+@media only screen and (min-width: 992px) {
+
+	.carouselImage{
+		width: 350px;
+		height: 250px;
+	}
+	.smallCarousel {
+		display: none;
+	}
+
+}
+@media only screen and (max-width: 992px) {
+
+	.carouselImage{
+		width: 180px;
+		height: 150px;
+	}
+	
+
+}
+
+@media only screen and (min-width: 576px) {
+
+	.carouselImage{
+		width: 150px;
+		height: 100px;
+	}
+	.smallCarousel {
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 576px) {
+	.largeCarousel{
+		display: none;
+	}
+	.carouselImage{
+		width: 100px;
+		height: 90px;
+	}
+	
+
+ }
+
 .col-center {
 	margin: 0 auto;
 	float: none !important;
@@ -11,15 +57,10 @@ body {
 	padding: 0 80px;
 }
 
-.carouselImage{
-	width: 250px;
-	height: 150px;
-}
+
 .popularVisa {
 	font-size: 40px;
 	font-weight: 380;
-	
-	
 display: flex; justify-content: center; margin-top: 50px;
 }
 .carousel .item {
