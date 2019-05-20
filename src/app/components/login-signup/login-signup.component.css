@@ -36,7 +36,6 @@
 
     .signup-capsule {
       display: flex;justify-content: center;align-items: center;background-color: #404040;color:white;border-radius: 20px 0px 0px 20px;height: 40px;
-      width: 100px;
     }
     .signup-capsule:hover {
       background-color: #666666;
@@ -45,8 +44,22 @@
 
     .login-capsule {
       display: flex;justify-content: center;align-items: center;background-color: #dfdfff;border-radius: 0px 20px 20px 0px;height: 40px;
-      width: 100px;
     }
+
+    @media only screen and (max-width: 576px) {
+      .login-capsule {
+        width: 85px;
+        font-size: 14px;
+      }
+      .signup-capsule {
+        width: 85px;
+        font-size: 14px;
+      }
+      .forgotpassword {
+        font-size: 15px;
+      }
+      
+      }
     .login-capsule:hover {
       background-color: #ebebff;
       cursor: pointer;
