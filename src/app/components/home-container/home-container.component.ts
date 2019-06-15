@@ -10,7 +10,7 @@ export class HomeContainerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(' sss' );
+    
   }
 
 }

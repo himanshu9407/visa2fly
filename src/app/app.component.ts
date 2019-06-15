@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeServiceService } from './home-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'visa-App';
+  users$: Object;
+  constructor(private myservice: HomeServiceService) {}
+
+
+ngOnInit() {
+  this.myservice.getUsers().subscribe(
+    data => this.users$ = data 
+  );
+}
+
 }

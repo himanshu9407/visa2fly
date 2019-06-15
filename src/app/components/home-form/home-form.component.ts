@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ styleUrls: ['./home-form.component.css']
 export class HomeFormComponent implements OnInit {
 
 
-    constructor() { }
+  constructor(private router: Router) { }
   
     public show:boolean = false;
     public buttonName:any = 'Show';
@@ -19,5 +20,9 @@ export class HomeFormComponent implements OnInit {
     toggle() {
       this.show = !this.show;
     }
+
+    navigate() {
+      this.router.navigate(['reg']);
+}
   }
   

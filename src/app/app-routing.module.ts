@@ -1,25 +1,17 @@
 import { NgModule } from '@angular/core';
     import { RouterModule, Routes } from '@angular/router';
-    import { AppComponent } from './app.component';
     import {RequirementsComponent} from './components/requirements/requirements.component'
-    import { HeaderComponent } from './components/header/header.component';
-    import { FooterComponent } from './components/footer/footer.component';
-    import { CarouselComponent } from './components/carousel/carousel.component';
     import { HomeFormComponent } from './components/home-form/home-form.component';
-    import { HomeStepComponent } from './components/home-step/home-step.component';
     import { LoginSignupComponent } from './components/login-signup/login-signup.component';
-    import { LoginComponent } from './components/login-signup/login/login.component';
-    import { SignupComponent } from './components/login-signup/signup/signup.component';
     import { MiniCarouselComponent } from './components/mini-carousel/mini-carousel.component';
 import { HomeContainerComponent } from './components/home-container/home-container.component';
-import { from } from 'rxjs';
     const routes: Routes = [
          {  path: 'home',component:HomeContainerComponent},
          {  path: 'login',component:LoginSignupComponent},
          {  path: 'mini',component:MiniCarouselComponent},
          {  path: 'hf',component:HomeFormComponent},
          {  path : '' , component : HomeContainerComponent},
-         {  path : 'req' , component : RequirementsComponent}
+         {  path : 'reg' , component : RequirementsComponent}
         ];
 
     @NgModule({
