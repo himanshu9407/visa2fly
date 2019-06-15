@@ -15,6 +15,9 @@ import { MiniCarouselComponent } from './components/mini-carousel/mini-carousel.
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { RequirementsComponent } from './components/requirements/requirements.component';
 import { HomeContainerComponent } from './components/home-container/home-container.component';
+import { WhyChooseUsComponent } from './components/why-choose-us/why-choose-us.component';
+import { MobileNavComponent } from './components/mobile-nav/mobile-nav.component';
+import { MobileFooterComponent } from './components/mobile-footer/mobile-footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { HomeContainerComponent } from './components/home-container/home-contain
     MiniCarouselComponent,
     TestimonialComponent,
     RequirementsComponent,
-    HomeContainerComponent
+    HomeContainerComponent,
+    WhyChooseUsComponent,
+    MobileNavComponent,
+    MobileFooterComponent
   ],
   imports: [
     BrowserModule,

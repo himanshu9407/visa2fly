@@ -1,5 +1,9 @@
-<app-header></app-header>
+<app-header class="pcOnly"></app-header>
+<app-mobile-nav class="mobileOnly"></app-mobile-nav>
+<div id="main" class="paddingTop">
  <router-outlet></router-outlet>
-<app-footer> </app-footer>
+ <app-mobile-footer class="mobileOnly"></app-mobile-footer>
+</div>
+<app-footer class="pcOnly"> </app-footer>
 
 <!-- <app-login-signup></app-login-signup> -->

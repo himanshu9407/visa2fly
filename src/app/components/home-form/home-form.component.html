@@ -8,7 +8,9 @@
                          <div class="img-loader ldr1" style="display: none;">
                              <div class="icon-s1-small-loader" alt="small"></div>
                          </div>
-                        <select id="ddlCountry" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="countryId" ng-change="getPurposesById(countryId, 'ldr1')" style="">
+                         <!-- chkselect -->
+                        <select id="ddlCountry" class=" form-control form-control-sm"  style="">
+                                
                             <option value="0" data-isschengen="False">Select</option>
                                 <option value="73" data-isschengen="False">Argentina</option>
                                 <option value="33" data-isschengen="False">Australia</option>
@@ -89,9 +91,9 @@
                          <div class="img-loader ldr2">
                               <div class="icon-s1-small-loader" alt="small"></div>
                          </div>
-                         <select id="ddlPurpose" ng-model="purposeId" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="getAccesTypes('ldr2','purposeId')" style="">
+                         <select id="ddlPurpose" ng-model="purposeId" class=" form-control form-control-sm" ng-change="getAccesTypes('ldr2','purposeId')" style="">
                           <option value="0">Select</option>
-                          <!-- ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="21" class="ng-binding ng-scope" style="">Business</option><!-- end ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="22" class="ng-binding ng-scope">Tourist</option><!-- end ngRepeat: purpose in Purposes -->
+                          <!-- ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="21" class="ng-binding ng-scope" style="">Business</option><option ng-repeat="purpose in Purposes" value="21" class="ng-binding ng-scope" style="">Transit</option><!-- end ngRepeat: purpose in Purposes --><option ng-repeat="purpose in Purposes" value="22" class="ng-binding ng-scope">Tourist</option><!-- end ngRepeat: purpose in Purposes -->
                          </select>
                          <div id="spnPurpose" class="error ng-binding"></div>
                         </div>
@@ -102,7 +104,7 @@
                             <div class="img-loader ldr3" style="display: none;">
                                <div class="icon-s1-small-loader" alt="small"></div>
                             </div>
-                            <select id="ddlJurisction" class="chkselect ng-valid ng-not-empty ng-dirty ng-touched ng-valid-parse" ng-model="jurisctionId" ng-change="getAccesTypes('ldr3','jurisctionId')" style="">
+                            <select id="ddlJurisction" class=" form-control form-control-sm" ng-model="jurisctionId" ng-change="getAccesTypes('ldr3','jurisctionId')" style="">
                                 <option value="0">Select</option>
                                     <option value="1">Andaman &amp; Nicobar Islands</option>
                                     <option value="2">Andhra Pradesh</option>
@@ -148,7 +150,7 @@
                         <label class="chkLabel">Visa Type</label>
                         <!-- <img src="~/Contents/Images/calender.png" alt="img" /> -->
                         <div class="icon-s1-calender pull-left"></div>
-                        <select id="ddlPurpose" ng-model="accessType" class="chkselect ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-change="removerErrorrForAnuglar('accessType')" style="">
+                        <select id="ddlPurpose" ng-model="accessType" class=" form-control form-control-sm" ng-change="removerErrorrForAnuglar('accessType')" style="">
                         <option value="0">Select</option>
                         <!-- ngRepeat: accessType in AccessTypes --><option ng-repeat="accessType in AccessTypes" value="1" class="ng-binding ng-scope" style="">Single Entry</option><!-- end ngRepeat: accessType in AccessTypes -->
                         </select>
