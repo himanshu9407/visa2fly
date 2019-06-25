@@ -51,37 +51,44 @@
 <div class="bottomNavContainer">
     <div class="container-fluid1">
         <div class="row noMargin">
-            <div class="col bottomNavItem selectedItem">
+          <div class="col bottomNavItem" (click)="onClickBottomNavItem()">
+              <div class="bottomNavItemIcon">
+                  <!-- <i class="icon-accessibility icon"></i> -->
+                  <img src="../../../assets/mobile-header/about-us.png" class="footerIcon" alt="">
+
+              </div>
+              <div class="bottomNavItemContent">
+                  About Us
+              </div>
+          </div>
+            <div class="col bottomNavItem selectedItem" (click)="onClickBottomNavItem()">
 
                 <div class="bottomNavItemIcon">
-                    <i class="fab fa-angellist"></i>
+                    <!-- <i class="fab fa-angellist"></i> -->
+                    <img src="../../../assets/mobile-header/term.png" class="footerIcon" alt="">
+                  </div>
+                  <div class="bottomNavItemContent">
+                    T&C
+                  </div>
                 </div>
-                <div class="bottomNavItemContent">
-                    Terms and Conditions
-                </div>
-            </div>
-            <div class="col bottomNavItem">
-                <div class="bottomNavItemIcon">
-                    <i class="fab fa-angellist"></i>
+                <div class="col bottomNavItem">
+                  <div class="bottomNavItemIcon">
+                    <!-- <i class="fab fa-angellist"></i> -->
+                    <img src="../../../assets/mobile-header/secure-data.png" class="footerIcon" alt="">
+
                 </div>
                 <div class="bottomNavItemContent">
                     Privacy Policy
                 </div>
             </div>
             <div class="col bottomNavItem">
-                <div class="bottomNavItemIcon">
-                    <i class="fab fa-angellist"></i>
+                <div class="bottomNavItemIcon" (click)="onClickBottomNavItem()">
+                    <!-- <i class="fab fa-angellist"></i> -->
+                    <img src="../../../assets/mobile-header/rejected.png" class="footerIcon" alt="">
+
                 </div>
                 <div class="bottomNavItemContent">
-                    Cancellation Policy
-                </div>
-            </div>
-            <div class="col bottomNavItem">
-                <div class="bottomNavItemIcon">
-                    <i class="fab fa-angellist"></i>
-                </div>
-                <div class="bottomNavItemContent">
-                    About Us
+                    Cancellations
                 </div>
             </div>
           

@@ -12,4 +12,8 @@ export class MobileFooterComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClickBottomNavItem () {
+  console.log("hello");  
+  }
+
 }

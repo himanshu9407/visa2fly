@@ -97,6 +97,15 @@
                          </select>
                          <div id="spnPurpose" class="error ng-binding"></div>
                         </div>
+                             <div class="chkIp chkIp8">
+                             <label class="chkLabel">Visa Type</label>
+                             <div class="icon-s1-calender pull-left"></div>
+                             <select id="ddlPurpose" ng-model="accessType" class=" form-control form-control-sm" ng-change="removerErrorrForAnuglar('accessType')" style="">
+                             <option value="0">Select</option>
+                             <!-- ngRepeat: accessType in AccessTypes --><option ng-repeat="accessType in AccessTypes" value="1" class="ng-binding ng-scope" style="">Single Entry</option><!-- end ngRepeat: accessType in AccessTypes -->
+                             </select>
+                             <div id="spnAccessType" class="error ng-binding"> </div>
+                             </div>
                         <div class="chkIp chkIp3">
                          <label class="chkLabel">I Reside in </label>
                          <!-- <img src="~/Contents/Images/location.png" alt="img" /> -->
@@ -146,18 +155,9 @@
                             </select>
                          <div id="spnJurisction" class="error ng-binding"> </div>
                         </div>
-                        <div class="chkIp chkIp8">
-                        <label class="chkLabel">Visa Type</label>
-                        <div class="icon-s1-calender pull-left"></div>
-                        <select id="ddlPurpose" ng-model="accessType" class=" form-control form-control-sm" ng-change="removerErrorrForAnuglar('accessType')" style="">
-                        <option value="0">Select</option>
-                        <!-- ngRepeat: accessType in AccessTypes --><option ng-repeat="accessType in AccessTypes" value="1" class="ng-binding ng-scope" style="">Single Entry</option><!-- end ngRepeat: accessType in AccessTypes -->
-                        </select>
-                        <div id="spnAccessType" class="error ng-binding"> </div>
-                        </div>
                            <!-- Edit for mobile purpose -->
                            <div class="main-wrapper-button">
-                               <button class="chkIp chkSubmit serchcountrybtn" (click)="navigate()"> Next </button>
+                               <button class="chkIp chkSubmit serchcountrybtn" (click)="navigate()"> Submit </button>
                            </div>
                            <!-- end mobile -->
                         

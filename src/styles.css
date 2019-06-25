@@ -905,6 +905,11 @@
    /*end*/
  }
 
+ @media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus, textarea:focus, input:focus {
+          font-size: 16px;
+      }
+  }
  
  .chkIn .chkIp1 {
    width: 21%;
@@ -947,7 +952,8 @@
    border: 0;
    outline: 0;
    height: 85px;
-   position: absolute;
+   /* position: absolute; */
+   margin-left: 1%;
    top: 0;
    right: 0;
    transition: all 0.2s ease-in-out;

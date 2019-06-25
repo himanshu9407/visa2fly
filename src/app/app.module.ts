@@ -19,6 +19,8 @@ import { HomeContainerComponent } from './components/home-container/home-contain
 import { WhyChooseUsComponent } from './components/why-choose-us/why-choose-us.component';
 import { MobileNavComponent } from './components/mobile-nav/mobile-nav.component';
 import { MobileFooterComponent } from './components/mobile-footer/mobile-footer.component';
+import { AddPassengerDetailsComponent } from './add-passenger-details/add-passenger-details.component';
+import { AddTravellerComponent } from './components/add-traveller/add-traveller.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { MobileFooterComponent } from './components/mobile-footer/mobile-footer.
     HomeContainerComponent,
     WhyChooseUsComponent,
     MobileNavComponent,
-    MobileFooterComponent
+    MobileFooterComponent,
+    AddPassengerDetailsComponent,
+    AddTravellerComponent
   ],
   imports: [
     BrowserModule,
