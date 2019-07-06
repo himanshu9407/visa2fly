@@ -25,16 +25,14 @@ export class RequirementsComponent implements OnInit {
       "name": "Aguirre  Ellis"
     }
   ];
-  public requirementdata$: any;
+  data: any={};
+ 
+  public requirementdata$: object;
   public onlinestatus:boolean = false;
 
 
   ngOnInit() {
-    this.myservice.getUsers().subscribe(
-      (      data: any) => this.requirementdata$ = data 
-    );
-    console.log("this.requirementdata$");
-  }
+    this.myservice.getrequirements();}
   navigate() {
     this.router.navigate(['addTraveller']);
 }

@@ -6,7 +6,8 @@
     <div class="smallbannerImageContainer col-xs-12"><img class="bannerImage"
         src="https://adventure.com/wp-content/uploads/2017/10/Hero-Thailand-Photo-credit-Shutterstock-1920x1080.jpg"
         alt=""></div>
-    <div class="col-lg-4 col-md-12 stepContainer">
+        <ng-container *ngIf="!onlinestatus"> 
+    <div class="col-lg-4 col-md-12 stepContainer offline">
 
       <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 1</div>
@@ -14,166 +15,192 @@
           <i class="far fa-address-card"></i>
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
-          <div class="stepTitle" style="">Upload Document</div>
-          <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
+          <div class="stepTitle" style="">Book online</div>
+          <div class="stepContent" style="">Select your visa and pay online.</div>
         </div>
       </div>
       <div class="row step" >
-        <div class="col-sm-12 stepNumber">Step 1</div>
+        <div class="col-sm-12 stepNumber">Step 2</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
           <i class="far fa-address-card"></i>
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
-          <div class="stepTitle" style="">Upload Document</div>
-          <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
+          <div class="stepTitle" style="">Document Validation </div>
+          <div class="stepContent" style="">Our visa expert will verify & collect your document.</div>
         </div>
       </div>
       <div class="row step" >
-        <div class="col-sm-12 stepNumber">Step 1</div>
+        <div class="col-sm-12 stepNumber">Step 3</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
           <i class="far fa-address-card"></i>
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
-          <div class="stepTitle" style="">Upload Document</div>
-          <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
+          <div class="stepTitle" style="">Visa Processing</div>
+          <div class="stepContent" style="">We schedule documents submission, biometric / Interview.</div>
         </div>
       </div>
       <div class="row step" >
-        <div class="col-sm-12 stepNumber">Step 1</div>
+        <div class="col-sm-12 stepNumber">Step 4</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
           <i class="far fa-address-card"></i>
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
-          <div class="stepTitle" style="">Upload Document</div>
-          <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
+          <div class="stepTitle" style="">Visa at doorstep </div>
+          <div class="stepContent" style="">Passport gets delivered at your doorstep.</div>
         </div>
       </div>
     </div>
+        </ng-container>
+    <ng-container *ngIf="onlinestatus">
+    <div class="col-lg-4 col-md-12 stepContainer online">
+
+        <div class="row step" >
+          <div class="col-sm-12 stepNumber">Step 1</div>
+          <div class="stepIcon col-xs-4 col-sm-4" style="">
+            <i class="far fa-address-card"></i>
+          </div>
+          <div class="singleStep col-xs-8 col-sm-8" style="">
+            <div class="stepTitle" style="">Upload Document</div>
+            <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
+          </div>
+        </div>
+        <div class="row step" >
+          <div class="col-sm-12 stepNumber">Step 2</div>
+          <div class="stepIcon col-xs-4 col-sm-4" style="">
+            <i class="far fa-address-card"></i>
+          </div>
+          <div class="singleStep col-xs-8 col-sm-8" style="">
+            <div class="stepTitle" style="">Pay online</div>
+            <div class="stepContent" style="">Pay online securely.</div>
+          </div>
+        </div>
+        <div class="row step" >
+          <div class="col-sm-12 stepNumber">Step 3</div>
+          <div class="stepIcon col-xs-4 col-sm-4" style="">
+            <i class="far fa-address-card"></i>
+          </div>
+          <div class="singleStep col-xs-8 col-sm-8" style="">
+            <div class="stepTitle" style="">Get your visa </div>
+            <div class="stepContent" style="">Receive your approved visa .</div>
+          </div>
+        </div>
+    
+      </div>
+      </ng-container>
 
   </div>
+  
   <div class="smallstepContainer">
-    <!-- <div class="row offline" style="margin-top: 10px;">
-          <div class="col-xs-6 col-sm-6">
-            <div class="row smallStepOffline">
-              <div class="col-xs-4 col-sm-4">
-                <div class="smallStepNumberOffline">Step 1</div>
-                <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
-                </div>
-              </div>
-              <div class="col-xs-8 col-sm-8">
-                <div class="hide"> &nbsp;</div>
-                <div class="smallStepTitleOffline">Book online </div>
-                <div class="smallStepContentOffline">Select your visa and pay online.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-6">
-              <div class="row smallStep">
-                <div class="col-xs-4 col-sm-4">
-                  <div class="smallStepNumberOffline">Step 2</div>
-                  <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+      <ng-container *ngIf="!onlinestatus">
+            <div class="row offline" style="margin-top: 10px;">
+                <div class="col-xs-6 col-sm-6">
+                  <div class="row smallStepOffline">
+                    <div class="col-xs-4 col-sm-4">
+                      <div class="smallStepNumberOffline">Step 1</div>
+                      <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+                      </div>
+                    </div>
+                    <div class="col-xs-8 col-sm-8">
+                      <div class="hide"> &nbsp;</div>
+                      <div class="smallStepTitleOffline">Book online </div>
+                      <div class="smallStepContentOffline">Select your visa and pay online.</div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-xs-8 col-sm-8">
-                  <div class="hide"> &nbsp;</div>
-                  <div class="smallStepTitleOffline">Document Validation </div>
-                  <div class="smallStepContentOffline">Our visa expert will verify & collect your document. </div>
-                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <div class="row smallStep">
+                      <div class="col-xs-4 col-sm-4">
+                        <div class="smallStepNumberOffline">Step 2</div>
+                        <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+                        </div>
+                      </div>
+                      <div class="col-xs-8 col-sm-8">
+                        <div class="hide"> &nbsp;</div>
+                        <div class="smallStepTitleOffline">Document Validation </div>
+                        <div class="smallStepContentOffline">Our visa expert will verify & collect your document. </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6">
+                    <div class="row smallStep">
+                      <div class="col-xs-4 col-sm-4">
+                        <div class="smallStepNumberOffline">Step 3</div>
+                        <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+                        </div>
+                      </div>
+                      <div class="col-xs-8 col-sm-8">
+                        <div class="hide"> &nbsp;</div>
+                        <div class="smallStepTitleOffline"> Visa Processing </div>
+                        <div class="smallStepContentOffline">We schedule documents submission, biometric / Interview.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6">
+                      <div class="row smallStep">
+                        <div class="col-xs-4 col-sm-4">
+                          <div class="smallStepNumberOffline">Step 4</div>
+                          <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+                          </div>
+                        </div>
+                        <div class="col-xs-8 col-sm-8">
+                          <div class="hide"> &nbsp;</div>
+                          <div class="smallStepTitleOffline">Visa at doorstep </div>
+                          <div class="smallStepContentOffline">Passport gets delivered at your doorstep .</div>
+                        </div>
+                      </div>
+                    </div>
               </div>
-            </div>
-        </div>
-        <div class="row offline" style="margin-top: 10px;">
-          <div class="col-xs-6 col-sm-6">
-            <div class="row smallStep">
-              <div class="col-xs-4 col-sm-4">
-                <div class="smallStepNumberOffline">Step 3</div>
-                <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
-                </div>
-              </div>
-              <div class="col-xs-8 col-sm-8">
-                <div class="hide"> &nbsp;</div>
-                <div class="smallStepTitleOffline"> Visa Processing </div>
-                <div class="smallStepContentOffline">We schedule documents submission, biometric / Interview.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-6 col-sm-6">
-              <div class="row smallStep">
-                <div class="col-xs-4 col-sm-4">
-                  <div class="smallStepNumberOffline">Step 4</div>
-                  <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+      </ng-container>
+      <ng-container *ngIf="onlinestatus">
+
+          <div class="row online"  >
+              <div class="col-xs-6 col-sm-6">
+                <div class="row smallStep">
+                  <div class="col-xs-4 col-sm-4">
+                    <div class="smallStepNumberOffline">Step 1</div>
+                    <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+                    </div>
+                  </div>
+                  <div class="col-xs-8 col-sm-8">
+                    <div class="hide"> &nbsp;</div>
+                    <div class="smallStepTitleOffline">Upload documents</div>
+                    <div class="smallStepContentOffline">Complete online application & Upload documents .</div>
                   </div>
                 </div>
-                <div class="col-xs-8 col-sm-8">
-                  <div class="hide"> &nbsp;</div>
-                  <div class="smallStepTitleOffline">Visa at doorstep </div>
-                  <div class="smallStepContentOffline">Passport gets delivered at your doorstep .</div>
+              </div>
+              <div class="col-xs-6 col-sm-6">
+                <div class="row smallStep">
+                  <div class="col-xs-4 col-sm-4">
+                    <div class="smallStepNumberOffline">Step 2</div>
+                    <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+                    </div>
+                  </div>
+                  <div class="col-xs-8 col-sm-8">
+                    <div class="hide"> &nbsp;</div>
+                    <div class="smallStepTitleOffline"> Pay Online</div>
+                    <div class="smallStepContentOffline">Pay online securely.</div>
+                  </div>
                 </div>
               </div>
+        
+              <div class="col-xs-6 col-sm-6">
+                <div class="row smallStep">
+                  <div class="col-xs-4 col-sm-4">
+                    <div class="smallStepNumberOffline">Step 3</div>
+                    <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
+                    </div>
+                  </div>
+                  <div class="col-xs-8 col-sm-8">
+                    <div class="hide"> &nbsp;</div>
+                    <div class="smallStepTitleOffline">Get your visa </div>
+                    <div class="smallStepContentOffline">Receive your approved visa .</div>
+                  </div>
+                </div>
+              </div>
+        
             </div>
-        </div> -->
-
-
-    <div class="row online"  >
-      <div class="col-xs-6 col-sm-6">
-        <div class="row smallStep">
-          <div class="col-xs-4 col-sm-4">
-            <div class="smallStepNumberOffline">Step 1</div>
-            <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
-            </div>
-          </div>
-          <div class="col-xs-8 col-sm-8">
-            <div class="hide"> &nbsp;</div>
-            <div class="smallStepTitleOffline">Upload documents</div>
-            <div class="smallStepContentOffline">Complete online application & Upload documents .</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-6">
-        <div class="row smallStep">
-          <div class="col-xs-4 col-sm-4">
-            <div class="smallStepNumberOffline">Step 2</div>
-            <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
-            </div>
-          </div>
-          <div class="col-xs-8 col-sm-8">
-            <div class="hide"> &nbsp;</div>
-            <div class="smallStepTitleOffline"> Pay Online</div>
-            <div class="smallStepContentOffline">Pay online securely.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row online newRowOnline" style="margin-top: 10px;">
-      <div class="col-xs-6 col-sm-6">
-        <div class="row smallStep">
-          <div class="col-xs-4 col-sm-4">
-            <div class="smallStepNumberOffline">Step 3</div>
-            <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
-            </div>
-          </div>
-          <div class="col-xs-8 col-sm-8">
-            <div class="hide"> &nbsp;</div>
-            <div class="smallStepTitleOffline">Get your visa </div>
-            <div class="smallStepContentOffline">Receive your approved visa .</div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="col-xs-6 col-sm-6">
-             <div class="row smallStep">
-               <div class="col-xs-4 col-sm-4">
-                 <div class="smallStepNumberOffline">Step 4</div>
-                 <div class="smallStepIconOffline"><i class="far fa-address-card"></i>
-                 </div>
-               </div>
-               <div class="col-xs-8 col-sm-8">
-                 <div class="hide"> &nbsp;</div>
-                 <div class="smallStepTitleOffline">Visa at doorstep </div>
-                 <div class="smallStepContentOffline">Passport gets delivered at your doorstep .</div>
-               </div>
-             </div>
-           </div> -->
-    </div>
+          
+      </ng-container>    
   </div>
 </div>
 
@@ -390,19 +417,3 @@
 </div>
 
 
- 
-  <ng-container *ngIf="onlinestatus">
-  <div style="margin: 0 auto;text-align: left;">
-      <div>
-          <label>Name:</label>
-          <div><input id="tbname" name="yourname" /></div>
-      </div>
-      <div>
-          <label>Email Address:</label>
-          <div><input name="email" id="email" /></div></div>
-      <div>
-          <label>Additional Information (optional):</label>
-          <div><textarea rows="5" cols="46"></textarea></div>
-      </div>
-  </div>
-</ng-container>

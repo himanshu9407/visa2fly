@@ -26,14 +26,12 @@ export class AppComponent {
     }
   ];
   title = 'visa-App';
-  users$: Object;
+  users :object;
   constructor(private myservice: HomeServiceService) {}
 
 
 ngOnInit() {
-  this.myservice.getUsers().subscribe(
-    data => this.users$ = data 
-  );
+  this.myservice.getHomelanding();
 }
 
 }
