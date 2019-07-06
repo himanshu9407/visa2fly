@@ -10,6 +10,7 @@ export class AddTravellerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

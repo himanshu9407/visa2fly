@@ -7,6 +7,24 @@ import { HomeServiceService } from './home-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  people: any[] = [
+    {
+      "name": "Douglas  Pace"
+    },
+    {
+      "name": "Mcleod  Mueller"
+    },
+    {
+      "name": "Day  Meyers"
+    },
+    {
+      "name": "Aguirre  Ellis"
+    },
+    {
+      "name": "Cook  Tyson"
+    }
+  ];
   title = 'visa-App';
   users$: Object;
   constructor(private myservice: HomeServiceService) {}

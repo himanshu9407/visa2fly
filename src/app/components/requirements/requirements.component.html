@@ -8,7 +8,7 @@
         alt=""></div>
     <div class="col-lg-4 col-md-12 stepContainer">
 
-      <div class="row step">
+      <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 1</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
           <i class="far fa-address-card"></i>
@@ -18,7 +18,7 @@
           <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
         </div>
       </div>
-      <div class="row step">
+      <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 1</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
           <i class="far fa-address-card"></i>
@@ -28,7 +28,7 @@
           <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
         </div>
       </div>
-      <div class="row step">
+      <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 1</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
           <i class="far fa-address-card"></i>
@@ -38,7 +38,7 @@
           <div class="stepContent" style="">Upload soft copy passport front and book your Visa</div>
         </div>
       </div>
-      <div class="row step">
+      <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 1</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
           <i class="far fa-address-card"></i>
@@ -114,7 +114,7 @@
         </div> -->
 
 
-    <div class="row online">
+    <div class="row online"  >
       <div class="col-xs-6 col-sm-6">
         <div class="row smallStep">
           <div class="col-xs-4 col-sm-4">
@@ -180,7 +180,7 @@
 <div class="visaPriceContainer largeVisaPriceContainer">
   <div class="row">
     <!-- <div class=""> -->
-    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ">
+    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 " *ngFor="let document of documents; let i = index" >
       <div class="card">
         <div class="card-header priceHeading">
           96 Hours Transit Visa
@@ -190,7 +190,7 @@
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a> -->
           <ul class="visa-type">
-            <li>Processing time:
+            <li>{{i+1}} Processing time:
               <span class="fieldData">Upto 5 days</span>
             </li>
             <li>Stay period :
@@ -209,106 +209,12 @@
         </div>
         <div class="continueBtn">
               
-            <a class="btn btn-primary btn-continue" [routerLink]="['addTraveller']">Continue</a>
+            <a class="btn btn-primary btn-continue" (click)="navigate()" >Continue</a>
           </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ">
-      <div class="card">
-        <div class="card-header priceHeading">
-          96 Hours Transit Visa
-        </div>
-        <div class="card-body">
-          <!-- <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a> -->
-          <ul class="visa-type">
-            <li>Processing time:
-              <span class="fieldData">Upto 5 days</span>
-            </li>
-            <li>Stay period :
-              <span class="fieldData">4 days</span>
-            </li>
-            <li>Validity :
-              <span class="fieldData">30 days</span>
-            </li>
-            <li>Entry:
-              <span class="fieldData">Single</span>
-            </li>
-            <li>Fees:
-              <span class="visa-price fieldData"> INR 2,599/-</span>
-            </li>
-          </ul>
-        </div>
-        <div class="continueBtn">
-              
-            <a class="btn btn-primary btn-continue" [routerLink]="['addTraveller']">Continue</a>
-          </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ">
-      <div class="card">
-        <div class="card-header priceHeading">
-          96 Hours Transit Visa
-        </div>
-        <div class="card-body">
-          <!-- <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a> -->
-          <ul class="visa-type">
-            <li>Processing time:
-              <span class="fieldData">Upto 5 days</span>
-            </li>
-            <li>Stay period :
-              <span class="fieldData">4 days</span>
-            </li>
-            <li>Validity :
-              <span class="fieldData">30 days</span>
-            </li>
-            <li>Entry:
-              <span class="fieldData">Single</span>
-            </li>
-            <li>Fees:
-              <span class="visa-price fieldData"> INR 2,599/-</span>
-            </li>
-          </ul>
-        </div>
-        <div class="continueBtn">
-              
-            <a  class="btn btn-primary btn-continue" [routerLink]="['addTraveller']">Continue</a>
-          </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ">
-      <div class="card">
-        <div class="card-header priceHeading">
-          96 Hours Transit Visa
-        </div>
-        <div class="card-body">
-          <ul class="visa-type">
-            <li>Processing time:
-              <span class="fieldData">Upto 5 days</span>
-            </li>
-            <li>Stay period :
-              <span class="fieldData">4 days</span>
-            </li>
-            <li>Validity :
-              <span class="fieldData">30 days</span>
-            </li>
-            <li>Entry:
-              <span class="fieldData">Single</span>
-            </li>
-            <li>Fees:
-              <span class="visa-price fieldData"> INR 2,599/-</span>
-            </li>
-          </ul>
-        </div>
-            <div class="continueBtn">
-              
-              <a class="btn btn-primary btn-continue" [routerLink]="['addTraveller']">Continue</a>
-            </div>
-      </div>
-    </div>
+
+    
     
   </div>
   <!-- </div> -->
@@ -329,7 +235,7 @@
           country at the port of entry in the Schengen area.<br></li>
         <li>All Schengen state insist on Bio-metric data collection. Further information available in the section
           below.</li>
-        <li>The visa processing time is usually 10-15 working days. However, this may vary from case to case.<br></li>
+        <li>The visa processing time is usually q10-15 working days. However, this may vary from case to case.<br></li>
         <li>The visa validity period and the number of entries are decided by the visa issuing authority on the case
           to case basis.<br></li>
       </ul>
@@ -471,7 +377,7 @@
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
+      <div class="card-body" [hidden]="!showActions">
         "YES! it is essential and important to return to India within specified Duration of stay which is given on
         your visa. If you fail to do so you will be considered as an Overstay Passenger / Absconding passenger
         depending upon criteria by UAE Immigration. This will attract heavy penalty on Per Day basis will be recovered
@@ -482,3 +388,21 @@
     </div>
   </div>
 </div>
+
+
+ 
+  <ng-container *ngIf="onlinestatus">
+  <div style="margin: 0 auto;text-align: left;">
+      <div>
+          <label>Name:</label>
+          <div><input id="tbname" name="yourname" /></div>
+      </div>
+      <div>
+          <label>Email Address:</label>
+          <div><input name="email" id="email" /></div></div>
+      <div>
+          <label>Additional Information (optional):</label>
+          <div><textarea rows="5" cols="46"></textarea></div>
+      </div>
+  </div>
+</ng-container>
