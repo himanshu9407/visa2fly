@@ -207,7 +207,7 @@
 <div class="visaPriceContainer largeVisaPriceContainer">
   <div class="row">
     <!-- <div class=""> -->
-    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 " *ngFor="let document of documents; let i = index" >
+    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 " *ngFor="let reg of requirement.data.quotes; let i = index" >
       <div class="card">
         <div class="card-header priceHeading">
           96 Hours Transit Visa
@@ -217,20 +217,21 @@
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a> -->
           <ul class="visa-type">
-            <li>{{i+1}} Processing time:
-              <span class="fieldData">Upto 5 days</span>
+            
+            <li> Processing time:
+              <span class="fieldData">{{requirement.data.quotes[i].processingTime}}</span>
             </li>
             <li>Stay period :
-              <span class="fieldData">4 days</span>
+              <span class="fieldData">{{requirement.data.quotes[i].periodTime}}</span>
             </li>
             <li>Validity :
-              <span class="fieldData">30 days</span>
+              <span class="fieldData">{{requirement.data.quotes[i].validity}}</span>
             </li>
             <li>Entry:
-              <span class="fieldData">Single</span>
+              <span class="fieldData">{{requirement.data.quotes[i].enrtyType}}</span>
             </li>
             <li>Fees:
-              <span class="visa-price fieldData"> INR 2,599/-</span>
+              <span class="visa-price fieldData"> INR {{requirement.data.quotes[i].price}} /-</span>
             </li>
           </ul>
         </div>

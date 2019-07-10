@@ -8,30 +8,13 @@ import { HomeServiceService } from './home-service.service';
 })
 export class AppComponent {
 
-  people: any[] = [
-    {
-      "name": "Douglas  Pace"
-    },
-    {
-      "name": "Mcleod  Mueller"
-    },
-    {
-      "name": "Day  Meyers"
-    },
-    {
-      "name": "Aguirre  Ellis"
-    },
-    {
-      "name": "Cook  Tyson"
-    }
-  ];
+ 
   title = 'visa-App';
   users :object;
   constructor(private myservice: HomeServiceService) {}
 
 
 ngOnInit() {
-  this.myservice.getHomelanding();
 }
 
 }

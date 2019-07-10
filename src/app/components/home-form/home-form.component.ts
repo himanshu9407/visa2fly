@@ -13,7 +13,18 @@ export class HomeFormComponent  {
 
 
   constructor(private router: Router,private httpClient: HttpClient,private myservice: HomeServiceService ) { }
-    public myobj:any;
+    public myobj: any;
+    landing={ "code": "0", "status": "SUCCESS", "message": "Data Fetched Successfully", "data": [
+      { "countryName": "Austrailia", "purpose": [ "BUSINESS", "TOURIST" ], "entryType": [ "SINGLE_ENTRY" ], 
+      "residenceOf": [ "Delhi", "Noida", "Gurgaon" ] },
+    { "countryName": "Dubai",
+      "purpose": [ "BUSINESS", "TOURIST" ],
+      "entryType": [ "SINGLE_ENTRY", "MULTIPLE_ENTRY" ],
+      "residenceOf": [ "Delhi", "Noida", "Gurgaon" ]
+    } 
+    ]
+};
+
     public show:boolean = false;
   
     ngOnInit () { 

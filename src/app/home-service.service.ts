@@ -21,19 +21,17 @@ export class HomeServiceService {
     return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
   getHomelanding() {
-    return this.http.get('http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/landing')
-    .subscribe( (data) => console.log(JSON.stringify(data)));
-  }
-  getrequirements() {
-    return this.http.get('http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/Austrailia')
-    .subscribe( (data) => console.log(JSON.stringify(data)));
-  }
-  getTravellers(){
     this.http.get('http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/landing')
     .pipe(map((response : Response) => {
         return response.json();   
     }));
-  //   this.http.get(`http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/landing`)
-  //  .subscribe( (data) => console.log(JSON.stringify(data)));
-}
+  }
+  getrequirements() {
+    this.http.get('http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/Australia')
+    .pipe(map((response : Response) => {
+        return response.json();   
+    }));
+  }
+
+ 
 }
