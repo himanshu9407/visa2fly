@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { HomeServiceService } from '/Users/sahilkukreja/visatofly/29052019/ts-web/src/app/home-service.service';
+import { HomeServiceService } from '../../home-service.service';
 
 
 @Component({

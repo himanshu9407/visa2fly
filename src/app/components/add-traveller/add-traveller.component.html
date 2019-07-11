@@ -1,5 +1,4 @@
 
-  
           <div class="summaryContainer">
             <div class="row">
               <div class="col-sm-6 col-half col-md-6">
@@ -25,7 +24,9 @@
                     <div class="center">
                     <div class="dateOfTravelContainer visaDateHeading">
                       Date Of Travel
-                      <input id="dateOfTravel"  class="date"  />
+                      <!-- <input id="dateOfTravel"  class="date"  /> -->
+                      <app-date></app-date>
+                      <!-- <app-date></app-date> -->
                     </div>
                     
                    
@@ -494,11 +495,11 @@
                                                 Looks good!
                                               </div>
                                             </div>
-                                <!-- </form> -->
-                        <!-- </div> -->
-                    <!-- </div> -->
-                  <!-- </div> -->
-                <!-- </div> -->
+                                          </div>
+                                </form>
+                    </div>
+                  </div>
+                </div>
          
                 <div style="margin: 20px;">
                     <button type="button" style="background-color: navy;color: white;" class="btn btn-info btn-circle btn-lg"><i class="fa fa-plus" aria-hidden="true"></i>
@@ -516,25 +517,33 @@
                     <div class="form-check col-sm-4 col-md-3">
                       <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="sim">
-                      <label class="custom-control-label" for="sim">Sim</label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src="./assets/info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
+                      <label class="custom-control-label" for="sim">Sim</label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png " data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
                     </div>
                        
                       </div>
                       <div class="form-check col-sm-4 col-md-3">
                           <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="forex">
-                          <label class="custom-control-label" for="forex">Forex</label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src="./assets/info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
+                          <label class="custom-control-label" for="forex">Forex</label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
                         </div>
                            
                           </div>
                           <div class="form-check col-sm-4 col-md-3">
                               <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="insurance">
-                              <label class="custom-control-label" for="insurance">Insurance  </label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src="./assets/info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
+                              <label class="custom-control-label" for="insurance">Insurance  </label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
                             
                             </div>
                                
                               </div>
+                              <div class="form-check col-sm-4 col-md-3">
+                                <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="selecall">
+                                <label class="custom-control-label" for="insurance">Select All  </label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
+                              
+                              </div>
+                                 
+                                </div>
                  
                         </div>
                         </div>
@@ -550,7 +559,7 @@
                         <div class="form-check">
                           <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="checkAll">
-                                <label class="custom-control-label" for="checkAll">I understand and agree with the rules and restrictions of this fare,the Booking Policy and the <a>Terms & Conditions </a>and the Cancellation Policy of Visa2Fly
+                                <label class="custom-control-label tnc" for="checkAll">I understand and agree with the rules and restrictions of this fare,the Booking Policy and the <a>Terms & Conditions </a>and the Cancellation Policy of Visa2Fly
                                   </label>
                               </div>
                           <!-- <input class="form-check-input"  checked="true" type="checkbox" value="" id="invalidCheck" required> -->
@@ -561,21 +570,10 @@
                             You must agree before submitting.
                           </div>
                         </div>
-                        <!-- <div class="form-check">
-                            <input class="form-check-input" checked="true" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                              I Agree to the cancellation policy
-                            </label>
-                            <div class="invalid-feedback">
-                              You must agree before submitting.
-                            </div>
-                          </div> -->
-        
+                        
+                        <div style="display: flex; justify-content: center; margin-top: 10px;">
                           <button class="btn btn-primary" style="margin-top: 20px;" type="submit" style="">Proceed to payment</button>
-                    </form>
+                        </div>
+                        </form>
                       </div>
                     </div>
-                  </form>
-                  </div>
-         
-    

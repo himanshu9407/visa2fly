@@ -21,6 +21,9 @@ import { MobileNavComponent } from './components/mobile-nav/mobile-nav.component
 import { MobileFooterComponent } from './components/mobile-footer/mobile-footer.component';
 import { AddPassengerDetailsComponent } from './add-passenger-details/add-passenger-details.component';
 import { AddTravellerComponent } from './components/add-traveller/add-traveller.component';
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DateComponent } from './components/date/date.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +44,16 @@ import { AddTravellerComponent } from './components/add-traveller/add-traveller.
     MobileNavComponent,
     MobileFooterComponent,
     AddPassengerDetailsComponent,
-    AddTravellerComponent
+    AddTravellerComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    Ng2FlatpickrModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
