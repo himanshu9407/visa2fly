@@ -16,12 +16,13 @@ export class HomeServiceService {
   //     'Content-Type':  'application/json',
   //   })
   // };
+  url:String='http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/';
   constructor(private http: HttpClient) { }
   getUsers() {
     return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
   getHomelanding() {
-    this.http.get('http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/landing')
+    this.http.get('landing')
     .pipe(map((response : Response) => {
         return response.json();   
     }));
