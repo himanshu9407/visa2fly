@@ -24,6 +24,7 @@ import { AddTravellerComponent } from './components/add-traveller/add-traveller.
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DateComponent } from './components/date/date.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { DateComponent } from './components/date/date.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    Ng2FlatpickrModule
+    Ng2FlatpickrModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

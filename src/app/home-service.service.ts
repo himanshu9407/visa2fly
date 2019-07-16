@@ -22,7 +22,7 @@ export class HomeServiceService {
     return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
   getHomelanding() {
-    this.http.get('landing')
+    this.http.get(this.url+'landing')
     .pipe(map((response : Response) => {
         return response.json();   
     }));

@@ -8,8 +8,8 @@ import * as $ from 'jquery'
 export class LoginSignupComponent implements OnInit {
 
   constructor() { }
-public show_login:boolean = false;
-public show_signup:boolean = true;
+public show_login:boolean = true;
+public show_signup:boolean = false;
 
   ngOnInit () {  }
 

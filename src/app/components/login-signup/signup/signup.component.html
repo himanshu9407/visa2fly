@@ -1,24 +1,33 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" > 
   <div class="input-group form-group">
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-user"></i></span>
     </div>
-    <input type="text" class="form-control roundedinput" placeholder="Email">
-
+    <input type="text" formControlName="email" class="form-control roundedinput" placeholder="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
   </div>
 
   <div class="input-group form-group">
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-key"></i></span>
     </div>
-    <input type="password" class="form-control roundedinput" placeholder="Mobile">
+    <input type="password" class="form-control roundedinput" placeholder="Mobile" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Mobile No. is required</div>
+        <div *ngIf="f.password.errors.minlength">Mobile must be at least 10 numbers</div>
+    </div>
   </div>
 
   <div class="row align-items-center remember">
-    <input type="checkbox"><span>I Agree to Terms and Conditions</span>
+    <input type="checkbox" (change)="changeEvent($event)" > <span>I Agree to Terms and Conditions</span>
   </div>
   <div class=" row form-group d-flex justify-content-center" style="">
 
-    <input type="submit" value="Signup" class="btn float-right login_btn" style="width: 40%;">
+    <div class="form-group">
+      <button [disabled]="toogleBool" type="submit" value="Signup" class="btn float-right login_btn" style="width:100%;" >Signup</button>
+  </div>
   </div>
 </form>

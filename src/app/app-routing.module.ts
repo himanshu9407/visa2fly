@@ -6,14 +6,20 @@
     import { MiniCarouselComponent } from './components/mini-carousel/mini-carousel.component';
     import { HomeContainerComponent } from './components/home-container/home-container.component';
     import { AddTravellerComponent } from './components/add-traveller/add-traveller.component';
+import { SignupComponent } from './components/login-signup/signup/signup.component';
     const routes: Routes = [
+         {  path: '',component:HomeContainerComponent},
          {  path: 'home',component:HomeContainerComponent},
+
+         {  path: 'signup',component:SignupComponent},
+
          {  path: 'login',component:LoginSignupComponent},
          {  path: 'mini',component:MiniCarouselComponent},
          {  path: 'hf',component:HomeFormComponent},
          {  path : '' , component : HomeContainerComponent},
          {  path : 'reg' , component : RequirementsComponent},
          {  path : 'addTraveller' , component : AddTravellerComponent}
+
         ];
 
     @NgModule({
