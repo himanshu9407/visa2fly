@@ -26,15 +26,12 @@ export class AddTravellerComponent implements OnInit {
  
   onAddData() {
     if(this.count<=9){
-
-      console.log(this.count);
     this.count = this.count+1;
-     let  temp = {id:"",dataToggle:"",dataToggleHash:""};
+    let  temp = {id:"",dataToggle:"",dataToggleHash:""};
     temp.id = "Traveller "+this.count; 
     temp.dataToggle = "toogle"+this.count;
     temp.dataToggleHash = "#toogle"+this.count;
     this.dataSource.push(temp)
-    console.log(this.dataSource) ;
     }
   }
 }
