@@ -7,14 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DateComponent implements OnInit {
 
+  model;
+
   constructor() { }
 
   ngOnInit() {
-  //   $('#minMaxExample').datepicker();
-  //   $('#minMaxExample').datepicker({
-  //     language: 'en',
-  //     minDate: new Date() // Now can select only dates, which goes after today
-  // });
+
   }
 
 }
