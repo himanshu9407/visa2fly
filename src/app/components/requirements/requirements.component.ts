@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeServiceService } from '../../home-service.service';
+import { requirementData } from '../../interfaces/requirement';
 
 @Component({
   selector: 'app-requirements',
@@ -8,24 +9,14 @@ import { HomeServiceService } from '../../home-service.service';
   styleUrls: ['./requirements.component.css']
 })
 export class RequirementsComponent implements OnInit {
+  public regData : requirementData ;
 
-  
-  constructor(private router: Router,private myservice: HomeServiceService) { }
-  public documents: any[] = [
-    {
-      "name": "Douglas  Pace"
-    },
-    {
-      "name": "Mcleod  Mueller"
-    },
-    {
-      "name": "Day  Meyers"
-    },
-    {
-      "name": "Aguirre  Ellis"
-    }
-  ];
-  requirement = {"code":"0","status":"SUCCESS","message":"Data Fetched Successfully","data":{"country":"Austrailia","passportValidityPeriod":"6 months","minAccountBalanceRquired":"2 lakh","minAccountBalanceMaintainbilityPeriod":"2 months",
+  constructor(private router: Router,private myservice: HomeServiceService) {
+
+   
+   }
+
+  requirement:requirementData = {"code":"0","status":"SUCCESS","message":"Data Fetched Successfully","data":{"country":"Austrailia","passportValidityPeriod":"6 months","minAccountBalanceRquired":"2 lakh","minAccountBalanceMaintainbilityPeriod":"2 months",
   "quotes":[{"purpose":"TOURIST","enrtyType":"SINGLE_ENTRY","periodTime":"30 Days","currency":"INR","price":6562,"processingTime":"3-5 Days","validity":"58 Days"},
   {"purpose":"TOURIST","enrtyType":"MULTIPLE_ENTRY","periodTime":"30 Days","currency":"INR","price":16100,"processingTime":"3-5 Days","validity":"58 Days"},
   {"purpose":"TOURIST","enrtyType":"SINGLE_ENTRY","periodTime":"90 Days","currency":"INR","price":18580,"processingTime":"3-5 Days","validity":"58 Days"},
@@ -40,7 +31,11 @@ export class RequirementsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.myservice.getrequirements();
+    this.myservice.get_requriements().subscribe((res : requirementData)=>{
+      this.requirement = res;
+      console.log(this.requirement.data.country);
+    });
+    // this.requirement=this.regData;
   }
   navigate() {
     this.router.navigate(['addTraveller']);
