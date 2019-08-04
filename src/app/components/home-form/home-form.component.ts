@@ -32,7 +32,7 @@ public  landing:home_formData={ "code": "0", "status": "SUCCESS", "message": "Da
 
     onSubmit(form : NgForm) {
       console.log(form.value);
-      // this.router.navigate(['reg']);
+      this.router.navigate(['reg']);
     }
   
     // toggle() {
