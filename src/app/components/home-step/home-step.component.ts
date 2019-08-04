@@ -9,7 +9,7 @@ export class HomeStepComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+  
 
 }

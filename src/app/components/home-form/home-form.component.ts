@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HomeServiceService } from '../../home-service.service';
 import { home_formData } from 'src/app/interfaces/home_formData';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -20,7 +21,6 @@ public  landing:home_formData={ "code": "0", "status": "SUCCESS", "message": "Da
 
   constructor(private router: Router,private httpClient: HttpClient,private myservice: HomeServiceService ) { }
   
-    public show:boolean = false;
   
     ngOnInit () { 
       console.log(this.landing);
@@ -29,13 +29,16 @@ public  landing:home_formData={ "code": "0", "status": "SUCCESS", "message": "Da
         console.log(this.landing);
       });
     }
-  
-    toggle() {
-      this.show = !this.show;
+
+    onSubmit(form : NgForm) {
+      console.log(form.value);
+      // this.router.navigate(['reg']);
     }
+  
+    // toggle() {
+    // //   this.show = !this.show;
+    // }
    
-    navigate() {
-      this.router.navigate(['reg']);
-}
+   
   }
   
