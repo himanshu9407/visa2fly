@@ -1,312 +1,457 @@
-
-          <div class="summaryContainer">
-            <div class="row">
-              <div class="col-sm-6 col-half col-md-6">
-                <div class="row noMargin">
-                  <div class="col-sm-8">
-                    <div class="placeContainer">
-                      <div class="selectedCountry">
-                          United Arab Emirates Visa
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="visaTypeContainer">
-                      <div class="visaTypeHeading ">Visa Type</div>
-                    </div>
-                    <div class="visaType" style="text-align: center;">Tourist / 90 DAYS TOURIST VISA <br>(Single Entry)</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-half col-md-6">
-                <div class="row noMargin">
-                  <div class="col-sm-6 dateContainer">
-                    <div class="center">
-                    <div class="dateOfTravelContainer visaDateHeading">
-                      Date Of Travel
-                      <!-- <input id="dateOfTravel"  class="date"  /> -->
-                      <app-date></app-date>
-                      <!-- <app-date></app-date> -->
-                    </div>
-                  </div>
-                  <div class="center">
-                      <div class="dateOfTravelContainer visaDateHeading">
-                        Date Of Collection <br> of Documents
-                        <!-- <input id="dateOfCollection" class="date" /> -->
-                        <app-date></app-date>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                     <div class="visaPriceContainer">
-                      <div class="visaPriceHeading ">Visa Price <br> (including taxes)</div>
-                    </div>
-                    <div class="visaPrice" style="text-align: center;">₹ 4300</div></div>
-                </div>
-              </div>
-              
+<div class="summaryContainer">
+  <div class="row">
+    <div class="col-sm-6 col-half col-md-6">
+      <div class="row noMargin">
+        <div class="col-sm-8">
+          <div class="placeContainer">
+            <div class="selectedCountry">
+              United Arab Emirates Visa
             </div>
           </div>
-        
-          <div class="addPassengerContainer">
-            <div class="addPassengerHeading">Passenger Details</div>
-            
-              <div id="accordion">
-                  <div class="card"  *ngFor="let divData of dataSource">
-                    <div class="card-header" id="{{divData.id}}" >
-                      <h5 class="mb-0">
-                        <button class="btn btn-link travelerHeading" data-toggle="collapse" attr.aria-controls="{{divData.dataToggle}}" attr.data-target="{{divData.dataToggleHash}}" aria-expanded="false" >
-                            <i class="fa fa-suitcase" aria-hidden="true"></i>
-                          {{divData.id}} 
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="{{divData.dataToggle}}" class="collapse" attr.aria-labelledby="{{divData.id}}" data-parent="#accordion" >
-                      <div class="card-body" >
-                          <form class="needs-validation" novalidate>
-                              <div class="form-row">
-                                  <div class="col-md-2 mb-3">
-                                      <!-- <label for="inputState">Title</label> -->
-                                      <select id="inputState" class="form-control">
-                                        <option selected>Title</option>
-                                        <option >Mr</option>
-                                          <option >Mrs</option>
-                                            <option >Master</option>
-                                              <option >Ms</option>
-                                      </select>
-                                    </div>
-                                <div class="col-md-2 mb-3">
-                                  <!-- <label for="validationCustom01">First name</label> -->
-                                  <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required>
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
-                                </div>
-                                <div class="col-md-2 mb-3">
-                                    <!-- <label for="validationCustom01">First name</label> -->
-                                    <input type="text" class="form-control" id="middlename" placeholder="Mdddle name" required>
-                                    <div class="valid-feedback">
-                                      Looks good!
-                                    </div>
-                                  </div>
-                                <div class="col-md-2 mb-3">
-                                  <!-- <label for="validationCustom02">Last name</label> -->
-                                  <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required>
-                                  <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
-                                </div>
-                                <div class="col-md-2 mb-3">
-                                    <!-- <label for="validationCustom02">Date of Birth</label> -->
-                                    <!-- <input id="dateOfBirth"  placeholder="Date of Birth"/> -->
-                                    <app-date></app-date>
+        </div>
+        <div class="col-sm-4">
+          <div class="visaTypeContainer">
+            <div class="visaTypeHeading ">Visa Type</div>
+          </div>
+          <div class="visaType" style="text-align: center;">
+            Tourist / 90 DAYS TOURIST VISA <br />(Single Entry)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-half col-md-6">
+      <div class="row noMargin">
+        <div class="col-sm-6 dateContainer">
+          <div class="center">
+            <div class="dateOfTravelContainer visaDateHeading">
+              Date Of Travel
+              <!-- <input id="dateOfTravel"  class="date"  /> -->
+              <app-date></app-date>
+              <!-- <app-date></app-date> -->
+            </div>
+          </div>
+          <div class="center">
+            <div class="dateOfTravelContainer visaDateHeading documents">
+              Date Of Collection <br />
+              of Documents
+              <!-- <input id="dateOfCollection" class="date" /> -->
+              <app-date></app-date>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="visaPriceContainer">
+            <div class="visaPriceHeading ">
+              Visa Price <br />
+              (including taxes)
+            </div>
+          </div>
+          <div class="visaPrice" style="text-align: center;">₹ 4300</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                      </div>
-                               </div>
-                                <div class="col-md-2 mb-3">
-                                  <!-- <label for="validationCustomUsername">Username</label> -->
-                                  <div class="input-group">
-                                   
-                                    <input type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"  required>
-                                    <div class="invalid-feedback">
-                                      Please enter a passport number.
-                                    </div>
-                                  </div>
-                                </div>
-                              
-                              </div>
-                              <div class="form-row">
-                                  <div class="col-md-2 mb-3">
-                                      <!-- <label for="validationCustom02">Date of Birth</label> -->
-                                      <!-- <input id="dateOfExpiry"  placeholder="Date of Expiry"/> -->
-                                      <app-date></app-date>
+<div class="addPassengerContainer">
+  <div class="addPassengerHeading">Passenger Details</div>
 
-          
-                                      <div class="valid-feedback">
-                                          Looks good!
-                                        </div>
-                                 </div>
-                                  <div class="col-md-4 mb-3">
-                                      <!-- <label for="validationCustomUsername">Username</label> -->
-                                      <div class="input-group">
-                                       
-                                        <input type="text" class="form-control" id="GstNumber" placeholder="GSTIN No. (Optional)"  required>
-                                        <div class="invalid-feedback">
-                                          Please enter a GST number.
-                                        </div>
-                                      </div>
-                                    </div>
-                               
-                              </div>
-                      
-                            </form>
-                            <form class="needs-validation" novalidate style="margin-top: 20px;">
-                                <div class="form-row">
-                                    <div class="col-md-12 mb-3">
-                                        <label ><b> Adress for pickup of documents </b></label>
-                                       
-                                      </div>
-                                      <div class="col-md-6 mb-3">
-                                      <div class="input-group">
-                                          <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
-                                          <textarea class="form-control" placeholder="Address" id="address" rows="4"></textarea>
-                                        </div>
-                                     </div>
-                                     <div class="col-md-2 mb-3">
-                                        <!-- <label for="validationCustom01">First name</label> -->
-                                        <select id="State" class="form-control">
-                                            <option selected>State</option>
-                                            <option >Mr</option>
-                                              <option >Mrs</option>
-                                                <option >Master</option>
-                                                  <option >Ms</option>
-                                          </select>
-                                        <div class="valid-feedback">
-                                          Looks good!
-                                        </div>
-                                      </div>
-                                      <div class="col-md-2 mb-3">
-                                          <!-- <label for="validationCustom01">First name</label> -->
-                                          <select id="City" class="form-control">
-                                              <option selected>City</option>
-                                              <option >Mr</option>
-                                                <option >Mrs</option>
-                                                  <option >Master</option>
-                                                    <option >Ms</option>
-                                            </select>
-                                          <div class="valid-feedback">
-                                            Looks good!
-                                          </div>
-                                        </div>
-                                        <div class="col-md-2 mb-3">
-                                            <!-- <label for="validationCustom01">First name</label> -->
-                                            <input type="number" class="form-control" id="pincode" placeholder="Pin Code"  required>
-                                            <div class="valid-feedback">
-                                              Looks good!
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-md-12 mb-3">
-                                                <label ><b> Upload required documents here </b></label>
-                                               
-                                              </div>
-                                              <div class="col-md-3 mb-3">
-                                              <div class="input-group">
-                                                  <div class="custom-file">
-                                                      <input type="file" class="custom-file-input" id="customFile">
-                                                      <label class="custom-file-label" for="customFile">Choose file</label>
-                                                    </div>
-                                                </div>
-                                             </div>
-                                             <div class="col-md-3 mb-3">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="customFile">
-                                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                                  </div>
-                                                <div class="valid-feedback">
-                                                  Looks good!
-                                                </div>
-                                              </div>
-                                              <div class="col-md-3 mb-3">
-                                                  <div class="custom-file">
-                                                      <input type="file" class="custom-file-input" id="customFile">
-                                                      <label class="custom-file-label" for="customFile">Choose file</label>
-                                                    </div>
-                                                  <div class="valid-feedback">
-                                                    Looks good!
-                                                  </div>
-                                                </div>
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
-                                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                                      </div>
-                                                    <div class="valid-feedback">
-                                                      Looks good!
-                                                    </div>
-                                                  </div>
-                                                </div>
-                              </form>
-                      </div>
-                    </div>
+  <div id="accordion">
+    <div class="card" *ngFor="let divData of dataSource">
+      <div class="card-header" id="{{ divData.id }}">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link travelerHeading"
+            data-toggle="collapse"
+            attr.aria-controls="{{ divData.dataToggle }}"
+            attr.data-target="{{ divData.dataToggleHash }}"
+            aria-expanded="false"
+          >
+            <i class="fa fa-suitcase" aria-hidden="true"></i>
+            {{ divData.id }}
+          </button>
+        </h5>
+      </div>
+      <div
+        id="{{ divData.dataToggle }}"
+        class="collapse"
+        attr.aria-labelledby="{{ divData.id }}"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <form class="needs-validation" novalidate>
+            <div class="form-row">
+              <div class="col-md-2 mb-3">
+                <!-- <label for="inputState">Title</label> -->
+                <select id="inputState" class="form-control">
+                  <option selected>Title</option>
+                  <option>Mr</option>
+                  <option>Mrs</option>
+                  <option>Master</option>
+                  <option>Ms</option>
+                </select>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom01">First name</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="First name"
+                  required
+                />
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom01">First name</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="middlename"
+                  placeholder="Mdddle name"
+                  required
+                />
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom02">Last name</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  placeholder="Last name"
+                  required
+                />
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom02">Date of Birth</label> -->
+                <!-- <input id="dateOfBirth"  placeholder="Date of Birth"/> -->
+                <app-date></app-date>
+
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustomUsername">Username</label> -->
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="PassportNumber"
+                    placeholder="Passport Number"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a passport number.
                   </div>
-                <div style="margin: 20px;">
-                    <button type="button" style="background-color: navy;color: white;" class="btn btn-info btn-circle btn-lg" (click)='onAddData()'  >
-                      <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                    <span style="margin-left: 10px;">Add Traveller</span>
-            
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom02">Date of Birth</label> -->
+                <!-- <input id="dateOfExpiry"  placeholder="Date of Expiry"/> -->
+                <app-date></app-date>
+
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <!-- <label for="validationCustomUsername">Username</label> -->
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="GstNumber"
+                    placeholder="GSTIN No. (Optional)"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a GST number.
                   </div>
-                  <!-- ****** -->
-                  <div style="font-size: 24px;margin-top: 40px;text-transform: capitalize; color: navy"> our value added services </div> 
-                  <div class="acknowledgementContainer" style="margin-top: 10px;">
-                      <div style="background-color: whitesmoke; border-radius: 3px; padding: 20px;font-size: 16px;">
-                  <label style="font-size: 18px;"> Request for a callback for</label>
-                  <!-- <div class="form-group"> -->
-                    <div class="row" style="margin-left: 4px;">
-                    <div class="form-check col-sm-4 col-md-3">
-                      <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="sim">
-                      <label class="custom-control-label" for="sim">Sim</label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png " data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
-                    </div>
-                       
-                      </div>
-                      <div class="form-check col-sm-4 col-md-3">
-                          <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="forex">
-                          <label class="custom-control-label" for="forex">Forex</label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
-                        </div>
-                           
-                          </div>
-                          <div class="form-check col-sm-4 col-md-3">
-                              <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="insurance">
-                              <label class="custom-control-label" for="insurance">Insurance  </label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
-                            
-                            </div>
-                               
-                              </div>
-                              <div class="form-check col-sm-4 col-md-3">
-                                <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="selecall">
-                                <label class="custom-control-label" for="insurance">Select All  </label> <img style="margin-left: 10px;margin-bottom: 2px;" class="iconPM" width="18" height="18" src=" ../../../assets//info.png" data-toggle="popover" data-trigger="hover" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"/>
-                              </div>
-                                 
-                                </div>
-                 
-                        </div>
-                        </div>
-                        </div>
-                     </div>
-                        <!-- ********** -->
-                        <div style="font-size: 24px;margin-top: 40px;color: navy">Acknowledgement</div> 
-                  <div class="acknowledgementContainer" style="margin-top: 0px;">
-                      <div style="background-color: whitesmoke; border-radius: 3px; padding: 20px;">
-                    <form>
-                
-                        
-                        <div class="form-check">
-                          <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="checkAll">
-                                <label class="custom-control-label tnc" for="checkAll">I understand and agree with the rules and restrictions of this fare,the Booking Policy and the <a>Terms & Conditions </a>and the Cancellation Policy of Visa2Fly
-                                  </label>
-                              </div>
-                          <!-- <input class="form-check-input"  checked="true" type="checkbox" value="" id="invalidCheck" required> -->
-                          <!-- <label class="form-check-label" for="invalidCheck"> -->
-                            
-                          <!-- </label> -->
-                          <div class="invalid-feedback">
-                            You must agree before submitting.
-                          </div>
-                        </div>
-                        
-                        <div style="display: flex; justify-content: center; margin-top: 10px;">
-                          <button class="btn btn-primary" style="margin-top: 20px;" type="submit" style="">Proceed to payment</button>
-                        </div>
-                        </form>
-                      </div>
-                    </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <form class="needs-validation" novalidate style="margin-top: 20px;">
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label><b> Adress for pickup of documents </b></label>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
+                  <textarea
+                    class="form-control"
+                    placeholder="Address"
+                    id="address"
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom01">First name</label> -->
+                <select id="State" class="form-control">
+                  <option selected>State</option>
+                  <option>Mr</option>
+                  <option>Mrs</option>
+                  <option>Master</option>
+                  <option>Ms</option>
+                </select>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom01">First name</label> -->
+                <select id="City" class="form-control">
+                  <option selected>City</option>
+                  <option>Mr</option>
+                  <option>Mrs</option>
+                  <option>Master</option>
+                  <option>Ms</option>
+                </select>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <!-- <label for="validationCustom01">First name</label> -->
+                <input
+                  type="number"
+                  class="form-control"
+                  id="pincode"
+                  placeholder="Pin Code"
+                  required
+                />
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label><b> Upload required documents here </b></label>
+              </div>
+              <div class="col-md-3 mb-3">
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="customFile"
+                    />
+                    <label class="custom-file-label" for="customFile"
+                      >Choose file</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <div class="custom-file">
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile"
+                  />
+                  <label class="custom-file-label" for="customFile"
+                    >Choose file</label
+                  >
+                </div>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <div class="custom-file">
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile"
+                  />
+                  <label class="custom-file-label" for="customFile"
+                    >Choose file</label
+                  >
+                </div>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <div class="custom-file">
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile"
+                  />
+                  <label class="custom-file-label" for="customFile"
+                    >Choose file</label
+                  >
+                </div>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div style="margin: 20px;">
+      <button
+        type="button"
+        style="background-color: navy;color: white;"
+        class="btn btn-info btn-circle btn-lg"
+        (click)="onAddData()"
+      >
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+      <span style="margin-left: 10px;">Add Traveller</span>
+    </div>
+    <!-- ****** -->
+    <div
+      style="font-size: 24px;margin-top: 40px;text-transform: capitalize; color: navy"
+    >
+      our value added services
+    </div>
+    <div class="acknowledgementContainer" style="margin-top: 10px;">
+      <div
+        style="background-color: whitesmoke; border-radius: 3px; padding: 20px;font-size: 16px;"
+      >
+        <label style="font-size: 18px;"> Request for a callback for</label>
+        <!-- <div class="form-group"> -->
+        <div class="row" style="margin-left: 4px;">
+          <div class="form-check col-sm-4 col-md-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="sim" />
+              <label class="custom-control-label" for="sim">Sim</label>
+              <img
+                style="margin-left: 10px;margin-bottom: 2px;"
+                class="iconPM"
+                width="18"
+                height="18"
+                src=" ../../../assets//info.png "
+                data-toggle="popover"
+                data-trigger="hover"
+                title="Dismissible popover"
+                data-content="And here's some amazing content. It's very engaging. Right?"
+              />
+            </div>
+          </div>
+          <div class="form-check col-sm-4 col-md-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="forex" />
+              <label class="custom-control-label" for="forex">Forex</label>
+              <img
+                style="margin-left: 10px;margin-bottom: 2px;"
+                class="iconPM"
+                width="18"
+                height="18"
+                src=" ../../../assets//info.png"
+                data-toggle="popover"
+                data-trigger="hover"
+                title="Dismissible popover"
+                data-content="And here's some amazing content. It's very engaging. Right?"
+              />
+            </div>
+          </div>
+          <div class="form-check col-sm-4 col-md-3">
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="insurance"
+              />
+              <label class="custom-control-label" for="insurance"
+                >Insurance
+              </label>
+              <img
+                style="margin-left: 10px;margin-bottom: 2px;"
+                class="iconPM"
+                width="18"
+                height="18"
+                src=" ../../../assets//info.png"
+                data-toggle="popover"
+                data-trigger="hover"
+                title="Dismissible popover"
+                data-content="And here's some amazing content. It's very engaging. Right?"
+              />
+            </div>
+          </div>
+          <div class="form-check col-sm-4 col-md-3">
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="selecall"
+              />
+              <label class="custom-control-label" for="insurance"
+                >Select All
+              </label>
+              <img
+                style="margin-left: 10px;margin-bottom: 2px;"
+                class="iconPM"
+                width="18"
+                height="18"
+                src=" ../../../assets//info.png"
+                data-toggle="popover"
+                data-trigger="hover"
+                title="Dismissible popover"
+                data-content="And here's some amazing content. It's very engaging. Right?"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ********** -->
+  <div style="font-size: 24px;margin-top: 40px;color: navy">
+    Acknowledgement
+  </div>
+  <div class="acknowledgementContainer" style="margin-top: 0px;">
+    <div
+      style="background-color: whitesmoke; border-radius: 3px; padding: 20px;"
+    >
+      <form>
+        <div class="form-check">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="checkAll" />
+            <label class="custom-control-label tnc" for="checkAll"
+              >I understand and agree with the rules and restrictions of this
+              fare,the Booking Policy and the <a>Terms & Conditions </a>and the
+              Cancellation Policy of Visa2Fly
+            </label>
+          </div>
+          <!-- <input class="form-check-input"  checked="true" type="checkbox" value="" id="invalidCheck" required> -->
+          <!-- <label class="form-check-label" for="invalidCheck"> -->
+
+          <!-- </label> -->
+          <div class="invalid-feedback">
+            You must agree before submitting.
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+          <button
+            class="btn btn-primary"
+            style="margin-top: 20px;"
+            type="submit"
+            style=""
+          >
+            Proceed to payment
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
