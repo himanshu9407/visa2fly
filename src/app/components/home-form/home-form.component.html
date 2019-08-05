@@ -3,20 +3,20 @@
         <!-- <ng-container> -->
             <!-- first form -->
                 <div class="chkIn chkInSec1 removeradius shadow">
-                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <form [formGroup] = "homeForm" (ngSubmit)="onSubmit()">
                         <div class="chkIp chkIp1">
                          <label class="chkLabel">Destination</label>
                          <div class="icon-s1-plane pull-left"></div>
                          <div class="img-loader ldr1" style="display: none;">
                              <div class="icon-s1-small-loader" alt="small"></div>
                          </div>
-                        <select required id="ddlCountry" class=" form-control form-control-sm" ngModel name="country" style="">
-                            <option value="0">Select</option>
-                                <option *ngFor="let land of landing.data; let i = index" value="1">{{landing.data[i].countryName}}</option>
+                        <select  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class=" form-control form-control-sm"  name="country" style="">
+                            <!-- <option value="0">Select</option> -->
+                                <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
                         </select>
-                        <div class="invalid-feedback">
+                        <!-- <div *ngIf="!selectedCountry.valid && selectedCountry.touched" class="invalid-feedback">
                                 Please choose a destination.
-                              </div>
+                              </div> -->
                         </div>
                         <div class="chkIp chkIp2">
                          <label class="chkLabel">Purpose</label>
@@ -24,24 +24,24 @@
                          <div class="img-loader ldr2">
                               <div class="icon-s1-small-loader" alt="small"></div>
                          </div>
-                         <select required id="ddlPurpose"  class=" form-control form-control-sm" ngModel name="purpose" style="">
-                          <option value="0">Select</option>
-                          <option *ngFor="let a of landing.data[0].purpose; let i1 = index" value="2"  >{{landing.data[0].purpose[i1]}}</option>
+                         <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose" style="">
+                          <option value="select">Select</option>
+                          <option *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose" value="{{purpose}}">{{purpose}}</option>
                          </select>
-                         <div class="invalid-feedback">
-                                Please choose a username.
+                         <div *ngIf="purposeNotSelected " class="invalid-feedback">
+                                Please choose a purpose.
                               </div>
                         </div>
                              <div class="chkIp chkIp8">
                              <label class="chkLabel">Visa Type</label>
                              <div class="icon-s1-calender pull-left"></div>
-                             <select required ngModel name="visatype" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
-                             <option value="0">Select</option>
-                             <option *ngFor="let land of landing.data[0].entryType; let i = index" value="3">{{landing.data[0].entryType[i]}}</option>
+                             <select formControlName="visatype" [(ngModel)]="selectedVisaType" required  name="visatype" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
+                             <option value="select">Select</option>
+                             <option *ngFor="let visaType of homeFormData.data.data[this.selectedCountry].entryType" value="{{visaType}}">{{visaType}}</option>
                             </select>
                              <!-- <div id="spnAccessType" class="error">hello world </div> -->
-                             <div class="invalid-feedback">
-                                    Please choose a username.
+                             <div  *ngIf="visaTypeNotSelected" class="invalid-feedback">
+                                    Please choose a Entry Type.
                                   </div>
                              </div>
                         <div class="chkIp chkIp3">
@@ -50,19 +50,21 @@
                             <div class="img-loader ldr3" style="display: none;">
                                <div class="icon-s1-small-loader" alt="small"></div>
                             </div>
-                            <select required ngModel name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
-                                <option value="0">Select</option>
+                            <select  formControlName="livingin"  [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
+                                <option value="select">Select</option>
                                
-                                <option *ngFor="let land of landing.data[0].residenceOf; let i = index" value="4">{{landing.data[0].residenceOf[i]}}</option>
+                                <option *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
                                    
                             </select>
-                            <div class="invalid-feedback">
-                                    Please choose a username.
+                            <div  *ngIf="livesInNotSelected" class="invalid-feedback">
+                                    Please choose where you live.
                                   </div>
                         </div>
                            <div class="main-wrapper-button">
-                               <button [ngClass]="{'disabled':!f.valid}" [disabled]="!f.valid" class="chkIp chkSubmit serchcountrybtn" type="submit"> Submit </button>
+                               <button  class="chkIp chkSubmit serchcountrybtn" type="submit" > Submit </button>
                            </div>
+
+                           <!-- <button (click) ="onClick()">click me</button> -->
                         </form>
                         <div class="clear"></div> 
                        </div>

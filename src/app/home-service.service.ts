@@ -10,7 +10,7 @@ import{testimonialsData} from './interfaces/testimonials';
 headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 @Injectable({
   providedIn: 'root'
-})
+})    
 export class HomeServiceService {
   
   baseUrl:String='http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/';
