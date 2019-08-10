@@ -12,9 +12,9 @@ export class TestimonialComponent implements OnInit {
   constructor(private myservice: HomeServiceService) { }
 
   ngOnInit() { 
-    this.myservice.get_testimonials().subscribe((res : testimonialsData)=>{
-      this.testimonials = res;
-      console.log(this.testimonials);
-    });
+    // this.myservice.get_testimonials().subscribe((res : testimonialsData)=>{
+    //   this.testimonials = res;
+    //   console.log(this.testimonials);
+    // });
   }
 }

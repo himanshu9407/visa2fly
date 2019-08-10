@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { LoginService } from './login.service';
+import { GetIPService } from 'src/app/shared/getIP.service';
 
 @Component({
   selector: 'app-login',
@@ -7,38 +9,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  registerForm: FormGroup;
-  submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+    loginForm : FormGroup;
+
+  constructor( private loginService : LoginService,private getIP : GetIPService) { }
 
   ngOnInit() {
-      this.registerForm = this.formBuilder.group({
-          email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6)]],
-      });
-  }
-  toggleBool: boolean=true;
 
-  changeEvent(event) {
-         if (event.target.checked) {
-             this.toggleBool= false;
-         }
-         else {
-             this.toggleBool= true;
-         }
-     }
-  // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+    this.loginForm = new FormGroup ({
+        'userId' : new FormControl (null,[Validators.required]),
+        'password': new FormControl(null,[Validators.required]),
+        'rememberMe': new FormControl (false)
+    });
+    
+  }
+
 
   onSubmit() {
-      this.submitted = true;
+    console.log(this.loginForm.value)
+  this.getIP.getClientIP().subscribe(
+    (data) => console.log(data),
+    (err) => console.log(err)
+  )
+  
 
-      // stop here if form is invalid
-      if (this.registerForm.invalid) {
-          return;
-      }
-
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
   }
+
+
+
+
 }

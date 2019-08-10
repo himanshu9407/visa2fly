@@ -31,10 +31,10 @@ export class RequirementsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.myservice.get_requriements().subscribe((res : requirementData)=>{
-      this.requirement = res;
-      console.log(this.requirement.data.country);
-    });
+    // this.myservice.get_requriements().subscribe((res : requirementData)=>{
+    //   this.requirement = res;
+    //   console.log(this.requirement.data.country);
+    // });
     // this.requirement=this.regData;
   }
   navigate() {

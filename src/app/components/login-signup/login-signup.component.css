@@ -35,14 +35,20 @@
     }
 
     .signup-capsule {
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
       display: flex;justify-content: center;align-items: center;background-color: #404040;color:white;border-radius: 20px 0px 0px 20px;height: 40px;
     }
     .signup-capsule:hover {
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
       background-color: #666666;
       cursor: pointer;
     }
 
     .login-capsule {
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
       display: flex;justify-content: center;align-items: center;background-color: #dfdfff;border-radius: 0px 20px 20px 0px;height: 40px;
     }
 
@@ -61,12 +67,14 @@
       
       }
     .login-capsule:hover {
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
       background-color: #ebebff;
       cursor: pointer;
     }
 
     body {
-      /*background-image: url('./banner.png');*/
+      /* background-image: url('../../../assets/'); */
       /* background-color: black; */
       background-repeat: repeat;
 
@@ -148,4 +156,27 @@
 
     .links a {
       margin-left: 4px;
+    }
+
+
+    @media (max-width: 410px) {
+      .form-control {
+        font-size: 12px
+      }
+
+      .agree {
+        font-size: 12px;
+      }
+  
+      .login-capsule {
+        width: 75px;
+        font-size: 12px;
+      }
+      .signup-capsule {
+        width: 75px;
+        font-size: 12px;
+      }
+      .forgotpassword {
+        font-size: 15px;
+      }
     }

@@ -11,9 +11,9 @@ import { SignupComponent } from './components/login-signup/signup/signup.compone
          {  path: '',component:HomeContainerComponent},
          {  path: 'home',component:HomeContainerComponent},
 
-         {  path: 'signup',component:SignupComponent},
+         {  path: 'slcontainer/:form', component : LoginSignupComponent},
 
-         {  path: 'login',component:LoginSignupComponent},
+         {  path: 'slcontainer/:form', component : LoginSignupComponent},
          {  path: 'mini',component:MiniCarouselComponent},
          {  path: 'hf',component:HomeFormComponent},
          {  path : '' , component : HomeContainerComponent},

@@ -110,10 +110,10 @@ export class HomeFormComponent {
 
   ngOnInit() {
     // console.log(this.landing);
-    this.myservice.get_landing().subscribe((res: home_formData) => {
-      this.landing = res;
+    // this.myservice.get_landing().subscribe((res: home_formData) => {
+    //   this.landing = res;
       // console.log(this.landing);
-    });
+    // });
     this.selectedCountry = this.homeFormData.data.countries[0];
     this.selectedPurpose = "select"
     this.selectedVisaType = "select"

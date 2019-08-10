@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,8 @@ import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DateComponent } from './components/date/date.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RequestInterceptor } from './shared/request.interceptor';
+import { ToastComponent } from './shared/components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MobileFooterComponent,
     AddPassengerDetailsComponent,
     AddTravellerComponent,
-    DateComponent
+    DateComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -57,11 +60,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Ng2FlatpickrModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi:true}],
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }
 

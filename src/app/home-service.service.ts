@@ -13,15 +13,15 @@ headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencode
 })    
 export class HomeServiceService {
   
-  baseUrl:String='http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/';
-  constructor(private http: HttpClient) { }
-  get_requriements() : Observable<requirementData>{
-    return this.http.get<requirementData>(this.baseUrl+'Austrailia');
-  }
-  get_landing() : Observable<home_formData>{
-    return this.http.get<home_formData>(this.baseUrl+'landing');
-  }
-  get_testimonials() : Observable<testimonialsData>{
-    return this.http.get<testimonialsData>(this.baseUrl+'testimonials');
-  }
+  // baseUrl:String='http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/';
+  // constructor(private http: HttpClient) { }
+  // get_requriements() : Observable<requirementData>{
+  //   return this.http.get<requirementData>(this.baseUrl+'Austrailia');
+  // }
+  // get_landing() : Observable<home_formData>{
+  //   return this.http.get<home_formData>(this.baseUrl+'landing');
+  // }
+  // get_testimonials() : Observable<testimonialsData>{
+  //   return this.http.get<testimonialsData>(this.baseUrl+'testimonials');
+  // }
 }

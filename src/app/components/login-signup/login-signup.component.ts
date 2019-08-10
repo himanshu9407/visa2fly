@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
+import { ActivatedRoute, Params, Router } from '@angular/router';
 @Component({
   selector: 'app-login-signup',
   templateUrl: './login-signup.component.html',
@@ -7,11 +8,29 @@ import * as $ from 'jquery'
 })
 export class LoginSignupComponent implements OnInit {
 
-  constructor() { }
-public show_login:boolean = true;
+  constructor(private route : ActivatedRoute, private router : Router) {
+
+   }
+public show_login:boolean = false;
 public show_signup:boolean = false;
 
-  ngOnInit () {  }
+  ngOnInit () { 
+    this.route.params.subscribe(
+      (params: Params) => {
+        console.log(params);
+        if (params['form'] == "login"){
+          // this.show_login = true;
+          // this.show_signup = false;
+          this.showLogin();
+        }
+        if (params['form'] == "signup") {
+          // this.show_signup = true;
+          // this.show_login = false;
+          this.showSignup();
+        } 
+      }
+    );
+   }
 
   showSignup() {
   if(this.show_signup == false) {
@@ -43,5 +62,12 @@ $('#SignUp').css("border-radius","20px 0px 0px 20px");
 
 
 
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['slcontainer','login']);
+  }
+  navigateToSignup() {
+    this.router.navigate(['slcontainer','signup']);
   }
 }

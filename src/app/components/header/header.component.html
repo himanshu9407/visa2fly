@@ -1,7 +1,7 @@
 <!--Navbar-->
 <nav
   class="navbar fixed-top navbar-expand-lg navbar-dark headerPrimary"
-  style="padding-left: 50px;padding-right: 50px;"
+  style="padding-left: 50px;padding-right: 50px;z-index: 100"
 >
   <!-- Navbar brand -->
   <a class="navbar-brand" [routerLink]="['home']"
@@ -56,11 +56,12 @@
     <!-- Login SignUp -->
     <form class="form-inline">
       <li class="nav-item">
-        <a class="login" href="#">Login</a>
+        <a class="login" [routerLink] = "['slcontainer','login']">Login</a>
       </li>
       <button
         class="btn btn-outline-light my-2 my-sm-0 ml-3 btn-sm"
         type="submit"
+        [routerLink] = "['slcontainer','signup']"
       >
         Signup
       </button>
