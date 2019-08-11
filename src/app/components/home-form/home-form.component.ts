@@ -228,6 +228,6 @@ onSubmit() {
       console.log()
       console.log("good to go")
     }
-  // this.router.navigate(['reg']);
+  this.router.navigate(['reg']);
 }
 }

@@ -7,19 +7,30 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   }) 
 export class LoginService {
 
-    AUTH_TOKEN = null;
+    AUTH_TOKEN :string = "";
+    loggedIn = false;
     constructor( private http : HttpClient){
         
         this.AUTH_TOKEN = localStorage.getItem("AUTH_TOKEN") || null ; 
     }
 
-    getAuthToken () {
-        return this.AUTH_TOKEN;
+    getUserStatus () {
+        return this.loggedIn
     }
 
 
-    setAuthToken () {
-        localStorage.setItem("AUTH_TOKEN","SARTHAK");
+    setUserStatus (status : boolean) {
+        this.loggedIn = status;
+    }
+
+    getAuthToken () {
+        return localStorage.getItem("AUTH_TOKEN");
+    }
+
+
+    setAuthToken (authToken : string) {
+        localStorage.setItem("AUTH_TOKEN",authToken);
+        this.AUTH_TOKEN = authToken;
     }
 
     getAuthTokenFromServer () {
@@ -27,13 +38,23 @@ export class LoginService {
     }
 
 
-    loginUser (userId : string, password : string ,rememberMe : string) : Observable<any>  {
+    loginUser (userId : string, password : string ,rememberMe : string,ip :string,temp :{email:boolean,mobile:boolean}) : Observable<any>  {
 
         const headers = new HttpHeaders ({"Content-Type" : "application/json", "visa-client" : "0"});
-        let reqBody = {userId : userId, password : password ,remember :rememberMe,ipAddress :"",loginAttemptMethod : "0" };
+        // console.log(ip+ "************");
+        let reqBody = {};
+        if (temp.email) {
+            reqBody = {email : userId,cell : "", password : password ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
+        }
+        else if (temp.mobile) {
+            reqBody = {email : "",cell : userId, password : password ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
+
+        }
+
         let reqBodyFinal = JSON.stringify(reqBody);
 
       
+        console.log(reqBody);
 
 
         return this.http.post<any>('http://ec2-3-14-208-48.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/account/login',reqBodyFinal,{headers:headers}) ;

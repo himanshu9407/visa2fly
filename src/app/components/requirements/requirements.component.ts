@@ -38,7 +38,9 @@ export class RequirementsComponent implements OnInit {
     // this.requirement=this.regData;
   }
   navigate() {
+    console.log("before");
     this.router.navigate(['addTraveller']);
-}
+    console.log("after");
+  }
 
 }

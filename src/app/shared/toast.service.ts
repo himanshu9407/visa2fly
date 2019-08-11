@@ -18,7 +18,7 @@ export class ToastService {
 
     showNotification (msg : string, duration: number) {
         let toastData = {message: msg, duration: duration};
-        console.log(toastData)
+        // console.log(toastData)
         this.subject.next(toastData);
     }
     clear() {  
