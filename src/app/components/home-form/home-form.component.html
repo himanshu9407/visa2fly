@@ -24,9 +24,9 @@
                          <div class="img-loader ldr2">
                               <div class="icon-s1-small-loader" alt="small"></div>
                          </div>
-                         <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose" style="">
+                         <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose">
                           <option value="select">Select</option>
-                          <option *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose" value="{{purpose}}">{{purpose}}</option>
+                          <option class="purpose-opt" *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose" value="{{purpose}}">{{purpose}}</option>
                          </select>
                          <div *ngIf="purposeNotSelected " class="invalid-feedback">
                                 Please choose a purpose.
@@ -37,7 +37,7 @@
                              <div class="icon-s1-calender pull-left"></div>
                              <select formControlName="visatype" [(ngModel)]="selectedVisaType" required  name="visatype" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
                              <option value="select">Select</option>
-                             <option *ngFor="let visaType of homeFormData.data.data[this.selectedCountry].entryType" value="{{visaType}}">{{visaType}}</option>
+                             <option  class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry].entryType" value="{{visaType}}">{{visaType}}</option>
                             </select>
                              <!-- <div id="spnAccessType" class="error">hello world </div> -->
                              <div  *ngIf="visaTypeNotSelected" class="invalid-feedback">
@@ -53,7 +53,7 @@
                             <select  formControlName="livingin"  [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
                                 <option value="select">Select</option>
                                
-                                <option *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
+                                <option  class="purpose-opt" *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
                                    
                             </select>
                             <div  *ngIf="livesInNotSelected" class="invalid-feedback">
