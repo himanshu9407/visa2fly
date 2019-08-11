@@ -229,5 +229,9 @@ onSubmit() {
       console.log("good to go")
       this.router.navigate(['reg']);
     }
+<<<<<<< HEAD
+=======
+  this.router.navigate(['reg']);
+>>>>>>> ac344d7b5eb827093497317a34119035595ed7ee
 }
 }

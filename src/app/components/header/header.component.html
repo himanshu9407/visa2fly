@@ -52,7 +52,7 @@
     </ul>
 
     <!-- Login SignUp -->
-    <form class="form-inline">
+    <form *ngIf="!userLoggedIn" class="form-inline">
       <li class="nav-item">
         <a class="login" [routerLink] = "['slcontainer','login']">Login</a>
       </li>
@@ -80,10 +80,10 @@
             User name
           </button>
           <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">My Profile</a>
-              <a class="dropdown-item" href="#">My Bookings</a>
+              <button class="dropdown-item">My Profile</button>
+              <button class="dropdown-item">My Bookings</button>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Logout</a>
+              <button class="dropdown-item">Logout</button>
               
             </div>
         </div>

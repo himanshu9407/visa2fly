@@ -9,11 +9,11 @@ export class GetIPService {
     constructor(private http : HttpClient) {}
 
 
+    
 
-
-    getClientIP () {
-        // let params = new HttpParams().se;
-       return this.http.get<any>('https://api.ipify.org?format=json');
+     getClientIP  ()    {
+        return   this.http.get('https://api.ipify.org?format=json');
+        
     }
     
 }

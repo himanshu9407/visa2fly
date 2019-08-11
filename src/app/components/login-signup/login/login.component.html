@@ -29,4 +29,9 @@
       <button [disabled]="loginForm.get('userId').invalid && loginForm.get('userId').dirty || loginForm.get('password').invalid && loginForm.get('password').dirty || loginForm.get('password').pristine    || loginForm.get('userId').pristine" type="submit" class="btn float-right login_btn" style="width:200px;">Login</button>
     </div>
   </div>
+  <div *ngIf="showLoader" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
 </form>

@@ -25,16 +25,13 @@
           <div class="center">
             <div class="dateOfTravelContainer visaDateHeading">
               Date Of Travel
-              <!-- <input id="dateOfTravel"  class="date"  /> -->
               <app-date></app-date>
-              <!-- <app-date></app-date> -->
             </div>
           </div>
           <div class="center">
             <div class="dateOfTravelContainer visaDateHeading documents">
               Date Of Collection <br />
               of Documents
-              <!-- <input id="dateOfCollection" class="date" /> -->
               <app-date></app-date>
             </div>
           </div>
@@ -56,9 +53,9 @@
 <div class="addPassengerContainer">
   <div class="addPassengerHeading">Passenger Details</div>
 
-  <div id="accordion">
+  <!-- <div id="accordion">
     <div class="card" *ngFor="let divData of dataSource">
-      <div class="card-header" id="{{ divData.id }}">
+      <div class="card-header" [id]="divData.id">
         <h5 class="mb-0">
           <button
             class="btn btn-link travelerHeading"
@@ -82,7 +79,6 @@
           <form class="needs-validation" novalidate>
             <div class="form-row">
               <div class="col-md-2 mb-3">
-                <!-- <label for="inputState">Title</label> -->
                 <select id="inputState" class="form-control">
                   <option selected>Title</option>
                   <option>Mr</option>
@@ -92,7 +88,6 @@
                 </select>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom01">First name</label> -->
                 <input
                   type="text"
                   class="form-control"
@@ -105,7 +100,6 @@
                 </div>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom01">First name</label> -->
                 <input
                   type="text"
                   class="form-control"
@@ -118,7 +112,6 @@
                 </div>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom02">Last name</label> -->
                 <input
                   type="text"
                   class="form-control"
@@ -131,8 +124,6 @@
                 </div>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom02">Date of Birth</label> -->
-                <!-- <input id="dateOfBirth"  placeholder="Date of Birth"/> -->
                 <app-date></app-date>
 
                 <div class="valid-feedback">
@@ -140,7 +131,6 @@
                 </div>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustomUsername">Username</label> -->
                 <div class="input-group">
                   <input
                     type="text"
@@ -157,8 +147,6 @@
             </div>
             <div class="form-row">
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom02">Date of Birth</label> -->
-                <!-- <input id="dateOfExpiry"  placeholder="Date of Expiry"/> -->
                 <app-date></app-date>
 
                 <div class="valid-feedback">
@@ -166,7 +154,6 @@
                 </div>
               </div>
               <div class="col-md-4 mb-3">
-                <!-- <label for="validationCustomUsername">Username</label> -->
                 <div class="input-group">
                   <input
                     type="text"
@@ -189,7 +176,6 @@
               </div>
               <div class="col-md-6 mb-3">
                 <div class="input-group">
-                  <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
                   <textarea
                     class="form-control"
                     placeholder="Address"
@@ -199,7 +185,6 @@
                 </div>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom01">First name</label> -->
                 <select id="State" class="form-control">
                   <option selected>State</option>
                   <option>Mr</option>
@@ -212,7 +197,6 @@
                 </div>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom01">First name</label> -->
                 <select id="City" class="form-control">
                   <option selected>City</option>
                   <option>Mr</option>
@@ -225,7 +209,6 @@
                 </div>
               </div>
               <div class="col-md-2 mb-3">
-                <!-- <label for="validationCustom01">First name</label> -->
                 <input
                   type="number"
                   class="form-control"
@@ -317,7 +300,6 @@
       </button>
       <span style="margin-left: 10px;">Add Traveller</span>
     </div>
-    <!-- ****** -->
     <div
       style="font-size: 24px;margin-top: 40px;text-transform: capitalize; color: navy"
     >
@@ -328,7 +310,6 @@
         style="background-color: whitesmoke; border-radius: 3px; padding: 20px;font-size: 16px;"
       >
         <label style="font-size: 18px;"> Request for a callback for</label>
-        <!-- <div class="form-group"> -->
         <div class="row" style="margin-left: 4px;">
           <div class="form-check col-sm-4 col-md-3">
             <div class="custom-control custom-checkbox">
@@ -413,8 +394,7 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- ********** -->
+  </div> -->
   <div style="font-size: 24px;margin-top: 40px;color: navy">
     Acknowledgement
   </div>
@@ -432,10 +412,6 @@
               Cancellation Policy of Visa2Fly
             </label>
           </div>
-          <!-- <input class="form-check-input"  checked="true" type="checkbox" value="" id="invalidCheck" required> -->
-          <!-- <label class="form-check-label" for="invalidCheck"> -->
-
-          <!-- </label> -->
           <div class="invalid-feedback">
             You must agree before submitting.
           </div>
@@ -454,4 +430,4 @@
       </form>
     </div>
   </div>
-</div>
+<!-- </div> -->
