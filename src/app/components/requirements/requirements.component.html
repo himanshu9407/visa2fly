@@ -6,13 +6,13 @@
     <div class="smallbannerImageContainer col-xs-12"><img class="bannerImage"
         src="https://adventure.com/wp-content/uploads/2017/10/Hero-Thailand-Photo-credit-Shutterstock-1920x1080.jpg"
         alt=""></div>
-        <ng-container *ngIf="!onlinestatus"> 
-    <div class="col-lg-4 col-md-12 stepContainer offline">
+        <ng-container *ngIf="false"> 
+    <div class="col-lg-4 col-md-12 stepContainer offline"> 
 
       <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 1</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
-          <i class="far fa-address-card"></i>
+          <img src="../../../assets/text-document.png" alt="" class="img-fluid chooseImage">
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
           <div class="stepTitle" style="">Book online</div>
@@ -22,7 +22,7 @@
       <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 2</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
-          <i class="far fa-address-card"></i>
+          <img src="../../../assets/checked-files.png" alt="" class="img-fluid chooseImage">
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
           <div class="stepTitle" style="">Document Validation </div>
@@ -30,9 +30,10 @@
         </div>
       </div>
       <div class="row step" >
+
         <div class="col-sm-12 stepNumber">Step 3</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
-          <i class="far fa-address-card"></i>
+          <img src="../../../assets/time-left.png" alt="" class="img-fluid chooseImage">
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
           <div class="stepTitle" style="">Visa Processing</div>
@@ -42,7 +43,7 @@
       <div class="row step" >
         <div class="col-sm-12 stepNumber">Step 4</div>
         <div class="stepIcon col-xs-4 col-sm-4" style="">
-          <i class="far fa-address-card"></i>
+          <img src="../../../assets/passport(1).png" alt="" class="img-fluid chooseImage">
         </div>
         <div class="singleStep col-xs-8 col-sm-8" style="">
           <div class="stepTitle" style="">Visa at doorstep </div>
@@ -57,7 +58,7 @@
         <div class="row step" >
           <div class="col-sm-12 stepNumber">Step 1</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <i class="far fa-address-card"></i>
+              <img src="../../../assets/file.png" alt="" class="img-fluid chooseImage">
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Upload Document</div>
@@ -67,7 +68,7 @@
         <div class="row step" >
           <div class="col-sm-12 stepNumber">Step 2</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <i class="far fa-address-card"></i>
+              <img src="../../../assets/credit.png" alt="" class="img-fluid chooseImage">
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Pay online</div>
@@ -77,7 +78,7 @@
         <div class="row step" >
           <div class="col-sm-12 stepNumber">Step 3</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <i class="far fa-address-card"></i>
+              <img src="../../../assets/passport(1).png" alt="" class="img-fluid chooseImage">
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Get your visa </div>
@@ -153,7 +154,7 @@
       </ng-container>
       <ng-container *ngIf="onlinestatus">
 
-          <div class="row online"  >
+          <div class="row online" style="justify-content: center"  >
               <div class="col-xs-6 col-sm-6">
                 <div class="row smallStep">
                   <div class="col-xs-4 col-sm-4">
@@ -237,11 +238,7 @@
         </div>
         <div class="continueBtn">
               
-<<<<<<< HEAD
-            <button [routerLink]="addTraveller" routerLinkActive="router-link-active"  class="btn btn-primary btn-continue" (click)="navigate()" >Continue</button>
-=======
             <button class="btn btn-primary btn-continue" (click)="navigate()" >Continue</button>
->>>>>>> ac344d7b5eb827093497317a34119035595ed7ee
           </div>
       </div>
     </div>
@@ -292,7 +289,7 @@
     ng-repeat="visa in data.VisaData" style="">
     <!-- <div class="row accordianWrapper container"> -->
     <div class="col-md-12">
-      <div class="gmvsprite_container" style="margin-left: 50px;margin-right: 50px;margin-top: 50px;">
+      <div class="gmvsprite_container" style="">
         <div class="gmvsprite_row">
 
           <div class="gmvsprite_col" onclick="bindAccordian()" title="CLICK FOR INFO"
@@ -351,9 +348,9 @@
     </div><!-- end ngRepeat: visa in data.VisaData -->
   </div>
 </div>
-<div class="accordion" id="accordionExample" style="margin-left: 50px;margin-right: 50px;">
+<div class="accordion" id="accordionExample" style="">
   <div
-    style="display: flex;justify-content: center;margin-left: 20px;margin-top: 50px; font-weight: 1000;font-size: 50px;">
+    style="display: flex;justify-content: center;margin-left: 20px;margin-top: 0px; font-weight: 1000;font-size: 30px;">
     FAQS</div>
   <div class="card">
     <div class="card-header" id="headingOne">

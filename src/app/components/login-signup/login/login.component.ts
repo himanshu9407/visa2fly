@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
     
     // console.log(result.then);
     this.getIP.getClientIP().subscribe (
-      (data1) => {
+      (data1 : {ip:string}) => {
         console.log(data1);
         this.ipAddress = data1.ip;
         this.loginService.loginUser(userId,password,rememberMe,this.ipAddress,temp).subscribe (
