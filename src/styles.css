@@ -20708,7 +20708,9 @@ body {
    }
    
    .main-wrapper-button .serchcountrybtn {
-	 width: auto !important;
+   width: 100px !important;
+   margin-bottom:20px;
+   font-weight: bold;
    }
    /*.whyGmv.section {
 	 display: none;
@@ -21587,6 +21589,31 @@ body {
    header .headerMain .hRight ul.menuAccount li.myAcntDrop ul li:last-child {
 	 margin-bottom: 0;
    }
+
+   .chkIn .chkSubmit {
+    height: 20px !important;
+    margin-top: 10px;
+    width: calc(10% + 13px);
+    background: navy;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    height: 85px;
+    /* position: absolute; */
+    margin-left: 1%;
+    top: 0;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+  }
+
+  .main-wrapper-button .serchcountrybtn {
+    width: 50px;
+  }
  }
  /*End Here*/
 .flex-display{
@@ -21597,10 +21624,10 @@ body {
     justify-content: center;
 }
 
+@media (width:480px){
+  .searchcountrybtn {
+    max-width: 50px !important;
 
-
-
-
-
-
-
+    padding: 10px;
+  }
+}
