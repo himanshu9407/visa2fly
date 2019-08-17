@@ -1,7 +1,90 @@
-  .tnc {
-    text-align: center;
-    font: 18px;
+input, select, textarea, .custom-file-label, .custom-file-input {
+  border-color: #9c9c9c;
+  font-size: 14px;
+}
+
+.dataSource span {
+  font-size: 16px;
+}
+
+.btn {
+  padding: 2px 10px !important;
+}
+
+
+@media (min-width: 1281px) {
+
+  input, select, textarea, .custom-file-label, .custom-file-input {
+    border-color: #A9A9A9;
+    font-size: 14px;
   }
+  
+    .addTravelDate{
+        flex: none !important;
+        width: 11.3rem !important;
+        border-color: #A9A9A9;
+    font-size: 14px;
+    }
+
+    .sameAs {
+      font-size: 12px;
+    }
+
+    
+
+   
+  }
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .addTravelDate{
+    flex: none !important;
+    width: 6.8rem !important;
+    border-color: #A9A9A9;
+font-size: 14px;
+}}
+
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  
+   
+    .addTravelDate {
+        max-width: 7rem !important;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+  
+    
+    .addTravelDate {
+        max-width: 4rem !important;
+    }
+
+    .btn {
+      font-weight: bold;
+    }
+
+  
+  }
+
+ 
+@media (min-width: 320px) and (max-width: 480px) {
+  
+ 
+  .btn {
+    font-weight: bold;
+  }
+  
+}
+  
+  
+
+.tnc {
+    /* text-align: center; */
+    font: 14px;
+    padding-left: 0px !important;
+  }
+
+  
         .headerPrimary {
             background-color: navy;
         }
@@ -18,8 +101,10 @@
           margin-top: 100px;
           margin-left: 50px;
           margin-right: 50px;
-          background-color: whitesmoke;
           padding: 10px;
+          /* background-color: #e2e2e2; */
+          background-color: whitesmoke;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
           /* display: flex; */
           /* justify-content: space-between; */
         }
@@ -68,38 +153,53 @@
             color: navy;
           }
         @media (min-width: 1281px) {
+
+          .countryFlag {
+            height: 80px;
+            width: 120px;
+            margin-top: 10px;
+            border-radius: 6px;
+          }
           
           .selectedCountry {
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 500;
-            margin-top: 50px;
+            margin-top: 10px;
             text-align: center;
           }
           .visaTypeHeading{
-            font-size: 20px;
-            color: grey;
+            font-size: 18px;
+            /* color: grey; */
             font-weight: 600;
           }
+
+          .visaPriceInfo {
+            margin-top: 20px;
+          }
           .visaPriceHeading{
-            font-size: 20px;
-            color: grey;
-            font-weight: 600;
+            font-size: 16px;
+            /* color: grey; */
+            font-weight: bold;
+          }
+
+          .visaInfo {
+            margin-top: 30px;
           }
           .visaDateHeading{
             /* margin-top: 10px; */
-            font-size: 17px;
-            color: grey;
-            font-weight: 600;
+            font-size: 15px;
+            /* color: grey; */
+            font-weight: bold;
           }
           .visaType {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 500;
             margin-top: 20px;
         
           }
           .visaPrice {
             color: navy;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: 500;
             margin-top: 20px;
         
@@ -194,6 +294,9 @@
           
         }
         @media (min-width: 576px) and (max-width: 767px) {
+
+        
+
           .date {
             /* width: 100px; */
             margin-top: 10px;
@@ -240,6 +343,23 @@
         }
         
         @media (min-width: 320px) and (max-width: 575px) {
+
+
+
+          .addPassengerContainer {
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+
+          .summaryContainer {
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-top: 40px;
+
+            /* display: flex; */
+            /* justify-content: space-between; */
+          }
+
           .visaPriceContainer {
             margin-top: 20px;
           }
@@ -257,10 +377,10 @@
             text-align: center;
           }
           .visaTypeHeading{
-            font-size: 14px;
-            color: grey;
-            font-weight: 600;
-            margin-top: 20px;
+            font-size: 16px;
+            /* color: grey; */
+            /* font-weight: 600; */
+            /* margin-top: 20px; */
           }
           .visaPriceHeading{
             font-size: 14px;
@@ -269,9 +389,9 @@
           }
           .visaDateHeading{
             /* margin-top: 10px; */
-            font-size: 12px;
-            color: grey;
-            font-weight: 600;
+            /* font-size: 12px; */
+            /* color: grey; */
+            /* font-weight: 600; */
           }
           .visaType {
             text-align: center;
@@ -314,7 +434,12 @@
             position: static !important;
             margin-bottom: 0;
             vertical-align: top;
+            
         }
+
+        /* .custom-control { */
+          /* padding-left: 5px !important; */
+        /* } */
         .infoImg{
           height: 50px;
           width: 50px;

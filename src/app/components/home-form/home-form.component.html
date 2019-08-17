@@ -1,123 +1,140 @@
     <!-- <div>{{homeFormData.code}}</div> -->
         <!-- <div style="background-color: #e5e5e5; padding: 50px;"> -->
-     
-                <div class="chkIn chkInSec1 removeradius shadow">
-                    <form [formGroup] = "homeForm" (ngSubmit)="onSubmit()">
-                        <div class="chkIp chkIp1">
-                         <label class="chkLabel">Destination</label>
-                         <div class="icon-s1-plane pull-left"></div>
-                         <div class="img-loader ldr1" style="display: none;">
-                             <div class="icon-s1-small-loader" alt="small"></div>
-                         </div>
-                        <select  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class=" form-control form-control-sm"  name="country" style="">
-                                <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
+        <!-- <ng-container> -->
+            <!-- first form -->
+            <div class="chkIn chkInSec1 removeradius shadow" style="margin-top: -160px; padding: 0px !important; margin-bottom: 70px;">
+                <form [formGroup] = "homeForm" (ngSubmit)="onSubmit()">
+                    <div class="chkIp chkIp1">
+                     <label class="chkLabel">Destination</label>
+                     <div class="icon-s1-plane pull-left"></div>
+                     <div class="img-loader ldr1" style="display: none;">
+                         <div class="icon-s1-small-loader" alt="small"></div>
+                     </div>
+                    <select  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class=" form-control form-control-sm"  name="country" style="">
+                        <!-- <option value="0">Select</option> -->
+                            <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
+                    </select>
+                    <!-- <div *ngIf="!selectedCountry.valid && selectedCountry.touched" class="invalid-feedback">
+                            Please choose a destination.
+                          </div> -->
+                    </div>
+                    <div class="chkIp chkIp2">
+                     <label class="chkLabel">Purpose</label>
+                     <div class="icon-s1-purpose pull-left"></div>
+                     <div class="img-loader ldr2">
+                          <div class="icon-s1-small-loader" alt="small"></div>
+                     </div>
+                     <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose">
+                      <option value="select">Select</option>
+                      <option class="purpose-opt" *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose" value="{{purpose}}">{{purpose}}</option>
+                     </select>
+                     <div *ngIf="purposeNotSelected " class="invalid-feedback">
+                            Please choose a purpose.
+                          </div>
+                    </div>
+                         <div class="chkIp chkIp8">
+                         <label class="chkLabel">Visa Type</label>
+                         <div class="icon-s1-calender pull-left"></div>
+                         <select formControlName="visatype" [(ngModel)]="selectedVisaType" required  name="visatype" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
+                         <option value="select">Select</option>
+                         <option  class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry].entryType" value="{{visaType}}">{{visaType}}</option>
                         </select>
-                        </div>
-                        <div class="chkIp chkIp2">
-                         <label class="chkLabel">Purpose</label>
-                         <div class="icon-s1-purpose pull-left"></div>
-                         <div class="img-loader ldr2">
-                              <div class="icon-s1-small-loader" alt="small"></div>
+                         <!-- <div id="spnAccessType" class="error">hello world </div> -->
+                         <div  *ngIf="visaTypeNotSelected" class="invalid-feedback">
+                                Please choose a Entry Type.
+                              </div>
                          </div>
-                         <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose" style="">
-                          <option value="select">Select</option>
-                          <option *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose" value="{{purpose}}">{{purpose}}</option>
-                         </select>
-                         <div *ngIf="purposeNotSelected " class="invalid-feedback">
-                                Please choose a purpose.
-                              </div>
+                    <div class="chkIp chkIp3">
+                     <label class="chkLabel">I Reside in </label>
+                     <div class="icon-s1-location pull-left"></div>
+                        <div class="img-loader ldr3" style="display: none;">
+                           <div class="icon-s1-small-loader" alt="small"></div>
                         </div>
-                             <div class="chkIp chkIp8">
-                             <label class="chkLabel">Visa Type</label>
-                             <div class="icon-s1-calender pull-left"></div>
-                             <select formControlName="visatype" [(ngModel)]="selectedVisaType" required  name="visatype" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
-                             <option value="select">Select</option>
-                             <option *ngFor="let visaType of homeFormData.data.data[this.selectedCountry].entryType" value="{{visaType}}">{{visaType}}</option>
-                            </select>
-                             <!-- <div id="spnAccessType" class="error">hello world </div> -->
-                             <div  *ngIf="visaTypeNotSelected" class="invalid-feedback">
-                                    Please choose a Entry Type.
-                                  </div>
-                             </div>
-                        <div class="chkIp chkIp3">
-                         <label class="chkLabel">I Reside in </label>
-                         <div class="icon-s1-location pull-left"></div>
-                            <div class="img-loader ldr3" style="display: none;">
-                               <div class="icon-s1-small-loader" alt="small"></div>
-                            </div>
-                            <select  formControlName="livingin"  [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
-                                <option value="select">Select</option>
-                               
-                                <option *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
-                                   
-                            </select>
-                            <div  *ngIf="livesInNotSelected" class="invalid-feedback">
-                                    Please choose where you live.
-                                  </div>
-                        </div>
-                           <div class="main-wrapper-button">
-                               <button  class="chkIp chkSubmit serchcountrybtn" type="submit" > Submit </button>
-                           </div>
+                        <select  formControlName="livingin"  [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
+                            <option value="select">Select</option>
 
-                        </form>
-                        <div class="clear"></div> 
-                       </div> 
+                            <option  class="purpose-opt" *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
 
-
-        <!-- </ng-container> -->
-        <!-- <ng-container *ngIf="show">
-                <div style="margin: 0 auto;text-align: left;">
-                    <div id="afterNext" class="chkIn chkInSec2 nextFieldsIn" ng-class="{true:'nextFieldsIn'}[nextFields]" >
-                            <div class="chkIp chkIpBack"> <span (click)="toggle()"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> </div>
-                            <div class="chkIp chkIp1">
-                             <label class="chkLabel">Adult</label>
-                              <div class="icon-s1-user pull-left"></div>
-                               <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="adult">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                               </select>
+                        </select>
+                        <div  *ngIf="livesInNotSelected" class="invalid-feedback">
+                                Please choose where you live.
                               </div>
-                            <div class="chkIp chkIp2">
-                            <label class="chkLabel">Child</label>
-                            <div class="icon-s1-user pull-left"></div>
-                            <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
-                            <option value="0">0</option>  
+                    </div>
+                       <div class="main-wrapper-button" style="padding: 0px !important">
+                           <button  class="chkIp chkSubmit serchcountrybtn" type="submit" style="padding: 10px !important" > Submit </button>
+                       </div>
+
+                       <!-- <button (click) ="onClick()">click me</button> -->
+                    </form>
+                    <div class="clear"></div>
+                   </div>
+
+<!--
+                   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+                    <input type="text" name="name" ngModel required>
+                    <select name="country" ngModel required id="">
+                        <option value="">india</option>
+                        <option value="">pakistan</option>
+                    </select>
+                    <div class="main-wrapper-button">
+                            <button [ngClass]="{'disabled':!f.valid}" [disabled]="!f.valid" class="chkIp chkSubmit serchcountrybtn" type="submit"> Submit </button>
+                        </div>
+                   </form> -->
+    <!-- </ng-container> -->
+    <!-- <ng-container *ngIf="show">
+            <div style="margin: 0 auto;text-align: left;">
+                <div id="afterNext" class="chkIn chkInSec2 nextFieldsIn" ng-class="{true:'nextFieldsIn'}[nextFields]" >
+                        <div class="chkIp chkIpBack"> <span (click)="toggle()"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> </div>
+                        <div class="chkIp chkIp1">
+                         <label class="chkLabel">Adult</label>
+                          <div class="icon-s1-user pull-left"></div>
+                           <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="adult">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            </select>
+                           </select>
+                          </div>
+                        <div class="chkIp chkIp2">
+                        <label class="chkLabel">Child</label>
+                        <div class="icon-s1-user pull-left"></div>
+                        <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        </select>
+                        </div>
+                        <div class="chkIp chkIp3" ng-init="isTicketBooked='0';">
+                         <label class="chkLabel">flight tickets</label>
+                         <div class="icon-s1-ticket pull-left"></div>
+                          <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
+                           <option value="0"></option>
+                           <option value="1">Booked</option>
+                           <option value="2">Not Booked</option>
+                          </select>
+                          <div id="spnFlightTktBooked" class="error ng-binding"></div>
+                         </div>
+                        <div class="chkIp chkIp8">
+                        <label class="chkLabel">travel date</label>
+                        <div class="input-group date homeDate chkselect">
+                            <input id="dtpTravelDate" type="text" class="form-control bagcalendar ng-pristine ng-untouched ng-valid ng-empty" placeholder="Select Date" ng-model="dateDepart" data-provide="datepicker">
+                        <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                        </div>
+                        </div>
+                           <div class="main-wrapper-button">
+                               <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" (click)="toggle()">Back</button>
+                               <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()">Search</button>
+                           </div>
+
+                              <div class="clear"></div>
                             </div>
-                            <div class="chkIp chkIp3" ng-init="isTicketBooked='0';">
-                             <label class="chkLabel">flight tickets</label>
-                             <div class="icon-s1-ticket pull-left"></div>
-                              <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
-                               <option value="0"></option>  
-                               <option value="1">Booked</option>  
-                               <option value="2">Not Booked</option>
-                              </select>
-                              <div id="spnFlightTktBooked" class="error ng-binding"></div>
-                             </div>
-                            <div class="chkIp chkIp8">
-                            <label class="chkLabel">travel date</label>
-                            <div class="input-group date homeDate chkselect">
-                                <input id="dtpTravelDate" type="text" class="form-control bagcalendar ng-pristine ng-untouched ng-valid ng-empty" placeholder="Select Date" ng-model="dateDepart" data-provide="datepicker">
-                            <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                            </div>
-                            </div>
-                            </div>
-                               <div class="main-wrapper-button">
-                                   <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" (click)="toggle()">Back</button>
-                                   <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()">Search</button>
-                               </div>
-                               
-                                  <div class="clear"></div> 
-                                </div>
-                              </div>
-            </ng-container> -->
-        <!-- </div> -->
+                          </div>
+        </ng-container> -->
+    <!-- </div> -->
 
 <!-- homeform -->

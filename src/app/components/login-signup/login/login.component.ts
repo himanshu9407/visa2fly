@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     showLoginButton : boolean = true;
     ipAddress : string = "";
     showOtpField  : boolean = false;
-    
+
   constructor( private loginService : LoginService,
     private getIP : GetIPService, private toastService : ToastService,
     private router : Router,
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         'otp': new FormControl(null,[Validators.required]),
         'rememberMe': new FormControl (false)
     });
-    
+
   }
 
   checkUserId ()  {
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     let ifMobile = false;
     let emailRegex = new RegExp("[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?");
     let mobileRegex = new RegExp("^[4-9][0-9]{9}$");
-    
+
     let userId = this.loginForm.get("userId").value;
     if ( emailRegex.test(userId)) {
       ifEmail = true;
@@ -51,9 +51,9 @@ export class LoginComponent implements OnInit {
     }
 
     return {email :ifEmail, mobile : ifMobile};
-    
+
   }
-  
+
   setFormFresh () {
     this.loginForm.markAsPristine();
     this.loginForm.markAsUntouched();
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
     this.showLoader = false;
     this.showLoginButton = true;
   }
-  
+
   onSubmit() {
     this.showLoader = true;
     this.showLoginButton = false;
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
     let rememberMe = this.loginForm.get('rememberMe').value;
     let temp = this.checkUserId();
     console.log(this.loginForm.value);
-    
+
     // console.log(result.then);
     this.getIP.getClientIP().subscribe (
       (data1 : {ip:string}) => {
@@ -79,12 +79,12 @@ export class LoginComponent implements OnInit {
         this.loginService.loginUser(userId,password,rememberMe,this.ipAddress,temp).subscribe (
           (data : LoginResponseModel) => {
             // console.log(data);
-            
+
             if (!data) {
               console.log("req failed"+data);
               this.toastService.showNotification("Something Went wrong! Please try again later.",4000);
               this.setFormFresh();
-  
+
             }
             else {
               if (data.code == "0") {
@@ -94,7 +94,7 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['home']);
                 this.loginService.setUserStatus(true);
                 this.loginStatus.setUserStatus(true);
-  
+
               }
               else {
                 // console.log(data);
@@ -113,14 +113,14 @@ export class LoginComponent implements OnInit {
       }
 
     );
-     
-
-    
- 
 
 
 
-  
+
+
+
+
+
 
   }
 

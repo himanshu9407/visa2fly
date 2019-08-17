@@ -1,3 +1,65 @@
+.visa-type {
+  font-size: 14px !important;
+}
+.shadow {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.countryName {
+  position: absolute;
+  color: #fff;
+  top: 5%;
+  left: 5%;
+}
+
+.countryName h2 {
+  font-size: 20px !important;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  
+  .smallbannerImageContainer .countryName {
+    position: absolute;
+    color: #fff;
+    top: 13% !important;
+    left: 5%;
+  }
+  
+  .smallbannerImageContainer .countryName h2 {
+    font-size: 20px !important;
+    font-weight: 600;
+  }
+  
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  .smallbannerImageContainer .countryName {
+    position: absolute;
+    color: #fff;
+    top: 18% !important;
+    left: 7%;
+  }
+  
+  .smallbannerImageContainer .countryName h2 {
+    font-size: 20px !important;
+    font-weight: 600;
+  }
+}
+
+
+.stepContainer {
+  margin-top: 20px;
+}
+
+.visa-price {
+  /* width: 60px; */
+  /* font-stretch: wider; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+  font-weight: 900;
+  font-size: 18px !important;
+}
 .alert-wrapper.visa-information-imp {
     float: initial;
     padding: 0px 50px 0px 50px;
@@ -6,6 +68,16 @@
       background: navy
       /*Edit 17-03-2018*/
       /*end 17-03-2018*/
+    }
+
+    .chooseImage {
+      width: 30px;
+      height: 30px;
+    }
+    
+
+    .gmvsprite_container {
+      margin-left: 40px;margin-right: 40px;margin-top: 20px;
     }
   
     .important-visa {
@@ -20,10 +92,10 @@
     }
     .important-visa ul li {
       color: #333333;
-      font-size: 14px;
+      font-size: 14x;
       margin-bottom: 10px;
       /* background: url(../../Contents/Images/listhand.png) no-repeat left top; */
-      padding-left: 30px;
+      /* padding-left: 30px; */
       list-style-type: none;
       background-position: 0 3px
       /*Edit for mobile purpose*/
@@ -55,6 +127,10 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
+  }
+
+  .accordion {
+    margin-left: 50px;margin-right: 50px;
   }
   
   .seachcountryOption {
@@ -100,13 +176,13 @@
   }
   
   h2.headingOther span {
-    color: navy;
+    color: #000;
     border-bottom: 2px solid navy;
     margin-left: 50px;
     margin-right: 50px;
     padding-bottom: 3px;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 20px;
   }
   
   .detailsContainer {
@@ -122,7 +198,7 @@
       padding-bottom: 0px !important;
   }
     .stepNumber {
-      font-size: 20px;
+      font-size: 14px;
     }
     .step {
       margin: 10px 0px 0px 0px;
@@ -210,7 +286,7 @@
       padding-bottom: 0px !important;
   }
     .stepNumber {
-      font-size: 19px;
+      font-size: 16px;
     }
     .step {
       margin: 5px 0px 0px 0px;
@@ -220,7 +296,7 @@
     .stepIcon {
       display: flex; justify-content: left;
       font-size: 28px;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .stepTitle {
       font-size: 15px;
@@ -553,6 +629,7 @@
     }
     .smallstepContainer {
       display: none;
+      margin-top: -114px;
     }
    
     .bannerImageContainer {
@@ -909,8 +986,8 @@
   }
   
   .upperContainer{
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 50px;
   }
   
@@ -934,8 +1011,8 @@
   
 
   .visaPriceContainer {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
     margin-bottom: 20px;
   }
   .visaPrice{
@@ -1006,6 +1083,7 @@
         .priceHeading{
           display: flex;
           justify-content: center;
+          background-color: #e2e2e2;
         }
         .visa-price {
           color: navy;
@@ -1015,7 +1093,7 @@
         .continueBtn{
           display: flex;
           justify-content: center;
-          margin-bottom: 5px;
+          margin-bottom: 15px;
         }
         .card-body {
           /* flex: 1 1 auto; */
@@ -1023,10 +1101,11 @@
           /* padding-bottom: 4px; */
       }
       .card {
-        margin-top: 10px !important;
+        margin-top: 20px !important;
       }
 
       .btn-continue {
+        font-weight: bold;
         color: #fff !important;
         background-color: navy !important;
         border-color: navy !important;
@@ -1046,5 +1125,42 @@
   @media (max-width : 480px)  {
     .visa-type{
       font-size: 10px;
+    }
+
+    .visaPriceContainer {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .alert-wrapper.visa-information-imp {
+      float: initial;
+      padding: 0px 40px 0px 40px;
+    }
+
+    h2.headingOther span {
+      border-bottom: 2px solid navy;
+      margin-left: 50px;
+      margin-right: 50px;
+      padding-bottom: 3px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .gmvsprite_container {
+      margin-left: 20px;margin-right: 20px;margin-top: 20px;
+    }
+
+    .accordion {
+      margin-left: 20px;margin-right: 20px;
+    }
+
+  }
+
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+ 
+    .countinueBtn .btn{
+      font-weight: bold;
     }
   }

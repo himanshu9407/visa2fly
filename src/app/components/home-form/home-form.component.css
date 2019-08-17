@@ -1,34 +1,71 @@
-@media (max-width:767px) {
-    select {
-        font-size: 16px !important;
-    }
+.removeradius {
+  z-index: 100;
 }
 
-.shadow{
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+.chkLabel {
+  font-size: 12px !important;
+}
+
+.chkIn {
+  margin-top: -140px !important;
+  padding: 0px !important;
+  margin-bottom: 70px;
+}
+
+
+
+
+
+  
+
+
+@media (max-width: 767px) {
+  select {
+    font-size: 16px !important;
+  }
+}
+
+.purpose-opt {
+  text-transform: capitalize !important;
+}
+
+.shadow {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .shadow:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .disabled {
-    background-color: grey;
-    color: white;
-    /* display: none; */
+  background-color: grey;
+  color: white;
+  /* display: none; */
 }
 
 .disabled:hover {
-    background-color: grey;
-    color: white;
-    border: none;
+  background-color: grey;
+  color: white;
+  border: none;
 }
 
 .invalid-feedback {
-    display: block;
+  display: block;
 }
 
 .chkIn .chkIp8 {
-    width: 21%;
-    /* border-right: 0; */
-    border-right: 1px solid #e1e1e1  !important;
+  width: 21%;
+  /* border-right: 0; */
+  border-right: 1px solid #e1e1e1 !important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .chkIn {
+    margin-top: -100px !important;
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .chkLabel {
+    font-size: 10px !important;
+  }
 }
