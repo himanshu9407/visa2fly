@@ -11,7 +11,6 @@ intercept(req : HttpRequest<any>, next : HttpHandler) : Observable <HttpEvent<an
     return next.handle(req).pipe(
         map( (event: HttpEvent<any>)=> {
             if (event instanceof HttpResponse) {
-                console.log(event.body+ "response by interceptor" );
                 return event;
             }
             else {

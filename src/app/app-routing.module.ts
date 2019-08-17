@@ -24,7 +24,7 @@ import { SignupComponent } from './components/login-signup/signup/signup.compone
 
     @NgModule({
         imports: [
-            RouterModule.forRoot(routes)
+            RouterModule.forRoot(routes,{ scrollPositionRestoration: 'enabled' })
         ],
         exports: [
             RouterModule

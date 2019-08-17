@@ -1,6 +1,35 @@
 
 
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" > 
+
+  <div class="row">
+    <div class="col-md-6 small-no-padding" style="">
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input formControlName="firstName" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}" placeholder="First Name"  />
+            <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
+                <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
+                <div *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').dirty ">Enter a valid First Name</div>
+              </div>
+            </div>
+    </div>
+
+    <div class="col-md-6 small-no-padding" style="" >
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input formControlName="lastName" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}" placeholder="Last Name"  />
+            <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
+                <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
+                <div *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').dirty ">Enter a valid Last Name</div>
+              </div>
+            </div>
+    </div>
+  </div>
+    
   <div class="input-group form-group">
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -38,10 +67,10 @@
         </div>
     
         <div *ngIf="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
-            <a style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
+            <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
         </div>
   <div *ngIf="showOtpFields" class="row align-items-center remember">
-    <input type="checkbox" checked   aria-selected="true"> <span class="agree">I Agree to Terms and Conditions</span>
+    <input formControlName="tnc" form type="checkbox" checked   aria-selected="true"> <span class="agree">I Agree to Terms and Conditions</span>
   </div>
   <div class=" row form-group d-flex justify-content-center" >
     
@@ -59,7 +88,7 @@
   <div class=" row form-group d-flex justify-content-center" >
   
         <div class="form-group">
-          <button *ngIf="showOtpFields" (click) = "createUser()"    type="button" value="Signup" 
+          <button *ngIf="showSignUpButton" (click) = "createUser()"    type="button" value="Signup" 
           class="btn float-right login_btn scale-transition" style="width:200px;" >Signup</button>
         </div>
       </div>

@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
     showLoader : boolean = false;
     showLoginButton : boolean = true;
     ipAddress : string = "";
+    showOtpField  : boolean = false;
+    
   constructor( private loginService : LoginService,
     private getIP : GetIPService, private toastService : ToastService,
     private router : Router,
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
 
     this.loginForm = new FormGroup ({
         'userId' : new FormControl (null,[Validators.required]),
-        'password': new FormControl(null,[Validators.required]),
+        'otp': new FormControl(null,[Validators.required]),
         'rememberMe': new FormControl (false)
     });
     
@@ -71,12 +73,12 @@ export class LoginComponent implements OnInit {
     
     // console.log(result.then);
     this.getIP.getClientIP().subscribe (
-      (data1) => {
-        console.log(data1);
+      (data1 : {ip:string}) => {
+        console.log(data1  );
         this.ipAddress = data1.ip;
         this.loginService.loginUser(userId,password,rememberMe,this.ipAddress,temp).subscribe (
           (data : LoginResponseModel) => {
-            console.log(data);
+            // console.log(data);
             
             if (!data) {
               console.log("req failed"+data);
@@ -86,18 +88,20 @@ export class LoginComponent implements OnInit {
             }
             else {
               if (data.code == "0") {
-                console.log(data);
+                // console.log(data);
                 this.loginService.setAuthToken(data.data.authentication.token);
-                this.toastService.showNotification(data.message,4000);
+                // this.toastService.showNotification(data.message,4000);
                 this.router.navigate(['home']);
                 this.loginService.setUserStatus(true);
                 this.loginStatus.setUserStatus(true);
   
               }
               else {
-                console.log(data);
+                // console.log(data);
                 this.toastService.showNotification(data.message,4000);
                 this.setFormFresh();
+                this.loginService.setUserStatus(false);
+                this.loginStatus.setUserStatus(false);
               }
             }
           },

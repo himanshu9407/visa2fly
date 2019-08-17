@@ -1,7 +1,6 @@
-
+    <!-- <div>{{homeFormData.code}}</div> -->
         <!-- <div style="background-color: #e5e5e5; padding: 50px;"> -->
-        <!-- <ng-container> -->
-            <!-- first form -->
+     
                 <div class="chkIn chkInSec1 removeradius shadow">
                     <form [formGroup] = "homeForm" (ngSubmit)="onSubmit()">
                         <div class="chkIp chkIp1">
@@ -11,12 +10,8 @@
                              <div class="icon-s1-small-loader" alt="small"></div>
                          </div>
                         <select  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class=" form-control form-control-sm"  name="country" style="">
-                            <!-- <option value="0">Select</option> -->
                                 <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
                         </select>
-                        <!-- <div *ngIf="!selectedCountry.valid && selectedCountry.touched" class="invalid-feedback">
-                                Please choose a destination.
-                              </div> -->
                         </div>
                         <div class="chkIp chkIp2">
                          <label class="chkLabel">Purpose</label>
@@ -64,23 +59,11 @@
                                <button  class="chkIp chkSubmit serchcountrybtn" type="submit" > Submit </button>
                            </div>
 
-                           <!-- <button (click) ="onClick()">click me</button> -->
                         </form>
                         <div class="clear"></div> 
-                       </div>
+                       </div> 
 
-<!-- 
-                       <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-                        <input type="text" name="name" ngModel required>
-                        <select name="country" ngModel required id="">
-                            <option value="">india</option>
-                            <option value="">pakistan</option>
-                        </select>
-                        <div class="main-wrapper-button">
-                                <button [ngClass]="{'disabled':!f.valid}" [disabled]="!f.valid" class="chkIp chkSubmit serchcountrybtn" type="submit"> Submit </button>
-                            </div>
-                       </form> -->
         <!-- </ng-container> -->
         <!-- <ng-container *ngIf="show">
                 <div style="margin: 0 auto;text-align: left;">

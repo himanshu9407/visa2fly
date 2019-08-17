@@ -31,6 +31,8 @@ export class RequirementsComponent implements OnInit {
 
 
   ngOnInit() {
+    // window.scrollTo(0, 0);
+
     // this.myservice.get_requriements().subscribe((res : requirementData)=>{
     //   this.requirement = res;
     //   console.log(this.requirement.data.country);

@@ -10,23 +10,23 @@
       </div>
   </div>
 
-  <div class="input-group form-group">
+  <div *ngIf = "showOtpField" class="input-group form-group">
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-lock"></i></span>
     </div>
-    <input [ngClass]="{'is-invalid':loginForm.get('password').invalid && loginForm.get('password').dirty,'is-valid':!(loginForm.get('password').invalid && loginForm.get('password').dirty) && !loginForm.get('password').pristine}" minlength="8" maxlength="32" formControlName="password" type="password" class="form-control roundedinput" placeholder="Password" />
+    <input [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}" minlength="6" maxlength="6" formControlName="otp" type="number" class="form-control roundedinput" placeholder="OTP" />
     <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
         <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
-        <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').dirty ">Enter a valid email address</div>
+        <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp </div>
       </div>
   </div>
 
-  <div class="row align-items-center remember">
+  <div  *ngIf = "showOtpField" class="row align-items-center remember">
     <input formControlName="rememberMe" type="checkbox"><span>Remember Me</span>
   </div>
   <div class=" row form-group d-flex justify-content-center ">
     <div class="form-group">
-      <button [disabled]="loginForm.get('userId').invalid && loginForm.get('userId').dirty || loginForm.get('password').invalid && loginForm.get('password').dirty || loginForm.get('password').pristine    || loginForm.get('userId').pristine" type="submit" class="btn float-right login_btn" style="width:200px;">Login</button>
+      <button [disabled]="loginForm.get('userId').invalid && loginForm.get('userId').dirty || loginForm.get('otp').invalid && loginForm.get('otp').dirty || loginForm.get('otp').pristine    || loginForm.get('userId').pristine" type="submit" class="btn float-right login_btn" style="width:200px;">Login</button>
     </div>
   </div>
   <div *ngIf="showLoader" class="d-flex justify-content-center">
