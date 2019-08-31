@@ -1,37 +1,25 @@
 <div class="upperContainer" style="padding-top: 100px;">
   <div class="row maxHeight">
     <div class="bannerImageContainer col-lg-8 col-md-12">
-      <img
-        class="bannerImage"
-        src="../../../assets/requirement/3OdGZzTt1fM_Full.png"
-        alt="bannerCountry"
-      />
+      <img class="bannerImage" src="../../../assets/requirement/3OdGZzTt1fM_Full.png" alt="bannerCountry" />
       <div class="countryName">
-        <h2>Canada</h2>
+        <h2>{{userFlowDetails.country}}</h2>
       </div>
     </div>
 
     <div class="smallbannerImageContainer col-xs-12">
-      <img
-        class="bannerImage"
-        src="../../../assets/requirement/3OdGZzTt1fM_Full.png"
-        alt=""
-      />
+      <img class="bannerImage" src="../../../assets/requirement/3OdGZzTt1fM_Full.png" alt="" />
       <div class="countryName">
-        <h2>Canada</h2>
+        <h2>{{userFlowDetails.country}}</h2>
       </div>
     </div>
 
-    <ng-container *ngIf="false">
+    <ng-container *ngIf="!onlinestatus">
       <div class="col-lg-4 col-md-12 stepContainer offline">
         <div class="row step">
           <div class="col-sm-12 stepNumber">Step 1</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <img
-              src="../../../assets/text-document.png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+            <img src="../../../assets/text-document.png" alt="" class="img-fluid chooseImage" />
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Book online</div>
@@ -43,11 +31,7 @@
         <div class="row step">
           <div class="col-sm-12 stepNumber">Step 2</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <img
-              src="../../../assets/checked-files.png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+            <img src="../../../assets/checked-files.png" alt="" class="img-fluid chooseImage" />
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Document Validation</div>
@@ -59,11 +43,7 @@
         <div class="row step">
           <div class="col-sm-12 stepNumber">Step 3</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <img
-              src="../../../assets/time-left.png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+            <img src="../../../assets/time-left.png" alt="" class="img-fluid chooseImage" />
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Visa Processing</div>
@@ -75,11 +55,7 @@
         <div class="row step">
           <div class="col-sm-12 stepNumber">Step 4</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <img
-              src="../../../assets/passport(1).png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+            <img src="../../../assets/passport(1).png" alt="" class="img-fluid chooseImage" />
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Visa at doorstep</div>
@@ -95,11 +71,7 @@
         <div class="row step">
           <div class="col-sm-12 stepNumber">Step 1</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <img
-              src="../../../assets/file.png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+            <img src="../../../assets/file.png" alt="" class="img-fluid chooseImage" />
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Upload Document</div>
@@ -111,11 +83,7 @@
         <div class="row step">
           <div class="col-sm-12 stepNumber">Step 2</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <img
-              src="../../../assets/credit.png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+            <img src="../../../assets/credit.png" alt="" class="img-fluid chooseImage" />
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Pay online</div>
@@ -125,11 +93,7 @@
         <div class="row step">
           <div class="col-sm-12 stepNumber">Step 3</div>
           <div class="stepIcon col-xs-4 col-sm-4" style="">
-            <img
-              src="../../../assets/passport(1).png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+            <img src="../../../assets/passport(1).png" alt="" class="img-fluid chooseImage" />
           </div>
           <div class="singleStep col-xs-8 col-sm-8" style="">
             <div class="stepTitle" style="">Get your visa</div>
@@ -147,11 +111,7 @@
           <div class="row smallStepOffline">
             <div class="col-xs-4 col-sm-4">
               <div class="smallStepNumberOffline">Step 1</div>
-              <img
-                src="../../../assets/text-document.png"
-                alt=""
-                class="img-fluid chooseImage"
-              />
+              <img src="../../../assets/text-document.png" alt="" class="img-fluid chooseImage" />
             </div>
             <div class="col-xs-8 col-sm-8">
               <div class="hide">&nbsp;</div>
@@ -166,11 +126,7 @@
           <div class="row smallStep">
             <div class="col-xs-4 col-sm-4">
               <div class="smallStepNumberOffline">Step 2</div>
-              <img
-                src="../../../assets/checked-files.png"
-                alt=""
-                class="img-fluid chooseImage"
-              />
+              <img src="../../../assets/checked-files.png" alt="" class="img-fluid chooseImage" />
             </div>
             <div class="col-xs-8 col-sm-8">
               <div class="hide">&nbsp;</div>
@@ -185,11 +141,7 @@
           <div class="row smallStep">
             <div class="col-xs-4 col-sm-4">
               <div class="smallStepNumberOffline">Step 3</div>
-              <img
-                src="../../../assets/time-left.png"
-                alt=""
-                class="img-fluid chooseImage"
-              />
+              <img src="../../../assets/time-left.png" alt="" class="img-fluid chooseImage" />
             </div>
             <div class="col-xs-8 col-sm-8">
               <div class="hide">&nbsp;</div>
@@ -204,11 +156,7 @@
           <div class="row smallStep">
             <div class="col-xs-4 col-sm-4">
               <div class="smallStepNumberOffline">Step 4</div>
-              <img
-                src="../../../assets/passport(1).png"
-                alt=""
-                class="img-fluid chooseImage"
-              />
+              <img src="../../../assets/passport(1).png" alt="" class="img-fluid chooseImage" />
             </div>
             <div class="col-xs-8 col-sm-8">
               <div class="hide">&nbsp;</div>
@@ -227,11 +175,7 @@
           <div class="row smallStep">
             <div class="col-xs-4 col-sm-4 text-center">
               <div class="smallStepNumberOffline">Step 1</div>
-              <img
-              src="../../../assets/file.png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+              <img src="../../../assets/file.png" alt="" class="img-fluid chooseImage" />
             </div>
             <div class="col-xs-8 col-sm-8">
               <div class="hide">&nbsp;</div>
@@ -246,11 +190,7 @@
           <div class="row smallStep">
             <div class="col-xs-4 col-sm-4">
               <div class="smallStepNumberOffline">Step 2</div>
-              <img
-              src="../../../assets/credit.png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+              <img src="../../../assets/credit.png" alt="" class="img-fluid chooseImage" />
             </div>
             <div class="col-xs-8 col-sm-8">
               <div class="hide">&nbsp;</div>
@@ -264,11 +204,7 @@
           <div class="row smallStep">
             <div class="col-xs-4 col-sm-4">
               <div class="smallStepNumberOffline">Step 3</div>
-              <img
-              src="../../../assets/passport(1).png"
-              alt=""
-              class="img-fluid chooseImage"
-            />
+              <img src="../../../assets/passport(1).png" alt="" class="img-fluid chooseImage" />
             </div>
             <div class="col-xs-8 col-sm-8">
               <div class="hide">&nbsp;</div>
@@ -287,10 +223,7 @@
 <div class="visaPriceContainer largeVisaPriceContainer">
   <div class="row">
     <!-- <div class=""> -->
-    <div
-      class="col-lg-3 col-md-4 col-sm-12 col-xs-12 "
-      *ngFor="let reg of requirement.data.quotes; let i = index"
-    >
+    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 " *ngFor="let quote of quotes; let i = index">
       <div class="card shadow" style="border-radius: 5px;">
         <div class="card-header priceHeading font-weight-bold">
           96 Hours Transit Visa
@@ -303,37 +236,36 @@
             <li>
               Processing time:
               <span class="fieldData">{{
-                requirement.data.quotes[i].processingTime
+                quote.processingTime
               }}</span>
             </li>
             <li>
               Stay period :
               <span class="fieldData">{{
-                requirement.data.quotes[i].periodTime
+                quote.periodTime
               }}</span>
             </li>
             <li>
               Validity :
               <span class="fieldData">{{
-                requirement.data.quotes[i].validity
+                quote.validity
               }}</span>
             </li>
             <li>
               Entry:
               <span class="fieldData">{{
-                requirement.data.quotes[i].enrtyType
+                quote.entryType
               }}</span>
             </li>
             <li>
               Fees:
               <span class="visa-price fieldData">
-                INR {{ requirement.data.quotes[i].price }} /-</span
-              >
+                INR {{ quote.price }} /-</span>
             </li>
           </ul>
         </div>
         <div class="continueBtn">
-          <button class="btn btn-primary btn-continue" (click)="navigate()">
+          <button class="btn btn-primary btn-continue" (click)="navigate(quote.quoteId)">
             Continue
           </button>
         </div>
@@ -347,15 +279,11 @@
     <div class="header">
       <div class="action_req search-toggle ng-binding">
         <i class="fa fa-info-circle info"></i>Important Visa Information For
-        Austria
+        {{userFlowDetails.country}}
         <div class="collapse-btn active"></div>
       </div>
     </div>
-    <div
-      class="important-visa ng-binding"
-      ng-bind-html="data.VisaInformation"
-      style="display: block;"
-    >
+    <div class="important-visa ng-binding" ng-bind-html="data.VisaInformation" style="display: block;">
       <ul>
         <li>Austria is one of the 26 Schengen countries.</li>
         <li>
@@ -396,86 +324,30 @@
 </div>
 <div class="detailsContainer">
   <h2 class="headingOther " style="display: flex; justify-content: center">
-    <span class="ng-binding">REQUIREMENT FOR Austria</span>
+    <span class="ng-binding">REQUIREMENT FOR {{userFlowDetails.country}}</span>
   </h2>
-  <div
-    class="row accordianWrapper ng-scope"
-    id="othercountry"
-    ng-show="visaType == visa.Visa.Id"
-    ng-repeat="visa in data.VisaData"
-    style=""
-  >
+  <div class="row accordianWrapper ng-scope" id="othercountry" ng-show="visaType == visa.Visa.Id"
+    ng-repeat="visa in data.VisaData" style="">
     <!-- <div class="row accordianWrapper container"> -->
     <div class="col-md-12">
-      <div class="gmvsprite_container" style="">
-        <div class="gmvsprite_row">
-          <div
-            class="gmvsprite_col"
-            onclick="bindAccordian()"
-            title="CLICK FOR INFO"
-            daat-desc="Application Charges: <b> INR 6700 </b></br><span>For information on GetMyVisa processing options <a> Click here</a></span>"
-            data-name="Visa Fee"
-          >
+      <div class="gmvsprite_container" *ngFor="let items of mainArr; let i = index ;" style="">
+        <div class="gmvsprite_row" >
+          <div class="gmvsprite_col" *ngFor = "let item of items;let j = index " (click)="onClickRequrements(i,j)">
             <div class="parent active ng-scope">
-              <div class="sprited">
-                <img src="/Contents/Images/visafee.png" alt="visafee" />
-              </div>
-              <p>Visa Fee</p>
+              
+              <p>{{item.fieldName}}</p>
             </div>
           </div>
-          <div
-            class="gmvsprite_col"
-            title="CLICK FOR INFO"
-            onclick="bindAccordian()"
-            daat-desc="Indian citizens applying for a Schengen visa for the first time will have to appear in person in order to provide bio-metric data. Children under the age 12 are exempted from this requirement. GetMyVisa will book a convenient appointment for bio-metric data and visa application submission, at the appointed visa application centre. Previously submitted bio-metric data (after 02 November 2015) is valid for travel to any Schengen country for 59 months from date of submission. In some unique situations some member country may ask for re-submission of bio-metric data if they deem necessary."
-            data-name="Bio-metric data submission"
-          >
-            <div class="parent">
-              <div
-                class="sprite documents-required-when-the-indian-company-individual-is-beari"
-              ></div>
-
-              <p class="ng-binding">Bio-metric data submission</p>
-            </div>
-          </div>
-
-          <div
-            class="gmvsprite_col ng-scope"
-            title="CLICK FOR INFO"
-            onclick="bindAccordian()"
-            daat-desc="Please upload the first and last page of your current passport which contains the photograph and the personal particular details. Both, the original passport along with a copy of the bio pages must be included. Passport must be issued within 10 years; valid for 6 months beyond the last intended date of departure from this country; should contain at least 2 blank visa pages; Should have no alteration or handwritten amendments in the data pages."
-            data-name="Passport"
-          >
-            <div class="parent ng-scope">
-              <div class="sprite current-passport"></div>
-
-              <p class="ng-binding">Passport</p>
-            </div>
-          </div>
-
-          <div
-            class="gmvsprite_col ng-scope"
-            title="CLICK FOR INFO"
-            onclick="bindAccordian()"
-            daat-desc="All forms must be completely filled and signed by the applicant. In case of minors, both the parents must sign on the respective forms."
-            data-name="Forms"
-          >
-            <div class="parent">
-              <div class="sprite consent-form"></div>
-
-              <p class="ng-binding">Forms</p>
-            </div>
-          </div>
+        
         </div>
-        <div id="innerwrap" class="innerWrap" style="">
-          <h1>Visa Fee</h1>
+
+        <div *ngIf="showRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
+          <h1 style="color: navy">{{selectedDataArr[i].fieldName}}</h1>
           <p>
-            Application Charges: <b> INR 6700 </b><br /><span
-              >For information on GetMyVisa processing options
-              <a href="#" style="color:#e6007e;"> Click here</a></span
-            >
+            {{selectedDataArr[i].content}}
           </p>
         </div>
+        <!-- show data in -->
       </div>
       <!-- </div> -->
 
@@ -486,32 +358,20 @@
 </div>
 <div class="accordion" id="accordionExample" style="">
   <div
-    style="display: flex;justify-content: center;margin-left: 20px;margin-top: 0px; font-weight: 1000;font-size: 30px;"
-  >
+    style="display: flex;justify-content: center;margin-left: 20px;margin-top: 0px; font-weight: 1000;font-size: 30px;">
     FAQS
   </div>
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button
-          class="btn btn-link"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseOne"
-          aria-expanded="true"
-          aria-controls="collapseOne"
-        >
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
           What is Dubai Transit Visa?
         </button>
       </h5>
     </div>
 
-    <div
-      id="collapseOne"
-      class="collapse show"
-      aria-labelledby="headingOne"
-      data-parent="#accordionExample"
-    >
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
         96 Hrs visa is considered as a Transit Visa, Entry and Exit should be
         from DUBAI airport only. 96hrs visas are specifically applicable to
@@ -525,25 +385,14 @@
   <div class="card">
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
-        <button
-          class="btn btn-link collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseTwo"
-          aria-expanded="false"
-          aria-controls="collapseTwo"
-        >
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
           If I have been issued Dubai visa but I did not travel on that visa,
           then is it necessary to cancel that visa?
         </button>
       </h5>
     </div>
-    <div
-      id="collapseTwo"
-      class="collapse"
-      aria-labelledby="headingTwo"
-      data-parent="#accordionExample"
-    >
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
         "Yes, if any passenger has been issued Dubai visa but for any reason if
         he/she later on decides not to travel to Dubai then in such scenario
@@ -561,25 +410,14 @@
   <div class="card">
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
-        <button
-          class="btn btn-link collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapseThree"
-          aria-expanded="false"
-          aria-controls="collapseThree"
-        >
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+          aria-expanded="false" aria-controls="collapseThree">
           Why is it necessary to return to India within the given duration of
           stay granted on my Dubai visa?
         </button>
       </h5>
     </div>
-    <div
-      id="collapseThree"
-      class="collapse"
-      aria-labelledby="headingThree"
-      data-parent="#accordionExample"
-    >
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
         "YES! it is essential and important to return to India within specified
         Duration of stay which is given on your visa. If you fail to do so you

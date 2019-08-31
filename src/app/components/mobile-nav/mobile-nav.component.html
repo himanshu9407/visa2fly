@@ -11,56 +11,56 @@
                       <a class="dropdown-item" href="#">Visa On Arrival</a>
                     </div>
                 </div>
-      
+
           </div> -->
           <nav class="navbar heightNav fixed-top navbar-expand-lg navbar-light headerPrimary" style="padding-left: 50px;padding-right: 50px;">
 
                 <!-- Navbar brand -->
                 <a class="navbar-brand" [routerLink]="['home']"><img src="../../../assets/logo4.jpg" width="100" height="60%" class="d-inline-block align-top"  alt=""></a>
-              
+
                 <!-- Collapse button -->
                 <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                   aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-              
+
                 <!-- Collapsible content -->
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 40px;">
                         <a class="dropdown-item" href="#" style="color: navy">Free Visas</a>
                         <a class="dropdown-item" href="#" style="color: navy">Visa On Arrival</a>
                       </div>
                 <!-- Collapsible content -->
-              
+
               </nav>
-    
+
     <div class="topNavContainer">
         <div class="container-fluid1">
             <div class="row noMargin">
-                <div class="col topNavItem ">
-    
+                <div class="col topNavItem " [routerLink]="['/visa']" routerLinkActive="router-link-active" >
+
                     <div class="topNavItemIcon">
                         <!-- <i class="fab fa-angellist"></i> -->
                         <img src="../../../assets/mobile-header/visa.png" class="headerIcon" alt="">
                     </div>
-                    <div class="topNavItemContent selectedItem">
+                    <div class="topNavItemContent selectedItem" routerLinkActive="selectedItem">
                         Visa
                     </div>
                 </div>
-                <div class="col topNavItem">
+                <div class="col topNavItem" [routerLink]="['/sim']" routerLinkActive="router-link-active" >
                     <div class="topNavItemIcon">
                         <img src="../../../assets/mobile-header/sim.png" class="headerIcon" alt="">
 
                     </div>
-                    <div class="topNavItemContent">
+                    <div class="topNavItemContent" routerLinkActive="selectedItem">
                         Sim
                     </div>
                 </div>
-                <div class="col topNavItem">
+                <div class="col topNavItem" [routerLink]="['/insurance']" routerLinkActive="router-link-active" >
                     <div class="topNavItemIcon">
                             <img src="../../../assets/mobile-header/shield.png" class="headerIcon" alt="">
                         <!-- <i class="fab fa-angellist"></i> -->
                     </div>
-                    <div class="topNavItemContent">
+                    <div class="topNavItemContent" routerLinkActive="selectedItem">
                         Insurance
                     </div>
                 </div>
@@ -68,14 +68,14 @@
                     <div class="topNavItemIcon">
                         <img src="../../../assets/mobile-header/money.png" class="headerIcon" alt="">
 
-                        
-                        
+
+
                     </div>
                     <div class="topNavItemContent">
                         Forex
                     </div>
                 </div> -->
-              
+
             </div>
         </div>
     </div>

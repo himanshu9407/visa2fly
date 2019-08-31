@@ -1,6 +1,6 @@
 import {Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -33,21 +33,32 @@ export class LoginService {
         this.AUTH_TOKEN = authToken;
     }
 
+    // setUserProfile (userProfile : object) {
+    //     localStorage.setItem("")
+    // }
+
     getAuthTokenFromServer () {
 
     }
 
+    sendLoginOtp (userId : string) : Observable<any>  {
+        const headers = new HttpHeaders ({"Content-Type" : "application/json", "visa-client" : "0"});
 
-    loginUser (userId : string, password : string ,rememberMe : string,ip :string,temp :{email:boolean,mobile:boolean}) : Observable<any>  {
+        const params = new HttpParams().set("userId",userId);
+
+        return this.http.get('http://ec2-18-191-74-254.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/sendOtpForLogin',{headers:headers,params:params});
+    }
+
+
+    loginUser (userId : string, otp : string ,rememberMe : string,ip :string,temp :{email:boolean,mobile:boolean}) : Observable<any>  {
 
         const headers = new HttpHeaders ({"Content-Type" : "application/json", "visa-client" : "0"});
-        // console.log(ip+ "************");
         let reqBody = {};
         if (temp.email) {
-            reqBody = {email : userId,cell : "", password : password ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
+            reqBody = {email : userId,cell : "", otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
         }
         else if (temp.mobile) {
-            reqBody = {email : "",cell : userId, password : password ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
+            reqBody = {email : "",cell : userId, otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
 
         }
 
@@ -56,8 +67,8 @@ export class LoginService {
       
         console.log(reqBody);
 
-
-        return this.http.post<any>('http://ec2-3-14-208-48.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/account/login',reqBodyFinal,{headers:headers}) ;
+        let random = new Date().getTime();
+        return this.http.post<any>('http://ec2-18-191-74-254.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/account/login?v='+random,reqBodyFinal,{headers:headers}) ;
 
 
     }

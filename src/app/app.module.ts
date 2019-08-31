@@ -28,6 +28,14 @@ import { DateComponent } from './components/date/date.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestInterceptor } from './shared/request.interceptor';
 import { ToastComponent } from './shared/components/toast/toast.component';
+import { ChatboxComponent } from './chatbox/chatbox.component';
+import { FreeVisaComponent } from './components/free-visa/free-visa.component';
+import { VisaArrivalComponent } from './components/visa-arrival/visa-arrival.component';
+import { SimComponent } from './components/sim/sim.component';
+import { InsuranceComponent } from './components/insurance/insurance.component';
+import { PreloaderComponent } from './shared/preloader/preloader.component';
+
+import { AuthenticationGuard } from './shared/AuthenticationGuard.service'
 
 @NgModule({
   declarations: [
@@ -47,10 +55,17 @@ import { ToastComponent } from './shared/components/toast/toast.component';
     WhyChooseUsComponent,
     MobileNavComponent,
     MobileFooterComponent,
+    
     AddPassengerDetailsComponent,
     AddTravellerComponent,
     DateComponent,
-    ToastComponent
+    ToastComponent,
+    ChatboxComponent,
+    FreeVisaComponent,
+    VisaArrivalComponent,
+    SimComponent,
+    InsuranceComponent,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,

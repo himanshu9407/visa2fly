@@ -19,13 +19,9 @@ public show_signup:boolean = false;
       (params: Params) => {
         console.log(params);
         if (params['form'] == "login"){
-          // this.show_login = true;
-          // this.show_signup = false;
           this.showLogin();
         }
         if (params['form'] == "signup") {
-          // this.show_signup = true;
-          // this.show_login = false;
           this.showSignup();
         } 
       }

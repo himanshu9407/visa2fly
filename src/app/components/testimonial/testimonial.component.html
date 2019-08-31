@@ -1,9 +1,9 @@
-<div class="testimonial-bg">
+<div class="testimonial-bg" *ngIf="showTestimonialComponent">
     <div class="testimonialHeading text-white" style=""> What our customers say about us</div>
 
 <div  id="carouselBigTestimonialControls " class="carousel slide bigTestimonial" data-interval ="2000" data-ride="carousel" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active" *ngIf = "firstTestimonialArrExists">
             <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
                 <div class="testimonialContainer bg-white rounded"*ngFor="let testimonial of firstTestimonialArr"  >
                     <div class="col">
@@ -23,7 +23,7 @@
 
             </div>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" *ngIf = "secondTestimonialArrExists">
                 <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
                         <div class="testimonialContainer bg-white rounded" *ngFor="let testimonial of secondTestimonialArr">
                             <div class="col">

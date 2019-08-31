@@ -1,423 +1,367 @@
 <div style="">
-<div class="summaryContainer" style="background-color: #e5e5e5;padding: 30px 20px 20px ;">
-  <div class="row">
-    <div class="col-sm-6 col-half col-md-6">
-      <div class="row noMargin">
-        <div class="col-sm-8">
-        <div class="row placeContainer text-center">
-          <div class="col-lg-12">
-                  <img src="data:image/png;base64,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" alt="" class="img-fluid countryFlag">
-                 <div class="col-lg-12">
-                    <div class="selectedCountry">
-                      United State
-                      </div>
-                 </div>
+  <div class="summaryContainer" style="background-color: #e5e5e5;padding: 30px 20px 20px ;">
+    <div class="row">
+      <div class="col-sm-6 col-half col-md-6">
+        <div class="row noMargin">
+          <div class="col-sm-8">
+            <div class="row placeContainer text-center">
+              <div class="col-lg-12">
+                <img
+                  src="data:image/png;base64,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"
+                  alt="" class="img-fluid countryFlag">
+                <div class="col-lg-12">
+                  <div class="selectedCountry">
+                   {{userFlowDetails.country}}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
-        <div class="col-sm-4 visaInfo">
-          <div class="visaTypeContainer">
-            <div class="visaTypeHeading ">Visa Type</div>
-          </div>
-          <div class="visaType" style="text-align: center;">
-            Tourist / 90 Days Visa <br />(Single Entry)
+          <div class="col-sm-4 visaInfo">
+            <div class="visaTypeContainer">
+              <div class="visaTypeHeading ">Visa Type</div>
+            </div>
+            <div class="visaType" style="text-align: center;">
+              {{userFlowDetails.purpose}} / 90 Days Visa <br />{{userFlowDetails.entryType}}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-half col-md-6">
-      <div class="row noMargin">
-        <div class="col-sm-6 dateContainer">
-          <div class="center">
-            <div class="dateOfTravelContainer visaDateHeading">
-              Date Of Travel
-              <app-date></app-date>
+      <div class="col-sm-6 col-half col-md-6">
+        <div class="row noMargin">
+          <div class="col-sm-6 dateContainer">
+            <div class="center">
+              <div class="dateOfTravelContainer visaDateHeading">
+                Date Of Travel
+                <app-date></app-date>
+              </div>
+            </div>
+            <div class="center">
+              <div class="dateOfTravelContainer visaDateHeading documents">
+                Date Of Collection <br />
+                of Documents
+                <app-date></app-date>
+              </div>
             </div>
           </div>
-          <div class="center">
-            <div class="dateOfTravelContainer visaDateHeading documents">
-              Date Of Collection <br />
-              of Documents
-              <app-date></app-date>
+          <div class="col-sm-6 visaPriceInfo">
+            <div class="visaPriceContainer">
+              <div class="visaPriceHeading ">
+                Visa Price <br />
+                (including taxes)
+              </div>
             </div>
+            <div class="visaPrice" style="text-align: center;">₹ 4300</div>
           </div>
-        </div>
-        <div class="col-sm-6 visaPriceInfo">
-          <div class="visaPriceContainer">
-            <div class="visaPriceHeading ">
-              Visa Price <br />
-              (including taxes)
-            </div>
-          </div>
-          <div class="visaPrice" style="text-align: center;">₹ 4300</div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="addPassengerContainer">
-  <div class="addPassengerHeading">Passenger Details</div>
+  <div class="addPassengerContainer">
+    <div class="addPassengerHeading">Passenger Details</div>
 
-  <div id="accordion">
-    <div class="card" *ngFor="let divData of dataSource">
-      <div class="card-header" [id]="divData.id">
-        <h5 class="mb-0">
-          <button
-            class="btn btn-link travelerHeading"
-            data-toggle="collapse"
-            attr.aria-controls="{{ divData.dataToggle }}"
-            attr.data-target="{{ divData.dataToggleHash }}"
-            aria-expanded="false"
-          >
-            <i class="fa fa-suitcase" aria-hidden="true"></i>
-            {{ divData.id }}
+    <div id="accordion">
 
 
-          </button>
-          <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </h5>
-      </div>
-      <div
-        id="{{ divData.dataToggle }}"
-        class="collapse show"
-        attr.aria-labelledby="{{ divData.id }}"
-        data-parent="#accordion"
-      >
-        <div class="card-body">
-          <form class="needs-validation" novalidate>
-            <div class="form-row">
-              <div class="col-md-2 mb-3">
-                <select id="inputState" class="form-control">
-                  <option selected>Title</option>
-                  <option>Mr</option>
-                  <option>Mrs</option>
-                  <option>Master</option>
-                  <option>Ms</option>
-                </select>
-              </div>
-              <div class="col-md-2 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationCustom01"
-                  placeholder="First name"
-                  required
-                />
-                <div class="valid-feedback">
-                  Looks good!
+      <form [formGroup]="travellerForm">
+        <div formArrayName="travellers" *ngFor= "let traveller of travellerForm.get('travellers').controls; let i = index "
+         class="card" >
+         <form [formGroupName]="i">
+
+
+          <div class="card-header" id="dataSource[i].id">
+          <h5 class="mb-0">
+
+            <button class="btn btn-link travelerHeading" data-toggle="collapse"
+              attr.aria-controls="{{ dataSource[i].dataToggle }}" attr.data-target="{{ dataSource[i].dataToggleHash }}"
+              aria-expanded="false">
+              <i class="fa fa-suitcase" aria-hidden="true"></i>
+              {{ dataSource[i].id }}
+            </button>
+            <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
+        </div>
+        <div id="{{ dataSource[i].dataToggle }}" class="collapse " attr.aria-labelledby="{{ dataSource[i].id }}"
+          data-parent="#accordion">
+          <div class="card-body">
+              <div class="form-row">
+                <div class="col-md-2 mb-3">
+                  <select  formControlName="title" id="inputState" class="form-control">
+                    <!-- <option selected>Title</option> -->
+                    <option selected>Mr</option>
+                    <option>Mrs</option>
+                    <option>Master</option>
+                    <option>Ms</option>
+                  </select>
+                  <!-- <div  class="invalid-feedback" style="display: block">
+                    select a title
+                  </div> -->
                 </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="middlename"
-                  placeholder="Middle name"
-                  required
-                />
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="col-md-2 mb-3">
+                  <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.firstName.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.firstName.pristine}"  pattern="[A-Za-z]{3,32}"  formControlName="firstName" type="text" class="form-control"  placeholder="First name" required />
+
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.firstName.dirty"  class="invalid-feedback" style="display: block">
+                    Enter a valid first name
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationCustom02"
-                  placeholder="Last name"
-                  required
-                />
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="col-md-2 mb-3">
+                  <input  [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.middleName.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.middleName.pristine}" pattern="[A-Za-z]{3,32}"  type="text"   formControlName="middleName" class="form-control" id="middlename" placeholder="Middle name" required />
+
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.middleName.dirty"  class="invalid-feedback" style="display: block">
+                    Enter a valid middle name
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <!-- <app-date></app-date> -->
-                <form class="form-inline">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <input class="form-control addTravelDate" placeholder="Date Of Birth"
-                             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fas fa-calendar-alt"></i>
-                        </button>
+                <div class="col-md-2 mb-3">
+                  <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .lastName.invalid && travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.lastName.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.lastName.pristine}"  pattern="[A-Za-z]{3,32}"  type="text"   formControlName="lastName" class="form-control"  placeholder="Last name" required />
+                  
+    
+                </div>
+                <div class="col-md-2 mb-3">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input   formControlName="dateOfBirth" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp"
+                          [(ngModel)]="model"  positionTarget="#dob" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                              class="fas fa-calendar-alt"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </form>
 
-                <div class="valid-feedback">
-                  Looks good!
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="PassportNumber"
-                    placeholder="Passport Number"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Please enter a passport number.
+                <div class="col-md-2 mb-3">
+                  <div class="input-group">
+                    <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                    .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
+                    'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
+                    travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
+                    controls.passportNumber.pristine}" pattern="^[A-Z]{1}-[0-9]{7}$"   formControlName="passportNumber" type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"
+                      required />
+
+                      <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
+                      travellers.controls[i].controls.passportNumber.dirty"  class="invalid-feedback" style="display: block">
+                        Enter a valid passport number
+                      </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-2 mb-3">
-                <!-- <app-date></app-date> -->
-                <form class="form-inline">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <input class="form-control addTravelDate" placeholder="Passport Expiry Date"
-                             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="fas fa-calendar-alt"></i>
-                        </button>
+              <div class="form-row">
+                <div class="col-md-2 mb-3">
+                  <!-- <app-date></app-date> -->
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input   formControlName="passportExpiryDate" class="form-control addTravelDate" placeholder="Passport Expiry Date" name="dp"
+                          [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                              class="fas fa-calendar-alt"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </form>
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="GstNumber"
-                    placeholder="GSTIN No. (Optional)"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Please enter a GST number.
+                  <div class="valid-feedback">
+                    Looks good!
                   </div>
                 </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="validationCustom01"
-                  placeholder="Phone Number"
-                  required
-                />
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-            </div>
-          </form>
+                <div class="col-md-4 mb-3">
+                  <div class="input-group">
+                    <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                    .gstNumber.invalid && travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty,
+                    'is-valid':!(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
+                    travellers.controls[i].controls.gstNumber.dirty) && !travellerForm.controls.travellers.controls[i].
+                    controls.gstNumber.pristine}"    formControlName="gstNumber" type="text" class="form-control" id="GstNumber" placeholder="GSTIN No. (Optional)"
+                      required />
 
-          <form class="needs-validation" novalidate style="margin-top: 20px;">
-            <!-- <hr> -->
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label><b> Adress for pickup of documents </b></label>
-                <br>
-                <div class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                     <div *ngIf="travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
+                      travellers.controls[i].controls.gstNumber.dirty"  class="invalid-feedback" style="display: block">
+                        Enter a valid GST number
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .cellNumber.invalid && travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.cellNumber.pristine}" pattern="^[4-9][0-9]{9}$" type="tel"   formControlName="cellNumber" class="form-control"  placeholder="Mobile Number" required />
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.cellNumber.dirty"  class="invalid-feedback" style="display: block">
+                    Enter a valid mobile number
+                  </div>
+                </div>
+              </div>
+
+              <!-- <hr> -->
+              <div *ngIf="!onlineCategory" class="form-row" style="margin-top: 20px;">
+                <div class="col-md-12 mb-3">
+                  <label><b> Adress for pickup of documents </b></label>
+                  <br>
+                  <div class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
+                    <input  formControlName="addressForPickupSame" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1" style="font-size: 13px">
                       Same as above
                     </label>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div class="input-group">
-                  <textarea
-                    class="form-control "
-                    placeholder="Address"
-                    id="address"
-                    rows="4"
-                  ></textarea>
+                <div class="col-md-4 mb-3">
+                  <div class="input-group">
+                    <textarea formControlName="addressForPickup" class="form-control " placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-2 mb-3">
-                <select id="State" class="form-control">
-                  <option selected>State</option>
-                  <option>Mr</option>
-                  <option>Mrs</option>
-                  <option>Master</option>
-                  <option>Ms</option>
-                </select>
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="col-md-2 mb-3">
+                  <select formControlName="state" id="State" class="form-control">
+                    <option selected>State</option>
+                    <option>Mr</option>
+                    <option>Mrs</option>
+                    <option>Master</option>
+                    <option>Ms</option>
+                  </select>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <select id="City" class="form-control">
-                  <option selected>City</option>
-                  <option>Mr</option>
-                  <option>Mrs</option>
-                  <option>Master</option>
-                  <option>Ms</option>
-                </select>
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="col-md-2 mb-3">
+                  <select formControlName="city" id="City" class="form-control">
+                    <option selected>City</option>
+                    <option>Mr</option>
+                    <option>Mrs</option>
+                    <option>Master</option>
+                    <option>Ms</option>
+                  </select>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-2 mb-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="pincode"
-                  placeholder="Pin Code"
-                  required
-                />
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label><b> Upload required documents here </b></label>
-              </div>
-              <div class="col-md-3 mb-3">
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input
-                      type="file"
-                      class="custom-file-input"
-                      id="customFile"
-                    />
-                    <label class="custom-file-label" for="customFile"
-                      >Choose file</label
-                    >
+                <div class="col-md-2 mb-3">
+                  <input formControlName="pinCode" type="number" class="form-control" id="pincode" placeholder="Pin Code" required />
+                  <div class="valid-feedback">
+                    Looks good!
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 mb-3">
-                <div class="custom-file">
-                  <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="selecall"
-                />    <input
-                    type="file"
-                    class="custom-file-input"
-                    id="customFile"
-                  />
-                  <label class="custom-file-label" for="customFile"
-                    >Choose file</label
-                  >
+              <div *ngIf="onlineCategory"  class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label><b> Upload required documents here </b></label>
                 </div>
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="col-md-3 mb-3">
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile" />
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <div class="custom-file">
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    id="customFile"
-                  />
-                  <label class="custom-file-label" for="customFile"
-                    >Choose file</label
-                  >
+                <div class="col-md-3 mb-3">
+                  <div class="custom-file">
+                    <input type="checkbox" class="custom-control-input" id="selecall" /> <input type="file"
+                      class="custom-file-input" id="customFile" />
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="col-md-3 mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" />
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <div class="custom-file">
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    id="customFile"
-                  />
-                  <label class="custom-file-label" for="customFile"
-                    >Choose file</label
-                  >
-                </div>
-                <div class="valid-feedback">
-                  Looks good!
+                <div class="col-md-3 mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" />
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
+          </div>
         </div>
+        </form>
       </div>
-    </div>
-    <div style="margin: 20px;">
-      <button
-        type="button"
-        style="background-color: navy;color: white;"
-        class="btn btn-info btn-circle btn-lg"
-        (click)="onAddData()"
-      >
-        <i class="fa fa-plus" aria-hidden="true"></i>
-      </button>
-      <span style="margin-left: 10px;">Add Traveller</span>
-    </div>
-    <div
-      style="font-size: 20px;margin-top: 40px;text-transform: capitalize; font-weight: 600;"
-    >
-      value added services
-    </div>
-    <div class="acknowledgementContainer" style="margin-top: 10px;">
-      <div
-        style="background-color: #fff; border-radius: 3px; padding: 5px 10px;font-size: 16px;  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);"
-      >
-        <label style="font-size: 16px;"> Request for a callback for</label>
-        <div class="row" style="margin-left: 4px;">
+      </form>
+
+      <div style="margin: 20px;">
+        <button type="button" style="background-color: navy;color: white;" class="btn btn-info btn-circle btn-lg"
+          (click)="addTraveller()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+        <span style="margin-left: 10px;">Add Traveller</span>
+      </div>
+      <div style="font-size: 20px;margin-top: 40px;text-transform: capitalize; font-weight: 600;">
+        value added services
+      </div>
+      <div class="acknowledgementContainer" style="margin-top: 10px;">
+        <div
+          style="background-color: #fff; border-radius: 3px; padding: 5px 10px;font-size: 16px;  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+          <label style="font-size: 16px;"> Request for a callback for</label>
+          <div class="row" style="margin-left: 4px;">
 
             <div class="form-check col-sm-4 col-md-3">
-                <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="selectall"
-                  />
-                  <label class="custom-control-label" for="selectall"
-                    >Select All
-                  </label>
+              <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+                <input type="checkbox" class="custom-control-input" id="selectall" />
+                <label class="custom-control-label" for="selectall">Select All
+                </label>
 
-                </div>
               </div>
-          <div class="form-check col-sm-4 col-md-3">
-            <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-              <img  src=" ../../../assets//sim.png" alt="" class="img-fluid" height= 22 width=22 style="margin: 0 4px;">
-              <input type="checkbox" class="custom-control-input" id="sim" />
-               <label class="custom-control-label" for="sim">Sim</label>
-
-
-
             </div>
-          </div>
-          <div class="form-check col-sm-4 col-md-3">
+            <div class="form-check col-sm-4 col-md-3">
+              <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+                <img src=" ../../../assets//sim.png" alt="" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
+                <input type="checkbox" class="custom-control-input" id="sim" />
+                <label class="custom-control-label" for="sim">Sim</label>
 
-            <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-              <img  src=" ../../../assets//credit-card.png" alt="" class="img-fluid" height= 22 width=22 style="margin: 0 4px;">
-              <input type="checkbox" class="custom-control-input" id="forex" />
-              <label class="custom-control-label" for="forex">Forex Card</label>
 
+
+              </div>
             </div>
-          </div>
-          <div class="form-check col-sm-4 col-md-3">
-            <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+            <div class="form-check col-sm-4 col-md-3">
 
-              <img  src=" ../../../assets//travel-insurance.png" alt="" class="img-fluid" height= 22 width=22 style="margin: 0 4px;">
-              <input
-              type="checkbox"
-              class="custom-control-input"
-              id="insurance"
-              />
+              <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+                <img src=" ../../../assets//credit-card.png" alt="" class="img-fluid" height=22 width=22
+                  style="margin: 0 4px;">
+                <input type="checkbox" class="custom-control-input" id="forex" />
+                <label class="custom-control-label" for="forex">Forex Card</label>
 
-                <label class="custom-control-label" for="insurance"
-                >Insurance
-              </label>
-              <!-- <img
+              </div>
+            </div>
+            <div class="form-check col-sm-4 col-md-3">
+              <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+
+                <img src=" ../../../assets//travel-insurance.png" alt="" class="img-fluid" height=22 width=22
+                  style="margin: 0 4px;">
+                <input type="checkbox" class="custom-control-input" id="insurance" />
+
+                <label class="custom-control-label" for="insurance">Insurance
+                </label>
+                <!-- <img
                 style="margin-left: 10px;margin-bottom: 2px;"
                 class="iconPM"
                 width="18"
@@ -432,39 +376,33 @@
             </div>
 
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="acknowledgementContainer" style="margin-top: 30px;">
-    <div
-    style="margin-bottom: 50px; border-radius: 3px; padding: 20px; "
-    >
-    <form>
-      <div class="form-check">
-          <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-            <input type="checkbox" class="custom-control-input" id="checkAll" />
-            <label class="custom-control-label tnc" for="checkAll"
-            >I agree with the <a href="#">Terms &amp; Conditions</a> and <a href="#">Cancellation</a> policy of Visa2fly.
+    <div class="acknowledgementContainer" style="margin-top: 30px;">
+      <div style="margin-bottom: 50px; border-radius: 3px; padding: 20px; ">
+        <form>
+          <div class="form-check">
+            <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+              <input type="checkbox" class="custom-control-input" id="checkAll" />
+              <label class="custom-control-label tnc" for="checkAll">I agree with the <a href="#">Terms &amp;
+                  Conditions</a> and <a href="#">Cancellation</a> policy of Visa2fly.
 
-            </label>
+              </label>
+            </div>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
           </div>
-          <div class="invalid-feedback">
-            You must agree before submitting.
-          </div>
-        </div>
 
-        <div style="display: flex; justify-content: center; margin-top: 30px;">
-          <button
-            class="btn btn-primary"
-            style="margin-top: 20px; padding: 8px !important;"
-            type="submit"
-          >
-            Proceed to payment
-          </button>
-        </div>
-      </form>
+          <div style="display: flex; justify-content: center; margin-top: 30px;">
+            <button class="btn btn-primary" style="margin-top: 20px; padding: 8px !important;" type="submit">
+              Proceed to payment
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>

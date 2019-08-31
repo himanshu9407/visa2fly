@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
           'lastName':new FormControl(null, [Validators.required ,Validators.maxLength(20), Validators.minLength(3)]),
           
           'mobile': new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]),
-          'otp': new FormControl(null,[Validators.required, Validators.maxLength(6), Validators.minLength(6)]),
+          'otp': new FormControl(null,[Validators.required]),
           'tnc' : new FormControl(false)
         });
         
@@ -70,10 +70,11 @@ export class SignupComponent implements OnInit {
           (data : SignupResponseModel) => {
             if (!data) {
               this.toastService.showNotification("Something Went wrong", 4000);
-              // this.setFormFresh();
+              this.setFormFresh();
             }
 
-            else if (data.code = "0"){
+            else if (data.code == "0"){
+              console.log("failed to verify but router did the task");
               this.toastService.showNotification(data.message.toString(),5000);
               this.router.navigate(['slcontainer/login']);
 
@@ -81,6 +82,7 @@ export class SignupComponent implements OnInit {
             }
             else {
               this.toastService.showNotification(data.message.toString(),5000);
+              this.setFormFresh();
             }
           }
         );
@@ -89,7 +91,8 @@ export class SignupComponent implements OnInit {
     setFormFresh () {
       this.signupForm.markAsPristine();
       this.signupForm.markAsUntouched();
-      this.signupForm.setValue({email : "", mobile : "", otp : "",firstName:"",lastName:""});
+      this.signupForm.enable();
+      this.signupForm.setValue({email : "", mobile : "", otp : "",firstName:"",lastName:"",tnc:false});
       this.showLoader = false;
       this.showSendOtpButton = true;
     }
@@ -120,6 +123,9 @@ export class SignupComponent implements OnInit {
       this.showSendOtpButton = false;
       this.signupForm.markAsPristine();
       this.signupForm.markAsUntouched()
+      this.signupForm.disable();
+      this.signupForm.get('otp').enable();
+      this.signupForm.get('tnc').enable();
     
       console.log("submitted");
       let enteredMobile = this.signupForm.get('mobile').value;

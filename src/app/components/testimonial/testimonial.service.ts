@@ -14,6 +14,6 @@ export class TestimonialService {
     constructor (private http : HttpClient) {}
 
     getTestimonials () {
-        return this.http.get<any>("http://staging.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/testimonials");
+        return this.http.get<any>("http://staging2.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/testimonials");
     }
 }

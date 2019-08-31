@@ -1,15 +1,26 @@
-<app-header class="pcOnly"></app-header>
-<app-mobile-nav class="mobileOnly"></app-mobile-nav>
-<div id="main" class="paddingTop">
-    <app-toast></app-toast>
- <router-outlet></router-outlet>
- <app-mobile-footer class="mobileOnly"></app-mobile-footer>
+<div [ngClass]="{'show':!showPreloader,'hide':showPreloader}">
+
+  <app-header class="pcOnly"></app-header>
+  <app-mobile-nav class="mobileOnly"></app-mobile-nav>
+  <div id="main" class="paddingTop">
+      <app-toast></app-toast>
+   <router-outlet></router-outlet>
+   <app-chatbox></app-chatbox>
+   <app-mobile-footer class="mobileOnly"></app-mobile-footer>
+  </div>
+  <app-footer class="pcOnly"> </app-footer>
+
 </div>
-<app-footer class="pcOnly"> </app-footer>
+
+
+
+<div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">
+  <app-preloader></app-preloader>
+</div>
 
 <!-- <app-login-signup></app-login-signup> -->
 <!-- <ul>
-    <li *ngFor="let person of people"> 
+    <li *ngFor="let person of people">
       {{ person.name }}
     </li>
    </ul> -->

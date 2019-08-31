@@ -17,6 +17,10 @@ export class TestimonialComponent implements OnInit {
   
   firstTestimonialArr = [];
   secondTestimonialArr = [];
+
+  showTestimonialComponent : boolean = true;
+  firstTestimonialArrExists :boolean = true;
+  secondTestimonialArrExists :boolean = true;
   ngOnInit() { 
   this.testimonialService.getTestimonials().subscribe(
 
@@ -27,13 +31,25 @@ export class TestimonialComponent implements OnInit {
       }
 
       else if (data.code == "0") {
-        console.log(data.data);
+        // console.log(data.data);
         this.testimonialData = data.data ;
         this.firstTestimonialArr = this.testimonialData.slice(0,3);
         this.secondTestimonialArr = this.testimonialData.slice(3,6);
 
-        console.log(this.firstTestimonialArr);
-        console.log(this.secondTestimonialArr);
+
+        if (this.secondTestimonialArr.length == 0) {
+          this.secondTestimonialArrExists = false;
+        }
+        if (this.firstTestimonialArr.length == 0) {
+          this.firstTestimonialArrExists = false;
+        }
+
+        if (!this.secondTestimonialArrExists && !this.firstTestimonialArrExists) {
+          this.showTestimonialComponent = false;
+        }
+
+       
+
 
       }
 
@@ -50,16 +66,8 @@ export class TestimonialComponent implements OnInit {
 
 
   createStarArray (stars :any) :any {
-    // let arr = [];
-    // for (let index = 0; index < stars; index++) {
-      
-    //   console.log(stars);
-    //   arr.push(index);
-    //   console.log(arr);
-    //   return arr;
-    // }
+  
     let arr = Array.from(Array(stars)).map((x, i) => i )
-    console.log(arr);
 
     return arr;
   }

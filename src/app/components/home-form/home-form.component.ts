@@ -24,6 +24,11 @@ import {
 } from '@angular/forms';
 import { HomeFormService } from './home-form.service';
 import { HomeFormModel } from './HomeForm.model';
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { PreloaderService } from 'src/app/shared/preloader.service';
+import { AuthenticationGuard } from 'src/app/shared/AuthenticationGuard.service';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
+import { LoginService } from '../login-signup/login/login.service';
 
 
 @Component({
@@ -128,14 +133,19 @@ export class HomeFormComponent {
 
 
   constructor(private router: Router, private httpClient: HttpClient,
-    private homeFormService : HomeFormService) {
-
-      
+    private homeFormService : HomeFormService,private userFlow : UserFlowDetails,
+    private preloaderService : PreloaderService, private authService : AuthenticationGuard,
+    private loginStatus : LoginStatusService ,private loginService : LoginService) {
+      this.preloaderService.showPreloader(true);
     }
    
     ngOnInit() {
       
-      this.homeFormService.getHomeFormDataFromServer().then((data)=>{this.homeFormData = data});
+      this.homeFormService.getHomeFormDataFromServer()
+      .then((data)=>{
+        this.homeFormData = data
+        this.preloaderService.showPreloader(false);
+      });
  
 
 
@@ -201,6 +211,8 @@ export class HomeFormComponent {
 
 }
 
+
+
 onSubmit() {
   this.purpose.valueChanges.subscribe(
     (value) => {
@@ -234,8 +246,11 @@ onSubmit() {
 
   
     if(this.validateForm()){
-      console.log()
-      console.log("good to go")
+      this.userFlow.setUserFlowDetails("country",this.selectedCountry);
+      this.userFlow.setUserFlowDetails("purpose",this.selectedPurpose);
+      this.userFlow.setUserFlowDetails("entryType",this.selectedVisaType);
+      this.userFlow.setUserFlowDetails("livesIn",this.selectedResidenceOf);
+      console.log(this.userFlow.getUserFlowDetails())
       this.router.navigate(['reg']);
     }
 }

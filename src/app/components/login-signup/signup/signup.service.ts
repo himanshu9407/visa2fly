@@ -15,12 +15,12 @@ export class SignupService {
     getOtp(mobile: string) : Observable<any> {
         let params = new HttpParams().set("cell",mobile);
         console.log(params);
-        return this.http.get<any>("http://ec2-3-14-208-48.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/sendOtp", {params : params});
+        return this.http.get<any>("http://ec2-18-191-74-254.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/sendOtp", {params : params});
     }
 
 
     createUser (reqBody) {
         const headers = new HttpHeaders ({"Content-Type" : "application/json", "visa-client" : "0"});
-        return this.http.post<any>('http://ec2-3-14-208-48.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/signup',reqBody,{headers:headers});
+        return this.http.post<any>('http://ec2-18-191-74-254.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/signup',reqBody,{headers:headers});
     }
 }
