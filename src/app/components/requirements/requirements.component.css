@@ -6,52 +6,12 @@
 }
 
 .countryName {
-  position: absolute;
-  color: #fff;
-  top: 5%;
-  left: 5%;
+  color: #000;
 }
 
-.countryName h2 {
-  font-size: 20px !important;
-  font-weight: 600;
-}
-
-@media (min-width: 768px) and (max-width: 1024px){
-  
-  .smallbannerImageContainer .countryName {
-    position: absolute;
-    color: #fff;
-    top: 13% !important;
-    left: 5%;
-  }
-  
-  .smallbannerImageContainer .countryName h2 {
-    font-size: 20px !important;
-    font-weight: 600;
-  }
-  
-}
-
-@media (min-width: 320px) and (max-width: 480px) {
-  
-  .smallbannerImageContainer .countryName {
-    position: absolute;
-    color: #fff;
-    top: 18% !important;
-    left: 7%;
-  }
-  
-  .smallbannerImageContainer .countryName h2 {
-    font-size: 20px !important;
-    font-weight: 600;
-  }
-}
-
-
-.stepContainer {
+/* .stepContainer {
   margin-top: 20px;
-}
+} */
 
 .visa-price {
   /* width: 60px; */
@@ -116,7 +76,11 @@
       position: relative;
     }
   
-    .alert-wrapper .header .action_req {
+    .alert-wrapper .header .action_req .smallstepContainer{
+      margin-top: 20px;
+      background-color: whitesmoke;
+      border-radius: 20px;
+    
       margin: auto;
       padding: 10px 20px;
       display: block;
@@ -282,8 +246,13 @@
     .upperContainer {
       /* padding-left: 50px;
       padding-right: 50px; */
-      max-height: 500px;
+      max-height: 450px;
       padding-bottom: 0px !important;
+  }
+  .smallstepContainer{
+    margin-top: 0px !important;
+    background-color: whitesmoke;
+    border-radius: 20px;
   }
     .stepNumber {
       font-size: 16px;
@@ -1056,9 +1025,9 @@
             }
           }
           @media (min-width: 1024px) and (max-width: 1600px) {
-            .visaPriceContainer{
-              margin-top: 10px;
-            }
+            /* .visaPriceContainer{ */
+              /* margin-top: 440px; */
+            /* } */
           }
 
           @media  (max-width:1023px) {
