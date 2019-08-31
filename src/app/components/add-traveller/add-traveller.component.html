@@ -38,14 +38,56 @@
             <div class="center">
               <div class="dateOfTravelContainer visaDateHeading">
                 Date Of Travel
-                <app-date></app-date>
+               
+                <div class="input-group" style="font-weight: bold;">
+                  <input
+                    class="form-control addTravelDate"
+                    placeholder="Date Of Travel"
+                    name="dp"
+                    [(ngModel)]="model"
+                    ngbDatepicker
+                    #dot="ngbDatepicker"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-secondary calendar"
+                      (click)="dot.toggle()"
+                      type="button"
+                    >
+                      <i class="fas fa-calendar-alt"></i>
+                    </button>
+                  </div>
+                </div>
+               
+              
               </div>
             </div>
             <div class="center">
               <div class="dateOfTravelContainer visaDateHeading documents">
                 Date Of Collection <br />
                 of Documents
-                <app-date></app-date>
+                
+                <div class="input-group" style="font-weight: bold;">
+                  <input
+                    class="form-control addTravelDate"
+                    placeholder="Passport Expiry Date"
+                    name="dp"
+                    [(ngModel)]="model"
+                    ngbDatepicker
+                    #doc="ngbDatepicker"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-secondary calendar"
+                      (click)="doc.toggle()"
+                      type="button"
+                    >
+                      <i class="fas fa-calendar-alt"></i>
+                    </button>
+                  </div>
+                </div>
+              
+                  
               </div>
             </div>
           </div>
@@ -148,19 +190,19 @@
                   <!-- <app-date></app-date> -->
                   <form class="form-inline">
                     <div class="form-group">
-                      <div class="input-group">
+                      <div class="input-group" style="font-weight: bold;">
                         <input
                           class="form-control addTravelDate"
                           placeholder="Date Of Birth"
                           name="dp"
                           [(ngModel)]="model"
                           ngbDatepicker
-                          #d="ngbDatepicker"
+                          #dob="ngbDatepicker"
                         />
                         <div class="input-group-append">
                           <button
                             class="btn btn-outline-secondary calendar"
-                            (click)="d.toggle()"
+                            (click)="dob.toggle()"
                             type="button"
                           >
                             <i class="fas fa-calendar-alt"></i>
@@ -194,19 +236,19 @@
                   <!-- <app-date></app-date> -->
                   <form class="form-inline">
                     <div class="form-group">
-                      <div class="input-group">
+                      <div class="input-group" style="font-weight: bold;">
                         <input
                           class="form-control addTravelDate"
                           placeholder="Passport Expiry Date"
                           name="dp"
                           [(ngModel)]="model"
                           ngbDatepicker
-                          #d="ngbDatepicker"
+                          #td="ngbDatepicker"
                         />
                         <div class="input-group-append">
                           <button
                             class="btn btn-outline-secondary calendar"
-                            (click)="d.toggle()"
+                            (click)="td.toggle()"
                             type="button"
                           >
                             <i class="fas fa-calendar-alt"></i>
@@ -380,12 +422,20 @@
                       class="custom-file-input"
                       id="customFile"
                     />
-                      <label class="custom-file-label" for="customFile"
+                    <label class="custom-file-label" for="customFile"
                       >Choose file
-                      <button type="button" class="btn" data-toggle="tooltip" data-placement="left" title="lorembhkb" style="position: absolute; right: 70px; bottom: 1px;">
-                        <i class="fa fa-info-circle"></i>
-                      </button></label
-                    >
+                      <button
+                        type="button"
+                        mat-raised-button
+                        matTooltip="Info about the action"
+                        class="btn"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        title="lorembhkb"
+                        style="position: absolute; right: 70px; bottom: 1px;"
+                      >
+                        <i class="fa fa-info-circle"></i></button
+                    ></label>
                   </div>
                   <div class="valid-feedback">
                     Looks good!
