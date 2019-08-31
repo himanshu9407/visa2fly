@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeFormService } from '../home-form/home-form.service';
 
 @Component({
   selector: 'app-home-container',
@@ -6,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-container.component.css']
 })
 export class HomeContainerComponent implements OnInit {
-
-  constructor() { }
+  constructor(private homeFormService : HomeFormService) { }
 
   ngOnInit() {
-    
+
   }
 
 }

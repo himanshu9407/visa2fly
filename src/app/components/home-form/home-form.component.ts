@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  Input
 } from '@angular/core';
 import {
   Router
@@ -21,6 +22,8 @@ import {
   FormControl,
   AbstractControl
 } from '@angular/forms';
+import { HomeFormService } from './home-form.service';
+import { HomeFormModel } from './HomeForm.model';
 
 
 @Component({
@@ -29,29 +32,23 @@ import {
   styleUrls: ['./home-form.component.css']
 })
 export class HomeFormComponent {
+  // @Input() homeFormData1 ;
 
+  // homeFormData;
+
+  // @Input () childMessage;
   homeForm: FormGroup;
 
-  public landing: home_formData = {
-    "code": "0",
-    "status": "SUCCESS",
-    "message": "Data Fetched Successfully",
-    "data": [{
-      "countryName": "Austrailia",
-      "purpose": ["BUSINESS", "TOURIST"],
-      "entryType": ["SINGLE_ENTRY"],
-      "residenceOf": ["Delhi", "Noida", "Gurgaon"]
-    }, ]
-  };
 
-  public homeFormData = {
+
+  public homeFormData  = {
     "code": "0",
     "status": "SUCCESS",
     "message": "Data Fetched Successfully",
     "data": {
-      "countries": ["Australia", "Dubai", "Russia"],
+      "countries": ["Austrailia", "Dubai", "Russia"],
       "data": {
-        "Australia": {
+        "Austrailia": {
           "countryName": "Austrailia",
           "purpose": ["BUSINESS", "TOURIST"],
           "entryType": ["SINGLE ENTRY"],
@@ -73,19 +70,48 @@ export class HomeFormComponent {
     }
   };
 
+  // public homeFormData = {
+  //   "code": "0",
+  //   "status": "SUCCESS",
+  //   "message": "Data Fetched Successfully",
+  //   "data": {
+  //     "countries": ["Australia", "Dubai", "Russia"],
+  //     "data": {
+  //       "Australia": {
+  //         "countryName": "Austrailia",
+  //         "purpose": ["BUSINESS", "TOURIST"],
+  //         "entryType": ["SINGLE ENTRY"],
+  //         "residenceOf": ["Delhi", "Noida", "Gurgaon"]
+  //       },
+  //       "Dubai": {
+  //         "countryName": "Dubai",
+  //         "purpose": ["BUSINESS", "TOURIST"],
+  //         "entryType": ["SINGLE ENTRY", "MULTIPLE ENTRY"],
+  //         "residenceOf": ["Delhi", "Noida", "Gurgaon"]
+  //       },
+  //       "Russia": {
+  //         "countryName": "Russia",
+  //         "purpose": ["BUSINESS", "TOURIST"],
+  //         "entryType": ["SINGLE ENTRY", "MULTIPLE ENTRY"],
+  //         "residenceOf": ["Delhi", "Noida", "Gurgaon"]
+  //       }
+  //     }
+  //   }
+  // };
+
 
   // public residenceOf : string [];
-  public selectedResidenceOf: string;
+  public selectedResidenceOf: string = "select";
 
   // public visaType : string [];
-  public selectedVisaType: string;
+  public selectedVisaType: string="select";
 
   // public country : string [];
-  public selectedCountry: string;
+  public selectedCountry: string = "Austrailia";
 
 
   // public purpose : string [];
-  public selectedPurpose: string;
+  public selectedPurpose: string="select";
 
 
   public country: AbstractControl;
@@ -93,36 +119,31 @@ export class HomeFormComponent {
   public visaType: AbstractControl;
   public livesIn: AbstractControl;
 
+
   public purposeNotSelected: boolean = false;
   public visaTypeNotSelected: boolean = false;
   public livesInNotSelected: boolean = false;
 
-  // toggle() {
-  // //   this.show = !this.show;
-  // }
-
-
-  constructor(private router: Router, private httpClient: HttpClient, private myservice: HomeServiceService) {}
 
 
 
+  constructor(private router: Router, private httpClient: HttpClient,
+    private homeFormService : HomeFormService) {
 
-
-  ngOnInit() {
-    // console.log(this.landing);
-    // this.myservice.get_landing().subscribe((res: home_formData) => {
-    //   this.landing = res;
-      // console.log(this.landing);
-    // });
-    this.selectedCountry = this.homeFormData.data.countries[0];
-    this.selectedPurpose = "select"
-    this.selectedVisaType = "select"
-    this.selectedResidenceOf = "select"
+      
+    }
+   
+    ngOnInit() {
+      
+      this.homeFormService.getHomeFormDataFromServer().then((data)=>{this.homeFormData = data});
+ 
 
 
 
-    this.homeForm = new FormGroup({
-      'country': new FormControl("Australia"),
+  
+
+      this.homeForm = new FormGroup({
+      'country': new FormControl("Austrailia"),
       'purpose': new FormControl("select"),
       'visatype': new FormControl("select"),
       'livingin': new FormControl("select")
@@ -133,7 +154,8 @@ export class HomeFormComponent {
     this.purpose = this.homeForm.get('purpose');
     this.visaType = this.homeForm.get('visatype');
     this.livesIn = this.homeForm.get('livingin');
-    // this.country.setValue('Australia')
+
+
   }
 
   validatePurpose() {
@@ -155,16 +177,14 @@ export class HomeFormComponent {
   validateLivingIn() {
     if (this.livesIn.dirty && this.livesIn.value == 'select' || !this.livesIn.touched || this.livesIn.pristine) {
       this.livesInNotSelected = true;
-      // console.log(this.livesIn.dirty && this.livesIn.value == 'select' );
-      // console.log(this.livesIn.pristine)
-      // console.log(this.livesIn)
+
       return false;
     }
     else {return true}
   }
 
   validateForm() {
-    // console.log("validate form method called");
+    console.log("validate form method called");
     this.validatePurpose();
     this.validateVisaType();
     this.validateLivingIn();
@@ -177,17 +197,6 @@ export class HomeFormComponent {
       return true;
     }
 
-    // this.validateLivingIn()
-
-  
-
-
-
-
-
-  // toggle() {
-  // //   this.show = !this.show;
-  // }
 
 
 }
@@ -200,6 +209,7 @@ onSubmit() {
       } else {
         this.purposeNotSelected = false;
       }
+      console.log(this.purpose);
     }
   );
 
@@ -222,13 +232,11 @@ onSubmit() {
     }
   );
 
-    // console.log("purpose"+ this.validateLivingIn())
   
     if(this.validateForm()){
       console.log()
       console.log("good to go")
       this.router.navigate(['reg']);
     }
-  this.router.navigate(['reg']);
 }
 }

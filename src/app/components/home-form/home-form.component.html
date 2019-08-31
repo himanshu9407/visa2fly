@@ -1,4 +1,4 @@
-
+    <!-- <div>{{homeFormData.code}}</div> -->
         <!-- <div style="background-color: #e5e5e5; padding: 50px;"> -->
         <!-- <ng-container> -->
             <!-- first form -->
@@ -52,9 +52,9 @@
                         </div>
                         <select  formControlName="livingin"  [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
                             <option value="select">Select</option>
-                           
+
                             <option  class="purpose-opt" *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
-                               
+
                         </select>
                         <div  *ngIf="livesInNotSelected" class="invalid-feedback">
                                 Please choose where you live.
@@ -66,10 +66,10 @@
 
                        <!-- <button (click) ="onClick()">click me</button> -->
                     </form>
-                    <div class="clear"></div> 
+                    <div class="clear"></div>
                    </div>
 
-<!-- 
+<!--
                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
                     <input type="text" name="name" ngModel required>
@@ -100,7 +100,7 @@
                         <label class="chkLabel">Child</label>
                         <div class="icon-s1-user pull-left"></div>
                         <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="child">
-                        <option value="0">0</option>  
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -111,8 +111,8 @@
                          <label class="chkLabel">flight tickets</label>
                          <div class="icon-s1-ticket pull-left"></div>
                           <select class="chkselect ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="isTicketBooked" ng-change="removerErrorrForAnuglar('isTicketBooked')">
-                           <option value="0"></option>  
-                           <option value="1">Booked</option>  
+                           <option value="0"></option>
+                           <option value="1">Booked</option>
                            <option value="2">Not Booked</option>
                           </select>
                           <div id="spnFlightTktBooked" class="error ng-binding"></div>
@@ -130,8 +130,8 @@
                                <button class="chkIp chkSubmit serchcountrybtn mobile" style="display: none;" (click)="toggle()">Back</button>
                                <button class="chkIp chkSubmit serchcountrybtn" ng-click="getSearchData()">Search</button>
                            </div>
-                           
-                              <div class="clear"></div> 
+
+                              <div class="clear"></div>
                             </div>
                           </div>
         </ng-container> -->

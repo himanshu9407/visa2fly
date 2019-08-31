@@ -4,6 +4,7 @@ import { SignupService } from './signup.service';
 import { SignupResponseModel } from './SignupResponse.model';
 import { HttpParams } from '@angular/common/http';
 import { ToastService } from 'src/app/shared/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -19,17 +20,22 @@ export class SignupComponent implements OnInit {
   showLoader : boolean = false;
   showAlert : boolean = false;
   otpFormSubmitted : boolean = false;
+  showSignUpButton : boolean = false;
 
 
 
-  constructor(private singUpService : SignupService, private toastService :ToastService) { }
+  constructor(private singUpService : SignupService, private toastService :ToastService,private router : Router) { }
 
   ngOnInit() {
       this.signupForm = new FormGroup({
          
           'email': new FormControl(null, [Validators.required, Validators.email]),
+          'firstName':new FormControl(null, [Validators.required,Validators.maxLength(20), Validators.minLength(3) ]),
+          'lastName':new FormControl(null, [Validators.required ,Validators.maxLength(20), Validators.minLength(3)]),
+          
           'mobile': new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]),
           'otp': new FormControl(null,[Validators.required, Validators.maxLength(6), Validators.minLength(6)]),
+          'tnc' : new FormControl(false)
         });
         
         
@@ -45,12 +51,45 @@ export class SignupComponent implements OnInit {
     }
   
     createUser () {
-      console.log(this.signupForm.get('otp').value);
+      console.log(this.signupForm.value);
+
+      let reqBody = {emailId:"",firstName:"",lastName:"",cell:"",otp:"",acceptedTOC:""};
+      this.showSignUpButton = false;
+      this.showLoader = true;
+      reqBody.emailId = this.signupForm.get('email').value;
+      reqBody.firstName = this.signupForm.get('firstName').value;
+      reqBody.lastName = this.signupForm.get('lastName').value;
+      reqBody.cell = this.signupForm.get('mobile').value;
+      reqBody.otp = this.signupForm.get('otp').value;
+      reqBody.acceptedTOC = this.signupForm.get('tnc').value;
+
+      console.log(reqBody);
+
+      this.singUpService.createUser(reqBody)
+        .subscribe(
+          (data : SignupResponseModel) => {
+            if (!data) {
+              this.toastService.showNotification("Something Went wrong", 4000);
+              // this.setFormFresh();
+            }
+
+            else if (data.code = "0"){
+              this.toastService.showNotification(data.message.toString(),5000);
+              this.router.navigate(['slcontainer/login']);
+
+
+            }
+            else {
+              this.toastService.showNotification(data.message.toString(),5000);
+            }
+          }
+        );
+
     }
     setFormFresh () {
       this.signupForm.markAsPristine();
       this.signupForm.markAsUntouched();
-      this.signupForm.setValue({email : "", mobile : "", otp : ""});
+      this.signupForm.setValue({email : "", mobile : "", otp : "",firstName:"",lastName:""});
       this.showLoader = false;
       this.showSendOtpButton = true;
     }
@@ -65,8 +104,13 @@ export class SignupComponent implements OnInit {
     }
     
     afterSuccessfullOtpSent () {
+      this.signupForm.get('firstName').disable();
+      this.signupForm.get('lastName').disable();
+      this.signupForm.get('email').disable();
+      this.signupForm.get('mobile').disable();
       this.otpSentCount++;
       this.showOtpFields = true;
+      this.showSignUpButton = true;
       this.showLoader = false;
       this.showAlertMessage();
     }

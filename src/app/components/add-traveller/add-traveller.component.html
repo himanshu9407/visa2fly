@@ -108,6 +108,7 @@
   <div class="addPassengerContainer">
     <div class="addPassengerHeading">Passenger Details</div>
 
+<<<<<<< HEAD
     <div id="accordion">
       <div class="card" *ngFor="let divData of dataSource">
         <div class="card-header" [id]="divData.id">
@@ -149,6 +150,69 @@
                     <option>Master</option>
                     <option>Ms</option>
                   </select>
+=======
+  <div id="accordion">
+    <div class="card" *ngFor="let divData of dataSource">
+      <div class="card-header" [id]="divData.id">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link travelerHeading"
+            data-toggle="collapse"
+            attr.aria-controls="{{ divData.dataToggle }}"
+            attr.data-target="{{ divData.dataToggleHash }}"
+            aria-expanded="false"
+          >
+            <i class="fa fa-suitcase" aria-hidden="true"></i>
+            {{ divData.id }}
+
+
+          </button>
+          <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h5>
+      </div>
+      <div
+        id="{{ divData.dataToggle }}"
+        class="collapse show"
+        attr.aria-labelledby="{{ divData.id }}"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <form class="needs-validation" novalidate>
+            <div class="form-row">
+              <div class="col-md-2 mb-3">
+                <select id="inputState" class="form-control">
+                  <option selected>Title</option>
+                  <option>Mr</option>
+                  <option>Mrs</option>
+                  <option>Master</option>
+                  <option>Ms</option>
+                </select>
+              </div>
+              <div class="col-md-2 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="First name"
+                  required
+                />
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="middlename"
+                  placeholder="Middle name"
+                  required
+                />
+                <div class="valid-feedback">
+                  Looks good!
+>>>>>>> 9afa8d83b656aee8e0d6bb4f68d992e1cf105025
                 </div>
                 <div class="col-md-2 mb-3">
                   <input
@@ -288,6 +352,7 @@
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
             </form>
 
             <form class="needs-validation" novalidate style="margin-top: 20px;">
@@ -310,6 +375,32 @@
                       for="defaultCheck1"
                       style="font-size: 13px"
                     >
+=======
+              <div class="col-md-2 mb-3">
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="Phone Number"
+                  required
+                />
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <form class="needs-validation" novalidate style="margin-top: 20px;">
+            <!-- <hr> -->
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label><b> Adress for pickup of documents </b></label>
+                <br>
+                <div class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1" style="font-size: 13px">
+>>>>>>> 9afa8d83b656aee8e0d6bb4f68d992e1cf105025
                       Same as above
                     </label>
                   </div>
@@ -466,6 +557,7 @@
       <div
         style="font-size: 20px;margin-top: 40px;text-transform: capitalize; font-weight: 600;"
       >
+<<<<<<< HEAD
         value added services
       </div>
       <div class="acknowledgementContainer" style="margin-top: 10px;">
@@ -547,6 +639,52 @@
                   class="custom-control-input"
                   id="insurance"
                 />
+=======
+        <label style="font-size: 16px;"> Request for a callback for</label>
+        <div class="row" style="margin-left: 4px;">
+
+            <div class="form-check col-sm-4 col-md-3">
+                <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="selectall"
+                  />
+                  <label class="custom-control-label" for="selectall"
+                    >Select All
+                  </label>
+
+                </div>
+              </div>
+          <div class="form-check col-sm-4 col-md-3">
+            <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+              <img  src=" ../../../assets//sim.png" alt="" class="img-fluid" height= 22 width=22 style="margin: 0 4px;">
+              <input type="checkbox" class="custom-control-input" id="sim" />
+               <label class="custom-control-label" for="sim">Sim</label>
+
+
+
+            </div>
+          </div>
+          <div class="form-check col-sm-4 col-md-3">
+
+            <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+              <img  src=" ../../../assets//credit-card.png" alt="" class="img-fluid" height= 22 width=22 style="margin: 0 4px;">
+              <input type="checkbox" class="custom-control-input" id="forex" />
+              <label class="custom-control-label" for="forex">Forex Card</label>
+
+            </div>
+          </div>
+          <div class="form-check col-sm-4 col-md-3">
+            <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+
+              <img  src=" ../../../assets//travel-insurance.png" alt="" class="img-fluid" height= 22 width=22 style="margin: 0 4px;">
+              <input
+              type="checkbox"
+              class="custom-control-input"
+              id="insurance"
+              />
+>>>>>>> 9afa8d83b656aee8e0d6bb4f68d992e1cf105025
 
                 <label class="custom-control-label" for="insurance"
                   >Insurance
@@ -564,6 +702,7 @@
                 /> -->
               </div>
             </div>
+<<<<<<< HEAD
           </div>
         </div>
       </div>
@@ -590,6 +729,30 @@
             <div class="invalid-feedback">
               You must agree before submitting.
             </div>
+=======
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acknowledgementContainer" style="margin-top: 30px;">
+    <div
+    style="margin-bottom: 50px; border-radius: 3px; padding: 20px; "
+    >
+    <form>
+      <div class="form-check">
+          <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+            <input type="checkbox" class="custom-control-input" id="checkAll" />
+            <label class="custom-control-label tnc" for="checkAll"
+            >I agree with the <a href="#">Terms &amp; Conditions</a> and <a href="#">Cancellation</a> policy of Visa2fly.
+
+            </label>
+          </div>
+          <div class="invalid-feedback">
+            You must agree before submitting.
+>>>>>>> 9afa8d83b656aee8e0d6bb4f68d992e1cf105025
           </div>
 
           <div
