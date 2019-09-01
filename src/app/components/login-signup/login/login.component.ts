@@ -14,13 +14,15 @@ import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-    loginForm : FormGroup;
-    showLoader : boolean = false;
-    showLoginButton : boolean = false;
-    ipAddress : string = "";
-    showOtpField  : boolean = false;
-    showSendOtp : boolean = true;
+    
+  
+  otpSentCount : number = 0;
+  loginForm : FormGroup;
+  showLoader : boolean = false;
+  showLoginButton : boolean = false;
+  ipAddress : string = "";
+  showOtpField  : boolean = false;
+  showSendOtp : boolean = true;
   showAlert: boolean = false;
 
   constructor( private loginService : LoginService,
@@ -87,6 +89,7 @@ export class LoginComponent implements OnInit {
           this.showAlertMessage();
           this.loginForm.get('userId').disable();
           this.showOtpField = true;
+          this.otpSentCount = this.otpSentCount+1;
         }
         else {
           this.toastService.showNotification(data.message,4000);

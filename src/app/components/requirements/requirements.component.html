@@ -4,6 +4,7 @@
       <img class="bannerImage" src="../../../assets/requirement/3OdGZzTt1fM_Full.png" alt="bannerCountry" />
       <div class="countryName">
         <h2>{{userFlowDetails.country}}</h2>
+
       </div>
     </div>
 
@@ -113,13 +114,13 @@
 
   <div class="smallstepContainer">
     <ng-container *ngIf="!onlinestatus">
-      <div class="col-lg-12 countryName text-center">
-        <h2 style="font-size: 22px;">Canada</h2>
-      </div>
+        <div class="col-lg-12 countryName text-center">
+            <h2 style="font-size: 22px;">Canada</h2>
+          </div>
       <div class="row offline" style="margin-top: 10px;">
         <div class="col-xs-6 col-sm-6">
           <div class="row smallStepOffline">
-
+           
             <div class="col-xs-4 col-sm-4">
               <div class="smallStepNumberOffline">Step 1</div>
               <img src="../../../assets/text-document.png" alt="" class="img-fluid chooseImage" />
@@ -345,14 +346,14 @@
     <!-- <div class="row accordianWrapper container"> -->
     <div class="col-md-12">
       <div class="gmvsprite_container" *ngFor="let items of mainArr; let i = index ;" style="">
-        <div class="gmvsprite_row">
-          <div class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrements(i,j)">
+        <div class="gmvsprite_row" >
+          <div class="gmvsprite_col" *ngFor = "let item of items;let j = index " (click)="onClickRequrements(i,j)">
             <div class="parent active ng-scope">
-
+              
               <p>{{item.fieldName}}</p>
             </div>
           </div>
-
+        
         </div>
 
         <div *ngIf="showRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">

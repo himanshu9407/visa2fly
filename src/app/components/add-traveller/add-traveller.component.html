@@ -62,8 +62,6 @@
     <div class="addPassengerHeading">Passenger Details</div>
 
     <div id="accordion">
-
-
       <form [formGroup]="travellerForm">
         <div formArrayName="travellers" *ngFor= "let traveller of travellerForm.get('travellers').controls; let i = index "
          class="card" >
@@ -77,9 +75,9 @@
               attr.aria-controls="{{ dataSource[i].dataToggle }}" attr.data-target="{{ dataSource[i].dataToggleHash }}"
               aria-expanded="false">
               <i class="fa fa-suitcase" aria-hidden="true"></i>
-              {{ dataSource[i].id }}
+              {{ dataSource[i].id.substring(0,10) }}
             </button>
-            <button type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+            <button (click)="removeTraveller(i)" type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </h5>
@@ -139,7 +137,7 @@
                         <input   formControlName="dateOfBirth" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp"
                           [(ngModel)]="model"  positionTarget="#dob" ngbDatepicker #d="ngbDatepicker">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                          <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i
                               class="fas fa-calendar-alt"></i>
                           </button>
                         </div>
@@ -156,7 +154,7 @@
                     .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                    controls.passportNumber.pristine}" pattern="^[A-Z]{1}-[0-9]{7}$"   formControlName="passportNumber" type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"
+                    controls.passportNumber.pristine}"    formControlName="passportNumber" type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"
                       required />
 
                       <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
@@ -216,7 +214,7 @@
               <div *ngIf="!onlineCategory" class="form-row" style="margin-top: 20px;">
                 <div class="col-md-12 mb-3">
                   <label><b> Adress for pickup of documents </b></label>
-                  <br>ico
+                  <br>
                   <div class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
                     <input  formControlName="addressForPickupSame" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1" style="font-size: 13px">
@@ -398,7 +396,7 @@
           </div>
 
           <div style="display: flex; justify-content: center; margin-top: 30px;">
-            <button class="btn btn-primary" style="margin-top: 20px; padding: 8px !important;" type="submit">
+            <button (click)="seeValues()" class="btn btn-primary" style="margin-top: 20px; padding: 8px !important;" type="submit">
               Proceed to payment
             </button>
           </div>

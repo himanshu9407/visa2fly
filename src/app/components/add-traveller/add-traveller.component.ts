@@ -12,7 +12,7 @@ import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 export class AddTravellerComponent implements OnInit {
   model: NgbDateStruct;
 
-  dataSource = [{id:"Traveller 1",dataToggle:"toogle1", dataToggleHash:"#toogle1"}];
+  dataSource = [{id:"Primary",dataToggle:"toogle1", dataToggleHash:"#toogle1"}];
   // obj = {id:"",dataToggle:"",dataToggleHash:""};
 
   traveller_Id=[];
@@ -28,8 +28,8 @@ export class AddTravellerComponent implements OnInit {
   constructor(private formBuilder : FormBuilder,
      private toastService : ToastService, private userFlow : UserFlowDetails ) { }
 
-  travellerForm: FormGroup;
-  travellers:FormArray;
+  travellerForm: any;
+  travellers:any;
 
   ngOnInit() {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
@@ -73,7 +73,22 @@ export class AddTravellerComponent implements OnInit {
 
   
   get formData (){
-    return <FormArray>this.travellerForm.get('travellers'); 
+    return <FormArray>this.travellerForm.get('travellers') ; 
+  }
+
+  seeValues () {
+    console.log(this.travellerForm.get('travellers'));
+    console.log(this.travellerForm.valid);
+
+  }
+
+  removeTraveller (index:number) {
+    console.log("clicked "+index);
+    let temp =this.travellerForm.get('travellers') as FormArray;
+    temp.removeAt(index);
+    this.dataSource.splice(index,1);
+
+    
   }
 
   addTraveller(): void {
@@ -97,7 +112,6 @@ export class AddTravellerComponent implements OnInit {
           )
       }
 
-      console.log(this.travellerForm.valid);
   }
 
   // onAddData() {
