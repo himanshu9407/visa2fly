@@ -33,14 +33,38 @@
             <div class="center">
               <div class="dateOfTravelContainer visaDateHeading">
                 Date Of Travel
-                <app-date></app-date>
+                <form class="form-inline">
+                    <div class="form-group font-weight-bold">
+                        <div class="input-group">
+                          <input   formControlName="passportExpiryDate" class="form-control dateOfTravel" placeholder="Passport Expiry Date" name="dp"
+                            [(ngModel)]="model" ngbDatepicker #dot="ngbDatepicker">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button"><i
+                                class="fas fa-calendar-alt"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>    
+                </form>
               </div>
             </div>
             <div class="center">
               <div class="dateOfTravelContainer visaDateHeading documents">
                 Date Of Collection <br />
                 of Documents
-                <app-date></app-date>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                          <input   formControlName="passportExpiryDate" class="form-control dateOfCollection" placeholder="Passport Expiry Date" name="dp"
+                            [(ngModel)]="model" ngbDatepicker #doc="ngbDatepicker">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button"><i
+                                class="fas fa-calendar-alt"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>   
+                </form>
               </div>
             </div>
           </div>
@@ -134,12 +158,12 @@
     
                 </div>
                 <div class="col-md-2 mb-3">
-                    <div class="form-group">
+                    <div class="form-group font-weight-bold">
                       <div class="input-group">
                         <input   formControlName="dateOfBirth" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp"
-                          [(ngModel)]="model"  positionTarget="#dob" ngbDatepicker #d="ngbDatepicker">
+                          [(ngModel)]="model"  positionTarget="#dob" ngbDatepicker #dob="ngbDatepicker">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                          <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i
                               class="fas fa-calendar-alt"></i>
                           </button>
                         </div>
@@ -169,12 +193,12 @@
               <div class="form-row">
                 <div class="col-md-2 mb-3">
                   <!-- <app-date></app-date> -->
-                    <div class="form-group">
+                    <div class="form-group font-weight-bold">
                       <div class="input-group">
                         <input   formControlName="passportExpiryDate" class="form-control addTravelDate" placeholder="Passport Expiry Date" name="dp"
-                          [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                          [(ngModel)]="model" ngbDatepicker #pe="ngbDatepicker">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                          <button class="btn btn-outline-secondary calendar" (click)="pe.toggle()" type="button"><i
                               class="fas fa-calendar-alt"></i>
                           </button>
                         </div>
@@ -216,7 +240,7 @@
               <div *ngIf="!onlineCategory" class="form-row" style="margin-top: 20px;">
                 <div class="col-md-12 mb-3">
                   <label><b> Adress for pickup of documents </b></label>
-                  <br>ico
+                  <br>
                   <div class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
                     <input  formControlName="addressForPickupSame" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1" style="font-size: 13px">
@@ -261,7 +285,7 @@
                   </div>
                 </div>
               </div>
-              <div *ngIf="onlineCategory"  class="form-row">
+              <div *ngIf="!onlineCategory"  class="form-row">
                 <div class="col-md-12 mb-3">
                   <label><b> Upload required documents here </b></label>
                 </div>
@@ -296,11 +320,20 @@
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="customFile" />
                     <label class="custom-file-label" for="customFile">Choose file</label>
+                    <button type="button" class="btn mr-2 pic-info" placement="left" ngbTooltip="Tooltip on left">
+                        <i class="fa fa-info-circle"></i>
+                      </button>
                   </div>
                   <div class="valid-feedback">
                     Looks good!
                   </div>
                 </div>
+                <div class="col-md-12">
+                    <p class="font-weight-bold" style="font-size: 14px;">
+                      <span>*</span>File must be in JPG, PNG or PDF Format Only.
+                      File must not exceed 1 MB.
+                    </p>
+                  </div>
               </div>
           </div>
         </div>
