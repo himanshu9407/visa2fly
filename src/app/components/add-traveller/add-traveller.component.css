@@ -7,6 +7,16 @@ textarea,
   font-size: 14px;
 }
 
+.pic-info {
+  position: absolute; right: 70px; bottom: 6px;
+  border: none !important;
+  z-index: 10;
+}
+
+.pic-info:hover {
+  border: none;
+}
+
 
 .dataSource span {
   font-size: 16px;
@@ -45,11 +55,22 @@ textarea,
     border-color: #a9a9a9;
     font-size: 14px;
   }
+
+  .dateOfTravel, .dateOfCollection {
+    flex: none !important;
+    width: 10.8rem !important;
+    border-color: #a9a9a9;
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 767px) and (max-width: 1024px) {
   .addTravelDate {
     max-width: 102px !important;
+  }
+
+  .dateOfTravel, .dateOfCollection {
+    width: 150px !important;
   }
 }
 
@@ -61,11 +82,19 @@ textarea,
   .btn {
     font-weight: bold;
   }
+
+  .dateOfTravel, .dateOfCollection {
+    width: 60px !important;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .btn {
     font-weight: bold;
+  }
+
+  .dateOfTravel, .dateOfCollection {
+    width: 9rem !important;
   }
 }
 
