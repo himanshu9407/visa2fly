@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
 
 
@@ -11,9 +12,11 @@ export class TestimonialService {
 
     dataArr1;
     dataArr2;
-    constructor (private http : HttpClient) {}
+    constructor (private http : HttpClient, private userFlow: UserFlowDetails) {}
 
     getTestimonials () {
-        return this.http.get<any>("https://staging2.visa2fly.com/info/testimonials");
+        const base_url = this.userFlow.getBaseURL();
+
+        return this.http.get<any>(base_url+"info/testimonials");
     }
 }

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserFlowDetails } from './user-flow-details.service';
 
 @Injectable({
     providedIn: 'root'
   })  
 export class LoginStatusService {
 
-    constructor( private http : HttpClient){}
+    constructor( private http : HttpClient, private userFlow : UserFlowDetails){}
 
     public subject = new  Subject<any>();
     public subject1 = new Subject<any>();
@@ -41,7 +42,9 @@ export class LoginStatusService {
 
     verifyAuthToken (authToken : string) {
         const headers = new HttpHeaders({"token":authToken,"visa-client":"0"});
-        return this.http.get('https://staging2.visa2fly.com/verifyToken', {headers:headers});
+        const base_url = this.userFlow.getBaseURL();
+
+        return this.http.get(base_url+'verifyToken', {headers:headers});
     }
 
     

@@ -40,4 +40,9 @@ export class UserFlowDetails {
         return JSON.parse(localStorage.getItem("userFlowDetails"));
     }
 
+
+    getBaseURL () {
+        return 'https://staging2.visa2fly.com/';
+    }
+
 }

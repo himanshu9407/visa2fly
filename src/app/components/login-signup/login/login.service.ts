@@ -1,6 +1,7 @@
 import {Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,8 @@ export class LoginService {
 
     AUTH_TOKEN :string = "";
     loggedIn = false;
-    constructor( private http : HttpClient){
+   
+    constructor( private http : HttpClient, private userFlow : UserFlowDetails){
         
         this.AUTH_TOKEN = localStorage.getItem("AUTH_TOKEN") || null ; 
     }
@@ -46,7 +48,10 @@ export class LoginService {
 
         const params = new HttpParams().set("userId",userId);
 
-        return this.http.get('https://staging2.visa2fly.com/sendOtpForLogin',{headers:headers,params:params});
+        const base_url = this.userFlow.getBaseURL();
+
+
+        return this.http.get(base_url+'sendOtpForLogin',{headers:headers,params:params});
     }
 
 
@@ -68,7 +73,8 @@ export class LoginService {
         console.log(reqBody);
 
         let random = new Date().getTime();
-        return this.http.post<any>('https://staging2.visa2fly.com/account/login?v='+random,reqBodyFinal,{headers:headers}) ;
+        const base_url = this.userFlow.getBaseURL();
+        return this.http.post<any>(base_url+'account/login?v='+random,reqBodyFinal,{headers:headers}) ;
 
 
     }
