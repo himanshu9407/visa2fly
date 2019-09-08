@@ -20,7 +20,7 @@ export class HomeFormService {
     }
   getHomeFormDataFromServer () :Promise <any> {
         
-        return this.http.get<any>("http://staging2.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/landing").toPromise();
+        return this.http.get<any>("https://staging2.visa2fly.com/info/landing").toPromise();
 
           
     }

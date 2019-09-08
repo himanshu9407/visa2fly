@@ -67,12 +67,12 @@ export class RequirementsComponent implements OnInit {
       if (data.code == "0") {
 
         this.requirementsData = data;
-        console.log(data);
+        console.log(data.data);
         this.onlinestatus = data.data.onlineCategory;
         let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
-        temp1.onlineCountry = data.data.onlineCategory;
-        // this.userFlow.setUserFlowDetails("onlineCountry",""+data.data.onlineCategory);
-  
+        this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(data.data.onlineCategory));
+        this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploads));
+        // this.userFlow.setUserFlowDetails("imagesRequired")
         this.quotes = data.data.quotes;
         let temp = [];
         let i,j,temparray,chunk = 4;
@@ -113,11 +113,17 @@ export class RequirementsComponent implements OnInit {
     });
     
   }
-  navigate(quoteId : string) {
+  navigate(quoteId : string,basePrice : number, serviceTax : number,stayPeriod:string) {
     
     // console.log(quoteId);
 
     this.userFlow.setUserFlowDetails("quoteId",quoteId);
+    this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
+    this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
+    this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
+
+
+    
 
     this.router.navigate(['addTraveller']);
    

@@ -68,6 +68,7 @@ export class LoginComponent implements OnInit {
     this.showLoader = false;
     this.showLoginButton = false;
   }
+ 
 
   sendOtp() {
     this.showLoader = true;
@@ -140,6 +141,7 @@ export class LoginComponent implements OnInit {
                 this.loginStatus.setUserStatus(true);
                 this.loginStatus.setUserLoggedIn(true);
                 this.userFlowService.setUserProfile(data.data.profile);
+                this.loginStatus.setUserProfile(data.data.profile);
                 // window.location.reload();
                 
                 this.router.navigate(['']);

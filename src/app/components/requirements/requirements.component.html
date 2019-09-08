@@ -256,7 +256,7 @@
             <li>
               Stay period :
               <span class="fieldData">{{
-                quote.periodTime
+                quote.stayPeriod
               }}</span>
             </li>
             <li>
@@ -274,12 +274,12 @@
             <li>
               Fees:
               <span class="visa-price fieldData">
-                INR {{ quote.price }} /-</span>
+                INR {{ quote.basePrice + quote.serviceTax }} /-</span>
             </li>
           </ul>
         </div>
         <div class="continueBtn">
-          <button class="btn btn-primary btn-continue" (click)="navigate(quote.quoteId)">
+          <button class="btn btn-primary btn-continue" (click)="navigate(quote.quoteId, quote.basePrice, quote.serviceTax,quote.stayPeriod)">
             Continue
           </button>
         </div>

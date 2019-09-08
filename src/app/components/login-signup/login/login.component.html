@@ -14,7 +14,7 @@
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-lock"></i></span>
     </div>
-    <input [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="number" class="form-control roundedinput" placeholder="OTP" />
+    <input [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP" />
     <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
         <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
         <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp </div>

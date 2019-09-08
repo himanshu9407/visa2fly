@@ -12,7 +12,7 @@ export class LogoutService {
     logoutUser() {
         let AUTH_TOKEN = this.loginService.getAuthToken();
         let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});
-        return this.http.post<any>('http://staging2.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/logout',{},{headers:headers})
+        return this.http.post<any>('https://staging2.visa2fly.com/logout',{},{headers:headers})
     }
     
 }

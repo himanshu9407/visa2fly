@@ -22,51 +22,49 @@
               <div class="visaTypeHeading ">Visa Type</div>
             </div>
             <div class="visaType" style="text-align: center;">
-              {{userFlowDetails.purpose}} / 90 Days Visa <br />{{userFlowDetails.entryType}}
+              {{userFlowDetails.purpose}} / {{stayPeriod}} <br />{{userFlowDetails.entryType}}
             </div>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-half col-md-6">
         <div class="row noMargin">
-          <div class="col-sm-6 dateContainer">
+          <div  class="col-sm-6 dateContainer">
+            <form [formGroup]="travelDetails">  
             <div class="center">
               <div class="dateOfTravelContainer visaDateHeading">
                 Date Of Travel
-                <form class="form-inline">
-                    <div class="form-group font-weight-bold">
-                        <div class="input-group">
-                          <input   formControlName="passportExpiryDate" class="form-control dateOfTravel" placeholder="Passport Expiry Date" name="dp"
-                            [(ngModel)]="model" ngbDatepicker #dot="ngbDatepicker">
-                          <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button"><i
-                                class="fas fa-calendar-alt"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>    
-                </form>
+                <div class="form-group">
+                    <div class="input-group">
+                      <input   formControlName="dateOfTravel" id="#dot" class="form-control addTravelDate" placeholder="Date Of Travel" name="dp"
+                      [minDate]="minDate"   ngbDatepicker #dot="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button"><i
+                            class="fas fa-calendar-alt"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
             <div class="center">
               <div class="dateOfTravelContainer visaDateHeading documents">
                 Date Of Collection <br />
                 of Documents
-                <form class="form-inline">
-                    <div class="form-group">
-                        <div class="input-group">
-                          <input   formControlName="passportExpiryDate" class="form-control dateOfCollection" placeholder="Passport Expiry Date" name="dp"
-                            [(ngModel)]="model" ngbDatepicker #doc="ngbDatepicker">
-                          <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button"><i
-                                class="fas fa-calendar-alt"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>   
-                </form>
+                <div class="form-group">
+                    <div class="input-group">
+                      <input   formControlName="dateOfCollection" id="#doc" class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc"
+                      [minDate]="minDate"   ngbDatepicker #doc="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button"><i
+                            class="fas fa-calendar-alt"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
+          </form>
           </div>
           <div class="col-sm-6 visaPriceInfo">
             <div class="visaPriceContainer">
@@ -75,7 +73,7 @@
                 (including taxes)
               </div>
             </div>
-            <div class="visaPrice" style="text-align: center;">₹ 4300</div>
+            <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}</div>
           </div>
         </div>
       </div>
@@ -86,8 +84,10 @@
     <div class="addPassengerHeading">Passenger Details</div>
 
     <div id="accordion">
+
+
       <form [formGroup]="travellerForm">
-        <div formArrayName="travellers" *ngFor= "let traveller of travellerForm.get('travellers').controls; let i = index "
+        <div formArrayName="travellers" *ngFor= "let traveller of travellerForm.get('travellers').controls; let first=first; let i = index ;"
          class="card" >
          <form [formGroupName]="i">
 
@@ -101,7 +101,7 @@
               <i class="fa fa-suitcase" aria-hidden="true"></i>
               {{ dataSource[i].id.substring(0,10) }}
             </button>
-            <button (click)="removeTraveller(i)" type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
+            <button *ngIf="!first" (click)="removeTraveller(i)" type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </h5>
@@ -156,10 +156,10 @@
     
                 </div>
                 <div class="col-md-2 mb-3">
-                    <div class="form-group font-weight-bold">
+                    <div class="form-group">
                       <div class="input-group">
-                        <input   formControlName="dateOfBirth" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp"
-                          [(ngModel)]="model"  positionTarget="#dob" ngbDatepicker #dob="ngbDatepicker">
+                        <input [minDate]="{year: 1930, month: 1, day: 1}"   formControlName="dateOfBirth" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp"
+                           ngbDatepicker #dob="ngbDatepicker">
                         <div class="input-group-append">
                           <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i
                               class="fas fa-calendar-alt"></i>
@@ -178,7 +178,7 @@
                     .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                    controls.passportNumber.pristine}"    formControlName="passportNumber" type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"
+                    controls.passportNumber.pristine}" pattern="^[A-Z]{1}[0-9]{7}$"   formControlName="passportNumber" type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"
                       required />
 
                       <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
@@ -191,12 +191,12 @@
               <div class="form-row">
                 <div class="col-md-2 mb-3">
                   <!-- <app-date></app-date> -->
-                    <div class="form-group font-weight-bold">
+                    <div class="form-group">
                       <div class="input-group">
                         <input   formControlName="passportExpiryDate" class="form-control addTravelDate" placeholder="Passport Expiry Date" name="dp"
-                          [(ngModel)]="model" ngbDatepicker #pe="ngbDatepicker">
+                         [minDate]="minDate"  id="#doe" ngbDatepicker #doe="ngbDatepicker">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary calendar" (click)="pe.toggle()" type="button"><i
+                          <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button"><i
                               class="fas fa-calendar-alt"></i>
                           </button>
                         </div>
@@ -206,7 +206,22 @@
                     Looks good!
                   </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-2 mb-3">
+                    <div class="input-group">
+                      <input pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                      .emailId.invalid && travellerForm.controls.travellers.controls[i].controls.emailId.dirty,
+                      'is-valid':!(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
+                      travellers.controls[i].controls.emailId.dirty) && !travellerForm.controls.travellers.controls[i].
+                      controls.emailId.pristine}"    formControlName="emailId" type="email" class="form-control" id="EmailId" placeholder="Email ID"
+                        required />
+  
+                       <div *ngIf="travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
+                        travellers.controls[i].controls.emailId.dirty"  class="invalid-feedback" style="display: block">
+                          Enter a Email ID
+                        </div>
+                    </div>
+                  </div>
+                <div *ngIf="first" class="col-md-4 mb-3">
                   <div class="input-group">
                     <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .gstNumber.invalid && travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty,
@@ -254,11 +269,8 @@
 
                 <div class="col-md-2 mb-3">
                   <select formControlName="state" id="State" class="form-control">
-                    <option selected>State</option>
-                    <option>Mr</option>
-                    <option>Mrs</option>
-                    <option>Master</option>
-                    <option>Ms</option>
+                    <option  *ngFor="let state of STATES_CITIES.states; let i = index;" [value]="state.state" >{{state.state}}</option>
+                    
                   </select>
                   <div class="valid-feedback">
                     Looks good!
@@ -277,61 +289,35 @@
                   </div>
                 </div>
                 <div class="col-md-2 mb-3">
-                  <input formControlName="pinCode" type="number" class="form-control" id="pincode" placeholder="Pin Code" required />
-                  <div class="valid-feedback">
+                  <input formControlName="pinCode" pattern="^[1-9][0-9]{5}$" type="number" class="form-control" id="pincode" placeholder="Pin Code" required />
+                  <div clah1111ss="valid-feedback">
                     Looks good!
                   </div>
                 </div>
               </div>
-              <div *ngIf="!onlineCategory"  class="form-row">
+              <div *ngIf="onlineCategory"  class="form-row">
                 <div class="col-md-12 mb-3">
                   <label><b> Upload required documents here </b></label>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div *ngFor="let image of imageUploads;let j = index" class="col-md-3 mb-3">
+                  <label>{{image.content}}</label>
                   <div class="input-group">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile" />
-                      <label class="custom-file-label" for="customFile">Choose file</label>
+                      <input  id = "{{image.fieldName}}" (change)="onFileSelected($event,i,image.fieldName)" type="file" class="custom-file-input"  />
+                      <!-- <input formControlName="{{image.fieldName}}" type="file" hidden> -->
+                      <label class="custom-file-label" for="{{image.fieldName}}">{{this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].value == null ? "" : this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].value.name}}</label>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <div class="custom-file">
-                    <input type="checkbox" class="custom-control-input" id="selecall" /> <input type="file"
-                      class="custom-file-input" id="customFile" />
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  <div *ngIf="this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.type  && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty"  class="invalid-feedback" style="display: block">
+                    Select a  file of type png, pdf, jpg or jpeg only !
                   </div>
-                  <div class="valid-feedback">
-                    Looks good!
+                  <div *ngIf=" this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.size && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty"  class="invalid-feedback" style="display: block">
+                    File size must be less than 1 MB
                   </div>
                 </div>
-                <div class="col-md-3 mb-3">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" />
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                  </div>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" />
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                    <button type="button" class="btn mr-2 pic-info" placement="left" ngbTooltip="Tooltip on left">
-                        <i class="fa fa-info-circle"></i>
-                      </button>
-                  </div>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <div class="col-md-12">
-                    <p class="font-weight-bold" style="font-size: 14px;">
-                      <span>*</span>File must be in JPG, PNG or PDF Format Only.
-                      File must not exceed 1 MB.
-                    </p>
-                  </div>
+               
+              
+           
               </div>
           </div>
         </div>
@@ -353,11 +339,11 @@
         <div
           style="background-color: #fff; border-radius: 3px; padding: 5px 10px;font-size: 16px;  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
           <label style="font-size: 16px;"> Request for a callback for</label>
+          <form [formGroup]="valueAddedService">
           <div class="row" style="margin-left: 4px;">
-
             <div class="form-check col-sm-4 col-md-3">
               <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-                <input type="checkbox" class="custom-control-input" id="selectall" />
+                <input (click)="selectAllFn()" formControlName="selectAll"  type="checkbox" class="custom-control-input" id="selectall" />
                 <label class="custom-control-label" for="selectall">Select All
                 </label>
 
@@ -366,7 +352,7 @@
             <div class="form-check col-sm-4 col-md-3">
               <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
                 <img src=" ../../../assets//sim.png" alt="" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
-                <input type="checkbox" class="custom-control-input" id="sim" />
+                <input formControlName="sim" type="checkbox" class="custom-control-input" id="sim" />
                 <label class="custom-control-label" for="sim">Sim</label>
 
 
@@ -378,7 +364,7 @@
               <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
                 <img src=" ../../../assets//credit-card.png" alt="" class="img-fluid" height=22 width=22
                   style="margin: 0 4px;">
-                <input type="checkbox" class="custom-control-input" id="forex" />
+                <input formControlName="forex" type="checkbox" class="custom-control-input" id="forex" />
                 <label class="custom-control-label" for="forex">Forex Card</label>
 
               </div>
@@ -388,36 +374,26 @@
 
                 <img src=" ../../../assets//travel-insurance.png" alt="" class="img-fluid" height=22 width=22
                   style="margin: 0 4px;">
-                <input type="checkbox" class="custom-control-input" id="insurance" />
+                <input formControlName="insurance" type="checkbox" class="custom-control-input" id="insurance" />
 
                 <label class="custom-control-label" for="insurance">Insurance
                 </label>
-                <!-- <img
-                style="margin-left: 10px;margin-bottom: 2px;"
-                class="iconPM"
-                width="18"
-                height="18"
-                src=" ../../../assets//info.png"
-                data-toggle="popover"
-                data-trigger="hover"
-                title="Dismissible popover"
-                data-content="And here's some amazing content. It's very engaging. Right?"
-                /> -->
+          
               </div>
             </div>
 
-
           </div>
+        </form>
         </div>
       </div>
     </div>
 
     <div class="acknowledgementContainer" style="margin-top: 30px;">
       <div style="margin-bottom: 50px; border-radius: 3px; padding: 20px; ">
-        <form>
+        <form [formGroup]="termsAndConditions">
           <div class="form-check">
             <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-              <input type="checkbox" class="custom-control-input" id="checkAll" />
+              <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
               <label class="custom-control-label tnc" for="checkAll">I agree with the <a href="#">Terms &amp;
                   Conditions</a> and <a href="#">Cancellation</a> policy of Visa2fly.
 
@@ -428,12 +404,14 @@
             </div>
           </div>
 
+        </form>
           <div style="display: flex; justify-content: center; margin-top: 30px;">
-            <button (click)="seeValues()" class="btn btn-primary" style="margin-top: 20px; padding: 8px !important;" type="submit">
+            <button [disabled]="!travellerForm.valid || !travelDetails.valid || !valueAddedService.valid || !termsAndConditions.valid" (click)="seeValues()" class="btn btn-primary" style="margin-top: 20px; padding: 8px !important;" type="submit">
               Proceed to payment
             </button>
+
+              <!-- <button (click)="seeValues()">chek</button> -->
           </div>
-        </form>
       </div>
     </div>
   </div>

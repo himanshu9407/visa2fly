@@ -14,6 +14,6 @@ export class RequirementsService {
         };
         let params = new HttpParams({ fromObject: obj });
         console.log(obj);
-        return this.http.get('http://staging2.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/info/' + country, { params: params }).toPromise();
+        return this.http.get('https://staging2.visa2fly.com/info/' + country, { params: params }).toPromise();
     }
 }

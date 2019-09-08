@@ -46,7 +46,7 @@ export class LoginService {
 
         const params = new HttpParams().set("userId",userId);
 
-        return this.http.get('http://ec2-18-191-74-254.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/sendOtpForLogin',{headers:headers,params:params});
+        return this.http.get('https://staging2.visa2fly.com/sendOtpForLogin',{headers:headers,params:params});
     }
 
 
@@ -68,7 +68,7 @@ export class LoginService {
         console.log(reqBody);
 
         let random = new Date().getTime();
-        return this.http.post<any>('http://ec2-18-191-74-254.us-east-2.compute.amazonaws.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/account/login?v='+random,reqBodyFinal,{headers:headers}) ;
+        return this.http.post<any>('https://staging2.visa2fly.com/account/login?v='+random,reqBodyFinal,{headers:headers}) ;
 
 
     }

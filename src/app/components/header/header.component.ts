@@ -74,7 +74,7 @@ export class HeaderComponent implements OnInit {
           this.loginStatus.setUserLoggedIn(false);
           this.router.navigate(['home']);
           this.preloaderService.showPreloader(false);
-          localStorage.setItem("userDetails",JSON.stringify({}));
+          localStorage.setItem("profile",JSON.stringify({}));
         }
 
         else {

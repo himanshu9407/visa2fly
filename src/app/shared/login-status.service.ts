@@ -41,7 +41,7 @@ export class LoginStatusService {
 
     verifyAuthToken (authToken : string) {
         const headers = new HttpHeaders({"token":authToken,"visa-client":"0"});
-        return this.http.get('http://staging2.visa2fly.com:8080/visa2fly-Backend-0.0.1-SNAPSHOT/verifyToken', {headers:headers});
+        return this.http.get('https://staging2.visa2fly.com/verifyToken', {headers:headers});
     }
 
     

@@ -5,7 +5,8 @@ export class RequirementsModel {
     message : string;
     status : string;
     data : {
-        imagesRequired:[],        
+        imagesRequired:[], 
+        imageUploads:[],       
         active : boolean,
         cancelationPeriod : number,
         country : string,
