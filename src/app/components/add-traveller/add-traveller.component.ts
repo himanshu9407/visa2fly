@@ -65,6 +65,8 @@ export class AddTravellerComponent implements OnInit {
   minDate : any = '';
 
   country : string='';
+
+
   ngOnInit() {
     let data = this.userFlow.getUserFlowDetails();
     const current = new Date();
@@ -107,8 +109,7 @@ export class AddTravellerComponent implements OnInit {
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
-    this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-
+    this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads)
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
     }
@@ -153,13 +154,31 @@ export class AddTravellerComponent implements OnInit {
 
   selectAllFn () {
     // console.log('fn callled');
-    this.valueAddedService.setValue({
-      selectAll : !this.valueAddedService.get('selectAll').value,
-      sim : !this.valueAddedService.get('sim').value,
-      insurance : !this.valueAddedService.get('insurance').value,
-      forex : !this.valueAddedService.get('forex').value
-      
-    })
+
+    let simValue  = this.valueAddedService.get('sim').value;
+    let insuranceValue = this.valueAddedService.get('insurance').value;
+    let forexValue = this.valueAddedService.get('forex').value;
+    let selectAllValue = this.valueAddedService.get('selectAll').value;
+    if( (!simValue || !forexValue || !insuranceValue) ) {
+      this.valueAddedService.setValue({
+        selectAll : true,
+        sim : true,
+        insurance : true,
+        forex : true
+        
+      })
+    }
+    else {
+
+      this.valueAddedService.setValue({
+        selectAll : false,
+        sim : false,
+        insurance : false,
+        forex : false
+        
+      })
+    }
+
 
     this.valueAddedService.updateValueAndValidity();
   }
@@ -226,7 +245,7 @@ export class AddTravellerComponent implements OnInit {
 
       
 
-    let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls;
+    let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
 
     tempArr.forEach((form:FormGroup,index) => {
       let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
@@ -255,7 +274,7 @@ export class AddTravellerComponent implements OnInit {
 
       const fd = {};
 
-      let ptdata :any  = this.travellerForm.get('travellers').value;
+      let ptdata :any  = this.travellerForm.get('travellers').value || [];
     // ptdata['id']= this.dataSource[0].id;
 
     ptdata.forEach((element : {},index) => {
@@ -314,6 +333,8 @@ export class AddTravellerComponent implements OnInit {
 
   onFileSelected (event, index, controlName) {
 
+
+
     let typeErr = false;
     let sizeErr = false;
 
@@ -331,7 +352,7 @@ export class AddTravellerComponent implements OnInit {
     
 
     control.setValue(this.selectedFile);
-    console.log(control.value.name);
+    // console.log(control.value.name);
 
   }
 
