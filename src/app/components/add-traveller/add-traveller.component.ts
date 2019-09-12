@@ -281,27 +281,64 @@ export class AddTravellerComponent implements OnInit {
       element["id"] = this.dataSource[index].id;
     });
     
-      fd['primaryTraveller']=ptdata[0];
+    const formData = new FormData();
 
-      fd['otherTravellers'] = ptdata.slice(1,ptdata.length);
+      // fd['primaryTraveller']=ptdata[0];
 
+      // fd['otherTravellers'] = ptdata.slice(1,ptdata.length);
+      // fd['dateOfTravel'] = dot.year+"-"+dot.month+"-"+dot.day;
+      // fd['dateOfDocumentCollection'] = doc.year+"-"+doc.month+"-"+doc.day;
+      // fd['quoteId'] = this.quoteId;
+      // fd['countryName'] = this.country;
+      // fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*this.dataSource.length;
+      
       let dot :{year : number, month : number , day : number} = this.travelDetails.get('dateOfTravel').value;
-      fd['dateOfTravel'] = dot.year+"-"+dot.month+"-"+dot.day;
       let doc :{year : number, month : number , day : number} = this.travelDetails.get('dateOfCollection').value;
-      fd['dateOfDocumentCollection'] = doc.year+"-"+doc.month+"-"+doc.day;
-      fd['countryName'] = this.country;
-      fd['quoteId'] = this.quoteId;
-      fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*this.dataSource.length;
-      fd['gstNumber'] = ptdata[0].gstNumber;
-      fd['needSim'] = this.valueAddedService.get('sim').value;
-      fd['needForexCard'] = this.valueAddedService.get('forex').value;
-      fd['needInsurance'] = this.valueAddedService.get('insurance').value;
-      fd['agreedToTcAndCancellationPolicy'] = this.termsAndConditions.get('tnc').value;
+      
+      let finalDot = "";
+      let finalDoc = "";
+
+      if (dot.month < 10) {
+        finalDot =  dot.year+"-0"+dot.month+"-"+dot.day;
+      }
+      else {
+        finalDot =  dot.year+"-"+dot.month+"-"+dot.day;
+      }
 
 
-      console.log(fd);
+      if(doc.month < 10) {
+        finalDoc =  doc.year+"-0"+doc.month+"-"+doc.day;
+      }
+      else {
+        finalDoc =  doc.year+"-"+doc.month+"-"+doc.day;
+      }
 
-    this.travellerService.submitForm(fd).subscribe(
+      formData.append('primaryTraveller',ptdata[0]);
+      formData.append('otherTravellers', ptdata.slice(1,ptdata.length));
+      formData.append('dateOfTravel',finalDot);
+      formData.append('dateOfDocumentCollection',finalDoc);
+      formData.append('country',this.country);
+      formData.append('quoteId',this.quoteId);
+
+      let totalTraveller = this.dataSource.length || 1;
+
+      formData.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
+
+      formData.append('gstNumber',ptdata[0].gstNumber);
+      formData.append('needSim',this.valueAddedService.get('sim').value);
+      formData.append('needForexCard',this.valueAddedService.get('forex').value);
+      formData.append('needInsurance',this.valueAddedService.get('insurance').value);
+      formData.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
+      // fd['gstNumber'] = ptdata[0].gstNumber;
+      // fd['needSim'] = this.valueAddedService.get('sim').value;
+      // fd['needForexCard'] = this.valueAddedService.get('forex').value;
+      // fd['needInsurance'] = this.valueAddedService.get('insurance').value;
+      // fd['agreedToTcAndCancellationPolicy'] = this.termsAndConditions.get('tnc').value;
+
+
+      console.log(formData);
+
+    this.travellerService.submitForm(formData).subscribe(
       (data:any) => {
         console.log(data);
 
