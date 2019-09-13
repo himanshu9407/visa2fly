@@ -351,8 +351,9 @@ export class AddTravellerComponent implements OnInit {
     ptdata.forEach((element : {},index) => {
       element["id"] = this.dataSource[index].id;
       // console.log(element);
-      });
+      }); 
 
+      console.log(ptdata[0]);
       // console.log(tempArr);
       
 
@@ -381,34 +382,36 @@ export class AddTravellerComponent implements OnInit {
       
       let other = ptdata.slice(1,ptdata.length) || [];
       
-      this.formData1.append('primaryTraveller',ptdata[0]);
-      this.formData1.append('otherTravellers',other);
-      this.formData1.append('dateOfTravel',finalDot);
-      this.formData1.append('dateOfDocumentCollection',finalDoc);
-      this.formData1.append('country',this.country);
-      this.formData1.append('quoteId',this.quoteId);
+      // this.formData1.append('primaryTraveller',ptdata[0]);
+      // this.formData1.append('otherTravellers',other);
+      // this.formData1.append('dateOfTravel',finalDot);
+      // this.formData1.append('dateOfDocumentCollection',finalDoc);
+      // this.formData1.append('country',this.country);
+      // this.formData1.append('quoteId',this.quoteId);
       // this.formData1.append("images",""+this.requestImageArr);
       
-      // fd['primaryTraveller']=ptdata[0];
-      // fd['otherTravellers'] = other;
-      // fd['dateOfTravel'] = finalDot;
-      // fd['dateOfDocumentCollection'] = finalDoc;
-      // fd['quoteId'] = this.quoteId;
-      // fd['countryName'] = this.country;
+      fd['primaryTraveller']=ptdata[0];
+      fd['otherTravellers'] = other;
+      fd['dateOfTravel'] = finalDot;
+      fd['dateOfDocumentCollection'] = finalDoc;
+      fd['quoteId'] = this.quoteId;
+      fd['countryName'] = this.country;
       let totalTraveller = this.dataSource.length || 1;
-      // fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*totalTraveller;
+      fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*totalTraveller;
       
 
-      this.formData1.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
+      // this.formData1.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
       
-      this.formData1.append('needSim',this.valueAddedService.get('sim').value);
-      this.formData1.append('needForexCard',this.valueAddedService.get('forex').value);
-      this.formData1.append('needInsurance',this.valueAddedService.get('insurance').value);
-      this.formData1.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
-      // fd['needSim'] = this.valueAddedService.get('sim').value;
-      // fd['needForexCard'] = this.valueAddedService.get('forex').value;
-      // fd['needInsurance'] = this.valueAddedService.get('insurance').value;
-      // fd['agreedToTcAndCancellationPolicy'] = this.termsAndConditions.get('tnc').value;
+      // this.formData1.append('needSim',this.valueAddedService.get('sim').value);
+      // this.formData1.append('needForexCard',this.valueAddedService.get('forex').value);
+      // this.formData1.append('needInsurance',this.valueAddedService.get('insurance').value);
+      // this.formData1.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
+      fd['needSim'] = this.valueAddedService.get('sim').value;
+      fd['needForexCard'] = this.valueAddedService.get('forex').value;
+      fd['needInsurance'] = this.valueAddedService.get('insurance').value;
+      fd['agreedToTcAndCancellationPolicy'] = this.termsAndConditions.get('tnc').value;
+
+      this.formData1.set("data",JSON.stringify(fd));
       
       
 
