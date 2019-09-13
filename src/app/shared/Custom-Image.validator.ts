@@ -4,7 +4,7 @@ export function requiredFileType( type: string ) {
     return function (control: FormControl) {
       const file = control.value;
     //   console.log(file);
-      if ( file ) {
+      if ( file && file.name) {
         const extension = file.name.split('.')[1].toLowerCase();
         if ( 'pdf' !== extension.toLowerCase() && 'png' !== extension.toLowerCase() && 
         'jpg' !== extension.toLowerCase() &&'jpeg' !== extension.toLowerCase() && file.size > 1024000 ) {

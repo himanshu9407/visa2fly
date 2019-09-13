@@ -32,6 +32,8 @@ export class AddTravellerComponent implements OnInit {
   public imageUploads : any;
 
   public onlineCategory : boolean = false;
+  requestImageArr = [];
+   formData1 = new FormData();
 
 
   // dotd;
@@ -239,26 +241,96 @@ export class AddTravellerComponent implements OnInit {
   }
 
   seeValues () {
+    console.log(this.filedNameArr);
 
-    if (this.travellerForm.valid && this.termsAndConditions.valid 
-      && this.travelDetails.valid && this.valueAddedService.valid) {
-
+    // if (this.travellerForm.valid && this.termsAndConditions.valid 
+    //   && this.travelDetails.valid && this.valueAddedService.valid) {
       
+      
+    
+    let otherTravellersArr : Array<any> = [];
+    const fd = {};
 
     let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
+    
+
 
     tempArr.forEach((form:FormGroup,index) => {
+
+      // let tempFormData = new FormData();
+
+      this.filedNameArr.forEach( el => {
+        this.formData1.append("images",form.get(el).value);
+        form.get(el).setValue(form.get(el).value.name);
+      })
+
+      // tempFormData.append("id",this.dataSource[index].id);
+      // tempFormData.append("emailId",form.get('emailId').value);
+      // tempFormData.append("firstName",form.get('firstName').value);
+      // tempFormData.append("middleName",form.get('middleName').value);
+      // tempFormData.append("lastName",form.get('lastName').value);
+      // tempFormData.append("cellNumber",form.get('cellNumber').value);
+      // tempFormData.append("title",form.get('title').value);
+      // tempFormData.append("passportNumber",form.get('passportNumber').value);
       let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
       let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
-      let tempDob = dob.year+"-"+dob.month+"-"+dob.day;
+      let tempDob ="";
+      let tempDoe = "";
+      
+      if (dob.month < 10) {
+        tempDob =  dob.year+"-0"+dob.month+"-"+dob.day;
+      }
+      else {
+        tempDob =  dob.year+"-"+dob.month+"-"+dob.day;
+      }
+      if (doe.month < 10) {
+        tempDoe =  doe.year+"-0"+doe.month+"-"+doe.day;
+      }
+      else {
+        tempDoe =  doe.year+"-"+doe.month+"-"+doe.day;
+      }
+      
       form.get('dateOfBirth').setValue(tempDob);
-      form.get('dateOfBirth').updateValueAndValidity();
-      let tempDoe = doe.year+"-"+doe.month+"-"+doe.day;
       form.get('passportExpiryDate').setValue(tempDoe);
-      form.get('passportExpiryDate').updateValueAndValidity();
+      // tempFormData.append("passportExpiryDate",tempDoe);
+      // tempFormData.append("dateOfBirth",tempDob);
+      // tempFormData.append("passportFrontImage",form.get("passportFrontImage").value);
+      // tempFormData.append("passportBioImage",form.get("passportBioImage").value);
+      // tempFormData.append("sixMonthsBankStatement",form.get("sixMonthsBankStatement").value);
+      // tempFormData.append("insurance",form.get('insurance').value);
+      // tempFormData.append("userImage",form.get('userImage').value);
+      // tempFormData.append("departureFlightTicket",form.get("departureFlightTicket").value);
+      // tempFormData.append("arrivalFlightTicket",form.get("arrivalFlightTicket").value);
+      // tempFormData.append("hotelAccommodation",form.get("hotelAccommodation").value);
+      
+      
+      
+      // if(index == 0) {
+
+
+        
+        // formData.append('primaryTraveller',JSON.stringify(tempFormData));
+        // fd['primaryTraveller'] = tempFormData;
+        // fd['gstNumber'] = form.get("gstNumber").value;
+        
+        // tempFormData.forEach(
+        //   (value) => {
+        //     console.log(value);
+        //   }
+        // )
+
+
+        // formData.append('gstNumber',form.get('gstNumber').value);
+      // }
+      // else {
+      //   otherTravellersArr.push(tempFormData);
+      // }
+
+      // form.get('dateOfBirth').updateValueAndValidity();
+      // form.get('passportExpiryDate').updateValueAndValidity();
       
     });
-
+    
     // console.log("Main Form valid "+this.travellerForm.valid);
     //   console.log(this.travellerForm.get('travellers').value);
     //   console.log("Travel Details Valid "+this.travelDetails.valid);
@@ -266,79 +338,84 @@ export class AddTravellerComponent implements OnInit {
 
     //   console.log("Value Added Services Valid "+this.valueAddedService.valid);
     //   console.log(this.valueAddedService.value);
-
+    
     //   console.log("Terms and Conditions Valid "+this.termsAndConditions.valid);
-    //   console.log(this.termsAndConditions.value);
-
-
-
-      const fd = {};
-
-      let ptdata :any  = this.travellerForm.get('travellers').value || [];
-    // ptdata['id']= this.dataSource[0].id;
-
+    //   console.log(this.termsAndCondpreviosunameitions.value);
+    
+    
+    
+    
+    let ptdata :any  = this.travellerForm.get('travellers').value || [];
+    ptdata['id']= this.dataSource[0].id;
+    // console.log("hell world");
     ptdata.forEach((element : {},index) => {
       element["id"] = this.dataSource[index].id;
-    });
-    
-    const formData = new FormData();
+      // console.log(element);
+      });
 
-      // fd['primaryTraveller']=ptdata[0];
+      // console.log(tempArr);
+      
 
-      // fd['otherTravellers'] = ptdata.slice(1,ptdata.length);
-      // fd['dateOfTravel'] = dot.year+"-"+dot.month+"-"+dot.day;
-      // fd['dateOfDocumentCollection'] = doc.year+"-"+doc.month+"-"+doc.day;
-      // fd['quoteId'] = this.quoteId;
-      // fd['countryName'] = this.country;
-      // fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*this.dataSource.length;
+      
       
       let dot :{year : number, month : number , day : number} = this.travelDetails.get('dateOfTravel').value;
       let doc :{year : number, month : number , day : number} = this.travelDetails.get('dateOfCollection').value;
       
       let finalDot = "";
       let finalDoc = "";
-
+      
       if (dot.month < 10) {
         finalDot =  dot.year+"-0"+dot.month+"-"+dot.day;
       }
       else {
         finalDot =  dot.year+"-"+dot.month+"-"+dot.day;
       }
-
-
+      
+      
       if(doc.month < 10) {
         finalDoc =  doc.year+"-0"+doc.month+"-"+doc.day;
       }
       else {
         finalDoc =  doc.year+"-"+doc.month+"-"+doc.day;
       }
-
-      formData.append('primaryTraveller',ptdata[0]);
-      formData.append('otherTravellers', ptdata.slice(1,ptdata.length));
-      formData.append('dateOfTravel',finalDot);
-      formData.append('dateOfDocumentCollection',finalDoc);
-      formData.append('country',this.country);
-      formData.append('quoteId',this.quoteId);
-
+      
+      let other = ptdata.slice(1,ptdata.length) || [];
+      
+      this.formData1.append('primaryTraveller',ptdata[0]);
+      this.formData1.append('otherTravellers',other);
+      this.formData1.append('dateOfTravel',finalDot);
+      this.formData1.append('dateOfDocumentCollection',finalDoc);
+      this.formData1.append('country',this.country);
+      this.formData1.append('quoteId',this.quoteId);
+      // this.formData1.append("images",""+this.requestImageArr);
+      
+      // fd['primaryTraveller']=ptdata[0];
+      // fd['otherTravellers'] = other;
+      // fd['dateOfTravel'] = finalDot;
+      // fd['dateOfDocumentCollection'] = finalDoc;
+      // fd['quoteId'] = this.quoteId;
+      // fd['countryName'] = this.country;
       let totalTraveller = this.dataSource.length || 1;
+      // fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*totalTraveller;
+      
 
-      formData.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
-
-      formData.append('gstNumber',ptdata[0].gstNumber);
-      formData.append('needSim',this.valueAddedService.get('sim').value);
-      formData.append('needForexCard',this.valueAddedService.get('forex').value);
-      formData.append('needInsurance',this.valueAddedService.get('insurance').value);
-      formData.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
-      // fd['gstNumber'] = ptdata[0].gstNumber;
+      this.formData1.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
+      
+      this.formData1.append('needSim',this.valueAddedService.get('sim').value);
+      this.formData1.append('needForexCard',this.valueAddedService.get('forex').value);
+      this.formData1.append('needInsurance',this.valueAddedService.get('insurance').value);
+      this.formData1.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
       // fd['needSim'] = this.valueAddedService.get('sim').value;
       // fd['needForexCard'] = this.valueAddedService.get('forex').value;
       // fd['needInsurance'] = this.valueAddedService.get('insurance').value;
       // fd['agreedToTcAndCancellationPolicy'] = this.termsAndConditions.get('tnc').value;
+      
+      
 
 
-      console.log(formData);
+      
 
-    this.travellerService.submitForm(formData).subscribe(
+    this.travellerService.submitForm(this.formData1).subscribe(
       (data:any) => {
         console.log(data);
 
@@ -352,7 +429,7 @@ export class AddTravellerComponent implements OnInit {
 
       // console.log(fd);
 
-  }
+  // }
 
      
     // });
@@ -376,20 +453,34 @@ export class AddTravellerComponent implements OnInit {
     let sizeErr = false;
 
     this.selectedFile = event.target.files[0];
+    // this.requestImageArr.push(this.selectedFile);
+    // let fileReader = new FileReader();
 
+    // fileReader.onload = (e) => {
+    //   console.log(fileReader.result);
+    // }
+    
+    // fileReader.readAsBinaryString(this.selectedFile);
+    // control.setValue(a);
+    
     let control = (<FormGroup><unknown>(<FormArray>this.travellerForm.get('travellers')).controls[index]).controls[controlName];
+    control.setValue(this.selectedFile);
+    
 
+    // control.setValue(control.value.name);
     control.markAsDirty();
     control.markAllAsTouched();
+
+
+    console.log(control.value);
     
 
 
     console.log(this.selectedFile);
 
     
+    
 
-    control.setValue(this.selectedFile);
-    // console.log(control.value.name);
 
   }
 

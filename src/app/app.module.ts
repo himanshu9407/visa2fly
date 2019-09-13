@@ -35,7 +35,8 @@ import { SimComponent } from './components/sim/sim.component';
 import { InsuranceComponent } from './components/insurance/insurance.component';
 import { PreloaderComponent } from './shared/preloader/preloader.component';
 
-import { AuthenticationGuard } from './shared/AuthenticationGuard.service'
+import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component'
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { AuthenticationGuard } from './shared/AuthenticationGuard.service'
     VisaArrivalComponent,
     SimComponent,
     InsuranceComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    MyBookingsComponent
   ],
   imports: [
     BrowserModule,

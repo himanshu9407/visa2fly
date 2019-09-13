@@ -11,7 +11,8 @@
     import { VisaArrivalComponent } from './components/visa-arrival/visa-arrival.component';
     import { SimComponent } from './components/sim/sim.component';
     import { InsuranceComponent } from './components/insurance/insurance.component';
-import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+    import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+    
     const routes: Routes = [
          {  path: '',component:HomeContainerComponent},
          {  path: 'home',component:HomeContainerComponent},

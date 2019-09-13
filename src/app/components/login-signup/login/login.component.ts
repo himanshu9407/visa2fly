@@ -78,7 +78,6 @@ export class LoginComponent implements OnInit {
     console.log(userId);
     this.loginService.sendLoginOtp(userId).subscribe(
       (data) => {
-
         if(!data) {
               this.toastService.showNotification("Something Went wrong! Please try again later.",4000);
               this.setFormFresh();
