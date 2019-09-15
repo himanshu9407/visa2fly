@@ -242,6 +242,7 @@ export class AddTravellerComponent implements OnInit {
 
   seeValues () {
     console.log(this.filedNameArr);
+    this.formData1.set("images","");
 
     // if (this.travellerForm.valid && this.termsAndConditions.valid 
     //   && this.travelDetails.valid && this.valueAddedService.valid) {
