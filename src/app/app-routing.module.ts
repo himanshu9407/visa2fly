@@ -12,6 +12,7 @@
     import { SimComponent } from './components/sim/sim.component';
     import { InsuranceComponent } from './components/insurance/insurance.component';
     import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
     
     const routes: Routes = [
          {  path: '',component:HomeContainerComponent},
@@ -24,12 +25,13 @@
          {  path: 'hf',component:HomeFormComponent},
          {  path : '' , component : HomeContainerComponent},
          {  path : 'reg' , component : RequirementsComponent},
-         {  path : 'addTraveller' , component : AddTravellerComponent},
+         {  path : 'addTraveller' , component : AddTravellerComponent, canActivate : [AuthenticationGuard]},
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visaArrival' , component : VisaArrivalComponent},
          {  path : 'visa' ,  redirectTo: 'home'},
          {  path : 'sim' , component : SimComponent},
-         {  path : 'insurance' , component : InsuranceComponent}
+         {  path : 'insurance' , component : InsuranceComponent},
+         {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
 
         ];
 

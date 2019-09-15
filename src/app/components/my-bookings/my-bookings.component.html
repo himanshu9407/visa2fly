@@ -1,1 +1,88 @@
-<p>my-bookings works!</p>
+<div class="container" style="margin-top: 70px">
+    <div class="row mt-4">
+      <!-- <div class=""> -->
+      <div class="col-lg-12">
+        <div class="title-box">
+          <h2>Order History (12)</h2>
+        </div>
+      </div>
+
+     
+      <div *ngFor="let booking of myBookings" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+        <div class="visa">
+          <div class="card">
+            <div class="card-header priceHeading text-white">
+              96 Hours Transit Visa
+            </div>
+            <div class="card-body">
+              <!-- <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <ul class="visa-type">
+                <li>
+                  Booking ID:
+                  <span class="fieldData">{{booking.booking.bookingId}}</span>
+                </li>
+                <li>
+                  Transaction ID :
+                  <span class="fieldData">{{booking.booking.paymentId}}</span>
+                </li>
+                <li>
+                  Visa For :
+                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li>
+                  Visa Type:
+                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                </li>
+                <li>
+                  Entry Type:
+                  <span class="fieldData">{{booking.booking.entryType}}</span>
+                </li>
+                <li>
+                  Total Travellers:
+                  <span class="fieldData">{{booking.booking.totalTravellers}}</span>
+                </li>
+                <li>
+                  Booking date:
+                  <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                </li>
+                <li>
+                  Date of travel:
+                  <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                </li>
+                <li>
+                  Booking Status:
+                  <!-- <span class="fieldData">123</span> -->
+                  <span class="fieldData badge badge-warning">Pending</span>
+                </li>
+                <li>
+                  Payment status:
+                  <!-- <span class="fieldData"></span> -->
+                  <!-- <span class="fieldData badge badge-danger">Failed</span> -->
+                  <span class="fieldData badge badge-success"
+                    >Successfull</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-6 button">
+                  <button type="button" class="btn btn-outline-navy btn-sm">
+                    View Detail
+                  </button>
+                </div>
+
+                <div class="col-6 button">
+                  <button type="button" class="btn btn-outline-danger btn-sm">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

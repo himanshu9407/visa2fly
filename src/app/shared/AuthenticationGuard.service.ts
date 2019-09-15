@@ -1,37 +1,47 @@
 import { LoginService } from '../components/login-signup/login/login.service';
 import { LoginStatusService } from './login-status.service';
 import { Injectable } from '@angular/core';
-import { CanActivate ,ActivatedRouteSnapshot,RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot,RouterStateSnapshot, Router, CanActivate} from '@angular/router';
+import { Observable } from 'rxjs';
 
 
-@Injectable({
+
+
+
+  @Injectable({
     providedIn:"root"
 })
 export class AuthenticationGuard implements CanActivate {
     isAuthenticated :boolean = false;
+    
 
-    constructor (private loginService : LoginService, private loginStatus: LoginStatusService) {
-        
-        let token = this.loginService.getAuthToken();
-        this.loginStatus.verifyAuthToken(token).subscribe(
-            (data:any) => {
+    constructor (private loginService : LoginService, private loginStatus: LoginStatusService,
+        private router : Router) {
+        console.log("auth guard");
+    }
+
+    canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot) : any {
+        return new Promise((resolve, reject)=> {  
+        this.loginStatus.checkUserAuthentication().then(
+            (data : any) => {
                 if (data.code == "0") {
-                    this.isAuthenticated = true;
+                    resolve (true);
+                }
+                else{
+                    resolve(this.router.createUrlTree(['/slcontainer/login']));
+                    // reject(false);
                 }
             }
-        );
-    }   
+        )
+        })
+        .catch(err => {
+            this.router.createUrlTree(['/slcontainer/login']);
 
-    canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot) {
-        console.log(this.isAuthenticated)
+            // resolve(false);
+        });
 
-        if (this.isAuthenticated) {
-            console.log("go forward");
-        }
-        else {
-            console.log("not allowd");
-        }
-        return this.isAuthenticated;
+
+     
     }
 
 

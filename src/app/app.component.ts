@@ -79,7 +79,7 @@ constructor(private homeFormService: HomeFormService,
           else if(data.code == "0") {
             this.userFlow.setUserProfile(data.data);
             this.loginStatusService.setUserLoggedIn(true);
-            console.log(this.userFlow.getUserFlowDetails());
+            // console.log(this.userFlow.getUserFlowDetails());
             this.preloaderService.showPreloader(false);
         }
           else {

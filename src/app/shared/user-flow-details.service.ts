@@ -27,7 +27,7 @@ export class UserFlowDetails {
     }
 
     setUserProfile(value:object) {
-        console.log(value);
+        // console.log(value);
         
         localStorage.setItem("profile", JSON.stringify(value));
 
