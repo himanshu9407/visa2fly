@@ -269,7 +269,9 @@
 
                 <div class="col-md-2 mb-3">
                   <select formControlName="state" id="State" class="form-control">
-                    <option  *ngFor="let state of STATES_CITIES.states; let i = index;" [value]="state.state" >{{state.state}}</option>
+                    <option  value="Haryana">Haryana</option>
+                    <option  value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option selected value="Delhi NCR">Delhi NCR</option>
                     
                   </select>
                   <div class="valid-feedback">
@@ -278,19 +280,18 @@
                 </div>
                 <div class="col-md-2 mb-3">
                   <select formControlName="city" id="City" class="form-control">
-                    <option selected>City</option>
-                    <option>Mr</option>
-                    <option>Mrs</option>
-                    <option>Master</option>
-                    <option>Ms</option>
+                    <option selected value="Delhi">Delhi</option>
+                    <option value="Gurugram">Gurugram</option>
+                    <option value="Noida">Noida</option>
+                  
                   </select>
                   <div class="valid-feedback">
                     Looks good!
                   </div>
                 </div>
                 <div class="col-md-2 mb-3">
-                  <input formControlName="pinCode" pattern="^[1-9][0-9]{5}$" type="number" class="form-control" id="pincode" placeholder="Pin Code" required />
-                  <div clah1111ss="valid-feedback">
+                  <input formControlName="pinCode" pattern="^[1-9][0-9]{5}$" type="text" class="form-control" id="pincode" placeholder="Pin Code" required />
+                  <div class="valid-feedback">
                     Looks good!
                   </div>
                 </div>

@@ -514,24 +514,30 @@ export class AddTravellerComponent implements OnInit {
       // }
       let tempVar = this.travellerForm
       .get('travellers') as FormArray;
-      arr.forEach((element : FormGroup,i)  => {
-  
-        if (i ==  arr.length-1) {
 
-          this.filedNameArr.forEach((fieldName )=> {
+
+      if(this.onlineCategory) {
+        
+              arr.forEach((element : FormGroup,i)  => {
           
-            if(element.controls[fieldName]) {
-              element.controls[fieldName].setValidators([Validators.required,requiredFileType('png')]);
-              // console.log(element.controls[fieldName]);
-              element.controls[fieldName].updateValueAndValidity();
-    
-            }
-          });
-    
-          element.updateValueAndValidity();
-        }
+                if (i ==  arr.length-1) {
+        
+                  this.filedNameArr.forEach((fieldName )=> {
+                  
+                    if(element.controls[fieldName]) {
+                      element.controls[fieldName].setValidators([Validators.required,requiredFileType('png')]);
+                      // console.log(element.controls[fieldName]);
+                      element.controls[fieldName].updateValueAndValidity();
+            
+                    }
+                  });
+            
+                  element.updateValueAndValidity();
+                }
+        
+              });
 
-      });
+      }
       }
       else {
         this.toastService.showNotification(
