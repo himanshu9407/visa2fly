@@ -17,6 +17,6 @@ export class AddTravellerService {
 
         const base_url = this.userFlow.getBaseURL();
         
-        return this.http.post(base_url+"submitApplication",reqData);
+        return this.http.post(base_url+"submitApplication",reqData,{headers: headers});
     }
 }

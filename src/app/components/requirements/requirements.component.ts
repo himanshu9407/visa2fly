@@ -7,6 +7,8 @@ import { RequirementsModel } from './requirements.model';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { ToastService } from 'src/app/shared/toast.service';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
+import { LoginService } from '../login-signup/login/login.service';
 
 @Component({
   selector: 'app-requirements',
@@ -18,7 +20,8 @@ export class RequirementsComponent implements OnInit {
 
   constructor(private router: Router,private myservice: HomeServiceService, private reqService : RequirementsService,
               private userFlow : UserFlowDetails, private routerHistory  :RouterHistory,
-              private toastService :ToastService) {
+              private toastService :ToastService, private loginStatus : LoginStatusService,
+              private loginService : LoginService) {
 
    
    }
@@ -134,18 +137,37 @@ export class RequirementsComponent implements OnInit {
 
 
     console.log(quoteId);
-    this.reqService.verifyQuotation(quoteId).subscribe(
+
+    let token = this.loginService.getAuthToken();
+    if (token == null || token ==  undefined) {
+      token = "";
+    }
+    this.loginStatus.verifyAuthToken(token).subscribe (
       (data : any) => {
         if (data.code == "0") {
-          this.routerHistory.pushHistory("req");
-          this.router.navigate(['addTraveller']);
 
+          this.reqService.verifyQuotation(quoteId).subscribe(
+            (data : any) => {
+              if (data.code == "0") {
+                this.routerHistory.pushHistory("req");
+                this.router.navigate(['addTraveller']);
+      
+              }
+              else {
+                this.toastService.showNotification(""+data.message, 4000);
+            }
+            }
+          );
         }
         else {
-          this.toastService.showNotification(""+data.message, 4000);
+          this.routerHistory.pushHistory("req-and-quote");
+          this.router.navigate(['slcontainer/login'])
+        }
+        
       }
-      }
-    );
+    )
+
+
 
    
   }

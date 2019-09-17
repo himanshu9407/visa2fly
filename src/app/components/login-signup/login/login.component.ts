@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
+import { RequirementsService } from '../../requirements/requirements.service';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
   constructor( private loginService : LoginService,
     private getIP : GetIPService, private toastService : ToastService,
     private router : Router, private userFlowService : UserFlowDetails,
-    private loginStatus : LoginStatusService, private routerHistory : RouterHistory) { }
+    private loginStatus : LoginStatusService, private routerHistory : RouterHistory,
+    private reqService : RequirementsService) { }
 
   ngOnInit() {
 
@@ -151,6 +153,21 @@ export class LoginComponent implements OnInit {
                 if(this.prevRoute == "req") {
                   this.routerHistory.clearRouteHistory();
                   this.router.navigate(['addTraveller']);
+                }
+                else if (this.prevRoute == "req-and-quote") {
+                  let quoteId = this.userFlowService.getUserFlowDetails().quoteId;
+                  
+                  this.reqService.verifyQuotation(quoteId).subscribe(
+                    (data : any) => {
+                      if (data.code == "0") {
+                        this.router.navigate(['addTraveller']);
+
+                      }
+                      else {
+                        this.router.navigate(['home']);
+                      }
+                    }
+                  )
                 }
                 else {
 
