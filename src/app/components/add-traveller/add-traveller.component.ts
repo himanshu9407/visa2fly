@@ -17,6 +17,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AddTravellerComponent implements OnInit {
 
   // model: NgbDateStruct;
+  public paymentForm: any = {};
 
   dataSource = [{id:"Primary",dataToggle:"toogle1", dataToggleHash:"#toogle1"}];
 
@@ -45,6 +46,7 @@ export class AddTravellerComponent implements OnInit {
      private toastService : ToastService, private userFlow : UserFlowDetails, private loginService:LoginService,
      private http : HttpClient
       ) {
+        // this.paymentForm.paymentUrl = "https://www.google.com"
       // const now = new Date();
       // this.doed= {year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()};
       // this.dobd = {year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()};
@@ -385,10 +387,40 @@ export class AddTravellerComponent implements OnInit {
         console.log(data);
 
         if(data.code == "0") {
-        let base_url = this.userFlow.getBaseURL();
+          let base_url = this.userFlow.getBaseURL();
           let AUTH_TOKEN = this.loginService.getAuthToken();
           let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});
-          this.http.post(base_url+"payment/process",{},{headers:headers}).subscribe(); 
+          this.http.post(base_url+"payment/process",{},{headers:headers}).subscribe(
+            (data : any) => {
+              this.paymentForm.buyerEmail = data.buyerEmail;
+              this.paymentForm.orderId = data.orderId;
+              this.paymentForm.amount = data.amount;
+              this.paymentForm.currency = data.currency;
+              this.paymentForm.merchantIdentifier = data.merchantIdentifier;
+              this.paymentForm.returnUrl = data.returnUrl;
+              this.paymentForm.checksum = data.checksum;
+              this.paymentForm.paymentUrl = data.paymentUrl;
+
+              // var button = document.getElementById('submitPayment');
+              // button.click
+              document.forms["processPayment"].submit();
+
+            }
+          ); 
+        }
+        else {
+          tempArr.forEach((form:FormGroup,index) => {
+
+            // let tempFormData = new FormData();
+      
+            if (this.onlineCategory) {
+      
+              this.filedNameArr.forEach( el => {
+                // this.formData1.append("images",form.get(el).value);
+                form.get(el).setValue("");
+              })
+            }
+            })
         }
       }
     )
