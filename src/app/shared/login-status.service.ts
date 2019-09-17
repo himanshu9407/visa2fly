@@ -45,6 +45,9 @@ export class LoginStatusService {
 
 
     verifyAuthToken (authToken : string) {
+        if (authToken == null || authToken == undefined) {
+            authToken = "";
+        }
         const headers = new HttpHeaders({"token":authToken,"visa-client":"0"});
         const base_url = this.userFlow.getBaseURL();
 
