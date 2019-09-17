@@ -7,6 +7,7 @@ import { ToastService } from 'src/app/shared/toast.service';
 import { Router } from '@angular/router';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { RouterHistory } from 'src/app/shared/router-history.service';
 
 @Component({
   selector: 'app-login',
@@ -24,13 +25,18 @@ export class LoginComponent implements OnInit {
   showOtpField  : boolean = false;
   showSendOtp : boolean = true;
   showAlert: boolean = false;
+  prevRoute = "";
 
   constructor( private loginService : LoginService,
     private getIP : GetIPService, private toastService : ToastService,
     private router : Router, private userFlowService : UserFlowDetails,
-    private loginStatus : LoginStatusService) { }
+    private loginStatus : LoginStatusService, private routerHistory : RouterHistory) { }
 
   ngOnInit() {
+
+
+    this.prevRoute = this.routerHistory.getPrevRoute();
+   
 
     this.loginForm = new FormGroup ({
         'userId' : new FormControl (null,[Validators.required]),
@@ -142,8 +148,13 @@ export class LoginComponent implements OnInit {
                 this.userFlowService.setUserProfile(data.data.profile);
                 this.loginStatus.setUserProfile(data.data.profile);
                 // window.location.reload();
-                
-                this.router.navigate(['']);
+                if(this.prevRoute == "req") {
+                  this.router.navigate(['addTraveller']);
+                }
+                else {
+
+                  this.router.navigate(['']);
+                }
 
               }
               else {

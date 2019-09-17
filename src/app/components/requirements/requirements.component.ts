@@ -5,6 +5,7 @@ import { requirementData } from '../../interfaces/requirement';
 import { RequirementsService } from './requirements.service';
 import { RequirementsModel } from './requirements.model';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { RouterHistory } from 'src/app/shared/router-history.service';
 
 @Component({
   selector: 'app-requirements',
@@ -15,7 +16,7 @@ export class RequirementsComponent implements OnInit {
   public regData : requirementData ;
 
   constructor(private router: Router,private myservice: HomeServiceService, private reqService : RequirementsService,
-              private userFlow : UserFlowDetails) {
+              private userFlow : UserFlowDetails, private routerHistory  :RouterHistory) {
 
    
    }
@@ -125,6 +126,7 @@ export class RequirementsComponent implements OnInit {
 
     
 
+    this.routerHistory.pushHistory("req");
     this.router.navigate(['addTraveller']);
    
   }

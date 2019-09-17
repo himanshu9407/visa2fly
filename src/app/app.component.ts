@@ -55,6 +55,8 @@ constructor(private homeFormService: HomeFormService,
   
   ngOnInit() {
 
+    console.log(localStorage.getItem("AUTH_TOKEN") == "");
+
 
     this.preloaderService.showPreloader(true);
 
@@ -67,10 +69,14 @@ constructor(private homeFormService: HomeFormService,
       let token = this.loginService.getAuthToken();
      
 
-    if (!(""+token == "" || null ) ) {
+    if (token == "" || null )  {
+      this.userFlow.setUserProfile({});
+      this.loginStatusService.setUserLoggedIn(false);
+     }
+    else {
 
-      this.loginStatusService.verifyAuthToken(token).subscribe(
-        (data : any) => {
+      this.loginStatusService.verifyAuthToken(token).toPromise()
+        .then((data : any) => {
          if (!data) {
           this.userFlow.setUserProfile({});
           this.loginStatusService.setUserLoggedIn(false);
@@ -86,14 +92,10 @@ constructor(private homeFormService: HomeFormService,
             this.userFlow.setUserProfile({});
             this.loginStatusService.setUserLoggedIn(false);
         }
-        }
-      );
+        })
+      
     }
 
-    else {
-      this.userFlow.setUserProfile({});
-      this.loginStatusService.setUserLoggedIn(false);
-    }
     
     
     
