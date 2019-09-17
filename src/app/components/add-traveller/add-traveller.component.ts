@@ -111,7 +111,12 @@ export class AddTravellerComponent implements OnInit {
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
-    this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads)
+    this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
+
+    if(this.imageUploads == "null") {
+      this.imageUploads = []
+    }
+
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
     }
@@ -254,25 +259,21 @@ export class AddTravellerComponent implements OnInit {
 
     let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
     
+    
 
 
     tempArr.forEach((form:FormGroup,index) => {
 
       // let tempFormData = new FormData();
 
-      this.filedNameArr.forEach( el => {
-        this.formData1.append("images",form.get(el).value);
-        form.get(el).setValue(form.get(el).value.name);
-      })
+      if (this.onlineCategory) {
 
-      // tempFormData.append("id",this.dataSource[index].id);
-      // tempFormData.append("emailId",form.get('emailId').value);
-      // tempFormData.append("firstName",form.get('firstName').value);
-      // tempFormData.append("middleName",form.get('middleName').value);
-      // tempFormData.append("lastName",form.get('lastName').value);
-      // tempFormData.append("cellNumber",form.get('cellNumber').value);
-      // tempFormData.append("title",form.get('title').value);
-      // tempFormData.append("passportNumber",form.get('passportNumber').value);
+        this.filedNameArr.forEach( el => {
+          this.formData1.append("images",form.get(el).value);
+          form.get(el).setValue(form.get(el).value.name);
+        })
+      }
+
       let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
       let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
       let tempDob ="";
@@ -293,55 +294,10 @@ export class AddTravellerComponent implements OnInit {
       
       form.get('dateOfBirth').setValue(tempDob);
       form.get('passportExpiryDate').setValue(tempDoe);
-      // tempFormData.append("passportExpiryDate",tempDoe);
-      // tempFormData.append("dateOfBirth",tempDob);
-      // tempFormData.append("passportFrontImage",form.get("passportFrontImage").value);
-      // tempFormData.append("passportBioImage",form.get("passportBioImage").value);
-      // tempFormData.append("sixMonthsBankStatement",form.get("sixMonthsBankStatement").value);
-      // tempFormData.append("insurance",form.get('insurance').value);
-      // tempFormData.append("userImage",form.get('userImage').value);
-      // tempFormData.append("departureFlightTicket",form.get("departureFlightTicket").value);
-      // tempFormData.append("arrivalFlightTicket",form.get("arrivalFlightTicket").value);
-      // tempFormData.append("hotelAccommodation",form.get("hotelAccommodation").value);
-      
-      
-      
-      // if(index == 0) {
-
-
-        
-        // formData.append('primaryTraveller',JSON.stringify(tempFormData));
-        // fd['primaryTraveller'] = tempFormData;
-        // fd['gstNumber'] = form.get("gstNumber").value;
-        
-        // tempFormData.forEach(
-        //   (value) => {
-        //     console.log(value);
-        //   }
-        // )
-
-
-        // formData.append('gstNumber',form.get('gstNumber').value);
-      // }
-      // else {
-      //   otherTravellersArr.push(tempFormData);
-      // }
-
-      // form.get('dateOfBirth').updateValueAndValidity();
-      // form.get('passportExpiryDate').updateValueAndValidity();
+   
       
     });
-    
-    // console.log("Main Form valid "+this.travellerForm.valid);
-    //   console.log(this.travellerForm.get('travellers').value);
-    //   console.log("Travel Details Valid "+this.travelDetails.valid);
-    //   console.log( this.travelDetails.value);
 
-    //   console.log("Value Added Services Valid "+this.valueAddedService.valid);
-    //   console.log(this.valueAddedService.value);
-    
-    //   console.log("Terms and Conditions Valid "+this.termsAndConditions.valid);
-    //   console.log(this.termsAndCondpreviosunameitions.value);
     
     
     
@@ -414,9 +370,11 @@ export class AddTravellerComponent implements OnInit {
 
       this.formData1.set("data",JSON.stringify(fd));
       
+
+      let tempData  = (<FormArray>this.travellerForm.get('travellers')).controls|| [];
+
       
-
-
+      console.log(tempData.values());
       
 
     this.travellerService.submitForm(this.formData1).subscribe(
@@ -424,9 +382,10 @@ export class AddTravellerComponent implements OnInit {
         console.log(data);
 
         if(data.code == "0") {
+        let base_url = this.userFlow.getBaseURL();
           let AUTH_TOKEN = this.loginService.getAuthToken();
           let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});
-          this.http.post("https://staging2.visa2fly.com/payment/process",{},{headers:headers}).subscribe(); 
+          this.http.post(base_url+"payment/process",{},{headers:headers}).subscribe(); 
         }
       }
     )

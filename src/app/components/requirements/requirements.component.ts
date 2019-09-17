@@ -6,6 +6,7 @@ import { RequirementsService } from './requirements.service';
 import { RequirementsModel } from './requirements.model';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: 'app-requirements',
@@ -16,7 +17,8 @@ export class RequirementsComponent implements OnInit {
   public regData : requirementData ;
 
   constructor(private router: Router,private myservice: HomeServiceService, private reqService : RequirementsService,
-              private userFlow : UserFlowDetails, private routerHistory  :RouterHistory) {
+              private userFlow : UserFlowDetails, private routerHistory  :RouterHistory,
+              private toastService :ToastService) {
 
    
    }
@@ -72,7 +74,14 @@ export class RequirementsComponent implements OnInit {
         this.onlinestatus = data.data.onlineCategory;
         let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
         this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(data.data.onlineCategory));
-        this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploads));
+        let imgDat = JSON.stringify(data.data.imageUploads);
+
+        if (imgDat == "null") {
+          this.userFlow.setUserFlowDetails("imageUploads",'[]');
+        }
+        else {
+          this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploads));
+        }
         // this.userFlow.setUserFlowDetails("imagesRequired")
         this.quotes = data.data.quotes;
         let temp = [];
@@ -124,10 +133,20 @@ export class RequirementsComponent implements OnInit {
     this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
 
 
-    
+    console.log(quoteId);
+    this.reqService.verifyQuotation(quoteId).subscribe(
+      (data : any) => {
+        if (data.code == "0") {
+          this.routerHistory.pushHistory("req");
+          this.router.navigate(['addTraveller']);
 
-    this.routerHistory.pushHistory("req");
-    this.router.navigate(['addTraveller']);
+        }
+        else {
+          this.toastService.showNotification(""+data.message, 4000);
+      }
+      }
+    );
+
    
   }
 
