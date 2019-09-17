@@ -12,6 +12,9 @@ export class RouterHistory {
     }
 
 
+    clearRouteHistory () {
+        this.history = [];
+    }
     getPrevRoute () {
         return this.history[this.history.length-1] || "home";
     }

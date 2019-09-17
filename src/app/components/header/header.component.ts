@@ -76,6 +76,15 @@ export class HeaderComponent implements OnInit {
           this.preloaderService.showPreloader(false);
           localStorage.setItem("profile",JSON.stringify({}));
         }
+        else if (data.code == "301") {
+          this.loginService.setAuthToken("");
+          this.loginStatus.setUserStatus(false);
+          this.loginStatus.setUserLoggedIn(false);
+          this.router.navigate(['home']);
+          this.preloaderService.showPreloader(false);
+          localStorage.setItem("profile",JSON.stringify({}));
+          this.toastService.showNotification(""+data.message,4000);
+        }
 
         else {
           this.toastService.showNotification(data.message.toString(),4000);

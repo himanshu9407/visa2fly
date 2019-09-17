@@ -149,6 +149,7 @@ export class LoginComponent implements OnInit {
                 this.loginStatus.setUserProfile(data.data.profile);
                 // window.location.reload();
                 if(this.prevRoute == "req") {
+                  this.routerHistory.clearRouteHistory();
                   this.router.navigate(['addTraveller']);
                 }
                 else {
