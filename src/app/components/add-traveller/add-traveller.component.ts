@@ -82,10 +82,13 @@ export class AddTravellerComponent implements OnInit {
     
 
     this.quoteId = data.quoteId;
-    console.log(data);
+    // console.log(data);
     this.country = data.country;
     this.basePrice = JSON.parse(data.basePrice);
-    this.serviceTax = JSON.parse(data.basePrice);
+    this.serviceTax = JSON.parse(data.serviceTax);
+
+    console.log(this.basePrice);
+    console.log(this.serviceTax);
     this.stayPeriod = data.stayPeriod;
 
 
