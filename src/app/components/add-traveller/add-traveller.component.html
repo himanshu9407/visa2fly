@@ -421,7 +421,7 @@
 
 
   <div style="display: none">
-    <form name="processPayment" ngNoForm action="{{paymentForm.paymentUrl}}" method="POST">
+    <form name="processPayment" ngNoForm action="https://zaakpaystaging.centralindia.cloudapp.azure.com:8080/api/paymentTransact/V8?" method="POST">
       <input type="text" id="buyerEmail" [(ngModel)] = "paymentForm.buyerEmail">
       <input type="text" id="orderId" [(ngModel)] = "paymentForm.orderId">
       <input type="text" id="amount" [(ngModel)] = "paymentForm.amount">

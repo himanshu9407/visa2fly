@@ -401,6 +401,9 @@ export class AddTravellerComponent implements OnInit {
               this.paymentForm.paymentUrl = data1.paymentUrl;
               document.forms["processPayment"].submit();
 
+
+              console.log(this.paymentForm);
+
             }
           ); 
         }
