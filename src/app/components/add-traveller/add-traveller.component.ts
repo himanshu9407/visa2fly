@@ -395,12 +395,13 @@ export class AddTravellerComponent implements OnInit {
               this.paymentForm.orderId = data1.orderId;
               this.paymentForm.amount = data1.amount;
               this.paymentForm.currency = data1.currency;
-              this.paymentForm.merchantIdentifier = data.merchantIdentifier;
+              this.paymentForm.merchantIdentifier = data1.merchantIdentifier;
               this.paymentForm.returnUrl = data1.returnUrl;
               this.paymentForm.checksum = data1.checksum;
               this.paymentForm.paymentUrl = data1.paymentUrl;
-              document.forms["processPayment"].submit();
+              document.forms["paymentForm"].submit();
 
+              console.log(document.forms["paymentForm"]);
 
               console.log(this.paymentForm);
 
