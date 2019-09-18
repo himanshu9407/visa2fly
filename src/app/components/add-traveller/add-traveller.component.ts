@@ -392,6 +392,7 @@ export class AddTravellerComponent implements OnInit {
           let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});
           this.http.post(base_url+"payment/process",{},{headers:headers}).subscribe(
             (data : any) => {
+              console.log(data);
               this.paymentForm.buyerEmail = data.buyerEmail;
               this.paymentForm.orderId = data.orderId;
               this.paymentForm.amount = data.amount;
@@ -400,10 +401,10 @@ export class AddTravellerComponent implements OnInit {
               this.paymentForm.returnUrl = data.returnUrl;
               this.paymentForm.checksum = data.checksum;
               this.paymentForm.paymentUrl = data.paymentUrl;
-
+              
+              document.forms["processPayment"].submit();
               // var button = document.getElementById('submitPayment');
               // button.click
-              document.forms["processPayment"].submit();
 
             }
           ); 
@@ -431,6 +432,11 @@ export class AddTravellerComponent implements OnInit {
 
      
     // });
+  }
+
+  callMe () {
+    // console.log("hellow orld");
+
   }
 
   removeTraveller (index:number) {
