@@ -387,24 +387,19 @@ export class AddTravellerComponent implements OnInit {
         console.log(data);
 
         if(data.code == "0") {
-          let base_url = this.userFlow.getBaseURL();
-          let AUTH_TOKEN = this.loginService.getAuthToken();
-          let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});
-          this.http.post(base_url+"payment/process",{},{headers:headers}).subscribe(
-            (data : any) => {
-              console.log(data);
-              this.paymentForm.buyerEmail = data.buyerEmail;
-              this.paymentForm.orderId = data.orderId;
-              this.paymentForm.amount = data.amount;
-              this.paymentForm.currency = data.currency;
+
+          this.travellerService.hitPaymentApi().subscribe(
+            (data1 : any) => {
+              console.log(data1);
+              this.paymentForm.buyerEmail = data1.buyerEmail;
+              this.paymentForm.orderId = data1.orderId;
+              this.paymentForm.amount = data1.amount;
+              this.paymentForm.currency = data1.currency;
               this.paymentForm.merchantIdentifier = data.merchantIdentifier;
-              this.paymentForm.returnUrl = data.returnUrl;
-              this.paymentForm.checksum = data.checksum;
-              this.paymentForm.paymentUrl = data.paymentUrl;
-              
+              this.paymentForm.returnUrl = data1.returnUrl;
+              this.paymentForm.checksum = data1.checksum;
+              this.paymentForm.paymentUrl = data1.paymentUrl;
               document.forms["processPayment"].submit();
-              // var button = document.getElementById('submitPayment');
-              // button.click
 
             }
           ); 
