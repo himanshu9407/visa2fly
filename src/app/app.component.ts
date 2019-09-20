@@ -69,32 +69,32 @@ constructor(private homeFormService: HomeFormService,
       let token = this.loginService.getAuthToken();
      
 
-    if (token == "" || null )  {
+    if (token == "" || token ==  null || token == undefined )  {
+      console.log("profile cleared")
       this.userFlow.setUserProfile({});
       this.loginStatusService.setUserLoggedIn(false);
-     }
+    }
     else {
 
       this.loginStatusService.verifyAuthToken(token).toPromise()
         .then((data : any) => {
-         if (!data) {
-          this.userFlow.setUserProfile({});
-          this.loginStatusService.setUserLoggedIn(false);
-  
-        }
-          else if(data.code == "0") {
+        if(data.code == "0") {
+            console.log(data);
             this.userFlow.setUserProfile(data.data);
             this.loginStatusService.setUserLoggedIn(true);
             // console.log(this.userFlow.getUserFlowDetails());
             this.preloaderService.showPreloader(false);
+            this.loginStatusService.setUserProfile(data.data.profile);
         }
           else {
             this.userFlow.setUserProfile({});
             this.loginStatusService.setUserLoggedIn(false);
         }
         })
-      
     }
+
+      
+    
 
     
     

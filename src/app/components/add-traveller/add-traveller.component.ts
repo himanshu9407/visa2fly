@@ -18,6 +18,15 @@ export class AddTravellerComponent implements OnInit {
 
   // model: NgbDateStruct;
   public paymentForm: any = {};
+  buyerEmail = "";
+  orderId = "";
+  amount = "";
+  currency = "";
+  merchantIdentifier = "";
+  returnUrl = "";
+  checksum = "";
+
+
 
   dataSource = [{id:"Primary",dataToggle:"toogle1", dataToggleHash:"#toogle1"}];
 
@@ -236,7 +245,7 @@ export class AddTravellerComponent implements OnInit {
         gstNumber:'',
         cellNumber:['',[Validators.required]],
         addressForPickupSame:[false,[Validators.required]],
-        addressForPickup:['',[Validators.required]],
+        address:['',[Validators.required]],
         state:['',[Validators.required]],
         city:['',[Validators.required]],
         pinCode : ['',[Validators.required]]
@@ -391,19 +400,23 @@ export class AddTravellerComponent implements OnInit {
           this.travellerService.hitPaymentApi().subscribe(
             (data1 : any) => {
               console.log(data1);
-              this.paymentForm.buyerEmail = data1.buyerEmail;
-              this.paymentForm.orderId = data1.orderId;
-              this.paymentForm.amount = data1.amount;
-              this.paymentForm.currency = data1.currency;
-              this.paymentForm.merchantIdentifier = data1.merchantIdentifier;
-              this.paymentForm.returnUrl = data1.returnUrl;
-              this.paymentForm.checksum = data1.checksum;
-              this.paymentForm.paymentUrl = data1.paymentUrl;
-              document.forms["paymentForm"].submit();
+              this.buyerEmail = data1.buyerEmail;
+              this.orderId = data1.orderId;
+              this.amount = data1.amount;
+              this.currency = data1.currency;
+              this.merchantIdentifier = data1.merchantIdentifier;
+              this.returnUrl = data1.returnUrl;
+              this.checksum = data1.checksum;
+              // this.paymentUrl = data1.paymentUrl;
 
               console.log(document.forms["paymentForm"]);
 
               console.log(this.paymentForm);
+              setTimeout(() => {
+                
+                document.forms["paymentForm"].submit();
+              }, 4000);
+
 
             }
           ); 

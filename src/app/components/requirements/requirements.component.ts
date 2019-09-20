@@ -40,6 +40,8 @@ export class RequirementsComponent implements OnInit {
 
   public requirementsData : any ;
    public userFlowDetails : any;
+
+   public faqs : any  ;
   
 
   public mainArr:any = [["hello","world","sarthak","agrawal"]];
@@ -69,11 +71,11 @@ export class RequirementsComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
     // console.log(this.userFlowDetails);
 
-    this.reqService.getRequirementsData(this.userFlowDetails.country,this.userFlowDetails.purpose,this.userFlowDetails.entryType ).then((data : RequirementsModel )=> {
+    this.reqService.getRequirementsData(this.userFlowDetails.country,this.userFlowDetails.purpose,this.userFlowDetails.entryType ).then((data : any )=> {
       if (data.code == "0") {
 
         this.requirementsData = data;
-        console.log(data.data);
+        console.log(data.data.faqs);
         this.onlinestatus = data.data.onlineCategory;
         let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
         this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(data.data.onlineCategory));
@@ -126,9 +128,9 @@ export class RequirementsComponent implements OnInit {
     });
     
   }
-  navigate(quoteId : string,basePrice : number, serviceTax : number,stayPeriod:string) {
+
+  navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string) {
     
-    // console.log(quoteId);
 
     this.userFlow.setUserFlowDetails("quoteId",quoteId);
     this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));

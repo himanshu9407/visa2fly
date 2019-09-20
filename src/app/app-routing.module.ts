@@ -13,11 +13,18 @@
     import { InsuranceComponent } from './components/insurance/insurance.component';
     import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { TermsandConditionsComponent } from './components/static/termsand-conditions/termsand-conditions.component';
+import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
+import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
+import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
     
     const routes: Routes = [
          {  path: '',component:HomeContainerComponent},
          {  path: 'home',component:HomeContainerComponent},
-
+         {  path: 'tnc',component:TermsandConditionsComponent},
+         {  path: 'cookiePolicy',component:CookiePolicyComponent},
+         {  path: 'privacyPolicy',component:PrivacyPolicyComponent},
+         {  path: 'cancellationPolicy',component:CancellationsAndReturnComponent},
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
 
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
