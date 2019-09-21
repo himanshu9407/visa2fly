@@ -10,7 +10,7 @@
                      <div class="img-loader ldr1" style="display: none;">
                          <div class="icon-s1-small-loader" alt="small"></div>
                      </div>
-                    <select  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class=" form-control form-control-sm"  name="country" style="">
+                    <select  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class="form-control form-control-sm"  name="country">
                         <!-- <option value="0">Select</option> -->
                             <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
                     </select>
