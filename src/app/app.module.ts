@@ -36,7 +36,11 @@ import { InsuranceComponent } from './components/insurance/insurance.component';
 import { PreloaderComponent } from './shared/preloader/preloader.component';
 
 import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
-import { MyBookingsComponent } from './components/my-bookings/my-bookings.component'
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { TermsandConditionsComponent } from './components/static/termsand-conditions/termsand-conditions.component';
+import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
+import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
+import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component'
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { MyBookingsComponent } from './components/my-bookings/my-bookings.compon
     SimComponent,
     InsuranceComponent,
     PreloaderComponent,
-    MyBookingsComponent
+    MyBookingsComponent,
+    TermsandConditionsComponent,
+    CookiePolicyComponent,
+    PrivacyPolicyComponent,
+    CancellationsAndReturnComponent
   ],
   imports: [
     BrowserModule,
