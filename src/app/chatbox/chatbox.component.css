@@ -5,16 +5,23 @@
   background-color: navy;
   color: white;
   position: fixed;
-  bottom: 80px;
-  right: 40px;
+  bottom: 60px;
+  right: 45px;
   font-size: 20px;
   border-radius: 100px;
-
   width: 45px;
 }
 
+.modal-body {
+  padding-bottom: 0px;
+}
+
 .modal-title {
-  font-weight: 700;
+  margin-left: 35px;
+}
+
+.modal-content {
+  width: 350px !important;
 }
 
 .help:hover {
@@ -25,8 +32,8 @@
 
 .modal-dialog {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 90px;
+  right: 30px;
 }
 .smallCheck {
   height: 12px !important;
@@ -69,7 +76,7 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
   .help {
-    bottom: 70px;
+    bottom: 90px;
     right: 20px;
   }
 
@@ -77,4 +84,19 @@
     bottom: 120px;
     right: 20px;
   }
+
+  .modal-content {
+    width: 320px !important;
+  }
+
+  .modal-title {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+.modal-content {
+  width: 100% !important;
+  height: 100% !important;
+}
 }

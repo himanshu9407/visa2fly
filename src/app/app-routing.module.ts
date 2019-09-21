@@ -25,7 +25,7 @@ import { MyBookingsComponent } from './components/my-bookings/my-bookings.compon
          {  path: 'hf',component:HomeFormComponent},
          {  path : '' , component : HomeContainerComponent},
          {  path : 'reg' , component : RequirementsComponent},
-         {  path : 'addTraveller' , component : AddTravellerComponent, canActivate : [AuthenticationGuard]},
+         {  path : 'addTraveller' , component : AddTravellerComponent},
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visaArrival' , component : VisaArrivalComponent},
          {  path : 'visa' ,  redirectTo: 'home'},
