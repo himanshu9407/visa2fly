@@ -31,7 +31,7 @@ import { CancellationsAndReturnComponent } from './components/static/cancellatio
          {  path: 'mini',component:MiniCarouselComponent},
          {  path: 'hf',component:HomeFormComponent},
          {  path : 'reg' , component : RequirementsComponent},
-         {  path : 'addTraveller' , component : AddTravellerComponent, canActivate : [AuthenticationGuard]},
+         {  path : 'addTraveller' , component : AddTravellerComponent},
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visaArrival' , component : VisaArrivalComponent},
          {  path : 'visa' ,  redirectTo: 'home'},
