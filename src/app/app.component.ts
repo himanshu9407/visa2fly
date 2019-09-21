@@ -8,6 +8,7 @@ import { SignupResponseModel } from './components/login-signup/signup/SignupResp
 import { UserFlowDetails } from './shared/user-flow-details.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,9 @@ public showPreloader : boolean  =false ;
 users :object;
 constructor(private homeFormService: HomeFormService,
   private preloaderService : PreloaderService, private loginStatusService : LoginStatusService,
-  private loginService : LoginService, private userFlow : UserFlowDetails, private authService : AuthenticationGuard) {
+  private router : Router,private loginService : LoginService, private userFlow : UserFlowDetails, private authService : AuthenticationGuard) {
+    this.router.navigate(['/home']);
+
   }
   
   ngOnInit() {

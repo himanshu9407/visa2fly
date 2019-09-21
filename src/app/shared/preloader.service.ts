@@ -11,8 +11,9 @@ export class PreloaderService {
     getAlert(): Observable<any> {  
         return this.subject.asObservable();  
     } 
+
     showPreloader (showPreloader : boolean) {
-        // console.log(showPreloader);
+        console.log(showPreloader + "preloader showing");
         let show = showPreloader;
         this.subject.next(show);
     }

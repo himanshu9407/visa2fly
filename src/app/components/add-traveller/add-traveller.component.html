@@ -106,7 +106,7 @@
             </button>
           </h5>
         </div>
-        <div id="{{ dataSource[i].dataToggle }}" class="collapse " attr.aria-labelledby="{{ dataSource[i].id }}"
+        <div id="{{ dataSource[i].dataToggle }}" class="collapse" [ngClass]="{'show': first}" attr.aria-labelledby="{{ dataSource[i].id }}"
           data-parent="#accordion">
           <div class="card-body">
               <div class="form-row">
@@ -132,6 +132,7 @@
                   <div *ngIf="travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.
                   travellers.controls[i].controls.firstName.dirty"  class="invalid-feedback" style="display: block">
                     Enter a valid first name
+                    
                   </div>
                 </div>
                 <div class="col-md-2 mb-3">
@@ -217,7 +218,7 @@
   
                        <div *ngIf="travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
                         travellers.controls[i].controls.emailId.dirty"  class="invalid-feedback" style="display: block">
-                          Enter a Email ID
+                          Enter a valid Email ID
                         </div>
                     </div>
                   </div>
@@ -255,19 +256,27 @@
                   <label><b> Adress for pickup of documents </b></label>
                   <br>
                   <div class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
-                    <input  formControlName="address" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input  formControlName="addressForPickupSame" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1" style="font-size: 13px">
-                      Same as above
+                      Same as Primary Traveller
                     </label>
                   </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-4 mb-3">
                   <div class="input-group">
-                    <textarea formControlName="addressForPickup" class="form-control " placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
+                    <textarea minlength="20" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                    .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
+                    'is-valid':!(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
+                    travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].
+                    controls.address.pristine}" formControlName="address" class="form-control " placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
+                    <div  *ngIf="travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.address.dirty" class="invalid-feedback" style="display: block">
+                    Enter a valid address
+                  </div>
                   </div>
                 </div>
 
-                <div class="col-md-2 mb-3">
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
                   <select formControlName="state" id="State" class="form-control">
                     <option  value="Haryana">Haryana</option>
                     <option  value="Uttar Pradesh">Uttar Pradesh</option>
@@ -278,7 +287,7 @@
                     Looks good!
                   </div>
                 </div>
-                <div class="col-md-2 mb-3">
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
                   <select formControlName="city" id="City" class="form-control">
                     <option selected value="Delhi">Delhi</option>
                     <option value="Gurugram">Gurugram</option>
@@ -289,10 +298,15 @@
                     Looks good!
                   </div>
                 </div>
-                <div class="col-md-2 mb-3">
-                  <input formControlName="pinCode" pattern="^[1-9][0-9]{5}$" type="text" class="form-control" id="pincode" placeholder="Pin Code" required />
-                  <div class="valid-feedback">
-                    Looks good!
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
+                  <input formControlName="pinCode" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .pinCode.invalid && travellerForm.controls.travellers.controls[i].controls.pinCode.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.pinCode.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.pinCode.pristine}" pattern="^[1-9][0-9]{5}$" type="text" class="form-control" id="pincode" placeholder="Pin Code" required />
+                  <div  *ngIf="travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.pinCode.dirty" class="invalid-feedback" style="display: block">
+                    Enter valid pincode
                   </div>
                 </div>
               </div>
@@ -411,7 +425,7 @@
               Proceed to payment
             </button>
 
-              <!-- <button (click)="seeValues()">chek</button> -->
+              <button (click)="check()">chek</button>
           </div>
       </div>
     </div>
@@ -421,7 +435,7 @@
 
 
   <div style="display: none">
-    <form name="paymentForm" ngNoForm action="https://zaakpaystaging.centralindia.cloudapp.azure.com:8080/api/paymentTransact/V8?"
+    <form name="paymentForm" ngNoForm action="http://zaakpaystaging.centralindia.cloudapp.azure.com:8080/api/paymentTransact/V8?"
      method="POST">
       <input type="text" name="buyerEmail" id="buyerEmail"  [(ngModel)] = "buyerEmail">
       <input type="text" name="orderId" id="orderId"  [(ngModel)] = "orderId">

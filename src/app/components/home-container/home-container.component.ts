@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeFormService } from '../home-form/home-form.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-container',
@@ -7,10 +8,10 @@ import { HomeFormService } from '../home-form/home-form.service';
   styleUrls: ['./home-container.component.css']
 })
 export class HomeContainerComponent implements OnInit {
-  constructor(private homeFormService : HomeFormService) { }
+  constructor(private homeFormService : HomeFormService, private route : ActivatedRoute) { }
 
   ngOnInit() {
-
+    console.log(this.route.url);
   }
 
 }

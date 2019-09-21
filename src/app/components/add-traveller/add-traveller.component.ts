@@ -25,6 +25,7 @@ export class AddTravellerComponent implements OnInit {
   merchantIdentifier = "";
   returnUrl = "";
   checksum = "";
+  primaryAddress = "";
 
 
 
@@ -246,8 +247,8 @@ export class AddTravellerComponent implements OnInit {
         cellNumber:['',[Validators.required]],
         addressForPickupSame:[false,[Validators.required]],
         address:['',[Validators.required]],
-        state:['',[Validators.required]],
-        city:['',[Validators.required]],
+        state:['State',[Validators.required]],
+        city:['City',[Validators.required]],
         pinCode : ['',[Validators.required]]
       
       });
@@ -278,7 +279,6 @@ export class AddTravellerComponent implements OnInit {
 
     tempArr.forEach((form:FormGroup,index) => {
 
-      // let tempFormData = new FormData();
 
       if (this.onlineCategory) {
 
@@ -288,18 +288,40 @@ export class AddTravellerComponent implements OnInit {
         })
       }
 
+      else {
+        // console.log("inside other travellers")
+        let same = form.get('addressForPickupSame').value;
+        
+        if (same) {
+          form.get('address').setValue(this.primaryAddress);
+          form.updateValueAndValidity();
+        }
+      }
+
       let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
       let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
       let tempDob ="";
       let tempDoe = "";
       
-      if (dob.month < 10) {
+      if (dob.month < 10 && dob.day < 10) {
+        tempDob =  dob.year+"-0"+dob.month+"-0"+dob.day;
+      }
+      else if (dob.day < 10) {
+        tempDob =  dob.year+"-"+dob.month+"-0"+dob.day;
+      }
+      else if (dob.month < 10)  {
         tempDob =  dob.year+"-0"+dob.month+"-"+dob.day;
       }
       else {
         tempDob =  dob.year+"-"+dob.month+"-"+dob.day;
       }
-      if (doe.month < 10) {
+      if (doe.month < 10 && doe.day < 10) {
+        tempDoe =  doe.year+"-0"+doe.month+"-0"+doe.day;
+      }
+      else if (doe.day < 10) {
+        tempDoe =  doe.year+"-"+doe.month+"-0"+doe.day;
+      }
+      else if (doe.month < 10)  {
         tempDoe =  doe.year+"-0"+doe.month+"-"+doe.day;
       }
       else {
@@ -335,31 +357,39 @@ export class AddTravellerComponent implements OnInit {
       
       let finalDot = "";
       let finalDoc = "";
-      
-      if (dot.month < 10) {
+
+      if (dot.month < 10 && dot.day < 10) {
+        finalDot =  dot.year+"-0"+dot.month+"-0"+dot.day;
+      }
+      else if (dot.day < 10) {
+        finalDot =  dot.year+"-"+dot.month+"-0"+dot.day;
+      }
+      else if (dot.month < 10)  {
         finalDot =  dot.year+"-0"+dot.month+"-"+dot.day;
       }
       else {
         finalDot =  dot.year+"-"+dot.month+"-"+dot.day;
       }
-      
-      
-      if(doc.month < 10) {
+
+        if (doc.month < 10 && doc.day < 10) {
+          finalDoc =  doc.year+"-0"+doc.month+"-0"+doc.day;
+      }
+      else if (doc.day < 10) {
+        finalDoc =  doc.year+"-"+doc.month+"-0"+doc.day;
+      }
+      else if (doc.month < 10)  {
         finalDoc =  doc.year+"-0"+doc.month+"-"+doc.day;
       }
       else {
         finalDoc =  doc.year+"-"+doc.month+"-"+doc.day;
       }
       
+     
+      
+      
+      
       let other = ptdata.slice(1,ptdata.length) || [];
       
-      // this.formData1.append('primaryTraveller',ptdata[0]);
-      // this.formData1.append('otherTravellers',other);
-      // this.formData1.append('dateOfTravel',finalDot);
-      // this.formData1.append('dateOfDocumentCollection',finalDoc);
-      // this.formData1.append('country',this.country);
-      // this.formData1.append('quoteId',this.quoteId);
-      // this.formData1.append("images",""+this.requestImageArr);
       
       fd['primaryTraveller']=ptdata[0];
       fd['otherTravellers'] = other;
@@ -415,11 +445,18 @@ export class AddTravellerComponent implements OnInit {
               setTimeout(() => {
                 
                 document.forms["paymentForm"].submit();
-              }, 4000);
+              }, 2000);
 
 
             }
           ); 
+        }
+
+        else if (data.code == "1000") {
+
+        }
+        else if (data.code == "1001") {
+
         }
         else {
           tempArr.forEach((form:FormGroup,index) => {
@@ -461,13 +498,16 @@ export class AddTravellerComponent implements OnInit {
 
   selectedFile = null;
 
+  check() {
+  }
+  
   onFileSelected (event, index, controlName) {
-
-
-
+    
+    
+    
     let typeErr = false;
     let sizeErr = false;
-
+    
     this.selectedFile = event.target.files[0];
     // this.requestImageArr.push(this.selectedFile);
     // let fileReader = new FileReader();
