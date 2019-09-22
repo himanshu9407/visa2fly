@@ -38,15 +38,15 @@
                               {{profile.emailId}}
                             </div>
                             <!-- <div class="col-lg-12">
-                                <div class="verify text-center">
-                                  <button
-                                    class="btn btn-success btn-sm"
-                                    style="border-radius: 50px; padding: 0px 30px;"
-                                  >
-                                    Verify
-                                  </button>
-                                </div>
-                              </div> -->
+<div class="verify text-center">
+<button
+class="btn btn-success btn-sm"
+style="border-radius: 50px; padding: 0px 30px;"
+>
+Verify
+</button>
+</div>
+</div> -->
                             <div class="col-lg-12" style="padding: auto !important;">
                               <div class="verified text-center">
                                 <button class="btn btn-disable btn-sm" style="border-radius: 50px; padding: 0px 12px;">
@@ -62,57 +62,70 @@
                           <div class="row">
                             <div class="col-12">
                               <h2 class="profileHeading" style="color: #000;
-                                   text-align: left;
-                                   ">
+															text-align: left;">
                                 My Profile
                               </h2>
                             </div>
                           </div>
                           <form [formGroup]="profileForm">
                             <div class="form-row">
-                                    <div class="form-group col-md-3 text-left">
-                                            <label for="title">Title</label>
-                                            <select  class="form-control form-control-sm text-left" name="" id="">
-                                                <option>MR</option>
-                                                <option>MRS</option>
-                                                <option>MS</option>
-                                                <option>MASTER</option>
-                                            </select>
-                                          </div>
+                              <div class="form-group col-md-3 text-left">
+                                <label for="title">Title</label>
+                                <select formControlName="title" class="form-control form-control-sm text-left">
+                                  <option>MR</option>
+                                  <option>MRS</option>
+                                  <option>MS</option>
+                                  <option>MASTER</option>
+                                </select>
+                              </div>
                               <div class="form-group  col-md-3 text-left">
                                 <label for="fname">First Name</label>
-                                <input formControlName="firstName" type="text" class="form-control form-control-sm" id="fname"
-                                  placeholder="First Name" />
+                                <input minlength="3" formControlName="firstName" type="text" class="form-control form-control-sm"
+																	id="fname" placeholder="First Name" />
+																	<div *ngIf="profileForm.get('firstName').invalid && profileForm.get('firstName').dirty"  class="invalid-feedback" style="display: block">
+																			Enter a valid first name
+																		</div>
                               </div>
                               <div class="form-group  col-md-3 text-left">
                                 <label for="mname">Middle Name</label>
-                                <input formControlName="middleName" type="text" class="form-control form-control-sm" id="mname"
-                                  placeholder="Middle Name" />
+                                <input formControlName="middleName" type="text" class="form-control form-control-sm"
+                                  id="mname" placeholder="Middle Name" />
                               </div>
                               <div class="form-group  col-md-3 text-left">
                                 <label for="lname">last Name</label>
-                                <input formControlName="lastName" type="text" class="form-control form-control-sm" id="lname"
-                                  placeholder="Last Name" />
+                                <input  minlength="3" formControlName="lastName" type="text" class="form-control form-control-sm"
+																	id="lname" placeholder="Last Name" />
+																	<div *ngIf="profileForm.get('lastName').invalid && profileForm.get('lastName').dirty"  class="invalid-feedback" style="display: block">
+																			Enter a valid last name
+																		</div>
+																	
                               </div>
                             </div>
                             <div class="form-group text-left">
                               <label for="inputAddress1">Address 1</label>
-                              <input  formControlName="addressLine1" type="text" class="form-control form-control-sm" id="inputAddress1"
-                                placeholder="Apartment, studio, or floor" />
+                              <input  minlength="20" formControlName="addressLine1" type="text" class="form-control form-control-sm"
+																id="inputAddress1" placeholder="Apartment, studio, or floor" />
+																<div *ngIf="profileForm.get('addressLine1').invalid && profileForm.get('addressLine1').dirty"  class="invalid-feedback" style="display: block">
+																		Enter a valid address
+																	</div>
                             </div>
                             <div class="form-group text-left">
                               <label for="inputAddress2">Address 2</label>
-                              <input formControlName="addressLine2" type="text" class="form-control form-control-sm" id="inputAddress2"
-                                placeholder="Apartment, studio, or floor" />
+                              <input  minlength="20" formControlName="addressLine2" type="text" class="form-control form-control-sm"
+																id="inputAddress2" placeholder="Apartment, studio, or floor" />
+																<div *ngIf="profileForm.get('addressLine2').invalid && profileForm.get('addressLine2').dirty"  class="invalid-feedback" style="display: block">
+																		Enter a valid address
+																	</div>
                             </div>
                             <div class="form-row">
-                                    <div class="form-group col-md-4 text-left">
-                                            <label for="inputState">State</label>
-                                            <select formControlName="state"  id="inputState" class="form-control form-control-sm text-left">
-                                              <option selected>Delhi NCR</option>
-                                              <option>Haryana</option>
-                                            </select>
-                                          </div>
+                              <div class="form-group col-md-4 text-left">
+                                <label for="inputState">State</label>
+                                <select formControlName="state" id="inputState"
+                                  class="form-control form-control-sm text-left">
+                                  <option selected>Delhi NCR</option>
+                                  <option>Haryana</option>
+                                </select>
+                              </div>
                               <div class="form-group col-md-6 text-left">
                                 <label for="inputCity">City</label>
                                 <select formControlName="city" id="inputState" class="form-control form-control-sm">
@@ -120,35 +133,55 @@
                                   <option>Gurugram</option>
                                 </select>
                               </div>
-                              
+
                               <div class="form-group col-md-2 text-left">
                                 <label for="inputZip">Pin Code</label>
-                                <input formControlName="pincode" type="text" class="form-control form-control-sm" id="inputZip" />
+                                <input pattern="^[1-9][0-9]{5}$" formControlName="pinCode" type="text" class="form-control form-control-sm"
+																	id="inputZip" />
+																	<div *ngIf="profileForm.get('pinCode').invalid && profileForm.get('pinCode').dirty"  class="invalid-feedback" style="display: block">
+																			Enter a valid pin code
+																		</div>
                               </div>
                             </div>
                             <div class="form-row">
                               <div class="form-group col-md-6 text-left">
                                 <label for="country">Country</label>
-                                <select formControlName="country"  class="form-control form-control-sm">
-                                        <option selected>India</option>
-                                      </select>
+                                <select formControlName="country" class="form-control form-control-sm">
+                                  <option selected>India</option>
+                                </select>
                               </div>
-                              
+
                             </div>
                             <div class="form-row">
                               <div class="form-group col-md-6 text-left">
                                 <label for="passportNo">Passport Number</label>
-                                <input type="number" class="form-control form-control-sm" id="passportNo"
-                                  placeholder="Passport Number" />
+                                <input  pattern="^[A-Z]{1}[0-9]{7}$" formControlName="passportNumber" type="text" class="form-control form-control-sm" id="passportNo"
+																	placeholder="Passport Number" />
+																	<div *ngIf="profileForm.get('passportNumber').invalid && profileForm.get('passportNumber').dirty"  class="invalid-feedback" style="display: block">
+																		Enter a valid passport number
+																	</div>
                               </div>
                               <div class="form-group col-md-6 text-left">
                                 <label for="passportExpireDate">Passport Expiry Date</label>
-                                <input type="date" class="form-control form-control-sm" id="passportExpireDate"
-                                  placeholder="Passport Expiry Date" />
+																<!-- <div class="col-md-2 mb-3"> -->
+																		<!-- <app-date></app-date> -->
+																			<!-- <div class="form-group"> -->
+																				<div class="input-group">
+																					<input   formControlName="passportExpiryDate" class="form-control  form-control-sm addTravelDate" placeholder="Passport Expiry Date" name="dp"
+																					 [minDate]="mindate"  id="#doe" ngbDatepicker #doe="ngbDatepicker">
+																					<div class="input-group-append">
+																						<button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button"><i
+																								class="fas fa-calendar-alt"></i>
+																						</button>
+																					</div>
+																				<!-- </div>
+																			</div> -->
+																	 
+																	</div>
                               </div>
                             </div>
                             <div class="form-group">
-                              <button class="btn btn-primary btn-sm float-right">
+                              <button [disabled] = "!profileForm.valid" (click) = "submitProfileData()" class="btn btn-primary btn-sm float-right">
                                 Submit
                               </button>
                             </div>
