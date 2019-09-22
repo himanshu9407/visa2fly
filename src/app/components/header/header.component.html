@@ -15,11 +15,11 @@
   <div class="collapse navbar-collapse" id="basicExampleNav">
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="navlink" href="#">Visa</a>
+      <li [routerLink]="['home']" class="nav-item" >
+        <a  class="navlink" routerLinkActive="active" href="#">Visa</a>
       </li>
 
-      <li class="nav-item">
+      <li [routerLink]="['home']"  class="nav-item">
         <a class="navlink" href="#">Sim Card</a>
       </li>
       <li class="nav-item">
@@ -60,8 +60,8 @@
             {{userDetails.emailId}}
           </button>
           <div class="dropdown-menu" [ngClass]="{'show':showDropDown}">
-            <button class="dropdown-item">My Profile</button>
-            <button class="dropdown-item">My Bookings</button>
+            <button [routerLink] = "['profile']" class="dropdown-item">My Profile</button>
+            <button [routerLink] = "['myBookings']" class="dropdown-item">My Bookings</button>
             <div class="dropdown-divider"></div>
             <button (click)="logoutUser()" class="dropdown-item">Logout</button>
 

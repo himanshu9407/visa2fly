@@ -17,6 +17,7 @@ import { TermsandConditionsComponent } from './components/static/termsand-condit
 import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
 import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
 import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
+import { ProfileComponent } from './components/profile/profile.component';
     
     const routes: Routes = [
          {  path: '', redirectTo : 'home', pathMatch :'full'},
@@ -28,8 +29,7 @@ import { CancellationsAndReturnComponent } from './components/static/cancellatio
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
 
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
-         {  path: 'mini',component:MiniCarouselComponent},
-         {  path: 'hf',component:HomeFormComponent},
+         {  path: 'profile', component : ProfileComponent},
          {  path : 'reg' , component : RequirementsComponent},
          {  path : 'addTraveller' , component : AddTravellerComponent},
          {  path : 'freeVisa' , component : FreeVisaComponent},

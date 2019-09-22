@@ -5,6 +5,11 @@ import { SignupResponseModel } from './SignupResponse.model';
 import { HttpParams } from '@angular/common/http';
 import { ToastService } from 'src/app/shared/toast.service';
 import { Router } from '@angular/router';
+import { RouterHistory } from 'src/app/shared/router-history.service';
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { RequirementsService } from '../../requirements/requirements.service';
+import { LoginService } from '../login/login.service';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,12 +26,20 @@ export class SignupComponent implements OnInit {
   showAlert : boolean = false;
   otpFormSubmitted : boolean = false;
   showSignUpButton : boolean = false;
+  prevRoute = "";
 
 
 
-  constructor(private singUpService : SignupService, private toastService :ToastService,private router : Router) { }
+  constructor(private singUpService : SignupService, private toastService :ToastService,private router : Router,
+    private routerHistory : RouterHistory , private userFlowService : UserFlowDetails, private reqService : RequirementsService,
+    private loginService : LoginService,private loginStatus : LoginStatusService) { }
 
   ngOnInit() {
+
+    this.prevRoute = this.routerHistory.getPrevRoute();
+    console.log(this.prevRoute);
+
+
       this.signupForm = new FormGroup({
          
           'email': new FormControl(null, [Validators.required, Validators.email]),
@@ -67,17 +80,41 @@ export class SignupComponent implements OnInit {
 
       this.singUpService.createUser(reqBody)
         .subscribe(
-          (data : SignupResponseModel) => {
+          (data : any) => {
             if (!data) {
               this.toastService.showNotification("Something Went wrong", 4000);
               this.setFormFresh();
             }
 
             else if (data.code == "0"){
-              console.log("failed to verify but router did the task");
-              this.toastService.showNotification(data.message.toString(),5000);
-              this.router.navigate(['slcontainer/login']);
+              this.loginService.setAuthToken(data.data.authentication.token);
+                this.loginService.setUserStatus(true);
+                this.loginStatus.setUserStatus(true);
+                this.loginStatus.setUserLoggedIn(true);
+                this.userFlowService.setUserProfile(data.data.profile);
+                this.loginStatus.setUserProfile(data.data.profile);
+              // this.router.navigate(['slcontainer/login']);
+              if(this.prevRoute == "req") {
+                this.routerHistory.clearRouteHistory();
+                this.router.navigate(['addTraveller']);
+              }
+              else if (this.prevRoute == "req-and-quote") {
+                let quoteId = this.userFlowService.getUserFlowDetails().quoteId;
+                
+                this.reqService.verifyQuotation(quoteId).subscribe(
+                  (data : any) => {
+                    if (data.code == "0") {
+                      this.router.navigate(['addTraveller']);
 
+                    }
+                    else {
+                      this.router.navigate(['home']);
+                    }
+                  }
+                )
+              }
+              
+              this.toastService.showNotification(data.message.toString(),5000);
 
             }
             else {

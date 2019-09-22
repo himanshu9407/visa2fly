@@ -77,7 +77,6 @@ export class RequirementsComponent implements OnInit {
       if (data.code == "0") {
 
         
-
         this.requirementsData = data;
         console.log(data.data);
         this.importantInfo = data.data.importantInfo;

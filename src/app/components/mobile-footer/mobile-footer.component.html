@@ -1,5 +1,5 @@
 <div style="background-color: whitesmoke; height: 162px; padding-top: 10px;">
-<div class="row d-flex align-items-center">
+  <div class="row d-flex align-items-center">
 
     <!-- Grid column -->
     <div class="col-md-7 col-lg-8">
@@ -7,7 +7,7 @@
       <!--Copyright-->
       <p class="text-center text-md-left" style="margin-bottom: 7px;">© 2019 Copyright:
         <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> -->
-          <strong> Visa2fly</strong>
+        <strong> Visa2fly</strong>
         <!-- </a> -->
       </p>
 
@@ -45,56 +45,58 @@
 
     </div>
     <div class="col-md-12 text-center">
-      <p style="margin: 10px 0px"><i class="fas fa-envelope mr-2"></i>hello@visa2fly.com &nbsp;&nbsp;<span><i class="fas fa-phone mr-2"></i>+91 0987654321</span></p>
+      <p style="margin: 10px 0px"><i class="fas fa-envelope mr-2"></i>hello@visa2fly.com &nbsp;&nbsp;<span><i
+            class="fas fa-phone mr-2"></i>+91 0987654321</span></p>
     </div>
     <!-- Grid column -->
 
   </div>
 </div>
 <div class="bottomNavContainer">
-    <div class="container-fluid1">
-        <div class="row noMargin">
-          <div class="col bottomNavItem" (click)="onClickBottomNavItem()">
-              <div class="bottomNavItemIcon">
-                  <!-- <i class="icon-accessibility icon"></i> -->
-                  <img src="../../../assets/mobile-header/about-us.png" class="footerIcon" alt="">
+  <div class="container-fluid1">
+    <div class="row noMargin">
+      <div class="col bottomNavItem" (click)="onClickBottomNavItem()">
+        <div class="bottomNavItemIcon">
+          <!-- <i class="icon-accessibility icon"></i> -->
+          <img src="../../../assets/mobile-header/about-us.png" class="footerIcon" alt="">
 
-              </div>
-              <div class="bottomNavItemContent">
-                  About Us
-              </div>
-          </div>
-            <div class="col bottomNavItem selectedItem" (click)="onClickBottomNavItem()">
-
-                <div class="bottomNavItemIcon">
-                    <!-- <i class="fab fa-angellist"></i> -->
-                    <img src="../../../assets/mobile-header/term.png" class="footerIcon" alt="">
-                  </div>
-                  <div class="bottomNavItemContent">
-                    T&C
-                  </div>
-                </div>
-                <div class="col bottomNavItem">
-                  <div class="bottomNavItemIcon">
-                    <!-- <i class="fab fa-angellist"></i> -->
-                    <img src="../../../assets/mobile-header/secure-data.png" class="footerIcon" alt="">
-
-                </div>
-                <div class="bottomNavItemContent">
-                    Privacy Policy
-                </div>
-            </div>
-            <div class="col bottomNavItem">
-                <div class="bottomNavItemIcon" (click)="onClickBottomNavItem()">
-                    <!-- <i class="fab fa-angellist"></i> -->
-                    <img src="../../../assets/mobile-header/rejected.png" class="footerIcon" alt="">
-
-                </div>
-                <div class="bottomNavItemContent">
-                    Cancellations
-                </div>
-            </div>
-          
         </div>
+        <div class="bottomNavItemContent">
+          About Us
+        </div>
+      </div>
+      <div class="col bottomNavItem" [routerLink]="['tnc']" routerLinkActive="selectedItem"
+        (click)="onClickBottomNavItem()">
+
+        <div class="bottomNavItemIcon">
+          <!-- <i class="fab fa-angellist"></i> -->
+          <img src="../../../assets/mobile-header/term.png" class="footerIcon" alt="">
+        </div>
+        <div class="bottomNavItemContent">
+          T&C
+        </div>
+      </div>
+      <div class="col bottomNavItem" [routerLink]="['privacyPolicy']" routerLinkActive="selectedItem">
+        <div class="bottomNavItemIcon">
+          <!-- <i class="fab fa-angellist"></i> -->
+          <img src="../../../assets/mobile-header/secure-data.png" class="footerIcon" alt="">
+
+        </div>
+        <div class="bottomNavItemContent">
+          Privacy Policy
+        </div>
+      </div>
+      <div class="col bottomNavItem" [routerLink]="['cancellationPolicy']" routerLinkActive="selectedItem">
+        <div class="bottomNavItemIcon" (click)="onClickBottomNavItem()">
+          <!-- <i class="fab fa-angellist"></i> -->
+          <img src="../../../assets/mobile-header/rejected.png" class="footerIcon" alt="">
+
+        </div>
+        <div class="bottomNavItemContent">
+          Cancellations
+        </div>
+      </div>
+
     </div>
+  </div>
 </div>
