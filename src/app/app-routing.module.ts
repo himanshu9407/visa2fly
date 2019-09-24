@@ -18,6 +18,7 @@ import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-
 import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
 import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
     
     const routes: Routes = [
          {  path: '', redirectTo : 'home', pathMatch :'full'},
@@ -27,6 +28,7 @@ import { ProfileComponent } from './components/profile/profile.component';
          {  path: 'privacyPolicy',component:PrivacyPolicyComponent},
          {  path: 'cancellationPolicy',component:CancellationsAndReturnComponent},
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
+         {  path: 'bookingDetail', component : BookingDetailsComponent},
 
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
          {  path: 'profile', component : ProfileComponent},

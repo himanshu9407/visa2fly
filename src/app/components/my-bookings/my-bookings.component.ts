@@ -3,6 +3,7 @@ import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LoginService } from '../login-signup/login/login.service';
 import { Router } from '@angular/router';
 import { PreloaderService } from 'src/app/shared/preloader.service';
+import { MyBookingsService } from './mybookings.service';
 
 @Component({
   selector: 'app-my-bookings',
@@ -16,7 +17,7 @@ export class MyBookingsComponent implements OnInit {
   AUTH_TOKEN = "";
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
-              private  router :Router ,private preloaderService :PreloaderService) {
+              private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService) {
     this.myBookings =   [];
     this.preloaderService.showPreloader(true);
     
@@ -44,6 +45,11 @@ ngOnInit() {
         }
     }      
     );
+  }
+  setActiveBooking (booking : any) {
+    this.bookingService.setActiveBooking(booking);
+
+    this.router.navigate(['bookingDetail']);
   }
 
 }

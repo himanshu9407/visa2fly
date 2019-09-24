@@ -1,0 +1,257 @@
+<div style="display: flex; justify-content: center">
+
+    <section id="insrSummary" style="margin-top: 70px;">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="insurancePlan">
+                    <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <div class="col-lg-12 col-6">
+                            <div class="labelText">
+                              <b>BOOKING ID:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.bookingId}}</li>
+                              </div>
+                            </div>
+                            <div class="labelText secondChild">
+                              <b>TRANSACTION ID :</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.paymentId}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      
+                      <div class="col">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="labelText">
+                              <b>VISA FOR :</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.visaForCountry}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="labelText secondChild">
+                              <b>VISA TYPE:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.visaType}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      
+                      <div class="col">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="labelText">
+                              <b>ENTRY TYPE:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.entryType}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="labelText secondChild">
+                              <b>TOTAL TRAVELLERS:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.totalTravellers}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      
+                      <div class="col">
+                        <div class="row">
+                          
+                          <div class="col-lg-12">
+                            <div class="labelText">
+                              <b>BOOKING DATE:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.bookingDate}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="labelText secondChild">
+                              <b>DATE OF JOURNEY:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.dateOfTravel}}</li>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="labelText">
+                              <b>BOOKING STATUS:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.bookingStatus}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="labelText secondChild">
+                              <b>PAYMENT STATUS:</b>
+                              <div class="viewDetail">
+                                <li>{{selectedBooking.booking.bookingId}}</li>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </section>
+</div>
+      <section class="bookingDetail" style="display: flex; justify-content: center; margin-bottom: 40px;">
+        <div class="container" style="display: flex; justify-content: center">
+          <div *ngFor=" let traveller of selectedBooking.travellers " class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+            <div class="sim-card">
+              <div class="card">
+                <div class="card-header priceHeading text-white">
+                  96 Hours Transit Visa
+                </div>
+                <div class="card-body">
+                  <ul class="visa-type">
+                    <li>
+                      Email ID :
+                      <span class="fieldData">{{traveller.emailId}}</span>
+                    </li>
+                    <li>
+                      First Name :
+                      <span class="fieldData">{{traveller.firstName}}</span>
+                    </li>
+                    <li>
+                      Middle Name :
+                      <span class="fieldData">{{traveller.middleName}}</span>
+                    </li>
+                    <li>
+                      Last Name :
+                      <span class="fieldData">{{traveller.lastName}}</span>
+                    </li>
+                    <li>
+                      Cell Number :
+                      <span class="fieldData">{{traveller.cellNumber}}</span>
+                    </li>
+                    <li>
+                      Code:
+                      <span class="fieldData">{{traveller.code}}</span>
+                    </li>
+                    <li>
+                      Address Line 1 :
+                      <span class="fieldData">{{traveller.addressLine1 || xyz}}</span>
+                    </li>
+                    <li>
+                      Address Line 2 :
+                      <span class="fieldData">{{traveller.addressLine2 || xyz}}</span>
+                    </li>
+                    <li>
+                      City:
+                      <span class="fieldData">{{traveller.city}}</span>
+                    </li>
+                    <li>
+                      State :
+                      <span class="fieldData"
+                      >{{traveller.state}}</span
+                      >
+                    </li>
+                     <li>
+                      Pin Code :
+                      <span class="fieldData">{{traveller.pinCode}}</span>
+                    </li>
+                    <li>
+                      Country :
+                      <span class="fieldData">{{traveller.country}}</span>
+                    </li>
+                    <li>
+                      Title :
+                      <span class="fieldData">{{traveller.title}}</span>
+                    </li>
+                    <li>
+                      Passport Number :
+                      <span class="fieldData">{{traveller.passportNumber || H1234567}}</span>
+                    </li>
+                    <li>
+                      Passport Expire Date :
+                      <span class="fieldData">{{traveller.passportExpiryDate}}</span>
+                    </li>
+                    <li>
+                      Passport Front Url :
+                      <span class="fieldData">{{traveller.passportFrontUrl || xyx}}</span>
+                    </li>
+                    <li>
+                      Passport Bio Image :
+                      <span class="fieldData">{{traveller.passportBioImage}}</span>
+                    </li>
+                    <li>
+                      User Image Url :
+                      <span class="fieldData">{{traveller.userImageUrl}}</span>
+                    </li>
+                    <li>
+                      Departure Flight Ticket Url :
+                      <span class="fieldData">{{traveller.departureFlightTicketUrl}}</span>
+                    </li>
+                    <li>
+                      Arrival Flight Ticket Url :
+                      <span class="fieldData"
+                      >{{traveller.arrivalFlightTicketUrl}}</span
+                      >
+                    </li>
+                    <li>
+                      Hotel Accommodation Url :
+                      <span class="fieldData">{{traveller.hotelAccommodationUrl}}</span>
+                    </li>
+                    <li>
+                      Six Months Bank Statement Url :
+                      <span class="fieldData">{{traveller.sixMonthsBankStatementUrl}}</span>
+                    </li>
+                    <li>
+                      Insurance Url :
+                      <span class="fieldData">{{traveller.insuranceUrl}}</span>
+                    </li>
+                     <li>
+                      Booking Status :
+                      <span class="fieldData">{{traveller.bookingStatus}}</span>
+                    </li>
+                     <li>
+                      Online Country :
+                      <span class="fieldData">{{traveller.onlineCountry}}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-6 button">
+                      <button type="button" class="btn btn-outline-navy btn-sm">
+                      View Detail
+                      </button>
+                    </div>
+                    <div class="col-6 button">
+                      <button type="button" class="btn btn-outline-danger btn-sm">
+                      Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>

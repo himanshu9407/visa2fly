@@ -6,6 +6,7 @@ import { LogoutService } from 'src/app/shared/logout.service';
 import { ToastService } from 'src/app/shared/toast.service';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { Router } from '@angular/router';
+import { SignupResponseModel } from '../login-signup/signup/SignupResponse.model';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -39,6 +40,48 @@ export class MobileNavComponent implements OnInit {
     this.loginStatus.getProfileData().subscribe(
       (profile) => {
         this.userDetails = profile;
+      }
+    );
+  }
+  logoutUser () {
+    this.preloaderService.showPreloader(true);
+    // console.log("logout called");
+    
+    this.logoutService.logoutUser().subscribe(
+      (data : SignupResponseModel) => {
+        if (!data) {
+          this.toastService.showNotification("Something went wrong! Please try again later",4000);
+          this.router.navigate(['home']);
+          this.preloaderService.showPreloader(false);
+        }
+        else if (data.code == "0") {
+          this.loginService.setAuthToken("");
+          this.loginStatus.setUserStatus(false);
+          this.loginStatus.setUserLoggedIn(false);
+          this.router.navigate(['home']);
+          this.preloaderService.showPreloader(false);
+          localStorage.setItem("profile",JSON.stringify({}));
+        }
+        else if (data.code == "301") {
+          this.loginService.setAuthToken("");
+          this.loginStatus.setUserStatus(false);
+          this.loginStatus.setUserLoggedIn(false);
+          this.router.navigate(['home']);
+          this.preloaderService.showPreloader(false);
+          localStorage.setItem("profile",JSON.stringify({}));
+          this.toastService.showNotification(""+data.message,4000);
+        }
+
+        else {
+          this.toastService.showNotification(data.message.toString(),4000);
+          this.router.navigate(['home']);
+          this.preloaderService.showPreloader(false);
+        }
+
+      },
+
+      (err) => {
+
       }
     );
   }
