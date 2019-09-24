@@ -2,8 +2,28 @@
   z-index: 10;
 }
 
+.serchcountrybtn {
+  margin-left: 10px !important;
+}
+
+select {
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 0px;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+label {
+  margin-bottom: 0px !important;
+}
+
 .chkLabel {
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 
 .chkIn {
@@ -11,7 +31,7 @@
   padding: 0px !important;
   margin-bottom: 70px;
 }
-  
+
 @media (max-width: 767px) {
   select {
     font-size: 16px !important;
@@ -49,6 +69,8 @@
   width: 21%;
   /* border-right: 0; */
   border-right: 1px solid #e1e1e1 !important;
+  /*margin-top: 5px;*/
+  /*margin-bottom: 5px;*/
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -60,5 +82,27 @@
 
   .chkLabel {
     font-size: 10px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .chkIn .chkIp8 {
+    width: 21%;
+    /* border-right: 0; */
+    border-right: 1px solid #e1e1e1 !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 780px) and (orientation: landscape) {
+  .serchcountrybtn {
+    margin-bottom: 10px !important;
+  }
+}
+
+@media only screen and (min-width: 781px) and (max-width: 1024px) and (orientation: landscape) {
+  .serchcountrybtn {
+    margin-left: 4px !important;
   }
 }
