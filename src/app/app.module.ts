@@ -41,7 +41,8 @@ import { TermsandConditionsComponent } from './components/static/termsand-condit
 import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
 import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
 import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
-import { ProfileComponent } from './components/profile/profile.component'
+import { ProfileComponent } from './components/profile/profile.component';
+import { BookingDetailsComponent } from './components/booking-details/booking-details.component'
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { ProfileComponent } from './components/profile/profile.component'
     CookiePolicyComponent,
     PrivacyPolicyComponent,
     CancellationsAndReturnComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookingDetailsComponent
   ],
   imports: [
     BrowserModule,
