@@ -75,7 +75,7 @@
           T&C
         </div>
       </div>
-      <div class="col bottomNavItem" [routerLink]="['privacyPolicy']" routerLinkActive="selectedItem">
+      <div class="col bottomNavItem" [routerLink]="['privacyPolicy']" routerLinkActive="selectedItem" (click)="onClickBottomNavItem()">
         <div class="bottomNavItemIcon">
           <!-- <i class="fab fa-angellist"></i> -->
           <img src="../../../assets/mobile-header/secure-data.png" class="footerIcon" alt="">
@@ -85,8 +85,8 @@
           Privacy Policy
         </div>
       </div>
-      <div class="col bottomNavItem" [routerLink]="['cancellationPolicy']" routerLinkActive="selectedItem">
-        <div class="bottomNavItemIcon" (click)="onClickBottomNavItem()">
+      <div class="col bottomNavItem" [routerLink]="['cancellationPolicy']" routerLinkActive="selectedItem" (click)="onClickBottomNavItem()">
+        <div class="bottomNavItemIcon" >
           <!-- <i class="fab fa-angellist"></i> -->
           <img src="../../../assets/mobile-header/rejected.png" class="footerIcon" alt="">
 
