@@ -6,6 +6,11 @@
     background-size: cover;
   }
 
+  .container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
   .card {
     border: 2px solid #e1e1e1;
   }
@@ -14,6 +19,9 @@
     font-size: 40px;
     font-weight: 600;
   }
+  .profileHeading {
+    font-size: 18px;
+  } 
 
   .card h6 {
     font-size: 20px;
@@ -30,9 +38,9 @@
   .email {
     background: #d3d3d3;
     padding: 2px 4px;
-    font-size: 15px;
+    font-size: 13px;
     border-radius: 20px;
-    font-weight: 500;
+    font-weight: 600;
     color: rgba(0, 0, 0, 0.6);
   }
 
@@ -41,7 +49,7 @@
     padding: 2px 4px;
     font-size: 15px;
     border-radius: 20px;
-    font-weight: 500;
+    font-weight: 600;
     /* margin: auto 30px; */
     color: rgba(0, 0, 0, 0.6);
   }
@@ -64,6 +72,11 @@
     background-image: linear-gradient(315deg, #29539b 0%, #000080 74%);
     justify-content: center;
     text-align: center;
+  }
+
+  .input-group-append .btn {
+    /* border: 1px solid #d4d4d4; */
+    /* margin-bottom: 10px; */
   }
 
   input,
@@ -96,6 +109,7 @@
 
   .verify,
   .verified {
+    
     margin-top: 10px;
   }
 
@@ -147,15 +161,29 @@
   
 
   @media (min-width: 320px) and (max-width: 480px) {
-    .email {
-      margin: 0px 90px !important;
-    }
 
     .avatr {
       margin-top: 20px;
     }
 
+    .profile {
+      padding-top: 40px;
+    }
+
     .email {
       margin-top: 20px !important;
     }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+  
+    .profileAvatr {
+      padding: 20px;
+      margin: 0px 15px;
+    }
+
+    .profileDetail {
+      padding: 10px 30px 10px 26px;
+    }
+    
   }

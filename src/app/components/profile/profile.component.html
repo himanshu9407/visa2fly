@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid profile">
   <div class="profile-box text-center d-flex align-items-center justify-content-center">
     <div class="card bg-light" style="width: 18rem;">
       <div class="card-body">
@@ -20,7 +20,7 @@
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true" style="padding-left: 0px;">
+              aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
@@ -47,15 +47,15 @@ Verify
 </button>
 </div>
 </div> -->
-                            <div class="col-lg-12" style="padding: auto !important;">
+                            <!-- <div class="col-lg-12" style="padding: auto !important;">
                               <div class="verified text-center">
-                                <button class="btn btn-disable btn-sm" style="border-radius: 50px; padding: 0px 12px;">
+                                <button class="btn btn-success btn-disable btn-sm" style="border-radius: 50px; padding: 0px 12px;">
                                   Verified
                                   <span><i class="fa fa-check-circle-o ml-1" aria-hidden="true"
                                       style="font-size: 18px;"></i></span>
                                 </button>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                         <div class="col-lg-9 profileDetail">
@@ -170,7 +170,7 @@ Verify
 																					<input   formControlName="passportExpiryDate" class="form-control  form-control-sm addTravelDate" placeholder="Passport Expiry Date" name="dp"
 																					 [minDate]="mindate"  id="#doe" ngbDatepicker #doe="ngbDatepicker">
 																					<div class="input-group-append">
-																						<button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button"><i
+																						<button class="btn calendar" (click)="doe.toggle()" type="button"><i
 																								class="fas fa-calendar-alt"></i>
 																						</button>
 																					</div>
@@ -195,7 +195,7 @@ Verify
             </div>
           </div>
           <div class="col-6">
-            <button type="button" class="btn btn-primary btn-sm">
+            <button type="button" class="btn btn-primary btn-sm" style="width: 100px;">
               My Booking
             </button>
           </div>
