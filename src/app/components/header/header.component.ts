@@ -4,7 +4,7 @@ import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LogoutService } from 'src/app/shared/logout.service';
 import { SignupResponseModel } from '../login-signup/signup/SignupResponse.model';
 import { ToastService } from 'src/app/shared/toast.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   userDetails : any;
   constructor(private loginService: LoginService, private loginStatus : LoginStatusService,
     private logoutService : LogoutService,private toastService : ToastService,
-    private router : Router, private preloaderService : PreloaderService, private userFlowDetails : UserFlowDetails) { }
+    private router : Router,private actRoute : ActivatedRoute, private preloaderService : PreloaderService, private userFlowDetails : UserFlowDetails) { }
 
 
 
@@ -29,6 +29,18 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
 
     // console.log("header called again");
+    this.actRoute.url.subscribe(
+      (data) => {
+        console.log(data);
+      } 
+    );
+
+    // if (this.router.url == "/") {
+    //   showTransparent = true;
+    // }
+    // else {
+    //   false;
+    // }
 
     
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
