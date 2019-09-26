@@ -48,7 +48,7 @@
               </div>
             </div>
             <div class="center">
-              <div class="dateOfTravelContainer visaDateHeading documents">
+              <div *ngIf="!onlineCategory" class="dateOfTravelContainer visaDateHeading documents">
                 Date Of Collection <br />
                 of Documents
                 <div class="form-group">
@@ -82,6 +82,25 @@
 
   <div class="addPassengerContainer">
     <div class="addPassengerHeading">Passenger Details</div>
+    <div class="addPassengerHeading" *ngIf="intialInfo">
+      <div>
+        <span>
+          <img src="../../../assets/form/success.png" style="height: 20px;" alt="">
+        </span>
+        <span style="font-size: 12px"> 
+          Corresponding Traveller Details are complete.
+        </span>
+      </div>
+
+      <div>
+          <span>
+            <img src="../../../assets/form/error.png" style="height: 20px;" alt="">
+          </span>
+          <span style="font-size: 12px">
+            Corresponding Traveller Details are missing.
+          </span>
+        </div>
+    </div>
 
     <div id="accordion">
 
@@ -101,6 +120,14 @@
               <i class="fa fa-suitcase" aria-hidden="true"></i>
               {{ dataSource[i].id.substring(0,10) }}
             </button>
+
+            <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
+              <img src="../../../assets/form/error.png" alt="error" style="height: 20px;">
+            </span>
+
+            <span *ngIf="travellerForm.controls.travellers.controls[i].valid">
+              <img src="../../../assets/form/success.png" style="height: 20px;" alt="">
+            </span>
             <button *ngIf="!first" (click)="removeTraveller(i)" type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -134,6 +161,10 @@
                     Enter a valid first name
                     
                   </div>
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.firstName.errors.required && travellerForm.controls.
+                  travellers.controls[i].controls.firstName.touched" class="invalid-feedback" style="display: block">
+                  First Name is required
+                </div>
                 </div>
                 <div class="col-md-2 mb-3">
                   <input  [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
@@ -154,7 +185,15 @@
                   travellers.controls[i].controls.lastName.dirty) && !travellerForm.controls.travellers.controls[i].
                   controls.lastName.pristine}"  pattern="[A-Za-z]{3,32}"  type="text"   formControlName="lastName" class="form-control"  placeholder="Last name" required />
                   
-    
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.lastName.dirty"  class="invalid-feedback" style="display: block">
+                    Enter a valid first name
+                    
+                  </div>
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.lastName.errors.required && travellerForm.controls.
+                  travellers.controls[i].controls.lastName.touched" class="invalid-feedback" style="display: block">
+                  Last Name is required
+                </div>
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
@@ -186,6 +225,10 @@
                       travellers.controls[i].controls.passportNumber.dirty"  class="invalid-feedback" style="display: block">
                         Enter a valid passport number
                       </div>
+                      <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportNumber.errors.required && travellerForm.controls.
+                      travellers.controls[i].controls.passportNumber.touched" class="invalid-feedback" style="display: block">
+                      Passport number is required
+                    </div>
                   </div>
                 </div>
               </div>
@@ -218,6 +261,10 @@
                         travellers.controls[i].controls.emailId.dirty"  class="invalid-feedback" style="display: block">
                           Enter a valid Email ID
                         </div>
+                        <div *ngIf="travellerForm.controls.travellers.controls[i].controls.emailId.errors.required && travellerForm.controls.
+                      travellers.controls[i].controls.emailId.touched" class="invalid-feedback" style="display: block">
+                     Email id is required
+                    </div>
                     </div>
                   </div>
                 <div *ngIf="first" class="col-md-4 mb-3">
@@ -245,6 +292,10 @@
                   travellers.controls[i].controls.cellNumber.dirty"  class="invalid-feedback" style="display: block">
                     Enter a valid mobile number
                   </div>
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.cellNumber.errors.required && travellerForm.controls.
+                  travellers.controls[i].controls.cellNumber.touched" class="invalid-feedback" style="display: block">
+                 Mobile number is required
+                </div>
                 </div>
               </div>
 
@@ -253,7 +304,7 @@
                 <div class="col-md-12 mb-3">
                   <label><b> Adress for pickup of documents </b></label>
                   <br>
-                  <div class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
+                  <div *ngIf="!first" class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
                     <input  formControlName="addressForPickupSame" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1" style="font-size: 13px">
                       Same as Primary Traveller
@@ -271,30 +322,36 @@
                   travellers.controls[i].controls.address.dirty" class="invalid-feedback" style="display: block">
                     Enter a valid address
                   </div>
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.address.errors.required && travellerForm.controls.
+                  travellers.controls[i].controls.address.touched" class="invalid-feedback" style="display: block">
+                  Address is required
+                </div>
                   </div>
                 </div>
 
                 <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
-                  <select formControlName="state" id="State" class="form-control">
-                    <option  value="Haryana">Haryana</option>
+                  <select   formControlName="state" id="State" class="form-control">
+                    <option selected value="Haryana">Haryana</option>
                     <option  value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option selected value="Delhi NCR">Delhi NCR</option>
+                    <option  value="Delhi NCR">Delhi NCR</option>
                     
                   </select>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.state.errors.required && travellerForm.controls.
+                  travellers.controls[i].controls.state.touched" class="invalid-feedback" style="display: block">
+                  State is required
+                </div> -->
                 </div>
                 <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
                   <select formControlName="city" id="City" class="form-control">
-                    <option selected value="Delhi">Delhi</option>
-                    <option value="Gurugram">Gurugram</option>
+                    <option  value="Delhi">Delhi</option>
+                    <option selected value="Gurugram">Gurugram</option>
                     <option value="Noida">Noida</option>
                   
                   </select>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.city.errors.required && travellerForm.controls.
+                  travellers.controls[i].controls.city.touched" class="invalid-feedback" style="display: block">
+                  City is required
+                </div> -->
                 </div>
                 <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
                   <input formControlName="pinCode" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
@@ -306,6 +363,10 @@
                   travellers.controls[i].controls.pinCode.dirty" class="invalid-feedback" style="display: block">
                     Enter valid pincode
                   </div>
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.pinCode.errors.required && travellerForm.controls.
+                  travellers.controls[i].controls.pinCode.touched" class="invalid-feedback" style="display: block">
+                  Pin-Code is required
+                </div>
                 </div>
               </div>
               <div *ngIf="onlineCategory"  class="form-row">
@@ -445,3 +506,68 @@
       <input type="text" name="checksum" id="checksum"  [(ngModel)] = "checksum">
     </form>  
   </div>
+
+
+
+   <!-- Modal -->
+   <div
+   class="modal  fade"
+   id="exampleModal"
+   style="top: 200px"
+   data-backdrop="static"
+   data-keyboard="false"
+   tabindex="-1"
+   role="dialog"
+   aria-labelledby="exampleModalLabel"
+   aria-hidden="true"
+   style="display: none"
+ >
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header text-center" style="padding: 4px 1rem; background: #FF3333;">
+         <h5 class="modal-title w-100 text-white" id="exampleModalLabel">
+           Warning
+         </h5>
+         <button
+           type="button"
+           class="close"
+           data-dismiss="modal"
+           aria-label="Close"
+           style="color: #fff;"
+         >
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;">
+         <p>
+           <i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; Travel
+           date must be greater than 21/2/19. Since minimum processing day
+           required for processing your visa application is 3-5 working days.
+         </p>
+         <p>
+           <i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; Travel
+           date must be greater than 21/2/19. Since minimum processing day
+           required for processing your visa application is 3-5 working days.
+         </p>
+         <div class="form-group form-check" style="margin-bottom: 0px; margin-top: 20px;">
+           <input
+             type="checkbox"
+             class="form-check-input"
+             id="modalWarning"
+           />
+           <label class="form-check-label" for="modalWarning"
+             >Yes, I undertand the warning and still want to proceed
+             further.</label
+           >
+         </div>
+       </div>
+       <div class="modal-footer" style="padding: 0px 10px 10px; border-top: none;">
+         <button (click)="goToHome()" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+           Cancel
+         </button>
+        
+         <button (click)="goToPayment()" type="button" class="btn btn-primary btn-sm">Proceed</button>
+       </div>
+     </div>
+   </div>
+ </div>

@@ -25,7 +25,7 @@
           </div>
           <div class="carousel-item" *ngIf = "secondTestimonialArrExists">
                 <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-                        <div class="testimonialContainer bg-white rounded" *ngFor="let testimonial of secondTestimonialArr">
+                        <div class="testimonialContainer bg-white rounded" *ngFor="let testimonial of secondTestimonialArr; ">
                             <div class="col">
                                 <div class="testimonialName">
                                     {{testimonial.fullName}}
@@ -77,118 +77,30 @@
 </div >
 
 
-<div  id="carouselSmallTestimonialControls " class="carousel slide smallTestimonial" data-interval ="2000" data-ride="carousel" style="margin-left: 50px;margin-right: 50px;margin-top: 50px;">
+<div  id="carouselSmallTestimonialControls " class="carousel slide smallTestimonial" data-interval ="5000" data-ride="carousel" style="margin-left: 50px;margin-right: 50px;margin-top: 50px;">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item " *ngFor="let testimonial of testimonialData;let first=first; " [ngClass]="{'active':first}">
             <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
                 <div class="testimonialContainer bg-white rounded" >
                     <div class="col">
                         <div class="testimonialName">
-                            sarthak agrawal
+                            {{testimonial.fullName}}
                         </div>
-                        <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fas fa-quote-left pr-2"></i>Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit. Quod eos id officiis hic tenetur.
-
+                        <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fas fa-quote-left pr-2"></i>
+                          {{testimonial.review}}
                         </div>
                         <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                                <i class="fas fa-star"> </i>
-                                <i class="fas fa-star"> </i>
-                                <i class="fas fa-star"> </i>
-                                <i class="fas fa-star"> </i>
-                                <i class="fas fa-star-half-alt"> </i>
+                            <i class="fas fa-star" *ngFor="let stars of createStarArray(testimonial.stars)"> </i>
+
                               </div>
                     </div>
                 </div>
             </div>
           </div>
-          <div class="carousel-item ">
-                <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-                    <div class="testimonialContainer bg-white rounded" >
-                        <div class="col">
-                            <div class="testimonialName">
-                                sarthak agrawal
-                            </div>
-                            <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fas fa-quote-left pr-2"></i>Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing elit. Quod eos id officiis hic tenetur.
-
-                            </div>
-                            <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                                    <i class="fas fa-star"> </i>
-                                    <i class="fas fa-star"> </i>
-                                    <i class="fas fa-star"> </i>
-                                    <i class="fas fa-star"> </i>
-                                    <i class="fas fa-star-half-alt"> </i>
-                                  </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="carousel-item ">
-                    <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-                        <div class="testimonialContainer bg-white rounded" >
-                            <div class="col">
-                                <div class="testimonialName">
-                                    sarthak agrawal
-                                </div>
-                                <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fas fa-quote-left pr-2"></i>Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Quod eos id officiis hic tenetur.
-
-                                </div>
-                                <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                                        <i class="fas fa-star"> </i>
-                                        <i class="fas fa-star"> </i>
-                                        <i class="fas fa-star"> </i>
-                                        <i class="fas fa-star"> </i>
-                                        <i class="fas fa-star-half-alt"> </i>
-                                      </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item ">
-                        <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-                            <div class="testimonialContainer bg-white rounded" >
-                                <div class="col">
-                                    <div class="testimonialName">
-                                        sarthak agrawal
-                                    </div>
-                                    <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fas fa-quote-left pr-2"></i>Lorem ipsum dolor sit amet,
-                                            consectetur adipisicing elit. Quod eos id officiis hic tenetur.
-
-                                    </div>
-                                    <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                                            <i class="fas fa-star"> </i>
-                                            <i class="fas fa-star"> </i>
-                                            <i class="fas fa-star"> </i>
-                                            <i class="fas fa-star"> </i>
-                                            <i class="fas fa-star-half-alt"> </i>
-                                          </div>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                      <div class="carousel-item ">
-                            <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-                                <div class="testimonialContainer bg-white rounded" >
-                                    <div class="col">
-                                        <div class="testimonialName">
-                                            sarthak agrawal
-                                        </div>
-                                        <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fas fa-quote-left pr-2"></i>Lorem ipsum dolor sit amet,
-                                                consectetur adipisicing elit. Quod eos id officiis hic tenetur.
-
-                                        </div>
-                                        <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                                                <i class="fas fa-star"> </i>
-                                                <i class="fas fa-star"> </i>
-                                                <i class="fas fa-star"> </i>
-                                                <i class="fas fa-star"> </i>
-                                                <i class="fas fa-star-half-alt"> </i>
-                                              </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
+          
+              
+                  
+                      
 
         </div>
         <a style="color: black;" class="carousel-control-prev" href="#carouselSmallTestimonialControls" role="button" data-slide="prev">

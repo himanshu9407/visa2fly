@@ -36,7 +36,8 @@ export class RequirementsComponent implements OnInit {
    public userFlowDetails : any;
    
    public faqs : Array<any> = []  ;
-   
+   public dataSource : Array<{id:string,dataToggle:string, dataToggleHash:string}> = [];
+
    
    public mainArr:any = [["hello","world","sarthak","agrawal"]];
    
@@ -80,6 +81,7 @@ export class RequirementsComponent implements OnInit {
         this.requirementsData = data;
         console.log(data.data);
         this.importantInfo = data.data.importantInfo;
+        console.log(this.importantInfo);
         this.onlinestatus = data.data.onlineCategory;
         let tempFaqs = data.data.faqs; 
 
@@ -87,6 +89,13 @@ export class RequirementsComponent implements OnInit {
           let tempFaqObj = {title:key,content : tempFaqs[key]};
           this.faqs.push(tempFaqObj);
         }
+        this.faqs.forEach((element,index) => {
+          let  temp = {id:"",dataToggle:"",dataToggleHash:""};
+          temp.id = "Traveller "+index;
+          temp.dataToggle = "toogle"+index;
+          temp.dataToggleHash = "#toogle"+index;
+          this.dataSource.push(temp);
+        });
 
         console.log(this.faqs);
 

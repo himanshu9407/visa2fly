@@ -8,6 +8,8 @@ import { element } from 'protractor';
 import { AddTravellerService } from './addTraveller.service';
 import { LoginService } from '../login-signup/login/login.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { PreloaderService } from 'src/app/shared/preloader.service';
 
 @Component({
   selector: 'app-add-traveller',
@@ -26,6 +28,7 @@ export class AddTravellerComponent implements OnInit {
   returnUrl = "";
   checksum = "";
   primaryAddress = "";
+  intialInfo = true;
 
 
 
@@ -54,7 +57,7 @@ export class AddTravellerComponent implements OnInit {
 
   constructor(private formBuilder : FormBuilder, private travellerService : AddTravellerService,
      private toastService : ToastService, private userFlow : UserFlowDetails, private loginService:LoginService,
-     private http : HttpClient
+     private http : HttpClient, private router : Router, private preloaderService : PreloaderService
       ) {
         // this.paymentForm.paymentUrl = "https://www.google.com"
       // const now = new Date();
@@ -82,6 +85,25 @@ export class AddTravellerComponent implements OnInit {
 
 
   ngOnInit() {
+
+    setTimeout(() => {
+      this.intialInfo = false;
+    }, 10000);
+
+    this.userFlowDetails = this.userFlow.getUserFlowDetails();
+
+    this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
+
+    if(this.imageUploads == "null") {
+      this.imageUploads = []
+    }
+
+    if (this.userFlowDetails.onlineCountry == "true") {
+      this.onlineCategory = true;
+    }
+    else {
+      this.onlineCategory = false;
+    }
     let data = this.userFlow.getUserFlowDetails();
     const current = new Date();
     this.minDate = {
@@ -104,11 +126,21 @@ export class AddTravellerComponent implements OnInit {
     this.stayPeriod = data.stayPeriod;
 
 
+    if (this.onlineCategory) {
 
-    this.travelDetails = new FormGroup({
-      dateOfTravel: new FormControl('',[Validators.required]),
-      dateOfCollection : new FormControl('',[Validators.required])
-   });
+      this.travelDetails = new FormGroup({
+        dateOfTravel: new FormControl('',[Validators.required]),
+        dateOfCollection : new FormControl('',[Validators.nullValidator])
+     });
+    }
+    else {
+
+      this.travelDetails = new FormGroup({
+        dateOfTravel: new FormControl('',[Validators.required]),
+        dateOfCollection : new FormControl('',[Validators.required])
+     });
+    }
+
 
 
    this.termsAndConditions  = new FormGroup({
@@ -124,20 +156,7 @@ export class AddTravellerComponent implements OnInit {
    });
 
 
-    this.userFlowDetails = this.userFlow.getUserFlowDetails();
-
-    this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-
-    if(this.imageUploads == "null") {
-      this.imageUploads = []
-    }
-
-    if (this.userFlowDetails.onlineCountry == "true") {
-      this.onlineCategory = true;
-    }
-    else {
-      this.onlineCategory = false;
-    }
+  
 
     this.travellerForm = this.formBuilder.group({
       travellers: this.formBuilder
@@ -261,11 +280,17 @@ export class AddTravellerComponent implements OnInit {
   }
 
   seeValues () {
+
+
+    this.preloaderService.showPreloader(true);
+    
+
+
     console.log(this.filedNameArr);
     this.formData1.set("images","");
 
-    // if (this.travellerForm.valid && this.termsAndConditions.valid 
-    //   && this.travelDetails.valid && this.valueAddedService.valid) {
+    if (this.travellerForm.valid && this.termsAndConditions.valid 
+      && this.travelDetails.valid && this.valueAddedService.valid) {
       
       
     
@@ -423,7 +448,7 @@ export class AddTravellerComponent implements OnInit {
 
     this.travellerService.submitForm(this.formData1).subscribe(
       (data:any) => {
-        console.log(data);
+        // console.log(data);
 
         if(data.code == "0") {
 
@@ -443,7 +468,7 @@ export class AddTravellerComponent implements OnInit {
 
               console.log(this.paymentForm);
               setTimeout(() => {
-                
+                this.preloaderService.showPreloader(false);
                 document.forms["paymentForm"].submit();
               }, 2000);
 
@@ -453,34 +478,123 @@ export class AddTravellerComponent implements OnInit {
         }
 
         else if (data.code == "1000") {
+          console.log(data.data.applicantsFormValidationResult);
 
+          let errArr : Array<any> = data.data.applicantsFormValidationResult;
+          tempArr.forEach((form:FormGroup,index) => {
+
+                console.log(Object.keys(errArr[index]));
+                let keysArr : Array<any> = Object.keys(errArr[index]);
+                keysArr.forEach((el : string) => {
+                  let tempObj = errArr[index];
+                  if (tempObj[el] == true) {
+                    
+                    let control = form.get(el);
+                    if (control != null) {
+                      control.setErrors({valueErr: true});
+                      console.log(control.errors + el);
+                      control.updateValueAndValidity();
+                      // control.
+                    }
+                  }
+                });
+
+              // })
+      
+           
+          });
+          console.log(tempArr);
+          this.preloaderService.showPreloader(false);
         }
         else if (data.code == "1001") {
-
+          this.preloaderService.showPreloader(false);
+          console.log(data.applicantsFormValidationResult);
+          var modal = document.getElementById('exampleModal');
+            modal.classList.remove("fade");
+            modal.classList.add("show");
+            modal.style.display = "block";
+            
         }
         else {
           tempArr.forEach((form:FormGroup,index) => {
 
-            // let tempFormData = new FormData();
       
             if (this.onlineCategory) {
       
-              this.filedNameArr.forEach( el => {
-                // this.formData1.append("images",form.get(el).value);
-                form.get(el).setValue("");
-              })
+                this.formData1.delete("images");
+              
             }
+            
             })
+            
+
+            
         }
       }
     )
 
       // console.log(fd);
 
-  // }
+  }
+  else {
+    this.toastService.showNotification("Travel details missing!", 4000);
+  }
 
      
     // });
+  }
+
+  // showWarning (item : boolean){
+
+  //   let modalWarning = (<any>document.getElementById('modalWarning')).value;
+
+  //   if(item && modalWarning ) {
+  //     return true;
+  //   }
+  //   else {
+  //     return false;
+  //   }
+  // }
+
+  goToHome () {
+    this.router.navigate(['home']);
+  }
+
+  goToPayment(){
+    let modalWarning = (<any>document.getElementById('modalWarning')).value;
+    var modal = document.getElementById('exampleModal');
+    if(modalWarning) {
+
+      modal.classList.remove("show");
+      modal.style.display = "none";
+      modal.classList.add("fade");
+
+      this.travellerService.hitPaymentApi().subscribe(
+        (data1 : any) => {
+          console.log(data1);
+          this.buyerEmail = data1.buyerEmail;
+          this.orderId = data1.orderId;
+          this.amount = data1.amount;
+          this.currency = data1.currency;
+          this.merchantIdentifier = data1.merchantIdentifier;
+          this.returnUrl = data1.returnUrl;
+          this.checksum = data1.checksum;
+          // this.paymentUrl = data1.paymentUrl;
+
+          console.log(document.forms["paymentForm"]);
+
+          console.log(this.paymentForm);
+          setTimeout(() => {
+            
+            document.forms["paymentForm"].submit();
+          }, 2000);
+
+
+        }
+      ); 
+      
+    }
+   
   }
 
   callMe () {
@@ -545,6 +659,13 @@ export class AddTravellerComponent implements OnInit {
   }
 
   addTraveller(): void {
+
+    if (!this.travellerForm.valid) {
+      this.toastService.showNotification("Please fill in existing traveller details first",4000);
+    }
+    else {
+
+    
     
     if(this.count<=9){
 
@@ -598,5 +719,6 @@ export class AddTravellerComponent implements OnInit {
       }
 
   }
+}
 
 }
