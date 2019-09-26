@@ -28,20 +28,11 @@
             <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
         </div> -->
 
-        <div  class="row align-items-center" style="margin-left: 5%;">
+        <div  class="row align-items-center resendOtp" style="margin-left: 5%;">
           <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
       </div>
 
-  <!-- <div  *ngIf = "showOtpField" class="row align-items-center remember">
-    <input formControlName="rememberMe" id="remember" type="checkbox">
-    <label for="remember">Remember Me</label>
-  </div> -->
-<!-- 
-  <div  class="row align-items-center remember cntr">
-    <input formControlName="rememberMe" id="remember" type="checkbox" class="cbx" style="display: none;">
-    <label class="cbx" for="remember"></label>
-    <label class="lbl" for="remember">Remember Me</label>
-  </div> -->
+ 
 
   <div class="cntr" *ngIf = "showOtpField">
     <input class="hidden-xs-up" id="cbx" type="checkbox" style="display: none;" />
