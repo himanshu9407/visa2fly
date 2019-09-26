@@ -7,6 +7,25 @@ body {
 }
 
 
+/*for FireFox*/
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+select::-moz-focus-inner,
+a::-moz-focus-inner
+{   
+    border : 0px !important;
+} 
+/*for IE8 */
+input[type="submit"]:focus,
+input[type="button"]:focus,
+select:focus,
+a:focus
+{     
+    outline : none !important; 
+}
+
+
+
 /*::-webkit-scrollbar-track
 {
 	border: 2px solid white;

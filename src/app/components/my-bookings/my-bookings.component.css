@@ -33,9 +33,26 @@
   }
   .fieldData {
     float: right;
-    overflow-wrap: break-word;
-    word-wrap: break-word !important;
+    /* overflow-wrap: break-word; */
+    /* width: 100%; */
+    /* word-wrap: break-word !important; */
     /* margin-right: 20px; */
+  }
+
+  .breakWord {
+    font-size: 13px;
+    width: 220px;
+    word-break: break-all;
+    text-align: right;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .breakWord {
+      font-size: 13px;
+      width: 200px;
+      word-break: break-all;
+      text-align: right;
+    }
   }
 
   .priceHeading {

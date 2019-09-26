@@ -1,3 +1,15 @@
+/* FIREFOX FIX OF UGLY SELECT BOXES */
+@supports (-moz-appearance:none) {
+
+  SELECT
+  {
+  -moz-appearance:none !important;
+  background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
+  background-position: calc(100% - 5px) center !important;
+  }
+
+}
+
 .removeradius {
   z-index: 10;
 }
@@ -5,6 +17,7 @@
 .serchcountrybtn {
   margin-left: 10px !important;
 }
+
 
 select {
   border: none;
@@ -29,12 +42,17 @@ label {
 .chkIn {
   margin-top: -140px !important;
   padding: 0px !important;
-  margin-bottom: 70px;
 }
 
 @media (max-width: 767px) {
   select {
     font-size: 16px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .chkIn {
+    margin-bottom: 50px !important;
   }
 }
 
@@ -63,6 +81,10 @@ label {
 
 .invalid-feedback {
   display: block;
+}
+
+.chkIn {
+  margin-bottom: 90px;
 }
 
 .chkIn .chkIp8 {
