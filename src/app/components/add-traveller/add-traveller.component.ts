@@ -282,7 +282,6 @@ export class AddTravellerComponent implements OnInit {
   seeValues () {
 
 
-    this.preloaderService.showPreloader(true);
     
 
 
@@ -291,7 +290,8 @@ export class AddTravellerComponent implements OnInit {
 
     if (this.travellerForm.valid && this.termsAndConditions.valid 
       && this.travelDetails.valid && this.valueAddedService.valid) {
-      
+        this.preloaderService.showPreloader(true);
+
       
     
     let otherTravellersArr : Array<any> = [];

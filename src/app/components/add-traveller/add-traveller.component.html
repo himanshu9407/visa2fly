@@ -161,17 +161,17 @@
                     Enter a valid first name
                     
                   </div>
-                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.firstName.errors.required && travellerForm.controls.
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.firstName.errors.required && travellerForm.controls.
                   travellers.controls[i].controls.firstName.touched" class="invalid-feedback" style="display: block">
                   First Name is required
-                </div>
+                </div> -->
                 </div>
                 <div class="col-md-2 mb-3">
                   <input  [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                   .middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.
                   travellers.controls[i].controls.middleName.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.middleName.pristine}" pattern="[A-Za-z]{3,32}"  type="text"   formControlName="middleName" class="form-control" id="middlename" placeholder="Middle name" required />
+                  controls.middleName.pristine}" pattern="[A-Za-z]{3,32}"  type="text"   formControlName="middleName" class="form-control" id="middlename" placeholder="Middle name"  />
 
                   <div *ngIf="travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.
                   travellers.controls[i].controls.middleName.dirty"  class="invalid-feedback" style="display: block">
@@ -187,13 +187,13 @@
                   
                   <div *ngIf="travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.
                   travellers.controls[i].controls.lastName.dirty"  class="invalid-feedback" style="display: block">
-                    Enter a valid first name
+                    Enter a valid last name
                     
                   </div>
-                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.lastName.errors.required && travellerForm.controls.
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.lastName.errors.required && travellerForm.controls.
                   travellers.controls[i].controls.lastName.touched" class="invalid-feedback" style="display: block">
                   Last Name is required
-                </div>
+                </div> -->
                 </div>
                 <div class="col-md-2 mb-3">
                     <div class="form-group">
@@ -225,10 +225,10 @@
                       travellers.controls[i].controls.passportNumber.dirty"  class="invalid-feedback" style="display: block">
                         Enter a valid passport number
                       </div>
-                      <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportNumber.errors.required && travellerForm.controls.
+                      <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportNumber.errors.required && travellerForm.controls.
                       travellers.controls[i].controls.passportNumber.touched" class="invalid-feedback" style="display: block">
                       Passport number is required
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -261,10 +261,10 @@
                         travellers.controls[i].controls.emailId.dirty"  class="invalid-feedback" style="display: block">
                           Enter a valid Email ID
                         </div>
-                        <div *ngIf="travellerForm.controls.travellers.controls[i].controls.emailId.errors.required && travellerForm.controls.
+                        <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.emailId.errors.required && travellerForm.controls.
                       travellers.controls[i].controls.emailId.touched" class="invalid-feedback" style="display: block">
                      Email id is required
-                    </div>
+                    </div> -->
                     </div>
                   </div>
                 <div *ngIf="first" class="col-md-4 mb-3">
@@ -273,8 +273,7 @@
                     .gstNumber.invalid && travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.gstNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                    controls.gstNumber.pristine}"    formControlName="gstNumber" type="text" class="form-control" id="GstNumber" placeholder="GSTIN No. (Optional)"
-                      />
+                    controls.gstNumber.pristine}"    formControlName="gstNumber" type="text" class="form-control" id="GstNumber" placeholder="GSTIN No. (Optional)"/>
 
                      <div *ngIf="travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
                       travellers.controls[i].controls.gstNumber.dirty"  class="invalid-feedback" style="display: block">
@@ -292,10 +291,10 @@
                   travellers.controls[i].controls.cellNumber.dirty"  class="invalid-feedback" style="display: block">
                     Enter a valid mobile number
                   </div>
-                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.cellNumber.errors.required && travellerForm.controls.
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.cellNumber.errors.required && travellerForm.controls.
                   travellers.controls[i].controls.cellNumber.touched" class="invalid-feedback" style="display: block">
                  Mobile number is required
-                </div>
+                </div> -->
                 </div>
               </div>
 
@@ -322,10 +321,10 @@
                   travellers.controls[i].controls.address.dirty" class="invalid-feedback" style="display: block">
                     Enter a valid address
                   </div>
-                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.address.errors.required && travellerForm.controls.
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.address.errors.required && travellerForm.controls.
                   travellers.controls[i].controls.address.touched" class="invalid-feedback" style="display: block">
                   Address is required
-                </div>
+                </div> -->
                   </div>
                 </div>
 
@@ -363,10 +362,10 @@
                   travellers.controls[i].controls.pinCode.dirty" class="invalid-feedback" style="display: block">
                     Enter valid pincode
                   </div>
-                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.pinCode.errors.required && travellerForm.controls.
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.pinCode.errors.required && travellerForm.controls.
                   travellers.controls[i].controls.pinCode.touched" class="invalid-feedback" style="display: block">
                   Pin-Code is required
-                </div>
+                </div> -->
                 </div>
               </div>
               <div *ngIf="onlineCategory"  class="form-row">
