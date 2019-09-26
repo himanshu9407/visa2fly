@@ -353,72 +353,21 @@
     style="display: flex;justify-content: center;margin-left: 20px;margin-top: 0px; font-weight: 1000;font-size: 30px;">
     FAQS
   </div>
-  <div class="card">
-    <div class="card-header" id="headingOne">
+  <div *ngFor="let faq of faqs; let first=first; let i = index" class="card">
+    <div class="card-header" id="dataSource[i].id">
       <h5 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-          aria-expanded="true" aria-controls="collapseOne">
-          What is Dubai Transit Visa?
+        <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="{{ dataSource[i].dataToggleHash }}"
+          aria-expanded="true" attr.aria-controls="{{ dataSource[i].dataToggle }}">
+          {{faq.title}}
         </button>
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="{{ dataSource[i].dataToggle }}" class="collapse " [ngClass]="{'show': first}" attr.aria-labelledby="{{ dataSource[i].id }}" data-parent="#accordionExample">
       <div class="card-body">
-        96 Hrs visa is considered as a Transit Visa, Entry and Exit should be
-        from DUBAI airport only. 96hrs visas are specifically applicable to
-        applicants transiting through Dubai Airport. Tourist passengers whose
-        final destination is Dubai & are travelling for Tourism purpose & intend
-        to leave Dubai within a period of 96 hours cannot opt for 96 Hours visa,
-        they should apply for 30 Days Single entry visa only.
+        {{faq.content}}
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-          aria-expanded="false" aria-controls="collapseTwo">
-          If I have been issued Dubai visa but I did not travel on that visa,
-          then is it necessary to cancel that visa?
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        "Yes, if any passenger has been issued Dubai visa but for any reason if
-        he/she later on decides not to travel to Dubai then in such scenario
-        existing Dubai visa needs to be cancelled from Agent from whom visa has
-        been issued, Visa can be cancelled either within the validity of the
-        visa OR after the visa validity is expired. Visa cancellation is very
-        crucial, if any passenger wants to apply for his Dubai visa in near
-        future for next travel & if he /she has not cancelled his/her previous
-        Dubai visa then his /her current visa application will be rejected. Visa
-        cancellation charges will be applicable for cancelling visa, you can
-        check on this with our Expert Team before you apply for your visa."
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
-          aria-expanded="false" aria-controls="collapseThree">
-          Why is it necessary to return to India within the given duration of
-          stay granted on my Dubai visa?
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        "YES! it is essential and important to return to India within specified
-        Duration of stay which is given on your visa. If you fail to do so you
-        will be considered as an Overstay Passenger / Absconding passenger
-        depending upon criteria by UAE Immigration. This will attract heavy
-        penalty on Per Day basis will be recovered from you. This kind of travel
-        history may also affect adversely on your next visa application to Dubai
-        if required in near future."
-      </div>
-    </div>
-  </div>
+
 </div>
