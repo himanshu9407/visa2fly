@@ -19,6 +19,7 @@ import { PrivacyPolicyComponent } from './components/static/privacy-policy/priva
 import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
+import { SimplansComponent } from './components/simplans/simplans.component';
     
     const routes: Routes = [
          {  path: '', redirectTo : 'home', pathMatch :'full'},
@@ -38,6 +39,8 @@ import { BookingDetailsComponent } from './components/booking-details/booking-de
          {  path : 'visaArrival' , component : VisaArrivalComponent},
          {  path : 'visa' ,  redirectTo: 'home'},
          {  path : 'sim' , component : SimComponent},
+         {  path : 'sim/simplans' , component : SimplansComponent},
+         {  path : 'sim/checkout' , component : SimplansComponent},
          {  path : 'insurance' , component : InsuranceComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
 

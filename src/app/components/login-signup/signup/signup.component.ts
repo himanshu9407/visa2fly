@@ -154,6 +154,9 @@ export class SignupComponent implements OnInit {
       this.showLoader = false;
       this.showAlertMessage();
     }
+    check () {
+      console.log("hello world");
+    }
     
     onSubmit() {
       this.showLoader = true;
@@ -181,8 +184,15 @@ export class SignupComponent implements OnInit {
               this.otpFormSubmitted = true;
               
             }
+            else if(data.code == "309") {
+              this.toastService.showNotification(data.message.toString(),4000);
+              this.afterSuccessfullOtpSent();
+              this.otpFormSubmitted = true;
+              
+            }
             else {
               this.toastService.showNotification(data.message.toString(),4000);
+
               this.setFormFresh();
             }
           }

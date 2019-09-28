@@ -28,8 +28,8 @@
             <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
         </div> -->
 
-        <div *ngIf ="otpSentCount > 1"  class="row align-items-center" style="margin-left: 5%;">
-          <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
+        <div *ngIf ="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
+          <a (click) = "sendOtp()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
       </div>
 
   <!-- <div  *ngIf = "showOtpField" class="row align-items-center remember">

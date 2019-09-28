@@ -67,7 +67,7 @@
         </div>
     
         <div *ngIf="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
-            <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
+            <a (click) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
         </div>
   <div *ngIf="showOtpFields" class="row align-items-center remember">
     <input formControlName="tnc" form type="checkbox" checked   aria-selected="true"> <span class="agree">I Agree to Terms and Conditions</span>
@@ -88,7 +88,7 @@
   <div class=" row form-group d-flex justify-content-center" >
   
         <div class="form-group">
-          <button  [disabled]="signupForm.get('otp').invalid && signupForm.get('otp').dirty  || signupForm.get('otp').pristine"  *ngIf="showSignUpButton" (click) = "createUser()"    type="button" value="Signup" 
+          <button  [disabled]="signupForm.get('otp').invalid && signupForm.get('otp').dirty  || signupForm.get('otp').pristine ||  signupForm.get('tnc').value == false "  *ngIf="showSignUpButton" (click) = "createUser()"    type="button" value="Signup" 
           class="btn float-right login_btn scale-transition" style="width:200px;" >Signup</button>
         </div>
       </div>
