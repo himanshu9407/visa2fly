@@ -161,6 +161,7 @@
                       style="margin-top: 100px;">
                   </div>
               </div>
+
               <div *ngIf="!simCartEmpty" class="card-footer orderTotal">
                   <div class="col-lg-12 font-weight-bold">
                       <p style="margin-bottom: 2px;">Total <span style="float: right;">&#x20B9; {{totalPrice |  number: '1.0-2'}}</span></p>
@@ -174,7 +175,12 @@
               </div>
           </div>
 
+         
+
       </div>
+      
     </div>
+    
   </div>
+  <div class="button backButton btn btn-success text-center" type="button">View Cart&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
 </section>
