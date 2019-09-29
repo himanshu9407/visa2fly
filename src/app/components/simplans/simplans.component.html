@@ -1,4 +1,4 @@
-<div id="sim">
+<div id="sim" style="margin-top: 50px;">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -45,7 +45,7 @@
                     style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px;">
                     Summary
                   </h6>
-                  <p>
+                  <p class="summaryContent">
                     {{simData.summary}}
                   </p>
                 </div>
@@ -56,9 +56,9 @@
               <div style="text-align: center; font-size: 16px;">
                 <span style="box-sizing: inherit; text-align: center; max-width: 100%">
                     <button (click) = "decreaseItemCount(simData)" type="button" class="ui left attached btn">
-                    –</button><input type="text" value="{{simData.quantity}}" class="count" />
+                      <i class="fa fa-minus" aria-hidden="true"></i></button><input type="text" value="{{simData.quantity}}" disabled class="count" />
                   <button (click) = "increaseItemCount(simData)" type="button" class="btn right attached">
-                    +
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                   </button></span>
               </div>
               <!-- <a class="buy" >Buy Now</a> -->
@@ -68,66 +68,111 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-4">
-        <div class="orderCard">
-          <p class="font-weight-bold" style="font-size: 20px; height: 15px;">
-            Your Order
-          </p>
-
-          <!-- if any order in the cart -->
-          <div *ngIf="!simCartEmpty" class="row orderItem">
-              <div *ngFor="let item of  simCart">
-            <div class="col-lg-12">
-              <h3 class="font-weight-bold" style="font-size: 14px;
-                    font-weight: 500; border-top: 1px solid #e2e2e2; padding-top: 10px;">
-                {{item.planName}}
-              </h3>
-            </div>
-            <div class="col-lg-12 order">
-              <div>
-                <span style="box-sizing: inherit; text-align: center; max-width: 100%">
-                    <button type="button" (click) = "decreaseItemCount(item)"
-                    class="ui left attached btn">
-                    –</button><input type="text" value="{{item.quantity}}" class="count" />
-                    <button (click) = "increaseItemCount(item)" type="button"
-                    class="btn right attached">
-                    +
-                  </button></span>
-                <br />
-                <!-- <span style="font-size: 12px;">&#x20B9; 200</span> -->
-                <span class="pull-right" style="float: right;">
-                  &#x20B9; {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
-                </span>
-              </div>
-            </div>
-        </div>
-
         
-
-            <div class="row orderTotal">
-              <div class="col-lg-12 font-weight-bold">
-                <p style="margin-bottom: 2px;">Total <span style="float: right;">&#x20B9; {{totalPrice |  number: '1.0-2'}}</span></p>
-
+          <div class="card orderCard pc-Cart mb-3" style="padding: 0px;">
+              <div class="card-header bg-transparent font-weight-bold" style="font-size: 20px; padding: 7px 15px; border-bottom: none;">
+                  Your Order
               </div>
-              <div class="col-lg-12">
-                <button (click)  = "checkOut()" class="btn btn-success btn-sm mt-1" style="width: 100%;">
-                  Continue
-                </button>
+              <div class="card-body orderItem" *ngIf="!simCartEmpty" style="padding: 0px;">
+                      <div *ngFor="let item of  simCart" style="width: 100%;">
+                    <div class="col-lg-12">
+                      <h3 class="font-weight-bold" style="font-size: 14px;
+                            font-weight: 500; border-top: 1px solid #e2e2e2; padding-top: 10px;">
+                        {{item.planName}}
+                      </h3>
+                    </div>
+                    <div class="col-lg-12 order">
+                      <div>
+                        <span style="box-sizing: inherit; text-align: center; max-width: 100%">
+                            <button type="button" (click) = "decreaseItemCount(item)"
+                            class="ui left attached btn">
+                            <i class="fa fa-minus" aria-hidden="true"></i></button><input type="text" value="{{item.quantity}}" disabled class="count" />
+                            <button (click) = "increaseItemCount(item)" type="button"
+                            class="btn right attached">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                          </button></span>
+                        <br />
+                        <!-- <span style="font-size: 12px;">&#x20B9; 200</span> -->
+                        <span class="pull-right" style="float: right;">
+                          &#x20B9; {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
+                        </span>
+                      </div>
+                    </div>
+                </div>
+                  
               </div>
-            </div>
-
-
-
+              <div *ngIf="simCartEmpty" class="card-body emptyItem">
+                  <div class="col-lg-12">
+                    <img src="../../../assets/sim/undraw_empty_cart_co35.png" alt="" class="img-fluid"
+                      style="margin-top: 100px;">
+                  </div>
+              </div>
+              <div *ngIf="!simCartEmpty" class="card-footer orderTotal">
+                  <div class="col-lg-12 font-weight-bold">
+                      <p style="margin-bottom: 2px;">Total <span style="float: right;">&#x20B9; {{totalPrice |  number: '1.0-2'}}</span></p>
+      
+                    </div>
+                    <div class="col-lg-12">
+                      <button (click)  = "checkOut()" class="btn btn-success btn-sm mt-1" style="width: 100%;">
+                        Continue
+                      </button>
+                    </div>
+              </div>
           </div>
 
-          <!-- if cart is empty -->
-          <div *ngIf="simCartEmpty" class="row">
-            <div class="col-lg-12">
-              <img src="../../../assets/sim/undraw_empty_cart_co35.png" alt="" class="img-fluid"
-                style="margin-top: 100px;">
-            </div>
-          </div>
+          <div class="card orderCard mobile-cart mb-3" style="padding: 0px;">
+              <div class="card-header bg-transparent font-weight-bold" style="font-size: 20px; padding: 7px 15px; border-bottom: none;">
+                  Your Order
+              </div>
+              <!-- if item in cart -->
+              <div class="card-body orderItem" *ngIf="!simCartEmpty" style="padding: 0px;">
+                      <div *ngFor="let item of  simCart" style="width: 100%;">
+                    <div class="col-lg-12">
+                      <h3 class="font-weight-bold" style="font-size: 14px;
+                            font-weight: 500; border-top: 1px solid #e2e2e2; padding-top: 10px;">
+                        {{item.planName}}
+                      </h3>
+                    </div>
+                    <div class="col-lg-12 order">
+                      <div>
+                        <span style="box-sizing: inherit; text-align: center; max-width: 100%">
+                            <button type="button" (click) = "decreaseItemCount(item)"
+                            class="ui left attached btn">
+                            <i class="fa fa-minus" aria-hidden="true"></i></button><input type="text" value="{{item.quantity}}" disabled class="count" />
+                            <button (click) = "increaseItemCount(item)" type="button"
+                            class="btn right attached">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                          </button></span>
+                        <br />
+                        <!-- <span style="font-size: 12px;">&#x20B9; 200</span> -->
+                        <span class="pull-right" style="float: right;">
+                          &#x20B9; {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
+                        </span>
+                      </div>
+                    </div>
+                </div>
+                  
+              </div>
 
-        </div>
+              <!-- if cart is empty -->
+              <div *ngIf="simCartEmpty" class="card-body orderItem">
+                  <div class="col-lg-12">
+                    <img src="../../../assets/sim/undraw_empty_cart_co35.png" alt="" class="img-fluid"
+                      style="margin-top: 100px;">
+                  </div>
+              </div>
+              <div *ngIf="!simCartEmpty" class="card-footer orderTotal">
+                  <div class="col-lg-12 font-weight-bold">
+                      <p style="margin-bottom: 2px;">Total <span style="float: right;">&#x20B9; {{totalPrice |  number: '1.0-2'}}</span></p>
+      
+                    </div>
+                    <div class="col-lg-12">
+                      <button (click)  = "checkOut()" class="btn btn-success btn-sm mt-1" style="width: 100%;">
+                        Continue
+                      </button>
+                    </div>
+              </div>
+          </div>
 
       </div>
     </div>

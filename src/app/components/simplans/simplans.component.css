@@ -1,10 +1,5 @@
 #sim {
-    background-image: linear-gradient(
-        to top,
-        rgba(0, 45, 80, 0),
-        rgba(0, 0, 0, 0.4)
-      ),
-      url(../../../assets/sim/activity-adventure-backlit-450062.jpg);
+    background-image: url('../../../assets/sim/harley-davidson-AyH9hAmiX9Y-unsplash.jpg');
     height: 60vh;
     background-size: cover;
     background-position: center center;
@@ -49,6 +44,10 @@
   @media (min-width: 768px) and (max-width: 1024px) {
     #sim select {
       max-width: 300px;
+    }
+
+    .order .count {
+      top: 1px;
     }
   }
   @media (min-width: 481px) and (max-width: 767px) {
@@ -95,9 +94,10 @@
     border-radius: 5px 0 0 0;
   }
   .pricing-table h4 {
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
     font-weight: 800;
+    min-height: 60px;
     margin: 0px;
   }
   .pricing-table h4 span {
@@ -122,6 +122,7 @@
   .pricing-table ul {
     margin: 10px 0 0 0;
     padding: 0;
+    min-height: 330px;
     list-style: none;
   }
   .pricing-table li {
@@ -147,11 +148,9 @@
     color: #fff;
   }
   button.attached {
-    padding-bottom: 5px;
     padding-left: 6px !important;
-    padding-right: 10px !important;
+    padding-top: 3px;
     width: 12%;
-    font-size: 6px;
     background: -webkit-linear-gradient(
       to top right,
       #101ee6 0%,
@@ -162,15 +161,16 @@
     box-shadow: 0 0 0 1px #000080 !important;
     cursor: pointer;
     line-height: 0px;
-    height: 15px;
+    height: 18px;
     font-size: 22px;
   }
+
+  button.attached i.fa {
+    font-size: 11px;
+  }
+
   .order button.attached {
-    padding-bottom: 5px;
-    padding-left: 7px !important;
-    padding-right: 10px !important;
     width: 12%;
-    font-size: 6px;
     background: -webkit-linear-gradient(
       to top right,
       #101ee6 0%,
@@ -181,7 +181,7 @@
     box-shadow: 0 0 0 1px #000080 !important;
     cursor: pointer;
     line-height: 0px;
-    height: 16px;
+    height: 17px;
     font-size: 22px;
   }
   button.attached:focus {
@@ -201,7 +201,7 @@
     background: #fff;
     color: #000;
     font-size: 12px;
-    height: 17px;
+    height: 20px;
     border: 1px solid #000080;
     padding: 0;
     text-align: center;
@@ -213,7 +213,7 @@
     background: #fff;
     color: #000;
     font-size: 12px;
-    height: 18px;
+    height: 19px;
     /* top: 1px; */
     border: 1px solid #000080;
     padding: 0;
@@ -231,20 +231,19 @@
     padding: 5px 12px 0px;
     border-radius: 10px;
     position: sticky;
-    top: 70px;
-    height: 550px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    top: 30px;
+    margin-bottom: 25px;
   }
   .orderTotal {
-    position: absolute;
     z-index: 10;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     bottom: 0px;
     box-shadow: rgba(0, 0, 0, 0.15) 0 -2px 15px;
     background: #fff;
     padding: 7px;
     box-shadow: 1px;
-    width: 258px;
+    width: 100%;
     margin-left: 0px;
   }
   
@@ -283,46 +282,14 @@
   }
   @media (min-width: 768px) and (max-width: 1024px) {
     .orderTotal {
-      width: 210px;
+      width: 100%;
       padding-bottom: 15px;
     }
   
-    .order .count {
-      position: relative;
-      width: 25px;
-      background: #fff;
-      color: #000;
-      font-size: 12px;
-      height: 19px;
-      top: -1px;
-      border: 1px solid #000080;
-      padding: 0;
-      text-align: center;
-      border-radius: 0;
-    }
-  
-    .order button.attached {
-      padding-bottom: 5px;
-      padding-left: 3px !important;
-      padding-right: 10px !important;
-      width: 25%;
-      font-size: 6px;
-      background: -webkit-linear-gradient(
-        to top right,
-        #101ee6 0%,
-        #000080 74%
-      ); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to top right, #101ee6 0%, #000080 74%);
-      color: #fff !important;
-      box-shadow: 0 0 0 1px #000080 !important;
-      cursor: pointer;
-      line-height: 0px;
-      height: 16px;
-      font-size: 22px;
-    }
+   
   }
   @media (min-width: 481px) and (max-width: 767px) {
-    button.attached {
+     button.attached {
       padding-bottom: 5px;
       padding-left: 1px !important;
       padding-right: 10px !important;
@@ -353,59 +320,13 @@
       text-align: center;
       border-radius: 0;
     }
-  }
+  } 
   @media (min-width: 320px) and (max-width: 480px) {
     #sim {
       padding-top: 100px;
     }
   
-    button.attached {
-      padding-bottom: 5px;
-      padding-left: 8px !important;
-      padding-right: 10px !important;
-      width: 10%;
-      font-size: 6px;
-      background: -webkit-linear-gradient(
-        to top right,
-        #101ee6 0%,
-        #000080 74%
-      ); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to top right, #101ee6 0%, #000080 74%);
-      color: #fff !important;
-      box-shadow: 0 0 0 1px #000080 !important;
-      cursor: pointer;
-      line-height: 0px;
-      height: 15px;
-      font-size: 22px;
-    }
-    .count {
-      position: relative;
-      width: 40px;
-      background: #fff;
-      color: #000;
-      font-size: 12px;
-      height: 18px;
-      border: 1px solid #000080;
-      padding: 0;
-      text-align: center;
-      border-radius: 0;
-    }
-    .pricing-table .buy {
-      text-decoration: none;
-      color: #000080;
-      border: 2px solid #000080;
-      display: block;
-      padding: 3px 0;
-      margin: 15px 50px 10px;
-      border-radius: 40px;
-      text-transform: uppercase;
-      font-size: 12px;
-      transition: 0.5s;
-      text-align: center;
-    }
-    .orderCard {
-      margin-bottom: 20px;
-    }
+   
     #sim {
       height: 50vh;
       background-size: cover;
@@ -419,7 +340,7 @@
     }
   
     .orderTotal {
-      width: 92%;
+      width: 100%;
       padding: 12px !important;
     }
   
@@ -427,43 +348,51 @@
       display: none;
     } */
   
-    .order .count {
-      position: relative;
-      width: 35px;
-      background: #fff;
-      color: #000;
-      font-size: 12px;
-      top: -1px;
-      height: 18px;
-      /* top: 1px; */
-      border: 1px solid #000080;
-      padding: 0;
-      text-align: center;
-      border-radius: 0;
-    }
-  
-    .order button.attached {
-      padding-bottom: 5px;
-      /* padding-left: 3px !important; */
-      padding-right: 10px !important;
-      width: 10%;
-      font-size: 6px;
-      background: -webkit-linear-gradient(
-        to top right,
-        #101ee6 0%,
-        #000080 74%
-      ); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to top right, #101ee6 0%, #000080 74%);
-      color: #fff !important;
-      box-shadow: 0 0 0 1px #000080 !important;
-      cursor: pointer;
-      line-height: 0px;
-      height: 16px;
-      font-size: 22px;
-    }
+   
   }
   .orderCard hr {
     margin-top: 5px;
     margin-bottom: 5px;
   }
   
+
+  .summaryContent {
+    min-height: 120px;
+  }
+
+  @media screen and (width: 411px) {
+    .count {
+      top: -1px;
+    }
+
+    .order .count {
+      top: 0px;
+    }
+  }
+
+  .orderItem{
+    min-height: 26rem;
+  }
+
+  .emptyItem  {
+    min-height: 31rem;
+  }
+
+  .mobile-cart {
+    display: none;
+  }
+
+  .pc-Cart {
+    display: block;
+  }
+
+  @media screen and (max-width: 676px) {
+    .mobile-cart {
+      display: block;
+    }
+
+    .pc-Cart {
+      display: none;
+    }
+  }
+
