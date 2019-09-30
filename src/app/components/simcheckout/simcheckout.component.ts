@@ -26,6 +26,7 @@ export class SimcheckoutComponent implements OnInit {
   checksum = "";
   primaryAddress = "";
   showMobileCart : boolean  =false;
+  minDate : any = '';
   
   constructor(private simCheckoutService : SimCheckoutService, private router : Router,
     private preloaderService: PreloaderService) {
@@ -36,6 +37,12 @@ export class SimcheckoutComponent implements OnInit {
    }
 
   ngOnInit() {
+    const current = new Date();
+    this.minDate = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate()
+    };
     console.log(this.simCart);
 
 

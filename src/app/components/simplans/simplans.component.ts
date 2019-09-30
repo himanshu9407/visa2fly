@@ -72,6 +72,7 @@ export class SimplansComponent implements OnInit {
 
   increaseItemCount (item : any) {
 
+    console.log(item);
     let totalQuantity = 0;
     this.simCart.forEach(element => {
       totalQuantity =totalQuantity + element.quantity;
@@ -89,10 +90,11 @@ export class SimplansComponent implements OnInit {
       for (let index = 0; index < this.simCart.length; index++) {
         // this.simCart.forEach((element : any) => {
           let element = this.simCart[index];
-          if (element.tariffId == item.tariffId) {
+        
+          if (element.planId == item.planId) {
             
             element.quantity = element.quantity +1;
-            console.log("hello");
+            // console.log("hello");
             found = true;
             break;
           }
@@ -136,7 +138,7 @@ export class SimplansComponent implements OnInit {
       let found = false;
 
       this.simCart.forEach((element : any, index) => {
-        if (element.tariffId == item.tariffId) {
+        if (element.planId == item.planId) {
           
           element.quantity = element.quantity - 1;
           console.log(element);
