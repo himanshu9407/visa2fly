@@ -20,6 +20,8 @@ export class SimplansComponent implements OnInit {
   simCartEmpty : boolean = true;
   totalPrice : number = 0;
   simResp : any ;
+  showMobileCart : boolean  = false;
+  buttonLabel : string = "View Cart";
 
   constructor(private simService : SimService, private router : Router, 
     private preloaderService : PreloaderService, private toastService :ToastService,
@@ -212,6 +214,17 @@ export class SimplansComponent implements OnInit {
 
 
     this.toastService.showNotification("checkout button clicked",4000);
+  }
+  toogleCartMobile () {
+    this.showMobileCart = !this.showMobileCart;
+    if(this.showMobileCart) {
+
+      this.buttonLabel = "Go back";
+    }
+    else {
+      this.buttonLabel = "View Cart";
+
+    }
   }
 
 }

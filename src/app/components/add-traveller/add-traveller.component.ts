@@ -267,7 +267,7 @@ export class AddTravellerComponent implements OnInit {
         addressForPickupSame:[false,[Validators.required]],
         address:['',[Validators.required]],
         state:['State',[Validators.required]],
-        city:['City',[Validators.required]],
+        city:['',[Validators.required]],
         pinCode : ['',[Validators.required]]
       
       });

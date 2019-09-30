@@ -329,11 +329,20 @@
                 </div>
 
                 <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
-                  <input type="text" name="" id="" class="form-control" placeholder="City">
-                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.state.errors.required && travellerForm.controls.
+                  <input  [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .city.invalid && travellerForm.controls.travellers.controls[i].controls.city.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.city.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.city.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.city.pristine}"
+                   formControlName="city" pattern="[A-Za-z]{4,32}"  type="text" name="" id="" class="form-control" placeholder="City">
+                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.city.errors.required && travellerForm.controls.
                   travellers.controls[i].controls.state.touched" class="invalid-feedback" style="display: block">
                   State is required
                 </div> -->
+                <div  *ngIf="travellerForm.controls.travellers.controls[i].controls.city.invalid && travellerForm.controls.
+                travellers.controls[i].controls.city.dirty" class="invalid-feedback" style="display: block">
+                  Enter a valid city
+                </div>
                 </div>
                 <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
                     <select
