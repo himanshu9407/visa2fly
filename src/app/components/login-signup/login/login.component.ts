@@ -170,7 +170,8 @@ export class LoginComponent implements OnInit {
                   )
                 }
                 else if (this.prevRoute == "fail-login-sim") {
-                    this.router.navigate(['sim/']);
+                  this.router.navigate(['/sim/checkout']);
+
                 }
                 else {
 

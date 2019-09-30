@@ -43,7 +43,8 @@ import { PrivacyPolicyComponent } from './components/static/privacy-policy/priva
 import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
-import { SimplansComponent } from './components/simplans/simplans.component'
+import { SimplansComponent } from './components/simplans/simplans.component';
+import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component'
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { SimplansComponent } from './components/simplans/simplans.component'
     CancellationsAndReturnComponent,
     ProfileComponent,
     BookingDetailsComponent,
-    SimplansComponent
+    SimplansComponent,
+    SimcheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -52,7 +52,7 @@ users :object;
 constructor(private homeFormService: HomeFormService,
   private preloaderService : PreloaderService, private loginStatusService : LoginStatusService,
   private router : Router,private loginService : LoginService, private userFlow : UserFlowDetails, private authService : AuthenticationGuard) {
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
 
   }
   

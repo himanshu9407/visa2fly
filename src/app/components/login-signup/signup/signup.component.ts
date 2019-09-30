@@ -113,6 +113,10 @@ export class SignupComponent implements OnInit {
                   }
                 )
               }
+              else if (this.prevRoute == "fail-login-sim") {
+                this.router.navigate(['/sim/checkout']);
+
+              }
               
               this.toastService.showNotification(data.message.toString(),5000);
 

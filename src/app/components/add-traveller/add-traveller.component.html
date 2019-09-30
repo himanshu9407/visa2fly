@@ -218,7 +218,7 @@
                     .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                    controls.passportNumber.pristine}" pattern="^[A-Z]{1}[0-9]{7}$"   formControlName="passportNumber" type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"
+                    controls.passportNumber.pristine}" pattern="^[A-Za-z]{1}[0-9]{7}$"   formControlName="passportNumber" type="text" class="form-control" id="PassportNumber" placeholder="Passport Number"
                       required />
 
                       <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.

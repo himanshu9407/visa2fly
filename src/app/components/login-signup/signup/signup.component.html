@@ -55,7 +55,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fas fa-key"></i></span>
       </div>
-      <input [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="number" class="form-control roundedinput" placeholder="OTP"  />
+      <input [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP"  />
       <div *ngIf="signupForm.get('otp').invalid && signupForm.get('otp').dirty" class="invalid-feedback"  style="display: block;margin-left: 8%;">
      
         <div >Invalid OTP</div>

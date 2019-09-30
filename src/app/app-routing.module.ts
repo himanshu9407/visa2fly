@@ -20,9 +20,10 @@ import { CancellationsAndReturnComponent } from './components/static/cancellatio
 import { ProfileComponent } from './components/profile/profile.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
 import { SimplansComponent } from './components/simplans/simplans.component';
+import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
     
     const routes: Routes = [
-         {  path: '', redirectTo : 'home', pathMatch :'full'},
+         {  path: '', redirectTo : 'home', pathMatch : "full"},
          {  path: 'home', component: HomeContainerComponent},
          {  path: 'tnc',component:TermsandConditionsComponent},
          {  path: 'cookiePolicy',component:CookiePolicyComponent},
@@ -40,7 +41,7 @@ import { SimplansComponent } from './components/simplans/simplans.component';
          {  path : 'visa' ,  redirectTo: 'home'},
          {  path : 'sim' , component : SimComponent},
          {  path : 'sim/simplans' , component : SimplansComponent},
-         {  path : 'sim/checkout' , component : SimplansComponent},
+         {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
 

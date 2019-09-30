@@ -19,13 +19,15 @@ export class SimplansComponent implements OnInit {
   simCart : Array<any> = [];
   simCartEmpty : boolean = true;
   totalPrice : number = 0;
+  simResp : any ;
 
   constructor(private simService : SimService, private router : Router, 
     private preloaderService : PreloaderService, private toastService :ToastService,
     private loginService : LoginService, private loginStatus : LoginStatusService,
     private routerHistory : RouterHistory) {
-      this.simCart = JSON.parse(localStorage.getItem('simCart')) || [];
+      // this.simCart = JSON.parse(localStorage.getItem('simCart')) || [];
       this.preloaderService.showPreloader(true);
+      // this.simResp = JSON.parse(localStorage.getItem('simResp')) || [];
       this.selectedCountry = localStorage.getItem('simSelectedCountry') || "";
      }
 
@@ -41,6 +43,7 @@ export class SimplansComponent implements OnInit {
         (data : any) => {
           if(data.code == "0") {
             this.selectedSimCountryData = data.data;
+            localStorage.setItem("simResp",JSON.stringify(data.data));
             this.preloaderService.showPreloader(false);
             
             this.selectedSimCountryData.forEach((element : any) => {
@@ -180,30 +183,32 @@ export class SimplansComponent implements OnInit {
 
 
   checkOut () {
-    // this.preloaderService.showPreloader(true);
-    // localStorage.setItem("simCart",JSON.stringify(this.simCart));
-    // let token = this.loginService.getAuthToken();
-    // if (token == null || token ==  undefined) {
-    //   token = "";
-    // }
+    this.preloaderService.showPreloader(true);
+    localStorage.setItem("simCart",JSON.stringify(this.simCart));
+    let token = this.loginService.getAuthToken();
+    if (token == null || token ==  undefined) {
+      token = "";
+    }
+
+    
+    
+    this.loginStatus.verifyAuthToken(token).subscribe(
+      (data: any) => {
+        
+        if(data.code == "0") {
+          //do payment post
+          this.router.navigate(['/sim/checkout']);
+          this.preloaderService.showPreloader(false);
+        }
+        else {
+          this.routerHistory.pushHistory("fail-login-sim");
+          this.router.navigate(['slcontainer/login']);
+          this.preloaderService.showPreloader(false);
+        }
 
 
-    // this.loginStatus.verifyAuthToken(token).subscribe(
-    //   (data: any) => {
-
-    //     if(data.code == "0") {
-    //       //do payment post
-    //       this.preloaderService.showPreloader(false);
-    //     }
-    //     else {
-    //       this.routerHistory.pushHistory("fail-login-sim");
-    //       this.router.navigate(['slcontainer/login']);
-    //       this.preloaderService.showPreloader(false);
-    //     }
-
-
-    //   }
-    // );
+      }
+    );
 
 
     this.toastService.showNotification("checkout button clicked",4000);
