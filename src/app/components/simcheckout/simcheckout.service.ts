@@ -14,14 +14,16 @@ export class SimCheckoutService {
 
 
     proceedToPayment(reqObj : any) {
+        console.log(reqObj);
         let token = this.loginService.getAuthToken();
         if(token == null || token == undefined) {
             token = "";
         }
+        console.log(token);
         let headers = new HttpHeaders({'token':token,'visa-client':"0"});
         const base_url = this.userFlow.getBaseURL();
 
-        return this.http.post(base_url+'sim/select/plans',{headers : headers});
+        return this.http.post(base_url+'sim/select/plans',reqObj,{headers : headers});
 
 
     }

@@ -97,7 +97,7 @@ export class SimcheckoutComponent implements OnInit {
     }
 
     let tempActivation ="";
-    let doa = this.simCheckoutForm.get('dateOfBirth').value;
+    let doa = this.simCheckoutForm.get('simActivationDate').value;
     if (doa.month < 10 && doa.day < 10) {
       tempActivation =  doa.year+"-0"+doa.month+"-0"+doa.day;
     }
@@ -112,7 +112,7 @@ export class SimcheckoutComponent implements OnInit {
     }
 
     let tempdod ="";
-    let dod = this.simCheckoutForm.get('dateOfBirth').value;
+    let dod = this.simCheckoutForm.get('departureDate').value;
     if (dod.month < 10 && dod.day < 10) {
       tempdod =  dod.year+"-0"+dod.month+"-0"+dod.day;
     }
@@ -133,7 +133,9 @@ export class SimcheckoutComponent implements OnInit {
     formValueObj.totalPayableAmount = this.totalPrice;
 
     this.simCart.forEach(element => {
-      element.totalAmount = element.quantity * (element.price + element.convenienceFee + element.convenienceFeeTAX );
+      element.totalAmount = element.quantity * (element.price + element.convenienceFee + element.convenienceFeeTAX);
+      element.productId = element.planId;
+      element.ratePlanId = element.tariffId;
     });
 
     formValueObj.plansSelected = this.simCart;

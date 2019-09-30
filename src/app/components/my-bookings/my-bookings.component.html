@@ -9,10 +9,10 @@
 
      
       <div *ngFor="let booking of myBookings" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div class="visa">
+        <div [ngClass] = "{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
-              96 Hours Transit Visa
+              96 Hours Transit Visa 
             </div>
             <div class="card-body">
               <!-- <h5 class="card-title">Special title treatment</h5>
@@ -54,14 +54,14 @@
                 <li>
                   Booking Status:
                   <!-- <span class="fieldData">123</span> -->
-                  <span class="fieldData badge badge-warning">Pending</span>
+                  <span [ngClass] = "{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }" class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
                 </li>
                 <li>
                   Payment status:
                   <!-- <span class="fieldData"></span> -->
                   <!-- <span class="fieldData badge badge-danger">Failed</span> -->
-                  <span class="fieldData badge badge-success"
-                    >Successfull</span
+                  <span class="fieldData badge "  [ngClass] = "{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }"
+                    >{{booking.booking.paymentStatus}}</span
                   >
                 </li>
               </ul>

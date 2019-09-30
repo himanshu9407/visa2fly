@@ -137,7 +137,7 @@
               <div class="visa">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
-                    96 Hours Transit Visa
+                    Traveller Details
                   </div>
                   <div class="card-body">
                     <ul class="visa-type">
@@ -247,7 +247,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+            <div  *ngFor=" let simItem of selectedBooking.simBookings " class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
               <div class="sim-card">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
@@ -260,23 +260,23 @@
                     <ul class="visa-type">
                       <li>
                         Plan Name :
-                        <span class="fieldData">xxx</span>
+                        <span class="fieldData">{{simItem.simPlanName}}</span>
                       </li>
                       <li>
                         Qty :
-                        <span class="fieldData">xxx</span>
+                        <span class="fieldData">{{simItem.quantity}}</span>
                       </li>
                       <li>
                         Sim For :
-                        <span class="fieldData">Country</span>
+                        <span class="fieldData">{{simItem.simPlanForCountry}}</span>
                       </li>
                       <li>
                         Status :
-                        <span class="fieldData">Business</span>
+                        <span class="fieldData">{{simItem.status}}</span>
                       </li>
                       <li>
                         Activate Date :
-                        <span class="fieldData">Single</span>
+                        <span class="fieldData">{{simItem.activationDate}}</span>
                       </li>
       
                       <li>
@@ -286,9 +286,7 @@
                             Summary
                           </h6>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Earum quod aspernatur amet sapiente illo doloribus eaque
-                            sequi fuga vel alias.
+                            {{simItem.summary}}
                           </p>
                         </div>
                       </li>
@@ -299,16 +297,13 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+            <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
               <div class="insurance">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
                     96 Hours Transit Visa
                   </div>
                   <div class="card-body">
-                    <!-- <h5 class="card-title">Special title treatment</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     <ul class="visa-type">
                       <li>
                         Booking ID:
@@ -344,13 +339,10 @@
                       </li>
                       <li>
                         Booking Status:
-                        <!-- <span class="fieldData">123</span> -->
                         <span class="fieldData badge badge-warning">Pending</span>
                       </li>
                       <li>
                         Payment status:
-                        <!-- <span class="fieldData"></span> -->
-                        <!-- <span class="fieldData badge badge-danger">Failed</span> -->
                         <span class="fieldData badge badge-success">Successfull</span>
                       </li>
 
@@ -360,7 +352,7 @@
       
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>

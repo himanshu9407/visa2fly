@@ -35,6 +35,32 @@ ngOnInit() {
           console.log(data.data.bookings);
           this.myBookings = data.data.bookings;
 
+          this.myBookings.forEach(element => {
+            if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
+            ||element.booking.bookingStatus == "Visa application approved"  ) {
+              element.booking.statusColor = "g";
+            }
+            else if (element.booking.bookingStatus="Payment failed" || element.booking.bookingStatus=="Visa application rejected") {
+              element.booking.statusColor = "r";
+
+            }
+            else {
+              element.booking.statusColor = "y";
+
+            }
+            if (element.booking.paymentStatus == "Payment completed") {
+              element.booking.paymentColor = "g";
+
+            }
+            else if (element.booking.paymentStatus == "Payment completed") {
+              element.booking.paymentColor = "g";
+            }
+            else {
+              element.booking.paymentColor = 'y';
+            }
+          })
+
+
           setTimeout(() => {
               
               this.preloaderService.showPreloader(false);
