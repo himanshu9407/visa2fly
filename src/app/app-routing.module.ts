@@ -35,7 +35,7 @@ import { SimcheckoutComponent } from './components/simcheckout/simcheckout.compo
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
          {  path: 'profile', component : ProfileComponent},
          {  path : 'reg' , component : RequirementsComponent},
-         {  path : 'addTraveller' , component : AddTravellerComponent},
+         {  path : 'addTraveller' , component : AddTravellerComponent,canActivate:[AuthenticationGuard]},
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visaArrival' , component : VisaArrivalComponent},
          {  path : 'visa' ,  redirectTo: 'home'},

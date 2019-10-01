@@ -28,7 +28,7 @@
             <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
         </div> -->
 
-        <div *ngIf ="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
+        <div *ngIf ="otpSentCount > 0"  class="row align-items-center resendBtn">
           <a (click) = "sendOtp()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
       </div>
 
@@ -50,7 +50,7 @@
   </div>
 
   <div *ngIf="showSendOtp" class=" row form-group d-flex justify-content-center ">
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 0px;">
       <button (click) = "sendOtp()" [disabled]="loginForm.get('userId').invalid && loginForm.get('userId').dirty || loginForm.get('userId').pristine" type="button" class="btn float-right login_btn" style="width:200px;">Send OTP</button>
     </div>
   </div>
@@ -59,7 +59,7 @@
       <button (click) ="onSubmit()" [disabled]="loginForm.get('otp').invalid && loginForm.get('otp').dirty || loginForm.get('otp').pristine" type="button" class="btn float-right login_btn" style="width:200px;">Login</button>
     </div>
   </div>
-  <div *ngIf="showLoader" class="d-flex justify-content-center">
+  <div *ngIf="showLoader" class="d-flex justify-content-center mb-3">
     <div class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
     </div>

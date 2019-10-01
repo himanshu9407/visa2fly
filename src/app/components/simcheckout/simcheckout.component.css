@@ -1,38 +1,49 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
+input:focus {
+  outline: none;
+  box-shadow: none !important;
+  height: 30px;
+}
 
-  .row {
-    margin-right: 0px;
-  }
-
+button.calendar {
+  padding-top: 2px;
+  height: 30px;
+}
   .grandLabel {
     padding-right: 150px;
     float: right !important;
-  }
-
-  body {
-    /* background: url(./img/generic.png); */
-    background-attachment: fixed;
-    height: 100vh;
-    background-position: center center;
-    background-size: cover;
+    font-size: 17px !important; font-weight: 700;
   }
 
   .mail {
-    margin-left: 40px;
+    padding-left: 40px;
+  }
+
+  .mobile ,
+  .departure {
+    padding-left: 60px;
+  }
+
+  .country {
+    padding-left: 30px;
+  }
+
+  .activated {
+    padding-left: 90px;
+  }
+
+  #insrSummary {
+    margin-top: 60px;
   }
 
   #insrSummary .container {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: #e2e2e2;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px 20px;
     margin-top: 20px;
   }
 
-  #insrSummary .heading {
+  #insrSummary .headTitle {
     color: #000080;
     font-size: 16px;
   }
@@ -80,7 +91,7 @@
 
   @media (min-width: 768px) and (max-width: 1024px) {
     #insrSummary .container {
-      padding: 10px;
+      padding: 10px 10px 0px;
     }
 
     #insrSummary .col-lg-2 {
@@ -117,11 +128,44 @@
     .TrvDetail .container {
       border-radius: 0px;
     }
+
+    .mail {
+      padding-left: 0px;
+    }
+  
+    .mobile {
+      padding-left: 0px;
+    }
+  
+    .departure {
+      padding-left: 0px;
+    }
+  
+    .country {
+      padding-left: 0px;
+    }
+  
+    .activated {
+      padding-left: 0px;
+    }
+
   }
 
   @media (min-width: 320px) and (max-width: 480px) {
     #insrSummary .container {
       padding: 20px;
+    }
+    
+    hr {
+      margin-bottom: 6px !important;
+    }
+
+    .mobileLabel {
+      padding: 2px;
+    }
+
+    .mobileTotal {
+      margin-top: 0px;
     }
 
     .grandLabel {
@@ -153,16 +197,30 @@
     }
 
     #insrSummary .container {
-      border-radius: 0px;
+      border-radius: 10px;
     }
 
     .TrvDetail .container {
-      border-radius: 0px;
+      border-radius: 10px;
     }
 
     .TrvDetail .form-row input.trvName {
       margin-top: 8px;
     }
+
+    .mail,
+    .mobile,
+    .departure,
+    .country,
+    .activated {
+      padding-left: 5px;
+      margin-top: 10px;
+    }
+
+    #insrSummary {
+      margin-top: 100px;
+    }
+
   }
 
   .header {
@@ -206,3 +264,37 @@
   .insuranceBox {
     margin: 0px 50px;
   }
+
+  @media (min-width: 380px) and (max-width: 480px) { 
+    #insrSummary .container,
+    .TrvDetail .container {
+      padding: 20px 0px;
+      margin-left: 15px;
+      /* margin-right: 10px; */
+      width: 382px;
+    }
+  
+  }
+  
+  @media (min-width: 351px) and (max-width: 379px) { 
+    #insrSummary .container,
+    .TrvDetail .container {
+      padding: 20px 0px;
+      /* margin-left: 10px; */
+      /* margin-right: 10px; */
+      width: 332px;
+    }
+  }
+  
+  
+  @media (min-width: 320px) and (max-width: 350px) { 
+    #insrSummary .container,
+    .TrvDetail .container {
+      padding: 10px 0px 0px;
+      margin-left: 17px;
+      /* margin-right: 10px; */
+      width: 285px;
+    }
+  
+  }
+  

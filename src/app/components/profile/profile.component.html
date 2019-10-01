@@ -1,6 +1,6 @@
 <div class="container-fluid profile">
   <div class="profile-box text-center d-flex align-items-center justify-content-center">
-    <div class="card bg-light" style="width: 18rem;">
+    <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h4 class="card-title">Hi !</h4>
         <h6>{{profile.firstName}}</h6>
@@ -14,12 +14,12 @@
       <div class="card-footer text-muted">
         <div class="row">
           <div class="col-6">
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#profileModal">
               My Profile
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel"
               aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -64,6 +64,9 @@ Verify
                               <h2 class="profileHeading" style="color: #000;
 															text-align: left;">
                                 My Profile
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
                               </h2>
                             </div>
                           </div>
