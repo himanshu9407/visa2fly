@@ -19,10 +19,10 @@
           <div class="col-md-12">
               <h3 style="font-size: 22px; font-weight: 600;">Summary</h3>
             </div>
-        <div class="col-lg-12">
+        <div class="col-md-12">
           <div class="insurancePlan">
             <div *ngFor="let item of simCart" class="row">
-              <div class="col-lg-3 col-6 mobileLabel">
+              <div class="col-md-3 col-6 mobileLabel">
                 <div class="labelText">
                   <b>ITEM: </b>
                 </div>
@@ -31,7 +31,7 @@
                 </div>
               </div>
 
-              <div class="col-lg-3 col-6 mobileLabel">
+              <div class="col-md-3 col-6 mobileLabel">
                 <div class="labelText">
                   <b> QTY:</b>
                   <div class="planDetail">
@@ -39,7 +39,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-6 mobileLabel">
+              <div class="col-md-3 col-6 mobileLabel">
                 <div class="labelText">
                   <b>PRICE:</b>
                   <div class="planDetail">
@@ -49,7 +49,7 @@
               </div>
             
              
-              <div class="col-lg-3 col-6 total mobileLabel">
+              <div class="col-md-3 col-6 total mobileLabel">
                 <div class="labelText">
                   <b>Sub Total (Inclusive of taxes)</b>
                   <div
@@ -87,7 +87,7 @@
   <section class="TrvDetail" style="margin-bottom: 60px;">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-md-12">
           <p
             class="headTitle lead font-weight-bold"
             style="color: #000080; text-transform: uppercase;"
@@ -95,14 +95,14 @@
             Traveller Detail
           </p>
         </div>
-        <div class="col-lg-12">
+        <div class="col-md-12">
           <form [formGroup] ="simCheckoutForm">
             <div class="form-row form-group">
-              <div class="col-lg-2">
+              <div class="col-md-2">
                 <label for="" class="">Traveller Name:</label>
               </div>
 
-              <div class="col-lg-3">
+              <div class="col-md-3">
                 <input  formControlName="firstName" pattern="[A-Za-z]{3,32}"
                   type="text"
                   [ngClass]="{'is-invalid':simCheckoutForm.get('firstName').invalid && simCheckoutForm.get('firstName').dirty,'is-valid':!(simCheckoutForm.get('firstName').invalid && simCheckoutForm.get('firstName').dirty) && !simCheckoutForm.get('firstName').pristine}" 
@@ -115,7 +115,7 @@
                   </div>
               </div>
            
-              <div class="col-lg-3">
+              <div class="col-md-3">
                 <input formControlName="lastName" pattern="[A-Za-z]{3,32}"
                   type="text"
                   class="form-control form-control-sm trvName"
@@ -196,10 +196,10 @@
                                 <div >Invalid Passport Number</div>
                               </div>
                           </div>
-              <div class="col-lg-2 departure">
+              <div class="col-md-2 departure">
                 <label for="" class="">Departure On:</label>
               </div>
-              <div class="col-lg-2">
+              <div class="col-md-2">
                   <div class="input-group">
                       <input formControlName="departureDate"    id="#departure" class="form-control form-control-sm addTravelDate" placeholder="Departure Date" name="departure"
                       [minDate]="minDate"   ngbDatepicker #departure="ngbDatepicker">
@@ -212,10 +212,10 @@
               </div>
             </div>
             <div class="form-row form-group">
-              <div class="col-lg-2">
+              <div class="col-md-2">
                     <label for="" class="">Date of Birth:</label>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-md-3">
                       <div class="input-group">
                           <input formControlName="dateOfBirth"    id="#dob" class="form-control form-control-sm addTravelDate" placeholder="Date of Birth" name="dob"
                              ngbDatepicker #dob="ngbDatepicker">
@@ -227,11 +227,11 @@
                         </div>
                   </div>
 
-              <div class="col-lg-3 activated">
+              <div class="col-md-3 activated">
                 <label for="" class="">SIM To Be Activated On:</label>
               </div>
 
-              <div class="col-lg-3">
+              <div class="col-md-3">
                   <div class="input-group">
                       <input formControlName="simActivationDate"    id="#activated" class="form-control form-control-sm" placeholder="Select Date" name="activated"
                       [minDate]="minDate"   ngbDatepicker #activated="ngbDatepicker">
@@ -245,7 +245,7 @@
             </div>
 
             <div class="form-row form-group">
-              <div class="col-lg-12">
+              <div class="col-md-12">
                 <div class="insuranceBox"
                   style="padding: 10px; background: lightyellow;  border-radius: 5px;"
                 >
@@ -275,7 +275,7 @@
             </div>
 
             <div class="form-group form-row">
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <label for="exampleFormControlInput1">Address:</label>
                 <textarea formControlName="address" minlength="10"
                 [ngClass]="{'is-invalid':simCheckoutForm.get('address').invalid && simCheckoutForm.get('address').dirty,'is-valid':!(simCheckoutForm.get('address').invalid && simCheckoutForm.get('address').dirty) && !simCheckoutForm.get('address').pristine}" 
@@ -291,11 +291,11 @@
                   </div>
               </div>
 
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <label for="exampleInputPassword1">State</label>
                 <select formControlName="state"
                   id="inputState"
-                  class="form-control col-lg-6 form-control-sm"
+                  class="form-control col-md-6 form-control-sm"
                 >
                   <option selected>Select State</option>
                   <option
@@ -342,7 +342,7 @@
                 <label for="exampleInputPassword1">Pin Code</label>
                 <input
                   type="text" pattern="^[1-9][0-9]{5}$" formControlName="pinCode" 
-                  class="form-control form-control-sm col-lg-6 mb-2"
+                  class="form-control form-control-sm col-md-6 mb-2"
                   id="exampleInputPassword1"
                   placeholder="Pin Code"
                   [ngClass]="{'is-invalid':simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty,'is-valid':!(simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty) && !simCheckoutForm.get('pinCode').pristine}" 
@@ -356,10 +356,10 @@
             </div>
 
             <div class="form-row form-group">
-              <div class="col-lg-1">
+              <div class="col-md-1">
                 <label for="" class="">City:</label>
               </div>
-              <div class="col-lg-2">
+              <div class="col-md-2">
                 <input formControlName="city" pattern="[A-Za-z]{4,32}"
                   type="text"
                   [ngClass]="{'is-invalid':simCheckoutForm.get('city').invalid && simCheckoutForm.get('city').dirty,'is-valid':!(simCheckoutForm.get('city').invalid && simCheckoutForm.get('city').dirty) && !simCheckoutForm.get('city').pristine}" 
@@ -372,10 +372,10 @@
                     <div >Invalid City</div>
                   </div>
               </div>
-              <div class="col-lg-1 country">
+              <div class="col-md-1 country">
                 <label for="" class="">Country:</label>
               </div>
-              <div class="col-lg-3">
+              <div class="col-md-3">
                 <input disabled formControlName="country"
                   type="text"
                   class="form-control form-control-sm trvName"
@@ -387,10 +387,10 @@
                   </div>
               </div>
 
-              <div class="col-lg-2 departure">
+              <div class="col-md-2 departure">
                   <label for="" class="">GST Number:</label>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                   <input  formControlName="gstNumber"
                     type="text"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('gstNumber').invalid && simCheckoutForm.get('gstNumber').dirty,'is-valid':!(simCheckoutForm.get('gstNumber').invalid && simCheckoutForm.get('gstNumber').dirty) && !simCheckoutForm.get('gstNumber').pristine}" 
@@ -406,7 +406,7 @@
             </div>
            <div class="d-flex justify-content-center">
               <div class="form-row form-group ">
-                  <div class="col-lg-12">
+                  <div class="col-md-12">
                     <button [disabled] = "!simCheckoutForm.valid"  (click)="submitForm()" class="btn btn-dark btn-sm" style="width: 120px;">Submit</button>
                   </div>
                 </div>
