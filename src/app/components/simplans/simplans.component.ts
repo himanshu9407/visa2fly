@@ -215,7 +215,7 @@ export class SimplansComponent implements OnInit {
     );
 
 
-    this.toastService.showNotification("checkout button clicked",4000);
+    // this.toastService.showNotification("checkout button clicked",4000);
   }
   toogleCartMobile () {
     this.showMobileCart = !this.showMobileCart;

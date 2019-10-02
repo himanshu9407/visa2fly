@@ -27,7 +27,8 @@
           <div *ngFor="let simData of selectedSimCountryData" class="col-lg-4 col-md-6 pricing-table">
             <div class="plan">
               <h3>
-                {{selectedCountry}} PREPAID SIM<span><img src="canada-flag-round-xs.png" height="90px;" alt="" /></span>
+                {{selectedCountry}} PREPAID SIM<span><img src="https://static.visa2fly.com/sim/flag/{{selectedCountry}}.png
+" height="90px;" alt="" /></span>
               </h3>
               <h4>{{simData.planName}} <span> &#x20B9;
                   {{simData.price + simData.convenienceFee + simData.convenienceFeeTAX}}</span></h4>
