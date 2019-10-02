@@ -21,6 +21,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
 import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
+import { AboutUsComponent } from './components/static/about-us/about-us.component'
     
     const routes: Routes = [
          {  path: '', redirectTo : 'home', pathMatch : "full"},
@@ -29,6 +30,7 @@ import { SimcheckoutComponent } from './components/simcheckout/simcheckout.compo
          {  path: 'cookiePolicy',component:CookiePolicyComponent},
          {  path: 'privacyPolicy',component:PrivacyPolicyComponent},
          {  path: 'cancellationPolicy',component:CancellationsAndReturnComponent},
+         {  path: 'aboutUs',component:AboutUsComponent},
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
          {  path: 'bookingDetail', component : BookingDetailsComponent},
 

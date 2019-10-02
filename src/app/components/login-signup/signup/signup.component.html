@@ -66,12 +66,19 @@
           <strong> OTP Sent Successfully!</strong>  
         </div>
     
-        <div *ngIf="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
+        <div *ngIf="otpSentCount > 0"  class="row align-items-center resendBtn">
             <a (click) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
         </div>
-  <div *ngIf="showOtpFields" class="row align-items-center remember">
+  <!-- <div *ngIf="showOtpFields" class="row align-items-center remember">
     <input formControlName="tnc" form type="checkbox" checked   aria-selected="true"> <span class="agree">I Agree to Terms and Conditions</span>
+  </div> -->
+
+  <div class="cntr" *ngIf="showOtpFields">
+    <input class="hidden-xs-up" formControlName="tnc" form id="cbx" aria-selected="true" type="checkbox" style="display: none;" />
+    <label class="cbx" for="cbx"></label>
+    <label class="lbl agree" for="cbx">I Agree to <a href="#">Terms and Conditions</a></label>
   </div>
+
   <div class=" row form-group d-flex justify-content-center" >
     
     <div class="form-group">

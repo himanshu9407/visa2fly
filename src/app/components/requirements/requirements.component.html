@@ -1,14 +1,14 @@
 <div class="upperContainer">
   <div class="row maxHeight">
     <div class="bannerImageContainer col-lg-8 col-md-12">
-      <img class="bannerImage" src="https://static.visa2fly.com/country/{{userFlowDetails.country}}.jpg" alt="bannerCountry" />
+      <img class="bannerImage rounded" src="https://static.visa2fly.com/country/{{userFlowDetails.country}}.jpg" alt="bannerCountry" />
       <!-- <div class="countryName">
         <h2>{{userFlowDetails.country}}</h2>
       </div> -->
     </div>
 
     <div class="smallbannerImageContainer col-xs-12">
-      <img class="bannerImage" src="https://static.visa2fly.com/country/{{userFlowDetails.country}}.jpg" alt="" />
+      <img class="bannerImage rounded" src="https://static.visa2fly.com/country/{{userFlowDetails.country}}.jpg" alt="" />
       <!-- <div class="countryName">
         <h2>{{userFlowDetails.country}}</h2>
       </div> -->
@@ -325,8 +325,9 @@
       <div class="gmvsprite_container" *ngFor="let items of mainArr; let i = index ;" style="">
         <div class="gmvsprite_row" >
           <div class="gmvsprite_col" *ngFor = "let item of items;let j = index " (click)="onClickRequrements(i,j)">
+            
             <div class="parent active ng-scope">
-              
+                <img class="img-fluid requiredIcon" src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" alt="" style="height: 70px; margin-bottom: 10px;" />
               <p>{{item.fieldName}}</p>
             </div>
           </div>
