@@ -14,6 +14,10 @@
     border-bottom-right-radius: 10px;
   }
 
+  .close {
+    display: none;
+  }
+
   .container-fluid {
     padding-right: 0px;
     padding-left: 0px;
@@ -200,4 +204,20 @@
       padding: 10px 30px 10px 26px;
     }
     
+  }
+
+  @media screen and (max-width: 767px) {
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      /* color: #fff !important; */
+      display: block;
+      background: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      font-size: 31px;
+    }
+  
   }
