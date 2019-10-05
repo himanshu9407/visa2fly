@@ -13,12 +13,15 @@ import { MyBookingsService } from './mybookings.service';
 export class MyBookingsComponent implements OnInit {
 
   myBookings : Array<any> = [];
+  myBookingsPc : Array<any> = [];
+  myBookingsMobile : Array<any> = [];
 
   AUTH_TOKEN = "";
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
               private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService) {
     this.myBookings =   [];
+
     this.preloaderService.showPreloader(true);
     
 
@@ -32,7 +35,6 @@ ngOnInit() {
       ( data : any ) => {
                
         if (data.code == "0") {
-          console.log(data.data.bookings);
           this.myBookings = data.data.bookings;
 
           this.myBookings.forEach(element => {
@@ -60,11 +62,15 @@ ngOnInit() {
             }
           })
 
+          let temparray,chunk = 6
 
-          setTimeout(() => {
-              
-              this.preloaderService.showPreloader(false);
-          }, 4000);
+          for (let i=0,j=this.myBookings.length; i<j; i+=chunk) {
+            temparray = this.myBookings.slice(i,i+chunk);
+            this.myBookingsPc.push(temparray);
+        
+          }
+          console.log(this.myBookingsPc);
+         
         }
         else {
           // router.navigate(['']);

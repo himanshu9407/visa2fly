@@ -21,7 +21,7 @@ export class AuthenticationGuard implements CanActivate {
 
     constructor (private loginService : LoginService, private loginStatus: LoginStatusService,
         private router : Router, private preloaderService : PreloaderService) {
-        console.log("auth guard");
+        // console.log("auth guard");
     }
 
     canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot) : any {

@@ -60,10 +60,10 @@ export class LoginService {
         const headers = new HttpHeaders ({"Content-Type" : "application/json", "visa-client" : "0"});
         let reqBody = {};
         if (temp.email) {
-            reqBody = {email : userId,cell : "", otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
+            reqBody = {emailId : userId,cell : "", otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
         }
         else if (temp.mobile) {
-            reqBody = {email : "",cell : userId, otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
+            reqBody = {emailId : "",cell : userId, otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
 
         }
 
