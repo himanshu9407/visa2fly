@@ -7,6 +7,26 @@ textarea,
   font-size: 14px;
 }
 
+/* FIREFOX FIX OF UGLY SELECT BOXES */
+@supports (-moz-appearance:none) {
+
+  SELECT
+  {
+  -moz-appearance:none !important;
+  background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
+  background-position: calc(100% - 5px) center !important;
+  }
+
+}
+
+select {
+  /* border: none; */
+  font-size: 14px;
+  /* font-weight: 550; */
+  padding-left: 0px;
+}
+
+
 .pic-info {
   position: absolute; right: 70px; bottom: 6px;
   border: none !important;
@@ -183,7 +203,7 @@ body {
 @media (min-width: 1281px) {
   .countryFlag {
     height: 80px;
-    width: 120px;
+    width: 140px;
     margin-top: 10px;
     border-radius: 6px;
   }

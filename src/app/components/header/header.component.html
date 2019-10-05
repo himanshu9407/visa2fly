@@ -26,9 +26,9 @@
         <a class="navlink">Sim Card</a>
       </li>
       <li class="nav-item">
-        <a class="navlink">Insurance</a>
+        <a class="navlink insurance">Insurance<span class="soon badge badge-warning">coming soon</span></a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" style="padding-left: 20px;">
         <a class=" dropdown-toggle navlink" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Others
@@ -53,20 +53,20 @@
 
     <!-- After Login SignUp -->
     <form *ngIf="userLoggedIn" class="form-inline">
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" ngbDropdown>
         <div class="btn-group">
-          <button (click)="toogleDropdown()" class="btn btn-sm dropdown-toggle ml-3 user-dropdown user-name"
-            type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button (click)="toogleDropdown()" ngbDropdownToggle role="button" class="btn btn-sm dropdown-toggle ml-3 user-dropdown user-name"
+          id="profileDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img
               src="../../../assets/profile/download.png"
               alt="" style="width: 25px;  border-radius: 50px;">
             {{userDetails.emailId}}
           </button>
-          <div class="dropdown-menu" [ngClass]="{'show':showDropDown}">
-            <button [routerLink] = "['profile']" class="dropdown-item">My Profile</button>
-            <button [routerLink] = "['myBookings']" class="dropdown-item">My Bookings</button>
+          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown" [ngClass]="{'show':showDropDown}">
+            <button [routerLink] = "['profile']" ngbDropdownItem class="dropdown-item">My Profile</button>
+            <button [routerLink] = "['myBookings']" ngbDropdownItem class="dropdown-item">My Bookings</button>
             <div class="dropdown-divider"></div>
-            <button (click)="logoutUser()" class="dropdown-item">Logout</button>
+            <button (click)="logoutUser()" ngbDropdownItem class="dropdown-item">Logout</button>
 
           </div>
         </div>
