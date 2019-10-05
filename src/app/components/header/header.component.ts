@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
         if (event instanceof NavigationStart) {
           console.log(event.url);
 
-          if(event.url == "/" || event.url == "/home" ) {
+          if(event.url == "/" || event.url == "/home" || event.url == "/sim" || event.url == "/sim/simplans" ) {
             this.showTransparentNavbar = true;
           }
           else {

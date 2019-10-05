@@ -39,6 +39,7 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
          {  path : 'reg' , component : RequirementsComponent},
          {  path : 'addTraveller' , component : AddTravellerComponent,canActivate:[AuthenticationGuard]},
          {  path : 'freeVisa' , component : FreeVisaComponent},
+         {  path : 'visOnArrival' , component : VisaArrivalComponent},
          {  path : 'visaArrival' , component : VisaArrivalComponent},
          {  path : 'visa' ,  redirectTo: 'home'},
          {  path : 'sim' , component : SimComponent},
