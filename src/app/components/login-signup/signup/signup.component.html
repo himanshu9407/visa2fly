@@ -76,7 +76,7 @@
   <div class="cntr" *ngIf="showOtpFields">
     <input class="hidden-xs-up" formControlName="tnc" form id="cbx" aria-selected="true" type="checkbox" style="display: none;" />
     <label class="cbx" for="cbx"></label>
-    <label class="lbl agree" for="cbx">I Agree to <a href="#">Terms and Conditions</a></label>
+    <label class="lbl agree" for="cbx">I Agree to <a [routerLink]="['/tnc']">Terms and Conditions</a></label>
   </div>
 
   <div class=" row form-group d-flex justify-content-center" >
