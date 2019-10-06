@@ -89,6 +89,14 @@ constructor(private homeFormService: HomeFormService,
             this.preloaderService.showPreloader(false);
             this.loginStatusService.setUserProfile(data.data.profile);
         }
+        else if(data.code == "301") {
+          this.loginService.setAuthToken("");
+          this.loginStatusService.setUserStatus(false);
+          this.loginStatusService.setUserLoggedIn(false);
+          // this.router.navigate(['home']);
+          this.preloaderService.showPreloader(false);
+          localStorage.setItem("profile",JSON.stringify({}));
+      }
           else {
             this.userFlow.setUserProfile({});
             this.loginStatusService.setUserLoggedIn(false);

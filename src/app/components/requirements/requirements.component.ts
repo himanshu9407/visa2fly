@@ -110,8 +110,8 @@ export class RequirementsComponent implements OnInit {
           this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploads));
         }
         // this.userFlow.setUserFlowDetails("imagesRequired")
-        // this.quotes = data.data.quotes;
-        this.quotes = data.data.displayQuotes;
+        this.quotes = data.data.quotes;
+        // this.quotes = data.data.displayQuotes;
         let temp = [];
         let i,j,temparray,chunk = 4;
         

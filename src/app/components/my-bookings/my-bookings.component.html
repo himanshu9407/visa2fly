@@ -1,14 +1,17 @@
+<div class="pcOnly">
+
+
 <div class="container myBooking">
     <div class="row mt-4">
       <!-- <div class=""> -->
       <div class="col-lg-12">
         <div class="title-box">
-          <h2>Order History (12)</h2>
+          <h2>Order History ({{totalCount}})</h2>
         </div>
       </div>
 
      
-      <div *ngFor="let booking of myBookings" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+      <div *ngFor="let booking of activePcBookingPage" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass] = "{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
@@ -92,16 +95,15 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
+          <a class="page-link" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
         </li>
-        <li class="page-item"><a class="page-link" >1</a></li>
-        <li class="page-item"><a class="page-link" >2</a></li>
-        <li class="page-item"><a class="page-link" >3</a></li>
+        <li  *ngFor="let item of myBookingsPc; let i = index" (click) = "setActivePagePc(i)" class="page-item"><a class="page-link" >{{i+1}}</a></li>
+        
         <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
+          <a class="page-link" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>
@@ -110,3 +112,120 @@
     </nav>
   </div>
 </div>
+</div>
+
+
+<div class="mobileOnly">
+
+
+    <div class="container myBooking">
+        <div class="row mt-4">
+          <!-- <div class=""> -->
+          <div class="col-lg-12">
+            <div class="title-box">
+              <h2>Order History ({{totalCount}})</h2>
+            </div>
+          </div>
+    
+         
+          <div *ngFor="let booking of activeMobileBookingPage" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+            <div [ngClass] = "{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+              <div class="card">
+                <div class="card-header priceHeading text-white">
+                  96 Hours Transit Visa 
+                </div>
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                  <ul class="visa-type">
+                    <li>
+                      Booking ID:
+                      <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
+                    </li>
+                    <li>
+                      Transaction ID :
+                      <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                    </li>
+                    <li>
+                      Visa For :
+                      <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                    </li>
+                    <li>
+                      Visa Type:
+                      <span class="fieldData">{{booking.booking.visaType}}</span>
+                    </li>
+                    <li>
+                      Entry Type:
+                      <span class="fieldData">{{booking.booking.entryType}}</span>
+                    </li>
+                    <li>
+                      Total Travellers:
+                      <span class="fieldData">{{booking.booking.totalTravellers}}</span>
+                    </li>
+                    <li>
+                      Booking date:
+                      <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                    </li>
+                    <li>
+                      Date of travel:
+                      <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                    </li>
+                    <li>
+                      Booking Status:
+                      <!-- <span class="fieldData">123</span> -->
+                      <span [ngClass] = "{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }" class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
+                    </li>
+                    <li>
+                      Payment status:
+                      <!-- <span class="fieldData"></span> -->
+                      <!-- <span class="fieldData badge badge-danger">Failed</span> -->
+                      <span class="fieldData badge "  [ngClass] = "{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }"
+                        >{{booking.booking.paymentStatus}}</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-6 button">
+                      <button (click) = "setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
+                        View Detail
+                      </button>
+                    </div>
+    
+                    <div class="col-6 button">
+                      <button type="button" class="btn btn-outline-success btn-sm">
+                        Get Invoice
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class=""> 
+      <div  style="display: flex; justify-content: center; margin-bottom: 20px;">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li *ngFor="let item of myBookingsMobile; let i = index" (click) ="setActivePageMobile(i)" class="page-item"><a class="page-link" >{{i+1}}</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </div>

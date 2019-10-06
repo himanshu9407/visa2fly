@@ -124,7 +124,9 @@ export class SignupComponent implements OnInit {
             else {
               this.toastService.showNotification(data.message.toString(),5000);
               this.setFormFresh();
+              this.router.navigate(['home']);
             }
+
           }
         );
 

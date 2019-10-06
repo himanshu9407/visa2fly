@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SimCheckoutService } from './simcheckout.service';
 import { Router } from '@angular/router';
 import { PreloaderService } from 'src/app/shared/preloader.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: 'app-simcheckout',
@@ -29,7 +30,7 @@ export class SimcheckoutComponent implements OnInit {
   minDate : any = '';
   
   constructor(private simCheckoutService : SimCheckoutService, private router : Router,
-    private preloaderService: PreloaderService) {
+    private preloaderService: PreloaderService, private toastService : ToastService) {
 
     this.simCart = JSON.parse(localStorage.getItem("simCart"));
     this.updateTotal();
@@ -166,6 +167,8 @@ export class SimcheckoutComponent implements OnInit {
           );
         }
         else {
+          this.preloaderService.showPreloader(false);
+          this.toastService.showNotification(data.message,4000)
           this.router.navigate(['/sim/checkout']);
         }
       }

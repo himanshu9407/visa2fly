@@ -17,6 +17,10 @@ export class BookingDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    let temp = this.myBookingService.getActiveBooking();    
+    this.selectedBooking = temp;
+
+    console.log(this.selectedBooking);
   }
 
 }

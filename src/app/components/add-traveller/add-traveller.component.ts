@@ -10,6 +10,7 @@ import { LoginService } from '../login-signup/login/login.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { PreloaderService } from 'src/app/shared/preloader.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-add-traveller',
@@ -29,6 +30,7 @@ export class AddTravellerComponent implements OnInit {
   checksum = "";
   primaryAddress = "";
   intialInfo = true;
+  dateOfTravelModel : any ="";
 
 
 
@@ -80,7 +82,8 @@ export class AddTravellerComponent implements OnInit {
   termsAndConditions : FormGroup;
   stayPeriod : string = "";
   minDate : any = '';
-
+  minDateDob : any = '';
+  minDatePassportExpiry : any = '';
   country : string='';
 
 
@@ -111,6 +114,28 @@ export class AddTravellerComponent implements OnInit {
       month: current.getMonth() + 1,
       day: current.getDate()
     };
+    this.minDateDob = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate()-1
+    };
+    if(current.getMonth() >=6) {
+      let x = 12 - (current.getMonth()+1) 
+      this.minDatePassportExpiry = {
+        year: current.getFullYear()+1,
+        month: 6-x,
+        day: current.getDate()
+      };
+      console.log(x);
+    }
+    else {
+
+      this.minDatePassportExpiry = {
+        year: current.getFullYear(),
+        month: current.getMonth() + 1,
+        day: current.getDate()
+      };
+    }
 
     
     
@@ -288,252 +313,264 @@ export class AddTravellerComponent implements OnInit {
     console.log(this.filedNameArr);
     this.formData1.set("images","");
 
-    if (this.travellerForm.valid && this.termsAndConditions.valid 
+    if (this.travellerForm.valid  
       && this.travelDetails.valid && this.valueAddedService.valid) {
-        this.preloaderService.showPreloader(true);
+        if(this.termsAndConditions.valid) {
+          this.preloaderService.showPreloader(true);
 
       
     
-    let otherTravellersArr : Array<any> = [];
-    const fd = {};
-
-    let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
-    
-    
-
-
-    tempArr.forEach((form:FormGroup,index) => {
-
-
-      if (this.onlineCategory) {
-
-        this.filedNameArr.forEach( el => {
-          this.formData1.append("images",form.get(el).value);
-          form.get(el).setValue(form.get(el).value.name);
-        })
-      }
-
-      else {
-        // console.log("inside other travellers")
-        let same = form.get('addressForPickupSame').value;
-        
-        if (same) {
-          form.get('address').setValue(this.primaryAddress);
-          form.updateValueAndValidity();
-        }
-      }
-
-      let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
-      let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
-      let tempDob ="";
-      let tempDoe = "";
+          let otherTravellersArr : Array<any> = [];
+          const fd = {};
       
-      if (dob.month < 10 && dob.day < 10) {
-        tempDob =  dob.year+"-0"+dob.month+"-0"+dob.day;
-      }
-      else if (dob.day < 10) {
-        tempDob =  dob.year+"-"+dob.month+"-0"+dob.day;
-      }
-      else if (dob.month < 10)  {
-        tempDob =  dob.year+"-0"+dob.month+"-"+dob.day;
-      }
-      else {
-        tempDob =  dob.year+"-"+dob.month+"-"+dob.day;
-      }
-      if (doe.month < 10 && doe.day < 10) {
-        tempDoe =  doe.year+"-0"+doe.month+"-0"+doe.day;
-      }
-      else if (doe.day < 10) {
-        tempDoe =  doe.year+"-"+doe.month+"-0"+doe.day;
-      }
-      else if (doe.month < 10)  {
-        tempDoe =  doe.year+"-0"+doe.month+"-"+doe.day;
-      }
-      else {
-        tempDoe =  doe.year+"-"+doe.month+"-"+doe.day;
-      }
-      
-      form.get('dateOfBirth').setValue(tempDob);
-      form.get('passportExpiryDate').setValue(tempDoe);
-   
-      
-    });
-
-    
-    
-    
-    
-    let ptdata :any  = this.travellerForm.get('travellers').value || [];
-    ptdata['id']= this.dataSource[0].id;
-    // console.log("hell world");
-    ptdata.forEach((element : {},index) => {
-      element["id"] = this.dataSource[index].id;
-      // console.log(element);
-      }); 
-
-      console.log(ptdata[0]);
-      // console.log(tempArr);
-      
-
+          let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
+          
+          
       
       
-      let dot :{year : number, month : number , day : number} = this.travelDetails.get('dateOfTravel').value;
-      let doc :{year : number, month : number , day : number} = this.travelDetails.get('dateOfCollection').value;
-      
-      let finalDot = "";
-      let finalDoc = "";
-
-      if (dot.month < 10 && dot.day < 10) {
-        finalDot =  dot.year+"-0"+dot.month+"-0"+dot.day;
-      }
-      else if (dot.day < 10) {
-        finalDot =  dot.year+"-"+dot.month+"-0"+dot.day;
-      }
-      else if (dot.month < 10)  {
-        finalDot =  dot.year+"-0"+dot.month+"-"+dot.day;
-      }
-      else {
-        finalDot =  dot.year+"-"+dot.month+"-"+dot.day;
-      }
-
-        if (doc.month < 10 && doc.day < 10) {
-          finalDoc =  doc.year+"-0"+doc.month+"-0"+doc.day;
-      }
-      else if (doc.day < 10) {
-        finalDoc =  doc.year+"-"+doc.month+"-0"+doc.day;
-      }
-      else if (doc.month < 10)  {
-        finalDoc =  doc.year+"-0"+doc.month+"-"+doc.day;
-      }
-      else {
-        finalDoc =  doc.year+"-"+doc.month+"-"+doc.day;
-      }
-      
-     
-      
-      
-      
-      let other = ptdata.slice(1,ptdata.length) || [];
-      
-      
-      fd['primaryTraveller']=ptdata[0];
-      fd['otherTravellers'] = other;
-      fd['dateOfTravel'] = finalDot;
-      fd['dateOfDocumentCollection'] = finalDoc;
-      fd['quoteId'] = this.quoteId;
-      fd['countryName'] = this.country;
-      let totalTraveller = this.dataSource.length || 1;
-      fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*totalTraveller;
-      
-
-      // this.formData1.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
-      
-      // this.formData1.append('needSim',this.valueAddedService.get('sim').value);
-      // this.formData1.append('needForexCard',this.valueAddedService.get('forex').value);
-      // this.formData1.append('needInsurance',this.valueAddedService.get('insurance').value);
-      // this.formData1.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
-      fd['needSim'] = this.valueAddedService.get('sim').value;
-      fd['needForexCard'] = this.valueAddedService.get('forex').value;
-      fd['needInsurance'] = this.valueAddedService.get('insurance').value;
-      fd['agreedToTcAndCancellationPolicy'] = this.termsAndConditions.get('tnc').value;
-
-      this.formData1.set("data",JSON.stringify(fd));
-      
-
-      let tempData  = (<FormArray>this.travellerForm.get('travellers')).controls|| [];
-
-      
-      console.log(tempData.values());
-      
-
-    this.travellerService.submitForm(this.formData1).subscribe(
-      (data:any) => {
-        // console.log(data);
-
-        if(data.code == "0") {
-
-          this.travellerService.hitPaymentApi().subscribe(
-            (data1 : any) => {
-              console.log(data1);
-              this.buyerEmail = data1.buyerEmail;
-              this.orderId = data1.orderId;
-              this.amount = data1.amount;
-              this.currency = data1.currency;
-              this.merchantIdentifier = data1.merchantIdentifier;
-              this.returnUrl = data1.returnUrl;
-              this.checksum = data1.checksum;
-              // this.paymentUrl = data1.paymentUrl;
-
-              console.log(document.forms["paymentForm"]);
-
-              console.log(this.paymentForm);
-              setTimeout(() => {
-                this.preloaderService.showPreloader(false);
-                document.forms["paymentForm"].submit();
-              }, 2000);
-
-
-            }
-          ); 
-        }
-
-        else if (data.code == "1000") {
-          console.log(data.data.applicantsFormValidationResult);
-
-          let errArr : Array<any> = data.data.applicantsFormValidationResult;
           tempArr.forEach((form:FormGroup,index) => {
-
-                console.log(Object.keys(errArr[index]));
-                let keysArr : Array<any> = Object.keys(errArr[index]);
-                keysArr.forEach((el : string) => {
-                  let tempObj = errArr[index];
-                  if (tempObj[el] == true) {
-                    
-                    let control = form.get(el);
-                    if (control != null) {
-                      control.setErrors({valueErr: true});
-                      console.log(control.errors + el);
-                      control.updateValueAndValidity();
-                      // control.
-                    }
-                  }
-                });
-
-              // })
       
-           
-          });
-          console.log(tempArr);
-          this.preloaderService.showPreloader(false);
-        }
-        else if (data.code == "1001") {
-          this.preloaderService.showPreloader(false);
-          console.log(data.applicantsFormValidationResult);
-          var modal = document.getElementById('exampleModal');
-            modal.classList.remove("fade");
-            modal.classList.add("show");
-            modal.style.display = "block";
-            
-        }
-        else {
-          tempArr.forEach((form:FormGroup,index) => {
-
       
             if (this.onlineCategory) {
       
-                this.formData1.delete("images");
+              this.filedNameArr.forEach( el => {
+                this.formData1.append("images",form.get(el).value);
+                form.get(el).setValue(form.get(el).value.name);
+              })
+            }
+      
+            else {
+              // console.log("inside other travellers")
+              let same = form.get('addressForPickupSame').value;
               
+              if (same) {
+                form.get('address').setValue(this.primaryAddress);
+                form.updateValueAndValidity();
+              }
+            }
+      
+            let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
+            let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
+            let tempDob ="";
+            let tempDoe = "";
+            
+            if (dob.month < 10 && dob.day < 10) {
+              tempDob =  dob.year+"-0"+dob.month+"-0"+dob.day;
+            }
+            else if (dob.day < 10) {
+              tempDob =  dob.year+"-"+dob.month+"-0"+dob.day;
+            }
+            else if (dob.month < 10)  {
+              tempDob =  dob.year+"-0"+dob.month+"-"+dob.day;
+            }
+            else {
+              tempDob =  dob.year+"-"+dob.month+"-"+dob.day;
+            }
+            if (doe.month < 10 && doe.day < 10) {
+              tempDoe =  doe.year+"-0"+doe.month+"-0"+doe.day;
+            }
+            else if (doe.day < 10) {
+              tempDoe =  doe.year+"-"+doe.month+"-0"+doe.day;
+            }
+            else if (doe.month < 10)  {
+              tempDoe =  doe.year+"-0"+doe.month+"-"+doe.day;
+            }
+            else {
+              tempDoe =  doe.year+"-"+doe.month+"-"+doe.day;
             }
             
-            })
+            form.get('dateOfBirth').setValue(tempDob);
+            form.get('passportExpiryDate').setValue(tempDoe);
+         
             
-
+          });
+      
+          
+          
+          
+          
+          let ptdata :any  = this.travellerForm.get('travellers').value || [];
+          ptdata['id']= this.dataSource[0].id;
+          // console.log("hell world");
+          ptdata.forEach((element : {},index) => {
+            element["id"] = this.dataSource[index].id;
+            // console.log(element);
+            }); 
+      
+            console.log(ptdata[0]);
+            // console.log(tempArr);
             
+      
+            
+            
+            let dot :{year : number, month : number , day : number} = this.travelDetails.get('dateOfTravel').value;
+            let doc :{year : number, month : number , day : number} = this.travelDetails.get('dateOfCollection').value;
+            
+            let finalDot = "";
+            let finalDoc = "";
+      
+            if (dot.month < 10 && dot.day < 10) {
+              finalDot =  dot.year+"-0"+dot.month+"-0"+dot.day;
+            }
+            else if (dot.day < 10) {
+              finalDot =  dot.year+"-"+dot.month+"-0"+dot.day;
+            }
+            else if (dot.month < 10)  {
+              finalDot =  dot.year+"-0"+dot.month+"-"+dot.day;
+            }
+            else {
+              finalDot =  dot.year+"-"+dot.month+"-"+dot.day;
+            }
+      
+              if (doc.month < 10 && doc.day < 10) {
+                finalDoc =  doc.year+"-0"+doc.month+"-0"+doc.day;
+            }
+            else if (doc.day < 10) {
+              finalDoc =  doc.year+"-"+doc.month+"-0"+doc.day;
+            }
+            else if (doc.month < 10)  {
+              finalDoc =  doc.year+"-0"+doc.month+"-"+doc.day;
+            }
+            else {
+              finalDoc =  doc.year+"-"+doc.month+"-"+doc.day;
+            }
+            
+           
+            
+            
+            
+            let other = ptdata.slice(1,ptdata.length) || [];
+            
+            
+            fd['primaryTraveller']=ptdata[0];
+            fd['otherTravellers'] = other;
+            fd['dateOfTravel'] = finalDot;
+            if (!this.onlineCategory) {
+      
+              fd['dateOfDocumentCollection'] = finalDoc;
+            }
+            fd['quoteId'] = this.quoteId;
+            fd['countryName'] = this.country;
+            let totalTraveller = this.dataSource.length || 1;
+            fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*totalTraveller;
+            
+      
+            // this.formData1.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
+            
+            // this.formData1.append('needSim',this.valueAddedService.get('sim').value);
+            // this.formData1.append('needForexCard',this.valueAddedService.get('forex').value);
+            // this.formData1.append('needInsurance',this.valueAddedService.get('insurance').value);
+            // this.formData1.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
+            fd['needSim'] = this.valueAddedService.get('sim').value;
+            fd['needForexCard'] = this.valueAddedService.get('forex').value;
+            fd['needInsurance'] = this.valueAddedService.get('insurance').value;
+            fd['agreedToTcAndCancellationPolicy'] = this.termsAndConditions.get('tnc').value;
+      
+            this.formData1.set("data",JSON.stringify(fd));
+            
+      
+            let tempData  = (<FormArray>this.travellerForm.get('travellers')).controls|| [];
+      
+            
+            console.log(tempData.values());
+            
+      
+          this.travellerService.submitForm(this.formData1).subscribe(
+            (data:any) => {
+              // console.log(data);
+      
+              if(data.code == "0") {
+      
+                this.travellerService.hitPaymentApi().subscribe(
+                  (data1 : any) => {
+                    console.log(data1);
+                    this.buyerEmail = data1.buyerEmail;
+                    this.orderId = data1.orderId;
+                    this.amount = data1.amount;
+                    this.currency = data1.currency;
+                    this.merchantIdentifier = data1.merchantIdentifier;
+                    this.returnUrl = data1.returnUrl;
+                    this.checksum = data1.checksum;
+                    // this.paymentUrl = data1.paymentUrl;
+      
+                    console.log(document.forms["paymentForm"]);
+      
+                    console.log(this.paymentForm);
+                    setTimeout(() => {
+                      this.preloaderService.showPreloader(false);
+                      document.forms["paymentForm"].submit();
+                    }, 2000);
+      
+      
+                  }
+                ); 
+              }
+      
+              else if (data.code == "1000") {
+                console.log(data.data.applicantsFormValidationResult);
+      
+                let errArr : Array<any> = data.data.applicantsFormValidationResult;
+                tempArr.forEach((form:FormGroup,index) => {
+      
+                      console.log(Object.keys(errArr[index]));
+                      let keysArr : Array<any> = Object.keys(errArr[index]);
+                      keysArr.forEach((el : string) => {
+                        let tempObj = errArr[index];
+                        if (tempObj[el] == true) {
+                          
+                          let control = form.get(el);
+                          if (control != null) {
+                            control.setErrors({valueErr: true});
+                            console.log(control.errors + el);
+                            control.updateValueAndValidity();
+                            // control.
+                          }
+                        }
+                      });
+      
+                    // })
+            
+                 
+                });
+                console.log(tempArr);
+                this.preloaderService.showPreloader(false);
+              }
+              else if (data.code == "1001") {
+                this.preloaderService.showPreloader(false);
+                console.log(data.applicantsFormValidationResult);
+                var modal = document.getElementById('exampleModal');
+                  modal.classList.remove("fade");
+                  modal.classList.add("show");
+                  modal.style.display = "block";
+                  
+              }
+              else {
+                tempArr.forEach((form:FormGroup,index) => {
+      
+            
+                  if (this.onlineCategory) {
+            
+                      this.formData1.delete("images");
+                    
+                  }
+                  
+                  })
+                  this.preloaderService.showPreloader(false);
+                  this.toastService.showNotification(data.message,4000)
+                  
+      
+                  
+              }
+            }
+          )
+      
+            // console.log(fd);
         }
-      }
-    )
+        else {
+          this.toastService.showNotification("Please accept out terms and conditions", 4000);
 
-      // console.log(fd);
+        }
+      
 
   }
   else {
@@ -558,6 +595,41 @@ export class AddTravellerComponent implements OnInit {
 
   goToHome () {
     this.router.navigate(['home']);
+  }
+  setAddressSame(i :number) {
+    // let same = form.get('addressForPickupSame').value;
+    let form = (<FormArray>this.travellerForm.get('travellers')).controls[i];
+    let same =  form.get('addressForPickupSame').value;
+    console.log(same);
+
+    if(!same) {
+      
+      form.get('address').setValidators(null);
+      form.get('state').setValidators(null);
+      form.get('city').setValidators(null);
+      form.get('pinCode').setValidators(null);
+      form.get('address').updateValueAndValidity();
+      form.get('state').updateValueAndValidity();
+      form.get('city').updateValueAndValidity();
+      form.get('pinCode').updateValueAndValidity();
+
+      form.updateValueAndValidity();
+      
+    }
+    else {
+      form.get('address').setValidators(Validators.required);
+      form.get('state').setValidators(Validators.required);
+      form.get('city').setValidators(Validators.required);
+      form.get('pinCode').setValidators(Validators.required);
+      form.get('address').updateValueAndValidity();
+      form.get('state').updateValueAndValidity();
+      form.get('city').updateValueAndValidity();
+      form.get('pinCode').updateValueAndValidity();
+
+      form.updateValueAndValidity();
+
+    }
+
   }
 
   goToPayment(){

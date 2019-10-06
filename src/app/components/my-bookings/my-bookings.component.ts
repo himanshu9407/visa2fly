@@ -12,9 +12,13 @@ import { MyBookingsService } from './mybookings.service';
 })
 export class MyBookingsComponent implements OnInit {
 
+  totalCount : number = 0;
+
   myBookings : Array<any> = [];
   myBookingsPc : Array<any> = [];
   myBookingsMobile : Array<any> = [];
+  activePcBookingPage : Array<any> = [];
+  activeMobileBookingPage : Array<any> = [];
 
   AUTH_TOKEN = "";
 
@@ -36,6 +40,7 @@ ngOnInit() {
                
         if (data.code == "0") {
           this.myBookings = data.data.bookings;
+          this.totalCount = data.data.bookings.length;
 
           this.myBookings.forEach(element => {
             if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
@@ -69,7 +74,19 @@ ngOnInit() {
             this.myBookingsPc.push(temparray);
         
           }
-          console.log(this.myBookingsPc);
+          this.activePcBookingPage = this.myBookingsPc[0];
+
+          let temparray1,chunk1 = 4
+
+          for (let i=0,j=this.myBookings.length; i<j; i+=chunk1) {
+            temparray1 = this.myBookings.slice(i,i+chunk1);
+            this.myBookingsMobile.push(temparray1);
+        
+          
+          }
+          this.activeMobileBookingPage = this.myBookingsMobile[0];
+
+          console.log(this.myBookingsMobile);
          
         }
         else {
@@ -78,10 +95,23 @@ ngOnInit() {
     }      
     );
   }
-  setActiveBooking (booking : any) {
-    this.bookingService.setActiveBooking(booking);
 
-    this.router.navigate(['bookingDetail']);
+  setActivePagePc(i : number) {
+  
+  window.scrollTo(0,0);
+    this.activePcBookingPage = this.myBookingsPc[i];
   }
+
+  setActivePageMobile ( i : number)  {
+    window.scrollTo(0,0);
+    this.activeMobileBookingPage = this.myBookingsMobile[i];
+  }
+
+
+setActiveBooking (booking : any) {
+  this.bookingService.setActiveBooking(booking);
+
+  this.router.navigate(['bookingDetail']);
+}
 
 }
