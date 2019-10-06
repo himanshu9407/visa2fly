@@ -63,8 +63,8 @@
             {{  userDetails.firstName == null ||userDetails.firstName == undefined ?  userDetails.emailId : userDetails.firstName}}
           </button>
           <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown" [ngClass]="{'show':showDropDown}">
-            <button [routerLink] = "['profile']" ngbDropdownItem class="dropdown-item">My Profile</button>
-            <button [routerLink] = "['myBookings']" ngbDropdownItem class="dropdown-item">My Bookings</button>
+            <button [routerLink] = "['profile']" class="dropdown-item">My Profile</button>
+            <button [routerLink] = "['myBookings']" class="dropdown-item">My Bookings</button>
             <div class="dropdown-divider"></div>
             <button (click)="logoutUser()" ngbDropdownItem class="dropdown-item">Logout</button>
 
