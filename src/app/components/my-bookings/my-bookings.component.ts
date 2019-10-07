@@ -111,6 +111,8 @@ ngOnInit() {
 setActiveBooking (booking : any) {
   this.bookingService.setActiveBooking(booking);
 
+  localStorage.setItem("activeBooking",JSON.stringify(booking));
+
   this.router.navigate(['bookingDetail']);
 }
 

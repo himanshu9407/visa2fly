@@ -12,4 +12,8 @@ export class VisaArrivalComponent implements OnInit {
   ngOnInit() {
   }
 
+  proceedToHome(countryName : string) {
+    console.log(countryName);
+  }
+
 }

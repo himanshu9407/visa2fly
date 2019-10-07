@@ -192,7 +192,7 @@ export class HomeFormComponent {
 
   ngOnInit() {
 
-    console.log(this.homeFormData);
+    console.log(this.homeFormData.data.countries);
 
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {

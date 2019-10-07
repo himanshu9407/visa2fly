@@ -211,36 +211,36 @@
                         <span class="fieldData">{{traveller.passportExpiryDate}}</span>
                       </li>
                       <li>
-                        Passport From Url :
-                        <span class="fieldData">{{traveller.passportFrontUrl || xyx}}</span>
+                        Passport Front Url :
+                        <span (click) = "downloadImage(traveller.passportFrontUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.passportFrontUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         Passport Bio Image :
-                        <span class="fieldData">{{traveller.passportBioImage}}</span>
+                        <span (click) = "downloadImage(traveller.passportBioImage,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.passportFrontUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         User Image Url :
-                        <span class="fieldData">{{traveller.userImageUrl}}</span>
+                        <span (click) = "downloadImage(traveller.userImageUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.userImageUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         Department Flight Ticket Url :
-                        <span class="fieldData">{{traveller.departureFlightTicketUrl}}</span>
+                        <span (click) = "downloadImage(traveller.departureFlightTicketUrl,selectedBooking.booking.bookingId)"  class="fieldData"><a>{{traveller.departureFlightTicketUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         Arrival Flight Ticket Url :
-                        <span class="fieldData">{{traveller.arrivalFlightTicketUrl}}</span>
+                        <span (click) = "downloadImage(traveller.arrivalFlightTicketUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.arrivalFlightTicketUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         Hotel Accommodation Url :
-                        <span class="fieldData">{{traveller.hotelAccommodationUrl}}</span>
+                        <span (click) = "downloadImage(traveller.hotelAccommodationUrl,selectedBooking.booking.bookingId)"  class="fieldData"><a>{{traveller.hotelAccommodationUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         Six Months Bank Statement Url :
-                        <span class="fieldData">{{traveller.sixMonthsBankStatementUrl}}</span>
+                        <span (click) = "downloadImage(traveller.sixMonthsBankStatementUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.sixMonthsBankStatementUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         Insurance Url :
-                        <span class="fieldData">{{traveller.insuranceUrl}}</span>
+                        <span  (click) = "downloadImage(traveller.insuranceUrl,selectedBooking.booking.bookingId)"  class="fieldData"><a>{{traveller.insuranceUrl == null ? "NA" : "Click Here"}}</a></span>
                       </li>
                       <li>
                         Booking Status :
