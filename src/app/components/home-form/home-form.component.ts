@@ -56,43 +56,101 @@ export class HomeFormComponent {
 
 
 
+
   public homeFormData = {
     "code": "0",
     "status": "SUCCESS",
     "message": "Data Fetched Successfully",
     "data": {
-      "countries": ["Australia", "Dubai", "Russia"],
-      "data": {
-        "Australia": {
-          "countryName": "Australia",
-          "purpose": ["BUSINESS", "TOURIST"],
-          "entryType": ["SINGLE ENTRY"],
-          "residenceOf": ["Delhi", "Noida", "Gurgaon"]
-        },
-        "Dubai": {
-          "countryName": "Dubai",
-          "purpose": ["BUSINESS", "TOURIST"],
-          "entryType": ["SINGLE ENTRY", "MULTIPLE ENTRY"],
-          "residenceOf": ["Delhi", "Noida", "Gurgaon"]
-        },
-        "Russia": {
-          "countryName": "Russia",
-          "purpose": ["BUSINESS", "TOURIST"],
-          "entryType": ["SINGLE ENTRY", "MULTIPLE ENTRY"],
-          "residenceOf": ["Delhi", "Noida", "Gurgaon"]
+        "countries": [
+            "China",
+            "Sri Lanka",
+            "Australia"
+        ],
+        "data": {
+            "Sri Lanka": {
+                "countryName": "Sri Lanka",
+                "purpose": [
+                    "Business",
+                    "Transit",
+                    "Tourist"
+                ],
+                "entryType": [
+                    "Single Entry"
+                ],
+                "Business" : ["Single Entry"],
+                "Transit" : ["Single Entry"],
+                "Tourist" : ["Single Entry"],
+                "residenceOf": [
+                    "Delhi",
+                    "Noida",
+                    "Gurugram"
+                ]
+            },
+            "China": {
+                "countryName": "China",
+                "purpose": [
+                    "Business",
+                    "Transit",
+                    "Tourist"
+                ],
+                "entryType": [
+                    "Single Entry",
+                    "Double Entry",
+                    "Multiple Entry"
+                ],
+                "Business" : [
+                      "Single Entry",
+                      "Double Entry",
+                      "Multiple Entry"
+                ],
+                "Transit" : ["Single Entry"],
+                "Tourist" : [
+                      "Single Entry",
+                      "Double Entry",
+                      "Multiple Entry"
+                ],
+                "residenceOf": [
+                    "Delhi",
+                    "Noida",
+                    "Gurugram"
+                ]
+            },
+            "Australia": {
+                "countryName": "Australia",
+                "purpose": [
+                    "Business"
+                ],
+                "entryType": [
+                    "Single entry"
+                ],
+                
+                "Business" : [
+                      "Single Entry",
+                      "Multiple Entry"
+                ],
+                "Transit" : ["Single Entry"],
+                "Tourist" : [
+                      "Single Entry",
+                      "Multiple Entry"
+                ],
+                "residenceOf": [
+                    "Delhi"
+                ]
+            }
         }
-      }
     }
-  };
+};
 
- 
+
+
 
 
   public selectedResidenceOf: string = "select";
 
   public selectedVisaType: string = "select";
 
-  public selectedCountry: string = "Australia";
+  public selectedCountry: string = "China";
 
 
   public selectedPurpose: string = "select";
@@ -119,7 +177,7 @@ export class HomeFormComponent {
     this.preloaderService.showPreloader(true);
 
     this.homeForm = new FormGroup({
-      'country': new FormControl("Australia"),
+      'country': new FormControl("China"),
       'purpose': new FormControl("select"),
       'visatype': new FormControl("select"),
       'livingin': new FormControl("select")
@@ -134,10 +192,12 @@ export class HomeFormComponent {
 
   ngOnInit() {
 
+    console.log(this.homeFormData);
+
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
         this.homeFormData = data
-        console.log(data.data.data[this.selectedCountry]);
+        // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
       });
 
@@ -146,7 +206,7 @@ export class HomeFormComponent {
 
 
 
-    
+
 
 
   }

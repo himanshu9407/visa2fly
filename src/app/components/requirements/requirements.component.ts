@@ -109,7 +109,7 @@ export class RequirementsComponent implements OnInit {
         else {
           this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploads));
         }
-        // this.userFlow.setUserFlowDetails("imagesRequired")
+        // this.userFlow.setUserFlowDetails("imagesRequired");
         // this.quotes = data.data.quotes;
         this.quotes = data.data.displayQuotes;
         let temp = [];

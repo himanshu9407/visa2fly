@@ -62,7 +62,7 @@
               alt="" style="width: 25px;  border-radius: 50px;">
             {{  userDetails.firstName == null ||userDetails.firstName == undefined ?  userDetails.emailId : userDetails.firstName}}
           </button>
-          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown" [ngClass]="{'show':showDropDown}">
+          <div  style="z-index: 1500" class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown" [ngClass]="{'show':showDropDown}">
             <button [routerLink] = "['profile']" class="dropdown-item">My Profile</button>
             <button [routerLink] = "['myBookings']" class="dropdown-item">My Bookings</button>
             <div class="dropdown-divider"></div>
