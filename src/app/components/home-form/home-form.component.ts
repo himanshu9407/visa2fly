@@ -197,6 +197,16 @@ export class HomeFormComponent {
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
         this.homeFormData = data;
+
+        let activeCountry : string = localStorage.getItem("activeCountry");
+        if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
+          this.country.setValue('China');
+        }
+        else {
+          this.country.setValue(activeCountry);
+          localStorage.setItem("activeCountry", "");
+        }
+        localStorage.setItem("countryList",JSON.stringify(data.data.countries));
         // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
       });

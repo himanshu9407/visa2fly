@@ -58,51 +58,51 @@ constructor(private homeFormService: HomeFormService,
   
   ngOnInit() {
 
-    console.log(localStorage.getItem("AUTH_TOKEN") == "");
+    // console.log(localStorage.getItem("AUTH_TOKEN") == "");
 
 
-    this.preloaderService.showPreloader(true);
+    // this.preloaderService.showPreloader(true);
 
-    this.preloaderService.getAlert().subscribe(
-      (showPreloader : boolean) => {
-        this.showPreloader = showPreloader;
-      });
+    // this.preloaderService.getAlert().subscribe(
+    //   (showPreloader : boolean) => {
+    //     this.showPreloader = showPreloader;
+    //   });
 
       
-      let token = this.loginService.getAuthToken();
+    //   let token = this.loginService.getAuthToken();
      
 
-    if (token == "" || token ==  null || token == undefined )  {
-      console.log("profile cleared")
-      this.userFlow.setUserProfile({});
-      this.loginStatusService.setUserLoggedIn(false);
-    }
-    else {
+    // if (token == "" || token ==  null || token == undefined )  {
+    //   console.log("profile cleared")
+    //   this.userFlow.setUserProfile({});
+    //   this.loginStatusService.setUserLoggedIn(false);
+    // }
+    // else {
 
-      this.loginStatusService.verifyAuthToken(token).toPromise()
-        .then((data : any) => {
-        if(data.code == "0") {
-            console.log(data);
-            this.userFlow.setUserProfile(data.data);
-            this.loginStatusService.setUserLoggedIn(true);
-            // console.log(this.userFlow.getUserFlowDetails());
-            this.preloaderService.showPreloader(false);
-            this.loginStatusService.setUserProfile(data.data.profile);
-        }
-        else if(data.code == "301") {
-          this.loginService.setAuthToken("");
-          this.loginStatusService.setUserStatus(false);
-          this.loginStatusService.setUserLoggedIn(false);
-          // this.router.navigate(['home']);
-          this.preloaderService.showPreloader(false);
-          localStorage.setItem("profile",JSON.stringify({}));
-      }
-          else {
-            this.userFlow.setUserProfile({});
-            this.loginStatusService.setUserLoggedIn(false);
-        }
-        })
-    }
+    //   this.loginStatusService.verifyAuthToken(token).toPromise()
+    //     .then((data : any) => {
+    //     if(data.code == "0") {
+    //         console.log(data);
+    //         this.userFlow.setUserProfile(data.data);
+    //         this.loginStatusService.setUserLoggedIn(true);
+    //         // console.log(this.userFlow.getUserFlowDetails());
+    //         this.preloaderService.showPreloader(false);
+    //         this.loginStatusService.setUserProfile(data.data.profile);
+    //     }
+    //     else if(data.code == "301") {
+    //       this.loginService.setAuthToken("");
+    //       this.loginStatusService.setUserStatus(false);
+    //       this.loginStatusService.setUserLoggedIn(false);
+    //       // this.router.navigate(['home']);
+    //       this.preloaderService.showPreloader(false);
+    //       localStorage.setItem("profile",JSON.stringify({}));
+    //   }
+    //       else {
+    //         this.userFlow.setUserProfile({});
+    //         this.loginStatusService.setUserLoggedIn(false);
+    //     }
+    //     })
+    // }
 
       
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OtherCountryService } from 'src/app/shared/OtherCountry.service';
 
 @Component({
   selector: 'app-visa-arrival',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisaArrivalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private otherCountryService: OtherCountryService) { }
 
   ngOnInit() {
   }
 
   proceedToHome(countryName : string) {
-    console.log(countryName);
+    // console.log(countryName);
+    this.otherCountryService.validateCountry(countryName);
   }
 
 }
