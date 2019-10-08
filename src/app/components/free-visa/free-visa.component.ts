@@ -12,4 +12,9 @@ export class FreeVisaComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  proceedToHome (countryName : string) {
+    console.log(countryName);
+  }
+
 }

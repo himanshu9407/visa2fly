@@ -196,7 +196,7 @@ export class HomeFormComponent {
 
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
-        this.homeFormData = data
+        this.homeFormData = data;
         // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
       });

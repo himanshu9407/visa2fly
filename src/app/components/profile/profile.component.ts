@@ -53,7 +53,6 @@ export class ProfileComponent implements OnInit {
         'state' : new FormControl(this.profile.state || "Haryana",[Validators.required]),
         'city' : new FormControl(this.profile.city || "Gurugram",[Validators.required]),
         'pinCode' : new FormControl(this.profile.pinCode,[Validators.required]),
-        'country' : new FormControl("India",[Validators.required]),
         'passportNumber' : new FormControl(this.profile.passportNumber,[Validators.required]),
         'passportExpiryDate' : new FormControl('',[Validators.required])
         
