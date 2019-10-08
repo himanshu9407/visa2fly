@@ -169,8 +169,8 @@ Verify
                               </div>
                               <div class="form-group col-md-6 text-left">
                                 <label for="inputCity">City</label>
-                                <input formControlName="city" pattern="[A-Za-z]{4,32}" id="inputCity" class="form-control form-control-sm">
-                              </input>
+                                <input formControlName="city" pattern="[A-Za-z]{4,32}" id="inputCity" class="form-control form-control-sm"/>
+                              
                               <div *ngIf="profileForm.get('city').invalid && profileForm.get('city').dirty"  class="invalid-feedback" style="display: block">
                                 Enter a valid city
                               </div>
