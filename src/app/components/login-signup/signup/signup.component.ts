@@ -116,9 +116,13 @@ export class SignupComponent implements OnInit {
               else if (this.prevRoute == "fail-login-sim") {
                 this.router.navigate(['/sim/checkout']);
 
+                this.toastService.showNotification(data.message.toString(),5000);
+              }
+              else {
+                this.toastService.showNotification(data.message.toString(),5000);
+              this.router.navigate(['home']);
               }
               
-              this.toastService.showNotification(data.message.toString(),5000);
 
             }
             else {
@@ -160,6 +164,7 @@ export class SignupComponent implements OnInit {
       this.showLoader = false;
       this.showAlertMessage();
     }
+    
     check () {
       console.log("hello world");
     }

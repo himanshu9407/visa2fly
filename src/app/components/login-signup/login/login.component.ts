@@ -102,6 +102,8 @@ export class LoginComponent implements OnInit {
         else {
           this.toastService.showNotification(data.message,4000);
           this.setFormFresh();
+          this.showSendOtp = true;
+
         }
       }
     );

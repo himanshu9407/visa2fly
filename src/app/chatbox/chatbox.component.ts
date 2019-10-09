@@ -31,6 +31,11 @@ export class ChatboxComponent implements OnInit {
       this.callBackService.submitCallBackForm(this.callBackForm.value).subscribe(
         (data: any) => {
           if(data.code =="0") {
+            let el = document.getElementById("closeModel");
+            // el.triger
+            (<any>($('#exampleModal'))).modal('hide');
+
+            this.callBackForm.reset();
             this.toastService.showNotification(data.message+"",4000);
           }
           else {

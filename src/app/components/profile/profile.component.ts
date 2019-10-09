@@ -27,13 +27,50 @@ export class ProfileComponent implements OnInit {
       if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
         AUTH_TOKEN = "";
       }
+      this.profileForm = new FormGroup ({
+        'title' : new FormControl(this.profile.title || "Mr",[]),
+        'firstName' : new FormControl(this.profile.firstName || "abc",[Validators.required]),
+        'middleName' : new FormControl(this.profile.middleName,[Validators.nullValidator]),
+        'lastName' : new FormControl(this.profile.firstName,[Validators.required]),
+        'addressLine1' : new FormControl(this.profile.addressLine1,[]),
+        'addressLine2' : new FormControl(this.profile.addressLine2,[]),
+        'state' : new FormControl(this.profile.state || "Haryana",[]),
+        'city' : new FormControl(this.profile.city || "",[]),
+        'pinCode' : new FormControl(this.profile.pinCode,[]),
+        'passportNumber' : new FormControl(this.profile.passportNumber,[]),
+        'passportExpiryDate' : new FormControl('',[])
+        
+      });
+
+
   
   
       this.loginStatusService.verifyAuthToken(AUTH_TOKEN).subscribe (
         (data: any) => {
           if (data.code == "0") {
             this.profile = data.data.profile;
+            console.log(this.profile.firstName);
             // this.preloaderService.showPreloader(false);
+
+            this.profileForm.setValue({
+              'title' : this.profile.title,
+              'firstName' : this.profile.firstName,
+              'middleName' :this.profile.middleName,
+              'lastName' : this.profile.lastName,
+              'addressLine1' : this.profile.addressLine1,
+              'addressLine2' : this.profile.addressLine2,
+              'state' : this.profile.state,
+              'city' : this.profile.city,
+              'pinCode' : this.profile.pinCode,
+              'passportNumber' : this.profile.passportNumber,
+              'passportExpiryDate' :this.profile.passportExpiryDate 
+            });
+
+            if(this.profile.pinCode == "0") {
+              this.profileForm.get("pinCode").setValidators(null);
+              this.profileForm.get('pinCode').updateValueAndValidity();
+              this.profileForm.updateValueAndValidity();
+            }
           }
           else {
             this.router.navigate(['home']);
@@ -42,27 +79,8 @@ export class ProfileComponent implements OnInit {
         }
       )
 
-
-      this.profileForm = new FormGroup ({
-        'title' : new FormControl(this.profile.title || "MR",[Validators.required]),
-        'firstName' : new FormControl(this.profile.firstName,[Validators.required]),
-        'middleName' : new FormControl(this.profile.middleName,[Validators.nullValidator]),
-        'lastName' : new FormControl(this.profile.firstName,[Validators.required]),
-        'addressLine1' : new FormControl(this.profile.addressLine1,[Validators.required]),
-        'addressLine2' : new FormControl(this.profile.addressLine2,[Validators.required]),
-        'state' : new FormControl(this.profile.state || "Haryana",[Validators.required]),
-        'city' : new FormControl(this.profile.city || "",[Validators.required]),
-        'pinCode' : new FormControl(this.profile.pinCode,[Validators.required]),
-        'passportNumber' : new FormControl(this.profile.passportNumber,[Validators.required]),
-        'passportExpiryDate' : new FormControl('',[Validators.required])
-        
-        
-
-
-
-
-
-      });
+        console.log("hello worold");
+     
      }
 
   ngOnInit() {
