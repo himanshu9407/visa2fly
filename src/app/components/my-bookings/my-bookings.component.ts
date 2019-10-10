@@ -40,53 +40,60 @@ ngOnInit() {
                
         if (data.code == "0") {
           this.myBookings = data.data.bookings;
-          this.totalCount = data.data.bookings.length;
+          if(this.myBookings !=null ) {
 
-          this.myBookings.forEach(element => {
-            if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
-            ||element.booking.bookingStatus == "Visa application approved"  ) {
-              element.booking.statusColor = "g";
-            }
-            else if (element.booking.bookingStatus="Payment failed" || element.booking.bookingStatus=="Visa application rejected") {
-              element.booking.statusColor = "r";
-
-            }
-            else {
-              element.booking.statusColor = "y";
-
-            }
-            if (element.booking.paymentStatus == "Payment completed") {
-              element.booking.paymentColor = "g";
-
-            }
-            else if (element.booking.paymentStatus == "Payment completed") {
-              element.booking.paymentColor = "g";
-            }
-            else {
-              element.booking.paymentColor = 'y';
-            }
-          })
-
-          let temparray,chunk = 6
-
-          for (let i=0,j=this.myBookings.length; i<j; i+=chunk) {
-            temparray = this.myBookings.slice(i,i+chunk);
-            this.myBookingsPc.push(temparray);
-        
-          }
-          this.activePcBookingPage = this.myBookingsPc[0];
-
-          let temparray1,chunk1 = 4
-
-          for (let i=0,j=this.myBookings.length; i<j; i+=chunk1) {
-            temparray1 = this.myBookings.slice(i,i+chunk1);
-            this.myBookingsMobile.push(temparray1);
-        
+            this.totalCount = data.data.bookings.length;
+            this.myBookings.forEach(element => {
+              if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
+              ||element.booking.bookingStatus == "Visa application approved"  ) {
+                element.booking.statusColor = "g";
+              }
+              else if (element.booking.bookingStatus="Payment failed" || element.booking.bookingStatus=="Visa application rejected") {
+                element.booking.statusColor = "r";
+  
+              }
+              else {
+                element.booking.statusColor = "y";
+  
+              }
+              if (element.booking.paymentStatus == "Payment completed") {
+                element.booking.paymentColor = "g";
+  
+              }
+              else if (element.booking.paymentStatus == "Payment completed") {
+                element.booking.paymentColor = "g";
+              }
+              else {
+                element.booking.paymentColor = 'y';
+              }
+            })
+  
+            let temparray,chunk = 6
+  
+            for (let i=0,j=this.myBookings.length; i<j; i+=chunk) {
+              temparray = this.myBookings.slice(i,i+chunk);
+              this.myBookingsPc.push(temparray);
           
+            }
+            this.activePcBookingPage = this.myBookingsPc[0];
+  
+            let temparray1,chunk1 = 4
+  
+            for (let i=0,j=this.myBookings.length; i<j; i+=chunk1) {
+              temparray1 = this.myBookings.slice(i,i+chunk1);
+              this.myBookingsMobile.push(temparray1);
+          
+            
+            }
+            this.activeMobileBookingPage = this.myBookingsMobile[0];
+  
+            console.log(this.myBookingsMobile);
           }
-          this.activeMobileBookingPage = this.myBookingsMobile[0];
+          else {
+            this.totalCount = 0;
+          }
 
-          console.log(this.myBookingsMobile);
+        
          
         }
         else {

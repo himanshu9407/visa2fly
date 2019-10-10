@@ -10,13 +10,19 @@
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+        <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+            {{alertMessage}}
+          </div>
+          <div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
+              {{alertMessage}}
+            </div>
       <div class="modal-header">
         <h5 class="modal-title" style=" font-size: 18px; color: navy;" id="exampleModalLabel">
           <img src="./../assets/chatbot/support.png" alt="" class="img-fluid" height="32" width="32"
             style="margin: 0px 4px;">
           Get a call back from us.
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button id="closeModel" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

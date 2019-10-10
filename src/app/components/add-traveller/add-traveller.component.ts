@@ -538,7 +538,7 @@ export class AddTravellerComponent implements OnInit {
               else if (data.code == "1001") {
                 this.preloaderService.showPreloader(false);
                 console.log(data.applicantsFormValidationResult);
-                var modal = document.getElementById('exampleModal');
+                var modal = document.getElementById('exampleModal1');
                   modal.classList.remove("fade");
                   modal.classList.add("show");
                   modal.style.display = "block";

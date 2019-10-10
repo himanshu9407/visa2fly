@@ -13,6 +13,9 @@ export class ChatboxComponent implements OnInit {
   constructor(private callBackService: CallBackService, private toastService : ToastService) { }
 
   callBackForm : FormGroup;
+  alertMessage : string ;
+  showSuccessAlert : boolean = false;
+  showErrorAlert : boolean = false;
   ngOnInit() {
     this.callBackForm = new FormGroup({
       'name' : new FormControl('',[Validators.required]),
@@ -33,14 +36,24 @@ export class ChatboxComponent implements OnInit {
           if(data.code =="0") {
             let el = document.getElementById("closeModel");
             // el.triger
-            (<any>($('#exampleModal'))).modal('hide');
-
+            
             this.callBackForm.reset();
-            this.toastService.showNotification(data.message+"",4000);
+            // this.toastService.showNotification(data.message+"",4000);
+            this.alertMessage = data.message;
+            this.showSuccessAlert =true;
+            setTimeout(() => {
+              this.showSuccessAlert = false;
+              (<any>($('#exampleModal'))).modal('hide');
+            }, 4000);
           }
           else {
             this.toastService.showNotification(data.message+"",4000);
-            (<any>($('#exampleModal'))).modal('hide');
+            this.alertMessage = data.message;
+            this.showErrorAlert =true;
+            setTimeout(() => {
+              this.showErrorAlert = false;
+              (<any>($('#exampleModal'))).modal('hide');
+            }, 4000);
 
           }
         }

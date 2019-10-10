@@ -57,7 +57,7 @@ export class HomeFormComponent {
 
 
 
-  public homeFormData = {
+  public homeFormData : any = {
     "code": "0",
     "status": "SUCCESS",
     "message": "Data Fetched Successfully",
@@ -150,7 +150,7 @@ export class HomeFormComponent {
 
   public selectedVisaType: string = "select";
 
-  public selectedCountry: string = "China";
+  public selectedCountry: string = "Sri Lanka";
 
 
   public selectedPurpose: string = "select";
@@ -177,10 +177,10 @@ export class HomeFormComponent {
     this.preloaderService.showPreloader(true);
 
     this.homeForm = new FormGroup({
-      'country': new FormControl("China"),
-      'purpose': new FormControl("select"),
-      'visatype': new FormControl("select"),
-      'livingin': new FormControl("select")
+      'country': new FormControl("Sri Lanka"),
+      'purpose': new FormControl(""),
+      'visatype': new FormControl(""),
+      'livingin': new FormControl("")
     });
 
 
@@ -188,9 +188,6 @@ export class HomeFormComponent {
     this.purpose = this.homeForm.get('purpose');
     this.visaType = this.homeForm.get('visatype');
     this.livesIn = this.homeForm.get('livingin');
-  }
-
-  ngOnInit() {
 
     console.log(this.homeFormData.data.countries);
 
@@ -200,7 +197,7 @@ export class HomeFormComponent {
 
         let activeCountry : string = localStorage.getItem("activeCountry");
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
-          this.country.setValue('China');
+          this.country.setValue('Sri Lanka');
         }
         else {
           this.country.setValue(activeCountry);
@@ -211,6 +208,11 @@ export class HomeFormComponent {
         this.preloaderService.showPreloader(false);
       });
 
+  }
+
+  ngOnInit() {
+
+    
 
 
 
