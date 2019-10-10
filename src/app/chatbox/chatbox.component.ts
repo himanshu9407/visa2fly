@@ -40,6 +40,8 @@ export class ChatboxComponent implements OnInit {
           }
           else {
             this.toastService.showNotification(data.message+"",4000);
+            (<any>($('#exampleModal'))).modal('hide');
+
           }
         }
       );

@@ -291,7 +291,7 @@ export class AddTravellerComponent implements OnInit {
         cellNumber:['',[Validators.required]],
         addressForPickupSame:[false,[Validators.required]],
         address:['',[Validators.required]],
-        state:['State',[Validators.required]],
+        state:['Assam',[Validators.required]],
         city:['',[Validators.required]],
         pinCode : ['',[Validators.required]]
       
