@@ -32,14 +32,28 @@ export class BookingDetailsComponent implements OnInit {
     }
     else {
       this.downloadImageService.downloadImageWithUrl(url,bookingId).subscribe(
-        (data : any) => {
-          if(data.code == "0") {
-            this.toastService.showNotification(data.message+"",4000);
-          }
-          else {
-            this.toastService.showNotification(data.message+"",4000);
+        (response : any) => {
+          // if(data.code == "0") {
+          //   this.toastService.showNotification(data.message+"",4000);
+          //   console.log(data);
+          // }
+          // else {
+          //   this.toastService.showNotification(data.message+"",4000);
 
-          }
+          // }
+
+          let dataType = response.type;
+          let binaryData = [];
+          binaryData.push(response);
+          // let downloadLink = document.createElement('a');
+          let url = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
+          // if (filename)
+          window.open(url);
+          // console.log(downloadLink);
+              // downloadLink.setAttribute('download', filename);
+          // document.body.appendChild(downloadLink);
+          // downloadLink.click();
+
         }
       );
      

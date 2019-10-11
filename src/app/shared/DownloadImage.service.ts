@@ -20,6 +20,6 @@ export class DownloadImageService {
         // console.log(token);
         let headers = new HttpHeaders({'token':token,'visa-client':"0"});
         let base_url = this.userFlowDetails.getBaseURL();
-        return this.http.get(base_url+"profile"+"/downloadFile/"+bookingId+"/"+url,{headers :headers});
+        return this.http.get(base_url+"profile"+"/downloadFile/"+bookingId+"/"+url,{headers :headers,responseType: 'blob' as 'json'});
     }
 }
