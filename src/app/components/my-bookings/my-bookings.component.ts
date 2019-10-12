@@ -4,6 +4,7 @@ import { LoginService } from '../login-signup/login/login.service';
 import { Router } from '@angular/router';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { MyBookingsService } from './mybookings.service';
+import { DownloadImageService } from 'src/app/shared/DownloadImage.service';
 
 @Component({
   selector: 'app-my-bookings',
@@ -23,7 +24,8 @@ export class MyBookingsComponent implements OnInit {
   AUTH_TOKEN = "";
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
-              private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService) {
+              private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService,
+              private downloadImageService : DownloadImageService) {
     this.myBookings =   [];
 
     this.preloaderService.showPreloader(true);
@@ -112,6 +114,24 @@ ngOnInit() {
   setActivePageMobile ( i : number)  {
     window.scrollTo(0,0);
     this.activeMobileBookingPage = this.myBookingsMobile[i];
+  }
+  downloadInvoice (bookingId : string) {
+    this.downloadImageService.downloadInvoice(bookingId).subscribe(
+      (response : any) => {
+
+        let dataType = response.type;
+        let binaryData = [];
+        binaryData.push(response);
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style.display = "none";
+        let url = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
+        a.href = url;
+        a.download = "Invoice"+bookingId;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      }
+    )
   }
 
 

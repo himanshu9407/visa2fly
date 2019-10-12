@@ -36,7 +36,7 @@
                 Date Of Travel
                 <div class="form-group">
                     <div class="input-group">
-                      <input [(ngModel)] = "dateOfTravelModel"   formControlName="dateOfTravel" id="#dot" class="form-control addTravelDate" placeholder="Date Of Travel" name="dp"
+                      <input (ngModelChange)="checkDateOfTravel($event)" [(ngModel)] = "dateOfTravelModel"   formControlName="dateOfTravel" id="#dot" class="form-control addTravelDate" placeholder="Date Of Travel" name="dp"
                       [minDate]="{year: minDate.year, month: minDate.month, day: minDate.day +3}"   ngbDatepicker #dot="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button"><i
@@ -44,6 +44,10 @@
                         </button>
                       </div>
                     </div>
+                    <div *ngIf="travelDateError"  class="invalid-feedback" style="display: block">
+                        Please select Date of Travel .
+                        
+                      </div>
                   </div>
               </div>
             </div>
@@ -53,7 +57,7 @@
                 of Documents
                 <div class="form-group">
                     <div class="input-group">
-                      <input [disabled] = "travelDetails.get('dateOfTravel').invalid"   formControlName="dateOfCollection" id="#doc" class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc"
+                      <input (ngModelChange)="checkDateOfCollection($event)" [disabled] = "travelDetails.get('dateOfTravel').invalid"   formControlName="dateOfCollection" id="#doc" class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc"
                       [minDate]=" {year: minDate.year, month: minDate.month, day: minDate.day +1}" 
                       [maxDate] = "{year: dateOfTravelModel.year, month: dateOfTravelModel.month, day: dateOfTravelModel.day -3}"  ngbDatepicker #doc="ngbDatepicker">
                       <div class="input-group-append">
@@ -62,10 +66,15 @@
                         </button>
                       </div>
                     </div>
+                    
                     <div *ngIf="travelDetails.get('dateOfTravel').invalid"  class="invalid-feedback" style="display: block">
                       Please select Date of Travel first.
                       
                     </div>
+                    <div  *ngIf="collectionDateError"  class="invalid-feedback" style="display: block;font-size: 80%">
+                        Please select Date of Collection <br> of Documents .
+                        
+                      </div>
                   </div>
               </div>
             </div>

@@ -41,6 +41,7 @@ export class AddTravellerComponent implements OnInit {
   dataToogle = "" ;
   dataToogleHash = "";
   count =1;
+  travelDateError = false;
 
 
   public userFlowDetails :any;
@@ -85,6 +86,7 @@ export class AddTravellerComponent implements OnInit {
   minDateDob : any = '';
   minDatePassportExpiry : any = '';
   country : string='';
+  collectionDateError = false;
 
 
   ngOnInit() {
@@ -304,14 +306,41 @@ export class AddTravellerComponent implements OnInit {
     return <FormArray>this.travellerForm.get('travellers') ; 
   }
 
+  checkDateOfTravel () {
+    console.log("hello world");
+    if(this.travelDetails.get('dateOfTravel').value == undefined  || this.travelDetails.get('dateOfTravel').value == null 
+    || this.travelDetails.get('dateOfTravel').value == '' ) {
+      this.travelDateError = true;
+      window.scroll(0,0);
+    }
+    else {
+      this.travelDateError = false;
+    }
+  }
+  checkDateOfCollection () {
+    if(!this.onlineCategory) {
+
+      if(this.travelDetails.get('dateOfCollection').value == undefined  || this.travelDetails.get('dateOfCollection').value == null 
+      || this.travelDetails.get('dateOfCollection').value == '' ) {
+        this.collectionDateError = true;
+        window.scroll(0,0);
+      }
+      else {
+        this.collectionDateError = false;
+      }
+    }
+  }
+
   seeValues () {
 
 
     
-
+    this.checkDateOfTravel();
+    this.checkDateOfCollection();
 
     console.log(this.filedNameArr);
     this.formData1.set("images","");
+
 
     if (this.travellerForm.valid  
       && this.travelDetails.valid && this.valueAddedService.valid) {

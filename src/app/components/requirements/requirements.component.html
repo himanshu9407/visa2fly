@@ -234,6 +234,8 @@
     </div>
 </div>
 
+
+
 <div class="visaPriceContainer largeVisaPriceContainer">
     <div class="row">
         <!-- <div class=""> -->
@@ -319,10 +321,10 @@
     </h2>
     <div class="row accordianWrapper ng-scope" id="othercountry" ng-show="visaType == visa.Visa.Id" ng-repeat="visa in data.VisaData" style="">
         <!-- <div class="row accordianWrapper container"> -->
-        <div class="col-md-12">
+        <div class="col-md-12 pcOnly">
             <div class="gmvsprite_container" *ngFor="let items of mainArr; let i = index ;" style="">
                 <div class="gmvsprite_row">
-                    <div class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrements(i,j)">
+                    <div  data-toggle="modal" data-target=".bd-example-modal-sm" class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrements(i,j,item)">
 
                         <div class="parent ng-scope active">
                             <img class="img-fluid requiredIcon" src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" alt="" style="height: 45px; margin-bottom: 10px;" />
@@ -338,13 +340,29 @@
                         {{selectedDataArr[i].content}}
                     </p>
                 </div>
-                <!-- show data in -->
             </div>
-            <!-- </div> -->
-
-            <!-- faqs -->
         </div>
-        <!-- end ngRepeat: visa in data.VisaData -->
+        <div class="col-md-12 mobileOnly">
+                <div class="gmvsprite_container" *ngFor="let items of mobileMainArr; let i = index ;" style="">
+                    <div class="gmvsprite_row">
+                        <div   class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrementsMobile(i,j,item)">
+    
+                            <div class="parent ng-scope active">
+                                <img class="img-fluid requiredIcon" src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" alt="" style="height: 45px; margin-bottom: 10px;" />
+                                <p>{{item.fieldName}}</p>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <div *ngIf="mobileShowRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
+                        <h1 style="color: navy">{{mobileSelectedDataArr[i].fieldName}}</h1>
+                        <p>
+                            {{mobileSelectedDataArr[i].content}}
+                        </p>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
 <div class="accordion" id="accordionExample" style="margin-bottom: 40px;">

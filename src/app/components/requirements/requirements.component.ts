@@ -40,9 +40,14 @@ export class RequirementsComponent implements OnInit {
 
    
    public mainArr:any = [["hello","world","sarthak","agrawal"]];
+   public mobileMainArr:any = [["hello","world"]];
    
-   public selectedDataArr:any = [this.mainArr[0][0]]
+   public selectedDataArr:any = [this.mainArr[0][0]];
+   public mobileSelectedDataArr:any = [this.mobileMainArr[0][0]];
+
    public showRequirementsDetailArr = [ true ]
+   public mobileShowRequirementsDetailArr = [ true ]
+
    public quotes = []
    public importantInfo : Array<any> = []
    
@@ -53,7 +58,8 @@ export class RequirementsComponent implements OnInit {
                private loginService : LoginService, private preloaderService : PreloaderService) {
  
     }
-  onClickRequrements(i,j){
+  onClickRequrements(i,j, item){
+    console.log(item);
     
     if (this.showRequirementsDetailArr[i] == true && this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName) {
       this.showRequirementsDetailArr[i] = false;
@@ -66,6 +72,23 @@ export class RequirementsComponent implements OnInit {
 
 
     this.selectedDataArr[i] = this.mainArr[i][j];
+
+  }
+
+  onClickRequrementsMobile(i,j, item){
+    
+    if (this.mobileShowRequirementsDetailArr[i] == true && this.mobileSelectedDataArr[i].fieldName == this.mobileMainArr[i][j].fieldName) {
+      this.mobileShowRequirementsDetailArr[i] = false;
+      console.log("was already shown");
+    }
+
+    else if (this.mobileSelectedDataArr[i].fieldName == this.mobileMainArr[i][j].fieldName) {
+      this.mobileShowRequirementsDetailArr[i] = true;
+      console.log("was hidden");
+    }
+
+
+    this.mobileSelectedDataArr[i] = this.mobileMainArr[i][j];
 
   }
 
@@ -122,7 +145,17 @@ export class RequirementsComponent implements OnInit {
           this.mainArr.push(temparray);
       
         }
-  
+
+
+        let i1,j1,temparray1,chunk1 = 2;
+        
+        this.mobileMainArr = []
+      
+        for (i1=0,j1=data.data.fieldDetails.length; i1<j1; i1+=chunk1) {
+          temparray1 = data.data.fieldDetails.slice(i1,i1+chunk1);
+          this.mobileMainArr.push(temparray1);
+      
+        }
        
         
         this.showRequirementsDetailArr = []
@@ -137,6 +170,21 @@ export class RequirementsComponent implements OnInit {
           }
           else {
             this.showRequirementsDetailArr.push(false);
+          }
+        }
+        this.mobileShowRequirementsDetailArr = []
+        this.mobileSelectedDataArr = []
+
+        for (let  k =0;k<this.mobileMainArr.length;k++) {
+
+          this.mobileSelectedDataArr.push( this.mobileMainArr[k][0]);
+
+          if (k ==0) {
+
+            this.mobileShowRequirementsDetailArr.push(true);
+          }
+          else {
+            this.mobileShowRequirementsDetailArr.push(false);
           }
         }
 

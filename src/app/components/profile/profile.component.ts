@@ -66,6 +66,8 @@ export class ProfileComponent implements OnInit {
               'passportExpiryDate' :this.profile.passportExpiryDate 
             });
 
+            this.profileForm.updateValueAndValidity();
+
             if(this.profile.pinCode == "0") {
               this.profileForm.get("pinCode").setValidators(null);
               this.profileForm.get('pinCode').updateValueAndValidity();
@@ -99,29 +101,38 @@ export class ProfileComponent implements OnInit {
 
   submitProfileData () {
     let tempDoe = "";
-    let doe :{year : number, month : number , day : number} = this.profileForm.get('passportExpiryDate').value 
-    if (doe.month < 10 && doe.day < 10) {
-      tempDoe =  doe.year+"-0"+doe.month+"-0"+doe.day;
-    }
-    else if (doe.day < 10) {
-      tempDoe =  doe.year+"-"+doe.month+"-0"+doe.day;
-    }
-    else if (doe.month < 10)  {
-      tempDoe =  doe.year+"-0"+doe.month+"-"+doe.day;
+    let doe :{year : number, month : number , day : number} = this.profileForm.get('passportExpiryDate').value ;
+    if(doe == undefined || doe == null) {
+      
     }
     else {
-      tempDoe =  doe.year+"-"+doe.month+"-"+doe.day;
+      if (doe.month < 10 && doe.day < 10) {
+        tempDoe =  doe.year+"-0"+doe.month+"-0"+doe.day;
+      }
+      else if (doe.day < 10) {
+        tempDoe =  doe.year+"-"+doe.month+"-0"+doe.day;
+      }
+      else if (doe.month < 10)  {
+        tempDoe =  doe.year+"-0"+doe.month+"-"+doe.day;
+      }
+      else {
+        tempDoe =  doe.year+"-"+doe.month+"-"+doe.day;
+      }
+  
+      this.profileForm.get('passportExpiryDate').setValue(tempDoe);
     }
-    this.profileForm.get('passportExpiryDate').setValue(tempDoe);
+   
     let reqData = this.profileForm.value;
 
     this.profleService.updateProfile(reqData).subscribe (
       (data : any) => {
         if(data.code  == "0") {
+          console.log(data);
           this.toastService.showNotification(data.message,4000);
           this.router.navigate(['profile']);
         }
         else {
+          console.log(data);
           this.toastService.showNotification(data.message,4000);
         }
       }
