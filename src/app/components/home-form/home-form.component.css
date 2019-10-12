@@ -1,130 +1,133 @@
 /* FIREFOX FIX OF UGLY SELECT BOXES */
+
 @supports (-moz-appearance:none) {
-
-  SELECT
-  {
-  -moz-appearance:none !important;
-  background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
-  background-position: calc(100% - 5px) center !important;
-  }
-
+    SELECT {
+        -moz-appearance: none !important;
+        background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
+        background-position: calc(100% - 5px) center !important;
+    }
 }
 
 .removeradius {
-  z-index: 10;
+    z-index: 10;
 }
 
 .serchcountrybtn {
-  margin-left: 10px !important;
+    margin-left: 10px !important;
 }
 
-
 select {
-  border: none;
-  font-size: 18px;
-  font-weight: 550;
-  padding-left: 0px;
+    border: none;
+    font-size: 18px;
+    font-weight: 550;
+    padding-left: 0px;
 }
 
 select:focus {
-  outline: none;
-  box-shadow: none !important;
+    outline: none;
+    box-shadow: none !important;
 }
 
 label {
-  margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
 
 .chkLabel {
-  font-size: 14px !important;
+    font-size: 14px !important;
 }
 
 .chkIn {
-  margin-top: -140px !important;
-  padding: 0px !important;
+    margin-top: -140px !important;
+    padding: 0px !important;
 }
 
 @media (max-width: 767px) {
-  select {
-    font-size: 16px !important;
-  }
+    select {
+        font-size: 16px !important;
+    }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .chkIn {
-    margin-bottom: 50px !important;
-  }
+@media (min-width: 850px) and (max-width: 1024px) {
+    .chkIn {
+        margin-bottom: 110px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 849px) {
+    .chkIn {
+        margin-bottom: 60px !important;
+    }
 }
 
 .purpose-opt {
-  text-transform: capitalize !important;
+    text-transform: capitalize !important;
 }
 
 .shadow {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
+
 .shadow:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .disabled {
-  background-color: grey;
-  color: white;
-  /* display: none; */
+    background-color: grey;
+    color: white;
+    /* display: none; */
 }
 
 .disabled:hover {
-  background-color: grey;
-  color: white;
-  border: none;
+    background-color: grey;
+    color: white;
+    border: none;
 }
 
 .invalid-feedback {
-  display: block;
+    display: block;
 }
 
 .chkIn {
-  margin-bottom: 90px;
+    margin-bottom: 90px;
 }
 
 .chkIn .chkIp8 {
-  width: 21%;
-  /* border-right: 0; */
-  border-right: 1px solid #e1e1e1 !important;
-  /*margin-top: 5px;*/
-  /*margin-bottom: 5px;*/
-}
-
-@media (min-width: 320px) and (max-width: 480px) {
-  .chkIn {
-    margin-top: -100px !important;
-    padding: 0px !important;
-    margin-bottom: 0px !important;
-  }
-
-  .chkLabel {
-    font-size: 10px !important;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 768px) {
-  .chkIn .chkIp8 {
     width: 21%;
     /* border-right: 0; */
     border-right: 1px solid #e1e1e1 !important;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
+    /*margin-top: 5px;*/
+    /*margin-bottom: 5px;*/
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .chkIn {
+        margin-top: -100px !important;
+        padding: 0px !important;
+        margin-bottom: 0px !important;
+    }
+    .chkLabel {
+        font-size: 10px !important;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .chkIn .chkIp8 {
+        width: 21%;
+        /* border-right: 0; */
+        border-right: 1px solid #e1e1e1 !important;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 780px) and (orientation: landscape) {
-  .serchcountrybtn {
-    margin-bottom: 10px !important;
-  }
+    .serchcountrybtn {
+        margin-bottom: 10px !important;
+    }
 }
 
 @media only screen and (min-width: 781px) and (max-width: 1024px) and (orientation: landscape) {
-  .serchcountrybtn {
-    margin-left: 4px !important;
-  }
+    .serchcountrybtn {
+        margin-left: 4px !important;
+    }
 }
