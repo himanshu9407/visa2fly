@@ -1,147 +1,134 @@
+.container .visaHeading {
+    font-size: 26px;
+    display: flex;
+    margin-bottom: 20px;
+    font-weight: 700;
+    justify-content: center;
+    padding-top: 72px;
+}
 
-    .container .visaHeading {
-        font-size: 26px;
-        display: flex;
-        margin-bottom: 20px;
-  font-weight: 700;
-        justify-content: center;
-        padding-top: 72px;
-      }
-  
-      .container.desktopView .visa-card {
-        position: relative;
-        background: #e2e2e2;
-        border: none;
-        overflow: hidden;
-        border-radius: 10px;
-        transition: 0.5s;
-      }
-  
-      .container.desktopView .visa-card:hover {
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-      }
-  
-      .container.desktopView .visa-card .img-box {
-        transition: 0.5s;
-        cursor: pointer;
-      }
-  
-      .container.desktopView .visa-card:hover .img-box {
-        opacity: 0.5;
-      }
-  
-      .container.desktopView .visa-card .content {
-        position: absolute;
-        width: 100%;
-        height: 70%;
-        bottom: -100%;
-        padding-top: 60px;
-        padding: 20px;
-        box-sizing: border-box;
-        text-align: center;
-        transition: 0.5s;
-      }
-  
-      .container.desktopView .visa-card:hover .content {
-        bottom: 0;
-      }
-  
-      .container.desktopView .visa-card:nth-child(1) .content {
-        background: linear-gradient(0deg, #acb4bc, transparent);
-      }
-  
-      .container.desktopView .visa-card .content p {
-        color: #fff;
-        position: absolute;
-        font-weight: 600;
-        left: 20px;
-        bottom: 0px;
-        font-size: 16px;
-      }
-  
-  
-      @media screen and (max-width: 676px) {
-        .container {
-          margin-top: 50px;
-        }
-      }
-
-      .desktopView {
-        display: block;
-      }
-    
-      .mobile {
-        display: none;
-      }
-    
-
-@media screen and (max-width: 1024px) {
-
-  .desktopView {
-    display: none;
-  }
-
-  .mobile {
-    display: block;
-  }
-
-  .container.mobile .img-card {
-    margin-bottom: 30px;
-  }
-
-  .container.mobile .visa-card {
+.container.desktopView .visa-card {
     position: relative;
     background: #e2e2e2;
     border: none;
     overflow: hidden;
     border-radius: 10px;
     transition: 0.5s;
-  }
-
-  .container.mobile .visa-card .content p {
-    color: #fff;
-  position: absolute;
-  left: 15px;
-  bottom: 0px;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  }
 }
 
-@media screen and (min-width: 360px) and  (max-width: 480px) {
-  .container.mobile .visa-card .content p {
+.container.desktopView .visa-card:hover {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container.desktopView .visa-card .img-box {
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.container.desktopView .visa-card:hover .img-box {
+    opacity: 0.5;
+}
+
+.container.desktopView .visa-card .content {
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    bottom: -100%;
+    padding-top: 60px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.container.desktopView .visa-card:hover .content {
+    bottom: 0;
+}
+
+.container.desktopView .visa-card:nth-child(1) .content {
+    background: linear-gradient(0deg, #acb4bc, transparent);
+}
+
+.container.desktopView .visa-card .content p {
     color: #fff;
-  position: absolute;
-  left: 15px;
-  bottom: 0px;
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  }
+    position: absolute;
+    font-weight: 600;
+    left: 20px;
+    bottom: 0px;
+    font-size: 16px;
+}
 
-  .container.mobile .visaHeading {
-    font-size: 20px;
-  }
+@media screen and (max-width: 676px) {
+    .container {
+        margin-top: 50px;
+    }
+}
 
-  .container.mobile .img-card {
-    margin-bottom: 20px;
-    padding: 0px 10px;
-  }
+.desktopView {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .desktopView {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    .container.mobile .img-card {
+        margin-bottom: 30px;
+    }
+    .container.mobile .visa-card {
+        position: relative;
+        background: #e2e2e2;
+        border: none;
+        overflow: hidden;
+        border-radius: 5px;
+        transition: 0.5s;
+    }
+    .container.mobile .visa-card .content p {
+        color: #fff;
+        position: absolute;
+        left: 15px;
+        bottom: 0px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 480px) {
+    .container.mobile .visa-card .content p {
+        color: #fff;
+        position: absolute;
+        left: 15px;
+        bottom: 0px;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .container.mobile .visaHeading {
+        font-size: 20px;
+    }
+    .container.mobile .img-card {
+        margin-bottom: 20px;
+        padding: 0px 10px;
+    }
 }
 
 @media screen and (max-width: 359px) {
-  .container.mobile .visa-card .content p {
-  font-size: 12px;
-  }
-
-
-  .container.mobile .visaHeading {
-    font-size: 20px;
-  }
-
-  .container.mobile .img-card {
-    margin-bottom: 10px;
-    padding: 0px 5px;
-  }
+    .container.mobile .visa-card .content p {
+        font-size: 12px;
+    }
+    .container.mobile .visaHeading {
+        font-size: 20px;
+    }
+    .container.mobile .img-card {
+        margin-bottom: 10px;
+        padding: 0px 5px;
+    }
 }

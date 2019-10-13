@@ -239,7 +239,7 @@
 <div class="visaPriceContainer largeVisaPriceContainer">
     <div class="row">
         <!-- <div class=""> -->
-        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 " *ngFor="let quote of quotes; let i = index">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 card-top " *ngFor="let quote of quotes; let i = index">
             <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header priceHeading font-weight-bold">
                     {{quote.stayPeriod}} {{quote.purpose}} Visa
@@ -324,7 +324,7 @@
         <div class="col-md-12 pcOnly">
             <div class="gmvsprite_container" *ngFor="let items of mainArr; let i = index ;" style="">
                 <div class="gmvsprite_row">
-                    <div  data-toggle="modal" data-target=".bd-example-modal-sm" class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrements(i,j,item)">
+                    <div data-toggle="modal" data-target=".bd-example-modal-sm" class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrements(i,j,item)">
 
                         <div class="parent ng-scope active">
                             <img class="img-fluid requiredIcon" src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" alt="" style="height: 45px; margin-bottom: 10px;" />
@@ -343,26 +343,26 @@
             </div>
         </div>
         <div class="col-md-12 mobileOnly">
-                <div class="gmvsprite_container" *ngFor="let items of mobileMainArr; let i = index ;" style="">
-                    <div class="gmvsprite_row">
-                        <div   class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrementsMobile(i,j,item)">
-    
-                            <div class="parent ng-scope active">
-                                <img class="img-fluid requiredIcon" src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" alt="" style="height: 45px; margin-bottom: 10px;" />
-                                <p>{{item.fieldName}}</p>
-                            </div>
+            <div class="gmvsprite_container" *ngFor="let items of mobileMainArr; let i = index ;" style="">
+                <div class="gmvsprite_row">
+                    <div class="gmvsprite_col" *ngFor="let item of items;let j = index " (click)="onClickRequrementsMobile(i,j,item)">
+
+                        <div class="parent ng-scope active">
+                            <img class="img-fluid requiredIcon" src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" alt="" style="height: 45px; margin-bottom: 10px;" />
+                            <p>{{item.fieldName}}</p>
                         </div>
-    
                     </div>
-    
-                    <div *ngIf="mobileShowRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
-                        <h1 style="color: navy">{{mobileSelectedDataArr[i].fieldName}}</h1>
-                        <p>
-                            {{mobileSelectedDataArr[i].content}}
-                        </p>
-                    </div>
+
+                </div>
+
+                <div *ngIf="mobileShowRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
+                    <h1 style="color: navy">{{mobileSelectedDataArr[i].fieldName}}</h1>
+                    <p>
+                        {{mobileSelectedDataArr[i].content}}
+                    </p>
                 </div>
             </div>
+        </div>
     </div>
 </div>
 <div class="accordion" id="accordionExample" style="margin-bottom: 40px;">

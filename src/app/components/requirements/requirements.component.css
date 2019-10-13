@@ -1,98 +1,82 @@
-
 @media (min-width: 1281px) {
-  
     .pcOnly {
         display: block;
-  
-    }   
+    }
     .mobileOnly {
         display: none;
-    } 
-    
-  }
-  
-  /* 
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
-  */
-  
-  @media (min-width: 1025px) and (max-width: 1280px) {
-    
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
     .pcOnly {
         display: block;
-  
-    }   
+    }
     .mobileOnly {
         display: none;
-    } 
-    
-  }
-  
-  /* .mobileOnly {
+    }
+}
+
+
+/* .mobileOnly {
     position: fixed;
     bottom: 0;
   } */
-  /* 
+
+
+/* 
     ##Device = Tablets, Ipads (portrait)
     ##Screen = B/w 768px to 1024px
   */
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
+
+@media (min-width: 768px) and (max-width: 1024px) {
     .pcOnly {
         display: block;
-  
-    }   
+    }
     .mobileOnly {
         display: none;
-    } 
-    
-  }
-  
-  /* 
+    }
+}
+
+
+/* 
     ##Device = Tablets, Ipads (landscape)
     ##Screen = B/w 768px to 1024px
   */
-  
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .pcOnly {
         display: block;
-  
-    }   
+    }
     .mobileOnly {
         display: none;
-    } 
-   
-    
-  }
-  
-  @media (min-width: 415px) and (max-width: 767px) {
-  
-  .pcOnly {
-      display: none;
-  
-  }   
-  .mobileOnly {
-      display: block;
-  } 
-  
-  }
-  
-  /* 
+    }
+}
+
+@media (min-width: 415px) and (max-width: 767px) {
+    .pcOnly {
+        display: none;
+    }
+    .mobileOnly {
+        display: block;
+    }
+}
+
+
+/* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
   */
-  
-  @media (min-width: 320px) and (max-width: 414px) {
+
+@media (min-width: 320px) and (max-width: 414px) {
     .pcOnly {
         display: none;
-  
-    }   
+    }
     .mobileOnly {
         display: block;
-    } 
-   
-  
-  }
+        padding: 0px 10px;
+    }
+}
+
 .visa-type {
     font-size: 14px !important;
 }
@@ -132,6 +116,7 @@
 .chooseImage {
     width: 30px;
     height: 30px;
+    margin-top: 7px;
 }
 
 .gmvsprite_container {
@@ -155,6 +140,7 @@
     color: #333333;
     font-size: 14x;
     margin-bottom: 10px;
+    padding-left: 0px;
     /* background: url(../../Contents/Images/listhand.png) no-repeat left top; */
     /* padding-left: 30px; */
     list-style-type: none;
@@ -261,6 +247,24 @@ h2.headingOther span {
     margin-top: 70px;
   } */
 
+@media screen and (min-width: 2001px) {
+    .card-top {
+        margin-top: 110px !important;
+    }
+}
+
+@media screen and (min-width: 1801px) and (max-width: 2000px) {
+    .card-top {
+        margin-top: 50px !important;
+    }
+}
+
+@media screen and (min-width: 1700px) and (max-width: 1800px) {
+    .card-top {
+        margin-top: 0px !important;
+    }
+}
+
 @media (min-width: 1701px) {
     .upperContainer {
         /* padding-left: 50px;
@@ -304,8 +308,15 @@ h2.headingOther span {
         width: 60%;
     }
     .bannerImage {
-        height: 70%;
+        height: 62%;
         width: 100%;
+        margin-top: 77px;
+    }
+    .stepContainer {
+        background-color: whitesmoke;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-top: 80px;
     }
 }
 
@@ -453,6 +464,9 @@ h2.headingOther span {
         width: 100%;
         height: 70%;
     }
+    .card-top {
+        margin-top: 50px !important;
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -580,7 +594,7 @@ h2.headingOther span {
 
 @media (min-width: 650px) and (max-width: 768px) {
     .upperContainer {
-        padding-top: 110px;
+        padding-top: 85px;
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(4n) {
         margin-right: 0px;
@@ -922,13 +936,17 @@ h2.headingOther span {
         position: relative;
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col {
-        width: 47.7%;
+        width: 48.4%;
         float: left;
         margin-right: 6px;
         position: relative;
         display: table;
         margin-bottom: 10px;
         cursor: pointer;
+    }
+    .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(2n) {
+        margin-right: 0px;
+        width: 50%;
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col .parent.active {
         background: rgba(82, 37, 131, 0.2);
@@ -999,17 +1017,17 @@ h2.headingOther span {
         position: relative;
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col {
-        width: 48%;
-        font-size: 14px;
+        width: 47.9%;
         float: left;
-        margin-right: 5px;
+        margin-right: 6px;
         position: relative;
         display: table;
         margin-bottom: 10px;
         cursor: pointer;
     }
-    .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(4n) {
-        margin-right: 0px
+    .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(2n) {
+        margin-right: 0px;
+        width: 50%;
     }
     .payButton {
         width: 200px;
@@ -1021,7 +1039,8 @@ h2.headingOther span {
     .accordianWrapper .gmvsprite_row .gmvsprite_col .parent {
         background: #ebebeb;
         text-align: center;
-        height: 190px;
+        height: 150px;
+        padding: 0px !important;
         display: table-cell;
         vertical-align: middle;
         /* padding: 15px; */
@@ -1203,6 +1222,7 @@ h2.headingOther span {
 
 .card {
     margin-top: 20px !important;
+    margin-bottom: 20px;
 }
 
 .btn-continue {
@@ -1279,5 +1299,40 @@ h2.headingOther span {
 @media (min-width: 320px) and (max-width: 480px) {
     .countinueBtn .btn {
         font-weight: bold;
+    }
+}
+
+@media screen and (width: 1024px) {
+    .card-top {
+        margin-top: 297px !important;
+    }
+    .smallstepContainer {
+        display: block;
+        /* margin-top: -51px; */
+        position: relative !important;
+        top: -130px !important;
+    }
+}
+
+@media screen and (width: 800px) {
+    .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(4n) {
+        margin-right: 0px;
+        width: 24.9%;
+    }
+}
+
+@media screen and (width: 600px) {
+    .accordianWrapper .gmvsprite_row .gmvsprite_col {
+        width: 49% !important;
+        float: left;
+        margin-right: 5px;
+        position: relative;
+        display: table;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(2n) {
+        width: 50% !important;
+        margin-right: 0px !important;
     }
 }
