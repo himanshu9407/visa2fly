@@ -30,4 +30,11 @@ export class OtherCountryService {
             this.router.navigate(['/home']);
         }
     }
+
+    validateCountryPopular (country : string) {
+        if(this.countryList.indexOf(country) != -1) {
+            localStorage.setItem("popularCountry",country);
+            window.location.reload();
+        }
+    }
 }

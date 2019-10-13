@@ -11,7 +11,7 @@ export class HomeContainerComponent implements OnInit {
   constructor(private homeFormService : HomeFormService, private route : ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.url);
+    // console.log(this.route.url);
   }
 
 }

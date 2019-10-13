@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { OtherCountryService } from 'src/app/shared/OtherCountry.service';
 
 @Component({
   selector: 'app-mini-carousel',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiniCarouselComponent implements OnInit {
 
-  constructor() { }
+  @Output() messageEvent = new EventEmitter<string>();
+
+  constructor(private otherCountryService : OtherCountryService) { }
 
   ngOnInit() {
+  }
+  
+
+
+
+  proceedToHome (countryName : string) {
+    console.log(countryName);
+    this.otherCountryService.validateCountryPopular(countryName);
   }
 
 }

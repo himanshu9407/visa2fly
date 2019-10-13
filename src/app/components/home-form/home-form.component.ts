@@ -53,6 +53,7 @@ import {
 export class HomeFormComponent {
 
   homeForm: FormGroup;
+  
 
 
 
@@ -196,13 +197,27 @@ export class HomeFormComponent {
         this.homeFormData = data;
 
         let activeCountry : string = localStorage.getItem("activeCountry");
+        let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
           this.country.setValue('Sri Lanka');
+
+          console.log("here 1");
         }
         else {
           this.country.setValue(activeCountry);
           localStorage.setItem("activeCountry", "");
+          console.log("here 2");
         }
+        if(popularCountry == ""  || popularCountry == undefined || popularCountry == null) {
+          this.country.setValue('Sri Lanka');
+          console.log("here 3");
+        }
+        else {
+          this.country.setValue(popularCountry);
+          localStorage.setItem("popularCountry", "");
+          console.log("here 4");
+        }
+
         localStorage.setItem("countryList",JSON.stringify(data.data.countries));
         // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
