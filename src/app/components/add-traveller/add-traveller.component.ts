@@ -31,6 +31,7 @@ export class AddTravellerComponent implements OnInit {
   primaryAddress = "";
   intialInfo = true;
   dateOfTravelModel : any ="";
+  modalWarnings : Array<any> = [];
 
 
 
@@ -311,7 +312,12 @@ export class AddTravellerComponent implements OnInit {
     if(this.travelDetails.get('dateOfTravel').value == undefined  || this.travelDetails.get('dateOfTravel').value == null 
     || this.travelDetails.get('dateOfTravel').value == '' ) {
       this.travelDateError = true;
-      window.scroll(0,0);
+      // window.scroll(0,0);
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
     else {
       this.travelDateError = false;
@@ -323,7 +329,12 @@ export class AddTravellerComponent implements OnInit {
       if(this.travelDetails.get('dateOfCollection').value == undefined  || this.travelDetails.get('dateOfCollection').value == null 
       || this.travelDetails.get('dateOfCollection').value == '' ) {
         this.collectionDateError = true;
-        window.scroll(0,0);
+        // window.scroll(0,0);
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
       }
       else {
         this.collectionDateError = false;
@@ -565,8 +576,13 @@ export class AddTravellerComponent implements OnInit {
                 this.preloaderService.showPreloader(false);
               }
               else if (data.code == "1001") {
+                this.modalWarnings = [];
                 this.preloaderService.showPreloader(false);
-                console.log(data.applicantsFormValidationResult);
+                console.log(data.data.warnings);
+                for (var key in data.data.warnings) {
+                  console.log(key, data.data.warnings[key]);
+                  this.modalWarnings.push(data.data.warnings[key]);
+                }
                 var modal = document.getElementById('exampleModal1');
                   modal.classList.remove("fade");
                   modal.classList.add("show");
@@ -623,7 +639,12 @@ export class AddTravellerComponent implements OnInit {
   // }
 
   goToHome () {
-    this.router.navigate(['home']);
+    var modal = document.getElementById('exampleModal1');
+
+    modal.classList.remove("show");
+      modal.style.display = "none";
+      modal.classList.add("fade");
+    // this.router.navigate(['home']);
   }
   setAddressSame(i :number) {
     // let same = form.get('addressForPickupSame').value;
@@ -662,13 +683,16 @@ export class AddTravellerComponent implements OnInit {
   }
 
   goToPayment(){
-    let modalWarning = (<any>document.getElementById('modalWarning')).value;
-    var modal = document.getElementById('exampleModal');
+    let modalWarning = (<any>document.getElementById('modalWarning')).checked;
+    var modal = document.getElementById('exampleModal1');
+    console.log(modalWarning);
     if(modalWarning) {
 
       modal.classList.remove("show");
       modal.style.display = "none";
       modal.classList.add("fade");
+
+      this.preloaderService.showPreloader(true);
 
       this.travellerService.hitPaymentApi().subscribe(
         (data1 : any) => {
@@ -694,6 +718,9 @@ export class AddTravellerComponent implements OnInit {
         }
       ); 
       
+    }
+    else {
+      this.toastService.showNotification("Please agree to the warning and then continue.",4000);
     }
    
   }

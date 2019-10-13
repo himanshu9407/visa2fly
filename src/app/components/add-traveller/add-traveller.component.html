@@ -610,16 +610,11 @@
          </button>
        </div>
        <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;">
-         <p>
-           <i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; Travel
-           date must be greater than 21/2/19. Since minimum processing day
-           required for processing your visa application is 3-5 working days.
+         <p *ngFor="let warning of modalWarnings">
+           <i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; 
+           {{warning}}
          </p>
-         <p>
-           <i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; Travel
-           date must be greater than 21/2/19. Since minimum processing day
-           required for processing your visa application is 3-5 working days.
-         </p>
+       
          <div class="form-group form-check" style="margin-bottom: 0px; margin-top: 20px;">
            <input
              type="checkbox"

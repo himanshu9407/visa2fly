@@ -107,15 +107,26 @@ ngOnInit() {
 
   setActivePagePc(i : number) {
   
-  window.scrollTo(0,0);
+  // window.scrollTo(0,0);
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
     this.activePcBookingPage = this.myBookingsPc[i];
   }
 
   setActivePageMobile ( i : number)  {
     window.scrollTo(0,0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     this.activeMobileBookingPage = this.myBookingsMobile[i];
   }
   downloadInvoice (bookingId : string) {
+    console.log("invoice called");
     this.downloadImageService.downloadInvoice(bookingId).subscribe(
       (response : any) => {
 

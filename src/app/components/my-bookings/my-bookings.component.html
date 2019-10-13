@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="col-6 button">
-                  <button type="button" class="btn btn-outline-success btn-sm">
+                  <button (click) = "downloadInvoice(booking.booking.bookingId)" type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
                   </button>
                 </div>
@@ -90,7 +90,7 @@
     </div>
   </div>
 
-  <div *ngIf="totalCount > 0" class=""> 
+  <div *ngIf="totalCount > 1" class=""> 
   <div  style="display: flex; justify-content: center; margin-bottom: 20px;">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
@@ -129,7 +129,7 @@
 <div class="mobileOnly">
 
 
-    <div *ngIf="totalCount > 0" class="container myBooking">
+    <div *ngIf="totalCount > 1" class="container myBooking">
         <div class="row mt-4">
           <!-- <div class=""> -->
           <div class="col-lg-12">
