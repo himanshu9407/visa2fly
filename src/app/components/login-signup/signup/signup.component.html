@@ -32,7 +32,7 @@
     
   <div class="input-group form-group">
     <div class="input-group-prepend">
-      <span class="input-group-text"><i class="fas fa-user"></i></span>
+      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
     </div>
     <input pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?" formControlName="email" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}" placeholder="Email"  />
     <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
