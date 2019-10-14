@@ -31,7 +31,7 @@ export class DownloadImageService {
         // console.log(token);
         let headers = new HttpHeaders({'token':token,'visa-client':"0"});
         let base_url = this.userFlowDetails.getBaseURL();
-        return this.http.get(base_url+"invoice"+bookingId,{headers :headers,responseType: 'blob' as 'json'});
+        return this.http.get(base_url+"invoice/"+bookingId,{headers :headers,responseType: 'blob' as 'json'});
 
     }
 }
