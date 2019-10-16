@@ -273,8 +273,8 @@ export class RequirementsComponent implements OnInit {
         }
         else if(data.code == "301") {
           this.loginService.setAuthToken("");
-          this.loginStatusService.setUserStatus(false);
-          this.loginStatusService.setUserLoggedIn(false);
+          this.loginStatus.setUserStatus(false);
+          this.loginStatus.setUserLoggedIn(false);
           // this.router.navigate(['home']);
           this.preloaderService.showPreloader(false);
           localStorage.setItem("profile",JSON.stringify({}));
