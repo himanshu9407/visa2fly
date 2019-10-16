@@ -380,7 +380,8 @@ export class AddTravellerComponent implements OnInit {
             }
       
             else {
-              // console.log("inside other travellers")
+              this.primaryAddress = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('address').value;
+              console.log("inside other travellers")
               let same = form.get('addressForPickupSame').value;
               
               if (same) {
@@ -491,6 +492,7 @@ export class AddTravellerComponent implements OnInit {
             }
             fd['quoteId'] = this.quoteId;
             fd['countryName'] = this.country;
+            fd['gstNumber'] = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('gstNumber').value;
             let totalTraveller = this.dataSource.length || 1;
             fd['totalPayableAmount'] = (this.serviceTax+this.basePrice)*totalTraveller;
             
@@ -513,6 +515,8 @@ export class AddTravellerComponent implements OnInit {
       
             
             console.log(tempData.values());
+
+            console.log(this.travellerForm.get('travellers').value);
             
       
           this.travellerService.submitForm(this.formData1).subscribe(
@@ -609,7 +613,7 @@ export class AddTravellerComponent implements OnInit {
             }
           )
       
-            // console.log(fd);
+            console.log(fd);
         }
         else {
           this.toastService.showNotification("Please accept out terms and conditions", 4000);

@@ -26,24 +26,24 @@
                 <form [formGroup]="callBackForm">
                     <div class="form-row">
                         <div class="form-group col-sm-12">
-                            <input [ngClass]="{'is-invalid':callBackForm.get('name').invalid && callBackForm.get('name').dirty,'is-valid':!(callBackForm.get('name').invalid && callBackForm.get('name').dirty) && !callBackForm.get('name').pristine}" pattern="^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$"
+                            <input [ngClass]="{'is-invalid':callBackForm.get('name').invalid && callBackForm.get('name').dirty,'is-valid':!(callBackForm.get('name').invalid && callBackForm.get('name').dirty) && !callBackForm.get('name').pristine}" pattern="[A-Z a-z]{3,32}"
                                 formControlName="name" type="text" class="form-control form-control-sm" id="inputName" placeholder="Name" />
-                            <div *ngIf="callBackForm.get('name').invalid && callBackForm.get('name').dirty ">Enter a valid Name</div>
+                            <div class="invalid-feedback" style="display: block" *ngIf="callBackForm.get('name').invalid && callBackForm.get('name').dirty ">Enter a valid Name</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm-12">
-                            <input [ngClass]="{'is-invalid':callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty,'is-valid':!(callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty) && !callBackForm.get('emailId').pristine}" formControlName="emailId"
+                            <input [ngClass]="{'is-invalid':callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty,'is-valid':!(callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty) && !callBackForm.get('emailId').pristine}" pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?" formControlName="emailId"
                                 type="email" class="form-control form-control-sm" id="inputEmail" placeholder="Email" />
-                            <div *ngIf="callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty ">Enter a valid Name</div>
+                            <div class="invalid-feedback" style="display: block" *ngIf="callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty ">Enter a valid email</div>
 
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm-12">
-                            <input [ngClass]="{'is-invalid':callBackForm.get('cell').invalid && callBackForm.get('cell').dirty,'is-valid':!(callBackForm.get('cell').invalid && callBackForm.get('cell').dirty) && !callBackForm.get('cell').pristine}" formControlName="cell" type="number"
+                            <input pattern="^[4-9][0-9]{9}$" [ngClass]="{'is-invalid':callBackForm.get('cell').invalid && callBackForm.get('cell').dirty,'is-valid':!(callBackForm.get('cell').invalid && callBackForm.get('cell').dirty) && !callBackForm.get('cell').pristine}" formControlName="cell" type="number"
                                 class="form-control form-control-sm" id="inputMobile" placeholder="Phone" />
-                            <div *ngIf="callBackForm.get('cell').invalid && callBackForm.get('cell').dirty ">Enter a valid Name</div>
+                            <div class="invalid-feedback" style="display: block" *ngIf="callBackForm.get('cell').invalid && callBackForm.get('cell').dirty ">Enter a valid Name</div>
 
                         </div>
                     </div>
