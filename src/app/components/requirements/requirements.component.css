@@ -338,7 +338,13 @@ h2.headingOther span {
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(4n) {
         margin-right: 0px;
-        width: 25.4%;
+        width: 25.56%;
+    }
+    @-moz-document url-prefix()  {
+        .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(4n) {
+            margin-right: 0px;
+            width: 25.35% !important;
+        }
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col .parent.active {
         background: rgba(82, 37, 131, 0.2);
@@ -852,13 +858,17 @@ h2.headingOther span {
         position: relative;
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col {
-        width: 23%;
+        width: 49%;
         float: left;
         margin-right: 5px;
         position: relative;
         display: table;
         margin-bottom: 10px;
         cursor: pointer;
+    }
+    .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(2) {
+        margin-right: 0px;
+        width: 50%;
     }
     .accordianWrapper .gmvsprite_row .gmvsprite_col .parent.active {
         background: rgba(82, 37, 131, 0.2);
@@ -948,6 +958,12 @@ h2.headingOther span {
         margin-right: 0px;
         width: 50%;
     }
+    @supports (-moz-appearance:none) {
+        .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(2n) {
+            margin-right: 0px;
+            width: 49.7% !important;
+        }}
+    
     .accordianWrapper .gmvsprite_row .gmvsprite_col .parent.active {
         background: rgba(82, 37, 131, 0.2);
     }
@@ -1252,6 +1268,14 @@ h2.headingOther span {
         margin-right: 0px;
         width: 26%;
     }
+
+    @supports (-moz-appearance:none) {
+        .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(4n) {
+            margin-right: 0px;
+            width: 25.7% !important;
+        }
+    }
+    
 }
 
 @media (max-width: 749px) and (min-width: 480px) {
@@ -1325,9 +1349,15 @@ h2.headingOther span {
         margin-right: 0px;
         width: 24.9%;
     }
+    @supports (-moz-appearance:none) {
+        .accordianWrapper .gmvsprite_row .gmvsprite_col:nth-child(4n) {
+            margin-right: 0px;
+            width: 24.49% !important;
+        }
+    }
 }
 
-@media screen and (width: 600px) {
+@media screen and (min-width: 600px) and (max-width: 640px) {
     .accordianWrapper .gmvsprite_row .gmvsprite_col {
         width: 49% !important;
         float: left;
