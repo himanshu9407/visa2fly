@@ -133,7 +133,7 @@
 <div class="mobileOnly">
 
 
-    <div *ngIf="totalCount > 1" class="container myBooking">
+    <div *ngIf="totalCount > 0" class="container myBooking">
         <div class="row mt-4">
           <!-- <div class=""> -->
           <div class="col-lg-12">
@@ -181,6 +181,10 @@
                     <li>
                       Booking date:
                       <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                    </li>
+                    <li>
+                      Document Collection Date:
+                      <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
                     </li>
                     <li>
                       Date of travel:
