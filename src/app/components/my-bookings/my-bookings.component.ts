@@ -28,13 +28,12 @@ export class MyBookingsComponent implements OnInit {
               private downloadImageService : DownloadImageService) {
     this.myBookings =   [];
 
-    this.preloaderService.showPreloader(true);
     
-
-
-}
-
-ngOnInit() {
+    
+    
+  }
+  
+  ngOnInit() {
     this.AUTH_TOKEN = this.loginService.getAuthToken();
 
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe(
@@ -103,6 +102,7 @@ ngOnInit() {
         }
     }      
     );
+    this.preloaderService.showPreloader(false);
   }
 
   setActivePagePc(i : number) {

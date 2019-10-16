@@ -334,7 +334,7 @@
 
                 </div>
 
-                <div *ngIf="showRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
+                <div   [@inOutAnimation]      *ngIf="showRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
                     <h1 style="color: navy">{{selectedDataArr[i].fieldName}}</h1>
                     <p>
                         {{selectedDataArr[i].content}}
@@ -355,7 +355,7 @@
 
                 </div>
 
-                <div *ngIf="mobileShowRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
+                <div [@inOutAnimation] *ngIf="mobileShowRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
                     <h1 style="color: navy">{{mobileSelectedDataArr[i].fieldName}}</h1>
                     <p>
                         {{mobileSelectedDataArr[i].content}}

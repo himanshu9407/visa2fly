@@ -24,6 +24,7 @@ import { AddPassengerDetailsComponent } from './add-passenger-details/add-passen
 import { AddTravellerComponent } from './components/add-traveller/add-traveller.component';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { DateComponent } from './components/date/date.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestInterceptor } from './shared/request.interceptor';

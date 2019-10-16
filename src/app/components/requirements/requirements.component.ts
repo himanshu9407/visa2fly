@@ -10,11 +10,35 @@ import { ToastService } from 'src/app/shared/toast.service';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LoginService } from '../login-signup/login/login.service';
 import { PreloaderService } from 'src/app/shared/preloader.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-requirements',
   templateUrl: './requirements.component.html',
-  styleUrls: ['./requirements.component.css']
+  styleUrls: ['./requirements.component.css'],
+  animations: [
+    trigger(
+      'inOutAnimation', 
+      [
+        transition(
+          ':enter', 
+          [
+            style({ height: 0, opacity: 0 }),
+            animate('0.3s ease-out', 
+                    style({ height: 300, opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave', 
+          [
+            style({ height: 300, opacity: 1 }),
+            animate('0.4s ease-in', 
+                    style({ height: 0, opacity: 0 }))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class RequirementsComponent implements OnInit {
   public regData : requirementData ;
@@ -39,8 +63,8 @@ export class RequirementsComponent implements OnInit {
    public dataSource : Array<{id:string,dataToggle:string, dataToggleHash:string}> = [];
 
    
-   public mainArr:any = [["hello","world","sarthak","agrawal"]];
-   public mobileMainArr:any = [["hello","world"]];
+   public mainArr:any = [[]];
+   public mobileMainArr:any = [[]];
    
    public selectedDataArr:any = [this.mainArr[0][0]];
    public mobileSelectedDataArr:any = [this.mobileMainArr[0][0]];
@@ -59,15 +83,21 @@ export class RequirementsComponent implements OnInit {
  
     }
   onClickRequrements(i,j, item){
-    console.log(item);
+    // console.log(item);
     
     if (this.showRequirementsDetailArr[i] == true && this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName) {
       this.showRequirementsDetailArr[i] = false;
+
       
     }
 
-    else if (this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName) {
+    else if (this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName && this.showRequirementsDetailArr[i] == false) {
       this.showRequirementsDetailArr[i] = true;
+    }
+    else {
+      console.log("else");
+      this.showRequirementsDetailArr[i] = true;
+
     }
 
 
@@ -79,12 +109,14 @@ export class RequirementsComponent implements OnInit {
     
     if (this.mobileShowRequirementsDetailArr[i] == true && this.mobileSelectedDataArr[i].fieldName == this.mobileMainArr[i][j].fieldName) {
       this.mobileShowRequirementsDetailArr[i] = false;
-      console.log("was already shown");
     }
 
     else if (this.mobileSelectedDataArr[i].fieldName == this.mobileMainArr[i][j].fieldName) {
       this.mobileShowRequirementsDetailArr[i] = true;
-      console.log("was hidden");
+    }
+    else {
+      this.mobileShowRequirementsDetailArr[i] = true;
+
     }
 
 
