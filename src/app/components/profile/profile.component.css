@@ -22,6 +22,11 @@ input {
 }
 
 
+.modal-content {
+  border: 10px;
+}
+
+
 .profile-box {
     height: 100vh;
     width: 100%;
@@ -41,6 +46,10 @@ input {
   .close {
     display: none;
   }
+  .dismiss {
+    display: block !important;
+  }
+
 
   .container-fluid {
     padding-right: 0px;
@@ -147,6 +156,8 @@ input {
 
   .profileAvatr {
     padding: 20px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
   }
 
   .verify,
@@ -250,6 +261,17 @@ input {
       border-radius: 50%;
       font-size: 31px;
     }
+
+    .profileAvatr {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px !important;
+    }
+  
+
+    .dismiss {
+      display: none !important;
+    }
   
   }
 
@@ -258,4 +280,9 @@ input {
       margin-top: 74px;
       margin-bottom: 10px;
     }
+  }
+  
+  @media screen and (width: 1024px) {
+    .profileAvatr {margin: 0 !important;}
+    .avatr {margin: 20px 0px;}
   }

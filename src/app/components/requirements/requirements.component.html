@@ -294,8 +294,7 @@
     <div class="alert-wrapper visa-information-imp">
         <div class="header">
             <div class="action_req search-toggle ng-binding">
-                <i class="fa fa-info-circle info"></i>Important Visa Information For 
-                <div class="blockCountry">{{userFlowDetails.country}}</div>
+                <i class="fa fa-info-circle info"></i>Important Visa Information For {{userFlowDetails.country}}
             </div>
         </div>
         <div class="important-visa ng-binding" ng-bind-html="data.VisaInformation" style="display: block;">
@@ -334,7 +333,7 @@
 
                 </div>
 
-                <div *ngIf="showRequirementsDetailArr[i]" id="innerwrap" class="innerWrap" style="">
+                <div *ngIf="showRequirementsDetailArr[i]" id="innerwrap" class="innerWrap"   [@simpleFadeAnimation]="'in'" >
                     <h1 style="color: navy">{{selectedDataArr[i].fieldName}}</h1>
                     <p>
                         {{selectedDataArr[i].content}}
