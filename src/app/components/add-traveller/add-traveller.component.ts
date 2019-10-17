@@ -43,6 +43,9 @@ export class AddTravellerComponent implements OnInit {
   dataToogleHash = "";
   count =1;
   travelDateError = false;
+  primaryCity = "";
+  primaryPinCode = "";
+  primaryState = "";
 
 
   public userFlowDetails :any;
@@ -294,7 +297,7 @@ export class AddTravellerComponent implements OnInit {
         cellNumber:['',[Validators.required]],
         addressForPickupSame:[false,[Validators.required]],
         address:['',[Validators.required]],
-        state:['Assam',[Validators.required]],
+        state:['',[Validators.required]],
         city:['',[Validators.required]],
         pinCode : ['',[Validators.required]]
       
@@ -381,11 +384,17 @@ export class AddTravellerComponent implements OnInit {
       
             else {
               this.primaryAddress = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('address').value;
+              this.primaryState = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('state').value;
+              this.primaryCity = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('city').value;
+              this.primaryPinCode = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('pinCode').value;;
               console.log("inside other travellers")
               let same = form.get('addressForPickupSame').value;
               
               if (same) {
                 form.get('address').setValue(this.primaryAddress);
+                form.get('state').setValue(this.primaryState);
+                form.get('city').setValue(this.primaryCity);
+                form.get('pinCode').setValue(this.primaryPinCode);
                 form.updateValueAndValidity();
               }
             }
