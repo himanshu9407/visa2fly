@@ -61,7 +61,7 @@ constructor(private homeFormService: HomeFormService,
     // console.log(localStorage.getItem("AUTH_TOKEN") == "");
 
 
-    this.preloaderService.showPreloader(true);
+    // this.preloaderService.showPreloader(true);
 
     this.preloaderService.getAlert().subscribe(
       (showPreloader : boolean) => {
@@ -86,7 +86,7 @@ constructor(private homeFormService: HomeFormService,
             this.userFlow.setUserProfile(data.data);
             this.loginStatusService.setUserLoggedIn(true);
             // console.log(this.userFlow.getUserFlowDetails());
-            this.preloaderService.showPreloader(false);
+            // this.preloaderService.showPreloader(false);
             this.loginStatusService.setUserProfile(data.data.profile);
         }
         else if(data.code == "301") {
@@ -94,7 +94,7 @@ constructor(private homeFormService: HomeFormService,
           this.loginStatusService.setUserStatus(false);
           this.loginStatusService.setUserLoggedIn(false);
           // this.router.navigate(['home']);
-          this.preloaderService.showPreloader(false);
+          // this.preloaderService.showPreloader(false);
           localStorage.setItem("profile",JSON.stringify({}));
       }
           else {

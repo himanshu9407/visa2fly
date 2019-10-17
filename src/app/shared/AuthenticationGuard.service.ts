@@ -34,13 +34,13 @@ export class AuthenticationGuard implements CanActivate {
                     resolve (true);
                     setTimeout(() => {
                         this.preloaderService.showPreloader(false);
-                    }, 1000);
+                    }, 3000);
                 }
                 else{
                     resolve(this.router.createUrlTree(['/slcontainer/login']));
                     setTimeout(() => {
                         this.preloaderService.showPreloader(false);
-                    }, 1000);
+                    }, 3000);
                     // reject(false);
                 }
             }
