@@ -21,10 +21,10 @@ export class ChatboxComponent implements OnInit {
       'name' : new FormControl('',[Validators.required]),
       'cell': new FormControl('',[Validators.required]),
       'emailId': new FormControl('',[]),
-      'visa' : new FormControl(true),
-      'sim' : new FormControl(true),
-      'insurance' : new FormControl(true),
-      'forex' : new FormControl(true)
+      'visa' : new FormControl(false),
+      'sim' : new FormControl(false),
+      'insurance' : new FormControl(false),
+      'forex' : new FormControl(false)
     });
   }
 
