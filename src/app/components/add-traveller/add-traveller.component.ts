@@ -179,10 +179,10 @@ export class AddTravellerComponent implements OnInit {
    })
 
    this.valueAddedService = new FormGroup({
-    selectAll : new FormControl(true,[]),
-    sim : new FormControl (true,[]),
-    insurance : new FormControl(true,[]),
-    forex: new FormControl(true,[])
+    selectAll : new FormControl(false,[]),
+    sim : new FormControl (false,[]),
+    insurance : new FormControl(false,[]),
+    forex: new FormControl(false,[])
 
    });
 
