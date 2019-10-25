@@ -12,6 +12,7 @@ import { RouterHistory } from 'src/app/shared/router-history.service';
   templateUrl: './simplans.component.html',
   styleUrls: ['./simplans.component.css']
 })
+
 export class SimplansComponent implements OnInit {
 
   selectedCountry : string = "";
@@ -125,6 +126,7 @@ export class SimplansComponent implements OnInit {
     this.updateTotal();
 
   }
+  
 
   decreaseItemCount (item : any) {
        

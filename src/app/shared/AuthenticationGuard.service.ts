@@ -12,12 +12,10 @@ import { PreloaderService } from './preloader.service';
   @Injectable({
     providedIn:"root"
 })
+
+
 export class AuthenticationGuard implements CanActivate {
     isAuthenticated :boolean = false;
-
-
-
-    
 
     constructor (private loginService : LoginService, private loginStatus: LoginStatusService,
         private router : Router, private preloaderService : PreloaderService) {
@@ -29,14 +27,14 @@ export class AuthenticationGuard implements CanActivate {
         return new Promise((resolve, reject)=> {  
         this.loginStatus.checkUserAuthentication().then(
             (data : any) => {
-                if (data.code == "0") {
 
+                if (data.code == "0") {
                     resolve (true);
                     setTimeout(() => {
                         this.preloaderService.showPreloader(false);
                     }, 3000);
                 }
-                else{
+                else {
                     resolve(this.router.createUrlTree(['/slcontainer/login']));
                     setTimeout(() => {
                         this.preloaderService.showPreloader(false);
@@ -52,13 +50,6 @@ export class AuthenticationGuard implements CanActivate {
             // resolve(false);
         });
 
-
-     
     }
-
-
-
-    
-
 
 }

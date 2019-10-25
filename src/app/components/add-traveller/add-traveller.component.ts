@@ -102,7 +102,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-
+    console.log(this.imageUploads);
     if(this.imageUploads == "null") {
       this.imageUploads = []
     }
@@ -279,7 +279,8 @@ export class AddTravellerComponent implements OnInit {
             userImage : [null],
             departureFlightTicket : [null],
             arrivalFlightTicket : [null],
-            hotelAccommodation : [null]
+            hotelAccommodation : [null],
+            businessCard: [null]
           });
     }
 
