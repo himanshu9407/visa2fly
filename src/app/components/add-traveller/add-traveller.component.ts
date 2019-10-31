@@ -64,6 +64,9 @@ export class AddTravellerComponent implements OnInit {
   // docd;
   // dobd:any;
   // doed:any;
+  today : Date;
+  tomorrow : Date;
+  tomorrowDate : any = "";
 
   constructor(private formBuilder : FormBuilder, private travellerService : AddTravellerService,
      private toastService : ToastService, private userFlow : UserFlowDetails, private loginService:LoginService,
@@ -76,6 +79,14 @@ export class AddTravellerComponent implements OnInit {
       // this.docd = {year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()};
       // this.dotd = {year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()};
 
+       this.today = new Date()
+       this.tomorrow = new Date(this.today)
+       this.tomorrow.setDate(this.tomorrow.getDate() + 1)
+       this.tomorrowDate = {
+         year : this.tomorrow.getFullYear(),
+         month : this.tomorrow.getMonth()+1,
+         day  : this.tomorrow.getDate()
+       }
 
       }
 
@@ -92,6 +103,8 @@ export class AddTravellerComponent implements OnInit {
   minDate : any = '';
   minDateDob : any = '';
   minDatePassportExpiry : any = '';
+  minDateOfTravel : any = '';
+  minDateOfCollection : any = '';
   country : string='';
   collectionDateError = false;
 
@@ -99,6 +112,169 @@ export class AddTravellerComponent implements OnInit {
     console.log(i);
     console.log(this.list.cities)
     console.log(this.travellerForm.controls.travellers.controls[i].controls.state.value);
+  }
+
+
+
+
+  checkDateOfExpiry (date : {year:any,day:any,month:any}) {
+
+    //normal months
+      if( date.month == 4 || date.month == 6 ||date.month == 9 ||date.month == 11) {
+        if(date.day > 30) {
+          this.minDatePassportExpiry = {
+            year: date.year,
+            month: date.month +1,
+            day: 1
+          };
+        }
+      }
+
+      //february
+      if (date.month ==2 ) {
+        if (((date.year % 4 == 0) && (date.year % 100 != 0)) && (date.year % 400 == 0) ) {
+          if(date.day > 29) {
+            this.minDatePassportExpiry = {
+              year: date.year,
+              month: date.month +1,
+              day: 1
+            };
+          }
+        }
+        else {
+          if(date.day > 28) {
+            this.minDatePassportExpiry = {
+              year: date.year,
+              month: date.month +1,
+              day: 1
+            };
+          }
+        }
+      }
+  }
+
+  checkDateOfTravelOverflow (date : {month:any,year :any,day :any}) {
+    if( date.month == 4 || date.month == 6 ||date.month == 9 ||date.month == 11) {
+      if(date.day > 30) {
+        let tempDay = date.day - 30;
+        this.minDateOfTravel = {
+          year : date.year,
+          month : date.month+1,
+          day : tempDay
+        }
+      }
+    }
+
+    else if (date.month ==2 ) {
+      if (((date.year % 4 == 0) && (date.year % 100 != 0)) && (date.year % 400 == 0) ) {
+        if(date.day > 29) {
+          let tempDay = date.day - 29;
+        this.minDateOfTravel = {
+          year : date.year,
+          month : date.month+1,
+          day : tempDay
+        }
+        }
+       
+      }
+      else {
+        if(date.day > 28) {
+          let tempDay = date.day - 28;
+          this.minDateOfTravel = {
+            year : date.year,
+            month : date.month+1,
+            day : tempDay
+          }
+        }
+      }
+    }
+    else {
+      if(date.day > 31) {
+        let tempDay = date.day - 31;
+        this.minDateOfTravel = {
+          year : date.year,
+          month : date.month+1,
+          day : tempDay
+        }
+      }
+    }
+  }
+
+  checkDateOfCollectionUnderFlow ( date : {month: any,year :any, day :any}) {
+    let prevMonth = date.month - 1;
+    if (date.day < 1) {
+      if (date.day == 0) {
+        if( prevMonth== 4 || prevMonth == 6 ||prevMonth == 9 ||prevMonth== 11) {
+          this.minDateOfCollection = {
+            year : date.year,
+            month : prevMonth,
+            day : 30
+          }
+      }
+      if (prevMonth == 2 ) {
+        if (((date.year % 4 == 0) && (date.year % 100 != 0)) && (date.year % 400 == 0) ) {
+            this.minDateOfCollection = {
+              year: date.year,
+              month: prevMonth,
+              day: 29
+            };
+        }
+        else {
+            this.minDateOfCollection = {
+              year: date.year,
+              month: prevMonth,
+              day: 28
+            };
+        }
+      }
+      else {
+        this.minDateOfCollection = {
+          year : date.year,
+          month : prevMonth,
+          day : 31
+        }
+
+      }
+
+
+      }
+
+      else {
+
+        if( prevMonth== 4 || prevMonth == 6 ||prevMonth == 9 ||prevMonth== 11) {
+          this.minDateOfCollection = {
+            year : date.year,
+            month : prevMonth,
+            day : 30 + date.day
+          }
+      }
+      if (prevMonth == 2 ) {
+        if (((date.year % 4 == 0) && (date.year % 100 != 0)) && (date.year % 400 == 0) ) {
+            this.minDateOfCollection = {
+              year: date.year,
+              month: prevMonth,
+              day: 29+date.day
+            };
+        }
+        else {
+            this.minDateOfCollection = {
+              year: date.year,
+              month: prevMonth,
+              day: 28 + date.day
+            };
+        }
+      }
+      else {
+        this.minDateOfCollection = {
+          year : date.year,
+          month : prevMonth,
+          day : 31 + date.day
+        }
+
+      }
+
+      }
+    }
   }
 
   ngOnInit() {
@@ -123,6 +299,7 @@ export class AddTravellerComponent implements OnInit {
     }
     let data = this.userFlow.getUserFlowDetails();
     const current = new Date();
+
     this.minDate = {
       year: current.getFullYear(),
       month: current.getMonth() + 1,
@@ -133,7 +310,32 @@ export class AddTravellerComponent implements OnInit {
       month: current.getMonth() + 1,
       day: current.getDate()-1
     };
+
+    this.minDateOfTravel = {
+        // {year: minDate.year, month: minDate.month, day: minDate.day +3}
+
+      year: this.minDate.year,
+      month: this.minDate.month,
+      day: this.minDate.day +4
+    }
+    this.checkDateOfTravelOverflow(this.minDateOfTravel);
+    console.log(this.minDateOfTravel);
+
+
+    this.minDateOfCollection = {
+      // {year: minDate.year, month: minDate.month, day: minDate.day +1}
+      year : this.dateOfTravelModel.year,
+      month : this.dateOfTravelModel.month,
+      day : this.dateOfTravelModel.day - 3,
+    }
+
+    this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
+    console.log(this.minDateOfCollection);
+
+
+    
     if(current.getMonth() >=6) {
+      console.log("greater than 6 month");
       let x = 12 - (current.getMonth()+1) 
       this.minDatePassportExpiry = {
         year: current.getFullYear()+1,
@@ -143,13 +345,19 @@ export class AddTravellerComponent implements OnInit {
       console.log(x);
     }
     else {
+      console.log("less than 6 month");
 
       this.minDatePassportExpiry = {
         year: current.getFullYear(),
-        month: current.getMonth() + 1,
+        month: current.getMonth() + 6,
         day: current.getDate()
       };
     }
+
+    console.log(this.minDatePassportExpiry);
+    this.checkDateOfExpiry (this.minDatePassportExpiry) ;
+    
+
 
     
     
@@ -320,7 +528,25 @@ export class AddTravellerComponent implements OnInit {
   }
 
   checkDateOfTravel () {
+    this.travelDetails.get('dateOfCollection').setValue('');
+
+    console.log(this.travelDetails.get('dateOfTravel').value);
+
+    let temp : any = this.travelDetails.get('dateOfTravel').value;
+    this.minDateOfCollection = {
+      // {year: minDate.year, month: minDate.month, day: minDate.day +1}
+      year : temp.year,
+      month : temp.month,
+      day : temp.day - 3,
+    }
+
+    this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
+    console.log(this.minDateOfCollection);
     console.log("hello world");
+ 
+  }
+
+  validateDate () {
     if(this.travelDetails.get('dateOfTravel').value == undefined  || this.travelDetails.get('dateOfTravel').value == null 
     || this.travelDetails.get('dateOfTravel').value == '' ) {
       this.travelDateError = true;
@@ -358,7 +584,7 @@ export class AddTravellerComponent implements OnInit {
 
 
     
-    this.checkDateOfTravel();
+    this.validateDate();
     this.checkDateOfCollection();
 
     console.log(this.filedNameArr);
@@ -666,7 +892,7 @@ export class AddTravellerComponent implements OnInit {
     modal.classList.remove("show");
       modal.style.display = "none";
       modal.classList.add("fade");
-    // this.router.navigate(['home']);
+    // this.router.navigate(['visa']);
   }
   setAddressSame(i :number) {
     // let same = form.get('addressForPickupSame').value;

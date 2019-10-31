@@ -34,7 +34,7 @@
                                     Date Of Travel
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel" formControlName="dateOfTravel" id="#dot" class="form-control addTravelDate" placeholder="Date Of Travel" name="dp" [minDate]="{year: minDate.year, month: minDate.month, day: minDate.day +3}"
+                                            <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel" formControlName="dateOfTravel" id="#dot" class="form-control addTravelDate" placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel"
                                                 ngbDatepicker #dot="ngbDatepicker">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button"><i
@@ -54,8 +54,8 @@
                                     Date Of Collection <br /> of Documents
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input (ngModelChange)="checkDateOfCollection()" [disabled]="travelDetails.get('dateOfTravel').invalid" formControlName="dateOfCollection" id="#doc" class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc" [minDate]=" {year: minDate.year, month: minDate.month, day: minDate.day +1}"
-                                                [maxDate]="{year: dateOfTravelModel.year, month: dateOfTravelModel.month, day: dateOfTravelModel.day -3}" ngbDatepicker #doc="ngbDatepicker">
+                                            <input (ngModelChange)="checkDateOfCollection()" [disabled]="travelDetails.get('dateOfTravel').invalid" formControlName="dateOfCollection" id="#doc" class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc" [minDate]="tomorrowDate"
+                                                [maxDate]="minDateOfCollection" ngbDatepicker #doc="ngbDatepicker">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button"><i
                             class="fas fa-calendar-alt"></i>

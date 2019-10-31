@@ -19,6 +19,9 @@ export class MyBookingsComponent implements OnInit {
   myBookingsPc : Array<any> = [];
   myBookingsMobile : Array<any> = [];
   activePcBookingPage : Array<any> = [];
+
+  activePcPageNumber : number = 0;
+  activeMobilePageNumber : number = 0;
   activeMobileBookingPage : Array<any> = [];
 
   AUTH_TOKEN = "";
@@ -106,6 +109,9 @@ export class MyBookingsComponent implements OnInit {
   }
 
   setActivePagePc(i : number) {
+    this.activePcPageNumber = i;
+
+    console.log(this.activePcPageNumber == i);
   
   // window.scrollTo(0,0);
   window.scrollTo({
@@ -117,6 +123,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   setActivePageMobile ( i : number)  {
+    this.activeMobilePageNumber = i;
     // window.scrollTo(0,0);
     window.scrollTo({
       top: 0,

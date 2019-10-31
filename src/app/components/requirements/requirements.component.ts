@@ -275,7 +275,7 @@ export class RequirementsComponent implements OnInit {
           this.loginService.setAuthToken("");
           this.loginStatus.setUserStatus(false);
           this.loginStatus.setUserLoggedIn(false);
-          // this.router.navigate(['home']);
+          // this.router.navigate(['visa']);
           this.preloaderService.showPreloader(false);
           localStorage.setItem("profile",JSON.stringify({}));
           this.routerHistory.pushHistory("req-and-quote");

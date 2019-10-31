@@ -238,6 +238,18 @@ export class HomeFormComponent {
 
   }
 
+  countryChanged ( ) {
+    console.log("country changed");
+    let temoCountry = this.homeForm.get('country').value;
+    this.homeForm.get('purpose').setValue('select');
+    this.homeForm.get('visatype').setValue('select');
+    this.homeForm.get('livingin').setValue('select');
+    this.selectedPurpose = 'select';
+    this.selectedVisaType = 'select';
+    this.selectedResidenceOf = 'select';
+    this.homeForm.get('country').setValue(temoCountry);
+  }
+
   validatePurpose() {
     if ((this.purpose.dirty && this.purpose.value == 'select') || !this.purpose.touched || this.purpose.pristine) {
       this.purposeNotSelected = true;

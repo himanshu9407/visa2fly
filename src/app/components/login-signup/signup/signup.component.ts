@@ -108,7 +108,7 @@ export class SignupComponent implements OnInit {
 
                     }
                     else {
-                      this.router.navigate(['home']);
+                      this.router.navigate(['visa']);
                     }
                   }
                 )
@@ -120,7 +120,7 @@ export class SignupComponent implements OnInit {
               }
               else {
                 this.toastService.showNotification(data.message.toString(),5000);
-              this.router.navigate(['home']);
+              this.router.navigate(['visa']);
               }
               
 
@@ -128,7 +128,7 @@ export class SignupComponent implements OnInit {
             else {
               this.toastService.showNotification(data.message.toString(),5000);
               this.setFormFresh();
-              this.router.navigate(['home']);
+              this.router.navigate(['visa']);
             }
 
           }

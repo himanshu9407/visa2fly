@@ -51,14 +51,14 @@ export class MobileNavComponent implements OnInit {
       (data : SignupResponseModel) => {
         if (!data) {
           this.toastService.showNotification("Something went wrong! Please try again later",4000);
-          this.router.navigate(['home']);
+          this.router.navigate(['visa']);
           this.preloaderService.showPreloader(false);
         }
         else if (data.code == "0") {
           this.loginService.setAuthToken("");
           this.loginStatus.setUserStatus(false);
           this.loginStatus.setUserLoggedIn(false);
-          this.router.navigate(['home']);
+          this.router.navigate(['visa']);
           this.preloaderService.showPreloader(false);
           localStorage.setItem("profile",JSON.stringify({}));
         }
@@ -66,7 +66,7 @@ export class MobileNavComponent implements OnInit {
           this.loginService.setAuthToken("");
           this.loginStatus.setUserStatus(false);
           this.loginStatus.setUserLoggedIn(false);
-          this.router.navigate(['home']);
+          this.router.navigate(['visa']);
           this.preloaderService.showPreloader(false);
           localStorage.setItem("profile",JSON.stringify({}));
           this.toastService.showNotification(""+data.message,4000);
@@ -74,7 +74,7 @@ export class MobileNavComponent implements OnInit {
 
         else {
           this.toastService.showNotification(data.message.toString(),4000);
-          this.router.navigate(['home']);
+          this.router.navigate(['visa']);
           this.preloaderService.showPreloader(false);
         }
 

@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit {
             }
           }
           else {
-            this.router.navigate(['home']);
+            this.router.navigate(['visa']);
             // this.preloaderService.showPreloader(false);
           }
         }

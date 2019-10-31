@@ -93,7 +93,7 @@ constructor(private homeFormService: HomeFormService,
           this.loginService.setAuthToken("");
           this.loginStatusService.setUserStatus(false);
           this.loginStatusService.setUserLoggedIn(false);
-          // this.router.navigate(['home']);
+          // this.router.navigate(['visa']);
           // this.preloaderService.showPreloader(false);
           localStorage.setItem("profile",JSON.stringify({}));
       }

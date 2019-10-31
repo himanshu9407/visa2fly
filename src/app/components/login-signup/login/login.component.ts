@@ -166,7 +166,7 @@ export class LoginComponent implements OnInit {
 
                       }
                       else {
-                        this.router.navigate(['home']);
+                        this.router.navigate(['visa']);
                       }
                     }
                   )

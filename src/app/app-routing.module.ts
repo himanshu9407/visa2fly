@@ -24,8 +24,8 @@ import { SimcheckoutComponent } from './components/simcheckout/simcheckout.compo
 import { AboutUsComponent } from './components/static/about-us/about-us.component'
     
     const routes: Routes = [
-         {  path: '', redirectTo : 'home', pathMatch : "full"},
-         {  path: 'home', component: HomeContainerComponent},
+         {  path: '', redirectTo : 'visa', pathMatch : "full"},
+         {  path: 'visa', component: HomeContainerComponent},
          {  path: 'tnc',component:TermsandConditionsComponent},
          {  path: 'cookiePolicy',component:CookiePolicyComponent},
          {  path: 'privacyPolicy',component:PrivacyPolicyComponent},
@@ -41,7 +41,6 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visOnArrival' , component : VisaArrivalComponent},
          {  path : 'visaArrival' , component : VisaArrivalComponent},
-         {  path : 'visa' ,  redirectTo: 'home'},
         //  {  path : 'sim' , component : SimComponent},
         //  {  path : 'sim/simplans' , component : SimplansComponent},
         //  {  path : 'sim/checkout' , component : SimcheckoutComponent},
