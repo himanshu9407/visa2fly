@@ -32,9 +32,12 @@ export class AddTravellerComponent implements OnInit {
   intialInfo = true;
   dateOfTravelModel : any ="";
   modalWarnings : Array<any> = [];
+  firstCity = "Gurgaon"
+  firstState = "Haryana"
 
 
 
+  list = {states :["Delhi NCR", "Haryana","Uttar Pradesh"],cities: {"Delhi NCR":["Delhi"], "Haryana":["Gurgaon"], "Uttar Pradesh":["Noida"]}  }
   dataSource = [{id:"Primary",dataToggle:"toogle1", dataToggleHash:"#toogle1"}];
 
   traveller_Id=[];
@@ -92,6 +95,11 @@ export class AddTravellerComponent implements OnInit {
   country : string='';
   collectionDateError = false;
 
+  checkCity(i) {
+    console.log(i);
+    console.log(this.list.cities)
+    console.log(this.travellerForm.controls.travellers.controls[i].controls.state.value);
+  }
 
   ngOnInit() {
 
@@ -801,6 +809,8 @@ export class AddTravellerComponent implements OnInit {
   }
 
   addTraveller(): void {
+
+    // console.log(this.travellerForm.controls.travellers.control);
 
     if (!this.travellerForm.valid) {
       this.toastService.showNotification("Please fill in existing traveller details first",4000);
