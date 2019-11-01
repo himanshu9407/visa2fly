@@ -37,7 +37,7 @@ export class AddTravellerComponent implements OnInit {
 
 
 
-  list = {states :["Delhi NCR", "Haryana","Uttar Pradesh"],cities: {"Delhi NCR":["Delhi"], "Haryana":["Gurgaon"], "Uttar Pradesh":["Noida"]}  }
+  list = {states :["Delhi", "Haryana","Uttar Pradesh"],cities: {"Delhi":["Delhi"], "Haryana":["Gurgaon"], "Uttar Pradesh":["Noida"]}  }
   dataSource = [{id:"Primary",dataToggle:"toogle1", dataToggleHash:"#toogle1"}];
 
   traveller_Id=[];
