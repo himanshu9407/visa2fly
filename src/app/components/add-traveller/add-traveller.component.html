@@ -6,7 +6,7 @@
                     <div class="col-sm-6">
                         <div class="row placeContainer text-center">
                             <div class="col-lg-12">
-                                <img src="https://static.visa2fly.com/flag/{{country}}.png" alt="" class="img-fluid countryFlag rounded">
+                                <img src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}}" class="img-fluid countryFlag rounded">
                                 <div class="col-lg-12">
                                     <div class="selectedCountry">
                                         {{userFlowDetails.country}}
@@ -94,7 +94,7 @@
         <div class="addPassengerHeading">
             <div>
                 <span>
-          <img src="../../../assets/form/success.png" style="height: 20px;" alt="">
+          <img src="../../../assets/form/success.png" style="height: 20px;" alt="success icon">
         </span>
                 <span style="font-size: 12px"> 
           Corresponding Traveller Details are complete.
@@ -103,7 +103,7 @@
 
             <div>
                 <span>
-            <img src="../../../assets/form/error.png" style="height: 20px;" alt="">
+            <img src="../../../assets/form/error.png" style="height: 20px;" alt="error icon">
           </span>
                 <span style="font-size: 12px">
             Corresponding Traveller Details are missing.
@@ -128,11 +128,11 @@
             </button>
 
                                 <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
-              <img src="../../../assets/form/error.png" alt="error" style="height: 20px;">
+              <img src="../../../assets/form/error.png" alt="error icon" style="height: 20px;">
             </span>
 
                                 <span *ngIf="travellerForm.controls.travellers.controls[i].valid">
-              <img src="../../../assets/form/success.png" style="height: 20px;" alt="">
+              <img src="../../../assets/form/success.png" style="height: 20px;" alt="success icon">
             </span>
                                 <button *ngIf="!first" (click)="removeTraveller(i)" type="button" class="close float-right" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -437,7 +437,7 @@
                             </div>
                             <div class="form-check col-sm-4 col-md-3">
                                 <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-                                    <img src=" ../../../assets//sim.png" alt="" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
+                                    <img src=" ../../../assets//sim.png" alt="sim icon" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
                                     <input formControlName="sim" type="checkbox" class="custom-control-input" id="sim" />
                                     <label class="custom-control-label" for="sim">Sim</label>
 
@@ -448,7 +448,7 @@
                             <div class="form-check col-sm-4 col-md-3">
 
                                 <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-                                    <img src=" ../../../assets//credit-card.png" alt="" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
+                                    <img src=" ../../../assets//credit-card.png" alt="credit card icon" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
                                     <input formControlName="forex" type="checkbox" class="custom-control-input" id="forex" />
                                     <label class="custom-control-label" for="forex">Forex Card</label>
 
@@ -457,7 +457,7 @@
                             <div class="form-check col-sm-4 col-md-3">
                                 <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
 
-                                    <img src=" ../../../assets//travel-insurance.png" alt="" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
+                                    <img src=" ../../../assets//travel-insurance.png" alt="travel insurance icon" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
                                     <input formControlName="insurance" type="checkbox" class="custom-control-input" id="insurance" />
 
                                     <label class="custom-control-label" for="insurance">Insurance
