@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ],
+        "urls": [
+          "https://firebasestorage.googleapis.com/v0/b/visaapp2412.appspot.com/o/img.png?alt=media&amp;token=38a4a074-a596-495b-9fd0-d23394194a85",
+          "https://fonts.googleapis.com/css?family=Rubik&amp;display=swap",
+          "https://fonts.googleapis.com/css?family=Roboto&amp;display=swap",
+          "https://use.fontawesome.com/releases/v5.8.1/css/all.css",
+          "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js",
+          "https://code.jquery.com/jquery-3.1.1.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
+          "https://code.jquery.com/jquery-3.3.1.slim.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css",
+          "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "https://fonts.googleapis.com/icon?family=Material+Icons"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ]
+}

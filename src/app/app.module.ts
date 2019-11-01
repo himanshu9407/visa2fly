@@ -46,7 +46,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
 import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
-import { AboutUsComponent } from './components/static/about-us/about-us.component'
+import { AboutUsComponent } from './components/static/about-us/about-us.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'
 
 @NgModule({
   declarations: [
@@ -97,6 +99,7 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
 
   ],
