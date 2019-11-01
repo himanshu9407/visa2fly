@@ -248,13 +248,16 @@
                     <!-- <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                    <ul class="visa-type">
-                        <li>
+                    <ul class="row visa-type">
+                        <div class="col-6" style="padding-left: 0px; padding-right: 0px;">
                             Processing time:
-                            <span class="fieldData wordWrapping">{{
+                        </div>
+                            <div class="col-6 fieldData text-right" style="width: 145px; padding-left: 0px; padding-right: 0px">{{
                 quote.processingTime
-              }}</span>
-                        </li>
+              }}</div>
+                      
+                    </ul>
+                        <ul class="visa-type">
                         <li>
                             Stay period :
                             <span class="fieldData">{{
