@@ -199,7 +199,8 @@ export class HomeFormComponent {
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
-          this.country.setValue('Sri Lanka');
+          this.country.setValue(this.homeFormData.data.countries[0]);
+          this.selectedCountry = this.homeFormData.data.countries[0];
 
           console.log("here 1");
         }
@@ -209,7 +210,9 @@ export class HomeFormComponent {
           console.log("here 2");
         }
         if(popularCountry == ""  || popularCountry == undefined || popularCountry == null) {
-          this.country.setValue('Sri Lanka');
+          this.country.setValue(this.homeFormData.data.countries[0]);
+          this.selectedCountry = this.homeFormData.data.countries[0];
+
           console.log("here 3");
         }
         else {
