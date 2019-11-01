@@ -32,8 +32,8 @@ export class AddTravellerComponent implements OnInit {
   intialInfo = true;
   dateOfTravelModel : any ="";
   modalWarnings : Array<any> = [];
-  firstCity = "Gurgaon"
-  firstState = "Haryana"
+  // firstCity = "Gurgaon"
+  // firstState = "Haryana"
 
 
 
@@ -101,7 +101,7 @@ export class AddTravellerComponent implements OnInit {
   termsAndConditions : FormGroup;
   stayPeriod : string = "";
   minDate : any = '';
-  minDateDob : any = '';
+  maxDateDob : any = '';
   minDatePassportExpiry : any = '';
   minDateOfTravel : any = '';
   minDateOfCollection : any = '';
@@ -109,9 +109,14 @@ export class AddTravellerComponent implements OnInit {
   collectionDateError = false;
 
   checkCity(i) {
-    console.log(i);
-    console.log(this.list.cities)
-    console.log(this.travellerForm.controls.travellers.controls[i].controls.state.value);
+    // console.log(i);
+    // console.log(this.list.cities)
+    // console.log(this.firstCity);
+    let tempState = this.travellerForm.controls.travellers.controls[i].controls.state.value; 
+
+
+
+    this.travellerForm.controls.travellers.controls[i].controls.city.setValue(this.list.cities[tempState][0]);
   }
 
 
@@ -277,6 +282,11 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
+
+  checkDateOfDob(date : {month:any,day:any,year:any}) {
+
+  }
+
   ngOnInit() {
 
     setTimeout(() => {
@@ -305,11 +315,17 @@ export class AddTravellerComponent implements OnInit {
       month: current.getMonth() + 1,
       day: current.getDate()
     };
-    this.minDateDob = {
-      year: current.getFullYear(),
-      month: current.getMonth() + 1,
-      day: current.getDate()-1
+
+    let yesterday = new Date() ;
+    yesterday.setDate(yesterday.getDate()-1);
+
+    this.maxDateDob = {
+      year: yesterday.getFullYear(),
+      month: yesterday.getMonth() + 1,
+      day: yesterday.getDate()
     };
+  // this.checkDateOfDob(this.maxDateDob) ;
+
 
     this.minDateOfTravel = {
         // {year: minDate.year, month: minDate.month, day: minDate.day +3}
@@ -514,8 +530,8 @@ export class AddTravellerComponent implements OnInit {
         cellNumber:['',[Validators.required]],
         addressForPickupSame:[false,[Validators.required]],
         address:['',[Validators.required]],
-        state:['',[Validators.required]],
-        city:['',[Validators.required]],
+        state:['Haryana',[Validators.required]],
+        city:['Gurgaon',[Validators.required]],
         pinCode : ['',[Validators.required]]
       
       });
@@ -587,7 +603,7 @@ export class AddTravellerComponent implements OnInit {
     this.validateDate();
     this.checkDateOfCollection();
 
-    console.log(this.filedNameArr);
+    // console.log(this.filedNameArr);
     this.formData1.set("images","");
 
 
@@ -989,6 +1005,11 @@ export class AddTravellerComponent implements OnInit {
   selectedFile = null;
 
   check() {
+    let arr = (<FormArray>this.travellerForm.get('travellers')).controls;
+
+    arr.forEach((element : FormGroup) => {
+      console.log(element.value);
+    });
   }
   
   onFileSelected (event, index, controlName) {

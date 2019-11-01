@@ -208,7 +208,7 @@
                                         <label>Date Of Birth</label>
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="minDateDob" formControlName="dateOfBirth" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
+                                                <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob" formControlName="dateOfBirth" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i
                               class="fas fa-calendar-alt"></i>
@@ -343,7 +343,7 @@
                                     
                                     <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
                                         <label>State</label>
-                                        <select [(ngModel)] = "firstState"  formControlName = "state" id="" class="form-control">
+                                        <select (change)="checkCity(i)"  formControlName = "state" id="" class="form-control">
                                             <option  *ngFor="let state of list.states;let first=first" value="{{state}}" >{{state}}</option>
                                         </select>
                                         <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.city.errors.required && travellerForm.controls.
@@ -353,12 +353,12 @@
                                     </div>
                                     <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-2 mb-3">
                                             <label>City</label>
-                                            <select [(ngModel)] = "firstCity" formControlName="city"  name="" id="" class="form-control">
+                                            <select  formControlName="city"  name="" id="" class="form-control">
                                                 <option *ngFor="let city of list.cities[travellerForm.controls.travellers.controls[i].controls.state.value];let first=first" value="{{city}}" >{{city}}</option>
                                                 </select>
                                             <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.city.errors.required && travellerForm.controls.
                       travellers.controls[i].controls.state.touched" class="invalid-feedback" style="display: block">
-                      State is required
+                      State is required-
                     </div> -->
                                             <div *ngIf="travellerForm.controls.travellers.controls[i].controls.city.invalid" class="invalid-feedback" style="display: block">
                                                 Enter a valid city
@@ -494,7 +494,7 @@
               Proceed to payment
             </button>
 
-                    <!-- <button (click)="check()">chek</button> -->
+                    <button (click)="check()">chek</button>
                 </div>
             </div>
         </div>
