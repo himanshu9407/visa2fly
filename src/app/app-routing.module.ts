@@ -41,9 +41,9 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visOnArrival' , component : VisaArrivalComponent},
          {  path : 'visaArrival' , component : VisaArrivalComponent},
-        //  {  path : 'sim' , component : SimComponent},
-        //  {  path : 'sim/simplans' , component : SimplansComponent},
-        //  {  path : 'sim/checkout' , component : SimcheckoutComponent},
+         {  path : 'sim' , component : SimComponent},
+         {  path : 'sim/simplans' , component : SimplansComponent},
+         {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
 
