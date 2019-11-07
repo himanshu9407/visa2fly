@@ -257,6 +257,9 @@
                                             <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.errors?.valueErr" class="invalid-feedback" style="display: block">
                                                 Invalid Date of Passport Expiry
                                             </div>
+                                            <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.value == ''" class="invalid-feedback" style="display: block">
+                                                Select Date of Passport Expiry
+                                            </div>
                                         </div>
 
                                     </div>
