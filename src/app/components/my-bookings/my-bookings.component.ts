@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { MyBookingsService } from './mybookings.service';
 import { DownloadImageService } from 'src/app/shared/DownloadImage.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: 'app-my-bookings',
@@ -28,7 +29,7 @@ export class MyBookingsComponent implements OnInit {
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
               private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService,
-              private downloadImageService : DownloadImageService) {
+              private downloadImageService : DownloadImageService, private toastService : ToastService) {
     this.myBookings =   [];
 
     
@@ -132,24 +133,30 @@ export class MyBookingsComponent implements OnInit {
     });
     this.activeMobileBookingPage = this.myBookingsMobile[i];
   }
-  downloadInvoice (bookingId : string) {
-    console.log("invoice called");
-    this.downloadImageService.downloadInvoice(bookingId).subscribe(
-      (response : any) => {
+  downloadInvoice (bookingId : string,bookingStatus : string) {
+    // console.log("invoice called");
+    if(bookingStatus == 'g') {
 
-        let dataType = response.type;
-        let binaryData = [];
-        binaryData.push(response);
-        var a = document.createElement("a");
-        document.body.appendChild(a);
-        a.style.display = "none";
-        let url = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
-        a.href = url;
-        a.download = "Invoice"+bookingId;
-        a.click();
-        window.URL.revokeObjectURL(url);
-      }
-    )
+      this.downloadImageService.downloadInvoice(bookingId).subscribe(
+        (response : any) => {
+  
+          let dataType = response.type;
+          let binaryData = [];
+          binaryData.push(response);
+          var a = document.createElement("a");
+          document.body.appendChild(a);
+          a.style.display = "none";
+          let url = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
+          a.href = url;
+          a.download = "Invoice"+bookingId;
+          a.click();
+          window.URL.revokeObjectURL(url);
+        }
+      )
+    }
+    else {
+      this.toastService.showNotification("Invoice could not be generated as the payment failed.",4000);
+    } 
   }
 
 
