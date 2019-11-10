@@ -1,7 +1,7 @@
 <div class="pcOnly">
 
 
-<div *ngIf="totalCount > 0"  class="container myBooking">
+  <div *ngIf="totalCount > 0" class="container myBooking">
     <div class="row mt-4">
       <!-- <div class=""> -->
       <div class="col-lg-12">
@@ -10,9 +10,11 @@
         </div>
       </div>
 
-     
-      <div *ngFor="let booking of activePcBookingPage" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass] = "{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+
+      <div
+        *ngFor="let booking of activePcBookingPage | paginate: { itemsPerPage: 4, currentPage: currentPage1, id:'first' }"
+        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
               {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
@@ -61,28 +63,34 @@
                 <li>
                   Booking Status:
                   <!-- <span class="fieldData">123</span> -->
-                  <span [ngClass] = "{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }" class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
+                  <span
+                    [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }"
+                    class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
                 </li>
                 <li>
                   Payment status:
                   <!-- <span class="fieldData"></span> -->
                   <!-- <span class="fieldData badge badge-danger">Failed</span> -->
-                  <span class="fieldData badge "  [ngClass] = "{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }"
-                    >{{booking.booking.paymentStatus}}</span
-                  >
+                  <span class="fieldData badge "
+                    [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
                 </li>
               </ul>
             </div>
             <div class="card-footer">
               <div class="row">
                 <div class="col-6 button">
-                  <button (click) = "setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
+                  <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
                     View Detail
                   </button>
                 </div>
 
                 <div class="col-6 button">
+<<<<<<< Updated upstream
                   <button (click) = "downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)" type="button" class="btn btn-outline-success btn-sm">
+=======
+                  <button (click)="downloadInvoice(booking.booking.bookingId)" type="button"
+                    class="btn btn-outline-success btn-sm">
+>>>>>>> Stashed changes
                     Get Invoice
                   </button>
                 </div>
@@ -92,177 +100,152 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div *ngIf="totalCount > 0" class=""> 
-  <div  style="display: flex; justify-content: center; margin-bottom: 20px;">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li  *ngFor="let item of myBookingsPc; let i = index" (click) = "setActivePagePc(i)" [ngClass]="{'active': activePcPageNumber == i}" class="page-item"><a class="page-link" >{{i+1}}</a></li>
-        
-        <li class="page-item">
-          <a class="page-link" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
-
-<div class="container" *ngIf="totalCount < 1">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="emptyBanner">
-        <img src="../../../assets/empty_1.png" class="img-fluid mt-3" alt="empty cart image">
+    <div class="row">
+      <div class="col-12 mt-3">
+        <pagination-controls (pageChange)="currentPage1 = $event" maxSize="3" id="first" class="my-pagination text-center"
+responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
+          screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page">
+        </pagination-controls>
       </div>
     </div>
-   
   </div>
-</div>
+
+  <div class="container" *ngIf="totalCount < 1">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="emptyBanner">
+          <img src="../../../assets/empty_1.png" class="img-fluid mt-3" alt="empty cart image">
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 
 <div class="mobileOnly">
 
 
-    <div *ngIf="totalCount > 0" class="container myBooking">
-        <div class="row mt-4">
-          <!-- <div class=""> -->
-          <div class="col-lg-12">
-            <div class="title-box">
-              <h2>Order History ({{totalCount}})</h2>
+  <div *ngIf="totalCount > 0" class="container myBooking">
+    <div class="row mt-4">
+      <!-- <div class=""> -->
+      <div class="col-lg-12">
+        <div class="title-box">
+          <h2>Order History ({{totalCount}})</h2>
+        </div>
+      </div>
+
+
+      <div
+        *ngFor="let booking of activeMobileBookingPage | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
+        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+          <div class="card">
+            <div class="card-header priceHeading text-white">
+              {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
             </div>
-          </div>
-    
-         
-          <div *ngFor="let booking of activeMobileBookingPage" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-            <div [ngClass] = "{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
-              <div class="card">
-                <div class="card-header priceHeading text-white">
-                    {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
-                </div>
-                <div class="card-body">
-                  <!-- <h5 class="card-title">Special title treatment</h5>
+            <div class="card-body">
+              <!-- <h5 class="card-title">Special title treatment</h5>
                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                  <ul class="visa-type">
-                    <li>
-                      Booking ID:
-                      <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
-                    </li>
-                    <li>
-                      Transaction ID :
-                      <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
-                    </li>
-                    <li>
-                      Visa For :
-                      <span class="fieldData">{{booking.booking.visaForCountry}}</span>
-                    </li>
-                    <li>
-                      Visa Type:
-                      <span class="fieldData">{{booking.booking.visaType}}</span>
-                    </li>
-                    <li>
-                      Entry Type:
-                      <span class="fieldData">{{booking.booking.entryType}}</span>
-                    </li>
-                    <li>
-                      Total Travellers:
-                      <span class="fieldData">{{booking.booking.totalTravellers}}</span>
-                    </li>
-                    <li>
-                      Booking date:
-                      <span class="fieldData">{{booking.booking.bookingDate}}</span>
-                    </li>
-                    <li>
-                      Document Collection Date:
-                      <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
-                    </li>
-                    <li>
-                      Date of travel:
-                      <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
-                    </li>
-                    <li>
-                      Booking Status:
-                      <!-- <span class="fieldData">123</span> -->
-                      <span [ngClass] = "{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }" class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
-                    </li>
-                    <li>
-                      Payment status:
-                      <!-- <span class="fieldData"></span> -->
-                      <!-- <span class="fieldData badge badge-danger">Failed</span> -->
-                      <span class="fieldData badge "  [ngClass] = "{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }"
-                        >{{booking.booking.paymentStatus}}</span
-                      >
-                    </li>
-                  </ul>
+              <ul class="visa-type">
+                <li>
+                  Booking ID:
+                  <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
+                </li>
+                <li>
+                  Transaction ID :
+                  <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                </li>
+                <li>
+                  Visa For :
+                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li>
+                  Visa Type:
+                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                </li>
+                <li>
+                  Entry Type:
+                  <span class="fieldData">{{booking.booking.entryType}}</span>
+                </li>
+                <li>
+                  Total Travellers:
+                  <span class="fieldData">{{booking.booking.totalTravellers}}</span>
+                </li>
+                <li>
+                  Booking date:
+                  <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                </li>
+                <li>
+                  Document Collection Date:
+                  <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
+                </li>
+                <li>
+                  Date of travel:
+                  <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                </li>
+                <li>
+                  Booking Status:
+                  <!-- <span class="fieldData">123</span> -->
+                  <span
+                    [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }"
+                    class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
+                </li>
+                <li>
+                  Payment status:
+                  <!-- <span class="fieldData"></span> -->
+                  <!-- <span class="fieldData badge badge-danger">Failed</span> -->
+                  <span class="fieldData badge "
+                    [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-6 button">
+                  <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
+                    View Detail
+                  </button>
                 </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-6 button">
-                      <button (click) = "setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
-                        View Detail
-                      </button>
-                    </div>
-    
-                    <div class="col-6 button">
-                      <button (click) = "downloadInvoice(booking.booking.bookingId)" type="button" class="btn btn-outline-success btn-sm">
-                        Get Invoice
-                      </button>
-                    </div>
-                  </div>
+
+                <div class="col-6 button">
+                  <button (click)="downloadInvoice(booking.booking.bookingId)" type="button"
+                    class="btn btn-outline-success btn-sm">
+                    Get Invoice
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
-      <div *ngIf="totalCount > 0" class=""> 
-      <div  style="display: flex; justify-content: center; margin-bottom: 20px;">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link"  aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li *ngFor="let item of myBookingsMobile; let i = index" (click) ="setActivePageMobile(i)" [ngClass]="{'active': activeMobilePageNumber == i}" class="page-item"><a class="page-link" >{{i+1}}</a></li>
-            <li class="page-item">
-              <a class="page-link"  aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mt-3">
+        <pagination-controls (pageChange)="currentPage2 = $event" id="second" maxSize="3" class="my-pagination text-center"
+          autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
+          screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
+        </pagination-controls>
       </div>
     </div>
+  </div>
 
-    <div *ngIf="totalCount < 1" class="container d-flex justify-content-center" style="margin-top: 140px 0px 40px;">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="emptyBanner">
-            <img src="../../../assets/empty.png" class="img-fluid" alt="empty cart image">
-          </div>
-        </div>
-        <div class="col-md-12">
-          <button class="btn btn-primary text-center mb-4 mt-2" [routerLink]="['/home']" style="width: 100%">Shop Now</button>
+  <div *ngIf="totalCount < 1" class="container d-flex justify-content-center" style="margin-top: 140px 0px 40px;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="emptyBanner">
+          <img src="../../../assets/empty.png" class="img-fluid" alt="empty cart image">
         </div>
       </div>
+      <div class="col-md-12">
+        <button class="btn btn-primary text-center mb-4 mt-2" [routerLink]="['/home']" style="width: 100%">Shop
+          Now</button>
+      </div>
     </div>
+  </div>
 
-    </div>
-
-    
-
-   
+</div>

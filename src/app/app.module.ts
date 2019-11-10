@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -95,6 +96,7 @@ import { environment } from '../environments/environment'
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
     Ng2FlatpickrModule,
     FormsModule,
     ReactiveFormsModule,
