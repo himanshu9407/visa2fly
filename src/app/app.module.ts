@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import {MatSelectModule} from '@angular/material/select';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -48,7 +50,9 @@ import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
 import { AboutUsComponent } from './components/static/about-us/about-us.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { AustraliaComponent } from './components/visa-requirements/australia/australia.component';
+import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component'
 
 @NgModule({
   declarations: [
@@ -88,7 +92,9 @@ import { environment } from '../environments/environment'
     BookingDetailsComponent,
     SimplansComponent,
     SimcheckoutComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    AustraliaComponent,
+    UnitedKingdomComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +103,7 @@ import { environment } from '../environments/environment'
     BrowserAnimationsModule,
     Ng2FlatpickrModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     NgbModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),

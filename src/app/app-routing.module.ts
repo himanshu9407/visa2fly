@@ -1,3 +1,5 @@
+import { AustraliaComponent } from './components/visa-requirements/australia/australia.component';
+import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component';
     import { NgModule } from '@angular/core';
     import { RouterModule, Routes } from '@angular/router';
     import {RequirementsComponent} from './components/requirements/requirements.component'
@@ -45,7 +47,9 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
         //  {  path : 'sim/simplans' , component : SimplansComponent},
         //  {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
-         {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
+         {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
+         {path: 'united-kingdom', component: UnitedKingdomComponent},
+         {path: 'australia', component: AustraliaComponent}
 
         ];
 
