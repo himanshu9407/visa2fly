@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-united-kingdom',
@@ -21,12 +23,37 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 
 export class UnitedKingdomComponent implements OnInit {
+  @ViewChild('t',{static:true}) t;
+
+  selectedVisaType = "tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
-  constructor() { }
+
+  constructor(private activeRoute: ActivatedRoute, private router : Router) { }
 
   ngOnInit() {
+
+    this.activeRoute.params.subscribe(( params : any) => {
+      console.log(params);
+      this.selectedVisaType = params.visatype;
+      console.log(this.selectedVisaType);
+      setTimeout(() => {
+        
+        this.t.select(this.selectedVisaType);
+      }, 100);
+
+    });
   }
+  // ngAfterViewInit() {
+  //   this.t.select(this.selectedVisaType);
+  // }
+  navigateTo (visatype : any) {
+    // window.location
+    window.history.replaceState("", "", "/visa/united-kingdom/"+visatype.nextId);
+    // console.log("url changed");
+
+  }
+
 
 }
 
