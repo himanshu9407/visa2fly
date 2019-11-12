@@ -319,8 +319,10 @@
 <!-- desktopView Only -->
 <div class="container-fluid wrapContainer desktopContainer">
     <div style="border: 5px solid #e2e2e2; padding: 20px; background: #f5f5f5;">
-        <ngb-tabset class="tabset" type="pills" [justify]="desktopJustify" [orientation]="desktopOrientation">
-            <ngb-tab title="Tourist">
+        <ngb-tabset  #t="ngbTabset" (tabChange)="navigateTo($event)" class="tabset" type="pills" [justify]="desktopJustify" [orientation]="desktopOrientation">
+             
+            <ngb-tab id="tourist" title="Tourist">
+                
                 <ng-template ngbTabContent>
 
                     <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
@@ -767,7 +769,7 @@
 
                 </ng-template>
             </ngb-tab>
-            <ngb-tab title="Business">
+            <ngb-tab id="business" title="Business">
                 <ng-template ngbTabContent>
 
                     <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
@@ -1214,7 +1216,7 @@
 
                 </ng-template>
             </ngb-tab>
-            <ngb-tab title="Transit">
+            <ngb-tab id="transit" title="Transit">
                 <ng-template ngbTabContent>
 
                     <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
