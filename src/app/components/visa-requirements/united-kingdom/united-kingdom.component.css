@@ -19,6 +19,29 @@
   color: #fff;
 }
 
+:host ::ng-deep .iconTabset a.nav-link {
+  background: rgba(0, 37, 131, 0.2);
+  color: #000;
+  /* border: 1px solid #000080; */
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 0px;
+  height: 120px;
+  padding: 20px;
+  border: none;
+  max-width: 340px !important;
+  font-weight: 700;
+}
+
+:host ::ng-deep .iconTabset .nav-pills {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+:host ::ng-deep .iconTabset a.nav-link.active {
+  background: #a49cb2;
+}
+
 .requiredIconHeading {
   font-size: 16px;
   font-weight: 600;;
@@ -157,7 +180,10 @@ select:focus {
 
 .requiredIcon {
   border-radius: 0px;
-  background: rgba(0, 37, 131, 0.2);
+  margin-top: 4px;
+  background: #918b9c;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .setHeight {
@@ -205,7 +231,12 @@ select:focus {
   font-size: 24px;
   margin-bottom: 20px;
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+.iconSection {
+  border: 5px solid #e2e2e2; padding: 20px; background: #f5f5f5;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
   .imageContainer {
     padding: 90px 30px 10px;
   }
@@ -217,6 +248,15 @@ select:focus {
 :host ::ng-deep .tabset .nav-pills {
   margin-left: 150px;
   margin-right: 150px;
+}
+
+:host ::ng-deep .iconTabset .nav-pills {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+:host ::ng-deep .iconTabset a.nav-link {
+  max-width: 220px !important;
 }
 
 .requirementContainer {
@@ -239,6 +279,29 @@ select:focus {
   }
 }
 
+
+@media screen and (min-width: 768px) and (max-width: 800px) {
+
+  :host ::ng-deep .tabset .nav-pills {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+  
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  
+  :host ::ng-deep .iconTabset a.nav-link {
+    max-width: 165px !important;
+  }
+
+  .visaStepContainer {
+    margin-top: 20px;
+  }
+  
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .imageContainer {
     padding: 120px 10px 10px;
@@ -246,6 +309,7 @@ select:focus {
 
 
   .outerRequirement {
+    margin-top: 10px;
     line-height: 20px;
   }
 
@@ -265,6 +329,31 @@ select:focus {
     margin-left: 10px !important;
     margin-right: 10px !important;
   }
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 20px;
+    border: none;
+    max-width: 216px !important;
+    font-weight: 700;
+  }
+  
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  
+  :host ::ng-deep .iconTabset a.nav-link.active {
+    background: #a49cb2;
+  }
+  
+
 
   .faqQuery button {
     font-weight: 650;
@@ -291,6 +380,15 @@ select:focus {
     padding: 120px 10px 10px;
   }
 
+  .impRequired {
+    padding: 0px;
+  }
+
+  .iconSection {
+    border: 5px solid #e2e2e2; padding: 20px 0px !important; background: #f5f5f5;
+  }
+  
+
   :host ::ng-deep .tabset a.nav-link {
     background: #fff;
     color: #000;
@@ -307,6 +405,31 @@ select:focus {
     margin-left: 10px !important;
     margin-right: 10px !important;
   }
+
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 20px;
+    border: none;
+    max-width: 167px !important;
+    font-weight: 700;
+  }
+  
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  
+  :host ::ng-deep .iconTabset a.nav-link.active {
+    background: #a49cb2;
+  }
+    
 
   .planCardBody {
     padding: 10px 15px;
@@ -337,6 +460,7 @@ select:focus {
 
   .outerRequirement {
     line-height: 20px;
+    margin-top: 10px;
   }
   
   .faqContainer {
@@ -417,6 +541,11 @@ select:focus {
     padding: 120px 10px 10px;
   }
 
+  .iconSection {
+    border: 5px solid #e2e2e2; padding: 20px 0px !important; background: #f5f5f5;
+  }
+  
+
   .visaStepHeading {
     font-size: 18px;
   }
@@ -438,6 +567,30 @@ select:focus {
     margin-right: 10px !important;
   }
 
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 20px;
+    border: none;
+    max-width: 120px !important;
+    font-weight: 700;
+  }
+  
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  
+  :host ::ng-deep .iconTabset a.nav-link.active {
+    background: #a49cb2;
+  }
+    
+
   .planCardBody {
     padding: 10px 15px;
   }
@@ -455,6 +608,7 @@ select:focus {
 
 
   .outerRequirement {
+    margin-top: 10px;
     line-height: 20px;
   }
   
@@ -514,6 +668,10 @@ select:focus {
     padding: 0px;
   }
 
+  .impRequired {
+    padding: 0px;
+  }
+
 
   .wrapContainer {
     padding: 10px 15px 10px;
@@ -554,5 +712,83 @@ select:focus {
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 20px;
+  }
+
+ 
+}
+
+@media screen and (min-width: 1600px) {
+ 
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 20px;
+    border: none;
+    max-width: 456px !important;
+    font-weight: 700;
+  }
+
+}
+
+@media screen and (min-width: 1701px) and (max-width: 1800px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1833px !important;
+  }
+}
+
+@media screen and (min-width: 1601px) and (max-width: 1700px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1642px !important;
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1501px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1375px !important;
+  }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1401px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1287px !important;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1301px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1200px !important;
+  }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 1225px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1140px !important;
+  }
+}
+
+@media screen and (width: 768px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 633px !important;
+  }
+}
+
+@media screen and (width: 800px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 667px !important;
+  }
+}
+
+@media screen and (width: 1024px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 882px !important;
   }
 }
