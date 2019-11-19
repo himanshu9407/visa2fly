@@ -40,6 +40,7 @@
 
 :host ::ng-deep .iconTabset a.nav-link.active {
   background: #a49cb2;
+  color: #000;
 }
 
 .requiredIconHeading {
@@ -111,6 +112,7 @@ font-size: 14px;
   color: #fff !important;  
   text-decoration: none !important;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .visaTypeButton {
@@ -687,10 +689,6 @@ select:focus {
     display: none;
   }
 
-  .txtCenter {
-    text-align: center;
-  }
-
   .diffMg {
     margin-top: 4px;
   }
@@ -735,17 +733,25 @@ select:focus {
 
 }
 
+@media screen and (min-width: 1801px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1660px;
+  }
+}
+
+
 @media screen and (min-width: 1701px) and (max-width: 1800px) {
 
   :host ::ng-deep .iconTabset .tab-pane {
-    width: 1833px !important;
+    width: 1550px;
   }
 }
 
 @media screen and (min-width: 1601px) and (max-width: 1700px) {
 
   :host ::ng-deep .iconTabset .tab-pane {
-    width: 1642px !important;
+    width: 1480px !important;
   }
 }
 
@@ -765,13 +771,13 @@ select:focus {
 
 @media screen and (max-width: 1400px) and (min-width: 1301px) {
   :host ::ng-deep .iconTabset .tab-pane {
-    width: 1200px !important;
+    width: 1215px !important;
   }
 }
 
 @media screen and (max-width: 1300px) and (min-width: 1225px) {
   :host ::ng-deep .iconTabset .tab-pane {
-    width: 1140px !important;
+    width: 1090px !important;
   }
 }
 
@@ -780,6 +786,13 @@ select:focus {
     width: 633px !important;
   }
 }
+
+@media screen and (max-width: 767px) {
+ .txtCenter {
+   text-align: center !important;
+ }
+}
+
 
 @media screen and (width: 800px) {
   :host ::ng-deep .iconTabset .tab-pane {
@@ -792,3 +805,4 @@ select:focus {
     width: 882px !important;
   }
 }
+

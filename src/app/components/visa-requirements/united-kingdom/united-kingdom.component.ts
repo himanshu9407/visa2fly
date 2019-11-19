@@ -1,12 +1,23 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from "@angular/animations";
+import { ActivatedRoute, Router } from "@angular/router";
+
+export interface Food {
+  value: string;
+  viewValue: string;
+}
 
 
 @Component({
-  selector: 'app-united-kingdom',
-  templateUrl: './united-kingdom.component.html',
-  styleUrls: ['./united-kingdom.component.css'],
+  selector: "app-united-kingdom",
+  templateUrl: "./united-kingdom.component.html",
+  styleUrls: ["./united-kingdom.component.css"],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -17,43 +28,55 @@ import { ActivatedRoute, Router } from '@angular/router';
       transition(":enter", [style({ opacity: 0 }), animate(800)]),
 
       // fade out when destroyed. this could also be written as transition('void => *')
-      transition(":leave", animate(800, style({ opacity: 0, background: 'green' })))
+      transition(
+        ":leave",
+        animate(800, style({ opacity: 0, background: "green" }))
+      )
     ])
   ]
 })
-
 export class UnitedKingdomComponent implements OnInit {
-  @ViewChild('t',{static:true}) t;
+  @ViewChild("t", { static: true }) t;
+
+  selectedRequirement: boolean = false;
 
   selectedVisaType = "tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
 
-  constructor(private activeRoute: ActivatedRoute, private router : Router) { }
+  constructor(private activeRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-
-    this.activeRoute.params.subscribe(( params : any) => {
+    this.activeRoute.params.subscribe((params: any) => {
       console.log(params);
       this.selectedVisaType = params.visatype;
       console.log(this.selectedVisaType);
       setTimeout(() => {
-        
         this.t.select(this.selectedVisaType);
       }, 100);
-
     });
   }
   // ngAfterViewInit() {
   //   this.t.select(this.selectedVisaType);
   // }
-  navigateTo (visatype : any) {
+  navigateTo(visatype: any) {
     // window.location
-    window.history.replaceState("", "", "/visa/united-kingdom/"+visatype.nextId);
+    window.history.replaceState(
+      "",
+      "",
+      "/visa/united-kingdom/" + visatype.nextId
+    );
     // console.log("url changed");
+  }
+
+  onClickIcon() {
+  return this.selectedRequirement = !this.selectedRequirement;
 
   }
 
-
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
 }
-
