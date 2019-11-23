@@ -12,7 +12,7 @@
 
 
       <div
-        *ngFor="let booking of activePcBookingPage | paginate: { itemsPerPage: 4, currentPage: currentPage1, id:'first' }"
+        *ngFor="let booking of myBookings | paginate: { itemsPerPage: 4, currentPage: currentPage1, id:'first' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -85,12 +85,7 @@
                 </div>
 
                 <div class="col-6 button">
-<<<<<<< Updated upstream
                   <button (click) = "downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)" type="button" class="btn btn-outline-success btn-sm">
-=======
-                  <button (click)="downloadInvoice(booking.booking.bookingId)" type="button"
-                    class="btn btn-outline-success btn-sm">
->>>>>>> Stashed changes
                     Get Invoice
                   </button>
                 </div>
@@ -139,7 +134,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 
 
       <div
-        *ngFor="let booking of activeMobileBookingPage | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
+        *ngFor="let booking of myBookings | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -212,7 +207,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
                 </div>
 
                 <div class="col-6 button">
-                  <button (click)="downloadInvoice(booking.booking.bookingId)" type="button"
+                  <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)" type="button"
                     class="btn btn-outline-success btn-sm">
                     Get Invoice
                   </button>

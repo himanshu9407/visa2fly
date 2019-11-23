@@ -257,9 +257,6 @@
                                             <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.errors?.valueErr" class="invalid-feedback" style="display: block">
                                                 Invalid Date of Passport Expiry
                                             </div>
-                                            <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.value == ''" class="invalid-feedback" style="display: block">
-                                                Select Date of Passport Expiry
-                                            </div> -->
                                         </div>
 
                                     </div>
@@ -289,7 +286,7 @@
                     .gstNumber.invalid && travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.gstNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                    controls.gstNumber.pristine}" formControlName="gstNumber" type="text" class="form-control" id="GstNumber" placeholder="GSTIN No. (Optional)" pattern="^[A-Za-z0-9]+$" />
+                    controls.gstNumber.pristine}" formControlName="gstNumber" type="text" class="form-control" id="GstNumber" placeholder="GSTIN No. (Optional)" />
 
                                             <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
                       travellers.controls[i].controls.gstNumber.dirty) ||  (travellerForm.controls.travellers.controls[i].controls.gstNumber.errors?.valueErr)" class="invalid-feedback" style="display: block">
@@ -336,7 +333,7 @@
                     travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].
                     controls.address.pristine}" formControlName="address" class="form-control " placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
                                             <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.address.dirty) ||  (travellerForm.controls.travellers.controls[i].controls.address.errors?.valueErr)"  class="invalid-feedback" style="display: block">
+                  travellers.controls[i].controls.address.dirty) ||  (travellerForm.controls.travellers.controls[i].controls.address.errors?.valueErr)" class="invalid-feedback" style="display: block">
                                                 Enter a valid address
                                             </div>
                                             <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.address.errors.required && travellerForm.controls.
