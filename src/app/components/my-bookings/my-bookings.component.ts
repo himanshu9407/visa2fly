@@ -73,26 +73,26 @@ export class MyBookingsComponent implements OnInit {
               }
             })
   
-            let temparray,chunk = 6
+            // let temparray,chunk = 6
   
-            for (let i=0,j=this.myBookings.length; i<j; i+=chunk) {
-              temparray = this.myBookings.slice(i,i+chunk);
-              this.myBookingsPc.push(temparray);
+            // for (let i=0,j=this.myBookings.length; i<j; i+=chunk) {
+            //   temparray = this.myBookings.slice(i,i+chunk);
+            //   this.myBookingsPc.push(temparray);
           
-            }
-            this.activePcBookingPage = this.myBookingsPc[0];
+            // }
+            // this.activePcBookingPage = this.myBookingsPc[0];
   
-            let temparray1,chunk1 = 4
+            // let temparray1,chunk1 = 4
   
-            for (let i=0,j=this.myBookings.length; i<j; i+=chunk1) {
-              temparray1 = this.myBookings.slice(i,i+chunk1);
-              this.myBookingsMobile.push(temparray1);
+            // for (let i=0,j=this.myBookings.length; i<j; i+=chunk1) {
+            //   temparray1 = this.myBookings.slice(i,i+chunk1);
+            //   this.myBookingsMobile.push(temparray1);
           
             
-            }
+            // }
             this.activeMobileBookingPage = this.myBookingsMobile[0];
   
-            console.log(this.myBookingsMobile);
+            // console.log(this.myBookingsMobile);
           }
           else {
             this.totalCount = 0;
