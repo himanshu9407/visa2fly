@@ -607,7 +607,8 @@ export class AddTravellerComponent implements OnInit {
     this.formData1.set("images","");
 
 
-    if (this.travellerForm.valid && this.travelDetails.valid && this.valueAddedService.valid) {
+    if (this.travellerForm.valid && 
+      this.travelDetails.valid && this.valueAddedService.valid) {
         if(this.termsAndConditions.valid) {
           this.preloaderService.showPreloader(true);
 

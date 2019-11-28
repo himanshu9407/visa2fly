@@ -126,24 +126,27 @@ export class RequirementsComponent implements OnInit {
 
 
   ngOnInit() {
+
+
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
     // console.log(this.userFlowDetails);
 
-    this.reqService.getRequirementsData(this.userFlowDetails.country,this.userFlowDetails.purpose,this.userFlowDetails.entryType ).then((data : any )=> {
+    this.reqService.getRequirementsData(this.userFlowDetails.country,this.userFlowDetails.purpose,this.userFlowDetails.entryType )
+      .then((data : any )=> {
       if (data.code == "0") {
-
-        
         this.requirementsData = data;
-        console.log(data.data);
+        // console.log(data.data);
         this.importantInfo = data.data.importantInfo;
-        console.log(this.importantInfo);
+        // console.log(this.importantInfo);
         this.onlinestatus = data.data.onlineCategory;
         let tempFaqs = data.data.faqs; 
+        // console.log(tempFaqs);
 
         for (let key in tempFaqs) {
           let tempFaqObj = {title:key,content : tempFaqs[key]};
           this.faqs.push(tempFaqObj);
         }
+
         this.faqs.forEach((element,index) => {
           let  temp = {id:"",dataToggle:"",dataToggleHash:""};
           temp.id = "Traveller "+index;
