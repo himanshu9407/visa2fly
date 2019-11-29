@@ -338,7 +338,7 @@
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
                         <!-- tourist -->
                         <div class="row">
-                            <div class="col-12 text-center">
+                            <div class="col-12 text-center mgxTop">
                                 <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                                         VISA REQUIREMENT FOR
                                         united kingdom</span>
@@ -347,10 +347,10 @@
                         </div>
 
                         <!-- desktopContainer -->
-                        <div class="desktopContainer">
+                        <div class="desktopContainer accordion" id="touristAccodion">
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="touristAccodion" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true"
@@ -361,7 +361,7 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristOne" class="collapse show" aria-labelledby="headingOne"
+                                            <div id="touristOne" class="collapsed" aria-labelledby="headingOne"
                                                 data-parent="#touristAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
@@ -531,8 +531,8 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="accordionTouristTwo" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristFive" aria-expanded="true"
@@ -545,7 +545,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="touristFive" class="collapse" aria-labelledby="headingFive"
-                                                data-parent="#accordionTouristTwo">
+                                                data-parent="#touristAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -580,7 +580,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="touristSix" class="collapse" aria-labelledby="headingSix"
-                                                data-parent="#accordionTouristTwo">
+                                                data-parent="#touristAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -609,7 +609,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="touristSeven" class="collapse" aria-labelledby="headingSeven"
-                                                data-parent="#accordionTouristTwo">
+                                                data-parent="#touristAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -644,7 +644,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="touristEight" class="collapse" aria-labelledby="headingEight"
-                                                data-parent="#accordionTouristTwo">
+                                                data-parent="#touristAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -685,8 +685,8 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="touristAccodionThree" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristNine" aria-expanded="true"
@@ -700,7 +700,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="touristNine" class="collapse" aria-labelledby="headingNine"
-                                                data-parent="#touristAccodionThree">
+                                                data-parent="#touristAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -737,10 +737,10 @@
 
 
                         <!-- mobileContainer -->
-                        <div class="mobileContainer">
+                        <div class="mobileContainer accordion" id="touristAccodionMobile">
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="touristAccodionMobileOne" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileOne"
@@ -751,9 +751,8 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileOne" class="collapse show"
-                                                aria-labelledby="headingMobileOne"
-                                                data-parent="#touristAccodionMobileOne">
+                                            <div id="touristMobileOne" class="collapsed"
+                                                aria-labelledby="headingMobileOne" data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -798,8 +797,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileTwo" class="collapse"
-                                                aria-labelledby="headingMobileTwo"
-                                                data-parent="#touristAccodionMobileOne">
+                                                aria-labelledby="headingMobileTwo" data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -826,8 +824,8 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="touristAccodionMobileTwo" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileThree"
@@ -841,7 +839,7 @@
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileThree" class="collapse"
                                                 aria-labelledby="headingMobileThree"
-                                                data-parent="#touristAccodionMobileTwo">
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -878,7 +876,7 @@
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileFour" class="collapse"
                                                 aria-labelledby="headingMobileFour"
-                                                data-parent="#touristAccodionMobileTwo">
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -933,8 +931,8 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="touristAccodionMobileThree" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileFive"
@@ -948,7 +946,7 @@
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileFive" class="collapse"
                                                 aria-labelledby="headingMobileFive"
-                                                data-parent="#touristAccodionMobileThree">
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -982,8 +980,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileSix" class="collapse"
-                                                aria-labelledby="headingMobileSix"
-                                                data-parent="#touristAccodionMobileThree">
+                                                aria-labelledby="headingMobileSix" data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -1004,8 +1001,8 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="touristAccodionMobileFour" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileSeven"
@@ -1019,7 +1016,7 @@
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileSeven" class="collapse"
                                                 aria-labelledby="headingMobileSeven"
-                                                data-parent="#touristAccodionMobileFour">
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -1055,7 +1052,7 @@
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileEight" class="collapse"
                                                 aria-labelledby="headingMobileEight"
-                                                data-parent="#touristAccodionMobileFour">
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -1096,8 +1093,8 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="touristAccodionMobileFive" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileNine"
@@ -1112,7 +1109,7 @@
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileNine" class="collapse"
                                                 aria-labelledby="headingMobileNine"
-                                                data-parent="#touristAccodionMobileFive">
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -1171,20 +1168,13 @@
                                             aria-labelledby="headingTouristOne"
                                             data-parent="#unitedkingdomAccordionTourist">
                                             <div class="card-body">
-                                                <p>You should NOT book any airfare or hotel before your UK visa is
-                                                    approved. In the event of visa
-                                                    refusal, you will lose the money you have spent on your flight or
-                                                    hotel.</p>
-                                                <p>For your UK visa application, get a flight itinerary by either
-                                                    holding a flight reservation or
-                                                    purchasing a
-                                                    refundable flight ticket. British Airways provides the option to
-                                                    email a fare quote which works
-                                                    as a
-                                                    flight itinerary for your visa application. Hotel booking sites such
-                                                    as Expedia or Booking.com
-                                                    has
-                                                    plenty of “refundable / pay at check-in” options. </p>
+                                                <p>For your UK visa application, it is advised to get a flight itinerary
+                                                    by either holding a flight reservation or purchasing a refundable
+                                                    flight ticket. Avoid booking non-refundable flights so that you do
+                                                    not lose money in the event of a visa refusal.</p>
+
+                                                <p> British Airways provides the option to email a fare quote which
+                                                    works as a flight itinerary for your visa application.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1300,7 +1290,7 @@
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
                         <!-- business -->
                         <div class="row">
-                            <div class="col-12 text-center">
+                            <div class="col-12 text-center mgxTop">
                                 <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
                                         VISA REQUIREMENT FOR
                                         united kingdom</span>
@@ -1308,13 +1298,14 @@
                             </div>
                         </div>
 
-                        <div class="desktopContainer">
+                        <div class="desktopContainer accordion" id="businessAccodion">
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="businessAccodionOne" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessOne" aria-expanded="true"
+                                            <div data-toggle="collapse" id="#businessHeadingOne"
+                                                data-target="#businessOne" aria-expanded="true"
                                                 aria-controls="businessOne">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
                                                     alt="Form" style="height: 45px; margin-bottom: 10px;" />
@@ -1322,8 +1313,8 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessOne" class="collapse show" aria-labelledby="businessOne"
-                                                data-parent="#businessAccodionOne">
+                                            <div id="businessOne" class="collapsed" aria-labelledby="businessHeadingOne"
+                                                data-parent="#businessAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -1358,7 +1349,8 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessTwo" aria-expanded="true"
+                                            <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse"
+                                                data-target="#businessTwo" aria-expanded="false"
                                                 aria-controls="businessTwo">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
@@ -1368,8 +1360,8 @@
 
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessTwo" class="collapse" aria-labelledby="businessTwo"
-                                                data-parent="#businessAccodionOne">
+                                            <div id="businessTwo" class="collapse" aria-labelledby="businessHeadingTwo"
+                                                data-parent="#businessAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -1394,8 +1386,9 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessThree"
-                                                aria-expanded="true" aria-controls="businessThree">
+                                            <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
+                                                data-target="#businessThree" aria-expanded="false"
+                                                aria-controls="businessThree">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Photograph.png"
                                                     alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
@@ -1403,8 +1396,8 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessThree" class="collapse" aria-labelledby="businessThree"
-                                                data-parent="#businessAccodionOne">
+                                            <div id="businessThree" class="collapse"
+                                                aria-labelledby="businessHeadingThree" data-parent="#businessAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -1428,7 +1421,8 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessFour" aria-expanded="true"
+                                            <div class="collapsed" id="#businessHeadingFour" data-toggle="collapse"
+                                                data-target="#businessFour" aria-expanded="false"
                                                 aria-controls="businessFour">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Proof of Funds.png"
@@ -1437,11 +1431,427 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessFour" class="collapse" aria-labelledby="businessFour"
-                                                data-parent="#businessAccodionOne">
+                                            <div id="businessFour" class="collapse"
+                                                aria-labelledby="businessHeadingFour" data-parent="#businessAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
+                                                        <h1 class="requiredIconHeading">Proof of
+                                                            Funds</h1>
+                                                        <p>
+                                                            Applicant needs to provide proof of means of subsistence to
+                                                            cover
+                                                            living
+                                                            You should NOT book any airfare or hotel before your UK visa
+                                                            is
+                                                            approved. In the event of visa
+                                                            refusal, you will lose the money you have spent on your
+                                                            flight or
+                                                            hotel.</p>
+                                                        <p>For your UK visa application, get a flight itinerary by
+                                                            either
+                                                            holding a flight reservation or
+                                                            purchasing a
+                                                            refundable flight ticket. British Airways provides the
+                                                            option to
+                                                            email a fare quote which works
+                                                            as a
+                                                            flight itinerary for your visa application. Hotel booking
+                                                            sites such
+                                                            as Expedia or Booking.com
+                                                            has
+                                                            plenty of “refundable / pay at check-in” options. costs in
+                                                            the
+                                                            UK. Applicant needs to provide last 6 months bank statement
+                                                            signed
+                                                            and
+                                                            attested by
+                                                            a bank official. In case of a business visit the applicant
+                                                            must
+                                                            also
+                                                            provide bank
+                                                            statement of the company / person sponsoring his/her trip.
+                                                            All
+                                                            bank
+                                                            statements must
+                                                            be dated within last 1 week from the date of submission.
+                                                            Additionally
+                                                            copies fixed
+                                                            deposits and other cash forms may also be used to
+                                                            substantiate
+                                                            this.
+                                                        </p>
+                                                        <p>As a guide, a person must have sufficient funds in his/her
+                                                            bank
+                                                            account
+                                                            continuously
+                                                            for the last 6 months. Average requirement for sufficiency
+                                                            can
+                                                            be
+                                                            calculated at Rs.
+                                                            15,000 per day of visit per person to the UK. Eg - For a
+                                                            single
+                                                            person
+                                                            travelling on a
+                                                            10 day visit, the person must ideally show Rs. 1,50,000 (Rs.
+                                                            15,000/day
+                                                            x 10 days) in
+                                                            his/her bank account continuously for the last 6 months.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                </ngb-tabset>
+                            </div>
+
+                            <div class="row mt-4">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#businessFive" aria-expanded="true"
+                                                aria-controls="businessFive">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Accommodation.png"
+                                                    alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Accommodation</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="businessFive" class="collapse" aria-labelledby="businessFive"
+                                                data-parent="#businessAccodion">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body">
+                                                        <h1 class="requiredIconHeading">Accommodation
+                                                        </h1>
+                                                        <p>
+                                                            Proof of accommodation mentioning where you will be staying
+                                                            during
+                                                            your
+                                                            entire stay
+                                                            in the UK, which could be at a friend or relative’s place or
+                                                            at
+                                                            a
+                                                            hotel
+                                                            or a hostel.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#businessSix" aria-expanded="true"
+                                                aria-controls="businessSix">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                                                    alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Flight Tickets</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="businessSix" class="collapse" aria-labelledby="businessSix"
+                                                data-parent="#businessAccodion">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body">
+                                                        <h1 class="requiredIconHeading">Flight
+                                                            Tickets
+                                                        </h1>
+                                                        <p>
+                                                            Valid roundtrip flight itinerary for visa application or
+                                                            confirmed
+                                                            flight reservation.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#businessSeven"
+                                                aria-expanded="true" aria-controls="businessSeven">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
+                                                    style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Itinerary</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="businessSeven" class="collapse" aria-labelledby="businessSeven"
+                                                data-parent="#businessAccodion">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body">
+                                                        <h1 class="requiredIconHeading">Itinerary
+                                                        </h1>
+                                                        <p>
+                                                            Your detailed travel itinerary which gives information of
+                                                            your
+                                                            travel
+                                                            plans in the UK
+                                                            along with tickets, places you are going to visit, your
+                                                            meeting
+                                                            agenda,
+                                                            tours booked
+                                                            in advance, your festival agenda, etc.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#businessEight"
+                                                aria-expanded="true" aria-controls="businessEight">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                                                    alt="Employment / Student Proof"
+                                                    style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                                                <h2 class="setFontSize">Employment / Student Proof</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="businessEight" class="collapse" aria-labelledby="businessEight"
+                                                data-parent="#businessAccodion">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body">
+                                                        <h1 class="requiredIconHeading">Employment /
+                                                            Student Proof</h1>
+                                                        <p>
+                                                            For Employed Persons - A letter from your employer on
+                                                            company
+                                                            headed
+                                                            paper
+                                                            detailing your role, salary and length of employment,
+                                                            business
+                                                            card
+                                                            and
+                                                            6 month’s
+                                                            salary slips and Income Tax Returns (last 3 years)</p>
+                                                        <p>For Self-Employed Persons - business registration documents
+                                                            confirming
+                                                            the
+                                                            business owner’s name and the date the business started
+                                                            trading
+                                                            and
+                                                            three years tax
+                                                            returns of the business.</p>
+                                                        <p>For Students - a letter from your education provider, on
+                                                            headed
+                                                            paper,
+                                                            confirming
+                                                            your enrolment and leave of absence.
+
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                </ngb-tabset>
+                            </div>
+
+                            <div class="row mt-4">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#businessNine" aria-expanded="true"
+                                                aria-controls="businessNine">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Other Documents.png"
+                                                    alt="Other Documents"
+                                                    style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                                                <h2 class="setFontSize">Other Documents</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="businessNine" class="collapse" aria-labelledby="businessNine"
+                                                data-parent="#businessAccodion">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body">
+                                                        <h1 class="requiredIconHeading">Other
+                                                            Documents</h1>
+                                                        <p>
+                                                            1. Tuberculosis test results, if you belong to a country
+                                                            listed
+                                                            amongst
+                                                            countries
+                                                            requiring a prior TB test before coming to the UK for a
+                                                            period
+                                                            over
+                                                            six
+                                                            months</p>
+                                                        <p>2. UK visa invitation letter should be submitted if it is
+                                                            applicable.
+                                                            It
+                                                            is a letter of
+                                                            invitation issued by a company, citizen or legal resident of
+                                                            the
+                                                            UK
+                                                            stating that they
+                                                            have invited you to stay with them.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                </ngb-tabset>
+                            </div>
+                        </div>
+
+                        <!-- mobileContainer -->
+                        <div class="mobileContainer accordion" id="touristAccodionMobile">
+                            <div class="row mt-4">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#touristMobileOne"
+                                                aria-expanded="true" aria-controls="touristMobileOne">
+                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
+                                                    alt="Form" style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Form</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="touristMobileOne" class="collapsed"
+                                                aria-labelledby="headingMobileOne" data-parent="#touristAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
+                                                        <h1 class="requiredIconHeading">Form</h1>
+                                                        <p>Applicant needs to fill up an online form which will require
+                                                            details
+                                                            such
+                                                            as
+                                                            Personal, Travel,
+                                                            Passport, Dependant, Parents, Employment, Income and
+                                                            expenditure,
+                                                            Family
+                                                            in the
+                                                            UK,
+                                                            Accommodation , Travel history (UK & Other), Other history,
+                                                            Convictions
+                                                            and
+                                                            other
+                                                            penalties,
+                                                            Extra information.</p>
+                                                        <p>Don’t worry! V2F agent will come to your doorstep and assist
+                                                            you
+                                                            in
+                                                            filling up
+                                                            the
+                                                            complete form
+                                                            as per information provided by you.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#touristMobileTwo"
+                                                aria-expanded="true" aria-controls="touristMobileTwo">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
+                                                    style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Passport</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="touristMobileTwo" class="collapse"
+                                                aria-labelledby="headingMobileTwo" data-parent="#touristAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
+                                                        <h1 class="requiredIconHeading">Passport</h1>
+                                                        <p>
+                                                            Passport details are mandatory. The applicant’s passport
+                                                            must be
+                                                            issued
+                                                            within the
+                                                            last 10 years, should be valid for 6 months beyond the
+                                                            intended
+                                                            date
+                                                            of
+                                                            departure
+                                                            from this country; should contain at least 2 blank visa
+                                                            pages.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                </ngb-tabset>
+                            </div>
+
+                            <div class="row mt-4">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#touristMobileThree"
+                                                aria-expanded="true" aria-controls="touristMobileThree">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Photograph.png"
+                                                    alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Photograph</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="touristMobileThree" class="collapse"
+                                                aria-labelledby="headingMobileThree"
+                                                data-parent="#touristAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
+                                                        <h1 class="requiredIconHeading">Photograph
+                                                        </h1>
+                                                        <p>
+                                                            UK visa photo requirements include light grey or plain cream
+                                                            background,
+                                                            and visa
+                                                            photo size is 45 millimetres high by 35 millimetres wide,
+                                                            head
+                                                            must
+                                                            be
+                                                            29-34 mm
+                                                            high. The photo should be taken within the last month only
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+
+
+                                    </ngb-tab>
+                                    <ngb-tab>
+                                        <ng-template ngbTabTitle>
+                                            <div data-toggle="collapse" data-target="#touristMobileFour"
+                                                aria-expanded="true" aria-controls="touristMobileFour">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                                                    alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Proof of Funds</h2>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template ngbTabContent>
+                                            <div id="touristMobileFour" class="collapse"
+                                                aria-labelledby="headingMobileFour"
+                                                data-parent="#touristAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Proof of
                                                             Funds</h1>
                                                         <p>
@@ -1493,12 +1903,12 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="businessAccodionTwo" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessFive" aria-expanded="true"
-                                                aria-controls="businessFive">
+                                            <div data-toggle="collapse" data-target="#touristMobileFive"
+                                                aria-expanded="true" aria-controls="touristMobileFive">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Accommodation.png"
                                                     alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
@@ -1506,11 +1916,12 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessFive" class="collapse" aria-labelledby="businessFive"
-                                                data-parent="#businessAccodionTwo">
+                                            <div id="touristMobileFive" class="collapse"
+                                                aria-labelledby="headingMobileFive"
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body">
+                                                    <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Accommodation
                                                         </h1>
                                                         <p>
@@ -1531,8 +1942,8 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessSix" aria-expanded="true"
-                                                aria-controls="businessSix">
+                                            <div data-toggle="collapse" data-target="#touristMobileSix"
+                                                aria-expanded="true" aria-controls="touristMobileSix">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Flight Tickets.png"
                                                     alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
@@ -1540,8 +1951,8 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessSix" class="collapse" aria-labelledby="businessSix"
-                                                data-parent="#businessAccodionTwo">
+                                            <div id="touristMobileSix" class="collapse"
+                                                aria-labelledby="headingMobileSix" data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -1558,10 +1969,16 @@
                                             </div>
                                         </ng-template>
                                     </ngb-tab>
+                                </ngb-tabset>
+                            </div>
+
+                            <div class="row mt-4">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessSeven"
-                                                aria-expanded="true" aria-controls="businessSeven">
+                                            <div data-toggle="collapse" data-target="#touristMobileSeven"
+                                                aria-expanded="true" aria-controls="touristMobileSeven">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -1569,11 +1986,12 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessSeven" class="collapse" aria-labelledby="businessSeven"
-                                                data-parent="#businessAccodionTwo">
+                                            <div id="touristMobileSeven" class="collapse"
+                                                aria-labelledby="headingMobileSeven"
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body">
+                                                    <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Itinerary
                                                         </h1>
                                                         <p>
@@ -1594,21 +2012,22 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessEight"
-                                                aria-expanded="true" aria-controls="businessEight">
+                                            <div data-toggle="collapse" data-target="#touristMobileEight"
+                                                aria-expanded="true" aria-controls="touristMobileEight">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
                                                     alt="Employment / Student Proof"
-                                                    style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                                                    style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Employment / Student Proof</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessEight" class="collapse" aria-labelledby="businessEight"
-                                                data-parent="#businessAccodionTwo">
+                                            <div id="touristMobileEight" class="collapse"
+                                                aria-labelledby="headingMobileEight"
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body">
+                                                    <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Employment /
                                                             Student Proof</h1>
                                                         <p>
@@ -1646,12 +2065,12 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="businessAccodionThree" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#businessNine" aria-expanded="true"
-                                                aria-controls="businessNine">
+                                            <div data-toggle="collapse" data-target="#touristMobileNine"
+                                                aria-expanded="true" aria-controls="touristMobileNine">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Other Documents.png"
                                                     alt="Other Documents"
@@ -1660,11 +2079,12 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="businessNine" class="collapse" aria-labelledby="businessNine"
-                                                data-parent="#businessAccodionThree">
+                                            <div id="touristMobileNine" class="collapse"
+                                                aria-labelledby="headingMobileNine"
+                                                data-parent="#touristAccodionMobile">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body">
+                                                    <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Other
                                                             Documents</h1>
                                                         <p>
@@ -1695,415 +2115,7 @@
                             </div>
                         </div>
 
-                        <!-- mobileContainer -->
-                        <div class="mobileContainer">
-                                <div class="row mt-4">
-                                    <ngb-tabset class="accordion" id="businessAccodionMobileOne" [justify]="desktopJustify"
-                                        [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileOne"
-                                                    aria-expanded="true" aria-controls="businessMobileOne">
-                                                    <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
-                                                        alt="Form" style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Form</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileOne" class="collapse show"
-                                                    aria-labelledby="headingMobileOne"
-                                                    data-parent="#businessAccodionMobileOne">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Form</h1>
-                                                            <p>Applicant needs to fill up an online form which will require
-                                                                details
-                                                                such
-                                                                as
-                                                                Personal, Travel,
-                                                                Passport, Dependant, Parents, Employment, Income and
-                                                                expenditure,
-                                                                Family
-                                                                in the
-                                                                UK,
-                                                                Accommodation , Travel history (UK & Other), Other history,
-                                                                Convictions
-                                                                and
-                                                                other
-                                                                penalties,
-                                                                Extra information.</p>
-                                                            <p>Don’t worry! V2F agent will come to your doorstep and assist
-                                                                you
-                                                                in
-                                                                filling up
-                                                                the
-                                                                complete form
-                                                                as per information provided by you.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileTwo"
-                                                    aria-expanded="true" aria-controls="businessMobileTwo">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
-                                                        style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Passport</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileTwo" class="collapse"
-                                                    aria-labelledby="headingMobileTwo"
-                                                    data-parent="#businessAccodionMobileOne">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Passport</h1>
-                                                            <p>
-                                                                Passport details are mandatory. The applicant’s passport
-                                                                must be
-                                                                issued
-                                                                within the
-                                                                last 10 years, should be valid for 6 months beyond the
-                                                                intended
-                                                                date
-                                                                of
-                                                                departure
-                                                                from this country; should contain at least 2 blank visa
-                                                                pages.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                    </ngb-tabset>
-                                </div>
-    
-                                <div class="row mt-4">
-                                    <ngb-tabset class="accordion" id="businessAccodionMobileTwo" [justify]="desktopJustify"
-                                        [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileThree"
-                                                    aria-expanded="true" aria-controls="businessMobileThree">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Photograph.png"
-                                                        alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Photograph</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileThree" class="collapse"
-                                                    aria-labelledby="headingMobileThree"
-                                                    data-parent="#businessAccodionMobileTwo">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Photograph
-                                                            </h1>
-                                                            <p>
-                                                                UK visa photo requirements include light grey or plain cream
-                                                                background,
-                                                                and visa
-                                                                photo size is 45 millimetres high by 35 millimetres wide,
-                                                                head
-                                                                must
-                                                                be
-                                                                29-34 mm
-                                                                high. The photo should be taken within the last month only
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-    
-    
-                                        </ngb-tab>
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileFour"
-                                                    aria-expanded="true" aria-controls="businessMobileFour">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                                                        alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Proof of Funds</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileFour" class="collapse"
-                                                    aria-labelledby="headingMobileFour"
-                                                    data-parent="#businessAccodionMobileTwo">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Proof of
-                                                                Funds</h1>
-                                                            <p>
-                                                                Applicant needs to provide proof of means of subsistence to
-                                                                cover
-                                                                living
-                                                                costs in the
-                                                                UK. Applicant needs to provide last 6 months bank statement
-                                                                signed
-                                                                and
-                                                                attested by
-                                                                a bank official. In case of a business visit the applicant
-                                                                must
-                                                                also
-                                                                provide bank
-                                                                statement of the company / person sponsoring his/her trip.
-                                                                All
-                                                                bank
-                                                                statements must
-                                                                be dated within last 1 week from the date of submission.
-                                                                Additionally
-                                                                copies fixed
-                                                                deposits and other cash forms may also be used to
-                                                                substantiate
-                                                                this.
-                                                            </p>
-                                                            <p>As a guide, a person must have sufficient funds in his/her
-                                                                bank
-                                                                account
-                                                                continuously
-                                                                for the last 6 months. Average requirement for sufficiency
-                                                                can
-                                                                be
-                                                                calculated at Rs.
-                                                                15,000 per day of visit per person to the UK. Eg - For a
-                                                                single
-                                                                person
-                                                                travelling on a
-                                                                10 day visit, the person must ideally show Rs. 1,50,000 (Rs.
-                                                                15,000/day
-                                                                x 10 days) in
-                                                                his/her bank account continuously for the last 6 months.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                    </ngb-tabset>
-                                </div>
-    
-                                <div class="row mt-4">
-                                    <ngb-tabset class="accordion" id="businessAccodionMobileThree" [justify]="desktopJustify"
-                                        [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileFive"
-                                                    aria-expanded="true" aria-controls="businessMobileFive">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Accommodation.png"
-                                                        alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Accommodation</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileFive" class="collapse"
-                                                    aria-labelledby="headingMobileFive"
-                                                    data-parent="#businessAccodionMobileThree">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Accommodation
-                                                            </h1>
-                                                            <p>
-                                                                Proof of accommodation mentioning where you will be staying
-                                                                during
-                                                                your
-                                                                entire stay
-                                                                in the UK, which could be at a friend or relative’s place or
-                                                                at
-                                                                a
-                                                                hotel
-                                                                or a hostel.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileSix"
-                                                    aria-expanded="true" aria-controls="businessMobileSix">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                                                        alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Flight Tickets</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileSix" class="collapse"
-                                                    aria-labelledby="headingMobileSix"
-                                                    data-parent="#businessAccodionMobileThree">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body">
-                                                            <h1 class="requiredIconHeading">Flight
-                                                                Tickets
-                                                            </h1>
-                                                            <p>
-                                                                Valid roundtrip flight itinerary for visa application or
-                                                                confirmed
-                                                                flight reservation.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                    </ngb-tabset>
-                                </div>
-    
-                                <div class="row mt-4">
-                                    <ngb-tabset class="accordion" id="businessAccodionMobileFour" [justify]="desktopJustify"
-                                        [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileSeven"
-                                                    aria-expanded="true" aria-controls="businessMobileSeven">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
-                                                        style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Itinerary</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileSeven" class="collapse"
-                                                    aria-labelledby="headingMobileSeven"
-                                                    data-parent="#businessAccodionMobileFour">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Itinerary
-                                                            </h1>
-                                                            <p>
-                                                                Your detailed travel itinerary which gives information of
-                                                                your
-                                                                travel
-                                                                plans in the UK
-                                                                along with tickets, places you are going to visit, your
-                                                                meeting
-                                                                agenda,
-                                                                tours booked
-                                                                in advance, your festival agenda, etc.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileEight"
-                                                    aria-expanded="true" aria-controls="businessMobileEight">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                                                        alt="Employment / Student Proof"
-                                                        style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Employment / Student Proof</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileEight" class="collapse"
-                                                    aria-labelledby="headingMobileEight"
-                                                    data-parent="#businessAccodionMobileFour">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Employment /
-                                                                Student Proof</h1>
-                                                            <p>
-                                                                For Employed Persons - A letter from your employer on
-                                                                company
-                                                                headed
-                                                                paper
-                                                                detailing your role, salary and length of employment,
-                                                                business
-                                                                card
-                                                                and
-                                                                6 month’s
-                                                                salary slips and Income Tax Returns (last 3 years)</p>
-                                                            <p>For Self-Employed Persons - business registration documents
-                                                                confirming
-                                                                the
-                                                                business owner’s name and the date the business started
-                                                                trading
-                                                                and
-                                                                three years tax
-                                                                returns of the business.</p>
-                                                            <p>For Students - a letter from your education provider, on
-                                                                headed
-                                                                paper,
-                                                                confirming
-                                                                your enrolment and leave of absence.
-    
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                    </ngb-tabset>
-                                </div>
-    
-                                <div class="row mt-4">
-                                    <ngb-tabset class="accordion" id="businessAccodionMobileFive" [justify]="desktopJustify"
-                                        [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                        <ngb-tab>
-                                            <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#businessMobileNine"
-                                                    aria-expanded="true" aria-controls="businessMobileNine">
-                                                    <img class="img-fluid"
-                                                        src="https://static.visa2fly.com/icon/Other Documents.png"
-                                                        alt="Other Documents"
-                                                        style="height: 45px; margin-bottom: 10px;" />
-                                                    <h2 class="setFontSize">Other Documents</h2>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbTabContent>
-                                                <div id="businessMobileNine" class="collapse"
-                                                    aria-labelledby="headingMobileNine"
-                                                    data-parent="#businessAccodionMobileFive">
-                                                    <div class="card requiredIcon"
-                                                        style="background: rgba(0, 37, 131, 0.2);">
-                                                        <div class="card-body" style="padding: 10px">
-                                                            <h1 class="requiredIconHeading">Other
-                                                                Documents</h1>
-                                                            <p>
-                                                                1. Tuberculosis test results, if you belong to a country
-                                                                listed
-                                                                amongst
-                                                                countries
-                                                                requiring a prior TB test before coming to the UK for a
-                                                                period
-                                                                over
-                                                                six
-                                                                months</p>
-                                                            <p>2. UK visa invitation letter should be submitted if it is
-                                                                applicable.
-                                                                It
-                                                                is a letter of
-                                                                invitation issued by a company, citizen or legal resident of
-                                                                the
-                                                                UK
-                                                                stating that they
-                                                                have invited you to stay with them.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-tab>
-                                    </ngb-tabset>
-                                </div>
-                            </div>
+
                     </div>
 
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
@@ -2130,20 +2142,13 @@
                                             aria-labelledby="headingBusinessOne"
                                             data-parent="#unitedkingdomAccordionBusiness">
                                             <div class="card-body">
-                                                <p>You should NOT book any airfare or hotel before your UK visa is
-                                                    approved. In the event of visa
-                                                    refusal, you will lose the money you have spent on your flight or
-                                                    hotel.</p>
-                                                <p>For your UK visa application, get a flight itinerary by either
-                                                    holding a flight reservation or
-                                                    purchasing a
-                                                    refundable flight ticket. British Airways provides the option to
-                                                    email a fare quote which works
-                                                    as a
-                                                    flight itinerary for your visa application. Hotel booking sites such
-                                                    as Expedia or Booking.com
-                                                    has
-                                                    plenty of “refundable / pay at check-in” options. </p>
+                                                <p>For your UK visa application, it is advised to get a flight itinerary
+                                                    by either holding a flight reservation or purchasing a refundable
+                                                    flight ticket. Avoid booking non-refundable flights so that you do
+                                                    not lose money in the event of a visa refusal.</p>
+
+                                                <p> British Airways provides the option to email a fare quote which
+                                                    works as a flight itinerary for your visa application.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -2260,7 +2265,7 @@
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
                         <!-- transit -->
                         <div class="row">
-                            <div class="col-12 text-center">
+                            <div class="col-12 text-center mgxTop">
                                 <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
                                         VISA REQUIREMENT FOR
                                         united kingdom</span>
@@ -2268,10 +2273,10 @@
                             </div>
                         </div>
 
-                        <div class="desktopContainer">
+                        <div class="desktopContainer accordion" id="transitAccodion">
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="transitAccodionOne" [justify]="desktopJustify"
-                                    [orientation]="desktopOrientation" class="iconTabset" type="pills">
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                    class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitOne" aria-expanded="true"
@@ -2282,8 +2287,8 @@
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="transitOne" class="collapse show" aria-labelledby="transitOne"
-                                                data-parent="#transitAccodionOne">
+                                            <div id="transitOne" class="collapsed" aria-labelledby="transitOne"
+                                                data-parent="#transitAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -2328,7 +2333,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="transitTwo" class="collapse" aria-labelledby="transitTwo"
-                                                data-parent="#transitAccodionOne">
+                                                data-parent="#transitAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -2363,7 +2368,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="transitThree" class="collapse" aria-labelledby="transitThree"
-                                                data-parent="#transitAccodionOne">
+                                                data-parent="#transitAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -2391,7 +2396,7 @@
                                         </ng-template>
                                         <ng-template ngbTabContent>
                                             <div id="transitFour" class="collapse" aria-labelledby="transitFour"
-                                                data-parent="#transitAccodionOne">
+                                                data-parent="#transitAccodion">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
@@ -2410,82 +2415,87 @@
                         </div>
 
 
-                        <div class="mobileContainer">
+                        <div class="mobileContainer accordion" id="transitAccodionMobile">
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="transitAccodionMobileOne" [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
                                     class="iconTabset" type="pills">
                                     <ngb-tab>
-                                            
+
                                         <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#transitMobileOne" aria-expanded="true"
-                                                aria-controls="transitMobileOne">
-                                            <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
-                                                alt="Form" style="height: 45px; margin-bottom: 10px;" />
-                                            <h2 class="setFontSize">Form</h2>
-                                                </div>
+                                            <div data-toggle="collapse" data-target="#transitMobileOne"
+                                                aria-expanded="true" aria-controls="transitMobileOne">
+                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
+                                                    alt="Form" style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Form</h2>
+                                            </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                                <div id="transitMobileOne" class="collapse show" aria-labelledby="transitMobileOne"
-                                                data-parent="#transitAccodionMobileOne">
-                                            <div class="card requiredIcon"
-                                                style="background: rgba(0, 37, 131, 0.2);">
-                                                <div class="card-body" style="padding: 10px">
-                                                    <h1 class="requiredIconHeading">Form</h1>
-                                                    <p>Applicant needs to fill up an online form which will require
-                                                        details
-                                                        such
-                                                        as
-                                                        Personal, Travel,
-                                                        Passport, Dependant, Parents, Employment, Income and
-                                                        expenditure,
-                                                        Family
-                                                        in the
-                                                        UK,
-                                                        Accommodation , Travel history (UK & Other), Other history,
-                                                        Convictions
-                                                        and
-                                                        other
-                                                        penalties,
-                                                        Extra information.</p>
-                                                    <p>Don’t worry! V2F agent will come to your doorstep and assist you
-                                                        in
-                                                        filling up
-                                                        the
-                                                        complete form
-                                                        as per information provided by you.</p>
+                                            <div id="transitMobileOne" class="collapsed"
+                                                aria-labelledby="transitMobileOne" data-parent="#transitAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
+                                                        <h1 class="requiredIconHeading">Form</h1>
+                                                        <p>Applicant needs to fill up an online form which will require
+                                                            details
+                                                            such
+                                                            as
+                                                            Personal, Travel,
+                                                            Passport, Dependant, Parents, Employment, Income and
+                                                            expenditure,
+                                                            Family
+                                                            in the
+                                                            UK,
+                                                            Accommodation , Travel history (UK & Other), Other history,
+                                                            Convictions
+                                                            and
+                                                            other
+                                                            penalties,
+                                                            Extra information.</p>
+                                                        <p>Don’t worry! V2F agent will come to your doorstep and assist
+                                                            you
+                                                            in
+                                                            filling up
+                                                            the
+                                                            complete form
+                                                            as per information provided by you.</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                                </div>
                                         </ng-template>
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#transitMobileTwo" aria-expanded="true"
-                                                aria-controls="transitMobileTwo">
-                                            <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
-                                                alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
-                                            <h2 class="setFontSize">Passport</h2>
-                                                </div>
+                                            <div data-toggle="collapse" data-target="#transitMobileTwo"
+                                                aria-expanded="true" aria-controls="transitMobileTwo">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
+                                                    style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Passport</h2>
+                                            </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                                <div id="transitMobileTwo" class="collapse" aria-labelledby="transitMobileTwo"
-                                                data-parent="#transitAccodionMobileOne">
-                                            <div class="card requiredIcon" 
-                                                style="background: rgba(0, 37, 131, 0.2);">
-                                                <div class="card-body" style="padding: 10px">
-                                                    <h1 class="requiredIconHeading">Passport</h1>
-                                                    <p>
-                                                        Passport details are mandatory. The applicant’s passport must be
-                                                        issued
-                                                        within the
-                                                        last 10 years, should be valid for 6 months beyond the intended
-                                                        date
-                                                        of
-                                                        departure
-                                                        from this country; should contain at least 2 blank visa pages.
-                                                    </p>
+                                            <div id="transitMobileTwo" class="collapse"
+                                                aria-labelledby="transitMobileTwo" data-parent="#transitAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
+                                                        <h1 class="requiredIconHeading">Passport</h1>
+                                                        <p>
+                                                            Passport details are mandatory. The applicant’s passport
+                                                            must be
+                                                            issued
+                                                            within the
+                                                            last 10 years, should be valid for 6 months beyond the
+                                                            intended
+                                                            date
+                                                            of
+                                                            departure
+                                                            from this country; should contain at least 2 blank visa
+                                                            pages.
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </div>
                                         </ng-template>
                                     </ngb-tab>
@@ -2493,59 +2503,62 @@
                             </div>
 
                             <div class="row mt-4">
-                                <ngb-tabset class="accordion" id="transitAccodionMobileTwo" [justify]="desktopJustify" [orientation]="desktopOrientation"
+                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
                                     class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true"
-                                                aria-controls="transitMobileThree">
-                                            <img class="img-fluid"
-                                                src="https://static.visa2fly.com/icon/Flight Booking.png"
-                                                alt="Flight Booking" style="height: 45px; margin-bottom: 10px;" />
-                                            <h2 class="setFontSize">Flight Booking</h2>
-                                                </div>
+                                            <div data-toggle="collapse" data-target="#transitMobileThree"
+                                                aria-expanded="true" aria-controls="transitMobileThree">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Flight Booking.png"
+                                                    alt="Flight Booking" style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Flight Booking</h2>
+                                            </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                                <div id="transitMobileThree" class="collapse" aria-labelledby="transitMobileThree"
-                                                data-parent="#transitAccodionMobileTwo">
-                                            <div class="card requiredIcon"
-                                                style="background: rgba(0, 37, 131, 0.2);">
-                                                <div class="card-body" style="padding: 10px">
-                                                    <h1 class="requiredIconHeading">Flight
-                                                        Booking</h1>
-                                                    <p>Valid confirmed flight reservation to the destination country
-                                                        from
-                                                        the
-                                                        UK.</p>
+                                            <div id="transitMobileThree" class="collapse"
+                                                aria-labelledby="transitMobileThree"
+                                                data-parent="#transitAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
+                                                        <h1 class="requiredIconHeading">Flight
+                                                            Booking</h1>
+                                                        <p>Valid confirmed flight reservation to the destination country
+                                                            from
+                                                            the
+                                                            UK.</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                                </div>
                                         </ng-template>
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                                <div data-toggle="collapse" data-target="#transitMobileFour" aria-expanded="true"
-                                                aria-controls="transitMobileFour">
-                                            <img class="img-fluid"
-                                                src="https://static.visa2fly.com/icon/Visa of Visiting Country.png"
-                                                alt="Visa Of Visiting Country"
-                                                style="height: 45px; margin-bottom: 10px;" />
-                                            <h2 class="setFontSize">Visa Of Visiting Country</h2>
-                                                </div>
+                                            <div data-toggle="collapse" data-target="#transitMobileFour"
+                                                aria-expanded="true" aria-controls="transitMobileFour">
+                                                <img class="img-fluid"
+                                                    src="https://static.visa2fly.com/icon/Visa of Visiting Country.png"
+                                                    alt="Visa Of Visiting Country"
+                                                    style="height: 45px; margin-bottom: 10px;" />
+                                                <h2 class="setFontSize">Visa Of Visiting Country</h2>
+                                            </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                                <div id="transitMobileFour" class="collapse" aria-labelledby="transitMobileFour"
-                                                data-parent="#transitAccodionMobileTwo">
-                                            <div class="card requiredIcon"
-                                                style="background: rgba(0, 37, 131, 0.2);">
-                                                <div class="card-body" style="padding: 10px">
-                                                    <h1 class="requiredIconHeading">Visa of
-                                                        Visiting Country</h1>
-                                                    <p>A valid visa for the country for which you are departing the UK.
-                                                    </p>
+                                            <div id="transitMobileFour" class="collapse"
+                                                aria-labelledby="transitMobileFour"
+                                                data-parent="#transitAccodionMobile">
+                                                <div class="card requiredIcon"
+                                                    style="background: rgba(0, 37, 131, 0.2);">
+                                                    <div class="card-body" style="padding: 10px">
+                                                        <h1 class="requiredIconHeading">Visa of
+                                                            Visiting Country</h1>
+                                                        <p>A valid visa for the country for which you are departing the
+                                                            UK.
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                                </div>
                                         </ng-template>
                                     </ngb-tab>
                                 </ngb-tabset>
@@ -2577,7 +2590,8 @@
                                             aria-labelledby="headingTransitOne"
                                             data-parent="#unitedkingdomAccordionTransit">
                                             <div class="card-body">
-                                                <p>You will need a transit visa if you have to pass through border
+                                                <p style="font-size: 16px;">You will need a transit visa if you have to
+                                                    pass through border
                                                     control. You will pass through border
                                                     control if:</p>
                                                 <li>you leave the airport building for any reason</li>

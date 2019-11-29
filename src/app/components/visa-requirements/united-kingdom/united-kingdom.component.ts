@@ -13,7 +13,6 @@ export interface Food {
   viewValue: string;
 }
 
-
 @Component({
   selector: "app-united-kingdom",
   templateUrl: "./united-kingdom.component.html",
@@ -37,6 +36,7 @@ export interface Food {
 })
 export class UnitedKingdomComponent implements OnInit {
   @ViewChild("t", { static: true }) t;
+  ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
 
@@ -53,7 +53,7 @@ export class UnitedKingdomComponent implements OnInit {
       console.log(this.selectedVisaType);
       setTimeout(() => {
         this.t.select(this.selectedVisaType);
-      }, 100);
+      }, 6000);
     });
   }
   // ngAfterViewInit() {
@@ -68,15 +68,4 @@ export class UnitedKingdomComponent implements OnInit {
     );
     // console.log("url changed");
   }
-
-  onClickIcon() {
-  return this.selectedRequirement = !this.selectedRequirement;
-
-  }
-
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
 }
