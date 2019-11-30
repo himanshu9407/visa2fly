@@ -24,7 +24,7 @@ export class MyBookingsComponent implements OnInit {
   activePcPageNumber : number = 0;
   activeMobilePageNumber : number = 0;
   activeMobileBookingPage : Array<any> = [];
-
+  allBooking : any;
   AUTH_TOKEN = "";
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
@@ -44,69 +44,75 @@ export class MyBookingsComponent implements OnInit {
       ( data : any ) => {
                
         if (data.code == "0") {
-          this.myBookings = data.data.bookings;
-          if(this.myBookings !=null ) {
-
-            this.totalCount = data.data.bookings.length;
-            this.myBookings.forEach(element => {
-              if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
-              ||element.booking.bookingStatus == "Visa application approved"  ) {
-                element.booking.statusColor = "g";
-              }
-              else if (element.booking.bookingStatus="Payment failed" || element.booking.bookingStatus=="Visa application rejected") {
-                element.booking.statusColor = "r";
-  
-              }
-              else {
-                element.booking.statusColor = "y";
-  
-              }
-              if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
-  
-              }
-              else if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
-              }
-              else {
-                element.booking.paymentColor = 'y';
-              }
-            })
-  
-            // let temparray,chunk = 6
-  
-            // for (let i=0,j=this.myBookings.length; i<j; i+=chunk) {
-            //   temparray = this.myBookings.slice(i,i+chunk);
-            //   this.myBookingsPc.push(temparray);
-          
-            // }
-            // this.activePcBookingPage = this.myBookingsPc[0];
-  
-            // let temparray1,chunk1 = 4
-  
-            // for (let i=0,j=this.myBookings.length; i<j; i+=chunk1) {
-            //   temparray1 = this.myBookings.slice(i,i+chunk1);
-            //   this.myBookingsMobile.push(temparray1);
-          
+          this.bookingService.getBookingsFromServer().subscribe((res) =>{
+            this.allBooking = res;
+             // console.log(this.allBooking);
+             // this.myBookings = this.allBooking;
+               // console.log(this.myBookings[0]['booking']);
+             if(this.allBooking != null ) {
+              // console.log(this.myBookings);
+              this.totalCount = this.allBooking.data.length;
+             // console.log(this.totalCount);
+              this.allBooking.data.forEach(element => {
+                // console.log(element);
+                if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
+                ||element.booking.bookingStatus == "Visa application approved"  ) {
+                  element.booking.statusColor = "g";
+                }
+                else if (element.booking.bookingStatus="Payment failed" || element.booking.bookingStatus=="Visa application rejected") {
+                  element.booking.statusColor = "r";
+    
+                }
+                else {
+                  element.booking.statusColor = "y";
+    
+                }
+                if (element.booking.paymentStatus == "Payment completed") {
+                  element.booking.paymentColor = "g";
+    
+                }
+                else if (element.booking.paymentStatus == "Payment completed") {
+                  element.booking.paymentColor = "g";
+                }
+                else {
+                  element.booking.paymentColor = 'y';
+                }
+              });
+    
+              // let temparray,chunk = 6
+    
+              // for (let i=0,j=this.allBooking.data.length; i<j; i+=chunk) {
+              //   temparray = this.allBooking.data.slice(i,i+chunk);
+              //   this.myBookingsPc.push(temparray);
             
-            // }
-            this.activeMobileBookingPage = this.myBookingsMobile[0];
-  
-            // console.log(this.myBookingsMobile);
-          }
-          else {
-            this.totalCount = 0;
-          }
-
-        
-         
-        }
-        else {
-          // router.navigate(['']);
-        }
-    }      
-    );
-    this.preloaderService.showPreloader(false);
+              // }
+              
+              // this.activePcBookingPage = this.myBookingsPc[0]['data'];
+              // console.log(this.activePcBookingPage);
+              // let temparray1,chunk1 = 4
+    
+              // for (let i=0,j=this.allBooking.data.length; i<j; i+=chunk1) {
+              //   temparray1 = this.allBooking.data.slice(i,i+chunk1);
+              //   this.myBookingsMobile.push(temparray1);
+            
+              
+              // }
+              this.activeMobileBookingPage = this.myBookingsMobile[0];
+    
+              // console.log(this.myBookingsMobile);
+             }
+            else {
+              this.totalCount = 0;
+            }
+           
+          
+          // else {
+          // // router.navigate(['']);
+          //  }
+        });
+          this.preloaderService.showPreloader(false);
+      };
+    });
   }
 
   setActivePagePc(i : number) {

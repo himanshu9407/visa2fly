@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(
       (event) => {
         if (event instanceof NavigationStart) {
-          console.log(event.url);
+         // console.log(event.url);
 
           if(event.url == "/" || event.url == "/visa" || event.url == "/sim" || event.url == "/sim/simplans" ) {
             this.showTransparentNavbar = true;
@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
   //  console.log(this.userLoggedIn);
 
     this.userDetails = JSON.parse(localStorage.getItem('profile'));
-    console.log(this.userDetails);
+    // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 
     this.loginStatus.getData().subscribe(

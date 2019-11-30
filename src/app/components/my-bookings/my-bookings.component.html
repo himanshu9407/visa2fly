@@ -12,7 +12,7 @@
 
 
       <div
-        *ngFor="let booking of myBookings | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
+        *ngFor="let booking of allBooking.data | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
