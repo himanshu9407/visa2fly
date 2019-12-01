@@ -6,7 +6,7 @@
     <input minlength="6" pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$" formControlName="userId" placeholder="Email/Mobile" type="text" class="form-control roundedinput" [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}"/>
     <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
         <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
-        <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address of mobile number</div>
+        <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address or mobile number</div>
       </div>
   </div>
 

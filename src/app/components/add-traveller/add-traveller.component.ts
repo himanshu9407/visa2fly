@@ -607,8 +607,8 @@ export class AddTravellerComponent implements OnInit {
     this.formData1.set("images","");
 
 
-    if (this.travellerForm.valid  
-      && this.travelDetails.valid && this.valueAddedService.valid) {
+    if (this.travellerForm.valid && 
+      this.travelDetails.valid && this.valueAddedService.valid) {
         if(this.termsAndConditions.valid) {
           this.preloaderService.showPreloader(true);
 
@@ -682,8 +682,10 @@ export class AddTravellerComponent implements OnInit {
             
             form.get('dateOfBirth').setValue(tempDob);
             form.get('passportExpiryDate').setValue(tempDoe);
-         
+            form.get('dateOfBirth').updateValueAndValidity();
+            form.get('passportExpiryDate').updateValueAndValidity();
             
+           
           });
       
           
@@ -814,6 +816,18 @@ export class AddTravellerComponent implements OnInit {
                 console.log(data.data.applicantsFormValidationResult);
       
                 let errArr : Array<any> = data.data.applicantsFormValidationResult;
+                // tempArr.forEach((form:FormGroup,index) => {
+                //   console.log(form.get('dateOfBirth').value);
+                //   let respDob : string = form.get('dateOfBirth').value;
+                //   let year = respDob.substring(0,4);
+                //   let month = respDob.substring(5,7);
+                //   let day = respDob.substring(8,10);
+                //   console.log(year+"*"+month+"*"+day);
+                //   let dateObj = {year : year,month : month,day : day};
+
+                //   form.get('dateOfBirth').setValue(dateObj);
+                 
+                //   });
                 tempArr.forEach((form:FormGroup,index) => {
       
                       console.log(Object.keys(errArr[index]));
@@ -824,10 +838,15 @@ export class AddTravellerComponent implements OnInit {
                           
                           let control = form.get(el);
                           if (control != null) {
-                            control.setErrors({valueErr: true});
-                            console.log(control.errors + el);
-                            control.updateValueAndValidity();
+                            // control.s
+                            control.setErrors(null);
+                            control.setErrors({"valueErr": true});
+                            // console.log(this.travellerForm.controls.travellers.controls[0].controls.dateOfBirth.value)
+                            // control.get
+                            // control.updateValueAndValidity();
+                            console.log(control.getError("valueErr") + el);
                             // control.
+                            console.log(control);
                           }
                         }
                       });
