@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   profile:any = {emailId:"",firstName:""};
   mindate : any = "";
   profileForm :  FormGroup;
+  hidedata : any;
   constructor(private loginStatusService :LoginStatusService, private loginService : LoginService,
     private userFlow : UserFlowDetails, private preloaderService : PreloaderService, private router : Router,
     private profleService : ProfileService, private toastService: ToastService) {
@@ -27,6 +28,7 @@ export class ProfileComponent implements OnInit {
       if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
         AUTH_TOKEN = "";
       }
+      
       this.profileForm = new FormGroup ({
         'title' : new FormControl(this.profile.title || "Mr",[]),
         'firstName' : new FormControl(this.profile.firstName || "abc",[Validators.required]),
@@ -42,14 +44,14 @@ export class ProfileComponent implements OnInit {
         
       });
 
-
+    
   
   
       this.loginStatusService.verifyAuthToken(AUTH_TOKEN).subscribe (
         (data: any) => {
           if (data.code == "0") {
             this.profile = data.data.profile;
-            console.log(this.profile.firstName);
+            // console.log(this.profile.firstName);
             // this.preloaderService.showPreloader(false);
 
             this.profileForm.setValue({
@@ -81,7 +83,7 @@ export class ProfileComponent implements OnInit {
         }
       )
 
-        console.log("hello worold");
+        // console.log("hello worold");
      
      }
 
@@ -127,12 +129,12 @@ export class ProfileComponent implements OnInit {
     this.profleService.updateProfile(reqData).subscribe (
       (data : any) => {
         if(data.code  == "0") {
-          console.log(data);
+          // console.log(data);
           this.toastService.showNotification(data.message,4000);
           this.router.navigate(['profile']);
         }
         else {
-          console.log(data);
+          // console.log(data);
           this.toastService.showNotification(data.message,4000);
         }
       }

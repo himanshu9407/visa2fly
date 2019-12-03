@@ -296,7 +296,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    console.log(this.imageUploads);
+   // console.log(this.imageUploads);
     if(this.imageUploads == "null") {
       this.imageUploads = []
     }
@@ -335,7 +335,7 @@ export class AddTravellerComponent implements OnInit {
       day: this.minDate.day +4
     }
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
-    console.log(this.minDateOfTravel);
+    //console.log(this.minDateOfTravel);
 
 
     this.minDateOfCollection = {
@@ -346,22 +346,22 @@ export class AddTravellerComponent implements OnInit {
     }
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
-    console.log(this.minDateOfCollection);
+    //console.log(this.minDateOfCollection);
 
 
     
     if(current.getMonth() >=6) {
-      console.log("greater than 6 month");
+      // console.log("greater than 6 month");
       let x = 12 - (current.getMonth()+1) 
       this.minDatePassportExpiry = {
         year: current.getFullYear()+1,
         month: 6-x,
         day: current.getDate()
       };
-      console.log(x);
+      //console.log(x);
     }
     else {
-      console.log("less than 6 month");
+     // console.log("less than 6 month");
 
       this.minDatePassportExpiry = {
         year: current.getFullYear(),
@@ -370,7 +370,7 @@ export class AddTravellerComponent implements OnInit {
       };
     }
 
-    console.log(this.minDatePassportExpiry);
+   // console.log(this.minDatePassportExpiry);
     this.checkDateOfExpiry (this.minDatePassportExpiry) ;
     
 
@@ -384,8 +384,8 @@ export class AddTravellerComponent implements OnInit {
     this.basePrice = JSON.parse(data.basePrice);
     this.serviceTax = JSON.parse(data.serviceTax);
 
-    console.log(this.basePrice);
-    console.log(this.serviceTax);
+    //console.log(this.basePrice);
+    //console.log(this.serviceTax);
     this.stayPeriod = data.stayPeriod;
 
 
@@ -546,7 +546,7 @@ export class AddTravellerComponent implements OnInit {
   checkDateOfTravel () {
     this.travelDetails.get('dateOfCollection').setValue('');
 
-    console.log(this.travelDetails.get('dateOfTravel').value);
+   // console.log(this.travelDetails.get('dateOfTravel').value);
 
     let temp : any = this.travelDetails.get('dateOfTravel').value;
     this.minDateOfCollection = {
@@ -557,8 +557,8 @@ export class AddTravellerComponent implements OnInit {
     }
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
-    console.log(this.minDateOfCollection);
-    console.log("hello world");
+    //console.log(this.minDateOfCollection);
+    //console.log("hello world");
  
   }
 
@@ -638,7 +638,7 @@ export class AddTravellerComponent implements OnInit {
               this.primaryState = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('state').value;
               this.primaryCity = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('city').value;
               this.primaryPinCode = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('pinCode').value;;
-              console.log("inside other travellers")
+              //console.log("inside other travellers")
               let same = form.get('addressForPickupSame').value;
               
               if (same) {
@@ -700,7 +700,7 @@ export class AddTravellerComponent implements OnInit {
             // console.log(element);
             }); 
       
-            console.log(ptdata[0]);
+           // console.log(ptdata[0]);
             // console.log(tempArr);
             
       
@@ -776,9 +776,9 @@ export class AddTravellerComponent implements OnInit {
             let tempData  = (<FormArray>this.travellerForm.get('travellers')).controls|| [];
       
             
-            console.log(tempData.values());
+            //console.log(tempData.values());
 
-            console.log(this.travellerForm.get('travellers').value);
+            //console.log(this.travellerForm.get('travellers').value);
             
       
           this.travellerService.submitForm(this.formData1).subscribe(
@@ -789,7 +789,7 @@ export class AddTravellerComponent implements OnInit {
       
                 this.travellerService.hitPaymentApi().subscribe(
                   (data1 : any) => {
-                    console.log(data1);
+                    //console.log(data1);
                     this.buyerEmail = data1.buyerEmail;
                     this.orderId = data1.orderId;
                     this.amount = data1.amount;
@@ -799,9 +799,9 @@ export class AddTravellerComponent implements OnInit {
                     this.checksum = data1.checksum;
                     // this.paymentUrl = data1.paymentUrl;
       
-                    console.log(document.forms["paymentForm"]);
+                    //console.log(document.forms["paymentForm"]);
       
-                    console.log(this.paymentForm);
+                    //console.log(this.paymentForm);
                     setTimeout(() => {
                       this.preloaderService.showPreloader(false);
                       document.forms["paymentForm"].submit();
@@ -813,7 +813,7 @@ export class AddTravellerComponent implements OnInit {
               }
       
               else if (data.code == "1000") {
-                console.log(data.data.applicantsFormValidationResult);
+                //console.log(data.data.applicantsFormValidationResult);
       
                 let errArr : Array<any> = data.data.applicantsFormValidationResult;
                 // tempArr.forEach((form:FormGroup,index) => {
@@ -830,7 +830,7 @@ export class AddTravellerComponent implements OnInit {
                 //   });
                 tempArr.forEach((form:FormGroup,index) => {
       
-                      console.log(Object.keys(errArr[index]));
+                     // console.log(Object.keys(errArr[index]));
                       let keysArr : Array<any> = Object.keys(errArr[index]);
                       keysArr.forEach((el : string) => {
                         let tempObj = errArr[index];
@@ -844,9 +844,9 @@ export class AddTravellerComponent implements OnInit {
                             // console.log(this.travellerForm.controls.travellers.controls[0].controls.dateOfBirth.value)
                             // control.get
                             // control.updateValueAndValidity();
-                            console.log(control.getError("valueErr") + el);
+                            //console.log(control.getError("valueErr") + el);
                             // control.
-                            console.log(control);
+                            //console.log(control);
                           }
                         }
                       });
@@ -855,15 +855,15 @@ export class AddTravellerComponent implements OnInit {
             
                  
                 });
-                console.log(tempArr);
+                //console.log(tempArr);
                 this.preloaderService.showPreloader(false);
               }
               else if (data.code == "1001") {
                 this.modalWarnings = [];
                 this.preloaderService.showPreloader(false);
-                console.log(data.data.warnings);
+               // console.log(data.data.warnings);
                 for (var key in data.data.warnings) {
-                  console.log(key, data.data.warnings[key]);
+                 // console.log(key, data.data.warnings[key]);
                   this.modalWarnings.push(data.data.warnings[key]);
                 }
                 var modal = document.getElementById('exampleModal1');
@@ -892,7 +892,7 @@ export class AddTravellerComponent implements OnInit {
             }
           )
       
-            console.log(fd);
+            //console.log(fd);
         }
         else {
           this.toastService.showNotification("Please accept out terms and conditions", 4000);
@@ -933,7 +933,7 @@ export class AddTravellerComponent implements OnInit {
     // let same = form.get('addressForPickupSame').value;
     let form = (<FormArray>this.travellerForm.get('travellers')).controls[i];
     let same =  form.get('addressForPickupSame').value;
-    console.log(same);
+    //console.log(same);
 
     if(!same) {
       
@@ -968,7 +968,7 @@ export class AddTravellerComponent implements OnInit {
   goToPayment(){
     let modalWarning = (<any>document.getElementById('modalWarning')).checked;
     var modal = document.getElementById('exampleModal1');
-    console.log(modalWarning);
+   // console.log(modalWarning);
     if(modalWarning) {
 
       modal.classList.remove("show");
@@ -979,7 +979,7 @@ export class AddTravellerComponent implements OnInit {
 
       this.travellerService.hitPaymentApi().subscribe(
         (data1 : any) => {
-          console.log(data1);
+          //console.log(data1);
           this.buyerEmail = data1.buyerEmail;
           this.orderId = data1.orderId;
           this.amount = data1.amount;
@@ -989,9 +989,9 @@ export class AddTravellerComponent implements OnInit {
           this.checksum = data1.checksum;
           // this.paymentUrl = data1.paymentUrl;
 
-          console.log(document.forms["paymentForm"]);
+         // console.log(document.forms["paymentForm"]);
 
-          console.log(this.paymentForm);
+          //console.log(this.paymentForm);
           setTimeout(() => {
             
             document.forms["paymentForm"].submit();
@@ -1027,7 +1027,7 @@ export class AddTravellerComponent implements OnInit {
     let arr = (<FormArray>this.travellerForm.get('travellers')).controls;
 
     arr.forEach((element : FormGroup) => {
-      console.log(element.value);
+     // console.log(element.value);
     });
   }
   
@@ -1058,11 +1058,11 @@ export class AddTravellerComponent implements OnInit {
     control.markAllAsTouched();
 
 
-    console.log(control.value);
+   // console.log(control.value);
     
 
 
-    console.log(this.selectedFile);
+   // console.log(this.selectedFile);
 
     
     
