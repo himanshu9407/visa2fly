@@ -25,8 +25,8 @@ background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
 
     .homeform {
       /* border-radius: 50px 50px 0px 0px; */
-      margin-top: 110px;
-      margin-bottom: 50px;
+      margin-top: 140px;
+      margin-bottom: 140px;
       padding: 0px 10px;
       background-color: white;
       border-radius: 10px;
@@ -60,7 +60,7 @@ background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
     .signup-capsule {
       transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
-      display: flex;justify-content: center;align-items: center;background-color: #404040;color:white;border-radius: 20px 0px 0px 20px;height: 40px;
+      display: flex;justify-content: center;align-items: center;background-color: #404040;color:white;border-radius: 20px 0px 0px 20px;height: 32px;
     }
     .signup-capsule:hover {
       transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -72,16 +72,16 @@ background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
     .login-capsule {
       transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
-      display: flex;justify-content: center;align-items: center;background-color: #dfdfff;border-radius: 0px 20px 20px 0px;height: 40px;
+      display: flex;justify-content: center;align-items: center;background-color: #dfdfff;border-radius: 0px 20px 20px 0px;height: 32px;
     }
 
     @media only screen and (max-width: 576px) {
       .login-capsule {
-        width: 85px;
+        width: 92px;
         font-size: 14px;
       }
       .signup-capsule {
-        width: 85px;
+        width: 92px;
         font-size: 14px;
       }
       .forgotpassword {
@@ -171,13 +171,17 @@ background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
       .agree {
         font-size: 12px;
       }
+
+      .homeform {
+        padding: 0px;
+      }
   
       .login-capsule {
-        width: 75px;
+        width: 92px;
         font-size: 12px;
       }
       .signup-capsule {
-        width: 75px;
+        width: 92px;
         font-size: 12px;
       }
       .forgotpassword {
@@ -211,6 +215,83 @@ background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
     @media screen and (min-width: 360px) and (max-width: 480px) {
       .homeform {
         margin-top: 180px;
-        margin-bottom: 150px;
+        margin-bottom: 50px;
       }
     } 
+
+    .facebook {
+      background: #3b5998;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .google {
+      background: #EA4335;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .btn:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .social-login {
+      text-align: center;
+     
+      top: 50%;
+      left: 50%;
+      position: relative;
+      transform: translate(-50%, -50%);
+    }
+
+.login-box {
+   border-left: 1px solid #e2e2e2;
+}
+
+.homeform-box {
+  padding: 10px 20px;
+}
+
+    .orOption {
+      position: absolute;
+      height: 36px;
+      font-weight: 600;
+      left: -33px;
+      background: #fff;
+      top: 50%;
+      padding: 6px 4px;
+      width: 36px;
+      font-size: 14px;
+      border-radius: 50%;
+      border: 2px solid #e2e2e2;
+    }
+
+    @media screen and (max-width: 600px) {
+
+
+.login-box {
+  border-top: 1px solid #e2e2e2;
+  border-left: none !important;
+}
+
+.social-login {
+  margin: 20px 0px;
+  padding-bottom: 20px;
+}
+
+.orOption {
+  top: -55% !important;
+  left: 45% !important;
+
+}
+
+    }
+
+    @media screen and (max-width: 360px) {
+      .google, .facebook {
+        font-size: 14px;
+      }
+    }

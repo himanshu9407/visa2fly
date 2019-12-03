@@ -3,34 +3,50 @@
   <div>
     <div class="row">
 
-      <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 ">
+      <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1 ">
 
         <div class="homeform">
-          <div style="display: flex;justify-content: center">
-            <img src="../../../assets/logo3.png" class="responsive-logo" alt="visa2fly logo">
-          </div>
-          <div  class="capsule">
-            <div class="row" style=" display: flex; justify-content: center">
-              <div  (click)="navigateToSignup()" id="SignUp" class="col-sm-6 signup-capsule" style="margin-top: 40px;">
-                Sign Up
-              </div>
-              <div (click)="navigateToLogin()" id="Login" class="col-sm-6 login-capsule" style="margin-top: 40px;">
-                Sign In
-              </div>
-            </div>
-          </div>
-          <div class="cardheader" style="margin-top: 20px;">
-          </div>
 
-            <div class="card-body">
-                <app-login *ngIf="show_login"></app-login>
-                <app-signup *ngIf="show_signup"></app-signup>
+            <div class="row">
+              <div class="col-lg-7 col-md-7 homeform-box">
+                  <div style="display: flex;justify-content: center">
+                      <img src="../../../assets/logo3.png" class="responsive-logo" alt="visa2fly logo">
+                    </div>
+                    <div  class="capsule">
+                      <div class="row" style=" display: flex; justify-content: center">
+                        <div  (click)="navigateToSignup()" id="SignUp" class="col-sm-6 signup-capsule" style="margin-top: 27px;">
+                          Sign Up
+                        </div>
+                        <div (click)="navigateToLogin()" id="Login" class="col-sm-6 login-capsule" style="margin-top: 27px;">
+                          Sign In
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cardheader" style="margin-top: 20px;">
+                    </div>
+          
+                      <div class="card-body">
+                          <app-login *ngIf="show_login"></app-login>
+                          <app-signup *ngIf="show_signup"></app-signup>
+                      </div>
+              </div>
+              <div class="col-lg-5 col-md-5 login-box">
+                  <div class="social-login">
+                    <div class="row">
+                    <div class="orOption">
+                      <p>OR</p>
+                    </div>
+                      <div class="col-lg-12" style=" display: flex; justify-content: center"><button class="btn google"><i class="fa fa-google mr-3"></i>Login With Google</button></div>
+                      <div class="col-lg-12" style=" display: flex; justify-content: center"><button class="btn facebook mt-2"><div class="fa fa-facebook mr-3"></div>Login With Facebook</button></div>
+                    </div>
+                  </div>
+                </div>
             </div>
 
           <div class="card-footer" style="background-color: white" *ngIf="show_login">
 
             <div class="d-flex justify-content-center" >
-              <a class="forgotpassword"     [routerLink]="['/slcontainer','signup']" routerLinkActive="router-link-active" >New User ? Signup</a>
+              <a class="forgotpassword" [routerLink]="['/slcontainer','signup']" routerLinkActive="router-link-active" >New User ? Signup</a>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {MatSelectModule} from '@angular/material/select';
 
@@ -101,12 +102,13 @@ import { UnitedKingdomComponent } from './components/visa-requirements/united-ki
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
     Ng2FlatpickrModule,
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
     NgbModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('safety-worker.js', { enabled: environment.production }),
 
 
   ],
