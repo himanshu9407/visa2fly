@@ -21,6 +21,7 @@ export class SimcheckoutComponent implements OnInit {
   buyerEmail = "";
   orderId = "";
   amount = "";
+  maxDateDob : any = '';
   currency = "";
   merchantIdentifier = "";
   returnUrl = "";
@@ -44,6 +45,16 @@ export class SimcheckoutComponent implements OnInit {
       month: current.getMonth() + 1,
       day: current.getDate()
     };
+
+    let yesterday = new Date() ;
+    yesterday.setDate(yesterday.getDate()-1);
+
+    this.maxDateDob = {
+      year: yesterday.getFullYear(),
+      month: yesterday.getMonth() + 1,
+      day: yesterday.getDate()
+    };
+
     console.log(this.simCart);
 
 

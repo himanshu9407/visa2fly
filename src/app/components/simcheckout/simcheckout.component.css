@@ -1,8 +1,13 @@
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none;
   box-shadow: none !important;
-  height: 30px;
+  /* height: 30px; */
+}
+
+.invalid-feedback {
+  font-size: 15px;
 }
 
 /* FIREFOX FIX OF UGLY SELECT BOXES */
@@ -19,14 +24,14 @@ select:focus {
 
 select {
   /* border: none; */
-  font-size: 14px;
+  font-size: 16px;
   /* font-weight: 550; */
   padding-left: 0px;
 }
 
 
 input {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 
@@ -107,12 +112,8 @@ button.calendar {
 
   .TrvDetail label {
     color: #000;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .TrvDetail label {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 600;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

@@ -21,7 +21,7 @@
             </div>
         <div class="col-md-12">
           <div class="insurancePlan">
-            <div *ngFor="let item of simCart" class="row">
+            <!-- <div *ngFor="let item of simCart" class="row">
               <div class="col-md-3 col-6 mobileLabel">
                 <div class="labelText">
                   <b>ITEM: </b>
@@ -59,7 +59,22 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
+            <table>
+                <tr>
+                  <th><b>ITEM: </b></th>
+                  <th><b> QTY:</b></th>
+                  <th><b>PRICE:</b></th>
+                  <th><b>Sub Total (Inclusive of taxes)</b></th>
+                </tr>
+                <tr  *ngFor="let item of simCart">
+                  <th>{{item.planName}}</th>
+                  <td>{{item.quantity}}</td>
+                  <td>{{(item.price + item.convenienceFee + item.convenienceFeeTAX ) |  number: '1.0-2'}}</td>
+                  <td>{{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}</td>
+                </tr>
+            </table>
+            
             <hr style="border-top: 1px solid #000; margin-bottom: 0px;">
             <div class="row mobileTotal">
               <div class="col-md-9 col-sm-6 grandTotal ">
@@ -217,7 +232,7 @@
                   </div>
                   <div class="col-md-3">
                       <div class="input-group">
-                          <input formControlName="dateOfBirth"    id="#dob" class="form-control form-control-sm addTravelDate" placeholder="Date of Birth" name="dob"
+                          <input [minDate]="{year: 1930, month: 1, day: 1}"  [maxDate]="maxDateDob" formControlName="dateOfBirth"    id="#dob" class="form-control form-control-sm addTravelDate" placeholder="Date of Birth" name="dob"
                              ngbDatepicker #dob="ngbDatepicker">
                           <div class="input-group-append">
                             <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i
@@ -227,7 +242,7 @@
                         </div>
                   </div>
 
-              <div class="col-md-3 activated">
+              <div class="col-lg-4 activated">
                 <label for="" class="">SIM To Be Activated On:</label>
               </div>
 
@@ -283,9 +298,9 @@
                   class="form-control mb-2"
                   id="exampleFormControlTextarea1"
                   rows="5"
-                  placeholder="Enter Your Adress"
+                  placeholder="Enter Your Address"
                 ></textarea>
-                <div *ngIf="simCheckoutForm.get('address').invalid && simCheckoutForm.get('address').dirty" class="invalid-feedback"  style="display: block;margin-left: 8%;">
+                <div *ngIf="simCheckoutForm.get('address').invalid && simCheckoutForm.get('address').dirty" class="invalid-feedback"  style="display: block;">
      
                     <div >Invalid Address</div>
                   </div>
@@ -348,7 +363,7 @@
                   [ngClass]="{'is-invalid':simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty,'is-valid':!(simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty) && !simCheckoutForm.get('pinCode').pristine}" 
 
                 />
-                <div *ngIf="simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty" class="invalid-feedback"  style="display: block;margin-left: 8%;">
+                <div *ngIf="simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty" class="invalid-feedback"  style="display: block;">
      
                     <div >Invalid City</div>
                   </div>

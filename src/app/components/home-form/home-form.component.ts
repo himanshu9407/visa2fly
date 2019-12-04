@@ -331,7 +331,7 @@ export class HomeFormComponent {
     if (this.validateForm()) {
       this.userFlow.setUserFlowDetails("country", this.selectedCountry);
       this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-      this.userFlow.setUserFlowDetails("entryType", this.selectedVisaType);
+      // this.userFlow.setUserFlowDetails("entryType", this.selectedVisaType);
       this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
       console.log(this.userFlow.getUserFlowDetails())
       this.router.navigate(['reg']);

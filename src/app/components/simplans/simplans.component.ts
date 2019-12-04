@@ -6,6 +6,7 @@ import { ToastService } from 'src/app/shared/toast.service';
 import { LoginService } from '../login-signup/login/login.service';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-simplans',
@@ -15,6 +16,8 @@ import { RouterHistory } from 'src/app/shared/router-history.service';
 
 export class SimplansComponent implements OnInit {
 
+  simCountries : Array<any> = [];
+  simHomeForm : FormGroup;
   selectedCountry : string = "";
   selectedSimCountryData : Array<any> = [];
   simCart : Array<any> = [];
@@ -36,6 +39,31 @@ export class SimplansComponent implements OnInit {
 
   ngOnInit() {
 
+    this.simHomeForm = new FormGroup({
+
+      simSelect: new FormControl('this.',[Validators.required])
+    }
+    );
+
+    this.simService.getSimcountries().subscribe(
+      (data : any) => {
+        if (data.code == "0") {
+          // console.log(data);
+          this.simCountries = data.data;
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 2000);
+      
+        }
+        else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 2000);
+      
+        }
+      }
+    );
+   
     if(this.selectedCountry == "" || this.selectedCountry == undefined || this.selectedCountry == null ){
       this.preloaderService.showPreloader(false);
       this.router.navigate(['sim']);

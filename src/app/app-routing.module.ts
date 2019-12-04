@@ -31,7 +31,6 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
          {  path: 'privacyPolicy',component:PrivacyPolicyComponent},
          {  path: 'cancellationPolicy',component:CancellationsAndReturnComponent},
          {  path: 'aboutUs',component:AboutUsComponent},
-         {  path: 'slcontainer/:form', component : LoginSignupComponent},
          {  path: 'bookingDetail', component : BookingDetailsComponent},
 
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
