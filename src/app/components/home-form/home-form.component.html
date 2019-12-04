@@ -19,16 +19,12 @@
                           </div> -->
                     </div>
                     <div class="chkIp chkIp2">
-                     <label class="chkLabel">Purpose</label>
-                     <div class="icon-s1-purpose pull-left"></div>
-                     <div class="img-loader ldr2">
-                          <div class="icon-s1-small-loader" alt="loader icon"></div>
-                     </div>
-                     <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose">
+                     <label class="chkLabel">Visa Type</label>
+                     <select  formControlName="purpose" [(ngModel)]="selectedVisaType" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose">
                       <option value="select">Select</option>
-                      <option class="purpose-opt" *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose" value="{{purpose}}">{{purpose}}</option>
+                      <option class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry]['displayEntryType'][selectedPurpose]" value="{{visaType}}">{{visaType}}</option>
                      </select>
-                     <div *ngIf="purposeNotSelected " class="invalid-feedback">
+                     <div *ngIf="visaTypeNotSelected" class="invalid-feedback">
                             Please choose a purpose.
                           </div>
                     </div>

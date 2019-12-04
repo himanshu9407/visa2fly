@@ -55,7 +55,7 @@ export class HomeFormComponent {
   homeForm: FormGroup;
   
 
-
+TotalCountries : any;
 
 
   public homeFormData : any = {
@@ -154,7 +154,7 @@ export class HomeFormComponent {
   public selectedCountry: string = "Sri Lanka";
 
 
-  public selectedPurpose: string = "select";
+  //public selectedPurpose: string = "select";
 
 
   public country: AbstractControl;
@@ -191,11 +191,18 @@ export class HomeFormComponent {
     this.livesIn = this.homeForm.get('livingin');
 
     console.log(this.homeFormData.data.countries);
+    
 
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
         this.homeFormData = data;
-
+        // console.log(this.homeFormData);
+        this.TotalCountries = this.homeFormData['data']['countries'];
+        // console.log(this.TotalCountries);
+        
+        this.TotalCountries.forEach(element => {
+          // console.log(element);
+        });
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
@@ -222,11 +229,12 @@ export class HomeFormComponent {
         }
 
         localStorage.setItem("countryList",JSON.stringify(data.data.countries));
-        // console.log(data.data.data[this.selectedCountry]);
+       // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
       });
 
   }
+  
 
   ngOnInit() {
 
@@ -241,13 +249,15 @@ export class HomeFormComponent {
 
   }
 
+  
+
   countryChanged ( ) {
-    console.log("country changed");
+    // console.log("country changed");
     let temoCountry = this.homeForm.get('country').value;
     this.homeForm.get('purpose').setValue('select');
     this.homeForm.get('visatype').setValue('select');
     this.homeForm.get('livingin').setValue('select');
-    this.selectedPurpose = 'select';
+    // this.selectedPurpose = 'select';
     this.selectedVisaType = 'select';
     this.selectedResidenceOf = 'select';
     this.homeForm.get('country').setValue(temoCountry);
@@ -330,11 +340,14 @@ export class HomeFormComponent {
 
     if (this.validateForm()) {
       this.userFlow.setUserFlowDetails("country", this.selectedCountry);
-      this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
+      // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
       this.userFlow.setUserFlowDetails("entryType", this.selectedVisaType);
       this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
       console.log(this.userFlow.getUserFlowDetails())
       this.router.navigate(['reg']);
     }
   }
+
+  
+
 }
