@@ -53,7 +53,8 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AustraliaComponent } from './components/visa-requirements/australia/australia.component';
-import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component'
+import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component';
+import { FranceComponent } from './components/visa-requirements/france/france.component'
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { UnitedKingdomComponent } from './components/visa-requirements/united-ki
     SimcheckoutComponent,
     AboutUsComponent,
     AustraliaComponent,
-    UnitedKingdomComponent
+    UnitedKingdomComponent,
+    FranceComponent
   ],
   imports: [
     BrowserModule,
