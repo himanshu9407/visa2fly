@@ -21,7 +21,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
 import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
-import { AboutUsComponent } from './components/static/about-us/about-us.component'
+import { AboutUsComponent } from './components/static/about-us/about-us.component';
+import { FeedbackComponent } from './components/feedback/feedback.component'
     
     const routes: Routes = [
          {  path: '', redirectTo : 'visa', pathMatch : "full"},
@@ -45,6 +46,7 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
         //  {  path : 'sim/simplans' , component : SimplansComponent},
         //  {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
+         {  path : 'feedback' , component : FeedbackComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
 
         ];

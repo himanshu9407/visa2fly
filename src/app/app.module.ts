@@ -49,7 +49,8 @@ import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
 import { AboutUsComponent } from './components/static/about-us/about-us.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { FeedbackComponent } from './components/feedback/feedback.component'
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { environment } from '../environments/environment'
     BookingDetailsComponent,
     SimplansComponent,
     SimcheckoutComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
