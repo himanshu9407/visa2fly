@@ -55,7 +55,7 @@ export class HomeFormComponent {
   homeForm: FormGroup;
   
 
-TotalCountries : any;
+
 
 
   public homeFormData : any = {
@@ -154,16 +154,16 @@ TotalCountries : any;
   public selectedCountry: string = "Sri Lanka";
 
 
-  //public selectedPurpose: string = "select";
+  // public selectedPurpose: string = "select";
 
 
   public country: AbstractControl;
-  public purpose: AbstractControl;
+  // public purpose: AbstractControl;
   public visaType: AbstractControl;
   public livesIn: AbstractControl;
 
 
-  public purposeNotSelected: boolean = false;
+ // public purposeNotSelected: boolean = false;
   public visaTypeNotSelected: boolean = false;
   public livesInNotSelected: boolean = false;
 
@@ -179,30 +179,25 @@ TotalCountries : any;
 
     this.homeForm = new FormGroup({
       'country': new FormControl("Sri Lanka"),
-      'purpose': new FormControl(""),
+      //'purpose': new FormControl(""),
       'visatype': new FormControl(""),
       'livingin': new FormControl("")
     });
 
 
     this.country = this.homeForm.get('country');
-    this.purpose = this.homeForm.get('purpose');
+    // this.purpose = this.homeForm.get('purpose');
     this.visaType = this.homeForm.get('visatype');
     this.livesIn = this.homeForm.get('livingin');
 
-    console.log(this.homeFormData.data.countries);
+    // console.log(this.homeFormData.data.countries);
     
 
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
         this.homeFormData = data;
-        // console.log(this.homeFormData);
-        this.TotalCountries = this.homeFormData['data']['countries'];
-        // console.log(this.TotalCountries);
+        console.log(this.homeFormData);
         
-        this.TotalCountries.forEach(element => {
-          // console.log(element);
-        });
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
@@ -254,7 +249,7 @@ TotalCountries : any;
   countryChanged ( ) {
     // console.log("country changed");
     let temoCountry = this.homeForm.get('country').value;
-    this.homeForm.get('purpose').setValue('select');
+    // this.homeForm.get('purpose').setValue('select');
     this.homeForm.get('visatype').setValue('select');
     this.homeForm.get('livingin').setValue('select');
     // this.selectedPurpose = 'select';
@@ -263,14 +258,14 @@ TotalCountries : any;
     this.homeForm.get('country').setValue(temoCountry);
   }
 
-  validatePurpose() {
-    if ((this.purpose.dirty && this.purpose.value == 'select') || !this.purpose.touched || this.purpose.pristine) {
-      this.purposeNotSelected = true;
-      return false;
-    } else {
-      return true
-    }
-  }
+  // validatePurpose() {
+  //   if ((this.purpose.dirty && this.purpose.value == 'select') || !this.purpose.touched || this.purpose.pristine) {
+  //     this.purposeNotSelected = true;
+  //     return false;
+  //   } else {
+  //     return true
+  //   }
+  // }
 
   validateVisaType() {
     if (this.visaType.dirty && this.visaType.value == 'select' || !this.visaType.touched || this.visaType.pristine) {
@@ -293,10 +288,10 @@ TotalCountries : any;
 
   validateForm() {
     console.log("validate form method called");
-    this.validatePurpose();
+    //this.validatePurpose();
     this.validateVisaType();
     this.validateLivingIn();
-    if (this.validatePurpose() == false || this.validateVisaType() == false || this.validateLivingIn() == false) {
+    if ( this.validateVisaType() == false || this.validateLivingIn() == false) {
       return false;
 
     } else {
@@ -307,16 +302,16 @@ TotalCountries : any;
 
 
   onSubmit() {
-    this.purpose.valueChanges.subscribe(
-      (value) => {
-        if (value == 'select') {
-          this.purposeNotSelected = true;
-        } else {
-          this.purposeNotSelected = false;
-        }
-       // console.log(this.purpose);
-      }
-    );
+    // this.purpose.valueChanges.subscribe(
+    //   (value) => {
+    //     if (value == 'select') {
+    //       this.purposeNotSelected = true;
+    //     } else {
+    //       this.purposeNotSelected = false;
+    //     }
+    //    // console.log(this.purpose);
+    //   }
+    // );
 
     this.visaType.valueChanges.subscribe(
       (value) => {

@@ -131,7 +131,7 @@ export class RequirementsComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
     // console.log(this.userFlowDetails);
 
-    this.reqService.getRequirementsData(this.userFlowDetails.country,this.userFlowDetails.purpose,this.userFlowDetails.entryType )
+    this.reqService.getRequirementsData(this.userFlowDetails.country)
       .then((data : any )=> {
       if (data.code == "0") {
         this.requirementsData = data;
@@ -155,7 +155,7 @@ export class RequirementsComponent implements OnInit {
           this.dataSource.push(temp);
         });
 
-        console.log(this.faqs);
+        // console.log(this.faqs);
 
         let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
         this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(data.data.onlineCategory));
@@ -224,7 +224,7 @@ export class RequirementsComponent implements OnInit {
         }
 
         
-        console.log(this.selectedDataArr);
+        // console.log(this.selectedDataArr);
   
 
       }
@@ -245,7 +245,7 @@ export class RequirementsComponent implements OnInit {
     this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
 
 
-    console.log(quoteId);
+    // console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token ==  undefined) {

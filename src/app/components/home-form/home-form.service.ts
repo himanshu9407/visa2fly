@@ -29,11 +29,11 @@ export class HomeFormService {
           
     }
 
-    getQuotation(){
-        const base_url = this.userFlow.getBaseURL();
+    // getQuotation(){
+    //     const base_url = this.userFlow.getBaseURL();
 
-        return this.http.get(base_url + "info/"+{ }+"/quotation");
-    }
+    //     return this.http.get(base_url + "info/"+ { }+"/quotation");
+    // }
   
     
 

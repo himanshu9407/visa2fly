@@ -12,16 +12,11 @@ export class RequirementsService {
     constructor(private http: HttpClient, private userFlow : UserFlowDetails,
         private loginStatus : LoginStatusService, private loginService : LoginService) { }
 
-    getRequirementsData(country: string, purpose: string, entryType: string) :Promise <any> {
-        let obj = {
-            purpose: purpose,
-            entryType: entryType
-        };
+    getRequirementsData(country: string) :Promise <any> {
+        
         const base_url = this.userFlow.getBaseURL();
 
-        let params = new HttpParams({ fromObject: obj });
-        console.log(obj);
-        return this.http.get(base_url+'info/' + country, { params: params }).toPromise();
+        return this.http.get(base_url+'info/' + country + '/v2').toPromise();
     }
 
     verifyQuotation (quoteId : string) {
