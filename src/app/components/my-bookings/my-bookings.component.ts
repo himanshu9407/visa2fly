@@ -32,12 +32,6 @@ export class MyBookingsComponent implements OnInit {
               private downloadImageService : DownloadImageService, private toastService : ToastService) {
     this.myBookings =   [];
 
-    
-    
-    
-  }
-  
-  ngOnInit() {
     this.AUTH_TOKEN = this.loginService.getAuthToken();
 
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe(
@@ -54,7 +48,6 @@ export class MyBookingsComponent implements OnInit {
               this.totalCount = this.allBooking.data.length;
              // console.log(this.totalCount);
               this.allBooking.data.forEach(element => {
-                // console.log(element);
                 if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
                 ||element.booking.bookingStatus == "Visa application approved"  ) {
                   element.booking.statusColor = "g";
@@ -79,66 +72,50 @@ export class MyBookingsComponent implements OnInit {
                 }
               });
     
-              // let temparray,chunk = 6
-    
-              // for (let i=0,j=this.allBooking.data.length; i<j; i+=chunk) {
-              //   temparray = this.allBooking.data.slice(i,i+chunk);
-              //   this.myBookingsPc.push(temparray);
-            
-              // }
-              
-              // this.activePcBookingPage = this.myBookingsPc[0]['data'];
-              // console.log(this.activePcBookingPage);
-              // let temparray1,chunk1 = 4
-    
-              // for (let i=0,j=this.allBooking.data.length; i<j; i+=chunk1) {
-              //   temparray1 = this.allBooking.data.slice(i,i+chunk1);
-              //   this.myBookingsMobile.push(temparray1);
-            
-              
-              // }
               this.activeMobileBookingPage = this.myBookingsMobile[0];
     
-              // console.log(this.myBookingsMobile);
              }
             else {
               this.totalCount = 0;
             }
            
           
-          // else {
-          // // router.navigate(['']);
-          //  }
         });
           this.preloaderService.showPreloader(false);
       };
     });
+    
+    
   }
-
-  setActivePagePc(i : number) {
-    this.activePcPageNumber = i;
-
-    console.log(this.activePcPageNumber == i);
   
-  // window.scrollTo(0,0);
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-    this.activePcBookingPage = this.myBookingsPc[i];
+  ngOnInit() {
+   
   }
 
-  setActivePageMobile ( i : number)  {
-    this.activeMobilePageNumber = i;
-    // window.scrollTo(0,0);
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-    this.activeMobileBookingPage = this.myBookingsMobile[i];
-  }
+  // setActivePagePc(i : number) {
+  //   this.activePcPageNumber = i;
+
+  //   console.log(this.activePcPageNumber == i);
+  
+  // // window.scrollTo(0,0);
+  // window.scrollTo({
+  //   top: 0,
+  //   left: 0,
+  //   behavior: 'smooth'
+  // });
+  //   this.activePcBookingPage = this.myBookingsPc[i];
+  // }
+
+  // setActivePageMobile ( i : number)  {
+  //   this.activeMobilePageNumber = i;
+  //   // window.scrollTo(0,0);
+  //   window.scrollTo({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: 'smooth'
+  //   });
+  //   this.activeMobileBookingPage = this.myBookingsMobile[i];
+  // }
   downloadInvoice (bookingId : string,bookingStatus : string) {
     // console.log("invoice called");
     if(bookingStatus == 'g') {

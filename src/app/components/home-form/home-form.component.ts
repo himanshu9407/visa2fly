@@ -234,7 +234,7 @@ export class HomeFormComponent {
 
 
 
-
+    console.log(this.homeForm.get('purpose').value == "");
 
 
 
@@ -247,6 +247,7 @@ export class HomeFormComponent {
     this.homeForm.get('purpose').setValue('select');
     this.homeForm.get('visatype').setValue('select');
     this.homeForm.get('livingin').setValue('select');
+    // this.homeForm.get('purpose')
     this.selectedPurpose = 'select';
     this.selectedVisaType = 'select';
     this.selectedResidenceOf = 'select';
