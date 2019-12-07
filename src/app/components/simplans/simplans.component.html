@@ -9,6 +9,7 @@
             <select
             [(ngModel)]="selectedCountry"
             formControlName="simSelect"
+            (change)="onClickSelect()"
             class="form-control form-control-sm"
             id="country"
           >

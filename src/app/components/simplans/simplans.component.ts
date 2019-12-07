@@ -19,6 +19,7 @@ export class SimplansComponent implements OnInit {
   simCountries : Array<any> = [];
   simHomeForm : FormGroup;
   selectedCountry : string = "";
+  // selectedCountry : string = "";
   selectedSimCountryData : Array<any> = [];
   simCart : Array<any> = [];
   simCartEmpty : boolean = true;
@@ -35,6 +36,7 @@ export class SimplansComponent implements OnInit {
       this.preloaderService.showPreloader(true);
       // this.simResp = JSON.parse(localStorage.getItem('simResp')) || [];
       this.selectedCountry = localStorage.getItem('simSelectedCountry') || "";
+      // console.log(this.selectedCountry)
      }
 
   ngOnInit() {
@@ -49,16 +51,17 @@ export class SimplansComponent implements OnInit {
       (data : any) => {
         if (data.code == "0") {
           // console.log(data);
+          // this.preloaderService.showPreloader(true);
           this.simCountries = data.data;
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
-          }, 2000);
+          }, 4000);
       
         }
         else {
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
-          }, 2000);
+          }, 4000);
       
         }
       }
@@ -88,6 +91,33 @@ export class SimplansComponent implements OnInit {
     }
   }
 
+  onClickSelect() {
+    this.preloaderService.showPreloader(true);
+    if(this.selectedCountry == "" || this.selectedCountry == undefined || this.selectedCountry == null ){
+      // this.preloaderService.showPreloader(true);
+      this.router.navigate(['sim']);
+    }
+    else {
+    this.selectedCountry = this.simHomeForm.get('simSelect').value;
+    // console.log(this.onSelectedCountry);
+    this.simService.getSimPlans(this.selectedCountry).subscribe((data: any) => {
+      if(data.code == "0") {
+        this.selectedSimCountryData = data.data;
+        localStorage.setItem("simResp",JSON.stringify(data.data));
+        // this.preloaderService.showPreloader(false);
+        // setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+        // }, 4000);
+        
+        this.selectedSimCountryData.forEach((element : any) => {
+          element.quantity = 0;
+        });
+        console.log(this.selectedSimCountryData);
+      }
+    })
+    // localStorage.setItem("simSelectedCountry",this.selectedCountry);
+  }}
+
   checkIfCartEmpty ()  : boolean{
     if (this.simCart.length == 0) {
       return true;
@@ -108,7 +138,7 @@ export class SimplansComponent implements OnInit {
     });
     
     if (totalQuantity == 10) {
-      this.toastService.showNotification("Maximum cart size reached !" , 4000);
+      this.toastService.showNotification("Maximum Cart Limit Reached !" , 4000);
     }
     else {
       let found = false;
