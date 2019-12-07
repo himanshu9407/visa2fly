@@ -341,18 +341,19 @@ export class HomeFormComponent {
     );
     if(this.validateForm()) { 
 
-        // var  purpose = this.selectedPurpose;
+         let purpose = this.homeForm.get('purpose').value;
+         console.log(purpose);
 
         switch(this.selectedCountry)
         {
           case "Canada" : {
            this.setDetailsOnLocalStorage();
-          return this.router.navigate(['visa/Canada/:purpose']);
+          return this.router.navigate(['visa/Canada/',""+ purpose]);
           break;
           }
           case "United Kingdom" : {
             this.setDetailsOnLocalStorage();
-            return this.router.navigate(['visa/United-Kingdom/:purpose']);
+            return this.router.navigate(['visa/United-Kingdom/',"" + purpose]);
             break;
           } 
           case "Singapore" : {
