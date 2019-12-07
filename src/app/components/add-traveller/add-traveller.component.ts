@@ -498,9 +498,12 @@ export class AddTravellerComponent implements OnInit {
             middleName:[''],
             lastName:['',[Validators.required]],
             emailId:['',Validators.required],
-            dateOfBirth:[null,[Validators.required]],
+            dateOfBirthCopy:["",[Validators.required]],
+            dateOfBirth:["",[Validators.nullValidator]],
             passportNumber:['',[Validators.required]],
-            passportExpiryDate:[null,[Validators.required]],
+            passportExpiryDateCopy:["",[Validators.required]],
+
+            passportExpiryDate:["",[Validators.nullValidator]],
             gstNumber:'',
             cellNumber:['',[Validators.required]],
             
@@ -523,9 +526,11 @@ export class AddTravellerComponent implements OnInit {
         middleName:[''],
         lastName:['',[Validators.required]],
         emailId:['',Validators.required],
-        dateOfBirth:["",[Validators.required]],
+        dateOfBirthCopy:["",[Validators.required]],
+        dateOfBirth:["",[Validators.nullValidator]],
         passportNumber:['',[Validators.required]],
-        passportExpiryDate:["",[Validators.required]],
+        passportExpiryDateCopy:["",[Validators.required]],
+        passportExpiryDate:["",Validators.nullValidator],
         gstNumber:'',
         cellNumber:['',[Validators.required]],
         addressForPickupSame:[false,[Validators.required]],
@@ -650,8 +655,8 @@ export class AddTravellerComponent implements OnInit {
               }
             }
       
-            let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
-            let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
+            let dob:{year : number, month : number , day : number} = form.get('dateOfBirthCopy').value;
+            let doe :{year : number, month : number , day : number} = form.get('passportExpiryDateCopy').value 
             let tempDob ="";
             let tempDoe = "";
             
@@ -682,8 +687,8 @@ export class AddTravellerComponent implements OnInit {
             
             form.get('dateOfBirth').setValue(tempDob);
             form.get('passportExpiryDate').setValue(tempDoe);
-            form.get('dateOfBirth').updateValueAndValidity();
-            form.get('passportExpiryDate').updateValueAndValidity();
+            form.get('dateOfBirthCopy').updateValueAndValidity();
+            form.get('passportExpiryDateCopy').updateValueAndValidity();
             
            
           });
@@ -1077,7 +1082,7 @@ export class AddTravellerComponent implements OnInit {
   addTraveller(): void {
 
     // console.log(this.travellerForm.controls.travellers.control);
-
+    console.log((<FormArray>this.travellerForm.get('travellers')).value)
     if (!this.travellerForm.valid) {
       this.toastService.showNotification("Please fill in existing traveller details first",4000);
     }
