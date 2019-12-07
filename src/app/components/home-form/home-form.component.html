@@ -21,7 +21,7 @@
                     <div class="chkIp chkIp2">
                         <label class="chkLabel">Visa Type</label>
                         <div class="icon-s1-calender pull-left"></div>
-                        <select formControlName="visatype" [(ngModel)]="selectedVisaType" required  name="visatype" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
+                        <select formControlName="purpose" [(ngModel)]="selectedPurpose" required  name="purpose" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
                         <option value="select">Select</option>
                         <option  class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry]['purpose']" value="{{visaType}}">{{visaType}}</option>
                        </select>

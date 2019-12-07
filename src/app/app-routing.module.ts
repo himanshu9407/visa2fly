@@ -48,7 +48,7 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
         //  {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
-         {path: 'visa/united-kingdom/:visatype', component: UnitedKingdomComponent},
+         {path: 'visa/United-Kingdom/:purpose', component: UnitedKingdomComponent},
          {path: 'australia', component: AustraliaComponent},
          {path: '**', redirectTo : 'visa', pathMatch : "full"}
 

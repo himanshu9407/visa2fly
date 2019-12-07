@@ -149,22 +149,22 @@ export class HomeFormComponent {
 
   public selectedResidenceOf: string = "select";
 
-  public selectedVisaType: string = "select";
+  //public selectedVisaType: string = "select";
 
   public selectedCountry: string = "Sri Lanka";
 
 
-  // public selectedPurpose: string = "select";
+ public selectedPurpose: string = "select";
 
 
   public country: AbstractControl;
-  // public purpose: AbstractControl;
-  public visaType: AbstractControl;
+   public purpose: AbstractControl;
+  //public visaType: AbstractControl;
   public livesIn: AbstractControl;
 
 
- // public purposeNotSelected: boolean = false;
-  public visaTypeNotSelected: boolean = false;
+  public purposeNotSelected: boolean = false;
+ // public visaTypeNotSelected: boolean = false;
   public livesInNotSelected: boolean = false;
 
 
@@ -179,15 +179,15 @@ export class HomeFormComponent {
 
     this.homeForm = new FormGroup({
       'country': new FormControl("Sri Lanka"),
-      //'purpose': new FormControl(""),
-      'visatype': new FormControl(""),
+      'purpose': new FormControl(""),
+      //'visatype': new FormControl(""),
       'livingin': new FormControl("")
     });
 
 
     this.country = this.homeForm.get('country');
-    // this.purpose = this.homeForm.get('purpose');
-    this.visaType = this.homeForm.get('visatype');
+     this.purpose = this.homeForm.get('purpose');
+    //this.visaType = this.homeForm.get('visatype');
     this.livesIn = this.homeForm.get('livingin');
 
     // console.log(this.homeFormData.data.countries);
@@ -196,7 +196,7 @@ export class HomeFormComponent {
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
         this.homeFormData = data;
-        console.log(this.homeFormData);
+       // console.log(this.homeFormData);
         
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
@@ -249,32 +249,32 @@ export class HomeFormComponent {
   countryChanged ( ) {
     // console.log("country changed");
     let temoCountry = this.homeForm.get('country').value;
-    // this.homeForm.get('purpose').setValue('select');
-    this.homeForm.get('visatype').setValue('select');
+    this.homeForm.get('purpose').setValue('select');
+   // this.homeForm.get('visatype').setValue('select');
     this.homeForm.get('livingin').setValue('select');
-    // this.selectedPurpose = 'select';
-    this.selectedVisaType = 'select';
+    this.selectedPurpose = 'select';
+    //this.selectedVisaType = 'select';
     this.selectedResidenceOf = 'select';
     this.homeForm.get('country').setValue(temoCountry);
   }
 
-  // validatePurpose() {
-  //   if ((this.purpose.dirty && this.purpose.value == 'select') || !this.purpose.touched || this.purpose.pristine) {
+  validatePurpose() {
+    if ((this.purpose.dirty && this.purpose.value == 'select') || !this.purpose.touched || this.purpose.pristine) {
+      this.purposeNotSelected = true;
+      return false;
+    } else {
+      return true
+    }
+  }
+
+  // validatePurposeType() {
+  //   if (this.purpose.dirty && this.purpose.value == 'select' || !this.purpose.touched || this.purpose.pristine) {
   //     this.purposeNotSelected = true;
   //     return false;
   //   } else {
   //     return true
   //   }
   // }
-
-  validateVisaType() {
-    if (this.visaType.dirty && this.visaType.value == 'select' || !this.visaType.touched || this.visaType.pristine) {
-      this.visaTypeNotSelected = true;
-      return false;
-    } else {
-      return true
-    }
-  }
 
   validateLivingIn() {
     if (this.livesIn.dirty && this.livesIn.value == 'select' || !this.livesIn.touched || this.livesIn.pristine) {
@@ -288,10 +288,10 @@ export class HomeFormComponent {
 
   validateForm() {
     console.log("validate form method called");
-    //this.validatePurpose();
-    this.validateVisaType();
+    this.validatePurpose();
+    //this.validatePurposeType();
     this.validateLivingIn();
-    if ( this.validateVisaType() == false || this.validateLivingIn() == false) {
+    if ( this.validatePurpose() == false || this.validateLivingIn() == false) {
       return false;
 
     } else {
@@ -300,8 +300,27 @@ export class HomeFormComponent {
   }
 
 
+  setDetailsOnLocalStorage () {
+    this.userFlow.setUserFlowDetails("country", this.selectedCountry);
+    this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
+    //this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
+    this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
+  }
+
+
 
   onSubmit() {
+    this.purpose.valueChanges.subscribe(
+      (value) => {
+        if (value == 'select') {
+          this.purposeNotSelected = true;
+        } else {
+          this.purposeNotSelected = false;
+        }
+       // console.log(this.purpose);
+      }
+    );
+
     // this.purpose.valueChanges.subscribe(
     //   (value) => {
     //     if (value == 'select') {
@@ -309,19 +328,8 @@ export class HomeFormComponent {
     //     } else {
     //       this.purposeNotSelected = false;
     //     }
-    //    // console.log(this.purpose);
     //   }
     // );
-
-    this.visaType.valueChanges.subscribe(
-      (value) => {
-        if (value == 'select') {
-          this.visaTypeNotSelected = true;
-        } else {
-          this.visaTypeNotSelected = false;
-        }
-      }
-    );
     this.livesIn.valueChanges.subscribe(
       (value) => {
         if (value == 'select') {
@@ -331,18 +339,38 @@ export class HomeFormComponent {
         }
       }
     );
+    if(this.validateForm()) { 
 
+        // var  purpose = this.selectedPurpose;
 
-    if (this.validateForm()) {
-      this.userFlow.setUserFlowDetails("country", this.selectedCountry);
-      // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-      this.userFlow.setUserFlowDetails("entryType", this.selectedVisaType);
-      this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
-      console.log(this.userFlow.getUserFlowDetails())
-      this.router.navigate(['reg']);
+        switch(this.selectedCountry)
+        {
+          case "Canada" : {
+           this.setDetailsOnLocalStorage();
+          return this.router.navigate(['visa/Canada/:purpose']);
+          break;
+          }
+          case "United Kingdom" : {
+            this.setDetailsOnLocalStorage();
+            return this.router.navigate(['visa/United-Kingdom/:purpose']);
+            break;
+          } 
+          case "Singapore" : {
+            this.setDetailsOnLocalStorage();
+            return this.router.navigate(['']);
+            break;
+          }
+          case "Japan" : {
+            this.setDetailsOnLocalStorage();
+            return this.router.navigate(['']);
+            break;
+          }
+          default : {
+            this.setDetailsOnLocalStorage();
+            //console.log(this.userFlow.getUserFlowDetails())
+            this.router.navigate(['reg']);
+          }
+        }      
     }
   }
-
-  
-
 }

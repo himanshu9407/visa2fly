@@ -129,7 +129,7 @@ export class RequirementsComponent implements OnInit {
 
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
-    // console.log(this.userFlowDetails);
+    console.log(this.userFlowDetails);
 
     this.reqService.getRequirementsData(this.userFlowDetails.country)
       .then((data : any )=> {

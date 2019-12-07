@@ -235,38 +235,40 @@
 
 
 <div class="container-fluid wrapContainer">
-    <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
+    <div class="row" >
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" let = "MyQuotation1">
+        
             <div class="card planCard">
                 <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
-                    Tourist Visa
+                    {{MyQuotation1.purpose}}
                 </div>
                 <div class="card-body planCardBody">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
                         </div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">Lorem ipsum dolor sit
-                            amet consectetur.</div>
+                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow"> 
+                         {{MyQuotation1.processingTime}}
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">Lorem, ipsum se
+                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{MyQuotation1.stayPeriod}}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">Lorem, ipsum se</div>
+                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{MyQuotation1.validity}}</div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">Lorem, ipsum se</div>
+                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{MyQuotation1.entryType}}</div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow
                         ">Fees:</div>
                         <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
                         planCardRow" style="color: #000080;">
-                            1000000</div>
+                        {{MyQuotation1.basePrice}}</div>
                     </div>
                     <!-- <div class="col-6">Processing time:</div>
                     <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
@@ -285,6 +287,7 @@
                     </div>
                 </div>
             </div>
+        
         </div>
 
     </div>
