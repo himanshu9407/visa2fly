@@ -54,9 +54,9 @@
                     style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px;">
                     Summary
                   </h6>
-                  <p class="summaryContent">
-                    {{simData.summary}}
-                  </p>
+                  <div class="summaryContent">
+                    <li  *ngFor="let summary of simData.summary">{{summary}}</li>
+                  </div>
                 </div>
                 <br />
                 <!-- <p>Note - Student Visa mandatory</p> -->

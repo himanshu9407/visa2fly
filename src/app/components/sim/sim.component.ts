@@ -72,4 +72,8 @@ export class SimComponent implements OnInit {
     
   } 
 
+  proceedToPlans(country: string) {
+    localStorage.setItem("simSelectedCountry",country);
+    this.router.navigate(['sim/simplans']);
+  }
 }

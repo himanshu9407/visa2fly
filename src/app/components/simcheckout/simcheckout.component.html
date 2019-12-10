@@ -80,9 +80,10 @@
           </div>
 
           <div class="mobileView">
-              <li style="font-weight: 550;">Item<span class="float-right">{{totalQty}}</span></li>
-              <li style="font-weight: 550;">Grand Total<span class="float-right">{{totalPrice|  number: '1.0-2'}}</span></li>
-          
+            <li style="font-weight: 550;">Item<span class="float-right">{{totalQty}}</span></li>
+            <li style="font-weight: 550;">Grand Total<span class="float-right">{{totalPrice |  number: '1.0-2'}}</span>
+            </li>
+
 
             <!-- <table>
               <tr>
@@ -109,19 +110,19 @@
           </div>
 
           <div class="onlyMob">
-          <hr style="border-top: 1px solid #000; margin-bottom: 0px; margin-top: 5px;">
-          <div class="row mobileTotal">
-            <div class="col-md-9 col-sm-6 grandTotal ">
-              <div class="planDetail grandLabel">
-                <li>GRAND TOTAL</li>
+            <hr style="border-top: 1px solid #000; margin-bottom: 0px; margin-top: 5px;">
+            <div class="row mobileTotal">
+              <div class="col-md-9 col-sm-6 grandTotal ">
+                <div class="planDetail grandLabel">
+                  <li>GRAND TOTAL</li>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 grandTotal">
+                <div class="planDetail" style="font-size: 18px; font-weight: 700;">
+                  <li class="totalPrice"><span>&#x20B9; &nbsp;</span>{{totalPrice|  number: '1.0-2'}}</li>
+                </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 grandTotal">
-              <div class="planDetail" style="font-size: 18px; font-weight: 700;">
-                <li class="totalPrice"><span>&#x20B9; &nbsp;</span>{{totalPrice|  number: '1.0-2'}}</li>
-              </div>
-            </div>
-          </div>
           </div>
         </div>
       </div>
@@ -130,35 +131,40 @@
   <div class="wrap mt-3 mobileView" style="background: #fff; padding: 0px; margin: 0px 30px">
     <div class="row">
       <div class="col-12">
-          <div style="margin-top: 5px;">
-            <div class="collapse mb-2" id="collapseExample">
-                  <div class="table-responsive">
-                    <table class="table" style="width: 500px !important;">
-                      <thead>
-                        <tr>
-                          <th style="width: 40%">Item:</th>
-                          <th style="width: 10%">Qty</th>
-                          <th style="width: 10%">Price</th>
-                          <th style="width: 40%">Sub Total (Inc. Of Taxes)</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let item of simCart">
-                          <td>{{item.planName}}</td>
-                          <td>{{item.quantity}}</td>
-                          <td>{{(item.price + item.convenienceFee + item.convenienceFeeTAX ) |  number: '1.0-2'}}</td>
-                          <td>{{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-              </div>
-              <p>
-                <button class="btn btn-success btn-sm" style="border-radius: 20px; float: right;" type="button" data-toggle="collapse" (click)="expand()" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  Details <span class="ml-2 fa" [ngClass]="{'fa-angle-double-down': expandTable, 'fa-angle-double-up': !expandTable}"></span>
-                </button>
-              </p>
-         </div>
+        <div style="margin-top: 5px;">
+          <div class="collapse mb-2" id="collapseExample">
+            <div class="table-responsive">
+              <table class="table" style="width: 500px !important;">
+                <thead>
+                  <tr>
+                    <th style="width: 40%">Item:</th>
+                    <th style="width: 10%">Qty</th>
+                    <th style="width: 10%">Price</th>
+                    <th style="width: 40%">Sub Total (Inc. Of Taxes)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of simCart">
+                    <td>{{item.planName}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{(item.price + item.convenienceFee + item.convenienceFeeTAX ) |  number: '1.0-2'}}</td>
+                    <td>
+                      {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p>
+            <button class="btn btn-success btn-sm" style="border-radius: 20px; float: right;" type="button"
+              data-toggle="collapse" (click)="expand()" data-target="#collapseExample" aria-expanded="false"
+              aria-controls="collapseExample">
+              Details <span class="ml-2 fa"
+                [ngClass]="{'fa-angle-double-down': expandTable, 'fa-angle-double-up': !expandTable}"></span>
+            </button>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -178,10 +184,10 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-3">
-                  <label for="" class="">Traveller Name:</label>
+                  <label for="" class="">First Name:</label>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-6">
                   <input formControlName="firstName" pattern="[A-Za-z]{3,32}" type="text"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('firstName').invalid && simCheckoutForm.get('firstName').dirty,'is-valid':!(simCheckoutForm.get('firstName').invalid && simCheckoutForm.get('firstName').dirty) && !simCheckoutForm.get('firstName').pristine}"
                     class="form-control form-control-sm trvName" placeholder="First name" />
@@ -192,22 +198,36 @@
                   </div>
                 </div>
 
-                <div class="col-md-4">
-                  <input formControlName="lastName" pattern="[A-Za-z]{3,32}" type="text"
-                    class="form-control form-control-sm trvName" placeholder="Last name"
-                    [ngClass]="{'is-invalid':simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty,'is-valid':!(simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty) && !simCheckoutForm.get('lastName').pristine}" />
-                  <div *ngIf="simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty"
-                    class="invalid-feedback" style="display: block;">
 
-                    <div>* Invalid Last Name</div>
-                  </div>
-                </div>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="row">
-                <div class="col-md-4 gender">
+                  <div class="col-md-4 gender">
+                      <label for="" class="">Last Name:</label>
+                    </div>
+                  <div class="col-md-6">
+                      <input formControlName="lastName" pattern="[A-Za-z]{3,32}" type="text"
+                        class="form-control form-control-sm trvName" placeholder="Last name"
+                        [ngClass]="{'is-invalid':simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty,'is-valid':!(simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty) && !simCheckoutForm.get('lastName').pristine}" />
+                      <div *ngIf="simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty"
+                        class="invalid-feedback" style="display: block;">
+    
+                        <div>* Invalid Last Name</div>
+                      </div>
+                    </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="form-row form-group">
+
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-3">
                   <label for="" class="">Gender:</label>
                 </div>
 
@@ -220,27 +240,50 @@
               </div>
             </div>
 
-          </div>
-          <div class="form-row form-group">
-
             <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-3">
-                  <label for="" class="">Mobile:</label>
-                </div>
-
-                <div class="col-md-6">
-                  <input formControlName="cell" pattern="^[4-9][0-9]{9}$"
-                    [ngClass]="{'is-invalid':simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty,'is-valid':!(simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty) && !simCheckoutForm.get('cell').pristine}"
-                    type="tel" class="form-control form-control-sm" placeholder="Mobile Number" />
-                  <div *ngIf="simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty"
-                    class="invalid-feedback" style="display: block;">
-
-                    <div>* Invalid Mobile Number</div>
+                <div class="row">
+                  <div class="col-md-4 gender">
+                    <label for="" class="">Passport No :</label>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <input formControlName="passport" pattern="^[A-Za-z]{1}[0-9]{7}$" type="text"
+                      [ngClass]="{'is-invalid':simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty,'is-valid':!(simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty) && !simCheckoutForm.get('passport').pristine}"
+                      class="form-control form-control-sm" placeholder="Passport Number" />
+                    <div *ngIf="simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty"
+                      class="invalid-feedback" style="display: block;">
+  
+                      <div>* Invalid Passport Number</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+
+
+
+          </div>
+
+          <div class="form-row form-group">
+              <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label for="" class="">Mobile:</label>
+                    </div>
+    
+                    <div class="col-md-6">
+                      <input formControlName="cell" pattern="^[4-9][0-9]{9}$"
+                        [ngClass]="{'is-invalid':simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty,'is-valid':!(simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty) && !simCheckoutForm.get('cell').pristine}"
+                        type="tel" class="form-control form-control-sm" placeholder="Mobile Number" />
+                      <div *ngIf="simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty"
+                        class="invalid-feedback" style="display: block;">
+    
+                        <div>* Invalid Mobile Number</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+         
 
             <div class="col-md-6">
               <div class="row">
@@ -263,52 +306,6 @@
                 </div>
               </div>
             </div>
-
-          </div>
-
-          <div class="form-row form-group">
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-3">
-                  <label for="" class="">Passport No.:</label>
-                </div>
-
-                <div class="col-md-6">
-                  <input formControlName="passport" pattern="^[A-Za-z]{1}[0-9]{7}$" type="text"
-                    [ngClass]="{'is-invalid':simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty,'is-valid':!(simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty) && !simCheckoutForm.get('passport').pristine}"
-                    class="form-control form-control-sm" placeholder="Passport Number" />
-                  <div *ngIf="simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty"
-                    class="invalid-feedback" style="display: block;">
-
-                    <div>* Invalid Passport Number</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-4 departure">
-                  <label for="" class="">Departure On:</label>
-                </div>
-                <div class="col-md-6">
-                  <div class="input-group">
-                    <input formControlName="departureDate" id="#departure"
-                      class="form-control form-control-sm addTravelDate" placeholder="Departure Date" name="departure"
-                      [minDate]="minDate" [maxDate]="maxTravelDate" ngbDatepicker #departure="ngbDatepicker">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary calendar" (click)="departure.toggle()" type="button"><i
-                          class="fas fa-calendar-alt"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div style="line-height: 12px;">
-                    <em style="font-size: 10px;">(Must not be more than 100 days from current date)</em>
-                  </div>
-                </div>
-              </div>
-            </div>
-
 
           </div>
           <div class="form-row form-group">
@@ -348,6 +345,9 @@
                       </button>
                     </div>
                   </div>
+                  <div style="line-height: 12px;">
+                    <em style="font-size: 10px;">(Must not be more than 100 days from current date)</em>
+                  </div>
                 </div>
               </div>
             </div>
@@ -380,7 +380,7 @@
               <div class="row">
                 <div class="col-md-6 p-0">
                   <label for="exampleFormControlInput1">Address:</label>
-                  <textarea formControlName="address" pattern="^[ A-Za-z0-9/-/,]*$" minlength="10"
+                  <textarea formControlName="address" pattern="^[ A-Za-z0-9-:./,]*$" minlength="10" maxlength="400"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('address').invalid && simCheckoutForm.get('address').dirty,'is-valid':!(simCheckoutForm.get('address').invalid && simCheckoutForm.get('address').dirty) && !simCheckoutForm.get('address').pristine}"
                     class="form-control mb-2" id="exampleFormControlTextarea1" rows="5"
                     placeholder="Enter Your Address"></textarea>
@@ -397,7 +397,7 @@
                       <div class="row">
                         <div class="col-md-6 managePadd">
                           <label for="" class="">City:</label>
-                          <input formControlName="city" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" type="text"
+                          <input formControlName="city" pattern="^[ a-zA-Z]*$" type="text"
                             minlength="3"
                             [ngClass]="{'is-invalid':simCheckoutForm.get('city').invalid && simCheckoutForm.get('city').dirty,'is-valid':!(simCheckoutForm.get('city').invalid && simCheckoutForm.get('city').dirty) && !simCheckoutForm.get('city').pristine}"
                             class="form-control form-control-sm trvName" placeholder="City" />
@@ -410,7 +410,7 @@
                         <div class="col-md-6 managePadd">
                           <label for="exampleInputPassword1">State</label>
                           <select formControlName="state" id="inputState" class="form-control col form-control-sm">
-                            <option selected>Select State</option>
+                            <option selected value="select" [disabled]="true" [selected]="true">Select State</option>
                             <option value="Andaman And Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                             <option value="Arunachal Pradesh">Arunachal Pradesh</option>

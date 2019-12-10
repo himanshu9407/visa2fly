@@ -26,7 +26,7 @@ export class SimcheckoutComponent implements OnInit {
   currency = "";
   merchantIdentifier = "";
   returnUrl = "";
-  departureDate;
+  // departureDate;
   expandTable: boolean = true;
   checksum = "";
   primaryAddress = "";
@@ -80,7 +80,7 @@ export class SimcheckoutComponent implements OnInit {
       lastName: new FormControl("", [Validators.required]),
       simActivationDate: new FormControl("", [Validators.required]),
       gender: new FormControl("male", [Validators.required]),
-      departureDate: new FormControl("", [Validators.required]),
+      // departureDate: new FormControl("", [Validators.required]),
       dateOfBirth: new FormControl("", [Validators.required]),
       passport: new FormControl("", [Validators.required]),
       gstNumber: new FormControl(""),
@@ -88,7 +88,7 @@ export class SimcheckoutComponent implements OnInit {
       cell: new FormControl("", [Validators.required]),
       emailId: new FormControl("", [Validators.required]),
       city: new FormControl("", [Validators.required]),
-      state: new FormControl("Haryana", [Validators.required]),
+      state: new FormControl("", [Validators.required]),
       pinCode: new FormControl("", [Validators.required]),
       needInsurance: new FormControl(true, [Validators.required]),
       country: new FormControl("India")
@@ -140,23 +140,23 @@ export class SimcheckoutComponent implements OnInit {
       tempActivation = doa.year + "-" + doa.month + "-" + doa.day;
     }
 
-    let tempdod = "";
-    let dod = this.simCheckoutForm.get("departureDate").value;
-    if (dod.month < 10 && dod.day < 10) {
-      tempdod = dod.year + "-0" + dod.month + "-0" + dod.day;
-    } else if (dod.day < 10) {
-      tempdod = dod.year + "-" + dod.month + "-0" + dod.day;
-    } else if (dod.month < 10) {
-      tempdod = dod.year + "-0" + dod.month + "-" + dod.day;
-    } else {
-      tempdod = dod.year + "-" + dod.month + "-" + dod.day;
-    }
+    // let tempdod = "";
+    // let dod = this.simCheckoutForm.get("departureDate").value;
+    // if (dod.month < 10 && dod.day < 10) {
+    //   tempdod = dod.year + "-0" + dod.month + "-0" + dod.day;
+    // } else if (dod.day < 10) {
+    //   tempdod = dod.year + "-" + dod.month + "-0" + dod.day;
+    // } else if (dod.month < 10) {
+    //   tempdod = dod.year + "-0" + dod.month + "-" + dod.day;
+    // } else {
+    //   tempdod = dod.year + "-" + dod.month + "-" + dod.day;
+    // }
 
     formValueObj.simActivationDate = tempActivation;
     formValueObj.dateOfBirth = tempDob;
-    formValueObj.departureDate = tempdod;
+    // formValueObj.departureDate = tempdod;
     formValueObj.simPlanForCountry = this.selectedCountry;
-    formValueObj.totalPayableAmount = this.totalPrice;
+    formValueObj.totalPayableAmount = this.totalPrice.toFixed(2);
 
     this.simCart.forEach(element => {
       element.totalAmount =
