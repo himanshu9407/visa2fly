@@ -50,7 +50,6 @@ import { SimcheckoutComponent } from './components/simcheckout/simcheckout.compo
 import { AboutUsComponent } from './components/static/about-us/about-us.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { FeedbackComponent } from './components/feedback/feedback.component'
 
 @NgModule({
   declarations: [
@@ -91,7 +90,6 @@ import { FeedbackComponent } from './components/feedback/feedback.component'
     SimplansComponent,
     SimcheckoutComponent,
     AboutUsComponent,
-    FeedbackComponent
   ],
   imports: [
     BrowserModule,
