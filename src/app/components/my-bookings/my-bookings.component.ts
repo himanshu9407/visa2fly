@@ -27,8 +27,9 @@ export class MyBookingsComponent implements OnInit {
   activeMobileBookingPage : Array<any> = [];
   allBooking : any;
   AUTH_TOKEN = "";
+ 
 
-   FeedbackForm;
+   FeedbackForm : FormGroup;
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
               private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService,
@@ -52,6 +53,8 @@ export class MyBookingsComponent implements OnInit {
               // console.log(this.myBookings);
               this.totalCount = this.allBooking.data.bookings.length;
               // console.log(this.totalCount);
+              
+              console.log(this.allBooking.data.takeFeedback);
               this.allBooking.data.bookings.forEach(element => {
                 if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
                 ||element.booking.bookingStatus == "Visa application approved") {
@@ -90,7 +93,12 @@ export class MyBookingsComponent implements OnInit {
       };
     });
 
-   this.buildFeedbackForm();
+    this.FeedbackForm = new FormGroup({
+      'f3-rating' : new FormControl(''),
+      'f1-rating' : new FormControl(''),
+      'f2-rating' : new FormControl(''),
+      'FeedbackEdit' : new FormControl('')
+    });
 
     // 
 }
@@ -98,40 +106,12 @@ export class MyBookingsComponent implements OnInit {
   
   ngOnInit() {
    
+   
   }
 
-   buildFeedbackForm(){
-    //this.Feedback  = this.fb.group({
-
-      this.FeedbackForm = new FormGroup({
-        'f3-rating' : new FormControl(''),
-        'f1-rating' : new FormControl(''),
-        'f2-rating' : new FormControl(''),
-        'FeedbackEdit' : new FormControl('')
-      });
-  //       requirement :this.fb.group({
-  //        optionOne : this.fb.control(null),
-  //        optionTwo : this.fb.control(null),
-  //        optionThree: this.fb.control(null),
-  //        optionFour : this.fb.control(null),
-  //        optionFive : this.fb.control(null),
-  //       }),
-  //       information : this.fb.group({
-  //         One : this.fb.control(null),
-  //         Two : this.fb.control(null),
-  //         Three: this.fb.control(null),
-  //         Four : this.fb.control(null),
-  //         Five : this.fb.control(null),
-  //       }),
-  //       recommend : this.fb.group({
-  //         rateOne : this.fb.control(null),
-  //         rateTwo : this.fb.control(null),
-  //         rateThree: this.fb.control(null),
-  //         rateFour : this.fb.control(null),
-  //         rateFive : this.fb.control(null),
-  //       }),
-  //       WritingFeedback : this.fb.control(null),
-      // })
+   
+ onSubmit(){
+  console.log(this.FeedbackForm);
  }
 
   // setActivePagePc(i : number) {
