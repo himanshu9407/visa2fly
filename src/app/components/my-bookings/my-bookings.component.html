@@ -12,7 +12,7 @@
 
 
       <div
-        *ngFor="let booking of allBooking.data | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
+        *ngFor="let booking of allBooking.data.bookings | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -245,7 +245,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 
 </div>
 
-<div class="feedback-popup">
+<div class="feedback-popup" >
   <button type="button" class="btn btn-primary" style="margin-top: 80px;" data-toggle="modal" data-target="#exampleModal">
     Launch demo modal
 </button>
@@ -278,68 +278,70 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
                                 <div class="col-md-12">
                                     <h6>Please provide your feedback on following topics:</h6>
                                 </div>
-                                <div class="col-md-12">
-                                    <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How well does our
-                                        product meet your needs ?</p>
-                                    <fieldset class="rating" id="customCheck1">
-                                        <input type="radio" id="f3-star5" name="f3-rating" value="5" /><label
-                                            class="full" for="f3-star5"></label>
-                                        <input type="radio" id="f3-star4" name="f3-rating" value="4" /><label
-                                            class="full" for="f3-star4"></label>
-                                        <input type="radio" id="f3-star3" name="f3-rating" value="3" /><label
-                                            class="full" for="f3-star3"></label>
-                                        <input type="radio" id="f3-star2" name="f3-rating" value="2" /><label
-                                            class="full" for="f3-star2"></label>
-                                        <input type="radio" id="f3-star1" name="f3-rating" value="1" /><label
-                                            class="full" for="f3-star1"></label>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                    <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Were you able to
-                                        find the information you were looking for on our website ?
-                                    </p>
-                                    <fieldset class="rating" id="customCheck1">
-                                        <input type="radio" id="f1-star5" name="f1-rating" value="5" /><label
-                                            class="full" for="f1-star5"></label>
-                                        <input type="radio" id="f1-star4" name="f1-rating" value="4" /><label
-                                            class="full" for="f1-star4"></label>
-                                        <input type="radio" id="f1-star3" name="f1-rating" value="3" /><label
-                                            class="full" for="f1-star3"></label>
-                                        <input type="radio" id="f1-star2" name="f1-rating" value="2" /><label
-                                            class="full" for="f1-star2"></label>
-                                        <input type="radio" id="f1-star1" name="f1-rating" value="1" /><label
-                                            class="full" for="f1-star1"></label>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                    <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How likely are you
-                                        to recommend visa2fly to a friends or family ?</p>
-                                    <fieldset class="rating" id="customCheck1">
-                                        <input type="radio" id="f2-star5" name="f2-rating" value="5" /><label
-                                            class="full" for="f2-star5"></label>
-                                        <input type="radio" id="f2-star4" name="f2-rating" value="4" /><label
-                                            class="full" for="f2-star4"></label>
-                                        <input type="radio" id="f2-star3" name="f2-rating" value="3" /><label
-                                            class="full" for="f2-star3"></label>
-                                        <input type="radio" id="f2-star2" name="f2-rating" value="2" /><label
-                                            class="full" for="f2-star2"></label>
-                                        <input type="radio" id="f2-star1" name="f2-rating" value="1" /><label
-                                            class="full" for="f2-star1"></label>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                    <h6>If you could change just one thing about our product, what would it be ?
-                                    </h6>
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea name="" class="form-control" id="" cols="30"
-                                        rows="4"></textarea>
-                                </div>
-                                <div class="col-md-12 text-center mt-2">
-                                    <button class="btn text-white btn-submit btn-sm btn-block">Send Your
-                                        Feedback</button>
-                                </div>
                             </div>
+                            <form class="form-row" [formGroup]="FeedbackForm">
+                              <div class="col-md-12">
+                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How well does our
+                                      product meet your needs ?</p>
+                                  <fieldset class="rating" id="customCheck1" >
+                                      <input type="radio" id="f3-star5"  formControlName="f3-rating" value="5" /><label
+                                          class="full" for="f3-star5"></label>
+                                      <input type="radio" id="f3-star4"  formControlName="f3-rating" value="4" /><label
+                                          class="full" for="f3-star4"></label>
+                                      <input type="radio" id="f3-star3"  formControlName="f3-rating" value="3" /><label
+                                          class="full" for="f3-star3"></label>
+                                      <input type="radio" id="f3-star2"  formControlName="f3-rating" value="2" /><label
+                                          class="full" for="f3-star2"></label>
+                                      <input type="radio" id="f3-star1"  formControlName="f3-rating" value="1" /><label
+                                          class="full" for="f3-star1"></label>
+                                  </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Were you able to
+                                      find the information you were looking for on our website ?
+                                  </p>
+                                  <fieldset class="rating" id="customCheck1" >
+                                      <input type="radio" id="f1-star5"  formControlName="f1-rating" value="5" /><label
+                                          class="full" for="f1-star5"></label>
+                                      <input type="radio" id="f1-star4"  formControlName="f1-rating" value="4" /><label
+                                          class="full" for="f1-star4"></label>
+                                      <input type="radio" id="f1-star3"  formControlName="f1-rating" value="3" /><label
+                                          class="full" for="f1-star3"></label>
+                                      <input type="radio" id="f1-star2"  formControlName="f1-rating" value="2" /><label
+                                          class="full" for="f1-star2"></label>
+                                      <input type="radio" id="f1-star1"  formControlName="f1-rating" value="1" /><label
+                                          class="full" for="f1-star1"></label>
+                                  </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How likely are you
+                                      to recommend visa2fly to a friends or family ?</p>
+                                  <fieldset class="rating" id="customCheck1" >
+                                      <input type="radio" id="f2-star5"  formControlName="f2-rating" value="5" /><label
+                                          class="full" for="f2-star5"></label>
+                                      <input type="radio" id="f2-star4"  formControlName="f2-rating" value="4" /><label
+                                          class="full" for="f2-star4"></label>
+                                      <input type="radio" id="f2-star3"  formControlName="f2-rating" value="3" /><label
+                                          class="full" for="f2-star3"></label>
+                                      <input type="radio" id="f2-star2"  formControlName="f2-rating" value="2" /><label
+                                          class="full" for="f2-star2"></label>
+                                      <input type="radio" id="f2-star1"  formControlName="f2-rating" value="1" /><label
+                                          class="full" for="f2-star1"></label>
+                                  </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                  <h6>If you could change just one thing about our product, what would it be ?
+                                  </h6>
+                              </div>
+                              <div class="col-md-12">
+                                  <textarea class="form-control" formControlName="FeedbackEdit"  id="" cols="30"
+                                      rows="4"></textarea>
+                              </div>
+                              <div class="col-md-12 text-center mt-2">
+                                  <button class="btn text-white btn-submit btn-sm btn-block">Send Your
+                                      Feedback</button>
+                              </div>
+                            </form>
                         </div>
                     </div>
                 </div>

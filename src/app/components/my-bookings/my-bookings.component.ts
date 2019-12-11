@@ -1,3 +1,4 @@
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LoginService } from '../login-signup/login/login.service';
@@ -27,10 +28,14 @@ export class MyBookingsComponent implements OnInit {
   allBooking : any;
   AUTH_TOKEN = "";
 
+   FeedbackForm;
+
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
               private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService,
-              private downloadImageService : DownloadImageService, private toastService : ToastService) {
+              private downloadImageService : DownloadImageService, private toastService : ToastService,private fb : FormBuilder) {
     this.myBookings =   [];
+     
+    
 
     this.AUTH_TOKEN = this.loginService.getAuthToken();
 
@@ -40,16 +45,16 @@ export class MyBookingsComponent implements OnInit {
         if (data.code == "0") {
           this.bookingService.getBookingsFromServer().subscribe((res) =>{
             this.allBooking = res;
-             // console.log(this.allBooking);
+             console.log(this.allBooking);
              // this.myBookings = this.allBooking;
                // console.log(this.myBookings[0]['booking']);
              if(this.allBooking != null ) {
               // console.log(this.myBookings);
-              this.totalCount = this.allBooking.data.length;
-             // console.log(this.totalCount);
-              this.allBooking.data.forEach(element => {
+              this.totalCount = this.allBooking.data.bookings.length;
+              // console.log(this.totalCount);
+              this.allBooking.data.bookings.forEach(element => {
                 if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
-                ||element.booking.bookingStatus == "Visa application approved"  ) {
+                ||element.booking.bookingStatus == "Visa application approved") {
                   element.booking.statusColor = "g";
                 }
                 else if (element.booking.bookingStatus="Payment failed" || element.booking.bookingStatus=="Visa application rejected") {
@@ -84,13 +89,50 @@ export class MyBookingsComponent implements OnInit {
           this.preloaderService.showPreloader(false);
       };
     });
-    
-    
-  }
+
+   this.buildFeedbackForm();
+
+    // 
+}
+
   
   ngOnInit() {
    
   }
+
+   buildFeedbackForm(){
+    //this.Feedback  = this.fb.group({
+
+      this.FeedbackForm = new FormGroup({
+        'f3-rating' : new FormControl(''),
+        'f1-rating' : new FormControl(''),
+        'f2-rating' : new FormControl(''),
+        'FeedbackEdit' : new FormControl('')
+      });
+  //       requirement :this.fb.group({
+  //        optionOne : this.fb.control(null),
+  //        optionTwo : this.fb.control(null),
+  //        optionThree: this.fb.control(null),
+  //        optionFour : this.fb.control(null),
+  //        optionFive : this.fb.control(null),
+  //       }),
+  //       information : this.fb.group({
+  //         One : this.fb.control(null),
+  //         Two : this.fb.control(null),
+  //         Three: this.fb.control(null),
+  //         Four : this.fb.control(null),
+  //         Five : this.fb.control(null),
+  //       }),
+  //       recommend : this.fb.group({
+  //         rateOne : this.fb.control(null),
+  //         rateTwo : this.fb.control(null),
+  //         rateThree: this.fb.control(null),
+  //         rateFour : this.fb.control(null),
+  //         rateFive : this.fb.control(null),
+  //       }),
+  //       WritingFeedback : this.fb.control(null),
+      // })
+ }
 
   // setActivePagePc(i : number) {
   //   this.activePcPageNumber = i;
@@ -150,5 +192,7 @@ setActiveBooking (booking : any) {
 
   this.router.navigate(['bookingDetail']);
 }
+
+
 
 }
