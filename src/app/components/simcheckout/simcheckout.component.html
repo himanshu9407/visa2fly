@@ -128,24 +128,24 @@
       </div>
     </div>
   </div>
-  <div class="wrap mt-3 mobileView" style="background: #fff; padding: 0px; margin: 0px 30px">
+  <div class="wrap mt-3 mobileView" style="background: #fff; padding: 0px; margin: 0px 20px">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 p-0">
         <div style="margin-top: 5px;">
           <div class="collapse mb-2" id="collapseExample">
             <div class="table-responsive">
-              <table class="table" style="width: 500px !important;">
+              <table class="table" style="width: 385px !important; margin-bottom: 5px !important; overflow: sroll;">
                 <thead>
                   <tr>
-                    <th style="width: 40%">Item:</th>
-                    <th style="width: 10%">Qty</th>
-                    <th style="width: 10%">Price</th>
-                    <th style="width: 40%">Sub Total (Inc. Of Taxes)</th>
+                    <th style="width: 70px; vertical-align: top; padding-left: 12px;">Item</th>
+                    <th style="width: 40px; vertical-align: top;">Qty</th>
+                    <th style="width: 68px; vertical-align: top;">Price</th>
+                    <th style="width: 86px; vertical-align: top;">Sub Total<br>(Inc. Of Taxes)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of simCart">
-                    <td>{{item.planName}}</td>
+                    <td style="padding-left: 12px;">{{item.planName}}</td>
                     <td>{{item.quantity}}</td>
                     <td>{{(item.price + item.convenienceFee + item.convenienceFeeTAX ) |  number: '1.0-2'}}</td>
                     <td>
@@ -184,7 +184,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-3">
-                  <label for="" class="">First Name:</label>
+                  <label for="" class="">First Name :</label>
                 </div>
 
                 <div class="col-md-6">
@@ -205,7 +205,7 @@
             <div class="col-md-6">
               <div class="row">
                   <div class="col-md-4 gender">
-                      <label for="" class="">Last Name:</label>
+                      <label for="" class="">Last Name :</label>
                     </div>
                   <div class="col-md-6">
                       <input formControlName="lastName" pattern="[A-Za-z]{3,32}" type="text"
@@ -228,7 +228,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-3">
-                  <label for="" class="">Gender:</label>
+                  <label for="" class="">Gender :</label>
                 </div>
 
                 <div class="col-md-6">
@@ -267,7 +267,7 @@
               <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-3">
-                      <label for="" class="">Mobile:</label>
+                      <label for="" class="">Mobile</label>
                     </div>
     
                     <div class="col-md-6">
@@ -312,7 +312,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-3">
-                  <label for="" class="">Date of Birth:</label>
+                  <label for="" class="">Date of Birth</label>
                 </div>
                 <div class="col-md-6">
                   <div class="input-group">
@@ -407,7 +407,7 @@
                             <div>* Invalid City</div>
                           </div>
                         </div>
-                        <div class="col-md-6 managePadd">
+                        <div class="col-md-6 managePadd stateInput">
                           <label for="exampleInputPassword1">State</label>
                           <select formControlName="state" id="inputState" class="form-control col form-control-sm">
                             <option selected value="select" [disabled]="true" [selected]="true">Select State</option>
