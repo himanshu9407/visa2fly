@@ -327,7 +327,7 @@
                                     <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-4 mb-3">
                                         <label>Address</label>
                                         <div class="input-group">
-                                            <textarea minlength="20" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                                            <textarea minlength="20" pattern="^[ A-Za-z0-9-:./,]*$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
                     travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].

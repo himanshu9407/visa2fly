@@ -55,7 +55,7 @@ export class SimplansComponent implements OnInit {
           this.simCountries = data.data;
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
-          }, 4000);
+          }, 6000);
       
         }
         else {
