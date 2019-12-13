@@ -31,7 +31,7 @@ export class LoginStatusService {
     }
 
     setUserProfile (profile : any) {
-        console.log(profile);
+        // console.log(profile);
         this.subject1.next(profile);
     }
 
