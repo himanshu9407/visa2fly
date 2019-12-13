@@ -129,7 +129,7 @@ export class LoginComponent implements OnInit {
 
     this.getIP.getClientIP().subscribe (
       (data1 : {ip:string}) => {
-        console.log(data1  );
+        // console.log(data1  );
         this.ipAddress = data1.ip;
         this.loginService.loginUser(userId,otp,rememberMe,this.ipAddress,temp).subscribe (
           (data : LoginResponseModel) => {
@@ -143,7 +143,7 @@ export class LoginComponent implements OnInit {
             }
             else {
               if (data.code == "0") {
-                console.log(data);
+                //console.log(data);
                 this.loginService.setAuthToken(data.data.authentication.token);
                 // this.toastService.showNotification(data.message,4000);
                 this.loginService.setUserStatus(true);

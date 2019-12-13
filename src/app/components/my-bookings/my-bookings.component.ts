@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LoginService } from '../login-signup/login/login.service';
 import { Router } from '@angular/router';
@@ -7,14 +7,13 @@ import { PreloaderService } from 'src/app/shared/preloader.service';
 import { MyBookingsService } from './mybookings.service';
 import { DownloadImageService } from 'src/app/shared/DownloadImage.service';
 import { ToastService } from 'src/app/shared/toast.service';
-
+import { feedbackModal } from '../../interfaces/home_formData';
 @Component({
   selector: 'app-my-bookings',
   templateUrl: './my-bookings.component.html',
   styleUrls: ['./my-bookings.component.css']
 })
 export class MyBookingsComponent implements OnInit {
-
   totalCount : number = 0;
 
   myBookings : Array<any> = [];
@@ -25,17 +24,30 @@ export class MyBookingsComponent implements OnInit {
   activePcPageNumber : number = 0;
   activeMobilePageNumber : number = 0;
   activeMobileBookingPage : Array<any> = [];
-  allBooking : any;
+  public allBooking : any;
   AUTH_TOKEN = "";
- 
-
+  
+  public bookingData : any;
+  bookingStatus : boolean = false;
    FeedbackForm : FormGroup;
+   
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
               private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService,
               private downloadImageService : DownloadImageService, private toastService : ToastService,private fb : FormBuilder) {
     this.myBookings =   [];
-     
+      
+ var bookingIdC;
+ 
+    this.FeedbackForm = new FormGroup({
+      
+      'f3-rating' : new FormControl(null),
+      'f1-rating' : new FormControl(null),
+      'f2-rating' : new FormControl(null),
+      'FeedbackEdit' : new FormControl(null)
+    });
+    
+   
     
 
     this.AUTH_TOKEN = this.loginService.getAuthToken();
@@ -46,15 +58,21 @@ export class MyBookingsComponent implements OnInit {
         if (data.code == "0") {
           this.bookingService.getBookingsFromServer().subscribe((res) =>{
             this.allBooking = res;
-             console.log(this.allBooking);
+           // console.log(this.allBooking);
              // this.myBookings = this.allBooking;
                // console.log(this.myBookings[0]['booking']);
              if(this.allBooking != null ) {
               // console.log(this.myBookings);
               this.totalCount = this.allBooking.data.bookings.length;
-              // console.log(this.totalCount);
-              
-              console.log(this.allBooking.data.takeFeedback);
+
+              localStorage.setItem('bookingStatus', JSON.stringify(this.allBooking.data.takeFeedback));
+
+               bookingIdC= localStorage.getItem('bookingStatus');
+              this.bookingStatus = bookingIdC; 
+              // console.log(bookingIdC);              
+               // console.log(this.totalCount);
+              //var bookingId = this.allBooking.data.feedbackToBeTakenFor;
+              //console.log(this.allBooking.data.takeFeedback);
               this.allBooking.data.bookings.forEach(element => {
                 if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
                 ||element.booking.bookingStatus == "Visa application approved") {
@@ -92,27 +110,20 @@ export class MyBookingsComponent implements OnInit {
           this.preloaderService.showPreloader(false);
       };
     });
-
-    this.FeedbackForm = new FormGroup({
-      'f3-rating' : new FormControl(''),
-      'f1-rating' : new FormControl(''),
-      'f2-rating' : new FormControl(''),
-      'FeedbackEdit' : new FormControl('')
-    });
-
-    // 
+    //var bookingId = this.allBooking.data.;
+    
+    
 }
 
   
   ngOnInit() {
+  
    
-   
-  }
 
+  }
+ 
    
- onSubmit(){
-  console.log(this.FeedbackForm);
- }
+ 
 
   // setActivePagePc(i : number) {
   //   this.activePcPageNumber = i;
@@ -173,6 +184,23 @@ setActiveBooking (booking : any) {
   this.router.navigate(['bookingDetail']);
 }
 
+onSubmit(){
+   
+  var bookingId = this.allBooking.data.feedbackToBeTakenFor;
+  // console.log(bookingId);
 
+  let product = this.FeedbackForm.get("f3-rating").value;
+  let info = this.FeedbackForm.get("f1-rating").value;
+  let recommend = this.FeedbackForm.get("f2-rating").value;
+  let userFeedback = this.FeedbackForm.get("FeedbackEdit").value;
+  // console.log(this.FeedbackForm.value);
+
+  this.bookingService.postFeedback(bookingId,product,info,recommend,userFeedback).subscribe((res) =>{
+    
+    // this.toastService.showNotification("Feedback Submitted", 1000);
+  });
+  this.toastService.showNotification("Feedback Submitted", 2000);
+  return this.bookingStatus = false;
+ }
 
 }

@@ -44,7 +44,7 @@ export class SimcheckoutComponent implements OnInit {
       month: current.getMonth() + 1,
       day: current.getDate()
     };
-    console.log(this.simCart);
+    //console.log(this.simCart);
 
 
     this.simCheckoutForm = new FormGroup ({
@@ -148,7 +148,7 @@ export class SimcheckoutComponent implements OnInit {
         if (data.code == "0") {
           this.simCheckoutService.hitPaymentApi().subscribe (
             (data1 : any) => {
-              console.log(data1);
+              //console.log(data1);
               this.buyerEmail = data1.buyerEmail;
               this.orderId = data1.orderId;
               this.amount = data1.amount;

@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
 
     this.prevRoute = this.routerHistory.getPrevRoute();
-    console.log(this.prevRoute);
+    // console.log(this.prevRoute);
 
 
       this.signupForm = new FormGroup({
@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
     }
   
     createUser () {
-      console.log(this.signupForm.value);
+      // console.log(this.signupForm.value);
 
       let reqBody = {emailId:"",firstName:"",lastName:"",cell:"",otp:"",acceptedTOC:""};
       this.showSignUpButton = false;
@@ -166,7 +166,7 @@ export class SignupComponent implements OnInit {
     }
     
     check () {
-      console.log("hello world");
+      // console.log("hello world");
     }
     
     onSubmit() {
@@ -178,19 +178,19 @@ export class SignupComponent implements OnInit {
       this.signupForm.get('otp').enable();
       this.signupForm.get('tnc').enable();
     
-      console.log("submitted");
+     // console.log("submitted");
       let enteredMobile = this.signupForm.get('mobile').value;
       this.singUpService.getOtp(enteredMobile).subscribe(
         (data : SignupResponseModel) => {
           if(!data) {
-            console.log("req failed"+data);
+            // console.log("req failed"+data);
             this.toastService.showNotification("Something Went wrong", 4000);
             this.setFormFresh();
           }
           else {
             
             if(data.code == "0" /*|| data.code == "15" */ ) {
-              console.log(data);
+              // console.log(data);
               this.afterSuccessfullOtpSent();
               this.otpFormSubmitted = true;
               
@@ -211,7 +211,7 @@ export class SignupComponent implements OnInit {
         },
 
         (err) => {
-          console.log(err.toString()+ "*****");
+          // console.log(err.toString()+ "*****");
           this.toastService.showNotification("Something went wrong ! Please try again after some time",4000);
           this.setFormFresh();
           // this.setFormFresh();
