@@ -195,19 +195,22 @@
                     Visa Type :
                 </div>
                 <div class="col-lg-5 col-md-6 col-8">
+                    <form [formGroup]="purposeChooseForm">
                     <mat-form-field class="setWidth">
-                        <mat-select>
-                            <mat-option value="business">
+                        <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
+                            <mat-option  value="Tourist">
                                 Tourist
                             </mat-option>
-                            <mat-option value="business">
+                            <mat-option value="Business">
                                 Business
                             </mat-option>
-                            <mat-option value="business">
+                            <mat-option value="Transit">
                                 Transit
                             </mat-option>
                         </mat-select>
+                        <!-- {{selectedPurpose}} -->
                     </mat-form-field>
+                </form>
                 </div>
             </div>
         </div>
@@ -236,7 +239,7 @@
 
 <div class="container-fluid wrapContainer">
     <div class="row" >
-        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" let = "MyQuotation1">
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" let = "let MyQuotation1">
         
             <div class="card planCard">
                 <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">

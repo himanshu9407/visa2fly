@@ -1,3 +1,5 @@
+import { country } from './../../../interfaces/home_formData';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit, ViewChild } from "@angular/core";
 import {
   trigger,
@@ -47,9 +49,10 @@ export class UnitedKingdomComponent implements OnInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
   userControlDetail : any;
-  MyQuotation : Array<any> = [];
-  MyQuotation1 : any;
-
+  public MyQuotation : Array<any> = [];
+  public MyQuotation1 : any;
+  public purposeChooseForm : FormGroup;
+  public selectedPurpose = 'Tourist'; 
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
@@ -58,7 +61,8 @@ export class UnitedKingdomComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.params.subscribe((params: any) => {
       //console.log(params);
-      this.selectedVisaType = params.visatype;
+      this.selectedVisaType = params.purpose;
+      console.log(this.selectedVisaType);
       // console.log(this.selectedVisaType);
       setTimeout(() => {
         this.t.select(this.selectedVisaType);
@@ -66,16 +70,24 @@ export class UnitedKingdomComponent implements OnInit {
     });
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     console.log(this.userControlDetail);
+       
+    let tempPurpose = this.userControlDetail.purpose; 
+      this.purposeChooseForm = new FormGroup({
+        'purposeSelected':new FormControl(tempPurpose)
+      });
 
-    
-      this.requireQuotation.getRequireQuotation( this.userControlDetail.country ).subscribe((data : any)=> {
+      // setInterval(() => {
+      //   console.log(this.purposeChoose.get('purposeSelected').value + "**********");
+      // }, 2000);
+
+      this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((data : any)=> {
        // console.log(data);
         // if(data.code == 0)
         // {
 
           this.MyQuotation = data.data;
           console.log(this.MyQuotation);
-         this.MyQuotation.forEach(element => {
+          this.MyQuotation.forEach(element => {
            console.log(element.purpose);
            if(element.purpose == 'Tourist' && this.userControlDetail.purpose == 'Tourist'){
              //console.log(element);
@@ -85,14 +97,14 @@ export class UnitedKingdomComponent implements OnInit {
           }else if(element.purpose == 'Business' && this.userControlDetail.purpose == 'Business'){
             this.MyQuotation1 = element;
             
-        }else if(element.purpose == 'Transit' && this.userControlDetail.purpose == 'Transit')
+          }else if(element.purpose == 'Transit' && this.userControlDetail.purpose == 'Transit')
             this.MyQuotation1 = element;
             // console.log(this.MyQuotation1);
          })
          // return this.MyQuotation1;
         });
         //   if(this.userControlDetail.entryType == "Business"){
-        //     return this.MyQuotation[1];
+        //     return this.MyQuotation[1];axaxzax
         //     //console.log(this.MyQuotation1); 
         //   }else if(this.userControlDetail.entryType == "Tourist")
         //   {
@@ -103,22 +115,50 @@ export class UnitedKingdomComponent implements OnInit {
         //     //console.log(this.MyQuotation1);
         //   }
         // }
+        
       
     }
   
-
+  
+ 
+  
 
 
   
   // ngAfterViewInit() {
   //   this.t.select(this.selectedVisaType);
   // }
-  navigateTo(visatype: any) {
+  purposeChanged(){
+    var purpose = this.purposeChooseForm.get('purposeSelected').value;
+    //console.log(purpose);
+    this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((data : any) =>{
+      this.MyQuotation = data.data;
+      //console.log(this.MyQuotation);
+      this.MyQuotation.forEach(element => {
+       //console.log(element.purpose);
+       // console.log(purpose);
+        if(element.purpose == 'Tourist' && purpose == "Tourist"){
+          //console.log(element);
+         this.MyQuotation1 = element;
+         // console.log(this.MyQuotation1);
+         
+       }else if(element.purpose == 'Business' && purpose == "Business"){
+         this.MyQuotation1 = element;
+         
+       }else if(element.purpose == 'Transit' && purpose == "Transit")
+         this.MyQuotation1 = element;
+         // console.log(this.MyQuotation1);
+      })
+    })
+  }
+
+
+  navigateTo(purpose: any) {
     // window.location
     window.history.replaceState(
       "",
       "",
-      "/visa/united-kingdom/" + visatype.nextId
+      "/visa/united-kingdom/" + purpose.nextId
     );
     // console.log("url changed");
   }
