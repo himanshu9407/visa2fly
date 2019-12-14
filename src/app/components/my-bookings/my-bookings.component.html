@@ -12,7 +12,7 @@
 
 
       <div
-        *ngFor="let booking of allBooking.data | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
+        *ngFor="let booking of allBooking.data.bookings | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -134,7 +134,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 
 
       <div
-        *ngFor="let booking of myBookings | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
+        *ngFor="let booking of  allBooking.data.bookings | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -243,4 +243,111 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
     </div>
   </div>
 
+</div>
+
+<div class="feedback-popup" >
+  <!-- <button type="button" class="btn btn-primary" style="margin-top: 80px;" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button> -->
+
+<!-- Modal -->
+
+<div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true" [ngStyle]="{'display': bookingStatus == 'true' ? 'block' : 'none'}">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body" style="padding: 0px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 wrap-left p-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="feedHeading text-center text-uppercase">Feedback Form</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <p class="value text-capitalize">Your feedback is valuable to us.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h1>
+                                        <img src="../../../assets/feedback.png" style="margin-top: 80px;" alt="" class="img-fluid">
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wrap-right p-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>Please provide your feedback on following topics:</h6>
+                                </div>
+                            </div>
+                            <form class="form-row" [formGroup]="FeedbackForm" (ngSubmit)="onSubmit()" >
+                              <div class="col-md-12">
+                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How well does our
+                                      product meet your needs ?</p>
+                                  <fieldset class="rating" id="customCheck1" >
+                                      <input type="radio" id="f3-star5"  formControlName="f3-rating" value="5" /><label
+                                          class="full" for="f3-star5"></label>
+                                      <input type="radio" id="f3-star4"  formControlName="f3-rating" value="4" /><label
+                                          class="full" for="f3-star4"></label>
+                                      <input type="radio" id="f3-star3"  formControlName="f3-rating" value="3" /><label
+                                          class="full" for="f3-star3"></label>
+                                      <input type="radio" id="f3-star2"  formControlName="f3-rating" value="2" /><label
+                                          class="full" for="f3-star2"></label>
+                                      <input type="radio" id="f3-star1"  formControlName="f3-rating" value="1" /><label
+                                          class="full" for="f3-star1"></label>
+                                  </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Were you able to
+                                      find the information you were looking for on our website ?
+                                  </p>
+                                  <fieldset class="rating" id="customCheck1" >
+                                      <input type="radio" id="f1-star5"  formControlName="f1-rating" value="5" /><label
+                                          class="full" for="f1-star5"></label>
+                                      <input type="radio" id="f1-star4"  formControlName="f1-rating" value="4" /><label
+                                          class="full" for="f1-star4"></label>
+                                      <input type="radio" id="f1-star3"  formControlName="f1-rating" value="3" /><label
+                                          class="full" for="f1-star3"></label>
+                                      <input type="radio" id="f1-star2"  formControlName="f1-rating" value="2" /><label
+                                          class="full" for="f1-star2"></label>
+                                      <input type="radio" id="f1-star1"  formControlName="f1-rating" value="1" /><label
+                                          class="full" for="f1-star1"></label>
+                                  </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How likely are you
+                                      to recommend visa2fly to a friends or family ?</p>
+                                  <fieldset class="rating" id="customCheck1" >
+                                      <input type="radio" id="f2-star5"  formControlName="f2-rating" value="5" /><label
+                                          class="full" for="f2-star5"></label>
+                                      <input type="radio" id="f2-star4"  formControlName="f2-rating" value="4" /><label
+                                          class="full" for="f2-star4"></label>
+                                      <input type="radio" id="f2-star3"  formControlName="f2-rating" value="3" /><label
+                                          class="full" for="f2-star3"></label>
+                                      <input type="radio" id="f2-star2"  formControlName="f2-rating" value="2" /><label
+                                          class="full" for="f2-star2"></label>
+                                      <input type="radio" id="f2-star1"  formControlName="f2-rating" value="1" /><label
+                                          class="full" for="f2-star1"></label>
+                                  </fieldset>
+                              </div>
+                              <div class="col-md-12">
+                                  <h6>If you could change just one thing about our product, what would it be ?
+                                  </h6>
+                              </div>
+                              <div class="col-md-12">
+                                  <textarea class="form-control" formControlName="FeedbackEdit"  id="" cols="30"
+                                      rows="4"></textarea>
+                              </div>
+                              <div class="col-md-12 text-center mt-2">
+                                  <button  value="submit" class="btn text-white btn-submit btn-sm btn-block" (click) = "onSubmit()">Send Your
+                                      Feedback</button>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>

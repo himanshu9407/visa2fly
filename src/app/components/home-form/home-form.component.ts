@@ -190,7 +190,7 @@ export class HomeFormComponent {
     this.visaType = this.homeForm.get('visatype');
     this.livesIn = this.homeForm.get('livingin');
 
-    console.log(this.homeFormData.data.countries);
+    // console.log(this.homeFormData.data.countries);
 
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
@@ -202,23 +202,23 @@ export class HomeFormComponent {
           this.country.setValue(this.homeFormData.data.countries[0]);
           this.selectedCountry = this.homeFormData.data.countries[0];
 
-          console.log("here 1");
+          // console.log("here 1");
         }
         else {
           this.country.setValue(activeCountry);
           localStorage.setItem("activeCountry", "");
-          console.log("here 2");
+          //console.log("here 2");
         }
         if(popularCountry == ""  || popularCountry == undefined || popularCountry == null) {
           this.country.setValue(this.homeFormData.data.countries[0]);
           this.selectedCountry = this.homeFormData.data.countries[0];
 
-          console.log("here 3");
+          // console.log("here 3");
         }
         else {
           this.country.setValue(popularCountry);
           localStorage.setItem("popularCountry", "");
-          console.log("here 4");
+          // console.log("here 4");
         }
 
         localStorage.setItem("countryList",JSON.stringify(data.data.countries));
@@ -234,7 +234,7 @@ export class HomeFormComponent {
 
 
 
-    console.log(this.homeForm.get('purpose').value == "");
+    // console.log(this.homeForm.get('purpose').value == "");
 
 
 
@@ -283,7 +283,7 @@ export class HomeFormComponent {
   }
 
   validateForm() {
-    console.log("validate form method called");
+     //console.log("validate form method called");
     this.validatePurpose();
     this.validateVisaType();
     this.validateLivingIn();
@@ -305,7 +305,7 @@ export class HomeFormComponent {
         } else {
           this.purposeNotSelected = false;
         }
-        console.log(this.purpose);
+        // console.log(this.purpose);
       }
     );
 
@@ -334,7 +334,7 @@ export class HomeFormComponent {
       this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
       this.userFlow.setUserFlowDetails("entryType", this.selectedVisaType);
       this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
-      console.log(this.userFlow.getUserFlowDetails())
+      // console.log(this.userFlow.getUserFlowDetails())
       this.router.navigate(['reg']);
     }
   }

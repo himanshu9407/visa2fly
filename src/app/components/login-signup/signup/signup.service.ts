@@ -15,7 +15,7 @@ export class SignupService {
 
     getOtp(mobile: string) : Observable<any> {
         let params = new HttpParams().set("cell",mobile);
-        console.log(params);
+        // console.log(params);
         const base_url = this.userFlow.getBaseURL();
 
         return this.http.get<any>(base_url+"sendOtp", {params : params});

@@ -52,7 +52,7 @@ export class SimplansComponent implements OnInit {
             this.selectedSimCountryData.forEach((element : any) => {
               element.quantity = 0;
             });
-            console.log(this.selectedSimCountryData);
+            //console.log(this.selectedSimCountryData);
           }
         }
       );
@@ -73,7 +73,7 @@ export class SimplansComponent implements OnInit {
 
   increaseItemCount (item : any) {
 
-    console.log(item);
+    //console.log(item);
     let totalQuantity = 0;
     this.simCart.forEach(element => {
       totalQuantity =totalQuantity + element.quantity;
@@ -122,7 +122,7 @@ export class SimplansComponent implements OnInit {
       
     }
 
-    console.log(this.simCart);
+    //console.log(this.simCart);
     this.updateTotal();
 
   }
@@ -172,7 +172,7 @@ export class SimplansComponent implements OnInit {
       
     
 
-    console.log(this.simCart);
+    //console.log(this.simCart);
     this.updateTotal()
   }
 
