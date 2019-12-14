@@ -76,10 +76,11 @@ export class RequirementsComponent implements OnInit {
    public importantInfo : Array<any> = []
    
    constructor(private router: Router,private myservice: HomeServiceService, 
-     private reqService : RequirementsService,
-               private userFlow : UserFlowDetails, private routerHistory  :RouterHistory,
-               private toastService :ToastService, private loginStatus : LoginStatusService,
-               private loginService : LoginService, private preloaderService : PreloaderService) {
+    private reqService : RequirementsService,
+    private userFlow : UserFlowDetails, private routerHistory  :RouterHistory,
+    private toastService :ToastService, private loginStatus : LoginStatusService,
+    private loginService : LoginService, private preloaderService : PreloaderService) {
+      this.preloaderService.showPreloader(true);
  
     }
   onClickRequrements(i,j, item){
@@ -90,7 +91,7 @@ export class RequirementsComponent implements OnInit {
 
       
     }
-
+    
     else if (this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName && this.showRequirementsDetailArr[i] == false) {
       this.showRequirementsDetailArr[i] = true;
     }
@@ -127,9 +128,10 @@ export class RequirementsComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log("sarthakagraawal");
+
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
-    // console.log(this.userFlowDetails);
 
     this.reqService.getRequirementsData(this.userFlowDetails.country,this.userFlowDetails.purpose,this.userFlowDetails.entryType )
       .then((data : any )=> {
@@ -230,7 +232,7 @@ export class RequirementsComponent implements OnInit {
       }
 
      
-
+      this.preloaderService.showPreloader(false);
     });
     
   }
