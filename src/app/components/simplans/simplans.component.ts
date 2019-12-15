@@ -17,6 +17,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SimplansComponent implements OnInit {
 
   simCountries : Array<any> = [];
+  revertCountry: Array<any> = [];
+  selectedRevertCountry: string = "";
   simHomeForm : FormGroup;
   selectedCountry : string = "";
   // selectedCountry : string = "";
@@ -36,6 +38,7 @@ export class SimplansComponent implements OnInit {
       this.preloaderService.showPreloader(true);
       // this.simResp = JSON.parse(localStorage.getItem('simResp')) || [];
       this.selectedCountry = localStorage.getItem('simSelectedCountry') || "";
+      this.revertCountry.push(this.selectedCountry);
       // console.log(this.selectedCountry)
      }
 
@@ -59,10 +62,11 @@ export class SimplansComponent implements OnInit {
       
         }
         else {
+          this.router.navigate(['/sim']);
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 4000);
-      
+          this.toastService.showNotification(data.message, 10000);
         }
       }
     );
@@ -99,7 +103,11 @@ export class SimplansComponent implements OnInit {
     }
     else {
     this.selectedCountry = this.simHomeForm.get('simSelect').value;
-    // console.log(this.onSelectedCountry);
+    // console.log(this.revertCountry);
+    this.revertCountry.push(this.selectedCountry);
+    // console.log(this.revertCountry);
+    this.selectedRevertCountry = this.revertCountry[this.revertCountry.length - 2];
+    
     this.simService.getSimPlans(this.selectedCountry).subscribe((data: any) => {
       if(data.code == "0") {
         this.selectedSimCountryData = data.data;
@@ -113,6 +121,23 @@ export class SimplansComponent implements OnInit {
           element.quantity = 0;
         });
         // console.log(this.selectedSimCountryData);
+      } else {
+        this.toastService.showNotification(data.message , 10000);
+        // console.log(this.selectedRevertCountry);
+        this.simService.getSimPlans(this.selectedRevertCountry).subscribe((data: any) => {
+            this.selectedSimCountryData = data.data;
+            localStorage.setItem("simResp",JSON.stringify(data.data));
+            // this.preloaderService.showPreloader(false);
+            // setTimeout(() => {
+              this.preloaderService.showPreloader(false);
+            // }, 4000);
+            
+            this.selectedSimCountryData.forEach((element : any) => {
+              element.quantity = 0;
+            });
+            // console.log(this.selectedSimCountryData);
+        });
+        return this.selectedCountry = this.selectedRevertCountry;
       }
     })
     // localStorage.setItem("simSelectedCountry",this.selectedCountry);
