@@ -600,8 +600,8 @@ export class AddTravellerComponent implements OnInit {
     this.checkDateOfCollection();
     // console.log(this.filedNameArr);
     this.formData1.set("images","");
-    // if (this.travellerForm.valid && 
-    //   this.travelDetails.valid && this.valueAddedService.valid) {
+    if (this.travellerForm.valid && 
+      this.travelDetails.valid && this.valueAddedService.valid) {
         if(this.termsAndConditions.valid) {
           this.preloaderService.showPreloader(true);
           let otherTravellersArr : Array<any> = [];
@@ -920,10 +920,10 @@ export class AddTravellerComponent implements OnInit {
         }
       
 
-  // }
-  // else {
-  //   this.toastService.showNotification("Travel details missing!", 4000);
-  // }
+  }
+  else {
+    this.toastService.showNotification("Travel details missing!", 4000);
+  }
 
      
     // });
