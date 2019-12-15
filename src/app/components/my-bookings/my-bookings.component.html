@@ -10,6 +10,110 @@
         </div>
       </div>
 
+      <div class="col-lg-12">
+        <div class="row  summaryContainer">
+          <div class="col-lg-12">
+            <div class="containerHeading">Search For Booking</div>
+          </div>
+          <form style="width: 100%;">
+            <div class="col-md-12 mt-2 form-inline">
+              <label for="" class="filterLabel">Search By</label>
+              <label for="opt1" class="radio radio1">
+                <input type="radio" name="searchFilter" id="opt1" [(ngModel)]="selectedFilter" value="dateFilter" class="hidden" />
+                <span class="filterLabel"></span>By Date Range
+              </label>
+      
+              <label for="opt2" class="radio radio2">
+                <input type="radio" name="searchFilter" id="opt2" [(ngModel)]="selectedFilter" value="bookingIdFilter" class="hidden" />
+                <span class="filterLabel"></span>By Booking Id
+              </label>
+            </div>
+            <div class="col-md-12 mt-2">
+              <div class="form-row">
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-6 form-inline col-sm-6">
+                      <label for="" class="filterLabel">From Date</label>
+                      <div class="input-group">
+                        <input (ngModelChange)="chkFromDate()" class="form-control form-control-sm dateInput"
+                          placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" />
+                        <div class="input-group-append">
+                          <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 form-inline input100 col-sm-6">
+                      <label for="" class="filterLabel">To Date</label>
+                      <div class="input-group">
+                        <input [(ngModel)]="toDate" class="form-control form-control-sm dateInput"
+                          placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo" [maxDate]="maxDate" />
+                        <div class="input-group-append">
+                          <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 marginTop">
+                  <div class="row">
+                    <div class="col-6 text-center">
+                      <button class="btn btn-sm btn-primary roundedBorder" type="submit">
+                        Search
+                      </button>
+                    </div>
+                    <div class="col-6 borderLeft">
+                      <!-- Button trigger modal -->
+                      <div class="text-center">
+                        <button type="button" class="btn btn-dark btn-sm roundedBorder2">
+                          <i class="fa fa-filter"></i> Filter
+                        </button>
+                      </div>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mt-2">
+              <div class="form-row">
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-12 form-inline">
+                      <label for="" class="mr-2 filterLabel">Booking Id </label>
+                      <input [(ngModel)]="toDate" type="text" class="form-control form-control-sm mr-2 ml-2"
+                        placeholder="Enter Booking Id" /> {{toDate}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 bookMargin ">
+                  <div class="row">
+                    <div class="col-6 text-center">
+                      <button class="btn btn-sm btn-primary roundedBorder">
+                        Search
+                      </button>
+                    </div>
+                    <div class="col-6 borderLeft">
+                      <!-- Button trigger modal -->
+                      <div class="text-center">
+                        <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
+                          data-target="#filterBtn">
+                          <i class="fa fa-filter"></i> Filter
+                        </button>
+                      </div>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
 
       <div
         *ngFor="let booking of allBooking.data.bookings | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
@@ -129,6 +233,110 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
       <div class="col-lg-12">
         <div class="title-box">
           <h2>Order History ({{totalCount}})</h2>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="row  summaryContainer">
+          <div class="col-lg-12 p-0">
+            <div class="containerHeading">Search For Booking</div>
+          </div>
+          <form style="width: 100%;">
+            <div class="col-md-12 mt-2 form-inline  p-0">
+              <label for="" class="filterLabel mb-2">Search By</label>
+              <label for="opt1" class="radio radio1" style="margin-bottom: 7px !important;">
+                <input type="radio" name="searchFilter" id="opt1" [(ngModel)]="selectedFilter" value="dateFilter" class="hidden" />
+                <span class="filterLabel"></span>By Date Range
+              </label>
+      
+              <label for="opt2" class="radio radio2">
+                <input type="radio" name="searchFilter" id="opt2" [(ngModel)]="selectedFilter" value="bookingIdFilter" class="hidden" />
+                <span class="filterLabel"></span>By Booking Id
+              </label>
+            </div>
+            <div class="col-md-12 mt-2 p-0">
+              <div class="form-row">
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-6 form-inline col-sm-6 p-0 mb-2">
+                      <label for="" class="filterLabel">From Date</label>
+                      <div class="input-group">
+                        <input (ngModelChange)="chkFromDate()" class="form-control form-control-sm dateInput"
+                          placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" />
+                        <div class="input-group-append">
+                          <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 form-inline input100 p-0 col-sm-6">
+                      <label for="" class="filterLabel">To Date</label>
+                      <div class="input-group">
+                        <input [(ngModel)]="toDate" class="form-control form-control-sm dateInput"
+                          placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo" [maxDate]="maxDate" />
+                        <div class="input-group-append">
+                          <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 marginTop">
+                  <div class="row">
+                    <div class="col-6 text-center">
+                      <button class="btn btn-sm btn-primary roundedBorder" type="submit">
+                        Search
+                      </button>
+                    </div>
+                    <div class="col-6 borderLeft">
+                      <!-- Button trigger modal -->
+                      <div class="text-center">
+                        <button type="button" class="btn btn-dark btn-sm roundedBorder2">
+                          <i class="fa fa-filter"></i> Filter
+                        </button>
+                      </div>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mt-2 p-0">
+              <div class="form-row">
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-12 form-inline p-0">
+                      <label for="" class="mr-2 filterLabel">Booking Id </label>
+                      <input [(ngModel)]="toDate" type="text" class="form-control form-control-sm mr-2 ml-2" style="margin: 0px !important;"
+                        placeholder="Enter Booking Id" /> {{toDate}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 bookMargin ">
+                  <div class="row">
+                    <div class="col-6 text-center">
+                      <button class="btn btn-sm btn-primary roundedBorder">
+                        Search
+                      </button>
+                    </div>
+                    <div class="col-6 borderLeft">
+                      <!-- Button trigger modal -->
+                      <div class="text-center">
+                        <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
+                          data-target="#filterBtn">
+                          <i class="fa fa-filter"></i> Filter
+                        </button>
+                      </div>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -254,12 +462,12 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 
 <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
  aria-hidden="true" [ngStyle]="{'display': bookingStatus == 'true' ? 'block' : 'none'}">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body" style="padding: 0px;">
-                <div class="container-fluid">
+                <div class="container-fluid p-0">
                     <div class="row">
-                        <div class="col-md-6 wrap-left p-4">
+                        <div class="col-lg-6 wrap-left p-4">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4 class="feedHeading text-center text-uppercase">Feedback Form</h4>
@@ -269,14 +477,14 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
                                 </div>
                                 <div class="col-md-12">
                                     <h1>
-                                        <img src="../../../assets/feedback.png" style="margin-top: 80px;" alt="" class="img-fluid">
+                                        <img src="../../../assets/feedback.png" alt="" class="img-fluid feedImage">
                                     </h1>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 wrap-right p-4">
+                        <div class="col-lg-6 wrap-right p-4">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 p-0">
                                     <h6>Please provide your feedback on following topics:</h6>
                                 </div>
                             </div>
