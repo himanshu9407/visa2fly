@@ -21,6 +21,15 @@ export class MyBookingsComponent implements OnInit {
   myBookingsMobile : Array<any> = [];
   activePcBookingPage : Array<any> = [];
 
+  bookingIdFilter: boolean = true;
+  dateFilter: boolean = true;
+  filter: any;
+  selectedFilter = "dateFilter";
+  sortFilter: FormGroup;
+  maxDate: { year: number; month: number; day: number };
+  minDate: { year: any; month: number; day: number };
+  minDateOfTo: { year: any; month: any; day: any; };
+
   activePcPageNumber : number = 0;
   activeMobilePageNumber : number = 0;
   activeMobileBookingPage : Array<any> = [];
@@ -118,8 +127,29 @@ export class MyBookingsComponent implements OnInit {
   
   ngOnInit() {
   
-   
+    const current = new Date();
+    this.maxDate = {
+      year: current.getFullYear(),
+      month: current.getMonth(),
+      day: current.getDate()
+    };
 
+    this.sortFilter = new FormGroup({
+      searchFilter: new FormControl(),
+      fromDate: new FormControl("", [Validators.required]),
+      toDate: new FormControl("", [Validators.required]),
+      bookingId: new FormControl("", [Validators.required])
+    });
+
+  }
+
+  chkFromDate() {
+    let temp: any = this.sortFilter.get("fromDate").value;
+    this.minDateOfTo = {
+      year: temp.year,
+      month: temp.month,
+      day: temp.day + 1
+    };
   }
  
    
