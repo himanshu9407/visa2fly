@@ -59,8 +59,10 @@ export class SimplansComponent implements OnInit {
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 6000);
-      
         }
+
+        
+
         else {
           this.router.navigate(['/sim']);
           setTimeout(() => {
@@ -79,7 +81,7 @@ export class SimplansComponent implements OnInit {
 
       this.simService.getSimPlans(this.selectedCountry).subscribe(
         (data : any) => {
-          if(data.code == "0") {
+          if(data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
             localStorage.setItem("simResp",JSON.stringify(data.data));
             this.preloaderService.showPreloader(false);
@@ -87,7 +89,14 @@ export class SimplansComponent implements OnInit {
             this.selectedSimCountryData.forEach((element : any) => {
               element.quantity = 0;
             });
-            // console.log(this.selectedSimCountryData);
+            console.log(this.selectedSimCountryData);
+          }
+        
+          else {
+            this.toastService.showNotification(data.message , 10000);
+        // console.log(this.selectedRevertCountry);
+            this.router.navigate(['/sim']);
+
           }
         }
       );
@@ -109,7 +118,8 @@ export class SimplansComponent implements OnInit {
     this.selectedRevertCountry = this.revertCountry[this.revertCountry.length - 2];
     
     this.simService.getSimPlans(this.selectedCountry).subscribe((data: any) => {
-      if(data.code == "0") {
+
+      if(data.code == "0" && data.data.length > 0) {
         this.selectedSimCountryData = data.data;
         localStorage.setItem("simResp",JSON.stringify(data.data));
         // this.preloaderService.showPreloader(false);
@@ -121,7 +131,10 @@ export class SimplansComponent implements OnInit {
           element.quantity = 0;
         });
         // console.log(this.selectedSimCountryData);
-      } else {
+      }
+     
+       
+      else {
         this.toastService.showNotification(data.message , 10000);
         // console.log(this.selectedRevertCountry);
         this.simService.getSimPlans(this.selectedRevertCountry).subscribe((data: any) => {
@@ -137,7 +150,7 @@ export class SimplansComponent implements OnInit {
             });
             // console.log(this.selectedSimCountryData);
         });
-        return this.selectedCountry = this.selectedRevertCountry;
+         this.selectedCountry = this.selectedRevertCountry;
       }
     })
     // localStorage.setItem("simSelectedCountry",this.selectedCountry);
