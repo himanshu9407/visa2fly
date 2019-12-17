@@ -7,7 +7,19 @@
       right center no-repeat !important;
     background-position: calc(100% - 5px) center !important;
   }
-}
+} 
+
+  @media not all and (min-resolution:.001dpcm)
+  { @supports (-webkit-appearance:none) {
+  
+    .order .count { 
+      font-size: 13px !important;
+    }
+
+    .metreButton .count {
+      height: 20.4px !important;
+    }
+  }}
 
 select {
   border: none;
@@ -153,7 +165,7 @@ select:focus {
 .pricing-table ul {
   margin: 10px 0 0 0;
   padding: 0;
-  min-height: 330px;
+  /* min-height: 330px; */
   list-style: none;
 }
 .pricing-table li {
@@ -241,8 +253,8 @@ button.attached:focus {
   width: 35px;
   background: #fff;
   color: #000;
-  font-size: 12px;
-  height: 20.4px;
+  font-size: 13px;
+  height: 19.4px;
   border: 1px solid #000080;
   padding: 0;
   text-align: center;
@@ -378,6 +390,10 @@ button.attached:focus {
   .orderTotal {
     width: 100%;
     padding: 12px !important;
+  }
+
+  .metreButton .count {
+    height: 20px;
   }
 
   /* .orderCard {

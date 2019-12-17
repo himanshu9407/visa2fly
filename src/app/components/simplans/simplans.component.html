@@ -41,14 +41,6 @@
               <h4>{{simData.planName}} <span> &#x20B9;
                   {{simData.price + simData.convenienceFee + simData.convenienceFeeTAX}}</span></h4>
               <div class="planDesp">
-                <ul>
-                  <li *ngFor="let tarrif of simData.tariffDetails">
-                    <b>{{tarrif.fieldName}}</b> - {{tarrif.rates}} {{tarrif.description}}
-                  </li>
-
-
-
-                </ul>
                 <div class="summaryContainer">
                   <h6 class="summaryHeading text-center"
                     style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px;">
@@ -70,6 +62,20 @@
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button></span>
               </div>
+
+              <ul>    
+                  <h6 class="summaryHeading text-center"
+                    style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px; text-align: center; cursor: pointer;"
+                    class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Additional Details
+                  </h6>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" *ngFor="let tarrif of simData.tariffDetails">
+                      <b>{{tarrif.fieldName}}</b> - {{tarrif.rates}} {{tarrif.description}}
+                    </a>
+                  </div>
+                </ul>
 
               <!-- <a class="buy" >Buy Now</a> -->
             </div>

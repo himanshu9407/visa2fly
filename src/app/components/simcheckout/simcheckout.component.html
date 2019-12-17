@@ -63,17 +63,21 @@
           <div class="desktopView">
             <table>
               <tr>
-                <th width="40%">ITEM:</th>
+                <th width="25%">ITEM:</th>
                 <th width="15%">QTY:</th>
                 <th width="15%">PRICE:</th>
-                <th width="30%">Sub Total (Inclusive of taxes)</th>
+                <th width="15%">CONVENIENCE FEE:</th>
+                <th width="10%">GST:</th>
+                <th width="25%">Sub Total (Inclusive of taxes)</th>
               </tr>
               <tr *ngFor="let item of simCart">
                 <td style="font-weight: 600;">{{item.planName}}</td>
                 <td>{{item.quantity}}</td>
-                <td>{{(item.price + item.convenienceFee + item.convenienceFeeTAX ) |  number: '1.0-2'}}</td>
+                <td>&#x20B9; &nbsp;{{(item.price) |  number: '1.0-2'}}</td>
+                <td>&#x20B9; &nbsp;{{item.convenienceFee}}</td>
+                <td>&#x20B9; &nbsp;{{item.convenienceFeeTAX}}</td>
                 <td>
-                  {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
+                    &#x20B9; &nbsp;{{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
                 </td>
               </tr>
             </table>
@@ -81,7 +85,7 @@
 
           <div class="mobileView">
             <li style="font-weight: 550;">Item<span class="float-right">{{totalQty}}</span></li>
-            <li style="font-weight: 550;">Grand Total<span class="float-right">{{totalPrice |  number: '1.0-2'}}</span>
+            <li style="font-weight: 550;">Grand Total<span class="float-right">&#x20B9; &nbsp;{{totalPrice |  number: '1.0-2'}}</span>
             </li>
 
 
@@ -134,22 +138,26 @@
         <div style="margin-top: 5px;">
           <div class="collapse mb-2" id="collapseExample">
             <div class="table-responsive">
-              <table class="table" style="width: 385px !important; margin-bottom: 5px !important; overflow: sroll;">
+              <table class="table" style="width: 585px !important; margin-bottom: 5px !important; overflow: sroll;">
                 <thead>
                   <tr>
-                    <th style="width: 70px; vertical-align: top; padding-left: 12px;">Item</th>
-                    <th style="width: 40px; vertical-align: top;">Qty</th>
-                    <th style="width: 68px; vertical-align: top;">Price</th>
-                    <th style="width: 86px; vertical-align: top;">Sub Total<br>(Inc. Of Taxes)</th>
+                    <th style="width: 120px; vertical-align: top; padding-left: 12px;">ITEM</th>
+                    <th style="width: 40px; vertical-align: top;">QTY</th>
+                    <th style="width: 68px; vertical-align: top;">PRICE</th>
+                    <th style="width: 120px; vertical-align: top;">CONVENIENCE FEE</th>
+                    <th style="width: 60px; vertical-align: top;">GST</th>
+                    <th style="width: 100px; vertical-align: top;">SUB TOTAL<br>(Inc. Of Taxes)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of simCart">
                     <td style="padding-left: 12px;">{{item.planName}}</td>
                     <td>{{item.quantity}}</td>
-                    <td>{{(item.price + item.convenienceFee + item.convenienceFeeTAX ) |  number: '1.0-2'}}</td>
+                    <td>&#x20B9; &nbsp;{{(item.price) |  number: '1.0-2'}}</td>
+                    <td>&#x20B9; &nbsp;{{item.convenienceFee}}</td>
+                    <td>&#x20B9; &nbsp;{{item.convenienceFeeTAX}}</td>
                     <td>
-                      {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
+                        &#x20B9; &nbsp;{{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
                     </td>
                   </tr>
                 </tbody>
