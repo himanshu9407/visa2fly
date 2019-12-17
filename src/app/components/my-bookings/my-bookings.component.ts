@@ -38,7 +38,9 @@ export class MyBookingsComponent implements OnInit {
   
   public bookingData : any;
   bookingStatus : boolean = false;
-   FeedbackForm : FormGroup;
+  FeedbackForm : FormGroup;
+  bookingFilterForm : FormGroup;
+  
    
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
@@ -55,8 +57,15 @@ export class MyBookingsComponent implements OnInit {
       'f2-rating' : new FormControl(null),
       'FeedbackEdit' : new FormControl(null)
     });
-    
-   
+
+    this.bookingFilterForm = new FormGroup ({
+      'byDate' : new FormControl(true),
+      'byBookingId' : new FormControl(false),
+      'fromDate' : new FormControl(null),
+      'toDate' : new FormControl (null),
+      'bookingId' : new FormControl (null)
+
+    });
     
 
     this.AUTH_TOKEN = this.loginService.getAuthToken();
@@ -67,21 +76,13 @@ export class MyBookingsComponent implements OnInit {
         if (data.code == "0") {
           this.bookingService.getBookingsFromServer().subscribe((res) =>{
             this.allBooking = res;
-           // console.log(this.allBooking);
-             // this.myBookings = this.allBooking;
-               // console.log(this.myBookings[0]['booking']);
              if(this.allBooking != null ) {
-              // console.log(this.myBookings);
               this.totalCount = this.allBooking.data.bookings.length;
 
               localStorage.setItem('bookingStatus', JSON.stringify(this.allBooking.data.takeFeedback));
 
                bookingIdC= localStorage.getItem('bookingStatus');
               this.bookingStatus = bookingIdC; 
-              // console.log(bookingIdC);              
-               // console.log(this.totalCount);
-              //var bookingId = this.allBooking.data.feedbackToBeTakenFor;
-              //console.log(this.allBooking.data.takeFeedback);
               this.allBooking.data.bookings.forEach(element => {
                 if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
                 ||element.booking.bookingStatus == "Visa application approved") {
@@ -119,9 +120,8 @@ export class MyBookingsComponent implements OnInit {
           this.preloaderService.showPreloader(false);
       };
     });
-    //var bookingId = this.allBooking.data.;
     
-    
+    //end of constructor
 }
 
   
@@ -155,30 +155,6 @@ export class MyBookingsComponent implements OnInit {
    
  
 
-  // setActivePagePc(i : number) {
-  //   this.activePcPageNumber = i;
-
-  //   console.log(this.activePcPageNumber == i);
-  
-  // // window.scrollTo(0,0);
-  // window.scrollTo({
-  //   top: 0,
-  //   left: 0,
-  //   behavior: 'smooth'
-  // });
-  //   this.activePcBookingPage = this.myBookingsPc[i];
-  // }
-
-  // setActivePageMobile ( i : number)  {
-  //   this.activeMobilePageNumber = i;
-  //   // window.scrollTo(0,0);
-  //   window.scrollTo({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: 'smooth'
-  //   });
-  //   this.activeMobileBookingPage = this.myBookingsMobile[i];
-  // }
   downloadInvoice (bookingId : string,bookingStatus : string) {
     // console.log("invoice called");
     if(bookingStatus == 'g') {
@@ -231,6 +207,10 @@ onSubmit(){
   });
   this.toastService.showNotification("Feedback Submitted", 2000);
   return this.bookingStatus = false;
+ }
+
+ searchBookings () {
+   console.log(this.bookingFilterForm.value);
  }
 
 }
