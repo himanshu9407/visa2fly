@@ -33,14 +33,14 @@
                   <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
                 </li>
                 <li>
-                  Visa For :
+                  {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}} For :
                   <span class="fieldData">{{booking.booking.visaForCountry}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
                   <span class="fieldData">{{booking.booking.visaType}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
                   <span class="fieldData">{{booking.booking.entryType}}</span>
                 </li>
@@ -52,11 +52,11 @@
                   Booking date:
                   <span class="fieldData">{{booking.booking.bookingDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Document Collection Date:
                   <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
                   <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
                 </li>

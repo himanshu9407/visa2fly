@@ -13,7 +13,7 @@ export class PreloaderService {
     } 
 
     showPreloader (showPreloader : boolean) {
-        console.log(showPreloader + "preloader showing");
+        // console.log(showPreloader + "preloader showing");
         let show = showPreloader;
         this.subject.next(show);
     }

@@ -73,7 +73,7 @@ constructor(private homeFormService: HomeFormService,
      
 
     if (token == "" || token ==  null || token == undefined )  {
-      console.log("profile cleared")
+      // console.log("profile cleared")
       this.userFlow.setUserProfile({});
       this.loginStatusService.setUserLoggedIn(false);
     }
@@ -82,7 +82,7 @@ constructor(private homeFormService: HomeFormService,
       this.loginStatusService.verifyAuthToken(token).toPromise()
         .then((data : any) => {
         if(data.code == "0") {
-            console.log(data);
+            // console.log(data);
             this.userFlow.setUserProfile(data.data);
             this.loginStatusService.setUserLoggedIn(true);
             // console.log(this.userFlow.getUserFlowDetails());
