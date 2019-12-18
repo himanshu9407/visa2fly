@@ -288,7 +288,7 @@
                         Country :
                         <span class="fieldData">{{traveller.country}}</span>
                       </li>
-                      <li>
+                      <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
                         Title :
                         <span class="fieldData">{{traveller.title}}</span>
                       </li>

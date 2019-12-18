@@ -150,7 +150,18 @@ select:focus {
 .pricing-table h3 span img {
   display: block;
   font: bold 25px/100px Georgia, Serif;
-  border: 5px solid #fff;
+  background: #0575e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top right,
+    #101ee6 0%,
+    #000080 112%
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top right,
+    #101ee6 0%,
+    #000080 112%
+  );
+  padding: 5px;
   height: 100px;
   /* background: url("australia-flag-round-xs.png"); */
   width: 100px;
@@ -158,10 +169,17 @@ select:focus {
   -moz-border-radius: 100px;
   -webkit-border-radius: 100px;
   border-radius: 100px;
-  -moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+  /* -moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
   -webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
-  box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+  box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset; */
 }
+
+
+
+  .dropdown-menu {
+    font-size: 14px;
+  }
+
 .pricing-table ul {
   margin: 10px 0 0 0;
   padding: 0;
@@ -253,8 +271,8 @@ button.attached:focus {
   width: 35px;
   background: #fff;
   color: #000;
-  font-size: 13px;
-  height: 19.4px;
+  font-size: 12px;
+  height: 20.4px;
   border: 1px solid #000080;
   padding: 0;
   text-align: center;

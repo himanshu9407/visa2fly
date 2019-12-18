@@ -113,10 +113,6 @@ export class SimplansComponent implements OnInit {
     else {
     this.selectedCountry = this.simHomeForm.get('simSelect').value;
     // console.log(this.revertCountry);
-    this.revertCountry.push(this.selectedCountry);
-    // console.log(this.revertCountry);
-    this.selectedRevertCountry = this.revertCountry[this.revertCountry.length - 2];
-    
     this.simService.getSimPlans(this.selectedCountry).subscribe((data: any) => {
 
       if(data.code == "0" && data.data.length > 0) {
@@ -130,13 +126,16 @@ export class SimplansComponent implements OnInit {
         this.selectedSimCountryData.forEach((element : any) => {
           element.quantity = 0;
         });
+        this.revertCountry.push(this.selectedCountry);
+        console.log(this.revertCountry);
         // console.log(this.selectedSimCountryData);
       }
      
        
       else {
+        this.selectedRevertCountry = this.revertCountry[this.revertCountry.length - 1];
         this.toastService.showNotification(data.message , 10000);
-        // console.log(this.selectedRevertCountry);
+        console.log(this.selectedRevertCountry);
         this.simService.getSimPlans(this.selectedRevertCountry).subscribe((data: any) => {
             this.selectedSimCountryData = data.data;
             localStorage.setItem("simResp",JSON.stringify(data.data));
