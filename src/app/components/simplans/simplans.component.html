@@ -39,7 +39,7 @@
 " height="90px;" [alt]="simData.country" /></span>
               </h3>
               <h4>{{simData.planName}} <span> &#x20B9;
-                  {{simData.price + simData.convenienceFee + simData.convenienceFeeTAX}}</span></h4>
+                  {{simData.priceWithoutGST |  number: '1.0-2'}}</span></h4>
               <div class="planDesp">
                 <div class="summaryContainer">
                   <h6 class="summaryHeading text-center"
@@ -110,7 +110,7 @@
                         <br />
                         <span style="font-size: 12px;">&nbsp;</span>
                         <span class="pull-right" style="float: right;">
-                          &#x20B9; {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
+                          &#x20B9; {{(item.quantity * (item.priceWithoutGST )) |  number: '1.0-2'}}
                         </span>
                       </div>
                     </div>
@@ -162,7 +162,7 @@
                         <br />
                         <span style="font-size: 12px;">&nbsp;</span>
                         <span class="pull-right" style="float: right;">
-                          &#x20B9; {{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
+                          &#x20B9; {{(item.quantity * (item.priceWithoutGST )) |  number: '1.0-2'}}
                         </span>
                       </div>
                     </div>

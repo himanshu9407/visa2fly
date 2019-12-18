@@ -73,9 +73,9 @@
               <tr *ngFor="let item of simCart">
                 <td style="font-weight: 600;">{{item.planName}}</td>
                 <td>{{item.quantity}}</td>
-                <td>&#x20B9; &nbsp;{{(item.price) |  number: '1.0-2'}}</td>
+                <td>&#x20B9; &nbsp;{{(item.priceWithoutGST) |  number: '1.0-2'}}</td>
                 <td>&#x20B9; &nbsp;{{item.convenienceFee}}</td>
-                <td>&#x20B9; &nbsp;{{item.convenienceFeeTAX}}</td>
+                <td>&#x20B9; &nbsp;{{item.gst}}</td>
                 <td>
                     &#x20B9; &nbsp;{{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
                 </td>
@@ -153,9 +153,9 @@
                   <tr *ngFor="let item of simCart">
                     <td style="padding-left: 12px;">{{item.planName}}</td>
                     <td>{{item.quantity}}</td>
-                    <td>&#x20B9; &nbsp;{{(item.price) |  number: '1.0-2'}}</td>
+                    <td>&#x20B9; &nbsp;{{(item.priceWithoutGST) |  number: '1.0-2'}}</td>
                     <td>&#x20B9; &nbsp;{{item.convenienceFee}}</td>
-                    <td>&#x20B9; &nbsp;{{item.convenienceFeeTAX}}</td>
+                    <td>&#x20B9; &nbsp;{{item.gst}}</td>
                     <td>
                         &#x20B9; &nbsp;{{(item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX )) |  number: '1.0-2'}}
                     </td>
