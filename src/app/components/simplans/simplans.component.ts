@@ -26,6 +26,7 @@ export class SimplansComponent implements OnInit {
   simCart : Array<any> = [];
   simCartEmpty : boolean = true;
   totalPrice : number = 0;
+  displayTotal : number = 0;
   simResp : any ;
   showMobileCart : boolean  = false;
   buttonLabel : string = "View Cart";
@@ -274,11 +275,17 @@ export class SimplansComponent implements OnInit {
 
   updateTotal () {
     this.totalPrice = 0;
+    this.displayTotal = 0;
 
     this.simCart.forEach((item : any) => {
      let  temp = item.quantity * (item.price + item.convenienceFee + item.convenienceFeeTAX );
      this.totalPrice = this.totalPrice + temp;
     });
+
+    this.simCart.forEach((item: any) => {
+      let temp1 = item.quantity * item.priceWithoutGST;
+      this.displayTotal = this.displayTotal + temp1;
+    })
     
   }
 
