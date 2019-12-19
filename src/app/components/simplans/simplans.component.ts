@@ -47,11 +47,11 @@ export class SimplansComponent implements OnInit {
           if(data.code == "0") {
             this.selectedSimCountryData = data.data;
             localStorage.setItem("simResp",JSON.stringify(data.data));
-            this.preloaderService.showPreloader(false);
             
             this.selectedSimCountryData.forEach((element : any) => {
               element.quantity = 0;
             });
+            this.preloaderService.showPreloader(false);
             //console.log(this.selectedSimCountryData);
           }
         }

@@ -48,7 +48,8 @@ export class MyBookingsComponent implements OnInit {
               private  router :Router ,private preloaderService :PreloaderService, private bookingService : MyBookingsService,
               private downloadImageService : DownloadImageService, private toastService : ToastService,private fb : FormBuilder) {
     this.myBookings =   [];
-      
+    this.preloaderService.showPreloader(true);
+
  var bookingIdC;
  
     this.FeedbackForm = new FormGroup({
@@ -87,7 +88,6 @@ export class MyBookingsComponent implements OnInit {
 
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe(
       ( data : any ) => {
-               
         if (data.code == "0") {
           this.bookingService.getBookingsFromServer().subscribe((res) =>{
             this.allBooking = res;
@@ -133,10 +133,14 @@ export class MyBookingsComponent implements OnInit {
               this.totalCount = 0;
             }
            
-          
+            this.preloaderService.showPreloader(false);
+            
         });
-          this.preloaderService.showPreloader(false);
-      };
+        
+      }
+      else {
+        this.router.navigate(['/visa']);
+      }
     });
     
     //end of constructor
