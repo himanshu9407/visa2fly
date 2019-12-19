@@ -28,7 +28,7 @@ export class MobileNavComponent implements OnInit {
   //  console.log(this.userLoggedIn);
 
     this.userDetails = JSON.parse(localStorage.getItem('profile'));
-    console.log(this.userDetails);
+    // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 
     this.loginStatus.getData().subscribe(
