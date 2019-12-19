@@ -120,6 +120,7 @@
                         </div>
                         <div class="modal-footer filterFooter">
                           <button (click)= "filterBookings()" type="button" class="btn btn-sm btn-primary"
+                          data-dismiss="modal"
                             style="border-radius: 20px; background: #000080;">Apply Changes</button>
                         </div>
                       </div>
@@ -425,7 +426,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 <!-- Modal -->
 
 <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
- aria-hidden="true" [ngStyle]="{'display': bookingStatus == 'true' ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7);">
+ aria-hidden="true" [ngStyle]="{'display': bookingStatus == 'true' ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body" style="padding: 0px;">
@@ -519,7 +520,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
                                   <button  value="submit" class="btn text-white btn-submit btn-sm btn-block" (click) = "onSubmit()">Submit</button>
                               </div>
                               <div class="col-md-12 text-center mt-2">
-                                <button  class="btn btn btn-outline-info btn-sm btn-block" (click)="closeFeed()">No, I'm not interested</button>
+                                <button type="button"  class="btn btn btn-outline-info btn-sm btn-block" (click)="closeFeed()">No, I'm not interested</button>
                             </div>
                             </form>
                         </div>

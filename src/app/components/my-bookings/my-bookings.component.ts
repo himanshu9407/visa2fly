@@ -339,7 +339,14 @@ onSubmit(){
  }
 
  seeBooking() {
-   console.log('seeBooking');
+  //  console.log('seeBooking');
+   this.bookingFilterForm.reset();
+  //  this.bookingSearchForm.reset();
+  this.bookingSearchForm.get('fromDate').setValue(null);
+  this.bookingSearchForm.get('toDate').setValue(null);
+  this.bookingSearchForm.get('bookingId').setValue("");
+   this.bookingsForLoop = this.bookings;
+   this.filteredBookingsEmpty = false;
  }
 
  closeFeed() {
