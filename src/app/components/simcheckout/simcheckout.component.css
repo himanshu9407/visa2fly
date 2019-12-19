@@ -1,346 +1,458 @@
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none;
   box-shadow: none !important;
-  height: 30px;
+  /* height: 30px; */
 }
 
+label {
+margin-bottom: 0px !important;
+}
+
+.invalid-feedback {
+  font-size: 13px;
+}
+
+.padTop {
+  margin-top: 4px;
+}
+
+  /* !important is needed sometimes */
+  ::-webkit-scrollbar {
+    width: 1px !important;
+    height: 4px !important;
+ }
+
+ /* Track */
+::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3) !important;
+   -webkit-border-radius: 10px !important;
+   border-radius: 10px !important;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 10px !important;
+   border-radius: 10px !important;
+   background: #41617D !important; 
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important; 
+
+ }
+ ::-webkit-scrollbar-thumb:window-inactive {
+   background: #41617D !important; 
+ }
+
 /* FIREFOX FIX OF UGLY SELECT BOXES */
-@supports (-moz-appearance:none) {
-
-  SELECT
-  {
-  -moz-appearance:none !important;
-  background: #fff url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
-  background-position: calc(100% - 5px) center !important;
+@supports (-moz-appearance: none) {
+  select {
+    -moz-appearance: none !important;
+    background: #fff
+      url("data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==")
+      right center no-repeat !important;
+    background-position: calc(100% - 5px) center !important;
   }
-
 }
 
 select {
   /* border: none; */
-  font-size: 14px;
+  font-size: 16px;
   /* font-weight: 550; */
   padding-left: 0px;
 }
 
+table,
+th,
+td {
+  border: none !important;
+  border-collapse: collapse;
+  padding: 5px;
+  background: #e2e2e2;
+font-size: 14px;
+}
 
-input {
+.table{
+  display: block !important;
+  overflow-x: auto !important;
+  width: 100% !important;
+}
+
+input, textarea {
   font-size: 14px;
 }
 
+.desktopView {
+  display: block;
+}
+
+.mobileView {
+  display: none;
+}
+
+/* .summaryContainer { */
+  /* min-height: 200px; */
+/* } */
 
 button.calendar {
   padding-top: 2px;
   height: 30px;
 }
-  .grandLabel {
-    padding-right: 150px;
-    float: right !important;
-    font-size: 17px !important; font-weight: 700;
-  }
+.grandLabel {
+  padding-right: 150px;
+  float: right !important;
+  font-size: 16px !important;
+  font-weight: 700;
+}
 
-  .mail {
-    padding-left: 40px;
-  }
+.mail {
+  margin-left: 20px;
+}
 
-  .mobile ,
-  .departure {
-    padding-left: 60px;
-  }
+.mobile,
+.gender,
+.departure {
+  margin-left: 20px;
+}
 
-  .country {
-    padding-left: 30px;
-  }
+.country {
+  margin-left: 20px;
+}
 
-  .activated {
-    padding-left: 90px;
-  }
+.activated {
+  /* padding-left: 90px; */
+  margin-left: 20px;
+}
 
-  #insrSummary {
-    margin-top: 60px;
-  }
+#insrSummary {
+  margin-top: 60px;
+}
 
+#insrSummary .container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #e2e2e2;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.headTitle {
+  color: #000080;
+  font-size: 16px !important;
+}
+
+#insrSummary .planDetail {
+  margin-top: 10px;
+  /* color: gray; */
+  font-size: 14px;
+}
+
+#insrSummary li {
+  list-style: none;
+}
+
+#insrSummary li {
+  list-style: none;
+}
+
+section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.TrvDetail .container {
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+  background-color: #e2e2e2;
+  border-radius: 10px;
+  padding: 10px 20px 0px;
+  margin-top: 20px;
+}
+
+.TrvDetail span {
+  color: dodgerblue;
+}
+
+.TrvDetail label {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
   #insrSummary .container {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: #e2e2e2;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin-top: 20px;
+    padding: 10px 10px 0px;
   }
 
-  #insrSummary .headTitle {
-    color: #000080;
-    font-size: 16px;
+  #insrSummary .col-lg-2 {
+    border-left: none;
+    height: 70px;
   }
 
   #insrSummary .planDetail {
-    margin-top: 10px;
-    color: gray;
-    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    /* color: gray; */
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #insrSummary .container {
+    padding: 20px;
   }
 
-  #insrSummary li {
-    list-style: none;
+  #insrSummary .col-lg-2 {
+    border-left: none;
+    height: 80px;
   }
 
-  #insrSummary li {
-    list-style: none;
+  #insrSummary .planDetail {
+    margin-top: 2px;
+    margin-bottom: 20px;
+    /* color: gray; */
   }
 
-  section {
-    padding-top: 10px;
-    padding-bottom: 10px;
+  #insrSummary .container {
+    border-radius: 10px;
+  }
+  .TrvDetail .container {
+    border-radius: 0px;
+  }
+
+  .mail {
+    margin-left: 0px;
+  }
+
+  .mobile {
+    margin-left: 0px;
+  }
+
+  .departure {
+    margin-left: 0px;
+  }
+
+  .country {
+    margin-left: 0px;
+  }
+
+  .activated {
+    margin-left: 0px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #insrSummary .container {
+    padding: 20px;
+  }
+
+  hr {
+    margin-bottom: 6px !important;
+  }
+
+  .mobileLabel {
+    padding: 2px;
+  }
+
+  .mobileTotal {
+    margin-top: 0px;
+  }
+
+  .grandLabel {
+    padding-right: 0px;
+    float: left;
+  }
+
+  .grandTotal {
+    width: 50%;
+  }
+
+  .insuranceBox {
+    margin: 0px 20px !important;
+  }
+
+  .mail {
+    margin-left: 0px;
+  }
+
+  #insrSummary .planDetail {
+    margin-top: 2px;
+    margin-bottom: 20px;
+    /* color: gray; */
+  }
+
+  #insrSummary .changeBtn {
+    margin-top: 2px;
+  }
+
+  #insrSummary .container {
+    border-radius: 10px;
   }
 
   .TrvDetail .container {
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
-    background-color: #e2e2e2;
     border-radius: 10px;
-    padding: 20px 20px 0px;
-    margin-top: 20px;
   }
 
-  .TrvDetail span {
-    color: dodgerblue;
+  input,
+  select,
+  .input-group-append,
+  textarea {
+    margin-top: 2px;
   }
 
-  .TrvDetail label {
-    color: #000;
+  .mail,
+  .mobile,
+  .departure,
+  .gender,
+  .country
+   {
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+
+  .activated {
+    margin-left: 0px !important;
+    margin-top: 10px;
+  }
+
+  .stateInput {
+    margin-top: 10px;
+  }
+
+  #insrSummary {
+    margin-top: 100px;
+  }
+}
+
+.header {
+  background: #000080;
+}
+
+.header .container {
+  padding: 5px 0px;
+}
+
+.header .pull-left {
+  float: left !important;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.header .pull-right {
+  float: right;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.logo .pull-left img {
+  vertical-align: middle;
+}
+
+.logo .pull-right p {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  line-height: 100%;
+}
+
+.logo .pull-right p.cell {
+  font-size: 22px;
+}
+
+.insuranceBox {
+  margin: 0px 50px;
+}
+
+@media (min-width: 380px) and (max-width: 480px) {
+  #insrSummary .container,
+  .TrvDetail .container {
+    padding: 20px 0px;
+    margin-left: 15px;
+    /* margin-right: 10px; */
+    width: 382px;
+  }
+}
+
+@media (min-width: 351px) and (max-width: 379px) {
+  #insrSummary .container,
+  .TrvDetail .container {
+    padding: 20px 0px;
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    width: 332px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 350px) {
+  #insrSummary .container,
+  .TrvDetail .container {
+    padding: 10px 0px 10px;
+    margin-left: 17px;
+    /* margin-right: 10px; */
+    width: 285px;
+  }
+}
+
+@media screen and (max-width: 980px) and (min-width: 678px) {
+  .mail {
+    margin-left: 16px;
+  }
+
+  .mobile,
+  .departure {
+    padding-left: 15px;
+  }
+
+  .country {
+    padding-left: 2px;
+  }
+
+  .activated {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .desktopView , .onlyMob{
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+
+
+  .paddReq, .managePadd {
+    padding: 0px;
+  }
+
+
+  .padTop {
+    margin-top: 10px;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  tr,
+  th,
+  label {
     font-size: 14px;
-    font-weight: 500;
   }
 
-  .TrvDetail label {
-    font-size: 14px;
+  .grandLabel {
+    font-size: 14px !important;
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    #insrSummary .container {
-      padding: 10px 10px 0px;
-    }
-
-    #insrSummary .col-lg-2 {
-      border-left: none;
-      height: 70px;
-    }
-
-    #insrSummary .planDetail {
-      margin-top: 2px;
-      margin-bottom: 20px;
-      color: gray;
-    }
+  .totalPrice {
+    font-size: 15px !important;
   }
+}
 
-  @media (min-width: 481px) and (max-width: 767px) {
-    #insrSummary .container {
-      padding: 20px;
-    }
-
-    #insrSummary .col-lg-2 {
-      border-left: none;
-      height: 80px;
-    }
-
-    #insrSummary .planDetail {
-      margin-top: 2px;
-      margin-bottom: 20px;
-      color: gray;
-    }
-
-    #insrSummary .container {
-      border-radius: 10px;
-    }
-    .TrvDetail .container {
-      border-radius: 0px;
-    }
-
-    .mail {
-      padding-left: 0px;
-    }
-  
-    .mobile {
-      padding-left: 0px;
-    }
-  
-    .departure {
-      padding-left: 0px;
-    }
-  
-    .country {
-      padding-left: 0px;
-    }
-  
-    .activated {
-      padding-left: 0px;
-    }
-
-  }
-
-  @media (min-width: 320px) and (max-width: 480px) {
-    #insrSummary .container {
-      padding: 20px;
-    }
-    
-    hr {
-      margin-bottom: 6px !important;
-    }
-
-    .mobileLabel {
-      padding: 2px;
-    }
-
-    .mobileTotal {
-      margin-top: 0px;
-    }
-
-    .grandLabel {
-      padding-right: 0px;
-      float: left;
-    }
-
-    .grandTotal {
-      width: 50%;
-    }
-
-    .insuranceBox {
-      margin: 0px 20px !important;
-    }
-
-    .mail {
-      margin-left: 0px;
-    }
-
-
-    #insrSummary .planDetail {
-      margin-top: 2px;
-      margin-bottom: 20px;
-      color: gray;
-    }
-
-    #insrSummary .changeBtn {
-      margin-top: 2px;
-    }
-
-    #insrSummary .container {
-      border-radius: 10px;
-    }
-
-    .TrvDetail .container {
-      border-radius: 10px;
-    }
-
-    .TrvDetail .form-row input.trvName {
-      margin-top: 8px;
-    }
-
-    .mail,
-    .mobile,
-    .departure,
-    .country,
-    .activated {
-      padding-left: 5px;
-      margin-top: 10px;
-    }
-
-    #insrSummary {
-      margin-top: 100px;
-    }
-
-  }
-
-  .header {
-    background: #000080;
-  }
-
-  .header .container {
-    padding: 5px 0px;
-  }
-
-  .header .pull-left {
-    float: left !important;
-    color: #fff;
-    font-weight: 600;
-    font-size: 20px;
-  }
-
-  .header .pull-right {
-    float: right;
-    color: #fff;
-    font-weight: 600;
-    font-size: 20px;
-  }
-
-  .logo .pull-left img {
-    vertical-align: middle;
-  }
-
-  .logo .pull-right p {
-    font-weight: 600;
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-    line-height: 100%;
-  }
-
-  .logo .pull-right p.cell {
-    font-size: 22px;
-  }
-  
-  .insuranceBox {
-    margin: 0px 50px;
-  }
-
-  @media (min-width: 380px) and (max-width: 480px) { 
-    #insrSummary .container,
-    .TrvDetail .container {
-      padding: 20px 0px;
-      margin-left: 15px;
-      /* margin-right: 10px; */
-      width: 382px;
-    }
-  
-  }
-  
-  @media (min-width: 351px) and (max-width: 379px) { 
-    #insrSummary .container,
-    .TrvDetail .container {
-      padding: 20px 0px;
-      /* margin-left: 10px; */
-      /* margin-right: 10px; */
-      width: 332px;
-    }
-  }
-  
-  
-  @media (min-width: 320px) and (max-width: 350px) { 
-    #insrSummary .container,
-    .TrvDetail .container {
-      padding: 10px 0px 0px;
-      margin-left: 17px;
-      /* margin-right: 10px; */
-      width: 285px;
-    }
-  
-  }
-  
-
-  @media screen and (max-width: 980px) and (min-width: 678px) {
-
-    .mail {
-      padding-left: 16px;
-    }
-  
-    .mobile ,
-    .departure {
-      padding-left: 15px;
-    }
-  
-    .country {
-      padding-left: 2px;
-    }
-  
-    .activated {
-      padding-left: 10px;
-    }
-  }
+@media screen and (width: 600px) {
+#insrSummary .container {
+    border-radius: 10px;
+}
+}

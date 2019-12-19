@@ -210,7 +210,7 @@ onSubmit(){
     // this.toastService.showNotification("Feedback Submitted", 1000);
   });
   this.toastService.showNotification("Feedback Submitted", 2000);
-  return this.bookingStatus = false;
+  this.bookingStatus = false;
  }
 
  smoothScrollToTop () {
@@ -272,7 +272,7 @@ onSubmit(){
    this.filteredBookingsEmpty = false;
  }
 
-  console.log(this.bookingSearchForm.value);
+  // console.log(this.bookingSearchForm.value);
   
  }
  searchBookingsByBookingId () {
@@ -282,7 +282,7 @@ onSubmit(){
   let found = false;
   this.bookings.forEach((booking) => {
     if (booking.booking.bookingId == bookingId) {
-      console.log("hello");
+      // console.log("hello");
       arr.push(booking);
       this.bookingsForLoop =arr; 
       found = true;
@@ -329,7 +329,21 @@ onSubmit(){
 
    this.bookingsForLoop = tempBookingArr;
 
-   console.log(this.bookingsForLoop);
+   if(this.bookingsForLoop.length == 0) {
+     this.filteredBookingsEmpty = true;
+   }
+   else {
+     this.filteredBookingsEmpty = false;
+   }
+
+ }
+
+ seeBooking() {
+   console.log('seeBooking');
+ }
+
+ closeFeed() {
+  this.bookingStatus = false;
  }
 
 }

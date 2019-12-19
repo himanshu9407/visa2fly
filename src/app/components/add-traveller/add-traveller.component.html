@@ -329,7 +329,7 @@
                                     <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-4 mb-3">
                                         <label>Address</label>
                                         <div class="input-group">
-                                            <textarea minlength="20" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                                            <textarea minlength="20" pattern="^[ A-Za-z0-9-:./,]*$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
                     travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].
@@ -483,8 +483,8 @@
                     <div class="form-check">
                         <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
                             <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
-                            <label class="custom-control-label tnc" for="checkAll">I agree with the <a href="#">Terms &amp;
-                  Conditions</a> and <a href="#">Cancellation</a> policy of Visa2fly.
+                            <label class="custom-control-label tnc" for="checkAll">I agree with the <a [routerLink]="['/tnc']" routerLinkActive="router-link-active">Terms &amp;
+                  Conditions</a> and <a [routerLink]="['/cancellationPolicy']" routerLinkActive="router-link-active" >Cancellation</a> policy of Visa2fly.
 
               </label>
                         </div>

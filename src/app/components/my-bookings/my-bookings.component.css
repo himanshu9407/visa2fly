@@ -167,7 +167,8 @@ input[type="radio"]:checked + .filterLabel:after {
 }
 
 .roundedBorder2 {
-  padding: 5px 20px;
+  padding: 5px 10px;
+  width: 100px;
   color: #fff;
   border-radius: 20px;
 }
@@ -227,6 +228,11 @@ input[type="radio"]:checked + .filterLabel:after {
     .marginTop,
     .bookMargin {
       margin-top: 20px;
+    }
+
+    .modal-body .container-fluid {
+      padding-right: 0px !important;
+      padding-left: 0px !important;
     }
 
     .inputpad10 {
@@ -335,6 +341,7 @@ input[type="radio"]:checked + .filterLabel:after {
 .card-body {
   /* flex: 1 1 auto; */
   padding: 10px;
+  min-height: 318px;
   /* padding-bottom: 4px; */
 }
 .card {
@@ -735,4 +742,10 @@ label {
 
 .rating>input:checked~label:hover~label {
   color: #ffcc33;
+}
+
+@media screen and (max-width: 990px) {
+  .cross-times {
+    display: none;
+  }
 }

@@ -32,6 +32,7 @@ export class AddTravellerComponent implements OnInit {
   intialInfo = true;
   dateOfTravelModel : any ="";
   modalWarnings : Array<any> = [];
+  originalImageArr = [];
   // firstCity = "Gurgaon"
   // firstState = "Haryana"
 
@@ -59,14 +60,11 @@ export class AddTravellerComponent implements OnInit {
   requestImageArr = [];
    formData1 = new FormData();
 
-
-  // dotd;
-  // docd;
-  // dobd:any;
-  // doed:any;
   today : Date;
   tomorrow : Date;
   tomorrowDate : any = "";
+
+  tempImageArr = [];
 
   constructor(private formBuilder : FormBuilder, private travellerService : AddTravellerService,
      private toastService : ToastService, private userFlow : UserFlowDetails, private loginService:LoginService,
@@ -603,38 +601,27 @@ export class AddTravellerComponent implements OnInit {
 
   seeValues () {
 
-
-    
     this.validateDate();
     this.checkDateOfCollection();
-
     // console.log(this.filedNameArr);
     this.formData1.set("images","");
-
-
-    // if (this.travellerForm.valid && 
-    //   this.travelDetails.valid && this.valueAddedService.valid) {
+    if (this.travellerForm.valid && 
+      this.travelDetails.valid && this.valueAddedService.valid) {
         if(this.termsAndConditions.valid) {
           this.preloaderService.showPreloader(true);
-
-      
-    
           let otherTravellersArr : Array<any> = [];
           const fd = {};
       
           let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
-          
-          
-      
-      
           tempArr.forEach((form:FormGroup,index) => {
-      
-      
             if (this.onlineCategory) {
       
               this.filedNameArr.forEach( el => {
-                this.formData1.append("images",form.get(el).value);
-                // form.get(el).setValue(form.get(el).value.name);
+                this.formData1.append("images",form.get(el).value)
+                this.tempImageArr.push(form.get(el).value);
+                form.get(el).setValue(form.get(el).value.name);
+                // form.re
+                console.log(this.tempImageArr);
               })
             }
       
@@ -821,6 +808,39 @@ export class AddTravellerComponent implements OnInit {
                 //console.log(data.data.applicantsFormValidationResult);
       
                 let errArr : Array<any> = data.data.applicantsFormValidationResult;
+
+                let chunk = this.filedNameArr.length;
+                let temparray = [] ;
+                
+
+                for (let i=0,j=this.tempImageArr.length; i<j; i+=chunk) {
+                    temparray = this.tempImageArr.slice(i,i+chunk);
+                    this.originalImageArr.push(temparray);
+                  }
+
+                  this.tempImageArr = [];
+
+                  console.log(this.originalImageArr);
+
+                  let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
+
+                  tempArr.forEach((form : FormGroup,i) => {
+                    
+                    if (this.onlineCategory) {
+        
+                      this.filedNameArr.forEach( (el,j) => {
+                        form.get(el).setValue(this.originalImageArr[i][j]);
+                        // form.re
+                      })
+                    }
+                  });
+
+                  this.originalImageArr = [];
+
+
+        
+             
+
                 // tempArr.forEach((form:FormGroup,index) => {
                 //   console.log(form.get('dateOfBirth').value);
                 //   let respDob : string = form.get('dateOfBirth').value;
@@ -905,10 +925,10 @@ export class AddTravellerComponent implements OnInit {
         }
       
 
-  // }
-  // else {
-  //   this.toastService.showNotification("Travel details missing!", 4000);
-  // }
+  }
+  else {
+    this.toastService.showNotification("Travel details missing!", 4000);
+  }
 
      
     // });
@@ -1102,15 +1122,15 @@ export class AddTravellerComponent implements OnInit {
       this.travellers = this.travellerForm
       .get('travellers') as FormArray;
       this.travellers.push(this.createTraveller());
-      let arr = (<FormArray>this.travellerForm.get('travellers')).controls;
-    
+      
       // for (let i = 0; i < this.imageUploads.length; i++) {
         
-      //   this.filedNameArr.push(this.imageUploads[i].fieldName);
-      // }
-      let tempVar = this.travellerForm
-      .get('travellers') as FormArray;
-
+        //   this.filedNameArr.push(this.imageUploads[i].fieldName);
+        // }
+        let tempVar = this.travellerForm
+        .get('travellers') as FormArray;
+        
+        let arr = (<FormArray>this.travellerForm.get('travellers')).controls;
 
       if(this.onlineCategory) {
         
@@ -1124,7 +1144,7 @@ export class AddTravellerComponent implements OnInit {
                       element.controls[fieldName].setValidators([Validators.required,requiredFileType('png')]);
                       // console.log(element.controls[fieldName]);
                       element.controls[fieldName].updateValueAndValidity();
-            
+          
                     }
                   });
             

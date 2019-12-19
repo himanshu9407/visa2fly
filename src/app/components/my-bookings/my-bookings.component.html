@@ -66,7 +66,7 @@
                   <div class="text-center">
                     <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
                       data-target="#filterBtn">
-                      <i class="fa fa-filter"></i> Filter By
+                      <i class="fa fa-filter"></i>&nbsp; Filter By
                     </button>
                   </div>
   
@@ -179,14 +179,14 @@
                   <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
                 </li>
                 <li>
-                  Visa For :
+                  {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}} For :
                   <span class="fieldData">{{booking.booking.visaForCountry}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
                   <span class="fieldData">{{booking.booking.visaType}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
                   <span class="fieldData">{{booking.booking.entryType}}</span>
                 </li>
@@ -198,11 +198,11 @@
                   Booking date:
                   <span class="fieldData">{{booking.booking.bookingDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Document Collection Date:
                   <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
                   <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
                 </li>
@@ -242,7 +242,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="!filteredBookingsEmpty">
       <div class="col-12 mt-3">
         <pagination-controls (pageChange)="currentPage1 = $event" maxSize="6" id="first" class="my-pagination text-center"
 responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
@@ -252,18 +252,32 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
       </div>
     </div>
 
-    <div *ngIf="filteredBookingsEmpty"> No bookings found !!</div>
+    <div *ngIf="filteredBookingsEmpty">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 p-0 text-center emptyBanner">
+              <img src="../../../assets/emptycart.png" class="img-fluid" alt="empty cart image">
+          </div>
+          <div class="col-md-12 text-center" style="vertical-align: middle;">
+            <button class="btn" (click)="seeBooking()" style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View All</button>
+           </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
   <div class="container" *ngIf="totalCount < 1">
     <div class="row">
-      <div class="col-md-12">
-        <div class="emptyBanner">
-          <img src="../../../assets/empty_1.png" class="img-fluid mt-3" alt="empty cart image">
-        </div>
+      <div class="col-md-12 emptyBanner text-center">
+          <img src="../../../assets/emptycart.png" class="img-fluid mt-3" alt="empty cart image">
       </div>
-
+      <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 10px;">
+        <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
+       </div> -->
+      <div class="col-md-12 text-center" style="vertical-align: middle;">
+        <button class="btn" style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View All</button>
+       </div>
     </div>
   </div>
 </div>
@@ -360,7 +374,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="!filteredBookingsEmpty">
       <div class="col-12 mt-3">
         <pagination-controls (pageChange)="currentPage2 = $event;" id="second" maxSize="3" class="my-pagination text-center"
           autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
@@ -368,7 +382,22 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
         </pagination-controls>
       </div>
     </div>
-    <div *ngIf="filteredBookingsEmpty"> No bookings found !!</div>
+
+    <div *ngIf="filteredBookingsEmpty">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+              <img src="../../../assets/emptycart.png" class="img-fluid" alt="empty cart image">
+          </div>
+          <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 15px;">
+            <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
+           </div> -->
+          <div class="col-md-12 text-center" style="vertical-align: middle;">
+            <button class="btn btn-sm" (click)="seeBooking()" style="background: #000080; color: #fff; font-weight: 600; font-size: 14px;">View All</button>
+           </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
@@ -376,7 +405,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
     <div class="row">
       <div class="col-md-12">
         <div class="emptyBanner">
-          <img src="../../../assets/empty.png" class="img-fluid" alt="empty cart image">
+          <img src="../../../assets/emptycart.png" class="img-fluid" alt="empty cart image">
         </div>
       </div>
       <div class="col-md-12">
@@ -395,7 +424,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 
 <!-- Modal -->
 
-<!-- <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
  aria-hidden="true" [ngStyle]="{'display': bookingStatus == 'true' ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7);">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -410,11 +439,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
                                 <div class="col-md-12">
                                     <p class="value text-capitalize">Your feedback is valuable to us.</p>
                                 </div>
-                                <div class="c
-                                ￼
-                                ￼Send Your Feedback
-                                ￼ chat
-                                Vol-md-12">
+                                <div class="col-md-12">
                                     <h1>
                                         <img src="../../../assets/feedback.png" alt="" class="img-fluid feedImage">
                                     </h1>
@@ -423,7 +448,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
                         </div>
                         <div class="col-lg-6 wrap-right p-4">
                             <div class="row">
-                              <div class="cross-times">
+                              <div class="cross-times" (click)="closeFeed()">
                                   <button type="button">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -494,7 +519,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
                                   <button  value="submit" class="btn text-white btn-submit btn-sm btn-block" (click) = "onSubmit()">Submit</button>
                               </div>
                               <div class="col-md-12 text-center mt-2">
-                                <button  value="submit" class="btn btn btn-outline-info btn-sm btn-block">No, I'm not interested</button>
+                                <button  class="btn btn btn-outline-info btn-sm btn-block" (click)="closeFeed()">No, I'm not interested</button>
                             </div>
                             </form>
                         </div>
@@ -503,5 +528,5 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
             </div>
         </div>
     </div>
-</div> -->
+</div>
 </div>
