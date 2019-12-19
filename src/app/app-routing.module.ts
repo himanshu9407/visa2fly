@@ -45,7 +45,8 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
         //  {  path : 'sim/simplans' , component : SimplansComponent},
         //  {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
-         {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
+         {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
+         {  path: '**', redirectTo: 'visa', pathMatch: 'prefix'}
 
         ];
 

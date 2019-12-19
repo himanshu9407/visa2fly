@@ -24,7 +24,7 @@
                      <div class="img-loader ldr2">
                           <div class="icon-s1-small-loader" alt="loader icon"></div>
                      </div>
-                     <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"  class=" form-control form-control-sm"  name="purpose">
+                     <select  formControlName="purpose" [(ngModel)]="selectedPurpose" required   class=" form-control form-control-sm"  name="purpose">
                       <option value="select">Select</option>
                       <option class="purpose-opt" *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose" value="{{purpose}}">{{purpose}}</option>
                      </select>
@@ -35,7 +35,7 @@
                          <div class="chkIp chkIp8">
                          <label class="chkLabel">Visa Type</label>
                          <div class="icon-s1-calender pull-left"></div>
-                         <select formControlName="visatype" [(ngModel)]="selectedVisaType" required  name="visatype" id="ddlPurpose"  class=" form-control form-control-sm"  style="">
+                         <select formControlName="visatype" [(ngModel)]="selectedVisaType" required  name="visatype"   class=" form-control form-control-sm"  style="">
                          <option value="select">Select</option>
                          <option  class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry]['displayEntryType'][selectedPurpose]" value="{{visaType}}">{{visaType}}</option>
                         </select>

@@ -11,27 +11,27 @@
       <div class="col-md-12">
         <h3 class="containerHeading">Search For Booking</h3>
       </div>
-      <form [formGroup]="sortFilter" style="width: 100%;">
+      <form [formGroup]="bookingSearchForm" style="width: 100%;">
         <div class="col-md-12 mt-2 form-inline">
           <label for="" class="filterLabel">Search By</label>
           <label for="opt1" class="radio inputTop">
-            <input type="radio" name="searchFilter" id="opt1" [(ngModel)]="selectedFilter" formControlName="searchFilter" value="dateFilter" class="hidden" />
+            <input type="radio" name="searchBy" id="opt1"  formControlName="searchBy" value="byDate" class="hidden" />
             <span class="filterLabel"></span>By Date Range
           </label>
   
           <label for="opt2" class="radio radio2 inputTop">
-            <input type="radio" name="searchFilter" id="opt2" [(ngModel)]="selectedFilter" formControlName="searchFilter" value="bookingIdFilter" class="hidden" />
+            <input type="radio" name="searchBy" id="opt2"  formControlName="searchBy" value="byBookingId" class="hidden" />
             <span class="filterLabel"></span>By Booking Id
           </label>
         </div>
-        <div class="col-md-12 mt-2 inputTop" *ngIf="selectedFilter === 'dateFilter'">
+        <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'">
           <div class="form-row">
             <div class="col-md-8">
               <div class="row">
                 <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
                   <label for="" class="filterLabel">From Date</label>
                   <div class="input-group">
-                    <input formControlName="fromDate" (ngModelChange)="chkFromDate()" class="form-control form-control-sm dateInput"
+                    <input (ngModelChange)="fromDateChanged()" [(ngModel)]="fromDate" formControlName="fromDate" class="form-control form-control-sm dateInput"
                       placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" />
                     <div class="input-group-append">
                       <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
@@ -43,7 +43,7 @@
                 <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
                   <label for="" class="filterLabel">To Date</label>
                   <div class="input-group">
-                    <input formControlName="toDate" [(ngModel)]="toDate" class="form-control form-control-sm dateInput"
+                    <input [(ngModel)]="toDate" [disabled]="this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate"  class="form-control form-control-sm dateInput"
                       placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo" [maxDate]="maxDate" />
                     <div class="input-group-append">
                       <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
@@ -57,7 +57,7 @@
             <div class="col-md-4 marginTop">
               <div class="row">
                 <div class="col-6 text-center">
-                  <button class="btn btn-sm btn-primary roundedBorder" type="submit">
+                  <button (click) = "searchBookingsByDate()" [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm btn-primary roundedBorder" type="submit">
                     Search
                   </button>
                 </div>
@@ -82,8 +82,9 @@
                           </button>
                         </div>
                         <div class="modal-body filterBody">
+                          <form [formGroup]="bookingFilterForm">
                           <div class="col-12">
-                            <input class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
+                            <input formControlName="visa" class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
                             <label class="cbx" for="datecbx1">
                               <span>
                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -94,7 +95,7 @@
                             </label>
                           </div>
                           <div class="col-12">
-                            <input class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
+                            <input formControlName="sim" class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
                             <label class="cbx" for="datecbx2">
                               <span>
                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -105,7 +106,7 @@
                             </label>
                           </div>
                           <div class="col-12">
-                            <input class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
+                            <input formControlName="insurance" class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
                             <label class="cbx" for="datecbx3">
                               <span>
                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -115,9 +116,10 @@
                               <span>Insurance</span>
                             </label>
                           </div>
+                        </form>
                         </div>
                         <div class="modal-footer filterFooter">
-                          <button type="button" class="btn btn-sm btn-primary"
+                          <button (click)= "filterBookings()" type="button" class="btn btn-sm btn-primary"
                             style="border-radius: 20px; background: #000080;">Apply Changes</button>
                         </div>
                       </div>
@@ -128,86 +130,23 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12 mt-2 inputTop" *ngIf="selectedFilter === 'bookingIdFilter'">
+        <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'">
           <div class="form-row">
             <div class="col-md-8">
               <div class="row inputTop">
                 <div class="col-md-12 form-inline inputpad10">
                   <label for="" class="mr-2 filterLabel">Booking Id </label>
-                  <input formControlName="bookingId" [(ngModel)]="toDate" type="text" class="form-control form-control-sm mr-2 ml-2"
-                    placeholder="Enter Booking Id" /> {{toDate}}
+                  <input  formControlName="bookingId" type="text" class="form-control form-control-sm mr-2 ml-2"
+                    placeholder="Enter Booking Id" /> 
                 </div>
               </div>
             </div>
             <div class="col-md-4 bookMargin ">
               <div class="row">
                 <div class="col-6 text-center">
-                  <button class="btn btn-sm btn-primary roundedBorder">
+                  <button (click)="searchBookingsByBookingId()" class="btn btn-sm btn-primary roundedBorder">
                     Search
                   </button>
-                </div>
-                <div class="col-6 borderLeft">
-                  <!-- Button trigger modal -->
-                  <div class="text-center">
-                    <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
-                      data-target="#filterBtn">
-                      <i class="fa fa-filter"></i> Filter
-                    </button>
-                  </div>
-  
-                  <!-- Modal -->
-                  <div class="modal fade" id="filterBtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Filter By</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body filterBody">
-                          <div class="col-12">
-                            <input class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
-                            <label class="cbx" for="datecbx1">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Visa</span>
-                            </label>
-                          </div>
-                          <div class="col-12">
-                            <input class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
-                            <label class="cbx" for="datecbx2">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Sim</span>
-                            </label>
-                          </div>
-                          <div class="col-12">
-                            <input class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
-                            <label class="cbx" for="datecbx3">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Insurance</span>
-                            </label>
-                          </div>
-                        </div>
-                        <div class="modal-footer filterFooter">
-                          <button type="button" class="btn btn-sm btn-primary"
-                            style="border-radius: 20px; background: #000080;">Apply Changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -222,7 +161,7 @@
   <div *ngIf="totalCount > 0" class="container myBooking">
     <div class="row">
       <div
-        *ngFor="let booking of allBooking.data.bookings | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
+        *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -230,9 +169,6 @@
               {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
             </div>
             <div class="card-body">
-              <!-- <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a> -->
               <ul class="visa-type">
                 <li>
                   Booking ID:
@@ -308,13 +244,16 @@
 
     <div class="row">
       <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="currentPage1 = $event" maxSize="3" id="first" class="my-pagination text-center"
+        <pagination-controls (pageChange)="currentPage1 = $event" maxSize="6" id="first" class="my-pagination text-center"
 responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
           screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
           screenReaderCurrentLabel="You're on page">
         </pagination-controls>
       </div>
     </div>
+
+    <div *ngIf="filteredBookingsEmpty"> No bookings found !!</div>
+
   </div>
 
   <div class="container" *ngIf="totalCount < 1">
@@ -336,7 +275,7 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
   <div *ngIf="totalCount > 0" class="container myBooking">
     <div class="row mt-4">
       <div
-        *ngFor="let booking of  allBooking.data.bookings | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
+        *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -423,12 +362,14 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 
     <div class="row">
       <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="currentPage2 = $event" id="second" maxSize="3" class="my-pagination text-center"
+        <pagination-controls (pageChange)="currentPage2 = $event;" id="second" maxSize="3" class="my-pagination text-center"
           autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
           screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
         </pagination-controls>
       </div>
     </div>
+    <div *ngIf="filteredBookingsEmpty"> No bookings found !!</div>
+
   </div>
 
   <div *ngIf="totalCount < 1" class="container d-flex justify-content-center" style="margin-top: 140px 0px 40px;">
