@@ -198,7 +198,7 @@
                     <form [formGroup]="purposeChooseForm">
                     <mat-form-field class="setWidth">
                         <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
-                            <mat-option  value="Tourist">
+                            <mat-option value="Tourist">
                                 Tourist
                             </mat-option>
                             <mat-option value="Business">
@@ -239,39 +239,39 @@
 
 <div class="container-fluid wrapContainer">
     <div class="row" >
-        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" let = "let MyQuotation1">
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
         
             <div class="card planCard">
                 <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
-                    {{MyQuotation1.purpose}}
+                    {{quotation.purpose}}
                 </div>
                 <div class="card-body planCardBody">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
                         </div>
                         <div class="col-lg-6 col-md-6 col-6 text-right planCardRow"> 
-                         {{MyQuotation1.processingTime}}
+                         {{quotation.processingTime}}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{MyQuotation1.stayPeriod}}
+                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{MyQuotation1.validity}}</div>
+                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{MyQuotation1.entryType}}</div>
+                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.entryType}}</div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-6 planCardRow
                         ">Fees:</div>
                         <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
                         planCardRow" style="color: #000080;">
-                        {{MyQuotation1.basePrice}}</div>
+                        {{quotation.basePrice}}</div>
                     </div>
                     <!-- <div class="col-6">Processing time:</div>
                     <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
@@ -337,7 +337,7 @@
     <div class="iconSection">
         <ngb-tabset #t="ngbTabset" (tabChange)="navigateTo($event)" class="tabset" type="pills"
             [justify]="desktopJustify" [orientation]="desktopOrientation">
-            <ngb-tab id="tourist" title="Tourist">
+            <ngb-tab id="Tourist" title="Tourist">
 
                 <ng-template ngbTabContent>
 
@@ -1290,7 +1290,7 @@
 
                 </ng-template>
             </ngb-tab>
-            <ngb-tab id="business" title="Business">
+            <ngb-tab id="Business" title="Business">
                 <ng-template ngbTabContent>
 
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
@@ -2265,7 +2265,7 @@
 
                 </ng-template>
             </ngb-tab>
-            <ngb-tab id="transit" title="Transit">
+            <ngb-tab id="Transit" title="Transit">
                 <ng-template ngbTabContent>
 
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">

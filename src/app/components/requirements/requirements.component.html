@@ -234,15 +234,43 @@
     </div>
 </div>
 
-
+<div class="container-fluid wrapContainer">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-4 setPadding">
+                    Visa Type :
+                </div>
+                <div class="col-lg-5 col-md-6 col-8">
+                    <form [formGroup]="purposeChooseForm1">
+                    <mat-form-field class="setWidth">
+                        <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
+                            <mat-option value="Tourist">
+                                Tourist
+                            </mat-option>
+                            <mat-option value="Business">
+                                Business
+                            </mat-option>
+                            <mat-option value="Transit">
+                                Transit
+                            </mat-option>
+                        </mat-select>
+                        <!-- {{selectedPurpose}} -->
+                    </mat-form-field>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="visaPriceContainer largeVisaPriceContainer">
     <div class="row">
         <!-- <div class=""> -->
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 card-top " *ngFor="let quote of quotes; let i = index">
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 card-top " *ngFor="let quote of MyQuotation">
             <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header priceHeading font-weight-bold">
-                   {{quote.purpose}} Visa
+                   {{quote.purpose}} 
                 </div>
                 <div class="card-body">
                     <!-- <h5 class="card-title">Special title treatment</h5>

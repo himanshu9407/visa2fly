@@ -166,7 +166,7 @@ export class HomeFormComponent {
   public purposeNotSelected: boolean = false;
  // public visaTypeNotSelected: boolean = false;
   public livesInNotSelected: boolean = false;
-
+  staticPagesArr : Array<any> = ['United Kingdom'];
 
 
 
@@ -343,27 +343,31 @@ export class HomeFormComponent {
 
          let purpose = this.homeForm.get('purpose').value;
          console.log(purpose);
+         //  let countryTemp = this.homeForm.get('country').value;
 
+         // console.log(countryTemp);
+         let countryTemp1 = this.staticPagesArr.includes(this.selectedCountry);
+         console.log(countryTemp1)
         switch(this.selectedCountry)
         {
-          case "Canada" : {
-           this.setDetailsOnLocalStorage();
-          return this.router.navigate(['visa/Canada/',""+ purpose]);
-          break;
-          }
+          // case "Canada" : {
+          //  this.setDetailsOnLocalStorage();
+          //  this.router.navigate(['reg']);
+          // break;
+          // }
           case "United Kingdom" : {
             this.setDetailsOnLocalStorage();
-            return this.router.navigate(['visa/United-Kingdom/',"" + purpose]);
+            this.router.navigate(['visa/United-Kingdom/',"" + purpose]);
             break;
           } 
           case "Singapore" : {
             this.setDetailsOnLocalStorage();
-            return this.router.navigate(['']);
+            this.router.navigate(['']);
             break;
           }
           case "Japan" : {
             this.setDetailsOnLocalStorage();
-            return this.router.navigate(['']);
+            this.router.navigate(['']);
             break;
           }
           default : {

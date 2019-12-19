@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeServiceService } from '../../home-service.service';
@@ -11,6 +12,7 @@ import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LoginService } from '../login-signup/login/login.service';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-requirements',
@@ -73,15 +75,24 @@ export class RequirementsComponent implements OnInit {
    public mobileShowRequirementsDetailArr = [ true ]
 
    public quotes = []
-   public importantInfo : Array<any> = []
-   
+   public importantInfo : Array<any> = [];
+   businessArr : Array<any> = [];
+   touristArr : Array<any> = [];
+   transitArr : Array<any> = [];   
+   MyQuotation : Array<any> = [];
+   Quotation : Array<any> = [];
+   purposeChooseForm1: FormGroup;
    constructor(private router: Router,private myservice: HomeServiceService, 
      private reqService : RequirementsService,
                private userFlow : UserFlowDetails, private routerHistory  :RouterHistory,
                private toastService :ToastService, private loginStatus : LoginStatusService,
                private loginService : LoginService, private preloaderService : PreloaderService) {
+
+
+                
  
     }
+    
   onClickRequrements(i,j, item){
     // console.log(item);
     
@@ -126,16 +137,45 @@ export class RequirementsComponent implements OnInit {
 
 
   ngOnInit() {
-
+    
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
     console.log(this.userFlowDetails);
+
+    let tempPurpose = this.userFlowDetails.purpose; 
+      console.log(tempPurpose);
+        this.purposeChooseForm1 = new FormGroup({
+          'purposeSelected':new FormControl(tempPurpose)
+        });
 
     this.reqService.getRequirementsData(this.userFlowDetails.country)
       .then((data : any )=> {
       if (data.code == "0") {
         this.requirementsData = data;
-        // console.log(data.data);
+        console.log(data.data);
+        this.Quotation = data.data.displayQuotes;
+        console.log(this.Quotation);
+        this.Quotation.forEach(element => {
+          if(element.purpose == 'Tourist')
+          {
+            this.touristArr.push(element);
+          }else if(element.purpose == 'Transit')
+          {
+            this.transitArr.push(element);
+          }else{
+            this.businessArr.push(element);
+          }
+        })
+        if(this.userFlowDetails.purpose == 'Business')
+        {
+          this.MyQuotation = this.businessArr;
+        }else if(this.userFlowDetails.purpose == 'Tourist')
+        {
+          this.MyQuotation = this.touristArr;
+        }else{
+          this.MyQuotation = this.transitArr;
+        }
+        console.log(this.MyQuotation);
         this.importantInfo = data.data.importantInfo;
         // console.log(this.importantInfo);
         this.onlinestatus = data.data.onlineCategory;
@@ -169,7 +209,8 @@ export class RequirementsComponent implements OnInit {
         }
         // this.userFlow.setUserFlowDetails("imagesRequired");
         // this.quotes = data.data.quotes;
-        this.quotes = data.data.displayQuotes;
+        //this.quotes = data.data.displayQuotes;
+        
         let temp = [];
         let i,j,temparray,chunk = 4;
         
@@ -299,5 +340,34 @@ export class RequirementsComponent implements OnInit {
 
    
   }
+
+  purposeChanged(){
+    var purpose = this.purposeChooseForm1.get('purposeSelected').value;
+    //console.log(purpose);
+    // window.history.replaceState(
+    //   "",
+    //   "",
+    //   "/visa/United-Kingdom/" + purpose
+    // );
+    // console.log(this.businessArr);
+    
+    if(purpose == 'Tourist')
+      {
+        this.MyQuotation = this.touristArr;
+        //this.t.select("Tourist");
+
+      }else if(purpose == 'Business')
+      {
+        this.MyQuotation = this.businessArr;
+        //this.t.select("Business");
+      }else
+      {
+        this.MyQuotation = this.transitArr;
+        //this.t.select("Transit");
+      }
+       console.log(this.MyQuotation);
+      
+  }
+
 
 }
