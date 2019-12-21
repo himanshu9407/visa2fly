@@ -43,10 +43,11 @@ export class HeaderComponent implements OnInit {
 
           if(event.url == "/" || event.url == "/visa" || event.url == "/sim" || event.url == "/sim/simplans" ) {
             this.showTransparentNavbar = true;
+            console.log('checkout3');
           }
-          else if(arr[1] == "visa" || arr[1] == "" || arr[1] == "sim" ) {
+          else if(arr[1] == "visa" || arr[1] == "" ) {
             this.showTransparentNavbar = true;
-
+            console.log('checkout1');
           }
           else {
             this.showTransparentNavbar = false;

@@ -425,8 +425,8 @@ responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
 
 <!-- Modal -->
 
-<div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
- aria-hidden="true" [ngStyle]="{'display': bookingStatus == true ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
+<div class="modal fade show" tabindex="-1" role="dialog"
+ aria-hidden="true" [ngStyle]="{'display': bookingStatus ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body" style="padding: 0px;">
