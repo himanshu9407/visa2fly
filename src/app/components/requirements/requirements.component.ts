@@ -182,7 +182,7 @@ export class RequirementsComponent implements OnInit {
     // }
 
     let tempPurpose = this.selectedPurposeType; 
-      console.log(tempPurpose);
+      //console.log(tempPurpose);
         this.purposeChooseForm1 = new FormGroup({
           'purposeSelected': new FormControl(this.selectedPurposeType)
         });
@@ -191,13 +191,13 @@ export class RequirementsComponent implements OnInit {
       .then((data : any )=> {
       if (data.code == "0") {
         this.requirementsData = data;
-        console.log(data.data);
+        //console.log(data.data);
         this.Quotation = data.data.displayQuotes;
-        console.log(this.Quotation);
+        //console.log(this.Quotation);
         this.Quotation.forEach(element => {
           
           this.purposeApi.push(element.purpose);
-          console.log(this.purposeApi);
+          //console.log(this.purposeApi);
           if(element.purpose == 'Tourist')
           {
             this.touristArr.push(element);
@@ -215,7 +215,7 @@ export class RequirementsComponent implements OnInit {
           }
         }
         
-        console.log(this.purposeApiNew);
+        //console.log(this.purposeApiNew);
         //let tempPurposeNew = this.purposeApiNew.includes(this.selectedPurposeType);
         // console.log(tempPurposeNew);
         let purposeMain = this.selectedPurposeType;
@@ -433,7 +433,7 @@ export class RequirementsComponent implements OnInit {
     var country = this.selectedCountrytype;
     // console.log(country);
     let purposeString : string = purpose.nextId;
-     console.log(purposeString);
+     //console.log(purposeString);
     let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     let Purposetemper = this.purposeChooseForm1.get('purposeSelected').setValue(purposeUrl);
     if(purposeUrl == 'Tourist')

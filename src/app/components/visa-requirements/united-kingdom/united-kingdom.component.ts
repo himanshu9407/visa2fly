@@ -65,15 +65,15 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
       // this.userControlDetail = this.userFlow.getUserFlowDetails();
       // // console.log(this.userControlDetail);
       this.userControlDetail = this.userFlow.getUserFlowDetails();
-      console.log(this.userControlDetail.purpose);
+     // console.log(this.userControlDetail.purpose);
       
       this.activeRoute.params.subscribe((params : any) =>{
         this.selectedVisaType = params.purpose;
-        console.log(this.selectedVisaType);
+       // console.log(this.selectedVisaType);
       });
 
       let tempPurpose = this.selectedVisaType;
-      console.log(tempPurpose);
+      //console.log(tempPurpose);
       this.purposeChooseForm = new FormGroup({
       'purposeSelected':new FormControl(tempPurpose)
          });
@@ -81,18 +81,18 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
        // console.log(res.data);
         if(res.code == 0){
           this.MyQuotation = res.data;
-          console.log(this.MyQuotation);
+          //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
             
             if(element.purpose == 'Business'){
             this.businessArr.push(element);
-            console.log(this.businessArr);
+           // console.log(this.businessArr);
           }else if(element.purpose == 'Tourist'){
             this.touristArr.push(element);
-            console.log(this.touristArr);
+            //console.log(this.touristArr);
           }else if(element.purpose == 'Transit'){
             this.transitArr.push(element);
-            console.log(this.transitArr);
+           // console.log(this.transitArr);
           }
           });
           let purposeMain = this.selectedVisaType;
@@ -221,7 +221,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
     //let urlpurpose = this.MyQuotation1
     
     let purposeString : string = purpose.nextId;
-     console.log(purposeString);
+    // console.log(purposeString);
      let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
      this.purposeChooseForm.get('purposeSelected').setValue(purposeString);
      if(purposeString == 'Tourist')
