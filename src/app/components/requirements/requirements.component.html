@@ -331,15 +331,15 @@
                     <form [formGroup]="purposeChooseForm1">
                     <mat-form-field class="setWidth">
                         <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
-                            <mat-option value="Tourist">
-                                Tourist
+                            <mat-option [value]="purpose" *ngFor = "let purpose of purposeApiNew">
+                                {{purpose}}
                             </mat-option>
-                            <mat-option value="Business">
+                            <!-- <mat-option value="Business">
                                 Business
                             </mat-option>
                             <mat-option value="Transit">
                                 Transit
-                            </mat-option>
+                            </mat-option> -->
                         </mat-select>
                         <!-- {{selectedPurpose}} -->
                     </mat-form-field>
@@ -402,7 +402,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 <div class=" visaPriceContainer">
     <div class="row">

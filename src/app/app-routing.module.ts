@@ -37,7 +37,7 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
 
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
          {  path: 'profile', component : ProfileComponent},
-         {  path : 'reg' , component : RequirementsComponent},
+         {  path : 'visa-requirement/:country/:purpose' , component : RequirementsComponent},
          {  path : 'addTraveller' , component : AddTravellerComponent,canActivate:[AuthenticationGuard]},
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visOnArrival' , component : VisaArrivalComponent},

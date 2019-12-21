@@ -343,6 +343,8 @@ export class HomeFormComponent {
 
          let purpose = this.homeForm.get('purpose').value;
          console.log(purpose);
+         let country1 = this.homeForm.get('country').value;
+         console.log(country1);
          //  let countryTemp = this.homeForm.get('country').value;
 
          // console.log(countryTemp);
@@ -373,7 +375,7 @@ export class HomeFormComponent {
           default : {
             this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())
-            this.router.navigate(['reg']);
+            this.router.navigate(['visa-requirement/',   country1,purpose]);
           }
         }      
     }

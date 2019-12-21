@@ -1,6 +1,6 @@
 import { element } from 'protractor';
 import { Component, OnInit, ɵConsole } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HomeServiceService } from '../../home-service.service';
 import { requirementData } from '../../interfaces/requirement';
 import { RequirementsService } from './requirements.service';
@@ -73,20 +73,25 @@ export class RequirementsComponent implements OnInit {
 
    public showRequirementsDetailArr = [ true ]
    public mobileShowRequirementsDetailArr = [ true ]
-
-   public quotes = []
+    public purposeApiNew : Array<any> = [];
+   public purposeApi : Array<any> = [];
+   public quotes = [];
+   public selectedPurposeType : any;
+   public selectedCountrytype : any;
    public importantInfo : Array<any> = [];
    businessArr : Array<any> = [];
    touristArr : Array<any> = [];
    transitArr : Array<any> = [];   
    MyQuotation : Array<any> = [];
    Quotation : Array<any> = [];
+   
    purposeChooseForm1: FormGroup;
    constructor(private router: Router,private myservice: HomeServiceService, 
      private reqService : RequirementsService,
                private userFlow : UserFlowDetails, private routerHistory  :RouterHistory,
                private toastService :ToastService, private loginStatus : LoginStatusService,
-               private loginService : LoginService, private preloaderService : PreloaderService) {
+               private loginService : LoginService, private preloaderService : PreloaderService,
+               private activateRoute : ActivatedRoute) {
 
 
                 
@@ -140,12 +145,46 @@ export class RequirementsComponent implements OnInit {
     
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
-    console.log(this.userFlowDetails);
+    // console.log(this.userFlowDetails);
 
-    let tempPurpose = this.userFlowDetails.purpose; 
+    this.activateRoute.params.subscribe((params :any) => {
+      this.selectedPurposeType = params.purpose;
+      //console.log(this.selectedPurposeType);
+      this.selectedCountrytype = params.country;
+      //console.log(this.selectedCountrytype);
+      
+    })
+    // let country = this.selectedCountrytype;
+    //   let purpose = this.selectedPurposeType
+    //   //this.purposeChooseForm1.get('purposeSelected').setValue(purpose);
+    // switch(purpose)
+    // {
+    //   case "Business":{
+    //     this.router.navigate(['visa-requirement/',  country,purpose]);
+    //    //  console.log(this.MyQuotation);
+    //     //this.purposeChooseForm1.get('purposeSelected').setValue(purpose);
+    //    break;
+    //  }
+    //  case "Transit":{
+    //   this.router.navigate(['visa-requirement/',  country,purpose]);
+    //   //this.purposeChooseForm1.get('purposeSelected').setValue(purpose);
+    //    break;
+    //  }
+    //  case "Tourist":{
+    //   this.router.navigate(['visa-requirement/',  country,purpose]);
+    //   //this.purposeChooseForm1.get('purposeSelected').setValue(purpose);
+    //    break;
+    //  }
+    //  default:{
+    //     this.router.navigate(['/visa']);
+    //    break;
+    //  }
+    // }
+
+    let tempPurpose = this.selectedPurposeType; 
       console.log(tempPurpose);
         this.purposeChooseForm1 = new FormGroup({
-          'purposeSelected':new FormControl(tempPurpose)
+          'purposeSelected': new FormControl(this.selectedPurposeType)
         });
 
     this.reqService.getRequirementsData(this.userFlowDetails.country)
@@ -156,6 +195,9 @@ export class RequirementsComponent implements OnInit {
         this.Quotation = data.data.displayQuotes;
         console.log(this.Quotation);
         this.Quotation.forEach(element => {
+          
+          this.purposeApi.push(element.purpose);
+          console.log(this.purposeApi);
           if(element.purpose == 'Tourist')
           {
             this.touristArr.push(element);
@@ -165,17 +207,31 @@ export class RequirementsComponent implements OnInit {
           }else{
             this.businessArr.push(element);
           }
-        })
-        if(this.userFlowDetails.purpose == 'Business')
+        });
+        //let purposeApiNew = [];
+        for(var value of this.purposeApi){
+          if(this.purposeApiNew.indexOf(value) === -1) {
+            this.purposeApiNew.push(value);
+          }
+        }
+        
+        console.log(this.purposeApiNew);
+        //let tempPurposeNew = this.purposeApiNew.includes(this.selectedPurposeType);
+        // console.log(tempPurposeNew);
+        let purposeMain = this.selectedPurposeType;
+        let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+        if(purposeUrl == 'Business')
         {
           this.MyQuotation = this.businessArr;
-        }else if(this.userFlowDetails.purpose == 'Tourist')
+        }else if(purposeUrl == 'Tourist')
         {
           this.MyQuotation = this.touristArr;
-        }else{
+        }else if(purposeUrl == 'Transit'){
           this.MyQuotation = this.transitArr;
+        }else {
+          this.router.navigate(['visa/'])
         }
-        console.log(this.MyQuotation);
+        //console.log(this.MyQuotation);
         this.importantInfo = data.data.importantInfo;
         // console.log(this.importantInfo);
         this.onlinestatus = data.data.onlineCategory;
@@ -344,13 +400,16 @@ export class RequirementsComponent implements OnInit {
   purposeChanged(){
     var purpose = this.purposeChooseForm1.get('purposeSelected').value;
     //console.log(purpose);
-    // window.history.replaceState(
-    //   "",
-    //   "",
-    //   "/visa/United-Kingdom/" + purpose
-    // );
+    var country = this.selectedCountrytype;
+    // console.log(country);
+    window.history.replaceState(
+      "",
+      "",
+      "visa-requirement/" + country + "/" + purpose
+    );
     // console.log(this.businessArr);
-    
+    // let tempPurpose = this.selectedPurposeType;
+    // this.purposeChooseForm1.get('purposeSelected').setValue(tempPurpose);
     if(purpose == 'Tourist')
       {
         this.MyQuotation = this.touristArr;
@@ -365,9 +424,41 @@ export class RequirementsComponent implements OnInit {
         this.MyQuotation = this.transitArr;
         //this.t.select("Transit");
       }
-       console.log(this.MyQuotation);
+      // console.log(this.MyQuotation);
       
   }
+  navigateTo(purpose: any) {
+    // window.location
+    //let urlpurpose = this.MyQuotation1
+    var country = this.selectedCountrytype;
+    // console.log(country);
+    let purposeString : string = purpose.nextId;
+     console.log(purposeString);
+    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let Purposetemper = this.purposeChooseForm1.get('purposeSelected').setValue(purposeUrl);
+    if(purposeUrl == 'Tourist')
+      {
+        this.MyQuotation = this.touristArr;
+        //this.t.select("Tourist");
+
+      }else if(purposeUrl == 'Business')
+      {
+        this.MyQuotation = this.businessArr;
+        //this.t.select("Business");
+      }else
+      {
+        this.MyQuotation = this.transitArr;
+        //this.t.select("Transit");
+      }
+       // console.log(this.MyQuotation1);
+    window.history.replaceState(
+      "",
+      "",
+      "visa-requirement/" + country + "/" + purposeUrl
+    );
+    // console.log("url changed");
+  
+}
 
 
 }
