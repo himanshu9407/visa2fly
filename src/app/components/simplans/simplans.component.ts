@@ -30,6 +30,7 @@ export class SimplansComponent implements OnInit {
   simResp : any ;
   showMobileCart : boolean  = false;
   buttonLabel : string = "View Cart";
+  selectedSimCountry : any = "";
 
   constructor(private simService : SimService, private router : Router, 
     private preloaderService : PreloaderService, private toastService :ToastService,
@@ -106,6 +107,8 @@ export class SimplansComponent implements OnInit {
   }
 
   onClickSelect() {
+    this.selectedSimCountry = this.simHomeForm.get('simSelect').value;;
+    localStorage.setItem("simSelectedCountry",this.selectedSimCountry);
     this.preloaderService.showPreloader(true);
     if(this.selectedCountry == "" || this.selectedCountry == undefined || this.selectedCountry == null ){
       // this.preloaderService.showPreloader(true);
