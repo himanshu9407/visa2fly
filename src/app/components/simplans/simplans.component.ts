@@ -18,6 +18,7 @@ export class SimplansComponent implements OnInit {
 
   simCountries : Array<any> = [];
   revertCountry: Array<any> = [];
+  selectedSimCountry :any = "";
   selectedRevertCountry: string = "";
   simHomeForm : FormGroup;
   selectedCountry : string = "";
@@ -106,6 +107,9 @@ export class SimplansComponent implements OnInit {
   }
 
   onClickSelect() {
+    this.selectedSimCountry = this.simHomeForm.get('simSelect').value;
+    localStorage.setItem("simSelectedCountry",this.selectedSimCountry);
+
     this.preloaderService.showPreloader(true);
     if(this.selectedCountry == "" || this.selectedCountry == undefined || this.selectedCountry == null ){
       // this.preloaderService.showPreloader(true);
