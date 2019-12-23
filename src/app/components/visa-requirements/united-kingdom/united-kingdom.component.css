@@ -10,6 +10,10 @@
   padding: 3px;
 }
 
+.showDiv {
+  background: rgba(0, 28, 105, 0.5) !important;
+}
+
 :host ::ng-deep .tabset .nav-pills {
   margin-left: 300px;
   margin-right: 300px;
@@ -29,7 +33,7 @@
   border-radius: 0px;
   font-weight: 700;
   padding: 0px;
-  max-width: 335px;
+  /* max-width: 295px; */
 }
 
 :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
@@ -42,7 +46,7 @@
   height: 120px;
   padding: 20px !important;
   border: none;
-  max-width: 340px !important;
+  /* max-width: 295px !important; */
   font-weight: 700;
 }
 
@@ -265,7 +269,8 @@ select:focus {
 }
 
 .iconSection {
-  border: 5px solid #e2e2e2; padding: 20px;
+  border: 5px solid #e2e2e2;
+  padding: 35px 20px 20px;
 }
 
 @media screen and (min-width: 801px) and (max-width: 1024px) {
@@ -500,7 +505,7 @@ select:focus {
     border-radius: 0px;
     font-weight: 700;
     padding: 0px;
-    width: 165px;
+    width: 216px;
     max-width: 216px;
   }
 
@@ -614,7 +619,7 @@ select:focus {
   }
   
   :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
-    background: none;
+    background: rgba(0, 37, 131, 0.2);
     color: #000;
     /* border: 1px solid #000080; */
     margin-left: 0px;
@@ -974,17 +979,21 @@ select:focus {
 
 @media screen and (min-width: 393px) and (max-width: 420px) { 
   :host ::ng-deep .iconTabset a.nav-link {
-    background: rgba(0, 37, 131, 0.2);
+    background: none;
     color: #000;
     /* border: 1px solid #000080; */
     margin-left: 2px;
     margin-right: 2px;
     border-radius: 0px;
-    height: 115px;
-    padding: 10px;
+    /* height: 115px; */
+    /* padding: 10px; */
     border: none;
     width: 165px !important;
     font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted{
+    background: rgba(0, 37, 131, 0.2);
   }
 
 }
@@ -1143,7 +1152,7 @@ select:focus {
 @media screen and (min-width: 1600px) {
  
   :host ::ng-deep .iconTabset a.nav-link {
-    background: rgba(0, 37, 131, 0.2);
+    background: none;
     color: #000;
     /* border: 1px solid #000080; */
     margin-left: 2px;
@@ -1152,7 +1161,7 @@ select:focus {
     height: 120px;
     padding: 0px !important;
     border: none;
-    max-width: 456px !important;
+    /* max-width: 456px !important; */
     font-weight: 700;
   }
 
@@ -1166,7 +1175,7 @@ select:focus {
     height: 120px;
     padding: 20px;
     border: none;
-    max-width: 456px !important;
+    /* max-width: 456px !important; */
     font-weight: 700;
   }
 
@@ -1185,12 +1194,20 @@ select:focus {
   :host ::ng-deep .iconTabset .tab-pane {
     width: 1550px;
   }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 382px !important;
+  }
 }
 
 @media screen and (min-width: 1601px) and (max-width: 1700px) {
 
   :host ::ng-deep .iconTabset .tab-pane {
     width: 1480px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 350px !important;
   }
 }
 
@@ -1199,6 +1216,10 @@ select:focus {
   :host ::ng-deep .iconTabset .tab-pane {
     width: 1375px !important;
   }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 335px !important;
+  }
 }
 
 @media screen and (max-width: 1500px) and (min-width: 1401px) {
@@ -1206,11 +1227,19 @@ select:focus {
   :host ::ng-deep .iconTabset .tab-pane {
     width: 1287px !important;
   }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 310px !important;
+  }
 }
 
 @media screen and (max-width: 1400px) and (min-width: 1301px) {
   :host ::ng-deep .iconTabset .tab-pane {
     width: 1215px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 295px !important;
   }
 }
 
@@ -1242,5 +1271,11 @@ select:focus {
 @media screen and (width: 1024px) {
   :host ::ng-deep .iconTabset .tab-pane {
     width: 882px !important;
+  }
+}
+
+@media screen and (width: 320px) {
+  .bannerImage {
+    height: 180px;
   }
 }

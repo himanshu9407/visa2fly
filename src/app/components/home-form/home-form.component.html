@@ -26,7 +26,7 @@
                         <option  class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry]['purpose']" value="{{visaType}}">{{visaType}}</option>
                        </select>
                         <!-- <div id="spnAccessType" class="error">hello world </div> -->
-                        <div  *ngIf="visaTypeNotSelected" class="invalid-feedback">
+                        <div  *ngIf="purposeNotSelected" class="invalid-feedback">
                                Please choose a Entry Type.
                              </div>
                         </div>
