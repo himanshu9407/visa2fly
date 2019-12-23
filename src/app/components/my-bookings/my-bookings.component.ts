@@ -353,4 +353,16 @@ onSubmit(){
   this.bookingStatus = false;
  }
 
+ clearFilters () {
+   this.bookingSearchForm.get('bookingId').setValue("");
+   this.bookingFilterForm.reset();
+   this.bookingsForLoop = this.bookings;
+   if (this.bookings.length !=0 ) {
+     this.filteredBookingsEmpty = false;
+   }
+   else {
+     this.filteredBookingsEmpty = true;
+   }
+ }
+
 }

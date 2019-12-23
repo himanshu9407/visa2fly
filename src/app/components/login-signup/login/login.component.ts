@@ -83,7 +83,6 @@ export class LoginComponent implements OnInit {
     this.showSendOtp = false;
     // this.showOtpField  =true;
     let userId = this.loginForm.get('userId').value;
-    console.log(userId);
     this.loginService.sendLoginOtp(userId).subscribe(
       (data) => {
         if(!data) {
@@ -182,9 +181,11 @@ export class LoginComponent implements OnInit {
 
               }
               else {
-                // console.log(data);
+                console.log("sartahk agrawal");
                 this.toastService.showNotification(data.message,4000);
                 this.setFormFresh();
+                // this.showOtpField = false;
+                this.otpSentCount = 0;
                 this.showSendOtp = true;
                 this.loginService.setUserStatus(false);
                 this.loginStatus.setUserStatus(false);

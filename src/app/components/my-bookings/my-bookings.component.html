@@ -15,12 +15,12 @@
         <div class="col-md-12 mt-2 form-inline">
           <label for="" class="filterLabel">Search By</label>
           <label for="opt1" class="radio inputTop">
-            <input type="radio" name="searchBy" id="opt1"  formControlName="searchBy" value="byDate" class="hidden" />
+            <input (change)="clearFilters()" type="radio" name="searchBy" id="opt1"  formControlName="searchBy" value="byDate" class="hidden" />
             <span class="filterLabel"></span>By Date Range
           </label>
   
           <label for="opt2" class="radio radio2 inputTop">
-            <input type="radio" name="searchBy" id="opt2"  formControlName="searchBy" value="byBookingId" class="hidden" />
+            <input (change)="clearFilters()" type="radio" name="searchBy" id="opt2"  formControlName="searchBy" value="byBookingId" class="hidden" />
             <span class="filterLabel"></span>By Booking Id
           </label>
         </div>
@@ -56,12 +56,17 @@
             </div>
             <div class="col-md-4 marginTop">
               <div class="row">
-                <div class="col-6 text-center">
+                <div class="col-3 text-center">
                   <button (click) = "searchBookingsByDate()" [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm btn-primary roundedBorder" type="submit">
                     Search
                   </button>
                 </div>
-                <div class="col-6 borderLeft">
+                <div class="col-5 text-center">
+                  <button (click)="clearFilters()" class="btn btn-sm btn-primary roundedBorder">
+                    Clear Filters
+                  </button>
+                </div>
+                <div class="col-4 borderLeft">
                   <!-- Button trigger modal -->
                   <div class="text-center">
                     <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
@@ -142,6 +147,7 @@
                 </div>
               </div>
             </div>
+            
             <div class="col-md-4 bookMargin ">
               <div class="row">
                 <div class="col-6 text-center">
@@ -149,6 +155,11 @@
                     Search
                   </button>
                 </div>
+                          <div class="col-6 text-center">
+                            <button (click)="clearFilters()" class="btn btn-sm btn-primary roundedBorder">
+                              Show All Bookings
+                            </button>
+                          </div>
               </div>
             </div>
           </div>

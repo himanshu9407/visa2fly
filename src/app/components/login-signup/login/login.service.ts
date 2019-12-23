@@ -64,9 +64,9 @@ export class LoginService {
         }
         else if (temp.mobile) {
             reqBody = {emailId : "",cell : userId, otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
-
+            
         }
-
+        
         let reqBodyFinal = JSON.stringify(reqBody);
 
       
