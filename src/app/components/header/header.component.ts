@@ -39,19 +39,19 @@ export class HeaderComponent implements OnInit {
           let url : string = event.url;
           
           let arr = url.split('/');
-          console.log(arr);
+          // console.log(arr);
 
           if(event.url == "/" || event.url == "/visa" || event.url == "/sim" || event.url == "/sim/simplans" ) {
             this.showTransparentNavbar = true;
-            console.log('checkout3');
+            // console.log('checkout3');
           }
           else if(arr[1] == "visa" || arr[1] == "" ) {
             this.showTransparentNavbar = true;
-            console.log('checkout1');
+            // console.log('checkout1');
           }
           else {
             this.showTransparentNavbar = false;
-            console.log('Kuldeep');
+            // console.log('Kuldeep');
           }
       }      }
     );

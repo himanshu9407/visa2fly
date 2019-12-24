@@ -355,6 +355,8 @@ onSubmit(){
 
  clearFilters () {
    this.bookingSearchForm.get('bookingId').setValue("");
+   this.bookingSearchForm.get('fromDate').setValue(null);
+  this.bookingSearchForm.get('toDate').setValue(null);
    this.bookingFilterForm.reset();
    this.bookingsForLoop = this.bookings;
    if (this.bookings.length !=0 ) {
@@ -363,6 +365,8 @@ onSubmit(){
    else {
      this.filteredBookingsEmpty = true;
    }
+
+
  }
 
 }

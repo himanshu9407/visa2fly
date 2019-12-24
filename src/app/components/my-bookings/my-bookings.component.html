@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'">
           <div class="form-row">
-            <div class="col-md-8">
+            <div class="col-md-12 col-lg-8">
               <div class="row">
                 <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
                   <label for="" class="filterLabel">From Date</label>
@@ -54,19 +54,19 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 marginTop">
+            <div class="col-md-12 col-lg-4 marginTop">
               <div class="row">
-                <div class="col-3 text-center">
-                  <button (click) = "searchBookingsByDate()" [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm btn-primary roundedBorder" type="submit">
+                <div class="col-4 noPadd text-center">
+                  <button (click) = "searchBookingsByDate()" [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm roundedBorder" type="submit">
                     Search
                   </button>
                 </div>
-                <div class="col-5 text-center">
-                  <button (click)="clearFilters()" class="btn btn-sm btn-primary roundedBorder">
+                <div class="col-4 noPadd text-center p-0">
+                  <button (click)="clearFilters()" class="btn btn-sm" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
                     Clear Filters
                   </button>
                 </div>
-                <div class="col-4 borderLeft">
+                <div class="col-4 noPadd borderLeft">
                   <!-- Button trigger modal -->
                   <div class="text-center">
                     <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
@@ -138,7 +138,7 @@
         </div>
         <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'">
           <div class="form-row">
-            <div class="col-md-8">
+            <div class="col-md-6 col-lg-8">
               <div class="row inputTop">
                 <div class="col-md-12 form-inline inputpad10">
                   <label for="" class="mr-2 filterLabel">Booking Id </label>
@@ -148,16 +148,16 @@
               </div>
             </div>
             
-            <div class="col-md-4 bookMargin ">
+            <div class="col-md-6 col-lg-4 bookMargin ">
               <div class="row">
-                <div class="col-6 text-center">
+                <div class="col-6 noPadd text-center">
                   <button (click)="searchBookingsByBookingId()" class="btn btn-sm btn-primary roundedBorder">
                     Search
                   </button>
                 </div>
-                          <div class="col-6 text-center">
-                            <button (click)="clearFilters()" class="btn btn-sm btn-primary roundedBorder">
-                              Show All Bookings
+                          <div class="col-6 noPadd text-center">
+                            <button (click)="clearFilters()" class="btn btn-sm showAll" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
+                              View Bookings
                             </button>
                           </div>
               </div>
