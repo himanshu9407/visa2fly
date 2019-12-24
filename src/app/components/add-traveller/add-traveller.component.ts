@@ -105,7 +105,7 @@ export class AddTravellerComponent implements OnInit {
   minDateOfCollection : any = '';
   country : string='';
   collectionDateError = false;
-
+  public errorMessage : Array<any> = [];
   checkCity(i) {
     // console.log(i);
     // console.log(this.list.cities)
@@ -776,7 +776,8 @@ export class AddTravellerComponent implements OnInit {
           this.travellerService.submitForm(this.formData1).subscribe(
             (data:any) => {
               // console.log(data);
-      
+              
+              this.errorMessage.push(data.data.warnings);
               if(data.code == "0") {
       
                 this.travellerService.hitPaymentApi().subscribe(
