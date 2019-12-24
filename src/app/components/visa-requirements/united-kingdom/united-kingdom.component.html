@@ -271,7 +271,7 @@
                         ">Fees:</div>
                         <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
                         planCardRow" style="color: #000080;">
-                        {{quotation.basePrice}}</div>
+                        INR {{quotation.basePrice}}</div>
                     </div>
                     <!-- <div class="col-6">Processing time:</div>
                     <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
@@ -297,40 +297,7 @@
 </div>
 
 <div class="container-fluid wrapContainer mt-2">
-    <div class="row">
-        <div class="col-lg-12 impRequired">
-            <div class="card">
-                <div class="card-header text-center text-white text-uppercase"
-                    style="background: #000080; font-weight: 600;">
-                    <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR United Kingdom
-                </div>
-                <div class="card-body">
-                    <p>
-                        <li>All Indian passport holders require a valid visa to enter United Kingdom.</li>
-                    </p>
-                    <p>
-                        <li>Each applicant must have all the mandatory documents as mentioned in
-                            requirement tabs below</li>
-                    </p>
-                    <p>
-                        <li>In addition to the documents mentioned, our visa experts or the
-                            concerned embassy may require
-                            you to furnish additional documents to process your visa.Your cooperation in furnishing any
-                            such
-                            additional documents is essential for a positive outcome.</li>
-                    </p>
-                    <p>
-                        <li>If all the documents are not ready at the time of agent visit then
-                            additional charges levied
-                            when agent visits your residence again</li>
-                    </p>
-                    <p>
-                        <li>Fee may vary for country if rate of the embassy fluctuate.</li>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 </div>
 
 <div class="container-fluid wrapContainer">
@@ -360,7 +327,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true"
-                                                aria-controls="touristOne">
+                                                aria-controls="touristOne" [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
                                                     alt="Form" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Form</h2>
@@ -404,7 +371,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristTwo" aria-expanded="false"
-                                                aria-controls="touristTwo">
+                                                aria-controls="touristTwo" [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -439,7 +406,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristThree"
-                                                aria-expanded="false" aria-controls="touristThree">
+                                                aria-expanded="false" aria-controls="touristThree" [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Photograph.png"
                                                     alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
@@ -473,7 +440,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#toursitFour" aria-expanded="false"
-                                                aria-controls="toursitFour">
+                                                aria-controls="toursitFour" [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Proof of Funds.png"
                                                     alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
@@ -542,7 +509,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristFive" aria-expanded="true"
-                                                aria-controls="touristFive">
+                                                aria-controls="touristFive" [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Accommodation.png"
                                                     alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
@@ -576,7 +543,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristSix" aria-expanded="true"
-                                                aria-controls="touristSix">
+                                                aria-controls="touristSix"  [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Flight Tickets.png"
                                                     alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
@@ -606,7 +573,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristSeven" aria-expanded="true"
-                                                aria-controls="touristSeven">
+                                                aria-controls="touristSeven"  [class.showDiv]="selectedTourist === 7" (click)="setActiveTourist(7)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -640,7 +607,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristEight" aria-expanded="true"
-                                                aria-controls="touristEight">
+                                                aria-controls="touristEight"  [class.showDiv]="selectedTourist === 8" (click)="setActiveTourist(8)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
                                                     alt="Employment / Student Proof"
@@ -696,7 +663,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristNine" aria-expanded="true"
-                                                aria-controls="touristNine">
+                                                aria-controls="touristNine"  [class.showDiv]="selectedTourist === 9" (click)="setActiveTourist(9)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Other Documents.png"
                                                     alt="Other Documents"
@@ -750,7 +717,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileOne"
-                                                aria-expanded="true" aria-controls="touristMobileOne">
+                                                aria-expanded="true" aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
                                                     alt="Form" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Form</h2>
@@ -794,7 +761,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileTwo"
-                                                aria-expanded="true" aria-controls="touristMobileTwo">
+                                                aria-expanded="true" aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -835,7 +802,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileThree"
-                                                aria-expanded="true" aria-controls="touristMobileThree">
+                                                aria-expanded="true" aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Photograph.png"
                                                     alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
@@ -872,7 +839,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileFour"
-                                                aria-expanded="true" aria-controls="touristMobileFour">
+                                                aria-expanded="true" aria-controls="touristMobileFour" [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Proof of Funds.png"
                                                     alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
@@ -942,7 +909,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileFive"
-                                                aria-expanded="true" aria-controls="touristMobileFive">
+                                                aria-expanded="true" aria-controls="touristMobileFive" [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Accommodation.png"
                                                     alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
@@ -952,7 +919,7 @@
                                         <ng-template ngbTabContent>
                                             <div id="touristMobileFive" class="collapse"
                                                 aria-labelledby="headingMobileFive"
-                                                data-parent="#touristAccodionMobile">
+                                                data-parent="#touristAccodionMobile" [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6)">
                                                 <div class="card requiredIcon"
                                                     style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
@@ -977,7 +944,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileSix"
-                                                aria-expanded="true" aria-controls="touristMobileSix">
+                                                aria-expanded="true" aria-controls="touristMobileSix" [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Flight Tickets.png"
                                                     alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
@@ -1012,7 +979,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileSeven"
-                                                aria-expanded="true" aria-controls="touristMobileSeven">
+                                                aria-expanded="true" aria-controls="touristMobileSeven" [class.showDiv]="selectedTourist === 7" (click)="setActiveTourist(7)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -1047,7 +1014,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileEight"
-                                                aria-expanded="true" aria-controls="touristMobileEight">
+                                                aria-expanded="true" aria-controls="touristMobileEight" [class.showDiv]="selectedTourist === 8" (click)="setActiveTourist(8)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
                                                     alt="Employment / Student Proof"
@@ -1104,7 +1071,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileNine"
-                                                aria-expanded="true" aria-controls="touristMobileNine">
+                                                aria-expanded="true" aria-controls="touristMobileNine" [class.showDiv]="selectedTourist === 9" (click)="setActiveTourist(9)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Other Documents.png"
                                                     alt="Other Documents"
@@ -1149,6 +1116,42 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+                        <div class="row">
+                            <div class="col-lg-12 p-0 impRequired">
+                                <div class="card">
+                                    <div class="card-header text-center text-white text-uppercase"
+                                        style="background: #000080; font-weight: 600;">
+                                        <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR United Kingdom
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            <li>All Indian passport holders require a valid visa to enter United Kingdom.</li>
+                                        </p>
+                                        <p>
+                                            <li>Each applicant must have all the mandatory documents as mentioned in
+                                                requirement tabs below</li>
+                                        </p>
+                                        <p>
+                                            <li>In addition to the documents mentioned, our visa experts or the
+                                                concerned embassy may require
+                                                you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                                                such
+                                                additional documents is essential for a positive outcome.</li>
+                                        </p>
+                                        <p>
+                                            <li>If all the documents are not ready at the time of agent visit then
+                                                additional charges levied
+                                                when agent visits your residence again</li>
+                                        </p>
+                                        <p>
+                                            <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
                         <div class="row">
@@ -1287,6 +1290,7 @@
 
                         </div>
                     </div>
+                   
 
                 </ng-template>
             </ngb-tab>
@@ -1312,7 +1316,7 @@
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" id="#businessHeadingOne"
                                                 data-target="#businessOne" aria-expanded="true"
-                                                aria-controls="businessOne">
+                                                aria-controls="businessOne"  [class.showDiv]="selectedBusiness === 1" (click)="setActiveBusiness(1)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
                                                     alt="Form" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Form</h2>
@@ -1357,7 +1361,7 @@
                                         <ng-template ngbTabTitle>
                                             <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse"
                                                 data-target="#businessTwo" aria-expanded="false"
-                                                aria-controls="businessTwo">
+                                                aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2" (click)="setActiveBusiness(2)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -1394,7 +1398,7 @@
                                         <ng-template ngbTabTitle>
                                             <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
                                                 data-target="#businessThree" aria-expanded="false"
-                                                aria-controls="businessThree">
+                                                aria-controls="businessThree" [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Photograph.png"
                                                     alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
@@ -1429,7 +1433,7 @@
                                         <ng-template ngbTabTitle>
                                             <div class="collapsed" id="#businessHeadingFour" data-toggle="collapse"
                                                 data-target="#businessFour" aria-expanded="false"
-                                                aria-controls="businessFour">
+                                                aria-controls="businessFour" [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Proof of Funds.png"
                                                     alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
@@ -1517,7 +1521,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessFive" aria-expanded="true"
-                                                aria-controls="businessFive">
+                                                aria-controls="businessFive" [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Accommodation.png"
                                                     alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
@@ -1551,7 +1555,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessSix" aria-expanded="true"
-                                                aria-controls="businessSix">
+                                                aria-controls="businessSix" [class.showDiv]="selectedBusiness === 6" (click)="setActiveBusiness(6)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Flight Tickets.png"
                                                     alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
@@ -1580,7 +1584,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessSeven"
-                                                aria-expanded="true" aria-controls="businessSeven">
+                                                aria-expanded="true" aria-controls="businessSeven" [class.showDiv]="selectedBusiness === 7" (click)="setActiveBusiness(7)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -1614,7 +1618,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessEight"
-                                                aria-expanded="true" aria-controls="businessEight">
+                                                aria-expanded="true" aria-controls="businessEight" [class.showDiv]="selectedBusiness === 8" (click)="setActiveBusiness(8)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
                                                     alt="Employment / Student Proof"
@@ -1670,7 +1674,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessNine" aria-expanded="true"
-                                                aria-controls="businessNine">
+                                                aria-controls="businessNine" [class.showDiv]="selectedBusiness === 9" (click)="setActiveBusiness(9)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Other Documents.png"
                                                     alt="Other Documents"
@@ -1722,7 +1726,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileOne"
-                                                aria-expanded="true" aria-controls="touristMobileOne">
+                                                aria-expanded="true" aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1" (click)="setActiveBusiness(1)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
                                                     alt="Form" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Form</h2>
@@ -1766,7 +1770,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileTwo"
-                                                aria-expanded="true" aria-controls="touristMobileTwo">
+                                                aria-expanded="true" aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2" (click)="setActiveBusiness(2)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -1807,7 +1811,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileThree"
-                                                aria-expanded="true" aria-controls="touristMobileThree">
+                                                aria-expanded="true" aria-controls="touristMobileThree" [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Photograph.png"
                                                     alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
@@ -1844,7 +1848,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileFour"
-                                                aria-expanded="true" aria-controls="touristMobileFour">
+                                                aria-expanded="true" aria-controls="touristMobileFour" [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Proof of Funds.png"
                                                     alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
@@ -1914,7 +1918,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileFive"
-                                                aria-expanded="true" aria-controls="touristMobileFive">
+                                                aria-expanded="true" aria-controls="touristMobileFive" [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Accommodation.png"
                                                     alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
@@ -1949,7 +1953,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileSix"
-                                                aria-expanded="true" aria-controls="touristMobileSix">
+                                                aria-expanded="true" aria-controls="touristMobileSix" [class.showDiv]="selectedBusiness === 6" (click)="setActiveBusiness(6)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Flight Tickets.png"
                                                     alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
@@ -1984,7 +1988,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileSeven"
-                                                aria-expanded="true" aria-controls="touristMobileSeven">
+                                                aria-expanded="true" aria-controls="touristMobileSeven" [class.showDiv]="selectedBusiness === 7" (click)="setActiveBusiness(7)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -2019,7 +2023,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileEight"
-                                                aria-expanded="true" aria-controls="touristMobileEight">
+                                                aria-expanded="true" aria-controls="touristMobileEight" [class.showDiv]="selectedBusiness === 8" (click)="setActiveBusiness(8)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
                                                     alt="Employment / Student Proof"
@@ -2076,7 +2080,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileNine"
-                                                aria-expanded="true" aria-controls="touristMobileNine">
+                                                aria-expanded="true" aria-controls="touristMobileNine" [class.showDiv]="selectedBusiness === 9" (click)="setActiveBusiness(9)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Other Documents.png"
                                                     alt="Other Documents"
@@ -2123,7 +2127,42 @@
 
 
                     </div>
-
+                    <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+                        <div class="row">
+                            <div class="col-lg-12 p-0 impRequired">
+                                <div class="card">
+                                    <div class="card-header text-center text-white text-uppercase"
+                                        style="background: #000080; font-weight: 600;">
+                                        <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR United Kingdom
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            <li>All Indian passport holders require a valid visa to enter United Kingdom.</li>
+                                        </p>
+                                        <p>
+                                            <li>Each applicant must have all the mandatory documents as mentioned in
+                                                requirement tabs below</li>
+                                        </p>
+                                        <p>
+                                            <li>In addition to the documents mentioned, our visa experts or the
+                                                concerned embassy may require
+                                                you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                                                such
+                                                additional documents is essential for a positive outcome.</li>
+                                        </p>
+                                        <p>
+                                            <li>If all the documents are not ready at the time of agent visit then
+                                                additional charges levied
+                                                when agent visits your residence again</li>
+                                        </p>
+                                        <p>
+                                            <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
                         <div class="row">
                             <div class="col-12 text-center">
@@ -2286,7 +2325,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitOne" aria-expanded="true"
-                                                aria-controls="transitOne">
+                                                aria-controls="transitOne" [class.showDiv]="selectedTransit === 1" (click)="setActiveTransit(1)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
                                                     alt="Form" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Form</h2>
@@ -2330,7 +2369,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitTwo" aria-expanded="true"
-                                                aria-controls="transitTwo">
+                                                aria-controls="transitTwo" [class.showDiv]="selectedTransit === 2" (click)="setActiveTransit(2)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -2365,7 +2404,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true"
-                                                aria-controls="transitThree">
+                                                aria-controls="transitThree" [class.showDiv]="selectedTransit === 3" (click)="setActiveTransit(3)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Flight Booking.png"
                                                     alt="Flight Booking" style="height: 45px; margin-bottom: 10px;" />
@@ -2392,7 +2431,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitFour" aria-expanded="true"
-                                                aria-controls="transitFour">
+                                                aria-controls="transitFour" [class.showDiv]="selectedTransit === 4" (click)="setActiveTransit(4)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Visa of Visiting Country.png"
                                                     alt="Visa Of Visiting Country"
@@ -2429,7 +2468,7 @@
 
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileOne"
-                                                aria-expanded="true" aria-controls="transitMobileOne">
+                                                aria-expanded="true" aria-controls="transitMobileOne" [class.showDiv]="selectedTransit === 1" (click)="setActiveTransit(1)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
                                                     alt="Form" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Form</h2>
@@ -2473,7 +2512,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileTwo"
-                                                aria-expanded="true" aria-controls="transitMobileTwo">
+                                                aria-expanded="true" aria-controls="transitMobileTwo" [class.showDiv]="selectedTransit === 2" (click)="setActiveTransit(2)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
                                                     style="height: 45px; margin-bottom: 10px;" />
@@ -2514,7 +2553,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileThree"
-                                                aria-expanded="true" aria-controls="transitMobileThree">
+                                                aria-expanded="true" aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3" (click)="setActiveTransit(3)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Flight Booking.png"
                                                     alt="Flight Booking" style="height: 45px; margin-bottom: 10px;" />
@@ -2542,7 +2581,7 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileFour"
-                                                aria-expanded="true" aria-controls="transitMobileFour">
+                                                aria-expanded="true" aria-controls="transitMobileFour" [class.showDiv]="selectedTransit === 4" (click)="setActiveTransit(4)">
                                                 <img class="img-fluid"
                                                     src="https://static.visa2fly.com/icon/Visa of Visiting Country.png"
                                                     alt="Visa Of Visiting Country"
@@ -2571,6 +2610,42 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+                        <div class="row">
+                            <div class="col-lg-12 p-0 impRequired">
+                                <div class="card">
+                                    <div class="card-header text-center text-white text-uppercase"
+                                        style="background: #000080; font-weight: 600;">
+                                        <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR United Kingdom
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            <li>All Indian passport holders require a valid visa to enter United Kingdom.</li>
+                                        </p>
+                                        <p>
+                                            <li>Each applicant must have all the mandatory documents as mentioned in
+                                                requirement tabs below</li>
+                                        </p>
+                                        <p>
+                                            <li>In addition to the documents mentioned, our visa experts or the
+                                                concerned embassy may require
+                                                you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                                                such
+                                                additional documents is essential for a positive outcome.</li>
+                                        </p>
+                                        <p>
+                                            <li>If all the documents are not ready at the time of agent visit then
+                                                additional charges levied
+                                                when agent visits your residence again</li>
+                                        </p>
+                                        <p>
+                                            <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="container-fluid" [@simpleFadeAnimation]="'in'">
                         <div class="row">

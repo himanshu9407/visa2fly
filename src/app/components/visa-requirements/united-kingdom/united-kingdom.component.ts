@@ -58,6 +58,9 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
   businessArr : Array<any> =[];
   touristArr : Array<any> =[];
   transitArr : Array<any> =[];
+  selectedBusiness: number = 1;
+  selectedTransit: number = 1;
+  selectedTourist: number = 1;
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
@@ -227,16 +230,19 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
      if(purposeString == 'Tourist')
        {
          this.MyQuotation1 = this.touristArr;
+         this.selectedTourist = 1;
          //this.t.select("Tourist");
 
      }else if(purposeString == 'Business')
        {
          this.MyQuotation1 = this.businessArr;
+         this.selectedBusiness = 1;
          // console.log(this.MyQuotation1);
          //this.t.select("Business");
        }else
        {
          this.MyQuotation1 = this.transitArr;
+         this.selectedTransit = 1;
          //this.t.select("Transit");
        }
         // console.log(this.MyQuotation1);
@@ -247,5 +253,21 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
      );
      // console.log("url changed");
      }
+
+  setActiveTourist(index: number) {
+    this.selectedTourist = index;
+    // console.log('business');
+ }
+
+ setActiveBusiness(index: number) {
+   this.selectedBusiness = index;
+  //  console.log('business');
+ }
+
+ setActiveTransit(index: number) {
+  this.selectedTransit = index;
+  // console.log('business');
+}
+
   
     }
