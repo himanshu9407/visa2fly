@@ -52,8 +52,8 @@ export class SimComponent implements OnInit {
   }
 
   onSimCountrySelected () {
+    console.log(this.selectedSimCountry);
     this.selectedSimCountry = this.simHomeForm.get('simSelect').value;
-   // console.log(this.selectedSimCountry);
     localStorage.setItem("simSelectedCountry",this.selectedSimCountry);
     this.router.navigate(['sim/simplans']);
 
