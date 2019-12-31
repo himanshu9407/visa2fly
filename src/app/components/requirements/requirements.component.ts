@@ -137,7 +137,7 @@ export class RequirementsComponent implements OnInit {
       .then((data : any )=> {
       if (data.code == "0") {
         this.requirementsData = data;
-        // console.log(data.data);
+        //console.log(data.data);
         this.importantInfo = data.data.importantInfo;
         // console.log(this.importantInfo);
         this.onlinestatus = data.data.onlineCategory;
