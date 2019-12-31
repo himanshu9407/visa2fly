@@ -84,7 +84,11 @@ export class RequirementsComponent implements OnInit {
    transitArr : Array<any> = [];   
    MyQuotation : Array<any> = [];
    Quotation : Array<any> = [];
-   
+   public imageCatogory : Array<any> = [];
+   public imageCatogoryBusinessTemp : Array<any> = [];
+   public imageCatogoryTouristTemp : Array<any> = [];
+   public imageCatogoryTransitTemp : Array<any> = [];
+   public imageCatogoryTemp : Array<any> = [];
    
    purposeChooseForm1: FormGroup;
    constructor(private router: Router,private myservice: HomeServiceService, 
@@ -142,6 +146,7 @@ export class RequirementsComponent implements OnInit {
                     
                     let purposeMain = this.selectedPurposeType;
                     let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+                    var newImageCatogoryPurpose = purposeMain.toUpperCase();
                     if(purposeUrl == 'Business')
                     {
                       this.MyQuotation = this.businessArr;
@@ -177,18 +182,51 @@ export class RequirementsComponent implements OnInit {
                     });
             
                     // console.log(this.faqs);
-
                     
-            
+                    this.imageCatogory.push(data.data.imageUploadInfo);
+                    console.log(this.imageCatogory);
+                    //  this.imageCatogory.forEach((element) => {
+                    //    console.log(element);
+                    //   if(element == 'BUSINESS')
+                    //   {
+                    //     this.imageCatogoryBusinessTemp.push(element);
+
+                    //   }else if(element == 'TOURIST')
+                    //   {
+                    //     this.imageCatogoryTouristTemp.push(element);
+                    //   }else {
+                    //     this.imageCatogoryTransitTemp.push(element);
+                    //   }
+                    // })
+                    this.imageCatogoryBusinessTemp = this.imageCatogory[0]['BUSINESS'];
+                    //console.log(this.imageCatogoryBusinessTemp);
+                    this.imageCatogoryTouristTemp = this.imageCatogory[0]['TOURIST'];
+                    //console.log(this.imageCatogoryTouristTemp);
+                    this.imageCatogoryTransitTemp = this.imageCatogory[0]['TRANSIT'];
+                    //console.log(this.imageCatogoryTransitTemp);
+                    //console.log(this.imageCatogoryBusinessTemp);
+                   // var purposeTemp = this.selectedPurposeType;
+
+                    if(purposeUrl == 'Business'){
+
+                      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
+                    }else if(purposeUrl == 'Tourist')
+                    {
+                      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+                    }else{
+                      this.imageCatogoryTemp = this.imageCatogoryTransitTemp
+                    }
+                    
                     let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
                     this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(data.data.onlineCategory));
-                    let imgDat = JSON.stringify(data.data.imageUploadInfo);
+                    let imgDat = JSON.stringify(this.imageCatogoryTemp);
             
                     if (imgDat == "null") {
                       this.userFlow.setUserFlowDetails("imageUploads",'[]');
                     }
                     else {
-                      this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploadInfo));
+                      this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imageCatogoryTemp));
                     }
                     // this.userFlow.setUserFlowDetails("imagesRequired");
                     // this.quotes = data.data.quotes;
@@ -260,7 +298,7 @@ export class RequirementsComponent implements OnInit {
                 
               }
             
-              navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string,purpose:string) {
+              navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string) {
                 
                 this.preloaderService.showPreloader(true);
             
@@ -269,7 +307,7 @@ export class RequirementsComponent implements OnInit {
                 this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
                 this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
                 this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
-                this.userFlow.setUserFlowDetails("purpose", this.selectedPurposeType);
+                //this.userFlow.setUserFlowDetails("purpose", this.selectedPurposeType);
             
                  //console.log(quoteId);
             

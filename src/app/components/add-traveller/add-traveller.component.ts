@@ -428,18 +428,18 @@ export class AddTravellerComponent implements OnInit {
     
 
 
-    let tempPurpose;
-    tempPurpose=this.userFlowDetails.purpose;
-    console.log(tempPurpose);
+    // let tempPurpose;
+    // tempPurpose=this.userFlowDetails.purpose;
+    // console.log(tempPurpose);
 
 
-    this.imageCatogory.push(this.imageUploads);
-    console.log(this.imageCatogory);
-    this.imageCatogory.forEach((element) => {
-      console.log(element.BUSINESS);
-    })
+    // this.imageCatogory.push(this.imageUploads);
+    // console.log(this.imageCatogory);
+    // this.imageCatogory.forEach((element) => {
+    //   console.log(element.BUSINESS);
+    // })
 
-
+    // console.log(this.userFlowDetails.imageUploads);
     let arr = (<FormArray>this.travellerForm.get('travellers')).controls;
     
     for (let i = 0; i < this.imageUploads.length; i++) {
