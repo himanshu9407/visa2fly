@@ -364,7 +364,7 @@ export class HomeFormComponent {
           } 
           case "Singapore" : {
             this.setDetailsOnLocalStorage();
-            this.router.navigate(['']);
+            this.router.navigate(['visa-requirement/',   country1,purpose]);
             break;
           }
           case "Japan" : {

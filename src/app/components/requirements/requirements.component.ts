@@ -73,7 +73,7 @@ export class RequirementsComponent implements OnInit {
 
    public showRequirementsDetailArr = [ true ]
    public mobileShowRequirementsDetailArr = [ true ]
-    public purposeApiNew : Array<any> = [];
+   public purposeApiNew : Array<any> = [];
    public purposeApi : Array<any> = [];
    public quotes = [];
    public selectedPurposeType : any;
@@ -84,6 +84,7 @@ export class RequirementsComponent implements OnInit {
    transitArr : Array<any> = [];   
    MyQuotation : Array<any> = [];
    Quotation : Array<any> = [];
+   
    
    purposeChooseForm1: FormGroup;
    constructor(private router: Router,private myservice: HomeServiceService, 
@@ -110,6 +111,7 @@ export class RequirementsComponent implements OnInit {
                   //Api Call
                   this.reqService.getRequirementsData(this.selectedCountrytype)
                   .then((data : any )=> {
+                    console.log(data);
                   if (data.code == "0") {
                     this.requirementsData = data;
                     console.log(data.data);
@@ -175,16 +177,18 @@ export class RequirementsComponent implements OnInit {
                     });
             
                     // console.log(this.faqs);
+
+                    
             
                     let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
                     this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(data.data.onlineCategory));
-                    let imgDat = JSON.stringify(data.data.imageUploads);
+                    let imgDat = JSON.stringify(data.data.imageUploadInfo);
             
                     if (imgDat == "null") {
                       this.userFlow.setUserFlowDetails("imageUploads",'[]');
                     }
                     else {
-                      this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploads));
+                      this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(data.data.imageUploadInfo));
                     }
                     // this.userFlow.setUserFlowDetails("imagesRequired");
                     // this.quotes = data.data.quotes;
@@ -256,7 +260,7 @@ export class RequirementsComponent implements OnInit {
                 
               }
             
-              navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string) {
+              navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string,purpose:string) {
                 
                 this.preloaderService.showPreloader(true);
             
@@ -265,7 +269,7 @@ export class RequirementsComponent implements OnInit {
                 this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
                 this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
                 this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
-            
+                this.userFlow.setUserFlowDetails("purpose", this.selectedPurposeType);
             
                  //console.log(quoteId);
             

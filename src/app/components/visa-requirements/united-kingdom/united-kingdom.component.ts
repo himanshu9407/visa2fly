@@ -13,6 +13,12 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { VisaRequirementService } from '../visa-requirement.service';
 import { HomeFormComponent } from '../../home-form/home-form.component';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
+import { LoginService } from '../../login-signup/login/login.service';
+import { PreloaderService } from 'src/app/shared/preloader.service';
+import { RouterHistory } from 'src/app/shared/router-history.service';
+import { RequirementsService } from '../../requirements/requirements.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 export interface Food {
   value: string;
@@ -64,7 +70,10 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
-    private userFlow : UserFlowDetails) {
+    private userFlow : UserFlowDetails,private loginStatus : LoginStatusService,
+    private loginService : LoginService, private preloaderService : PreloaderService,
+    private routerHistory  :RouterHistory,
+    private reqService : RequirementsService,private toastService :ToastService,) {
       // this.userControlDetail = this.userFlow.getUserFlowDetails();
       // // console.log(this.userControlDetail);
       this.userControlDetail = this.userFlow.getUserFlowDetails();
@@ -81,7 +90,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
       'purposeSelected':new FormControl(tempPurpose)
          });
       this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((res : any) => {
-       // console.log(res.data);
+        console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data;
           //console.log(this.MyQuotation);
@@ -112,66 +121,22 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
           }
         }
       });
-      // let tempPurpose = this.userControlDetail.purpose; 
-      // console.log(tempPurpose);
-      //   
-
-      //   this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((data : any)=> {
-      //     //console.log(data);
-      //      // if(data.code == 0)
-      //      // {
-           
-      //        this.MyQuotation = data.data;
-      //        //console.log(this.MyQuotation);
-      //        this.MyQuotation.forEach(element => {
-      //         // console.log(element.purpose);
-      //         if(element.purpose == 'Tourist'){
-      //           //console.log(element);
-      //           this.touristArr.push(element);
-      //          // this.MyQuotation1 = this.touristArr;              
-      //        }else if(element.purpose == 'Business'){
-      //          this.businessArr.push(element);
-               
-      //        }else if(element.purpose == 'Transit')
-      //          this.transitArr.push(element);
-      //       })
- 
-      //       if(this.userControlDetail.purpose == 'Tourist')
-      //       {
-      //         this.MyQuotation1 = this.touristArr;
- 
-      //       }else if(this.userControlDetail.purpose == 'Business'){
-      //        this.MyQuotation1 = this.businessArr;
-      //       }else if(this.userControlDetail.purpose == 'Transit'){
-      //        this.MyQuotation1 = this.transitArr;
-      //       }
-      //       // console.log(this.MyQuotation1);
-      //      });  
       
-  
-        // setInterval(() => {
-        //   console.log(this.purposeChoose.get('purposeSelected').value + "**********");
-        // }, 2000);
-  
-        
+      // let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
+      // this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(res.data.onlineCategory));
+      // let imgDat = JSON.stringify(data.data.imageUploads);
+
+      // if (imgDat == "null") {
+      //   this.userFlow.setUserFlowDetails("imageUploads",'[]');
+      // }
+      // else {
+      //   this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(res.data.imageUploads));
+      // }  
     }
 
   ngOnInit() {
    
   
-    // let url = "This is my Url"+" "+ window.location.href.split(2);
-    // console.log(this.MyQuotation);
-  //   this.activeRoute.params.subscribe((params: any) => {
-  //     // console.log(params);
-  //     this.selectedVisaType = params.purpose;
-  //     // console.log(this.selectedVisaType);
-  //     // console.log(this.selectedVisaType);
-  //     // setTimeout(() => {
-  //       // }, 6000);
-  //     });
-      
-  //     let purposeString : string = this.selectedVisaType;
-  //     console.log(purposeString);
    
    }
 
@@ -180,9 +145,71 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
       
     }
 
-
+    
   
- 
+    navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string) {
+                
+      this.preloaderService.showPreloader(true);
+  
+      this.userFlow.setUserFlowDetails("quoteId",quoteId);
+      //console.log(quoteId);
+      this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
+      this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
+      this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
+  
+  
+       //console.log(quoteId);
+  
+      let token = this.loginService.getAuthToken();
+      if (token == null || token ==  undefined) {
+        token = "";
+      }
+      this.loginStatus.verifyAuthToken(token).subscribe (
+        (data : any) => {
+          if (data.code == "0") {
+            
+            this.reqService.verifyQuotation(quoteId).subscribe(
+              (data : any) => {
+                if (data.code == "0") {
+                  this.routerHistory.pushHistory("visa-requirement");
+                  this.router.navigate(['addTraveller']);
+  
+                  // setTimeout(() => {
+                    
+                    this.preloaderService.showPreloader(false);
+                 // }, 2000);
+                  
+                }
+                else {
+                  this.toastService.showNotification(""+ data.message, 4000);
+                  this.preloaderService.showPreloader(false);
+              }
+              }
+            );
+          }
+          else if(data.code == "301") {
+            this.loginService.setAuthToken("");
+            this.loginStatus.setUserStatus(false);
+            this.loginStatus.setUserLoggedIn(false);
+            // this.router.navigate(['visa']);
+            this.preloaderService.showPreloader(false);
+            localStorage.setItem("profile",JSON.stringify({}));
+            this.routerHistory.pushHistory("req-and-quote");
+            this.router.navigate(['slcontainer/login']);
+            this.preloaderService.showPreloader(false);
+        }
+          else {
+            this.routerHistory.pushHistory("req-and-quote");
+            this.router.navigate(['slcontainer/login']);
+            this.preloaderService.showPreloader(false);
+          }
+          
+        }
+      )
+  
+
+      
+}
   
 
 

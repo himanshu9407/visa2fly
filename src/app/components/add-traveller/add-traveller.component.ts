@@ -106,6 +106,7 @@ export class AddTravellerComponent implements OnInit {
   country : string='';
   collectionDateError = false;
   public errorMessage :Array<any> = [];
+  public imageCatogory : Array<any> = [];
 
   checkCity(i) {
     // console.log(i);
@@ -288,10 +289,10 @@ export class AddTravellerComponent implements OnInit {
 
   ngOnInit() {
 
-    setTimeout(() => {
-      this.intialInfo = false;
-    }, 10000);
-
+    // setTimeout(() => {
+    //   this.intialInfo = false;
+    // }, 10000);
+    //console.log(this.userFlow.getUserFlowDetails());
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
@@ -425,6 +426,20 @@ export class AddTravellerComponent implements OnInit {
       .array([ this.createTraveller() ])
     });
     
+
+
+    let tempPurpose;
+    tempPurpose=this.userFlowDetails.purpose;
+    console.log(tempPurpose);
+
+
+    this.imageCatogory.push(this.imageUploads);
+    console.log(this.imageCatogory);
+    this.imageCatogory.forEach((element) => {
+      console.log(element.BUSINESS);
+    })
+
+
     let arr = (<FormArray>this.travellerForm.get('travellers')).controls;
     
     for (let i = 0; i < this.imageUploads.length; i++) {
