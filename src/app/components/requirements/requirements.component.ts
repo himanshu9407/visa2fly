@@ -89,6 +89,7 @@ export class RequirementsComponent implements OnInit {
    public imageCatogoryTouristTemp : Array<any> = [];
    public imageCatogoryTransitTemp : Array<any> = [];
    public imageCatogoryTemp : Array<any> = [];
+  public imageUpload1 : Array<any> = [];
    
    purposeChooseForm1: FormGroup;
    constructor(private router: Router,private myservice: HomeServiceService, 
@@ -184,7 +185,7 @@ export class RequirementsComponent implements OnInit {
                     // console.log(this.faqs);
                     
                     this.imageCatogory.push(data.data.imageUploadInfo);
-                    console.log(this.imageCatogory);
+                    //  console.log(this.imageCatogory);
                     //  this.imageCatogory.forEach((element) => {
                     //    console.log(element);
                     //   if(element == 'BUSINESS')
@@ -217,21 +218,22 @@ export class RequirementsComponent implements OnInit {
                     }else{
                       this.imageCatogoryTemp = this.imageCatogoryTransitTemp
                     }
+
                     
                     let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
                     this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(data.data.onlineCategory));
-                    let imgDat = JSON.stringify(this.imageCatogoryTemp);
+                    // let imgDat = JSON.stringify(this.imageCatogoryTemp);
             
-                    if (imgDat == "null") {
-                      this.userFlow.setUserFlowDetails("imageUploads",'[]');
-                    }
-                    else {
-                      this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imageCatogoryTemp));
-                    }
+                    // if (imgDat == "null") {
+                    //   this.userFlow.setUserFlowDetails("imageUploads",'[]');
+                    // }
+                    // else {
+                    //   this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imageCatogoryTemp));
+                    // }
                     // this.userFlow.setUserFlowDetails("imagesRequired");
                     // this.quotes = data.data.quotes;
                     //this.quotes = data.data.displayQuotes;
-                    
+                    this.imageUpload1 = this.imageCatogoryTemp;
                     let temp = [];
                     let i,j,temparray,chunk = 4;
                     
@@ -260,11 +262,11 @@ export class RequirementsComponent implements OnInit {
                     for (let  k =0;k<this.mainArr.length;k++) {
                       //console.log(this.mainArr[k][0]);
                       this.selectedDataArr.push(this.mainArr[k][0]);
-                      console.log(this.selectedDataArr);
+                      // console.log(this.selectedDataArr);
                       if (k == 0) {
             
                         this.showRequirementsDetailArr.push(true);
-                        console.log(this.showRequirementsDetailArr);
+                        // console.log(this.showRequirementsDetailArr);
                       }
                       else {
                         this.showRequirementsDetailArr.push(false);
@@ -298,7 +300,7 @@ export class RequirementsComponent implements OnInit {
                 
               }
             
-              navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string) {
+              navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string, imageUploads : string) {
                 
                 this.preloaderService.showPreloader(true);
             
@@ -307,7 +309,7 @@ export class RequirementsComponent implements OnInit {
                 this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
                 this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
                 this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
-                //this.userFlow.setUserFlowDetails("purpose", this.selectedPurposeType);
+                this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imageUpload1));
             
                  //console.log(quoteId);
             
@@ -385,6 +387,41 @@ export class RequirementsComponent implements OnInit {
     console.log(this.selectedDataArr[i]);
 
   }
+  purposeChanged(){
+    var purpose = this.purposeChooseForm1.get('purposeSelected').value;
+    //console.log(purpose);
+    var country = this.selectedCountrytype;
+    // console.log(country);
+    window.history.replaceState(
+      "",
+      "",
+      "visa-requirement/" + country + "/" + purpose
+    );
+    // console.log(this.businessArr);
+    // let tempPurpose = this.selectedPurposeType;
+    // this.purposeChooseForm1.get('purposeSelected').setValue(tempPurpose);
+    if(purpose == 'Tourist')
+      {
+        this.MyQuotation = this.touristArr;
+        this.imageUpload1 = this.imageCatogoryTouristTemp;
+        
+        //this.t.select("Tourist");
+
+      }else if(purpose == 'Business')
+      {
+        this.MyQuotation = this.businessArr;
+        this.imageUpload1 = this.imageCatogoryBusinessTemp;
+        //this.t.select("Business");
+      }else
+      {
+        this.MyQuotation = this.transitArr;
+        this.imageUpload1 = this.imageCatogoryTransitTemp;
+        //this.t.select("Transit");
+      }
+      //console.log(this.imageCatogoryTemp);
+      // console.log(this.MyQuotation);
+      
+  }
 
   onClickRequrementsMobile(i,j, item){
     
@@ -424,36 +461,7 @@ export class RequirementsComponent implements OnInit {
    
   }
 
-  purposeChanged(){
-    var purpose = this.purposeChooseForm1.get('purposeSelected').value;
-    //console.log(purpose);
-    var country = this.selectedCountrytype;
-    // console.log(country);
-    window.history.replaceState(
-      "",
-      "",
-      "visa-requirement/" + country + "/" + purpose
-    );
-    // console.log(this.businessArr);
-    // let tempPurpose = this.selectedPurposeType;
-    // this.purposeChooseForm1.get('purposeSelected').setValue(tempPurpose);
-    if(purpose == 'Tourist')
-      {
-        this.MyQuotation = this.touristArr;
-        //this.t.select("Tourist");
-
-      }else if(purpose == 'Business')
-      {
-        this.MyQuotation = this.businessArr;
-        //this.t.select("Business");
-      }else
-      {
-        this.MyQuotation = this.transitArr;
-        //this.t.select("Transit");
-      }
-      // console.log(this.MyQuotation);
-      
-  }
+  
   // navigateTo(purpose: any) {
   //   // window.location
   //   //let urlpurpose = this.MyQuotation1
