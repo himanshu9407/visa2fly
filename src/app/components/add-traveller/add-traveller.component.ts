@@ -787,10 +787,6 @@ export class AddTravellerComponent implements OnInit {
       
           this.travellerService.submitForm(this.formData1).subscribe(
             (data:any) => {
-             console.log(data);
-             this.errorMessage.push(data.data.warnings);
-              console.log(this.errorMessage);  
-      
               if(data.code == "0") {
 
                 
@@ -809,10 +805,10 @@ export class AddTravellerComponent implements OnInit {
                     //console.log(document.forms["paymentForm"]);
       
                     //console.log(this.paymentForm);
-                    setTimeout(() => {
+                    // setTimeout(() => {
                       this.preloaderService.showPreloader(false);
                       document.forms["paymentForm"].submit();
-                    }, 2000);
+                    // }, 2000);
       
       
                   }
@@ -902,10 +898,11 @@ export class AddTravellerComponent implements OnInit {
                 this.modalWarnings = [];
                 this.preloaderService.showPreloader(false);
                 // console.log(data.data.warnings);
-                for (var key in data.data.warnings) {
-                  // console.log(key, data.data.warnings[key]);
-                  this.modalWarnings.push(data.data.warnings[key]);
-                }
+                // for (var key in data.data.warnings) {
+                //   // console.log(key, data.data.warnings[key]);
+                //   this.modalWarnings.push(data.data.warnings[key]);
+                // }
+                this.errorMessage.push(data.data.warnings);
                 var modal = document.getElementById('exampleModal1');
                   modal.classList.remove("fade");
                   modal.classList.add("show");
@@ -1034,10 +1031,10 @@ export class AddTravellerComponent implements OnInit {
           // console.log(document.forms["paymentForm"]);
 
           // console.log(this.paymentForm);
-          setTimeout(() => {
+          // setTimeout(() => {
             
             document.forms["paymentForm"].submit();
-          }, 2000);
+          // }, 2000);
 
 
         }
