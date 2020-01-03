@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserFlowDetails {
 
+    
+
 
     public userObject : object = {};
 

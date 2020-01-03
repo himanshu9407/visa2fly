@@ -49,7 +49,10 @@ import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
 import { AboutUsComponent } from './components/static/about-us/about-us.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { B2bHomeComponent } from './components/b2b/b2b-home/b2b-home.component';
+import { B2bReqComponent } from './components/b2b/b2b-req/b2b-req.component';
+import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component'
 
 @NgModule({
   declarations: [
@@ -89,7 +92,10 @@ import { environment } from '../environments/environment'
     BookingDetailsComponent,
     SimplansComponent,
     SimcheckoutComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    B2bHomeComponent,
+    B2bReqComponent,
+    B2bHeaderComponent
   ],
   imports: [
     BrowserModule,
