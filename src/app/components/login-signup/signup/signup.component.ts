@@ -34,6 +34,14 @@ export class SignupComponent implements OnInit {
     private routerHistory : RouterHistory , private userFlowService : UserFlowDetails, private reqService : RequirementsService,
     private loginService : LoginService,private loginStatus : LoginStatusService) { }
 
+    onKeyPress(event : any){
+      this.createUser();
+    }
+
+    onKeyPress1(event : any){
+      this.onSubmit();
+    }
+
   ngOnInit() {
 
     this.prevRoute = this.routerHistory.getPrevRoute();

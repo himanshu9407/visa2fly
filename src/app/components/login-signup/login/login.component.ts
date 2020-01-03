@@ -34,6 +34,14 @@ export class LoginComponent implements OnInit {
     private loginStatus : LoginStatusService, private routerHistory : RouterHistory,
     private reqService : RequirementsService) { }
 
+    onKeyPress(event : any){
+      this.onSubmit();
+    }
+
+    onKeyPress1(event : any){
+      this.sendOtp();
+    }
+
   ngOnInit() {
 
 
@@ -209,6 +217,8 @@ export class LoginComponent implements OnInit {
 
 
   }
+
+  
 
 
 
