@@ -41,7 +41,7 @@ export class MyBookingsComponent implements OnInit {
   bookingFilterForm : FormGroup;
   filteredBookingsEmpty : boolean = false;
   filterdDateArr = [];
-  
+  private isButtonVisible = false;
    
 
   constructor(private loginStatus : LoginStatusService, private loginService : LoginService,
@@ -99,8 +99,8 @@ export class MyBookingsComponent implements OnInit {
 
               localStorage.setItem('bookingStatus', JSON.stringify(this.allBooking.data.takeFeedback));
 
-               bookingIdC= localStorage.getItem('bookingStatus');
-              this.bookingStatus = bookingIdC; 
+              //  bookingIdC= localStorage.getItem('bookingStatus');
+              // this.bookingStatus = bookingIdC; 
               this.allBooking.data.bookings.forEach(element => {
                 if (element.booking.bookingStatus == "Sim order confirmed" ||element.booking.bookingStatus == "Payment completed"
                 ||element.booking.bookingStatus == "Visa application approved") {
@@ -280,18 +280,21 @@ onSubmit(){
   console.log(bookingId);
   let arr = [];
   let found = false;
+  
   this.bookings.forEach((booking) => {
     if (booking.booking.bookingId == bookingId) {
       // console.log("hello");
       arr.push(booking);
       this.bookingsForLoop =arr; 
       found = true;
+      this.isButtonVisible = true;
     }
     
   });
   if (!found) {
     this.bookingsForLoop = [];
     this.filteredBookingsEmpty = true;
+    this.isButtonVisible = true;
   }
 
  }
@@ -358,11 +361,14 @@ onSubmit(){
    this.bookingSearchForm.get('fromDate').setValue(null);
   this.bookingSearchForm.get('toDate').setValue(null);
    this.bookingFilterForm.reset();
+   
    this.bookingsForLoop = this.bookings;
    if (this.bookings.length !=0 ) {
      this.filteredBookingsEmpty = false;
+     this.isButtonVisible = false;
    }
    else {
+    
      this.filteredBookingsEmpty = true;
    }
 

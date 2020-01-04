@@ -151,13 +151,13 @@
             <div class="col-md-6 col-lg-4 bookMargin ">
               <div class="row">
                 <div class="col-6 noPadd text-center">
-                  <button (click)="searchBookingsByBookingId()" class="btn btn-sm btn-primary roundedBorder">
+                  <button (click)="searchBookingsByBookingId()" [disabled] = "this.bookingSearchForm.get('bookingId').value == null" class="btn btn-sm btn-primary roundedBorder">
                     Search
                   </button>
                 </div>
                           <div class="col-6 noPadd text-center">
-                            <button (click)="clearFilters()" class="btn btn-sm showAll" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
-                              View Bookings
+                            <button (click)="clearFilters()" class="btn btn-sm showAll" *ngIf = "this.isButtonVisible" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
+                              View All
                             </button>
                           </div>
               </div>
