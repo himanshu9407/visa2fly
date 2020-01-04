@@ -55,7 +55,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fas fa-key"></i></span>
       </div>
-      <input [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP"  />
+      <input [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}" (keydown.enter) ="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP"  />
       <div *ngIf="signupForm.get('otp').invalid && signupForm.get('otp').dirty" class="invalid-feedback"  style="display: block;margin-left: 8%;">
      
         <div >Invalid OTP</div>
@@ -74,7 +74,7 @@
   </div> -->
 
   <div class="cntr" *ngIf="showOtpFields">
-    <input class="hidden-xs-up" formControlName="tnc" form id="cbx" aria-selected="true" type="checkbox" style="display: none;" />
+    <input class="hidden-xs-up" formControlName="tnc" (keydown.enter) ="onKeyPress1($event)" form id="cbx" aria-selected="true" type="checkbox" style="display: none;" />
     <label class="cbx" for="cbx"></label>
     <label class="lbl agree" for="cbx">I Agree to <a [routerLink]="['/tnc']">Terms and Conditions</a></label>
   </div>
