@@ -1,5 +1,6 @@
 import { AustraliaComponent } from './components/visa-requirements/australia/australia.component';
 import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component';
+import { FranceComponent } from './components/visa-requirements/france/france.component';
     import { NgModule } from '@angular/core';
     import { RouterModule, Routes } from '@angular/router';
     import {RequirementsComponent} from './components/requirements/requirements.component'
@@ -48,6 +49,7 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
          {  path : 'insurance' , component : InsuranceComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
          {path: 'visa/United-Kingdom/:purpose', component: UnitedKingdomComponent},
+         {path: 'visa/France/:purpose', component: FranceComponent},
          {path: 'australia', component: AustraliaComponent},
          {path: '**', redirectTo : 'visa', pathMatch : "full"}
 

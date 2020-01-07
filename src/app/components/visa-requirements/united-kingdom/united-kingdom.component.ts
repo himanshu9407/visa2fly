@@ -61,6 +61,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
   public MyQuotation1 : Array<any> = [];
   public purposeChooseForm : FormGroup;
   public selectedPurpose = 'Tourist'; 
+  public imagefield1 : Array<any> = [];
   businessArr : Array<any> =[];
   touristArr : Array<any> =[];
   transitArr : Array<any> =[];
@@ -92,7 +93,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
       this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((res : any) => {
         console.log(res);
         if(res.code == 0){
-          this.MyQuotation = res.data;
+          this.MyQuotation = res.data.quotations;
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
             
@@ -156,6 +157,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
       this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
       this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
       this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
+      this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imagefield1));
   
   
        //console.log(quoteId);
