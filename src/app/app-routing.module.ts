@@ -24,6 +24,7 @@ import { SimcheckoutComponent } from './components/simcheckout/simcheckout.compo
 import { AboutUsComponent } from './components/static/about-us/about-us.component'
 import { B2bHomeComponent } from './components/b2b/b2b-home/b2b-home.component';
 import { B2bReqComponent } from './components/b2b/b2b-req/b2b-req.component';
+import { B2bAddTrvComponent } from './components/b2b/b2b-add-trv/b2b-add-trv.component';
     
     const routes: Routes = [
          {  path: '', redirectTo : 'visa', pathMatch : "full"},
@@ -48,7 +49,8 @@ import { B2bReqComponent } from './components/b2b/b2b-req/b2b-req.component';
          {  path : 'insurance' , component : InsuranceComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
          {  path : 'b2b/home', component: B2bHomeComponent},
-         {  path : 'b2b/visa-requirement/:country/:purpose', component: B2bReqComponent}
+         {  path : 'b2b/visa-requirement/:country/:purpose', component: B2bReqComponent},
+         {  path : 'b2b/visa-requirement/b2b-add-traveller', component: B2bAddTrvComponent}
 
         ];
 

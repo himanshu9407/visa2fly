@@ -52,7 +52,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { B2bHomeComponent } from './components/b2b/b2b-home/b2b-home.component';
 import { B2bReqComponent } from './components/b2b/b2b-req/b2b-req.component';
-import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component'
+import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component';
+import { B2bAddTrvComponent } from './components/b2b/b2b-add-trv/b2b-add-trv.component'
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.compo
     AboutUsComponent,
     B2bHomeComponent,
     B2bReqComponent,
-    B2bHeaderComponent
+    B2bHeaderComponent,
+    B2bAddTrvComponent
   ],
   imports: [
     BrowserModule,

@@ -50,6 +50,8 @@ export class B2bHomeComponent implements OnInit {
       .then((data) => {
         this.homeFormData = data;
 
+        // this.preloaderService.showPreloader(false);
+
         let activeCountry: string = localStorage.getItem("activeCountry");
         let popularCountry: string = localStorage.getItem('popularCountry');
         if (activeCountry == "" || activeCountry == undefined || activeCountry == null) {
@@ -75,7 +77,7 @@ export class B2bHomeComponent implements OnInit {
           console.log("here 4");
         }
 
-        localStorage.setItem("countryList", JSON.stringify(data.data.countries));
+        // localStorage.setItem("countryList", JSON.stringify(data.data.countries));
         // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
       });
@@ -149,10 +151,10 @@ export class B2bHomeComponent implements OnInit {
 
 
     if (this.validateForm()) {
-      this.userFlow.setUserFlowDetails("country", this.selectedCountry);
-      this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-      this.userFlow.setUserFlowDetails("livesIn", this.selectedResideIn);
-      console.log(this.userFlow.getUserFlowDetails())
+      // this.userFlow.setUserFlowDetails("country", this.selectedCountry);
+      // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
+      // this.userFlow.setUserFlowDetails("livesIn", this.selectedResideIn);
+      // console.log(this.userFlow.getUserFlowDetails())
       this.router.navigate(['b2b/visa-requirement/', this.selectedCountry, this.selectedPurpose]);
     }
   }
