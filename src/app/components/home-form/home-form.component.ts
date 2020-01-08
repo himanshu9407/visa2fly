@@ -362,11 +362,11 @@ export class HomeFormComponent {
             this.router.navigate(['visa/United-Kingdom/',"" + purpose]);
             break;
           } 
-          // case "United Kingdom" : {
-          //   this.setDetailsOnLocalStorage();
-          //   this.router.navigate(['visa/France/',"" + purpose]);
-          //   break;
-          // } 
+          case "France" : {
+            this.setDetailsOnLocalStorage();
+            this.router.navigate(['visa/France/',"" + purpose]);
+            break;
+          } 
           case "Singapore" : {
             this.setDetailsOnLocalStorage();
             this.router.navigate(['visa-requirement/',   country1,purpose]);

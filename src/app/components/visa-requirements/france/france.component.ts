@@ -44,7 +44,7 @@ export interface Food {
     ])
   ]
 })
-export class FranceComponent implements OnInit {
+export class FranceComponent implements OnInit, AfterViewInit {
 
   @ViewChild("t", { static : false }) t;
   ngbTabTitleClass;
@@ -72,124 +72,123 @@ export class FranceComponent implements OnInit {
     private loginService : LoginService, private preloaderService : PreloaderService,
     private routerHistory  :RouterHistory,
     private reqService : RequirementsService,private toastService :ToastService) {
-    //   this.userControlDetail = this.userFlow.getUserFlowDetails();
-    //  // console.log(this.userControlDetail.purpose);
+      this.userControlDetail = this.userFlow.getUserFlowDetails();
+     // console.log(this.userControlDetail.purpose);
       
-    //   this.activeRoute.params.subscribe((params : any) =>{
-    //     this.selectedVisaType = params.purpose;
-    //    // console.log(this.selectedVisaType);
-    //   });
+      this.activeRoute.params.subscribe((params : any) =>{
+        this.selectedVisaType = params.purpose;
+       // console.log(this.selectedVisaType);
+      });
 
-    //   let tempPurpose = this.selectedVisaType;
-    //   //console.log(tempPurpose);
-    //   this.purposeChooseForm = new FormGroup({
-    //   'purposeSelected':new FormControl(tempPurpose)
-    //      });
-      // this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((res : any) => {
-      //   console.log(res);
-      //   if(res.code == 0){
-      //     this.MyQuotation = res.data;
-      //     //console.log(this.MyQuotation);
-      //     this.MyQuotation.forEach((element) => {
+      let tempPurpose = this.selectedVisaType;
+      //console.log(tempPurpose);
+      this.purposeChooseForm = new FormGroup({
+      'purposeSelected':new FormControl(tempPurpose)
+         });
+      this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((res : any) => {
+        console.log(res);
+        if(res.code == 0){
+          this.MyQuotation = res.data.quotations;
+          console.log(this.MyQuotation);
+          this.MyQuotation.forEach((element) => {
             
-      //       if(element.purpose == 'Business'){
-      //       this.businessArr.push(element);
-      //      // console.log(this.businessArr);
-      //     }else if(element.purpose == 'Tourist'){
-      //       this.touristArr.push(element);
-      //       //console.log(this.touristArr);
-      //     }else if(element.purpose == 'Transit'){
-      //       this.transitArr.push(element);
-      //      // console.log(this.transitArr);
-      //     }
-      //     });
-      //     let purposeMain = this.selectedVisaType;
-      //     let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-      //     if(purposeUrl == 'Business')
-      //     {
-      //       this.MyQuotation1 = this.businessArr;
-      //     }else if(purposeUrl == 'Tourist') {
-      //       this.MyQuotation1 = this.touristArr;
-      //     }else if(purposeUrl == 'Transit'){
-      //       this.MyQuotation1 = this.transitArr;
-      //     }else{
-      //       this.router.navigate(['visa/']);
-      //     }
-      //   }
-      // });
+            if(element.purpose == 'Business'){
+            this.businessArr.push(element);
+           // console.log(this.businessArr);
+          }else if(element.purpose == 'Tourist'){
+            this.touristArr.push(element);
+            //console.log(this.touristArr);
+          }else if(element.purpose == 'Transit'){
+            this.transitArr.push(element);
+           // console.log(this.transitArr);
+          }
+          });
+          let purposeMain = this.selectedVisaType;
+          let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if(purposeUrl == 'Business')
+          {
+            this.MyQuotation1 = this.businessArr;
+          }else if(purposeUrl == 'Tourist') {
+            this.MyQuotation1 = this.touristArr;
+          }else if(purposeUrl == 'Transit'){
+            this.MyQuotation1 = this.transitArr;
+          }else{
+            this.router.navigate(['visa/']);
+          }
+        }
+      });
      }
 
   ngOnInit() {
   }
 
-  // ngAfterViewInit () {
-  //   this.t.select(this.selectedVisaType);
-      
-  //   }
+  ngAfterViewInit () {
+    this.t.select(this.selectedVisaType);
+    }
 
-    // navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string) {
+    navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string) {
                 
-    //   this.preloaderService.showPreloader(true);
+      this.preloaderService.showPreloader(true);
   
-    //   this.userFlow.setUserFlowDetails("quoteId",quoteId);
-    //   //console.log(quoteId);
-    //   this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
-    //   this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
-    //   this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
+      this.userFlow.setUserFlowDetails("quoteId",quoteId);
+      //console.log(quoteId);
+      this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
+      this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
+      this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
   
   
-    //    //console.log(quoteId);
+       //console.log(quoteId);
   
-    //   let token = this.loginService.getAuthToken();
-    //   if (token == null || token ==  undefined) {
-    //     token = "";
-    //   }
-    //   this.loginStatus.verifyAuthToken(token).subscribe (
-    //     (data : any) => {
-    //       if (data.code == "0") {
+      let token = this.loginService.getAuthToken();
+      if (token == null || token ==  undefined) {
+        token = "";
+      }
+      this.loginStatus.verifyAuthToken(token).subscribe (
+        (data : any) => {
+          if (data.code == "0") {
             
-    //         this.reqService.verifyQuotation(quoteId).subscribe(
-    //           (data : any) => {
-    //             if (data.code == "0") {
-    //               this.routerHistory.pushHistory("visa-requirement");
-    //               this.router.navigate(['addTraveller']);
+            this.reqService.verifyQuotation(quoteId).subscribe(
+              (data : any) => {
+                if (data.code == "0") {
+                  this.routerHistory.pushHistory("visa-requirement");
+                  this.router.navigate(['addTraveller']);
   
-    //               // setTimeout(() => {
+                  // setTimeout(() => {
                     
-    //                 this.preloaderService.showPreloader(false);
-    //              // }, 2000);
+                    this.preloaderService.showPreloader(false);
+                 // }, 2000);
                   
-    //             }
-    //             else {
-    //               this.toastService.showNotification(""+ data.message, 4000);
-    //               this.preloaderService.showPreloader(false);
-    //           }
-    //           }
-    //         );
-    //       }
-    //       else if(data.code == "301") {
-    //         this.loginService.setAuthToken("");
-    //         this.loginStatus.setUserStatus(false);
-    //         this.loginStatus.setUserLoggedIn(false);
-    //         // this.router.navigate(['visa']);
-    //         this.preloaderService.showPreloader(false);
-    //         localStorage.setItem("profile",JSON.stringify({}));
-    //         this.routerHistory.pushHistory("req-and-quote");
-    //         this.router.navigate(['slcontainer/login']);
-    //         this.preloaderService.showPreloader(false);
-    //     }
-    //       else {
-    //         this.routerHistory.pushHistory("req-and-quote");
-    //         this.router.navigate(['slcontainer/login']);
-    //         this.preloaderService.showPreloader(false);
-    //       }
+                }
+                else {
+                  this.toastService.showNotification(""+ data.message, 4000);
+                  this.preloaderService.showPreloader(false);
+              }
+              }
+            );
+          }
+          else if(data.code == "301") {
+            this.loginService.setAuthToken("");
+            this.loginStatus.setUserStatus(false);
+            this.loginStatus.setUserLoggedIn(false);
+            // this.router.navigate(['visa']);
+            this.preloaderService.showPreloader(false);
+            localStorage.setItem("profile",JSON.stringify({}));
+            this.routerHistory.pushHistory("req-and-quote");
+            this.router.navigate(['slcontainer/login']);
+            this.preloaderService.showPreloader(false);
+        }
+          else {
+            this.routerHistory.pushHistory("req-and-quote");
+            this.router.navigate(['slcontainer/login']);
+            this.preloaderService.showPreloader(false);
+          }
           
-    //     }
-    //   )
+        }
+      )
   
 
       
-// }
+}
   
 
 
@@ -197,84 +196,84 @@ export class FranceComponent implements OnInit {
   // ngAfterViewInit() {
   //   this.t.select(this.selectedVisaType);
   // }
-  // purposeChanged(){
-  //   var purpose = this.purposeChooseForm.get('purposeSelected').value;
-  //   // console.log(purpose);
-  //   window.history.replaceState(
-  //     "",
-  //     "",
-  //     "/visa/United-Kingdom/" + purpose
-  //   );
-  //   // console.log(this.businessArr);
+  purposeChanged(){
+    var purpose = this.purposeChooseForm.get('purposeSelected').value;
+    // console.log(purpose);
+    window.history.replaceState(
+      "",
+      "",
+      "/visa/France/" + purpose
+    );
+    // console.log(this.businessArr);
     
-  //   if(purpose == 'Tourist')
-  //     {
-  //       this.MyQuotation1 = this.touristArr;
-  //       this.t.select("Tourist");
+    if(purpose == 'Tourist')
+      {
+        this.MyQuotation1 = this.touristArr;
+        this.t.select("Tourist");
 
-  //     }else if(purpose == 'Business')
-  //     {
-  //       this.MyQuotation1 = this.businessArr;
-  //       this.t.select("Business");
-  //     }else
-  //     {
-  //       this.MyQuotation1 = this.transitArr;
-  //       this.t.select("Transit");
-  //     }
-  //     // console.log(this.MyQuotation1);
+      }else if(purpose == 'Business')
+      {
+        this.MyQuotation1 = this.businessArr;
+        this.t.select("Business");
+      }else
+      {
+        this.MyQuotation1 = this.transitArr;
+        this.t.select("Transit");
+      }
+      // console.log(this.MyQuotation1);
       
-  // }
+  }
 
 
-  // navigateTo(purpose: any) {
-  //   // window.location
-  //   //let urlpurpose = this.MyQuotation1
+  navigateTo(purpose: any) {
+    // window.location
+    //let urlpurpose = this.MyQuotation1
     
-  //   let purposeString : string = purpose.nextId;
-  //   // console.log(purposeString);
-  //    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-  //    this.purposeChooseForm.get('purposeSelected').setValue(purposeString);
-  //    if(purposeString == 'Tourist')
-  //      {
-  //        this.MyQuotation1 = this.touristArr;
-  //        this.selectedTourist = 1;
-  //        //this.t.select("Tourist");
+    let purposeString : string = purpose.nextId;
+    // console.log(purposeString);
+     let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+     this.purposeChooseForm.get('purposeSelected').setValue(purposeString);
+     if(purposeString == 'Tourist')
+       {
+         this.MyQuotation1 = this.touristArr;
+         this.selectedTourist = 1;
+         //this.t.select("Tourist");
 
-  //    }else if(purposeString == 'Business')
-  //      {
-  //        this.MyQuotation1 = this.businessArr;
-  //        this.selectedBusiness = 1;
-  //        // console.log(this.MyQuotation1);
-  //        //this.t.select("Business");
-  //      }else
-  //      {
-  //        this.MyQuotation1 = this.transitArr;
-  //        this.selectedTransit = 1;
-  //        //this.t.select("Transit");
-  //      }
-  //       // console.log(this.MyQuotation1);
-  //    window.history.replaceState(
-  //      "",
-  //      "",
-  //    "/visa/United-Kingdom/" + purposeUrl
-  //    );
-  //    // console.log("url changed");
-  //    }
+     }else if(purposeString == 'Business')
+       {
+         this.MyQuotation1 = this.businessArr;
+         this.selectedBusiness = 1;
+         // console.log(this.MyQuotation1);
+         //this.t.select("Business");
+       }else
+       {
+         this.MyQuotation1 = this.transitArr;
+         this.selectedTransit = 1;
+         //this.t.select("Transit");
+       }
+        // console.log(this.MyQuotation1);
+     window.history.replaceState(
+       "",
+       "",
+     "/visa/France/" + purposeUrl
+     );
+     // console.log("url changed");
+     }
 
-//   setActiveTourist(index: number) {
-//     this.selectedTourist = index;
-//     // console.log('business');
-//  }
+setActiveTourist(index: number) {
+    this.selectedTourist = index;
+    // console.log('business');
+ }
 
-//  setActiveBusiness(index: number) {
-//    this.selectedBusiness = index;
-//   //  console.log('business');
-//  }
+ setActiveBusiness(index: number) {
+   this.selectedBusiness = index;
+  //  console.log('business');
+ }
 
-//  setActiveTransit(index: number) {
-//   this.selectedTransit = index;
-//   // console.log('business');
-// }
+ setActiveTransit(index: number) {
+  this.selectedTransit = index;
+  // console.log('business');
+}
 
 
 }

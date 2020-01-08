@@ -141,7 +141,7 @@ export class LoginComponent implements OnInit {
         this.ipAddress = data1.ip;
         this.loginService.loginUser(userId,otp,rememberMe,this.ipAddress,temp).subscribe (
           (data : LoginResponseModel) => {
-            // console.log(data);
+            console.log(data);
 
             if (!data) {
               console.log("req failed"+data);
@@ -190,7 +190,7 @@ export class LoginComponent implements OnInit {
 
               }
               else {
-                // console.log(data);
+                console.log(data);
                 this.toastService.showNotification(data.message,4000);
                 this.setFormFresh();
                 this.showSendOtp = true;
