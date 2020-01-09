@@ -49,7 +49,7 @@ import { ChinaComponent } from './components/visa-requirements/china/china.compo
          {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
-         {path: 'visa/United-Kingdom/:purpose', component: UnitedKingdomComponent},
+         {path: 'visa/UK visa application/:purpose', component: UnitedKingdomComponent},
          {path: 'visa/France/:purpose', component: FranceComponent},
         //  {path: 'australia', component: AustraliaComponent},
         {path: 'visa/apply for China visa online/:purpose', component: ChinaComponent},

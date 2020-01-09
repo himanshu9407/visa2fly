@@ -55,6 +55,7 @@ export class ChinaComponent implements OnInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+  // public selectedCountryType = 'China';
 
   constructor(private activeRoute: ActivatedRoute, private router: Router,
     private requireQuotation: VisaRequirementService,
@@ -67,7 +68,6 @@ export class ChinaComponent implements OnInit {
 
     this.activeRoute.params.subscribe((params: any) => {
       this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
       //  console.log(this.selectedCountryType);
     });
 
@@ -197,7 +197,7 @@ export class ChinaComponent implements OnInit {
 
     this.preloaderService.showPreloader(true);
 
-    // this.userFlow.setUserFlowDetails("country", this.selectedCountryType);
+    this.userFlow.setUserFlowDetails("country", this.countryStatic);
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     //console.log(quoteId);
@@ -260,6 +260,9 @@ export class ChinaComponent implements OnInit {
 
 
 
+  }
+  selectedCountryType(arg0: string, selectedCountryType: any) {
+    throw new Error("Method not implemented.");
   }
 
 }

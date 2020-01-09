@@ -67,6 +67,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+  public selectedCountrytype = 'France';
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
@@ -216,7 +217,7 @@ navigate(quoteId : string, purpose: string, basePrice : number, serviceTax : num
                 
   this.preloaderService.showPreloader(true);
 
-  // this.userFlow.setUserFlowDetails("country", this.selectedCountryType);
+  this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
   this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
   this.userFlow.setUserFlowDetails("quoteId",quoteId);
   //console.log(quoteId);
