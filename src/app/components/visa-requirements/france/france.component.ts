@@ -51,7 +51,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
 
   selectedRequirement: boolean = false;
 
-  public selectedCountryType = "France";
+  // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
@@ -88,7 +88,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
       this.purposeChooseForm = new FormGroup({
       'purposeSelected':new FormControl(tempPurpose)
          });
-      this.requireQuotation.getRequireQuotation(this.selectedCountryType).subscribe((res : any) => {
+      this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((res : any) => {
         console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
@@ -216,7 +216,7 @@ navigate(quoteId : string, purpose: string, basePrice : number, serviceTax : num
                 
   this.preloaderService.showPreloader(true);
 
-  this.userFlow.setUserFlowDetails("country", this.selectedCountryType);
+  // this.userFlow.setUserFlowDetails("country", this.selectedCountryType);
   this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
   this.userFlow.setUserFlowDetails("quoteId",quoteId);
   //console.log(quoteId);
@@ -238,6 +238,8 @@ navigate(quoteId : string, purpose: string, basePrice : number, serviceTax : num
         
         this.reqService.verifyQuotation(quoteId).subscribe(
           (data : any) => {
+            console.log(data);
+            
             if (data.code == "0") {
               this.routerHistory.pushHistory("visa-requirement");
               this.router.navigate(['addTraveller']);

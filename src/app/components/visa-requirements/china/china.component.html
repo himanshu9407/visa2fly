@@ -187,7 +187,7 @@
   </div>
 </div>
 
-<!-- <div class="container-fluid wrapContainer">
+<div class="container-fluid wrapContainer">
   <div class="row">
     <div class="col-md-5">
       <div class="row">
@@ -214,7 +214,6 @@
       </div>
     </div>
   </div>
-</!--> -->
 
 <!-- <div class="container-fluid wrapContainer mobileView">
     <div class="row">
@@ -270,18 +269,8 @@
                         ">Fees:</div>
             <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
                         planCardRow" style="color: #000080;">
-              INR {{quotation.basePrice}}</div>
+              INR {{quotation.basePrice + quotation.serviceTax}}</div>
           </div>
-          <!-- <div class="col-6">Processing time:</div>
-                    <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
-                    <div class="col-6">Stay period :</div>
-                    <div class="col-6">Lorem, ipsum se</div>
-                    <div class="col-6">Validity :</div>
-                    <div class="col-6">Lorem, ipsum se</div>
-                    <div class="col-6">Entry:</div>
-                    <div class="col-6">Lorem, ipsum se</div>
-                    <div class="col-6">Fees:</div>
-                    <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
           <div class="row mt-3">
             <div class="col-12 text-center">
               <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
@@ -296,9 +285,6 @@
   </div>
 </div>
 
-<div class="container-fluid wrapContainer mt-2">
-
-</div>
 
 <div class="container-fluid wrapContainer">
   <div class="iconSection">
@@ -340,9 +326,8 @@
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory. The applicant passport must have at least 6
-                                months remaining validity, available blank pages and a photocopy of the passport&#39;s data
-                                page.</p>
+                            <p>Passport details are mandatory. The applicant passport must have at least 6 months
+                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
                           </div>
                         </div>
                       </div>
@@ -364,8 +349,8 @@
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Photograph</h1>
                             <p>
-                                Chinese visa requires a recent passport-size color photo with a white
-                                background. (48mm X 33mm)
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
+                              33mm)
                             </p>
                           </div>
                         </div>
@@ -377,9 +362,9 @@
                       <div data-toggle="collapse" data-target="#touristThree" aria-expanded="false"
                         aria-controls="touristThree" [class.showDiv]="selectedTourist === 3"
                         (click)="setActiveTourist(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -387,18 +372,15 @@
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Photograph
+                            <h1 class="requiredIconHeading">Application form
                             </h1>
                             <p>
-                              UK visa photo requirements include light grey or plain cream
-                              background,
-                              and visa
-                              photo size is 45 millimetres high by 35 millimetres wide,
-                              head
-                              must
-                              be
-                              29-34 mm
-                              high. The photo should be taken within the last month only
+                              The applicant will require to fill up an online form that will require details such as
+                              personal information, travel information and other extra information.
+                            </p>
+                            <p>
+                              Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling
+                              up the complete form as per the information provided by you.
                             </p>
                           </div>
                         </div>
@@ -410,9 +392,9 @@
                       <div data-toggle="collapse" data-target="#toursitFour" aria-expanded="false"
                         aria-controls="toursitFour" [class.showDiv]="selectedTourist === 4"
                         (click)="setActiveTourist(4)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                          alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Proof of Funds</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png"
+                          alt="Hotel Reservation" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Hotel Reservation</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -420,48 +402,10 @@
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Proof of
-                              Funds</h1>
+                            <h1 class="requiredIconHeading">Hotel Reservation</h1>
                             <p>
-                              Applicant needs to provide proof of means of subsistence to
-                              cover
-                              living
-                              costs in the
-                              UK. Applicant needs to provide last 6 months bank statement
-                              signed
-                              and
-                              attested by
-                              a bank official. In case of a business visit the applicant
-                              must
-                              also
-                              provide bank
-                              statement of the company / person sponsoring his/her trip.
-                              All
-                              bank
-                              statements must
-                              be dated within last 1 week from the date of submission.
-                              Additionally
-                              copies fixed
-                              deposits and other cash forms may also be used to
-                              substantiate
-                              this.
+                              Proof of hotel reservation
                             </p>
-                            <p>As a guide, a person must have sufficient funds in his/her
-                              bank
-                              account
-                              continuously
-                              for the last 6 months. Average requirement for sufficiency
-                              can
-                              be
-                              calculated at Rs.
-                              15,000 per day of visit per person to the UK. Eg - For a
-                              single
-                              person
-                              travelling on a
-                              10 day visit, the person must ideally show Rs. 1,50,000 (Rs.
-                              15,000/day
-                              x 10 days) in
-                              his/her bank account continuously for the last 6 months.</p>
                           </div>
                         </div>
                       </div>
@@ -478,9 +422,9 @@
                       <div data-toggle="collapse" data-target="#touristFive" aria-expanded="true"
                         aria-controls="touristFive" [class.showDiv]="selectedTourist === 5"
                         (click)="setActiveTourist(5)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
-                          alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Accommodation</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png"
+                          alt="Flight ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Flight ticket</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -488,18 +432,10 @@
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Accommodation
+                            <h1 class="requiredIconHeading">Flight ticket
                             </h1>
                             <p>
-                              Proof of accommodation mentioning where you will be staying
-                              during
-                              your
-                              entire stay
-                              in the UK, which could be at a friend or relative’s place or
-                              at
-                              a
-                              hotel
-                              or a hostel.
+                              Proof of your Flight Ticket booking
                             </p>
                           </div>
                         </div>
@@ -511,9 +447,9 @@
                       <div data-toggle="collapse" data-target="#touristSix" aria-expanded="true"
                         aria-controls="touristSix" [class.showDiv]="selectedTourist === 6"
                         (click)="setActiveTourist(6)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                          alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Flight Tickets</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Itinerary</h2>
                       </div>
 
                     </ng-template>
@@ -521,13 +457,12 @@
                       <div id="touristSix" class="collapse" aria-labelledby="headingSix" data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Flight
-                              Tickets
+                            <h1 class="requiredIconHeading">Itinerary
                             </h1>
                             <p>
-                              Valid roundtrip flight itinerary for visa application or
-                              confirmed
-                              flight reservation.
+                              Your detailed travel itinerary gives information about your travel plans in China along
+                              with tickets, Places you are going to visit, Your meeting agenda, Tours booked in advance,
+                              Your festival agenda, etc.
                             </p>
                           </div>
                         </div>
@@ -539,9 +474,10 @@
                       <div data-toggle="collapse" data-target="#touristSeven" aria-expanded="true"
                         aria-controls="touristSeven" [class.showDiv]="selectedTourist === 7"
                         (click)="setActiveTourist(7)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Itinerary</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter from China.png"
+                          alt="Invitation Letter from China"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                        <h2 class="setFontSize">Invitation Letter from China</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -549,19 +485,18 @@
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Itinerary
-                            </h1>
+                            <h1 class="requiredIconHeading">Invitation Letter from China</h1>
                             <p>
-                              Your detailed travel itinerary which gives information of
-                              your
-                              travel
-                              plans in the UK
-                              along with tickets, places you are going to visit, your
-                              meeting
-                              agenda,
-                              tours booked
-                              in advance, your festival agenda, etc.
-                            </p>
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or any
+                              individual) with the following details.</p>
+                            <p>Applicant’s full name, Date of birth, Passport number etc.</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+
                           </div>
                         </div>
                       </div>
@@ -572,10 +507,10 @@
                       <div data-toggle="collapse" data-target="#touristEight" aria-expanded="true"
                         aria-controls="touristEight" [class.showDiv]="selectedTourist === 8"
                         (click)="setActiveTourist(8)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                          alt="Employment / Student Proof"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png"
+                          alt="Other Supporting Documents"
                           style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                        <h2 class="setFontSize">Employment / Student Proof</h2>
+                        <h2 class="setFontSize">Other Supporting Documents</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -583,81 +518,22 @@
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Employment /
-                              Student Proof</h1>
+                            <h1 class="requiredIconHeading">Other Supporting Documents</h1>
                             <p>
-                              For Employed Persons - A letter from your employer on
-                              company
-                              headed
-                              paper
-                              detailing your role, salary and length of employment,
-                              business
-                              card
-                              and
-                              6 month’s
-                              salary slips and Income Tax Returns (last 3 years)</p>
-                            <p>For Self-Employed Persons - business registration documents
-                              confirming
-                              the
-                              business owner’s name and the date the business started
-                              trading
-                              and
-                              three years tax
-                              returns of the business.</p>
-                            <p>For Students - a letter from your education provider, on
-                              headed
-                              paper,
-                              confirming
-                              your enrolment and leave of absence.
+                              If you are not applying in your country of citizenship, proof of legal stay or residence
+                              status will be required.
+                              In some cases, the applicant might have to submit a certification letter from the employer
+                              with the following details :
+                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of
+                                the Employer</p>
+                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>The Income Statement of the
+                                Applicant, or</p>
+                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Original copy of the 6-month
+                                Bank Statement of the Applicant.</p>
 
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristNine" aria-expanded="true"
-                        aria-controls="touristNine" [class.showDiv]="selectedTourist === 9"
-                        (click)="setActiveTourist(9)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="Other Documents" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                        <h2 class="setFontSize">Other Documents</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristNine" class="collapse" aria-labelledby="headingNine"
-                        data-parent="#touristAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Other
-                              Documents</h1>
-                            <p>
-                              1. Tuberculosis test results, if you belong to a country
-                              listed
-                              amongst
-                              countries
-                              requiring a prior TB test before coming to the UK for a
-                              period
-                              over
-                              six
-                              months</p>
-                            <p>2. UK visa invitation letter should be submitted if it is
-                              applicable.
-                              It
-                              is a letter of
-                              invitation issued by a company, citizen or legal resident of
-                              the
-                              UK
-                              stating that they
-                              have invited you to stay with them.</p>
+                              <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the
+                                Tourism Bureau of Tibet Autonomous Region.
+                              </p>
                           </div>
                         </div>
                       </div>
@@ -679,9 +555,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
                         aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1"
                         (click)="setActiveTourist(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="Form"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Form</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -689,30 +565,9 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Form</h1>
-                            <p>Applicant needs to fill up an online form which will require
-                              details
-                              such
-                              as
-                              Personal, Travel,
-                              Passport, Dependant, Parents, Employment, Income and
-                              expenditure,
-                              Family
-                              in the
-                              UK,
-                              Accommodation , Travel history (UK & Other), Other history,
-                              Convictions
-                              and
-                              other
-                              penalties,
-                              Extra information.</p>
-                            <p>Don’t worry! V2F agent will come to your doorstep and assist
-                              you
-                              in
-                              filling up
-                              the
-                              complete form
-                              as per information provided by you.</p>
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>Passport details are mandatory. The applicant passport must have at least 6 months
+                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
                           </div>
                         </div>
                       </div>
@@ -723,9 +578,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
                         aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2"
                         (click)="setActiveTourist(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -733,19 +588,10 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
+                            <h1 class="requiredIconHeading">Photograph</h1>
                             <p>
-                              Passport details are mandatory. The applicant’s passport
-                              must be
-                              issued
-                              within the
-                              last 10 years, should be valid for 6 months beyond the
-                              intended
-                              date
-                              of
-                              departure
-                              from this country; should contain at least 2 blank visa
-                              pages.
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
+                              33mm)
                             </p>
                           </div>
                         </div>
@@ -763,9 +609,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
                         aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3"
                         (click)="setActiveTourist(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -773,19 +619,14 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Photograph
+                            <h1 class="requiredIconHeading">Application form
                             </h1>
                             <p>
-                              UK visa photo requirements include light grey or plain cream
-                              background,
-                              and visa
-                              photo size is 45 millimetres high by 35 millimetres wide,
-                              head
-                              must
-                              be
-                              29-34 mm
-                              high. The photo should be taken within the last month only
+                              The applicant will require to fill up an online form that will require details such as
+                              personal information, travel information and other extra information.
                             </p>
+                            <p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling
+                              up the complete form as per the information provided by you.</p>
                           </div>
                         </div>
                       </div>
@@ -798,9 +639,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
                         aria-controls="touristMobileFour" [class.showDiv]="selectedTourist === 4"
                         (click)="setActiveTourist(4)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                          alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Proof of Funds</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png"
+                          alt="Hotel Reservation" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Hotel Reservation</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -808,48 +649,10 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Proof of
-                              Funds</h1>
+                            <h1 class="requiredIconHeading">Hotel Reservation</h1>
                             <p>
-                              Applicant needs to provide proof of means of subsistence to
-                              cover
-                              living
-                              costs in the
-                              UK. Applicant needs to provide last 6 months bank statement
-                              signed
-                              and
-                              attested by
-                              a bank official. In case of a business visit the applicant
-                              must
-                              also
-                              provide bank
-                              statement of the company / person sponsoring his/her trip.
-                              All
-                              bank
-                              statements must
-                              be dated within last 1 week from the date of submission.
-                              Additionally
-                              copies fixed
-                              deposits and other cash forms may also be used to
-                              substantiate
-                              this.
+                              Proof of hotel reservation
                             </p>
-                            <p>As a guide, a person must have sufficient funds in his/her
-                              bank
-                              account
-                              continuously
-                              for the last 6 months. Average requirement for sufficiency
-                              can
-                              be
-                              calculated at Rs.
-                              15,000 per day of visit per person to the UK. Eg - For a
-                              single
-                              person
-                              travelling on a
-                              10 day visit, the person must ideally show Rs. 1,50,000 (Rs.
-                              15,000/day
-                              x 10 days) in
-                              his/her bank account continuously for the last 6 months.</p>
                           </div>
                         </div>
                       </div>
@@ -866,9 +669,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true"
                         aria-controls="touristMobileFive" [class.showDiv]="selectedTourist === 5"
                         (click)="setActiveTourist(5)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
-                          alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Accommodation</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket .png"
+                          alt="Flight ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Flight ticket</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -877,18 +680,10 @@
                         (click)="setActiveTourist(6)">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Accommodation
+                            <h1 class="requiredIconHeading">Flight ticket
                             </h1>
                             <p>
-                              Proof of accommodation mentioning where you will be staying
-                              during
-                              your
-                              entire stay
-                              in the UK, which could be at a friend or relative’s place or
-                              at
-                              a
-                              hotel
-                              or a hostel.
+                              Proof of your Flight Ticket booking.
                             </p>
                           </div>
                         </div>
@@ -900,9 +695,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true"
                         aria-controls="touristMobileSix" [class.showDiv]="selectedTourist === 6"
                         (click)="setActiveTourist(6)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                          alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Flight Tickets</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Itinerary</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -910,13 +705,12 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Flight
-                              Tickets
+                            <h1 class="requiredIconHeading">Itinerary
                             </h1>
                             <p>
-                              Valid roundtrip flight itinerary for visa application or
-                              confirmed
-                              flight reservation.
+                              Your detailed travel itinerary gives information about your travel plans in China along
+                              with tickets, Places you are going to visit, Your meeting agenda, Tours booked in advance,
+                              Your festival agenda, etc.
                             </p>
                           </div>
                         </div>
@@ -934,9 +728,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true"
                         aria-controls="touristMobileSeven" [class.showDiv]="selectedTourist === 7"
                         (click)="setActiveTourist(7)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Itinerary</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter from China.png"
+                          alt="Invitation Letter from China" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Invitation Letter from China</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -944,19 +738,18 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Itinerary
+                            <h1 class="requiredIconHeading">Invitation Letter from China
                             </h1>
                             <p>
-                              Your detailed travel itinerary which gives information of
-                              your
-                              travel
-                              plans in the UK
-                              along with tickets, places you are going to visit, your
-                              meeting
-                              agenda,
-                              tours booked
-                              in advance, your festival agenda, etc.
-                            </p>
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or any
+                              individual) with the following details</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of
+                              birth, Passport number etc.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
                           </div>
                         </div>
                       </div>
@@ -967,9 +760,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true"
                         aria-controls="touristMobileEight" [class.showDiv]="selectedTourist === 8"
                         (click)="setActiveTourist(8)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                          alt="Employment / Student Proof" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Employment / Student Proof</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png"
+                          alt="Other Supporting Documents" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Other Supporting Documents</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -977,34 +770,22 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Employment /
-                              Student Proof</h1>
+                            <h1 class="requiredIconHeading">Other Supporting Documents</h1>
                             <p>
-                              For Employed Persons - A letter from your employer on
-                              company
-                              headed
-                              paper
-                              detailing your role, salary and length of employment,
-                              business
-                              card
-                              and
-                              6 month’s
-                              salary slips and Income Tax Returns (last 3 years)</p>
-                            <p>For Self-Employed Persons - business registration documents
-                              confirming
-                              the
-                              business owner’s name and the date the business started
-                              trading
-                              and
-                              three years tax
-                              returns of the business.</p>
-                            <p>For Students - a letter from your education provider, on
-                              headed
-                              paper,
-                              confirming
-                              your enrolment and leave of absence.
+                              If you are not applying in your country of citizenship, proof of legal stay or residence
+                              status will be required.
+                              In some cases, the applicant might have to submit a certification letter from the employer
+                              with the following details :</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of the
+                              Employer</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>The Income Statement of the
+                              Applicant, or</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Original copy of the 6-month
+                              Bank Statement of the Applicant.</p>
 
-                            </p>
+                            <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the Tourism
+                              Bureau of Tibet Autonomous Region.</p>
+
                           </div>
                         </div>
                       </div>
@@ -1013,52 +794,6 @@
                 </ngb-tabset>
               </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobileNine" aria-expanded="true"
-                        aria-controls="touristMobileNine" [class.showDiv]="selectedTourist === 9"
-                        (click)="setActiveTourist(9)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="Other Documents" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                        <h2 class="setFontSize">Other Documents</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobileNine" class="collapse" aria-labelledby="headingMobileNine"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Other
-                              Documents</h1>
-                            <p>
-                              1. Tuberculosis test results, if you belong to a country
-                              listed
-                              amongst
-                              countries
-                              requiring a prior TB test before coming to the UK for a
-                              period
-                              over
-                              six
-                              months</p>
-                            <p>2. UK visa invitation letter should be submitted if it is
-                              applicable.
-                              It
-                              is a letter of
-                              invitation issued by a company, citizen or legal resident of
-                              the
-                              UK
-                              stating that they
-                              have invited you to stay with them.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
             </div>
 
           </div>
@@ -1258,9 +993,9 @@
                       <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne"
                         aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="Form"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Form</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1268,30 +1003,10 @@
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Form</h1>
-                            <p>Applicant needs to fill up an online form which will require
-                              details
-                              such
-                              as
-                              Personal, Travel,
-                              Passport, Dependant, Parents, Employment, Income and
-                              expenditure,
-                              Family
-                              in the
-                              UK,
-                              Accommodation , Travel history (UK & Other), Other history,
-                              Convictions
-                              and
-                              other
-                              penalties,
-                              Extra information.</p>
-                            <p>Don’t worry! V2F agent will come to your doorstep and assist
-                              you
-                              in
-                              filling up
-                              the
-                              complete form
-                              as per information provided by you.</p>
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>
+                              Passport details are mandatory. the applicant passport must have at least 6 months
+                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
                           </div>
                         </div>
                       </div>
@@ -1302,9 +1017,9 @@
                       <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse" data-target="#businessTwo"
                         aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2"
                         (click)="setActiveBusiness(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <h2 class="setFontSize">Photograph</h2>
                       </div>
 
                     </ng-template>
@@ -1313,19 +1028,10 @@
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Passport</h1>
+                            <h1 class="requiredIconHeading">Photograph</h1>
                             <p>
-                              Passport details are mandatory. The applicant’s passport
-                              must be
-                              issued
-                              within the
-                              last 10 years, should be valid for 6 months beyond the
-                              intended
-                              date
-                              of
-                              departure
-                              from this country; should contain at least 2 blank visa
-                              pages.
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
+                              33mm)
                             </p>
                           </div>
                         </div>
@@ -1337,9 +1043,9 @@
                       <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
                         data-target="#businessThree" aria-expanded="false" aria-controls="businessThree"
                         [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1347,19 +1053,15 @@
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Photograph
+                            <h1 class="requiredIconHeading">Application form
                             </h1>
                             <p>
-                              UK visa photo requirements include light grey or plain cream
-                              background,
-                              and visa
-                              photo size is 45 millimetres high by 35 millimetres wide,
-                              head
-                              must
-                              be
-                              29-34 mm
-                              high. The photo should be taken within the last month only
+                              The applicant will require to fill up an online form that will require details such as
+                              personal information, travel information and other extra information about the purpose of
+                              the visit
                             </p>
+                            <p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling
+                              up the complete form as per the information provided by you.</p>
                           </div>
                         </div>
                       </div>
@@ -1370,9 +1072,9 @@
                       <div class="collapsed" id="#businessHeadingFour" data-toggle="collapse"
                         data-target="#businessFour" aria-expanded="false" aria-controls="businessFour"
                         [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                          alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Proof of Funds</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Invitation Letter.png"
+                          alt="Business Invitation Letter" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Business Invitation Letter</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1380,67 +1082,16 @@
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Proof of
-                              Funds</h1>
+                            <h1 class="requiredIconHeading">Business Invitation Letter</h1>
                             <p>
-                              Applicant needs to provide proof of means of subsistence to
-                              cover
-                              living
-                              You should NOT book any airfare or hotel before your UK visa
-                              is
-                              approved. In the event of visa
-                              refusal, you will lose the money you have spent on your
-                              flight or
-                              hotel.</p>
-                            <p>For your UK visa application, get a flight itinerary by
-                              either
-                              holding a flight reservation or
-                              purchasing a
-                              refundable flight ticket. British Airways provides the
-                              option to
-                              email a fare quote which works
-                              as a
-                              flight itinerary for your visa application. Hotel booking
-                              sites such
-                              as Expedia or Booking.com
-                              has
-                              plenty of “refundable / pay at check-in” options. costs in
-                              the
-                              UK. Applicant needs to provide last 6 months bank statement
-                              signed
-                              and
-                              attested by
-                              a bank official. In case of a business visit the applicant
-                              must
-                              also
-                              provide bank
-                              statement of the company / person sponsoring his/her trip.
-                              All
-                              bank
-                              statements must
-                              be dated within last 1 week from the date of submission.
-                              Additionally
-                              copies fixed
-                              deposits and other cash forms may also be used to
-                              substantiate
-                              this.
-                            </p>
-                            <p>As a guide, a person must have sufficient funds in his/her
-                              bank
-                              account
-                              continuously
-                              for the last 6 months. Average requirement for sufficiency
-                              can
-                              be
-                              calculated at Rs.
-                              15,000 per day of visit per person to the UK. Eg - For a
-                              single
-                              person
-                              travelling on a
-                              10 day visit, the person must ideally show Rs. 1,50,000 (Rs.
-                              15,000/day
-                              x 10 days) in
-                              his/her bank account continuously for the last 6 months.</p>
+                              The Invitation letter should cover the following details:</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of
+                              birth, Passport number, etc.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
                           </div>
                         </div>
                       </div>
@@ -1449,201 +1100,6 @@
                 </ngb-tabset>
               </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessFive" aria-expanded="true"
-                        aria-controls="businessFive" [class.showDiv]="selectedBusiness === 5"
-                        (click)="setActiveBusiness(5)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
-                          alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Accommodation</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessFive" class="collapse" aria-labelledby="businessFive"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Accommodation
-                            </h1>
-                            <p>
-                              Proof of accommodation mentioning where you will be staying
-                              during
-                              your
-                              entire stay
-                              in the UK, which could be at a friend or relative’s place or
-                              at
-                              a
-                              hotel
-                              or a hostel.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessSix" aria-expanded="true"
-                        aria-controls="businessSix" [class.showDiv]="selectedBusiness === 6"
-                        (click)="setActiveBusiness(6)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                          alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Flight Tickets</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessSix" class="collapse" aria-labelledby="businessSix"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Flight
-                              Tickets
-                            </h1>
-                            <p>
-                              Valid roundtrip flight itinerary for visa application or
-                              confirmed
-                              flight reservation.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessSeven" aria-expanded="true"
-                        aria-controls="businessSeven" [class.showDiv]="selectedBusiness === 7"
-                        (click)="setActiveBusiness(7)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Itinerary</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessSeven" class="collapse" aria-labelledby="businessSeven"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Itinerary
-                            </h1>
-                            <p>
-                              Your detailed travel itinerary which gives information of
-                              your
-                              travel
-                              plans in the UK
-                              along with tickets, places you are going to visit, your
-                              meeting
-                              agenda,
-                              tours booked
-                              in advance, your festival agenda, etc.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessEight" aria-expanded="true"
-                        aria-controls="businessEight" [class.showDiv]="selectedBusiness === 8"
-                        (click)="setActiveBusiness(8)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                          alt="Employment / Student Proof"
-                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                        <h2 class="setFontSize">Employment / Student Proof</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessEight" class="collapse" aria-labelledby="businessEight"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Employment /
-                              Student Proof</h1>
-                            <p>
-                              For Employed Persons - A letter from your employer on
-                              company
-                              headed
-                              paper
-                              detailing your role, salary and length of employment,
-                              business
-                              card
-                              and
-                              6 month’s
-                              salary slips and Income Tax Returns (last 3 years)</p>
-                            <p>For Self-Employed Persons - business registration documents
-                              confirming
-                              the
-                              business owner’s name and the date the business started
-                              trading
-                              and
-                              three years tax
-                              returns of the business.</p>
-                            <p>For Students - a letter from your education provider, on
-                              headed
-                              paper,
-                              confirming
-                              your enrolment and leave of absence.
-
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessNine" aria-expanded="true"
-                        aria-controls="businessNine" [class.showDiv]="selectedBusiness === 9"
-                        (click)="setActiveBusiness(9)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="Other Documents" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                        <h2 class="setFontSize">Other Documents</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessNine" class="collapse" aria-labelledby="businessNine"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Other
-                              Documents</h1>
-                            <p>
-                              1. Tuberculosis test results, if you belong to a country
-                              listed
-                              amongst
-                              countries
-                              requiring a prior TB test before coming to the UK for a
-                              period
-                              over
-                              six
-                              months</p>
-                            <p>2. UK visa invitation letter should be submitted if it is
-                              applicable.
-                              It
-                              is a letter of
-                              invitation issued by a company, citizen or legal resident of
-                              the
-                              UK
-                              stating that they
-                              have invited you to stay with them.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
             </div>
 
             <!-- mobileContainer -->
@@ -1656,9 +1112,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
                         aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="Form"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Form"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Form</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1666,30 +1122,8 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Form</h1>
-                            <p>Applicant needs to fill up an online form which will require
-                              details
-                              such
-                              as
-                              Personal, Travel,
-                              Passport, Dependant, Parents, Employment, Income and
-                              expenditure,
-                              Family
-                              in the
-                              UK,
-                              Accommodation , Travel history (UK & Other), Other history,
-                              Convictions
-                              and
-                              other
-                              penalties,
-                              Extra information.</p>
-                            <p>Don’t worry! V2F agent will come to your doorstep and assist
-                              you
-                              in
-                              filling up
-                              the
-                              complete form
-                              as per information provided by you.</p>
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>Passport details are mandatory. the applicant passport must have at least 6 months remaining validity, available blank pages and a photocopy of the passport's data page.</p>
                           </div>
                         </div>
                       </div>
@@ -1700,9 +1134,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
                         aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2"
                         (click)="setActiveBusiness(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1710,19 +1144,9 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
+                            <h1 class="requiredIconHeading">Photograph</h1>
                             <p>
-                              Passport details are mandatory. The applicant’s passport
-                              must be
-                              issued
-                              within the
-                              last 10 years, should be valid for 6 months beyond the
-                              intended
-                              date
-                              of
-                              departure
-                              from this country; should contain at least 2 blank visa
-                              pages.
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X 33mm)
                             </p>
                           </div>
                         </div>
@@ -1740,9 +1164,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
                         aria-controls="touristMobileThree" [class.showDiv]="selectedBusiness === 3"
                         (click)="setActiveBusiness(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png" alt="Application form"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1750,18 +1174,12 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Photograph
+                            <h1 class="requiredIconHeading">Application form
                             </h1>
                             <p>
-                              UK visa photo requirements include light grey or plain cream
-                              background,
-                              and visa
-                              photo size is 45 millimetres high by 35 millimetres wide,
-                              head
-                              must
-                              be
-                              29-34 mm
-                              high. The photo should be taken within the last month only
+                              The applicant will require to fill up an online form that will require details such as personal information, travel information and other extra information about the purpose of the visit.</p>
+
+<p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling up the complete form as per the information provided by you.
                             </p>
                           </div>
                         </div>
@@ -1775,9 +1193,9 @@
                       <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
                         aria-controls="touristMobileFour" [class.showDiv]="selectedBusiness === 4"
                         (click)="setActiveBusiness(4)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                          alt="Proof of Funds" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Proof of Funds</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Invitation Letter.png"
+                          alt="Business Invitation Letter" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Business Invitation Letter</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1785,48 +1203,13 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Proof of
-                              Funds</h1>
+                            <h1 class="requiredIconHeading">Business Invitation Letter</h1>
                             <p>
-                              Applicant needs to provide proof of means of subsistence to
-                              cover
-                              living
-                              costs in the
-                              UK. Applicant needs to provide last 6 months bank statement
-                              signed
-                              and
-                              attested by
-                              a bank official. In case of a business visit the applicant
-                              must
-                              also
-                              provide bank
-                              statement of the company / person sponsoring his/her trip.
-                              All
-                              bank
-                              statements must
-                              be dated within last 1 week from the date of submission.
-                              Additionally
-                              copies fixed
-                              deposits and other cash forms may also be used to
-                              substantiate
-                              this.
-                            </p>
-                            <p>As a guide, a person must have sufficient funds in his/her
-                              bank
-                              account
-                              continuously
-                              for the last 6 months. Average requirement for sufficiency
-                              can
-                              be
-                              calculated at Rs.
-                              15,000 per day of visit per person to the UK. Eg - For a
-                              single
-                              person
-                              travelling on a
-                              10 day visit, the person must ideally show Rs. 1,50,000 (Rs.
-                              15,000/day
-                              x 10 days) in
-                              his/her bank account continuously for the last 6 months.</p>
+The Invitation letter should cover the following details:</p>
+
+<p>Applicant’s full name, Date of birth,  Passport number, etc.</p>
+<p>Intended business visit, Date of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
+  <p>Inviter’s name, Contact number, Address, Official stamp, Signature, etc.</p>
                           </div>
                         </div>
                       </div>
@@ -1989,52 +1372,6 @@
                 </ngb-tabset>
               </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobileNine" aria-expanded="true"
-                        aria-controls="touristMobileNine" [class.showDiv]="selectedBusiness === 9"
-                        (click)="setActiveBusiness(9)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="Other Documents" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                        <h2 class="setFontSize">Other Documents</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobileNine" class="collapse" aria-labelledby="headingMobileNine"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Other
-                              Documents</h1>
-                            <p>
-                              1. Tuberculosis test results, if you belong to a country
-                              listed
-                              amongst
-                              countries
-                              requiring a prior TB test before coming to the UK for a
-                              period
-                              over
-                              six
-                              months</p>
-                            <p>2. UK visa invitation letter should be submitted if it is
-                              applicable.
-                              It
-                              is a letter of
-                              invitation issued by a company, citizen or legal resident of
-                              the
-                              UK
-                              stating that they
-                              have invited you to stay with them.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
             </div>
 
 
@@ -2235,9 +1572,9 @@
                       <div data-toggle="collapse" data-target="#transitOne" aria-expanded="true"
                         aria-controls="transitOne" [class.showDiv]="selectedTransit === 1"
                         (click)="setActiveTransit(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="Form"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Form</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -2245,30 +1582,8 @@
                         data-parent="#transitAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Form</h1>
-                            <p>Applicant needs to fill up an online form which will require
-                              details
-                              such
-                              as
-                              Personal, Travel,
-                              Passport, Dependant, Parents, Employment, Income and
-                              expenditure,
-                              Family
-                              in the
-                              UK,
-                              Accommodation , Travel history (UK & Other), Other history,
-                              Convictions
-                              and
-                              other
-                              penalties,
-                              Extra information.</p>
-                            <p>Don’t worry! V2F agent will come to your doorstep and assist
-                              you
-                              in
-                              filling up
-                              the
-                              complete form
-                              as per information provided by you.</p>
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>A valid passport for 3 months from the date of entry.</p>
                           </div>
                         </div>
                       </div>
@@ -2279,28 +1594,18 @@
                       <div data-toggle="collapse" data-target="#transitTwo" aria-expanded="true"
                         aria-controls="transitTwo" [class.showDiv]="selectedTransit === 2"
                         (click)="setActiveTransit(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa.png" alt="Visa"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <h2 class="setFontSize">Visa</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
                       <div id="transitTwo" class="collapse" aria-labelledby="transitTwo" data-parent="#transitAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Passport</h1>
+                            <h1 class="requiredIconHeading">Visa</h1>
                             <p>
-                              Passport details are mandatory. The applicant’s passport
-                              must be
-                              issued
-                              within the
-                              last 10 years, should be valid for 6 months beyond the
-                              intended
-                              date
-                              of
-                              departure
-                              from this country; should contain at least 2 blank visa
-                              pages.
+                              A visa for the third country
                             </p>
                           </div>
                         </div>
@@ -2312,9 +1617,9 @@
                       <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true"
                         aria-controls="transitThree" [class.showDiv]="selectedTransit === 3"
                         (click)="setActiveTransit(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Booking.png"
-                          alt="Flight Booking" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Flight Booking</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png"
+                          alt="Ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Ticket</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -2322,12 +1627,8 @@
                         data-parent="#transitAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Flight
-                              Booking</h1>
-                            <p>Valid confirmed flight reservation to the destination country
-                              from
-                              the
-                              UK.</p>
+                            <h1 class="requiredIconHeading">Ticket</h1>
+                            <p>An onward train, cruise or air ticket with a confirmed date and seat number.</p>
                           </div>
                         </div>
                       </div>
@@ -2335,27 +1636,10 @@
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transitFour" aria-expanded="true"
-                        aria-controls="transitFour" [class.showDiv]="selectedTransit === 4"
-                        (click)="setActiveTransit(4)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa of Visiting Country.png"
-                          alt="Visa Of Visiting Country" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Visa Of Visiting Country</h2>
-                      </div>
+                     
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="transitFour" class="collapse" aria-labelledby="transitFour"
-                        data-parent="#transitAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Visa of
-                              Visiting Country</h1>
-                            <p>A valid visa for the country for which you are departing the
-                              UK.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                     
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
@@ -2373,9 +1657,9 @@
                       <div data-toggle="collapse" data-target="#transitMobileOne" aria-expanded="true"
                         aria-controls="transitMobileOne" [class.showDiv]="selectedTransit === 1"
                         (click)="setActiveTransit(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="Form"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Form</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -2383,30 +1667,8 @@
                         data-parent="#transitAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Form</h1>
-                            <p>Applicant needs to fill up an online form which will require
-                              details
-                              such
-                              as
-                              Personal, Travel,
-                              Passport, Dependant, Parents, Employment, Income and
-                              expenditure,
-                              Family
-                              in the
-                              UK,
-                              Accommodation , Travel history (UK & Other), Other history,
-                              Convictions
-                              and
-                              other
-                              penalties,
-                              Extra information.</p>
-                            <p>Don’t worry! V2F agent will come to your doorstep and assist
-                              you
-                              in
-                              filling up
-                              the
-                              complete form
-                              as per information provided by you.</p>
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>A valid passport for 3 months from the date of entry.</p>
                           </div>
                         </div>
                       </div>
@@ -2417,9 +1679,9 @@
                       <div data-toggle="collapse" data-target="#transitMobileTwo" aria-expanded="true"
                         aria-controls="transitMobileTwo" [class.showDiv]="selectedTransit === 2"
                         (click)="setActiveTransit(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa.png" alt="Visa"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <h2 class="setFontSize">Visa</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -2427,19 +1689,9 @@
                         data-parent="#transitAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
+                            <h1 class="requiredIconHeading">Visa</h1>
                             <p>
-                              Passport details are mandatory. The applicant’s passport
-                              must be
-                              issued
-                              within the
-                              last 10 years, should be valid for 6 months beyond the
-                              intended
-                              date
-                              of
-                              departure
-                              from this country; should contain at least 2 blank visa
-                              pages.
+                              A visa for the third country
                             </p>
                           </div>
                         </div>
@@ -2457,9 +1709,9 @@
                       <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true"
                         aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3"
                         (click)="setActiveTransit(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Booking.png"
-                          alt="Flight Booking" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Flight Booking</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png"
+                          alt="Ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Ticket</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -2467,12 +1719,8 @@
                         data-parent="#transitAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Flight
-                              Booking</h1>
-                            <p>Valid confirmed flight reservation to the destination country
-                              from
-                              the
-                              UK.</p>
+                            <h1 class="requiredIconHeading">Ticket</h1>
+                            <p>An onward train, cruise or air ticket with a confirmed date and seat number.</p>
                           </div>
                         </div>
                       </div>
@@ -2480,27 +1728,10 @@
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transitMobileFour" aria-expanded="true"
-                        aria-controls="transitMobileFour" [class.showDiv]="selectedTransit === 4"
-                        (click)="setActiveTransit(4)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa of Visiting Country.png"
-                          alt="Visa Of Visiting Country" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Visa Of Visiting Country</h2>
-                      </div>
+                      
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="transitMobileFour" class="collapse" aria-labelledby="transitMobileFour"
-                        data-parent="#transitAccodionMobile">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Visa of
-                              Visiting Country</h1>
-                            <p>A valid visa for the country for which you are departing the
-                              UK.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+                     
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
@@ -2544,121 +1775,7 @@
               </div>
             </div>
           </div>
-          <div class="container-fluid" [@simpleFadeAnimation]="'in'">
-            <div class="row">
-              <div class="col-12 text-center">
-                <h1><span class="faqContainer">FAQ's</span></h1>
-              </div>
-
-              <!-- transit -->
-              <div class="col-12 mt-4 p-0">
-                <div class="accordion" id="unitedkingdomAccordionTransit">
-                  <div class="card faqQueryCard">
-                    <div class="card-header faqQuery" id="headingTransitOne" data-toggle="collapse"
-                      data-target="#unitedkingdomAccordionTransitOne" aria-expanded="true"
-                      aria-controls="unitedkingdomAccordionTransitOne">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link" type="button">
-                          Who needs a UK Transit Visa?
-                        </button>
-                      </h5>
-                    </div>
-
-                    <div id="unitedkingdomAccordionTransitOne" class="collapse show" aria-labelledby="headingTransitOne"
-                      data-parent="#unitedkingdomAccordionTransit">
-                      <div class="card-body">
-                        <p style="font-size: 16px;">You will need a transit visa if you have to
-                          pass through border
-                          control. You will pass through border
-                          control if:</p>
-                        <li>you leave the airport building for any reason</li>
-                        <li>you need to collect and re-check your luggage</li>
-                        <li>your connecting flight departs from a different airport</li>
-                        <li>your connecting flight departs on a different day to when you arrive
-                        </li>
-                        <li>there is nowhere for you to stay in the airport overnight</li>
-                        <li>you are transiting through the UK to get to Ireland</li>
-                        <li>Note: You may need to re-check your luggage if you have connecting
-                          flights on different
-                          airlines.</li>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card faqQueryCard">
-                    <div class="card-header faqQuery" id="headingTransitTwo" data-toggle="collapse"
-                      data-target="#unitedkingdomAccordionTransitTwo" aria-expanded="false"
-                      aria-controls="unitedkingdomAccordionTransitTwo">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button">
-                          How long is a UK Transit Visa valid for?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="unitedkingdomAccordionTransitTwo" class="collapse" aria-labelledby="headingTransitTwo"
-                      data-parent="#unitedkingdomAccordionTransit">
-                      <div class="card-body">
-                        <p>Transit visas for the UK are usually valid for 6 months and allow
-                          multiple entries as long as your future
-                          trips meet the same criteria as the original transit trip (e.g. you
-                          cannot leave the airport if you were
-                          granted a Direct Airside Transit Visa). You will also be allowed to
-                          do a reverse journey with the visa
-                          (i.e. the same visa can be used on your return trip).</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card faqQueryCard">
-                    <div class="card-header faqQuery" id="headingTransitThree" data-toggle="collapse"
-                      data-target="#unitedkingdomAccordionTransitThree" aria-expanded="false"
-                      aria-controls="unitedkingdomAccordionTransitThree">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button">
-                          What is a A Direct Airside Transit Visa (DATV)?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="unitedkingdomAccordionTransitThree" class="collapse" aria-labelledby="headingTransitThree"
-                      data-parent="#unitedkingdomAccordionTransit">
-                      <div class="card-body">
-                        <p>A Direct Airside Transit Visa (DATV) is valid for 24 hours and does
-                          not allow you to pass through the
-                          UK Border Control (i.e. you must remain ‘airside’). This transit
-                          visa allows you to pass through the
-                          transit channels and requires that you depart from the same airport
-                          on the same day. The DATV is
-                          perfect if you are travelling to Europe and need to catch a
-                          connecting flight in the China.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card faqQueryCard">
-                    <div class="card-header faqQuery" id="headingTransitFour" data-toggle="collapse"
-                      data-target="#unitedkingdomAccordionTransitFour" aria-expanded="false"
-                      aria-controls="unitedkingdomAccordionTransitFour">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button">
-                          What is a Visitor in Transit Visa?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="unitedkingdomAccordionTransitFour" class="collapse" aria-labelledby="headingTransitFour"
-                      data-parent="#unitedkingdomAccordionTransit">
-                      <div class="card-body">
-                        <p>A Visitor in Transit Visa is valid for 48 hours and allows you to
-                          change terminals and pass through the
-                          UK Border Control. The Visitor in Transit visa is designed for
-                          travellers who need to re-check their
-                          luggage or catch a connecting flight at a different airport (e.g. If
-                          you land at Gatwick Airport and your
-                          onward flight departs from Heathrow Airport). You will only be
-                          allowed to stay in the UK for 48 hours.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
         </ng-template>
       </ngb-tab>

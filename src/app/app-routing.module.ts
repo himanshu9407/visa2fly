@@ -25,6 +25,7 @@ import { BookingDetailsComponent } from './components/booking-details/booking-de
 import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
 import { AboutUsComponent } from './components/static/about-us/about-us.component'
+import { ChinaComponent } from './components/visa-requirements/china/china.component';
     
     const routes: Routes = [
          {  path: '', redirectTo : 'visa', pathMatch : "full"},
@@ -50,7 +51,8 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
          {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
          {path: 'visa/United-Kingdom/:purpose', component: UnitedKingdomComponent},
          {path: 'visa/France/:purpose', component: FranceComponent},
-         {path: 'australia', component: AustraliaComponent},
+        //  {path: 'australia', component: AustraliaComponent},
+        {path: 'visa/apply for China visa online/:purpose', component: ChinaComponent},
          {path: '**', redirectTo : 'visa', pathMatch : "full"}
 
         ];
