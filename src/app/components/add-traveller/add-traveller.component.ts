@@ -777,7 +777,7 @@ export class AddTravellerComponent implements OnInit {
             (data:any) => {
               // console.log(data);
               
-              this.errorMessage.push(data.data.warnings);
+              //
               if(data.code == "0") {
       
                 this.travellerService.hitPaymentApi().subscribe(
@@ -887,11 +887,12 @@ export class AddTravellerComponent implements OnInit {
               else if (data.code == "1001") {
                 this.modalWarnings = [];
                 this.preloaderService.showPreloader(false);
+                this.errorMessage.push(data.data.warnings);
                // console.log(data.data.warnings);
-                for (var key in data.data.warnings) {
-                 // console.log(key, data.data.warnings[key]);
-                  this.modalWarnings.push(data.data.warnings[key]);
-                }
+                // for (var key in data.data.warnings) {
+                //  // console.log(key, data.data.warnings[key]);
+                //   this.modalWarnings.push(data.data.warnings[key]);
+                // }
                 var modal = document.getElementById('exampleModal1');
                   modal.classList.remove("fade");
                   modal.classList.add("show");
