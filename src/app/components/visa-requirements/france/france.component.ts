@@ -90,7 +90,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
       'purposeSelected':new FormControl(tempPurpose)
          });
       this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((res : any) => {
-        console.log(res);
+        // console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
           //console.log(this.MyQuotation);
@@ -239,7 +239,7 @@ navigate(quoteId : string, purpose: string, basePrice : number, serviceTax : num
         
         this.reqService.verifyQuotation(quoteId).subscribe(
           (data : any) => {
-            console.log(data);
+            // console.log(data);
             
             if (data.code == "0") {
               this.routerHistory.pushHistory("visa-requirement");

@@ -78,7 +78,7 @@ export class ChinaComponent implements OnInit {
       'purposeSelected':new FormControl(tempPurpose)
          });
       this.requireQuotation.getRequireQuotation(this.selectedCountrytype).subscribe((res : any) => {
-        console.log(res);
+        // console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
           //console.log(this.MyQuotation);
@@ -208,9 +208,9 @@ navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:s
   this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
   this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
   this.userFlow.setUserFlowDetails("quoteId",quoteId);
-  console.log(quoteId);
+  // console.log(quoteId);
   this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
-  console.log(basePrice);
+  // console.log(basePrice);
   this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
   this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
   this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imagefield1));
@@ -228,7 +228,7 @@ navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:s
         
         this.reqService.verifyQuotation(quoteId).subscribe(
           (data : any) => {
-            console.log(data);
+            // console.log(data);
             
             if (data.code == "0") {
               this.routerHistory.pushHistory("visa-requirement");
