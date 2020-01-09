@@ -300,12 +300,12 @@ export class HomeFormComponent {
   }
 
 
-  setDetailsOnLocalStorage () {
-    // this.userFlow.setUserFlowDetails("country", this.selectedCountry);
-    // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-    //this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-    // this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
-  }
+  // setDetailsOnLocalStorage () {
+  //   this.userFlow.setUserFlowDetails("country", this.selectedCountry);
+  //   // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
+  //   this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
+  //   this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
+  // }
 
 
 
@@ -358,12 +358,12 @@ export class HomeFormComponent {
           // break;
           // }
           case "United Kingdom" : {
-            this.setDetailsOnLocalStorage();
-            this.router.navigate(['visa/United-Kingdom/',"" + purpose]);
+           // this.setDetailsOnLocalStorage();
+            this.router.navigate(['visa/UK visa application', "" + purpose]);
             break;
           } 
           case "France" : {
-            this.setDetailsOnLocalStorage();
+            //this.setDetailsOnLocalStorage();
             this.router.navigate(['visa/France/',"" + purpose]);
             break;
           } 
@@ -378,7 +378,7 @@ export class HomeFormComponent {
           //   break;
           // }
           default : {
-            this.setDetailsOnLocalStorage();
+            //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())
             this.router.navigate(['visa-requirement/',   country1,purpose]);
           }

@@ -67,6 +67,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+  public countryStatic = 'France';
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
@@ -88,7 +89,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
       this.purposeChooseForm = new FormGroup({
       'purposeSelected':new FormControl(tempPurpose)
          });
-      this.requireQuotation.getRequireQuotation(this.selectedCountryType).subscribe((res : any) => {
+      this.requireQuotation.getRequireQuotation(this.countryStatic).subscribe((res : any) => {
         console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
