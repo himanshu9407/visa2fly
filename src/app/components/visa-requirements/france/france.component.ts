@@ -44,21 +44,23 @@ export interface Food {
     ])
   ]
 })
-export class FranceComponent implements OnInit, AfterViewInit {
+export class FranceComponent implements OnInit,AfterViewInit {
 
   @ViewChild("t", { static : false }) t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
 
+  public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
   userControlDetail : any;
   public MyQuotation : Array<any> = [];
   public MyQuotation1 : Array<any> = [];
+  public imagefield1 : Array<any> = [];
   public purposeChooseForm : FormGroup;
-  public selectedPurpose = 'Tourist'; 
+  // public selectedPurpose = 'Tourist'; 
   businessArr : Array<any> =[];
   touristArr : Array<any> =[];
   transitArr : Array<any> =[];
@@ -77,7 +79,8 @@ export class FranceComponent implements OnInit, AfterViewInit {
       
       this.activeRoute.params.subscribe((params : any) =>{
         this.selectedVisaType = params.purpose;
-       // console.log(this.selectedVisaType);
+        // this.selectedCountryType = 'France';
+      //  console.log(this.selectedCountryType);
       });
 
       let tempPurpose = this.selectedVisaType;
@@ -85,11 +88,11 @@ export class FranceComponent implements OnInit, AfterViewInit {
       this.purposeChooseForm = new FormGroup({
       'purposeSelected':new FormControl(tempPurpose)
          });
-      this.requireQuotation.getRequireQuotation(this.userControlDetail.country).subscribe((res : any) => {
+      this.requireQuotation.getRequireQuotation(this.selectedCountryType).subscribe((res : any) => {
         console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
-          console.log(this.MyQuotation);
+          //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
             
             if(element.purpose == 'Business'){
@@ -124,78 +127,9 @@ export class FranceComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit () {
     this.t.select(this.selectedVisaType);
+      
     }
 
-    navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string) {
-                
-      this.preloaderService.showPreloader(true);
-  
-      this.userFlow.setUserFlowDetails("quoteId",quoteId);
-      //console.log(quoteId);
-      this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
-      this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
-      this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
-  
-  
-       //console.log(quoteId);
-  
-      let token = this.loginService.getAuthToken();
-      if (token == null || token ==  undefined) {
-        token = "";
-      }
-      this.loginStatus.verifyAuthToken(token).subscribe (
-        (data : any) => {
-          if (data.code == "0") {
-            
-            this.reqService.verifyQuotation(quoteId).subscribe(
-              (data : any) => {
-                if (data.code == "0") {
-                  this.routerHistory.pushHistory("visa-requirement");
-                  this.router.navigate(['addTraveller']);
-  
-                  // setTimeout(() => {
-                    
-                    this.preloaderService.showPreloader(false);
-                 // }, 2000);
-                  
-                }
-                else {
-                  this.toastService.showNotification(""+ data.message, 4000);
-                  this.preloaderService.showPreloader(false);
-              }
-              }
-            );
-          }
-          else if(data.code == "301") {
-            this.loginService.setAuthToken("");
-            this.loginStatus.setUserStatus(false);
-            this.loginStatus.setUserLoggedIn(false);
-            // this.router.navigate(['visa']);
-            this.preloaderService.showPreloader(false);
-            localStorage.setItem("profile",JSON.stringify({}));
-            this.routerHistory.pushHistory("req-and-quote");
-            this.router.navigate(['slcontainer/login']);
-            this.preloaderService.showPreloader(false);
-        }
-          else {
-            this.routerHistory.pushHistory("req-and-quote");
-            this.router.navigate(['slcontainer/login']);
-            this.preloaderService.showPreloader(false);
-          }
-          
-        }
-      )
-  
-
-      
-}
-  
-
-
-  
-  // ngAfterViewInit() {
-  //   this.t.select(this.selectedVisaType);
-  // }
   purposeChanged(){
     var purpose = this.purposeChooseForm.get('purposeSelected').value;
     // console.log(purpose);
@@ -236,18 +170,21 @@ export class FranceComponent implements OnInit, AfterViewInit {
      if(purposeString == 'Tourist')
        {
          this.MyQuotation1 = this.touristArr;
+         this.selectedVisaType = 'Tourist';
          this.selectedTourist = 1;
          //this.t.select("Tourist");
 
      }else if(purposeString == 'Business')
        {
          this.MyQuotation1 = this.businessArr;
+         this.selectedVisaType = 'Business';
          this.selectedBusiness = 1;
          // console.log(this.MyQuotation1);
          //this.t.select("Business");
        }else
        {
          this.MyQuotation1 = this.transitArr;
+         this.selectedVisaType = 'Transit';
          this.selectedTransit = 1;
          //this.t.select("Transit");
        }
@@ -273,6 +210,73 @@ setActiveTourist(index: number) {
  setActiveTransit(index: number) {
   this.selectedTransit = index;
   // console.log('business');
+}
+
+navigate(quoteId : string, purpose: string, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
+                
+  this.preloaderService.showPreloader(true);
+
+  this.userFlow.setUserFlowDetails("country", this.selectedCountryType);
+  this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+  this.userFlow.setUserFlowDetails("quoteId",quoteId);
+  //console.log(quoteId);
+  this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
+  this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
+  this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
+  this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imagefield1));
+
+
+   //console.log(quoteId);
+
+  let token = this.loginService.getAuthToken();
+  if (token == null || token ==  undefined) {
+    token = "";
+  }
+  this.loginStatus.verifyAuthToken(token).subscribe (
+    (data : any) => {
+      if (data.code == "0") {
+        
+        this.reqService.verifyQuotation(quoteId).subscribe(
+          (data : any) => {
+            if (data.code == "0") {
+              this.routerHistory.pushHistory("visa-requirement");
+              this.router.navigate(['addTraveller']);
+
+              // setTimeout(() => {
+                
+                this.preloaderService.showPreloader(false);
+             // }, 2000);
+              
+            }
+            else {
+              this.toastService.showNotification(""+ data.message, 4000);
+              this.preloaderService.showPreloader(false);
+          }
+          }
+        );
+      }
+      else if(data.code == "301") {
+        this.loginService.setAuthToken("");
+        this.loginStatus.setUserStatus(false);
+        this.loginStatus.setUserLoggedIn(false);
+        // this.router.navigate(['visa']);
+        this.preloaderService.showPreloader(false);
+        localStorage.setItem("profile",JSON.stringify({}));
+        this.routerHistory.pushHistory("req-and-quote");
+        this.router.navigate(['slcontainer/login']);
+        this.preloaderService.showPreloader(false);
+    }
+      else {
+        this.routerHistory.pushHistory("req-and-quote");
+        this.router.navigate(['slcontainer/login']);
+        this.preloaderService.showPreloader(false);
+      }
+      
+    }
+  )
+
+
+  
 }
 
 

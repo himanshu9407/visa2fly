@@ -152,6 +152,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
                 
       this.preloaderService.showPreloader(true);
   
+      this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
       this.userFlow.setUserFlowDetails("quoteId",quoteId);
       //console.log(quoteId);
       this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));

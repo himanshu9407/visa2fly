@@ -301,10 +301,10 @@ export class HomeFormComponent {
 
 
   setDetailsOnLocalStorage () {
-    this.userFlow.setUserFlowDetails("country", this.selectedCountry);
-    this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
+    // this.userFlow.setUserFlowDetails("country", this.selectedCountry);
+    // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
     //this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-    this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
+    // this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
   }
 
 
@@ -367,16 +367,16 @@ export class HomeFormComponent {
             this.router.navigate(['visa/France/',"" + purpose]);
             break;
           } 
-          case "Singapore" : {
-            this.setDetailsOnLocalStorage();
-            this.router.navigate(['visa-requirement/',   country1,purpose]);
-            break;
-          }
-          case "Japan" : {
-            this.setDetailsOnLocalStorage();
-            this.router.navigate(['']);
-            break;
-          }
+          // case "Singapore" : {
+          //   this.setDetailsOnLocalStorage();
+          //   this.router.navigate(['visa-requirement/',   country1,purpose]);
+          //   break;
+          // }
+          // case "Japan" : {
+          //   this.setDetailsOnLocalStorage();
+          //   this.router.navigate(['']);
+          //   break;
+          // }
           default : {
             this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())

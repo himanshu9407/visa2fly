@@ -303,7 +303,9 @@ export class RequirementsComponent implements OnInit {
               navigate(quoteId : string,basePrice : number, serviceTax : number, stayPeriod:string, imageUploads : string) {
                 
                 this.preloaderService.showPreloader(true);
-            
+
+                this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+                this.userFlow.setUserFlowDetails("purpose", this.purposeChooseForm1.get('purposeSelected').value);
                 this.userFlow.setUserFlowDetails("quoteId",quoteId);
                 //console.log(quoteId);
                 this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
