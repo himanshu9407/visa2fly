@@ -159,7 +159,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa/United-Kingdom/" + purpose
+      "/visa/UK-visa-application/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -215,7 +215,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
      window.history.replaceState(
        "",
        "",
-     "/visa/UK visa application/" + purposeUrl
+     "/visa/UK-visa-application/" + purposeUrl
      );
      // console.log("url changed");
      }
