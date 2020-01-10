@@ -17,7 +17,7 @@ public show_signup:boolean = false;
   ngOnInit () { 
     this.route.params.subscribe(
       (params: Params) => {
-        console.log(params);
+        // console.log(params);
         if (params['form'] == "login"){
           this.showLogin();
         }

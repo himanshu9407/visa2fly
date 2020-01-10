@@ -105,8 +105,6 @@ export class AddTravellerComponent implements OnInit {
   minDateOfCollection : any = '';
   country : string='';
   collectionDateError = false;
-  public errorMessage :Array<any> = [];
-  public imageCatogory : Array<any> = [];
 
   checkCity(i) {
     // console.log(i);
@@ -289,14 +287,14 @@ export class AddTravellerComponent implements OnInit {
 
   ngOnInit() {
 
-    // setTimeout(() => {
-    //   this.intialInfo = false;
-    // }, 10000);
-    //console.log(this.userFlow.getUserFlowDetails());
+    setTimeout(() => {
+      this.intialInfo = false;
+    }, 10000);
+
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    //console.log(this.imageUploads);
+    // console.log(this.imageUploads);
     if(this.imageUploads == "null") {
       this.imageUploads = []
     }
@@ -335,7 +333,7 @@ export class AddTravellerComponent implements OnInit {
       day: this.minDate.day +4
     }
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
-   // console.log(this.minDateOfTravel);
+    // console.log(this.minDateOfTravel);
 
 
     this.minDateOfCollection = {
@@ -346,26 +344,26 @@ export class AddTravellerComponent implements OnInit {
     }
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
-    //console.log(this.minDateOfCollection);
+    // console.log(this.minDateOfCollection);
 
 
     
     if(current.getMonth() >=6) {
-      //console.log("greater than 6 month");
+      // console.log("greater than 6 month");
       let x = 12 - (current.getMonth()+1) 
       this.minDatePassportExpiry = {
         year: current.getFullYear()+1,
         month: 6-x,
         day: current.getDate()
       };
-     // console.log(x);
+      // console.log(x);
     }
     else {
-      //console.log("less than 6 month");
+      // console.log("less than 6 month");
 
       this.minDatePassportExpiry = {
         year: current.getFullYear(),
-        month: current.getMonth() + 7,
+        month: current.getMonth() + 6,
         day: current.getDate()
       };
     }
@@ -384,8 +382,8 @@ export class AddTravellerComponent implements OnInit {
     this.basePrice = JSON.parse(data.basePrice);
     this.serviceTax = JSON.parse(data.serviceTax);
 
-   // console.log(this.basePrice);
-    //console.log(this.serviceTax);
+    // console.log(this.basePrice);
+    // console.log(this.serviceTax);
     this.stayPeriod = data.stayPeriod;
 
 
@@ -426,20 +424,6 @@ export class AddTravellerComponent implements OnInit {
       .array([ this.createTraveller() ])
     });
     
-
-
-    // let tempPurpose;
-    // tempPurpose=this.userFlowDetails.purpose;
-    // console.log(tempPurpose);
-
-
-    // this.imageCatogory.push(this.imageUploads);
-    // console.log(this.imageCatogory);
-    // this.imageCatogory.forEach((element) => {
-    //   console.log(element.BUSINESS);
-    // })
-
-    // console.log(this.userFlowDetails.imageUploads);
     let arr = (<FormArray>this.travellerForm.get('travellers')).controls;
     
     for (let i = 0; i < this.imageUploads.length; i++) {
@@ -560,7 +544,7 @@ export class AddTravellerComponent implements OnInit {
   checkDateOfTravel () {
     this.travelDetails.get('dateOfCollection').setValue('');
 
-   // console.log(this.travelDetails.get('dateOfTravel').value);
+    // console.log(this.travelDetails.get('dateOfTravel').value);
 
     let temp : any = this.travelDetails.get('dateOfTravel').value;
     this.minDateOfCollection = {
@@ -571,9 +555,9 @@ export class AddTravellerComponent implements OnInit {
     }
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
-    //console.log(this.minDateOfCollection);
-    //console.log("hello world");
-    
+    // console.log(this.minDateOfCollection);
+    // console.log("hello world");
+ 
   }
 
   validateDate () {
@@ -608,7 +592,6 @@ export class AddTravellerComponent implements OnInit {
         this.collectionDateError = false;
       }
     }
-    
   }
 
   seeValues () {
@@ -633,8 +616,8 @@ export class AddTravellerComponent implements OnInit {
                 this.tempImageArr.push(form.get(el).value);
                 form.get(el).setValue(form.get(el).value.name);
                 // form.re
-               // console.log(this.tempImageArr);
-              });
+                // console.log(this.tempImageArr);
+              })
             }
       
             else {
@@ -642,7 +625,7 @@ export class AddTravellerComponent implements OnInit {
               this.primaryState = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('state').value;
               this.primaryCity = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('city').value;
               this.primaryPinCode = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('pinCode').value;;
-              //console.log("inside other travellers")
+              // console.log("inside other travellers")
               let same = form.get('addressForPickupSame').value;
               
               if (same) {
@@ -704,7 +687,7 @@ export class AddTravellerComponent implements OnInit {
             // console.log(element);
             }); 
       
-            //console.log(ptdata[0]);
+            // console.log(ptdata[0]);
             // console.log(tempArr);
             
       
@@ -780,19 +763,20 @@ export class AddTravellerComponent implements OnInit {
             let tempData  = (<FormArray>this.travellerForm.get('travellers')).controls|| [];
       
             
-            //console.log(tempData.values());
+            // console.log(tempData.values());
 
-           // console.log(this.travellerForm.get('travellers').value);
+            // console.log(this.travellerForm.get('travellers').value);
             
       
           this.travellerService.submitForm(this.formData1).subscribe(
             (data:any) => {
+              // console.log(data);
+      
               if(data.code == "0") {
-
-                
+      
                 this.travellerService.hitPaymentApi().subscribe(
                   (data1 : any) => {
-                    //console.log(data1);
+                    // console.log(data1);
                     this.buyerEmail = data1.buyerEmail;
                     this.orderId = data1.orderId;
                     this.amount = data1.amount;
@@ -802,13 +786,13 @@ export class AddTravellerComponent implements OnInit {
                     this.checksum = data1.checksum;
                     // this.paymentUrl = data1.paymentUrl;
       
-                    //console.log(document.forms["paymentForm"]);
+                    // console.log(document.forms["paymentForm"]);
       
-                    //console.log(this.paymentForm);
-                    // setTimeout(() => {
+                    // console.log(this.paymentForm);
+                    setTimeout(() => {
                       this.preloaderService.showPreloader(false);
                       document.forms["paymentForm"].submit();
-                    // }, 2000);
+                    }, 2000);
       
       
                   }
@@ -816,7 +800,7 @@ export class AddTravellerComponent implements OnInit {
               }
       
               else if (data.code == "1000") {
-                //console.log(data.data.applicantsFormValidationResult);
+                // console.log(data.data.applicantsFormValidationResult);
       
                 let errArr : Array<any> = data.data.applicantsFormValidationResult;
 
@@ -831,7 +815,7 @@ export class AddTravellerComponent implements OnInit {
 
                   this.tempImageArr = [];
 
-                  //console.log(this.originalImageArr);
+                  // console.log(this.originalImageArr);
 
                   let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
 
@@ -898,11 +882,10 @@ export class AddTravellerComponent implements OnInit {
                 this.modalWarnings = [];
                 this.preloaderService.showPreloader(false);
                 // console.log(data.data.warnings);
-                // for (var key in data.data.warnings) {
-                //   // console.log(key, data.data.warnings[key]);
-                //   this.modalWarnings.push(data.data.warnings[key]);
-                // }
-                this.errorMessage.push(data.data.warnings);
+                for (var key in data.data.warnings) {
+                  // console.log(key, data.data.warnings[key]);
+                  this.modalWarnings.push(data.data.warnings[key]);
+                }
                 var modal = document.getElementById('exampleModal1');
                   modal.classList.remove("fade");
                   modal.classList.add("show");
@@ -1002,8 +985,6 @@ export class AddTravellerComponent implements OnInit {
 
   }
 
-  
-
   goToPayment(){
     let modalWarning = (<any>document.getElementById('modalWarning')).checked;
     var modal = document.getElementById('exampleModal1');
@@ -1018,7 +999,7 @@ export class AddTravellerComponent implements OnInit {
 
       this.travellerService.hitPaymentApi().subscribe(
         (data1 : any) => {
-          console.log(data1);
+          // console.log(data1);
           this.buyerEmail = data1.buyerEmail;
           this.orderId = data1.orderId;
           this.amount = data1.amount;
@@ -1031,10 +1012,10 @@ export class AddTravellerComponent implements OnInit {
           // console.log(document.forms["paymentForm"]);
 
           // console.log(this.paymentForm);
-          // setTimeout(() => {
+          setTimeout(() => {
             
             document.forms["paymentForm"].submit();
-          // }, 2000);
+          }, 2000);
 
 
         }
@@ -1042,10 +1023,7 @@ export class AddTravellerComponent implements OnInit {
       
     }
     else {
-      
-        this.toastService.showNotification("Please agree to the warning and continue..",10000);
-      
-      
+      this.toastService.showNotification("Please agree to the warning and then continue.",4000);
     }
    
   }
@@ -1180,5 +1158,6 @@ export class AddTravellerComponent implements OnInit {
 
   }
 }
+
 
 }

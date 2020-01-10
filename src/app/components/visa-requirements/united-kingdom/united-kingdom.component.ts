@@ -96,7 +96,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
         //console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
-          console.log(this.MyQuotation);
+          // console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
             
             if(element.purpose == 'Business'){
