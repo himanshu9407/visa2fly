@@ -20,7 +20,7 @@ export class BookingDetailsComponent implements OnInit {
     }
     this.selectedBooking = temp;
 
-    console.log(this.selectedBooking);
+    // console.log(this.selectedBooking);
   }
 
   ngOnInit() {

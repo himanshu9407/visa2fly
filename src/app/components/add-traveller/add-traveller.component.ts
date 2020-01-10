@@ -105,6 +105,7 @@ export class AddTravellerComponent implements OnInit {
   minDateOfCollection : any = '';
   country : string='';
   collectionDateError = false;
+  public errorMessage :Array<any> = [];
 
   checkCity(i) {
     // console.log(i);
@@ -882,10 +883,11 @@ export class AddTravellerComponent implements OnInit {
                 this.modalWarnings = [];
                 this.preloaderService.showPreloader(false);
                 // console.log(data.data.warnings);
-                for (var key in data.data.warnings) {
+                // for (var key in data.data.warnings) {
                   // console.log(key, data.data.warnings[key]);
-                  this.modalWarnings.push(data.data.warnings[key]);
-                }
+                  // this.modalWarnings.push(data.data.warnings[key]);
+                // }
+                this.errorMessage.push(data.data.warnings);
                 var modal = document.getElementById('exampleModal1');
                   modal.classList.remove("fade");
                   modal.classList.add("show");

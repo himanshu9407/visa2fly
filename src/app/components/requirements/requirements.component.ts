@@ -101,6 +101,7 @@ export class RequirementsComponent implements OnInit {
 
                 this.userFlowDetails = this.userFlow.getUserFlowDetails();
                 // console.log(this.userFlowDetails);
+                this.preloaderService.showPreloader(true);
                 this.activateRoute.params.subscribe((params :any) => {
                   this.selectedPurposeType = params.purpose;
                   //console.log(this.selectedPurposeType);
@@ -116,10 +117,11 @@ export class RequirementsComponent implements OnInit {
                   //Api Call
                   this.reqService.getRequirementsData(this.selectedCountrytype)
                   .then((data : any )=> {
-                    console.log(data);
-                  if (data.code == "0") {
+                    // console.log(data);
+                    if (data.code == "0") {
+                    this.preloaderService.showPreloader(false);
                     this.requirementsData = data;
-                    console.log(data.data);
+                    // console.log(data.data);
                     this.Quotation = data.data.displayQuotes;
                     //console.log(this.Quotation);
                     this.Quotation.forEach(element => {
@@ -242,7 +244,7 @@ export class RequirementsComponent implements OnInit {
                     for (i=0,j=data.data.fieldDetails.length; i<j; i+=chunk) {
                       temparray = data.data.fieldDetails.slice(i,i+chunk);
                       this.mainArr.push(temparray);
-                      console.log(this.mainArr);
+                      // console.log(this.mainArr);
                     }
             
             
@@ -379,14 +381,14 @@ export class RequirementsComponent implements OnInit {
       this.showRequirementsDetailArr[i] = true;
     }
     else {
-      console.log("else");
+      // console.log("else");
       this.showRequirementsDetailArr[i] = true;
 
     }
 
 
     this.selectedDataArr[i] = this.mainArr[i][j];
-    console.log(this.selectedDataArr[i]);
+    // console.log(this.selectedDataArr[i]);
 
   }
   purposeChanged(){

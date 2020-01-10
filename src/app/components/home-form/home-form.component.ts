@@ -342,14 +342,14 @@ export class HomeFormComponent {
     if(this.validateForm()) { 
 
          let purpose = this.homeForm.get('purpose').value;
-         console.log(purpose);
+        //  console.log(purpose);
          let country1 = this.homeForm.get('country').value;
-         console.log(country1);
+        //  console.log(country1);
          //  let countryTemp = this.homeForm.get('country').value;
 
          // console.log(countryTemp);
          let countryTemp1 = this.staticPagesArr.includes(this.selectedCountry);
-         console.log(countryTemp1)
+        //  console.log(countryTemp1)
         switch(this.selectedCountry)
         {
           // case "Canada" : {
