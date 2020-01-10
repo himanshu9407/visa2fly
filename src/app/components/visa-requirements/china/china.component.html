@@ -189,101 +189,113 @@
 
 <div class="container-fluid wrapContainer">
   <div class="row">
-    <div class="col-md-5">
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-4 setPadding">
-          Visa Type :
-        </div>
-        <div class="col-lg-5 col-md-6 col-8">
-          <form [formGroup]="purposeChooseForm">
-            <mat-form-field class="setWidth">
-              <mat-select (selectionChange)="purposeChanged()" formControlName="purposeSelected">
-                <mat-option value="Tourist">
-                  Tourist
-                </mat-option>
-                <mat-option value="Business">
-                  Business
-                </mat-option>
-                <mat-option value="Transit">
-                  Transit
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </form>
-        </div>
+      <div class="col-md-5">
+          <div class="row">
+              <div class="col-lg-3 col-md-4 col-4 setPadding">
+                  Visa Type :
+              </div>
+              <div class="col-lg-5 col-md-6 col-8">
+                  <form [formGroup]="purposeChooseForm">
+                  <mat-form-field class="setWidth">
+                      <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
+                          <mat-option value="Tourist">
+                              Tourist
+                          </mat-option>
+                          <mat-option value="Business">
+                              Business
+                          </mat-option>
+                          <!-- <mat-option value="Transit">
+                              Transit
+                          </mat-option> -->
+                      </mat-select>
+                      <!-- {{selectedPurpose}} -->
+                  </mat-form-field>
+              </form>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
+</div>
 
 <!-- <div class="container-fluid wrapContainer mobileView">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="col-lg-3 col-md-2 col-4">
-                    Visa Type
-                </div>
-                <div class="col-lg-6 col-md-3 col-5">
-                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                        <option value="tourist">Tourist</option>
-                        <option value="business">Business</option>
-                        <option value="transit">Transit</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="row">
+      <div class="col-lg-6">
+          <div class="row">
+              <div class="col-lg-3 col-md-2 col-4">
+                  Visa Type
+              </div>
+              <div class="col-lg-6 col-md-3 col-5">
+                  <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                      <option value="tourist">Tourist</option>
+                      <option value="business">Business</option>
+                      <option value="transit">Transit</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+  </div>
 </div> -->
 
 
 <div class="container-fluid wrapContainer">
-  <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
-
-      <div class="card planCard">
-        <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
-          {{quotation.purpose}}
-        </div>
-        <div class="card-body planCardBody">
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
-            </div>
-            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
-              {{quotation.processingTime}}
-            </div>
+  <div class="row" >
+      <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
+      
+          <div class="card planCard">
+              <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
+                  {{quotation.purpose}}
+              </div>
+              <div class="card-body planCardBody">
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow"> 
+                       {{quotation.processingTime}}
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
+                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
+                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
+                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.entryType}}</div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-6 planCardRow
+                      ">Fees:</div>
+                      <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
+                      planCardRow" style="color: #000080;">
+                      INR {{quotation.basePrice + quotation.serviceTax}}</div>
+                  </div>
+                  <!-- <div class="col-6">Processing time:</div>
+                  <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
+                  <div class="col-6">Stay period :</div>
+                  <div class="col-6">Lorem, ipsum se</div>
+                  <div class="col-6">Validity :</div>
+                  <div class="col-6">Lorem, ipsum se</div>
+                  <div class="col-6">Entry:</div>
+                  <div class="col-6">Lorem, ipsum se</div>
+                  <div class="col-6">Fees:</div>
+                  <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
+                  <div class="row mt-3">
+                      <div class="col-12 text-center">
+                          <button class="btn btn-primary btn-sm font-weight-bold submitBtn" (click)="navigate(quotation.quoteId,  quotation.purpose, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
-            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
-            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
-            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.entryType}}</div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-6 planCardRow
-                        ">Fees:</div>
-            <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
-                        planCardRow" style="color: #000080;">
-              INR {{quotation.basePrice + quotation.serviceTax}}</div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-12 text-center">
-              <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
-                (click)="navigate(quotation.quoteId, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
-            </div>
-          </div>
-        </div>
+      
       </div>
-
-    </div>
 
   </div>
 </div>
+
 
 
 <div class="container-fluid wrapContainer">

@@ -2390,3 +2390,1498 @@
         </ngb-tabset>
     </div>
 </div>
+
+<div class="iconSection">
+    <ngb-tabset #t="ngbTabset" (tabChange)="navigateTo($event)" class="tabset" type="pills" [justify]="desktopJustify"
+      [orientation]="desktopOrientation">
+      <ngb-tab id="Tourist" title="Tourist">
+
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+            <!-- tourist -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                    VISA REQUIREMENT FOR
+                    China</span>
+                </h1>
+              </div>
+            </div>
+
+            <!-- desktopContainer -->
+            <div class="desktopContainer accordion" id="touristAccodion">
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true"
+                        aria-controls="touristOne" [class.showDiv]="selectedTourist === 1"
+                        (click)="setActiveTourist(1)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristOne" class="collapsed" aria-labelledby="headingOne"
+                        data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>Passport details are mandatory. The applicant passport must have at least 6 months
+                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristTwo" aria-expanded="false"
+                        aria-controls="touristTwo" [class.showDiv]="selectedTourist === 2"
+                        (click)="setActiveTourist(2)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
+                              33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristThree" aria-expanded="false"
+                        aria-controls="touristThree" [class.showDiv]="selectedTourist === 3"
+                        (click)="setActiveTourist(3)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Application form
+                            </h1>
+                            <p>
+                              The applicant will require to fill up an online form that will require details such as
+                              personal information, travel information and other extra information.
+                            </p>
+                            <p>
+                              Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling
+                              up the complete form as per the information provided by you.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#toursitFour" aria-expanded="false"
+                        aria-controls="toursitFour" [class.showDiv]="selectedTourist === 4"
+                        (click)="setActiveTourist(4)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png"
+                          alt="Hotel Reservation" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Hotel Reservation</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="toursitFour" class="collapse" aria-labelledby="headingFour"
+                        data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Hotel Reservation</h1>
+                            <p>
+                              Proof of hotel reservation
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristFive" aria-expanded="true"
+                        aria-controls="touristFive" [class.showDiv]="selectedTourist === 5"
+                        (click)="setActiveTourist(5)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png"
+                          alt="Flight ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Flight ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristFive" class="collapse" aria-labelledby="headingFive"
+                        data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Flight ticket
+                            </h1>
+                            <p>
+                              Proof of your Flight Ticket booking
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristSix" aria-expanded="true"
+                        aria-controls="touristSix" [class.showDiv]="selectedTourist === 6"
+                        (click)="setActiveTourist(6)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Itinerary</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristSix" class="collapse" aria-labelledby="headingSix" data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Itinerary
+                            </h1>
+                            <p>
+                              Your detailed travel itinerary gives information about your travel plans in China along
+                              with tickets, Places you are going to visit, Your meeting agenda, Tours booked in advance,
+                              Your festival agenda, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristSeven" aria-expanded="true"
+                        aria-controls="touristSeven" [class.showDiv]="selectedTourist === 7"
+                        (click)="setActiveTourist(7)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter from China.png"
+                          alt="Invitation Letter from China"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                        <h2 class="setFontSize">Invitation Letter from China</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristSeven" class="collapse" aria-labelledby="headingSeven"
+                        data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Invitation Letter from China</h1>
+                            <p>
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or any
+                              individual) with the following details.</p>
+                            <p>Applicant’s full name, Date of birth, Passport number etc.</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristEight" aria-expanded="true"
+                        aria-controls="touristEight" [class.showDiv]="selectedTourist === 8"
+                        (click)="setActiveTourist(8)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png"
+                          alt="Other Supporting Documents"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                        <h2 class="setFontSize">Other Supporting Documents</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristEight" class="collapse" aria-labelledby="headingEight"
+                        data-parent="#touristAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Other Supporting Documents</h1>
+                            <p>
+                              If you are not applying in your country of citizenship, proof of legal stay or residence
+                              status will be required.
+                              In some cases, the applicant might have to submit a certification letter from the employer
+                              with the following details :
+                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of
+                                the Employer</p>
+                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>The Income Statement of the
+                                Applicant, or</p>
+                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Original copy of the 6-month
+                                Bank Statement of the Applicant.</p>
+
+                              <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the
+                                Tourism Bureau of Tibet Autonomous Region.
+                              </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+
+
+
+            <!-- mobileContainer -->
+            <div class="mobileContainer accordion" id="touristAccodionMobile">
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
+                        aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1"
+                        (click)="setActiveTourist(1)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>Passport details are mandatory. The applicant passport must have at least 6 months
+                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
+                        aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2"
+                        (click)="setActiveTourist(2)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
+                              33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
+                        aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3"
+                        (click)="setActiveTourist(3)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileThree" class="collapse" aria-labelledby="headingMobileThree"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Application form
+                            </h1>
+                            <p>
+                              The applicant will require to fill up an online form that will require details such as
+                              personal information, travel information and other extra information.
+                            </p>
+                            <p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling
+                              up the complete form as per the information provided by you.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
+                        aria-controls="touristMobileFour" [class.showDiv]="selectedTourist === 4"
+                        (click)="setActiveTourist(4)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png"
+                          alt="Hotel Reservation" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Hotel Reservation</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Hotel Reservation</h1>
+                            <p>
+                              Proof of hotel reservation
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true"
+                        aria-controls="touristMobileFive" [class.showDiv]="selectedTourist === 5"
+                        (click)="setActiveTourist(5)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket .png"
+                          alt="Flight ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Flight ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileFive" class="collapse" aria-labelledby="headingMobileFive"
+                        data-parent="#touristAccodionMobile" [class.showDiv]="selectedTourist === 6"
+                        (click)="setActiveTourist(6)">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Flight ticket
+                            </h1>
+                            <p>
+                              Proof of your Flight Ticket booking.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true"
+                        aria-controls="touristMobileSix" [class.showDiv]="selectedTourist === 6"
+                        (click)="setActiveTourist(6)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Itinerary</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileSix" class="collapse" aria-labelledby="headingMobileSix"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Itinerary
+                            </h1>
+                            <p>
+                              Your detailed travel itinerary gives information about your travel plans in China along
+                              with tickets, Places you are going to visit, Your meeting agenda, Tours booked in advance,
+                              Your festival agenda, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true"
+                        aria-controls="touristMobileSeven" [class.showDiv]="selectedTourist === 7"
+                        (click)="setActiveTourist(7)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter from China.png"
+                          alt="Invitation Letter from China" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Invitation Letter from China</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileSeven" class="collapse" aria-labelledby="headingMobileSeven"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Invitation Letter from China
+                            </h1>
+                            <p>
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or any
+                              individual) with the following details</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of
+                              birth, Passport number etc.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true"
+                        aria-controls="touristMobileEight" [class.showDiv]="selectedTourist === 8"
+                        (click)="setActiveTourist(8)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png"
+                          alt="Other Supporting Documents" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Other Supporting Documents</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileEight" class="collapse" aria-labelledby="headingMobileEight"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Other Supporting Documents</h1>
+                            <p>
+                              If you are not applying in your country of citizenship, proof of legal stay or residence
+                              status will be required.
+                              In some cases, the applicant might have to submit a certification letter from the employer
+                              with the following details :</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of the
+                              Employer</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>The Income Statement of the
+                              Applicant, or</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Original copy of the 6-month
+                              Bank Statement of the Applicant.</p>
+
+                            <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the Tourism
+                              Bureau of Tibet Autonomous Region.</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+            <div class="row">
+              <div class="col-lg-12 p-0 impRequired">
+                <div class="card">
+                  <div class="card-header text-center text-white text-uppercase"
+                    style="background: #000080; font-weight: 600;">
+                    <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR China
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      <li>All Indian passport holders require a valid visa to enter China.</li>
+                    </p>
+                    <p>
+                      <li>Each applicant must have all the mandatory documents as mentioned in
+                        requirement tabs below</li>
+                    </p>
+                    <p>
+                      <li>In addition to the documents mentioned, our visa experts or the
+                        concerned embassy may require
+                        you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                        such
+                        additional documents is essential for a positive outcome.</li>
+                    </p>
+                    <p>
+                      <li>If all the documents are not ready at the time of agent visit then
+                        additional charges levied
+                        when agent visits your residence again</li>
+                    </p>
+                    <p>
+                      <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+            <div class="row">
+              <div class="col-12 text-center">
+                <h1><span class="faqContainer">FAQ's</span></h1>
+              </div>
+
+              <!-- tourist -->
+              <div class="col-12 mt-4 p-0">
+                <div class="accordion" id="unitedkingdomAccordionTourist">
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingTouristOne" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionTouristOne" aria-expanded="true"
+                      aria-controls="unitedkingdomAccordionTouristOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button">
+                          Do I need to book my flight before applying for UK visa?
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div id="unitedkingdomAccordionTouristOne" class="collapse show" aria-labelledby="headingTouristOne"
+                      data-parent="#unitedkingdomAccordionTourist">
+                      <div class="card-body">
+                        <p>For your UK visa application, it is advised to get a flight itinerary
+                          by either holding a flight reservation or purchasing a refundable
+                          flight ticket. Avoid booking non-refundable flights so that you do
+                          not lose money in the event of a visa refusal.</p>
+
+                        <p> British Airways provides the option to email a fare quote which
+                          works as a flight itinerary for your visa application.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingTouristTwo" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionTouristTwo" aria-expanded="false"
+                      aria-controls="unitedkingdomAccordionTouristTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button">
+                          What is the current UK visa processing time?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="unitedkingdomAccordionTouristTwo" class="collapse" aria-labelledby="headingTouristTwo"
+                      data-parent="#unitedkingdomAccordionTourist">
+                      <div class="card-body">
+                        <p> The UK visa processing time depends on where you have submitted your
+                          application. The standard
+                          UK visa processing time is 15 days, though sometimes it can take
+                          more than 30 days.</p>
+                        <p> Please note these are the processing times after your Biometrics
+                          have been completed. Ideally it
+                          is
+                          advised to start your visa application process 6-8 weeks prior to
+                          your intended date of
+                          departure.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingTouristThree" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionTouristThree" aria-expanded="false"
+                      aria-controls="unitedkingdomAccordionTouristThree">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button">
+                          What to do if my UK visa application is refused/denied?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="unitedkingdomAccordionTouristThree" class="collapse" aria-labelledby="headingTouristThree"
+                      data-parent="#unitedkingdomAccordionTourist">
+                      <div class="card-body">
+                        <p>If your UK visa application is refused or denied, first thing is to
+                          understand the “reason for
+                          refusal/denial”. If the reason is due to lack of proper
+                          documentation, funds or proofs, then
+                          make
+                          sure
+                          to have those the next time you apply for the UK visa.</p>
+                        <p> You can re-apply for UK visa by making sure you have all the
+                          documents, funds or proofs that
+                          were
+                          lacking previously. You must pay the visa fee again as the fee paid
+                          for the old application was
+                          non-refundable.</p>
+                        <p> If you do not know the reason for your visa refusal/denial, give at
+                          least 6 months before you
+                          apply
+                          for
+                          the visa again.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingTouristFour" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionTouristFour" aria-expanded="false"
+                      aria-controls="unitedkingdomAccordionTouristFour">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button">
+                          Can I withdraw my UK visa application?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="unitedkingdomAccordionTouristFour" class="collapse" aria-labelledby="headingTouristFour"
+                      data-parent="#unitedkingdomAccordionTourist">
+                      <div class="card-body">
+                        <p>Yes. You can withdraw your UK visa application. Any visa fee and
+                          priority service fee that is
+                          already
+                          paid are not refundable.</p>
+                        <p>The UK consulate will keep your passport for the entirety of the visa
+                          process. If you are
+                          applying
+                          for
+                          UK visa in a third country, it can be scary to not have your
+                          passport with you.</p>
+                        <p>In the event of an emergency, to withdraw your visa application, you
+                          must submit a withdrawal
+                          request along with the reason for withdrawal to the consulate via
+                          email. It might take up to 72
+                          hours
+                          for the consulate to locate your packet and send it back to you.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab id="Business" title="Business">
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+            <!-- business -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                    VISA REQUIREMENT FOR
+                    China</span>
+                </h1>
+              </div>
+            </div>
+
+            <div class="desktopContainer accordion" id="businessAccodion">
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne"
+                        aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1"
+                        (click)="setActiveBusiness(1)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessOne" class="collapsed" aria-labelledby="businessHeadingOne"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>
+                              Passport details are mandatory. the applicant passport must have at least 6 months
+                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse" data-target="#businessTwo"
+                        aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2"
+                        (click)="setActiveBusiness(2)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessTwo" class="collapse" aria-labelledby="businessHeadingTwo"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
+                              33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
+                        data-target="#businessThree" aria-expanded="false" aria-controls="businessThree"
+                        [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessThree" class="collapse" aria-labelledby="businessHeadingThree"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Application form
+                            </h1>
+                            <p>
+                              The applicant will require to fill up an online form that will require details such as
+                              personal information, travel information and other extra information about the purpose of
+                              the visit
+                            </p>
+                            <p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling
+                              up the complete form as per the information provided by you.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeadingFour" data-toggle="collapse"
+                        data-target="#businessFour" aria-expanded="false" aria-controls="businessFour"
+                        [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Invitation Letter.png"
+                          alt="Business Invitation Letter" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Business Invitation Letter</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessFour" class="collapse" aria-labelledby="businessHeadingFour"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Business Invitation Letter</h1>
+                            <p>
+                              The Invitation letter should cover the following details:</p>
+
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of
+                              birth, Passport number, etc.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+            </div>
+
+            <!-- mobileContainer -->
+            <div class="mobileContainer accordion" id="touristAccodionMobile">
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
+                        aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1"
+                        (click)="setActiveBusiness(1)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Form"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>Passport details are mandatory. the applicant passport must have at least 6 months remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
+                        aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2"
+                        (click)="setActiveBusiness(2)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X 33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
+                        aria-controls="touristMobileThree" [class.showDiv]="selectedBusiness === 3"
+                        (click)="setActiveBusiness(3)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png" alt="Application form"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileThree" class="collapse" aria-labelledby="headingMobileThree"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Application form
+                            </h1>
+                            <p>
+                              The applicant will require to fill up an online form that will require details such as personal information, travel information and other extra information about the purpose of the visit.</p>
+
+<p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling up the complete form as per the information provided by you.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
+                        aria-controls="touristMobileFour" [class.showDiv]="selectedBusiness === 4"
+                        (click)="setActiveBusiness(4)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Invitation Letter.png"
+                          alt="Business Invitation Letter" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Business Invitation Letter</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Business Invitation Letter</h1>
+                            <p>
+The Invitation letter should cover the following details:</p>
+
+<p>Applicant’s full name, Date of birth,  Passport number, etc.</p>
+<p>Intended business visit, Date of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
+  <p>Inviter’s name, Contact number, Address, Official stamp, Signature, etc.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true"
+                        aria-controls="touristMobileFive" [class.showDiv]="selectedBusiness === 5"
+                        (click)="setActiveBusiness(5)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                          alt="Accommodation" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Accommodation</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileFive" class="collapse" aria-labelledby="headingMobileFive"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Accommodation
+                            </h1>
+                            <p>
+                              Proof of accommodation mentioning where you will be staying
+                              during
+                              your
+                              entire stay
+                              in the UK, which could be at a friend or relative’s place or
+                              at
+                              a
+                              hotel
+                              or a hostel.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true"
+                        aria-controls="touristMobileSix" [class.showDiv]="selectedBusiness === 6"
+                        (click)="setActiveBusiness(6)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                          alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Flight Tickets</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileSix" class="collapse" aria-labelledby="headingMobileSix"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Flight
+                              Tickets
+                            </h1>
+                            <p>
+                              Valid roundtrip flight itinerary for visa application or
+                              confirmed
+                              flight reservation.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true"
+                        aria-controls="touristMobileSeven" [class.showDiv]="selectedBusiness === 7"
+                        (click)="setActiveBusiness(7)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Itinerary"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Itinerary</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileSeven" class="collapse" aria-labelledby="headingMobileSeven"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Itinerary
+                            </h1>
+                            <p>
+                              Your detailed travel itinerary which gives information of
+                              your
+                              travel
+                              plans in the UK
+                              along with tickets, places you are going to visit, your
+                              meeting
+                              agenda,
+                              tours booked
+                              in advance, your festival agenda, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true"
+                        aria-controls="touristMobileEight" [class.showDiv]="selectedBusiness === 8"
+                        (click)="setActiveBusiness(8)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                          alt="Employment / Student Proof" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Employment / Student Proof</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileEight" class="collapse" aria-labelledby="headingMobileEight"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Employment /
+                              Student Proof</h1>
+                            <p>
+                              For Employed Persons - A letter from your employer on
+                              company
+                              headed
+                              paper
+                              detailing your role, salary and length of employment,
+                              business
+                              card
+                              and
+                              6 month’s
+                              salary slips and Income Tax Returns (last 3 years)</p>
+                            <p>For Self-Employed Persons - business registration documents
+                              confirming
+                              the
+                              business owner’s name and the date the business started
+                              trading
+                              and
+                              three years tax
+                              returns of the business.</p>
+                            <p>For Students - a letter from your education provider, on
+                              headed
+                              paper,
+                              confirming
+                              your enrolment and leave of absence.
+
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+            <div class="row">
+              <div class="col-lg-12 p-0 impRequired">
+                <div class="card">
+                  <div class="card-header text-center text-white text-uppercase"
+                    style="background: #000080; font-weight: 600;">
+                    <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR China
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      <li>All Indian passport holders require a valid visa to enter China.</li>
+                    </p>
+                    <p>
+                      <li>Each applicant must have all the mandatory documents as mentioned in
+                        requirement tabs below</li>
+                    </p>
+                    <p>
+                      <li>In addition to the documents mentioned, our visa experts or the
+                        concerned embassy may require
+                        you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                        such
+                        additional documents is essential for a positive outcome.</li>
+                    </p>
+                    <p>
+                      <li>If all the documents are not ready at the time of agent visit then
+                        additional charges levied
+                        when agent visits your residence again</li>
+                    </p>
+                    <p>
+                      <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+            <div class="row">
+              <div class="col-12 text-center">
+                <h1><span class="faqContainer">FAQ's</span></h1>
+              </div>
+
+              <!-- business -->
+              <div class="col-12 mt-4 p-0">
+                <div class="accordion" id="unitedkingdomAccordionBusiness">
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingBusinessOne" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionBusinessOne" aria-expanded="true"
+                      aria-controls="unitedkingdomAccordionBusinessOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button">
+                          Do I need to book my flight before applying for UK visa?
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div id="unitedkingdomAccordionBusinessOne" class="collapse show"
+                      aria-labelledby="headingBusinessOne" data-parent="#unitedkingdomAccordionBusiness">
+                      <div class="card-body">
+                        <p>For your UK visa application, it is advised to get a flight itinerary
+                          by either holding a flight reservation or purchasing a refundable
+                          flight ticket. Avoid booking non-refundable flights so that you do
+                          not lose money in the event of a visa refusal.</p>
+
+                        <p> British Airways provides the option to email a fare quote which
+                          works as a flight itinerary for your visa application.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingBusinessTwo" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionBusinessTwo" aria-expanded="false"
+                      aria-controls="unitedkingdomAccordionBusinessTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button">
+                          What is the current UK visa processing time?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="unitedkingdomAccordionBusinessTwo" class="collapse" aria-labelledby="headingBusinessTwo"
+                      data-parent="#unitedkingdomAccordionBusiness">
+                      <div class="card-body">
+                        <p> The UK visa processing time depends on where you have submitted your
+                          application. The standard
+                          UK visa processing time is 15 days, though sometimes it can take
+                          more than 30 days.</p>
+                        <p> Please note these are the processing times after your Biometrics
+                          have been completed. Ideally it
+                          is
+                          advised to start your visa application process 6-8 weeks prior to
+                          your intended date of
+                          departure.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingBusinessThree" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionBusinessThree" aria-expanded="false"
+                      aria-controls="unitedkingdomAccordionBusinessThree">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button">
+                          What to do if my UK visa application is refused/denied?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="unitedkingdomAccordionBusinessThree" class="collapse"
+                      aria-labelledby="headingBusinessThree" data-parent="#unitedkingdomAccordionBusiness">
+                      <div class="card-body">
+                        <p>If your UK visa application is refused or denied, first thing is to
+                          understand the “reason for
+                          refusal/denial”. If the reason is due to lack of proper
+                          documentation, funds or proofs, then
+                          make
+                          sure
+                          to have those the next time you apply for the UK visa.</p>
+                        <p> You can re-apply for UK visa by making sure you have all the
+                          documents, funds or proofs that
+                          were
+                          lacking previously. You must pay the visa fee again as the fee paid
+                          for the old application was
+                          non-refundable.</p>
+                        <p> If you do not know the reason for your visa refusal/denial, give at
+                          least 6 months before you
+                          apply
+                          for
+                          the visa again.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card faqQueryCard">
+                    <div class="card-header faqQuery" id="headingBusinessFour" data-toggle="collapse"
+                      data-target="#unitedkingdomAccordionBusinessFour" aria-expanded="false"
+                      aria-controls="unitedkingdomAccordionBusinessFour">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button">
+                          Can I withdraw my UK visa application?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="unitedkingdomAccordionBusinessFour" class="collapse" aria-labelledby="headingBusinessFour"
+                      data-parent="#unitedkingdomAccordionBusiness">
+                      <div class="card-body">
+                        <p>If your UK visa application is refused or denied, first thing is to
+                          understand the “reason for
+                          <p>Yes. You can withdraw your UK visa application. Any visa fee and
+                            priority service fee that is
+                            already
+                            paid are not refundable.</p>
+                          <p>The UK consulate will keep your passport for the entirety of the
+                            visa process. If you are
+                            applying
+                            for
+                            UK visa in a third country, it can be scary to not have your
+                            passport with you.</p>
+                          <p>In the event of an emergency, to withdraw your visa application,
+                            you must submit a withdrawal
+                            request along with the reason for withdrawal to the consulate
+                            via email. It might take up to 72
+                            hours
+                            for the consulate to locate your packet and send it back to you.
+                          </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab id="Transit" title="Transit">
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+            <!-- transit -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
+                    VISA REQUIREMENT FOR
+                    China</span>
+                </h1>
+              </div>
+            </div>
+
+            <div class="desktopContainer accordion" id="transitAccodion">
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitOne" aria-expanded="true"
+                        aria-controls="transitOne" [class.showDiv]="selectedTransit === 1"
+                        (click)="setActiveTransit(1)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitOne" class="collapsed" aria-labelledby="transitOne"
+                        data-parent="#transitAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>A valid passport for 3 months from the date of entry.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitTwo" aria-expanded="true"
+                        aria-controls="transitTwo" [class.showDiv]="selectedTransit === 2"
+                        (click)="setActiveTransit(2)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa.png" alt="Visa"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitTwo" class="collapse" aria-labelledby="transitTwo" data-parent="#transitAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Visa</h1>
+                            <p>
+                              A visa for the third country
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true"
+                        aria-controls="transitThree" [class.showDiv]="selectedTransit === 3"
+                        (click)="setActiveTransit(3)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png"
+                          alt="Ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitThree" class="collapse" aria-labelledby="transitThree"
+                        data-parent="#transitAccodion">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Ticket</h1>
+                            <p>An onward train, cruise or air ticket with a confirmed date and seat number.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                     
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                     
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+
+
+            <div class="mobileContainer accordion" id="transitAccodionMobile">
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitMobileOne" aria-expanded="true"
+                        aria-controls="transitMobileOne" [class.showDiv]="selectedTransit === 1"
+                        (click)="setActiveTransit(1)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitMobileOne" class="collapsed" aria-labelledby="transitMobileOne"
+                        data-parent="#transitAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>A valid passport for 3 months from the date of entry.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitMobileTwo" aria-expanded="true"
+                        aria-controls="transitMobileTwo" [class.showDiv]="selectedTransit === 2"
+                        (click)="setActiveTransit(2)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa.png" alt="Visa"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitMobileTwo" class="collapse" aria-labelledby="transitMobileTwo"
+                        data-parent="#transitAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Visa</h1>
+                            <p>
+                              A visa for the third country
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true"
+                        aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3"
+                        (click)="setActiveTransit(3)">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png"
+                          alt="Ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitMobileThree" class="collapse" aria-labelledby="transitMobileThree"
+                        data-parent="#transitAccodionMobile">
+                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Ticket</h1>
+                            <p>An onward train, cruise or air ticket with a confirmed date and seat number.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                     
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+
+          </div>
+          <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+            <div class="row">
+              <div class="col-lg-12 p-0 impRequired">
+                <div class="card">
+                  <div class="card-header text-center text-white text-uppercase"
+                    style="background: #000080; font-weight: 600;">
+                    <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR China
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      <li>All Indian passport holders require a valid visa to enter China.</li>
+                    </p>
+                    <p>
+                      <li>Each applicant must have all the mandatory documents as mentioned in
+                        requirement tabs below</li>
+                    </p>
+                    <p>
+                      <li>In addition to the documents mentioned, our visa experts or the
+                        concerned embassy may require
+                        you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                        such
+                        additional documents is essential for a positive outcome.</li>
+                    </p>
+                    <p>
+                      <li>If all the documents are not ready at the time of agent visit then
+                        additional charges levied
+                        when agent visits your residence again</li>
+                    </p>
+                    <p>
+                      <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>

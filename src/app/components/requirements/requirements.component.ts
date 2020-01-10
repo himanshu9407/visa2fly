@@ -119,7 +119,7 @@ export class RequirementsComponent implements OnInit {
                   .then((data : any )=> {
                     // console.log(data);
                     if (data.code == "0") {
-                    this.preloaderService.showPreloader(false);
+                    // this.preloaderService.showPreloader(false);
                     this.requirementsData = data;
                     // console.log(data.data);
                     this.Quotation = data.data.displayQuotes;
@@ -145,6 +145,11 @@ export class RequirementsComponent implements OnInit {
                         this.purposeApiNew.push(value);
                       }
                     }
+
+                     setTimeout(() => {
+                              
+                      this.preloaderService.showPreloader(false);
+                      }, 500);
                     
                     
                     let purposeMain = this.selectedPurposeType;
