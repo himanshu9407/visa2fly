@@ -1,3 +1,6 @@
+import { AustraliaComponent } from './components/visa-requirements/australia/australia.component';
+import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component';
+import { FranceComponent } from './components/visa-requirements/france/france.component';
     import { NgModule } from '@angular/core';
     import { RouterModule, Routes } from '@angular/router';
     import {RequirementsComponent} from './components/requirements/requirements.component'
@@ -22,6 +25,7 @@ import { BookingDetailsComponent } from './components/booking-details/booking-de
 import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
 import { AboutUsComponent } from './components/static/about-us/about-us.component'
+import { ChinaComponent } from './components/visa-requirements/china/china.component';
     
     const routes: Routes = [
          {  path: '', redirectTo : 'visa', pathMatch : "full"},
@@ -35,7 +39,7 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
 
          {  path: 'slcontainer/:form', component : LoginSignupComponent},
          {  path: 'profile', component : ProfileComponent},
-         {  path : 'reg' , component : RequirementsComponent},
+         {  path : 'visa-requirement/:country/:purpose' , component : RequirementsComponent},
          {  path : 'addTraveller' , component : AddTravellerComponent,canActivate:[AuthenticationGuard]},
          {  path : 'freeVisa' , component : FreeVisaComponent},
          {  path : 'visOnArrival' , component : VisaArrivalComponent},
@@ -44,7 +48,12 @@ import { AboutUsComponent } from './components/static/about-us/about-us.componen
          {  path : 'sim/simplans' , component : SimplansComponent},
          {  path : 'sim/checkout' , component : SimcheckoutComponent},
          {  path : 'insurance' , component : InsuranceComponent},
-         {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]}
+         {  path : 'myBookings' , component : MyBookingsComponent,canActivate:[AuthenticationGuard]},
+         {path: 'visa/UK-visa-application/:purpose', component: UnitedKingdomComponent},
+         {path: 'visa/France/:purpose', component: FranceComponent},
+        //  {path: 'australia', component: AustraliaComponent},
+        {path: 'visa/apply-for-China-visa-online/:purpose', component: ChinaComponent},
+         {path: '**', redirectTo : 'visa', pathMatch : "full"}
 
         ];
 

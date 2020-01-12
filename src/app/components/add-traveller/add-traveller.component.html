@@ -315,7 +315,7 @@
                                 <!-- <hr> -->
                                 <div *ngIf="!onlineCategory" class="form-row" style="margin-top: 20px;">
                                     <div class="col-md-12 mb-3">
-                                        <label><b> Adress for pickup of documents </b></label>
+                                        <label><b> Address for pickup of documents </b></label>
                                         <br>
                                         <div *ngIf="!first" class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
                                             <input (click)="setAddressSame(i)" formControlName="addressForPickupSame" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -532,13 +532,11 @@
            <span aria-hidden="true">&times;</span>
          </button>
                 </div>
-                <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;">
-                    <p>
-                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; Travel date must be greater than 21/2/19. Since minimum processing day required for processing your visa application is 3-5 working days.
+                <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;" >
+                    <p *ngFor = "let error of errorMessage">
+                        <i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i> {{ error.travelDateWarning}}
                     </p>
-                    <p>
-                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; Travel date must be greater than 21/2/19. Since minimum processing day required for processing your visa application is 3-5 working days.
-                    </p>
+                    
                     <div class="form-group form-check" style="margin-bottom: 0px; margin-top: 20px;">
                         <input type="checkbox" class="form-check-input" id="modalWarning" />
                         <label class="form-check-label" for="modalWarning">Yes, I undertand the warning and still want to proceed

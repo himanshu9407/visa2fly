@@ -7,6 +7,30 @@
     margin-right: 50px;
 }
 
+.homeformHeader {
+    font-size: 22px;
+    color: #000;
+    font-weight: 600;
+}
+
+.homeformHeader::after {
+content: '';
+  background: #000080;
+  display: block;
+  height: 3px;
+  width: 120px;
+  margin: 7px auto 2px;
+}
+
+.homeformSubHeader {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    letter-spacing: .9px;
+    text-transform: capitalize;
+}
+
 .step {
     background-color: #e2e2e2;
     border-radius: 10px;
@@ -16,7 +40,7 @@
 
 .homeform {
     border-radius: 10px;
-    margin-top: 50px !important;
+    margin-top: 15px !important;
     padding: 5px 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -263,4 +287,37 @@
     }
 }
 
-@media screen and (max-width: 1024px) and (min-width: 768px) {}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+ .stepMaincontainer {
+    margin-top: 100px;
+ }   
+}
+
+
+@media screen and (max-width: 767px) {
+    .homeformHeader {
+        font-size: 18px;
+        margin-top: 30px;
+        color: #000;
+        font-weight: 600;
+    }
+
+    .homeformHeader::after {
+        content: '';
+          background: #000080;
+          display: block;
+          height: 2px;
+          width: 120px;
+          margin: 2px auto 2px;
+        }
+        
+    
+    .homeformSubHeader {
+        font-size: 10px;
+        font-weight: 500;
+        margin-bottom: 0px;
+        margin-top: 10px;
+        letter-spacing: .9px;
+        text-transform: capitalize;
+    }
+}

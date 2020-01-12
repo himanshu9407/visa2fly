@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 
 body {
   font-family: "Rubik", sans-serif;
 }
+
 
 
 /*for FireFox*/
@@ -1000,10 +1002,10 @@ video {
   width: 21%;
 }
 .chkIn .chkIp2 {
-  width: 21%;
+  width: 28%;
 }
 .chkIn .chkIp3 {
-  width: 24%;
+  width: 28%;
 }
 .chkIn .chkIp4 {
   width: 12%;
@@ -22403,7 +22405,7 @@ _:default:not(:root:root),
     height: 50px !important;
   }
   .chkIn .chkIp {
-    padding: 5px 10px;
+    padding: 0px 10px;
     height: 100%;
     float: left;
     width: 50% !important;
@@ -22924,7 +22926,7 @@ _:default:not(:root:root),
   }
   .chkIn .chkIp,
   .app-pro-select-plan.single-plan {
-    width: 50% !important;
+    width: 100% !important;
   }
 
   .srchCountryBody,
@@ -23087,7 +23089,7 @@ _:default:not(:root:root),
 
   .main-wrapper-button .serchcountrybtn {
     width: 100px !important;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: bold;
   }
   /*.whyGmv.section {
@@ -24172,8 +24174,47 @@ _:default:not(:root:root),
 }
 
 
+/* @media screen and (max-width: 640px) {
+  .makeCenter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+} */
+
+@media screen and (min-width: 570px) and (max-width: 900px) {
+  .chkIn .chkIp {
+    padding: 0px 10px;
+    height: 100%;
+    float: left;
+    width: 25% !important;
+    border: none;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.main-wrapper-button {
+  float: left;
+  width: 25%;
+  position: relative;
+  text-align: center;
+  padding: 15px 0;
+}
+}
+
+@media screen and (width: 800px) {
+  .chkIn .chkIp {
+    padding: 0px 10px;
+    height: 100%;
+    float: left;
+    width: 25% !important;
+    border: none;
+    margin-bottom: 7px !important; 
+    position: relative;
+}
+}
 .my-pagination .ngx-pagination .current {
-  background: #000080;
+  background: #000080 !important;
 }
 
 .my-pagination .ngx-pagination li,
@@ -24196,4 +24237,9 @@ _:default:not(:root:root),
 .my-pagination .ngx-pagination li:hover,
 .my-pagination .ngx-pagination a:hover {
   text-decoration: none !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0px 0px 4px;
+  border: 0px !important;
 }

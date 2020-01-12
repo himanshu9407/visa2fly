@@ -4,6 +4,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+import {MatSelectModule} from '@angular/material/select';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -49,7 +51,12 @@ import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
 import { AboutUsComponent } from './components/static/about-us/about-us.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { AustraliaComponent } from './components/visa-requirements/australia/australia.component';
+import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component';
+import { FranceComponent } from './components/visa-requirements/france/france.component';
+import { ChinaComponent } from './components/visa-requirements/china/china.component';
+
 
 @NgModule({
   declarations: [
@@ -89,7 +96,11 @@ import { environment } from '../environments/environment'
     BookingDetailsComponent,
     SimplansComponent,
     SimcheckoutComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    AustraliaComponent,
+    UnitedKingdomComponent,
+    FranceComponent,
+    ChinaComponent
   ],
   imports: [
     BrowserModule,
@@ -99,6 +110,7 @@ import { environment } from '../environments/environment'
     NgxPaginationModule,
     Ng2FlatpickrModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     NgbModule,
     ServiceWorkerModule.register('safety-worker.js', { enabled: environment.production }),

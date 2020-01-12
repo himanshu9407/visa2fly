@@ -112,7 +112,7 @@ export class MyBookingsComponent implements OnInit {
   setActivePagePc(i : number) {
     this.activePcPageNumber = i;
 
-    console.log(this.activePcPageNumber == i);
+    // console.log(this.activePcPageNumber == i);
   
   // window.scrollTo(0,0);
   window.scrollTo({

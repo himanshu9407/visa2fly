@@ -3,7 +3,7 @@
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-user"></i></span>
     </div>
-    <input minlength="6" pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$" formControlName="userId" placeholder="Email/Mobile" type="text" class="form-control roundedinput" [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}"/>
+    <input minlength="6" pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$" (keydown.enter) ="onKeyPress1($event)" formControlName="userId" placeholder="Email/Mobile" type="text" class="form-control roundedinput" [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}"/>
     <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
         <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
         <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address or mobile number</div>
@@ -14,7 +14,7 @@
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-lock"></i></span>
     </div>
-    <input [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP" />
+    <input [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}"  (keydown.enter) ="onKeyPress($event)"pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP" />
     <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
         <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
         <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp </div>
@@ -44,7 +44,7 @@
   </div> -->
 
   <div class="cntr" *ngIf = "showOtpField">
-    <input class="hidden-xs-up" id="cbx" type="checkbox" style="display: none;" />
+    <input class="hidden-xs-up" id="cbx" type="checkbox" formControlName="rememberMe" style="display: none;" />
     <label class="cbx" for="cbx"></label>
     <label class="lbl" for="cbx">Remember Me</label>
   </div>

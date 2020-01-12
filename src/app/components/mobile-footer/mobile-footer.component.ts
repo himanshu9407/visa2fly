@@ -13,7 +13,7 @@ export class MobileFooterComponent implements OnInit {
   }
 
   onClickBottomNavItem () {
-  console.log("hello");  
+  // console.log("hello");  
   }
 
 }

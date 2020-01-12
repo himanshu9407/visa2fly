@@ -35,12 +35,19 @@ export class HeaderComponent implements OnInit {
     // console.log("header called again");
     this.router.events.subscribe(
       (event) => {
+        
         if (event instanceof NavigationStart) {
           // console.log(event.url);
+          // let url : string = event.url;
+          // let arr = url.split('/');
 
           if(event.url == "/" || event.url == "/visa" || event.url == "/sim" || event.url == "/sim/simplans" ) {
             this.showTransparentNavbar = true;
           }
+          // else if(arr[1] == "visa" || arr[1] == "" ) {
+          //   this.showTransparentNavbar = true;
+          //   // console.log('checkout1');
+          // }
           else {
             this.showTransparentNavbar = false;
           }
