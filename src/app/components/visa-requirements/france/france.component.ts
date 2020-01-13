@@ -144,7 +144,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa/France/" + purpose
+      "/visa-requirements/France/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -200,7 +200,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
      window.history.replaceState(
        "",
        "",
-     "/visa/France/" + purposeUrl
+     "/visa-requirements/France/" + purposeUrl
      );
      // console.log("url changed");
      }

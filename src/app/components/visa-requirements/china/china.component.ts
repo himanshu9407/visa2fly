@@ -132,7 +132,7 @@ export class ChinaComponent implements OnInit {
     window.history.replaceState(
       "",
       "",
-      "/visa/apply-for-China-visa-online/" + purpose
+      "/visa-requirements/apply-for-China-visa-online/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -188,7 +188,7 @@ export class ChinaComponent implements OnInit {
      window.history.replaceState(
        "",
        "",
-     "/visa/apply-for-China-visa-online/" + purposeUrl
+     "/visa-requirements/apply-for-China-visa-online/" + purposeUrl
      );
      // console.log("url changed");
      }
