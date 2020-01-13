@@ -80,6 +80,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
       // this.userControlDetail = this.userFlow.getUserFlowDetails();
       // // console.log(this.userControlDetail);
       this.userControlDetail = this.userFlow.getUserFlowDetails();
+        this.preloaderService.showPreloader(true);
      // console.log(this.userControlDetail.purpose);
       
       this.activeRoute.params.subscribe((params : any) =>{
@@ -122,6 +123,11 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
           }else{
             this.router.navigate(['visa/']);
           }
+
+          setTimeout(() => {
+                              
+            this.preloaderService.showPreloader(false);
+            }, 500);
         }
       });
       
