@@ -103,7 +103,7 @@ import { ChinaComponent } from './components/visa-requirements/china/china.compo
     ChinaComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
