@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/visa-App",
+            "aot": true,
+            "outputPath": "dist/visa-App/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,6 +52,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
               "serviceWorker": false,
@@ -108,6 +113,51 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/visa-App/server",
+            "main": "server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "visa-App:build",
+            "serverTarget": "visa-App:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "visa-App:build:production",
+              "serverTarget": "visa-App:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "visa-App:build:production",
+            "serverTarget": "visa-App:server:production",
+            "routes": []
+          },
+          "configurations": {
+            "production": {}
+          }
         }
       }
     },
@@ -140,5 +190,8 @@
       }
     }
   },
-  "defaultProject": "visa-App"
+  "defaultProject": "visa-App",
+  "cli": {
+    "analytics": "ee79a01d-418f-40f0-9db7-b776592dc5be"
+  }
 }
