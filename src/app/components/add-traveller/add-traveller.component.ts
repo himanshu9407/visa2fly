@@ -430,7 +430,7 @@ export class AddTravellerComponent implements OnInit {
       
       this.filedNameArr.push(this.imageUploads[i].fieldName);
     }
-    console.log(this.filedNameArr)
+    //console.log(this.filedNameArr)
     // console.log((<FormGroup><undefined>(<FormArray>this.travellerForm.get('travellers')).controls[0]).controls[this.filedNameArr[3]])
     arr.forEach((element : FormGroup)  => {
 
@@ -599,7 +599,7 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  seeValues () {
+seeValues () {
 
     this.validateDate();
     this.checkDateOfCollection();
@@ -621,7 +621,7 @@ export class AddTravellerComponent implements OnInit {
                 this.tempImageArr.push(form.get(el).value);
                 form.get(el).setValue(form.get(el).value.name);
                 // form.re
-                console.log(this.tempImageArr);
+                // console.log(this.tempImageArr);
               })
             }
       
@@ -630,7 +630,7 @@ export class AddTravellerComponent implements OnInit {
               this.primaryState = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('state').value;
               this.primaryCity = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('city').value;
               this.primaryPinCode = (<FormArray>this.travellerForm.get('travellers')).controls[0].get('pinCode').value;;
-              //console.log("inside other travellers")
+              // console.log("inside other travellers")
               let same = form.get('addressForPickupSame').value;
               
               if (same) {
@@ -642,8 +642,8 @@ export class AddTravellerComponent implements OnInit {
               }
             }
       
-            let dob:{year : number, month : number , day : number} = form.get('dateOfBirthCopy').value;
-            let doe :{year : number, month : number , day : number} = form.get('passportExpiryDateCopy').value 
+            let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
+            let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
             let tempDob ="";
             let tempDoe = "";
             
@@ -674,8 +674,8 @@ export class AddTravellerComponent implements OnInit {
             
             form.get('dateOfBirth').setValue(tempDob);
             form.get('passportExpiryDate').setValue(tempDoe);
-            form.get('dateOfBirthCopy').updateValueAndValidity();
-            form.get('passportExpiryDateCopy').updateValueAndValidity();
+            form.get('dateOfBirth').updateValueAndValidity();
+            form.get('passportExpiryDate').updateValueAndValidity();
             
            
           });
@@ -692,7 +692,7 @@ export class AddTravellerComponent implements OnInit {
             // console.log(element);
             }); 
       
-           // console.log(ptdata[0]);
+            // console.log(ptdata[0]);
             // console.log(tempArr);
             
       
@@ -768,21 +768,20 @@ export class AddTravellerComponent implements OnInit {
             let tempData  = (<FormArray>this.travellerForm.get('travellers')).controls|| [];
       
             
-            //console.log(tempData.values());
+            // console.log(tempData.values());
 
-            //console.log(this.travellerForm.get('travellers').value);
+            // console.log(this.travellerForm.get('travellers').value);
             
       
           this.travellerService.submitForm(this.formData1).subscribe(
             (data:any) => {
               // console.log(data);
-              
-              //
+      
               if(data.code == "0") {
       
                 this.travellerService.hitPaymentApi().subscribe(
                   (data1 : any) => {
-                    //console.log(data1);
+                    // console.log(data1);
                     this.buyerEmail = data1.buyerEmail;
                     this.orderId = data1.orderId;
                     this.amount = data1.amount;
@@ -792,9 +791,9 @@ export class AddTravellerComponent implements OnInit {
                     this.checksum = data1.checksum;
                     // this.paymentUrl = data1.paymentUrl;
       
-                    //console.log(document.forms["paymentForm"]);
+                    // console.log(document.forms["paymentForm"]);
       
-                    //console.log(this.paymentForm);
+                    // console.log(this.paymentForm);
                     setTimeout(() => {
                       this.preloaderService.showPreloader(false);
                       document.forms["paymentForm"].submit();
@@ -806,7 +805,7 @@ export class AddTravellerComponent implements OnInit {
               }
       
               else if (data.code == "1000") {
-                //console.log(data.data.applicantsFormValidationResult);
+                // console.log(data.data.applicantsFormValidationResult);
       
                 let errArr : Array<any> = data.data.applicantsFormValidationResult;
 
@@ -821,7 +820,7 @@ export class AddTravellerComponent implements OnInit {
 
                   this.tempImageArr = [];
 
-                  console.log(this.originalImageArr);
+                  // console.log(this.originalImageArr);
 
                   let tempArr  = (<FormArray>this.travellerForm.get('travellers')).controls || [];
 
@@ -856,7 +855,7 @@ export class AddTravellerComponent implements OnInit {
                 //   });
                 tempArr.forEach((form:FormGroup,index) => {
       
-                     // console.log(Object.keys(errArr[index]));
+                      // console.log(Object.keys(errArr[index]));
                       let keysArr : Array<any> = Object.keys(errArr[index]);
                       keysArr.forEach((el : string) => {
                         let tempObj = errArr[index];
@@ -870,9 +869,9 @@ export class AddTravellerComponent implements OnInit {
                             // console.log(this.travellerForm.controls.travellers.controls[0].controls.dateOfBirth.value)
                             // control.get
                             // control.updateValueAndValidity();
-                            //console.log(control.getError("valueErr") + el);
+                            // console.log(control.getError("valueErr") + el);
                             // control.
-                            //console.log(control);
+                            // console.log(control);
                           }
                         }
                       });
@@ -881,18 +880,18 @@ export class AddTravellerComponent implements OnInit {
             
                  
                 });
-                //console.log(tempArr);
+                // console.log(tempArr);
                 this.preloaderService.showPreloader(false);
               }
               else if (data.code == "1001") {
                 this.modalWarnings = [];
                 this.preloaderService.showPreloader(false);
-                this.errorMessage.push(data.data.warnings);
-               // console.log(data.data.warnings);
+                // console.log(data.data.warnings);
                 // for (var key in data.data.warnings) {
-                //  // console.log(key, data.data.warnings[key]);
-                //   this.modalWarnings.push(data.data.warnings[key]);
+                  // console.log(key, data.data.warnings[key]);
+                  // this.modalWarnings.push(data.data.warnings[key]);
                 // }
+                this.errorMessage.push(data.data.warnings);
                 var modal = document.getElementById('exampleModal1');
                   modal.classList.remove("fade");
                   modal.classList.add("show");
@@ -919,7 +918,7 @@ export class AddTravellerComponent implements OnInit {
             }
           )
       
-            //console.log(fd);
+            // console.log(fd);
         }
         else {
           this.toastService.showNotification("Please accept out terms and conditions", 4000);
@@ -1166,17 +1165,17 @@ export class AddTravellerComponent implements OnInit {
   }
 }
 
-resetDOE (idx) {
-  // console.log(idx);
-  let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.passportExpiryDate;
-  control.setErrors({"valueErr": false});
+// resetDOE (idx) {
+//   // console.log(idx);
+//   let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.passportExpiryDate;
+//   control.setErrors({"valueErr": false});
 
-}
+// }
 
-resetDOB (idx) {
-  console.log(idx);
-  let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.dateOfBirth;
-  control.setErrors({"valueErr": false});
-}
+// resetDOB (idx) {
+//   console.log(idx);
+//   let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.dateOfBirth;
+//   control.setErrors({"valueErr": false});
+// }
 
 }
