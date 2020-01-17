@@ -77,6 +77,8 @@ export class FranceComponent implements OnInit,AfterViewInit {
     private reqService : RequirementsService,private toastService :ToastService) {
       this.userControlDetail = this.userFlow.getUserFlowDetails();
      // console.log(this.userControlDetail.purpose);
+
+      this.preloaderService.showPreloader(true);
       
       this.activeRoute.params.subscribe((params : any) =>{
         this.selectedVisaType = params.purpose;
@@ -119,6 +121,11 @@ export class FranceComponent implements OnInit,AfterViewInit {
           }else{
             this.router.navigate(['visa/']);
           }
+
+          setTimeout(() => {
+                              
+            this.preloaderService.showPreloader(false);
+            }, 500);
         }
       });
      }
@@ -137,7 +144,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa/France/" + purpose
+      "/visa-requirements/France/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -193,7 +200,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
      window.history.replaceState(
        "",
        "",
-     "/visa/France/" + purposeUrl
+     "/visa-requirements/France/" + purposeUrl
      );
      // console.log("url changed");
      }

@@ -27,6 +27,7 @@ import { AddPassengerDetailsComponent } from './add-passenger-details/add-passen
 import { AddTravellerComponent } from './components/add-traveller/add-traveller.component';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { DateComponent } from './components/date/date.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -112,6 +113,7 @@ import { ChinaComponent } from './components/visa-requirements/china/china.compo
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    CarouselModule,
     NgbModule,
     ServiceWorkerModule.register('safety-worker.js', { enabled: environment.production }),
 

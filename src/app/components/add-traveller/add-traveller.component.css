@@ -10,31 +10,11 @@ textarea,
 
 /* FIREFOX FIX OF UGLY SELECT BOXES */
 
-@supports (-moz-appearance:none) {
-    SELECT {
-        -moz-appearance: none !important;
-        background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
-        background-position: calc(100% - 5px) center !important;
-    }
-}
-
 select {
     /* border: none; */
     font-size: 14px;
     /* font-weight: 550; */
     padding-left: 0px;
-}
-
-.pic-info {
-    position: absolute;
-    right: 70px;
-    bottom: 6px;
-    border: none !important;
-    z-index: 10;
-}
-
-.pic-info:hover {
-    border: none;
 }
 
 .dataSource span {
@@ -59,12 +39,9 @@ select {
     }
     .addTravelDate {
         flex: none !important;
-        width: 157px !important;
+        width: 156px !important;
         border-color: #a9a9a9;
         font-size: 14px;
-    }
-    .sameAs {
-        font-size: 12px;
     }
 }
 
@@ -124,14 +101,6 @@ select {
     /* text-align: center; */
     font: 14px;
     padding-left: 0px !important;
-}
-
-.headerPrimary {
-    background-color: navy;
-}
-
-body {
-    padding-top: 65px;
 }
 
 .documents {
@@ -335,10 +304,6 @@ body {
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-    .date {
-        /* width: 100px; */
-        margin-top: 10px;
-    }
     .summaryContainer {
         margin-top: 130px;
     }
@@ -399,10 +364,6 @@ body {
     }
     .dateContainer {
         margin-top: 30px;
-    }
-    .date {
-        /* width: 100px; */
-        margin-top: 5px;
     }
     .selectedCountry {
         font-size: 22px;
@@ -478,11 +439,6 @@ body {
 
 
 /* } */
-
-.infoImg {
-    height: 50px;
-    width: 50px;
-}
 
 @media screen and (max-width: 480px) {
     .visaInfo {

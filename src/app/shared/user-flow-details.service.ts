@@ -18,7 +18,7 @@ export class UserFlowDetails {
 
 
         localStorage.setItem("userFlowDetails",JSON.stringify(this.userObject))
-        console.log(this.userObject);
+        // console.log(this.userObject);
     }
 
     setUserFlowDetailsObject (name : string , value : object) {

@@ -65,6 +65,8 @@ export class ChinaComponent implements OnInit {
     private reqService : RequirementsService,private toastService :ToastService) {
       this.userControlDetail = this.userFlow.getUserFlowDetails();
      // console.log(this.userControlDetail.purpose);
+
+      this.preloaderService.showPreloader(true);
       
       this.activeRoute.params.subscribe((params : any) =>{
         this.selectedVisaType = params.purpose;
@@ -107,6 +109,11 @@ export class ChinaComponent implements OnInit {
           }else{
             this.router.navigate(['visa/']);
           }
+
+          setTimeout(() => {
+                              
+            this.preloaderService.showPreloader(false);
+            }, 500);
         }
       });
      }
@@ -125,7 +132,7 @@ export class ChinaComponent implements OnInit {
     window.history.replaceState(
       "",
       "",
-      "/visa/apply-for-China-visa-online/" + purpose
+      "/visa-requirements/apply-for-China-visa-online/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -181,7 +188,7 @@ export class ChinaComponent implements OnInit {
      window.history.replaceState(
        "",
        "",
-     "/visa/apply-for-China-visa-online/" + purposeUrl
+     "/visa-requirements/apply-for-China-visa-online/" + purposeUrl
      );
      // console.log("url changed");
      }
