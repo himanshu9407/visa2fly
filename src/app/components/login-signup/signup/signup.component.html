@@ -6,7 +6,7 @@
     <div class="col-md-6 small-no-padding">
         <div class="input-group form-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <span class="input-group-text"><i class="fa fa-user"></i></span>
             </div>
             <input pattern="[A-Za-z]{3,32}"  formControlName="firstName" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}" placeholder="First Name"  />
             <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
@@ -19,7 +19,7 @@
     <div class="col-md-6 small-no-padding" style="" >
         <div class="input-group form-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <span class="input-group-text"><i class="fa fa-user"></i></span>
             </div>
             <input pattern="[A-Za-z]{3,32}"  formControlName="lastName" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}" placeholder="Last Name"  />
             <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
@@ -32,7 +32,7 @@
     
   <div class="input-group form-group">
     <div class="input-group-prepend">
-      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+      <span class="input-group-text"><i class="fa fa-envelope"></i></span>
     </div>
     <input pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?" formControlName="email" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}" placeholder="Email"  />
     <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
@@ -43,7 +43,7 @@
     
     <div class="input-group form-group">
       <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+        <span class="input-group-text"><i class="fa fa-mobile" style="font-size: 15px;"></i></span>
       </div>
       <input [ngClass]="{'is-invalid':signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,'is-valid':!(signupForm.get('mobile').invalid && signupForm.get('mobile').dirty) && !signupForm.get('mobile').pristine}"  formControlName="mobile" pattern="^[4-9][0-9]{9}$" type="number" class="form-control roundedinput" placeholder="Mobile"  />
     <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty"  class="invalid-feedback" style="display: block;margin-left: 8%;">
@@ -53,7 +53,7 @@
     </div>
     <div *ngIf="showOtpFields" class="input-group form-group">
       <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fas fa-key"></i></span>
+        <span class="input-group-text"><i class="fa fa-key"></i></span>
       </div>
       <input [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}" (keydown.enter) ="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP"  />
       <div *ngIf="signupForm.get('otp').invalid && signupForm.get('otp').dirty" class="invalid-feedback"  style="display: block;margin-left: 8%;">
@@ -67,7 +67,7 @@
         </div>
     
         <div *ngIf="otpSentCount > 0"  class="row align-items-center resendBtn">
-            <a (click) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
+            <a (click) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i> Resend OTP</span></a>
         </div>
   <!-- <div *ngIf="showOtpFields" class="row align-items-center remember">
     <input formControlName="tnc" form type="checkbox" checked   aria-selected="true"> <span class="agree">I Agree to Terms and Conditions</span>
