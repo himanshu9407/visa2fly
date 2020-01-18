@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
+// import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import {MatSelectModule} from '@angular/material/select';
 
@@ -40,6 +41,7 @@ import { InsuranceComponent } from './components/insurance/insurance.component';
 import { PreloaderComponent } from './shared/preloader/preloader.component';
 
 import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+import { DeactivateService } from './shared/deactivate.service';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
 import { TermsandConditionsComponent } from './components/static/termsand-conditions/termsand-conditions.component';
 import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Form, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { ToastService } from 'src/app/shared/toast.service';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
@@ -18,6 +18,8 @@ import { from } from 'rxjs';
   styleUrls: ['./add-traveller.component.css']
 })
 export class AddTravellerComponent implements OnInit {
+
+  // @ViewChild(): 
 
   // model: NgbDateStruct;
   public paymentForm: any = {};
@@ -289,7 +291,7 @@ export class AddTravellerComponent implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
-      this.intialInfo = false;
+      this.intialInfo = false; // ..??
     }, 10000);
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
@@ -364,7 +366,7 @@ export class AddTravellerComponent implements OnInit {
 
       this.minDatePassportExpiry = {
         year: current.getFullYear(),
-        month: current.getMonth() + 7,
+        month: current.getMonth() + 6,
         day: current.getDate()
       };
     }

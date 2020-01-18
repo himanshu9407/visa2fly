@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
     let mobileRegex = new RegExp("^[4-9][0-9]{9}$");
 
     let userId = this.loginForm.get("userId").value;
-    if ( emailRegex.test(userId)) {
+    if ( emailRegex.test(userId)) { // test()..??
       ifEmail = true;
     }
 
@@ -123,7 +123,7 @@ export class LoginComponent implements OnInit {
 
     setTimeout ( () => {
       this.showAlert = false;
-    },4000)
+    },5000)
   }
 
   onSubmit() {
@@ -164,7 +164,7 @@ export class LoginComponent implements OnInit {
                   this.routerHistory.clearRouteHistory();
                   this.router.navigate(['addTraveller']);
                 }
-                else if (this.prevRoute == "req-and-quote") {
+                else if (this.prevRoute == "req-and-quote") {  // req-and-quotere use in req page
                   let quoteId = this.userFlowService.getUserFlowDetails().quoteId;
                   
                   this.reqService.verifyQuotation(quoteId).subscribe(
@@ -179,7 +179,7 @@ export class LoginComponent implements OnInit {
                     }
                   )
                 }
-                else if (this.prevRoute == "fail-login-sim") {
+                else if (this.prevRoute == "fail-login-sim") { // fail-login-sim use in sim
                   this.router.navigate(['/sim/checkout']);
 
                 }
