@@ -211,7 +211,7 @@
                                                 <input hidden formControlName="dateOfBirth" type="text">
                                                 <input  [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob" formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary calendar" (click)="dob.toggle();resetDOB(i)" type="button"><i
+                                                    <button class="btn btn-outline-secondary calendar" (click)="dob.toggle();" type="button"><i
                               class="fas fa-calendar-alt"></i>
                           </button>
                                                 </div>
@@ -251,7 +251,7 @@
                                                 <input hidden formControlName="passportExpiryDate" >
                                                 <input  formControlName="passportExpiryDateCopy" class="form-control addTravelDate" placeholder="Passport Expiry Date" name="dp" [minDate]="minDatePassportExpiry" id="#doe" ngbDatepicker #doe="ngbDatepicker">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary calendar" (click)="doe.toggle();resetDOE(i)" type="button"><i
+                                                    <button class="btn btn-outline-secondary calendar" (click)="doe.toggle();" type="button"><i
                               class="fas fa-calendar-alt"></i>
                           </button>
                                                 </div>

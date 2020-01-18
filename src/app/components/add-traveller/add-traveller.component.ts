@@ -1166,17 +1166,17 @@ export class AddTravellerComponent implements OnInit {
   }
 }
 
-resetDOE (idx) {
-  // console.log(idx);
-  let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.passportExpiryDate;
-  control.setErrors({"valueErr": false});
+// resetDOE (idx) {
+//   // console.log(idx);
+//   let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.passportExpiryDate;
+//   control.setErrors({"valueErr": false});
 
-}
+// }
 
-resetDOB (idx) {
-  console.log(idx);
-  let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.dateOfBirth;
-  control.setErrors({"valueErr": false});
-}
+// resetDOB (idx) {
+//   console.log(idx);
+//   let control : FormControl = this.travellerForm.controls.travellers.controls[idx].controls.dateOfBirth;
+//   control.setErrors({"valueErr": false});
+// }
 
 }
