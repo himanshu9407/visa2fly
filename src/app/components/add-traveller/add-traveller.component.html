@@ -38,7 +38,7 @@
                                                 ngbDatepicker #dot="ngbDatepicker">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button"><i
-                            class="fas fa-calendar-alt"></i>
+                            class="fa fa-calendar"></i>
                         </button>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                                 [maxDate]="minDateOfCollection" ngbDatepicker #doc="ngbDatepicker">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button"><i
-                            class="fas fa-calendar-alt"></i>
+                            class="fa fa-calendar"></i>
                         </button>
                                             </div>
                                         </div>
@@ -211,8 +211,8 @@
                                                 <input hidden formControlName="dateOfBirth" type="text">
                                                 <input  [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob" formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate" placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary calendar" (click)="dob.toggle();" type="button"><i
-                              class="fas fa-calendar-alt"></i>
+                                                    <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i
+                              class="fa fa-calendar"></i>
                           </button>
                                                 </div>
                                             </div>
@@ -251,8 +251,8 @@
                                                 <input hidden formControlName="passportExpiryDate" >
                                                 <input  formControlName="passportExpiryDateCopy" class="form-control addTravelDate" placeholder="Passport Expiry Date" name="dp" [minDate]="minDatePassportExpiry" id="#doe" ngbDatepicker #doe="ngbDatepicker">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary calendar" (click)="doe.toggle();" type="button"><i
-                              class="fas fa-calendar-alt"></i>
+                                                    <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button"><i
+                              class="fa fa-calendar"></i>
                           </button>
                                                 </div>
                                             </div>
@@ -317,7 +317,7 @@
                                 <!-- <hr> -->
                                 <div *ngIf="!onlineCategory" class="form-row" style="margin-top: 20px;">
                                     <div class="col-md-12 mb-3">
-                                        <label><b> Adress for pickup of documents </b></label>
+                                        <label><b> Address for pickup of documents </b></label>
                                         <br>
                                         <div *ngIf="!first" class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
                                             <input (click)="setAddressSame(i)" formControlName="addressForPickupSame" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -329,7 +329,7 @@
                                     <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false" class="col-md-4 mb-3">
                                         <label>Address</label>
                                         <div class="input-group">
-                                            <textarea minlength="20" pattern="^[ A-Za-z0-9-:./,]*$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                                            <textarea minlength="10" pattern="^[ A-Za-z0-9-:./,]*$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
                     travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].
@@ -442,7 +442,7 @@
                             </div>
                             <div class="form-check col-sm-4 col-md-3">
                                 <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-                                    <img src=" ../../../assets//sim.png" alt="sim icon" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
+                                    <img src=" ../../../assets//sim.png" alt="sim icon" class="img-fluid" height=22 width="22" style="margin: 0 4px;">
                                     <input formControlName="sim" type="checkbox" class="custom-control-input" id="sim" />
                                     <label class="custom-control-label" for="sim">Sim</label>
 
@@ -453,7 +453,7 @@
                             <div class="form-check col-sm-4 col-md-3">
 
                                 <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-                                    <img src=" ../../../assets//credit-card.png" alt="credit card icon" class="img-fluid" height=22 width=22 style="margin: 0 4px;">
+                                    <img src=" ../../../assets//credit-card.png" alt="credit card icon" class="img-fluid" height="22" width="22" style="margin: 0 4px;">
                                     <input formControlName="forex" type="checkbox" class="custom-control-input" id="forex" />
                                     <label class="custom-control-label" for="forex">Forex Card</label>
 
@@ -483,8 +483,8 @@
                     <div class="form-check">
                         <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
                             <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
-                            <label class="custom-control-label tnc" for="checkAll">I agree with the <a [routerLink]="['/tnc']"  target="_blank" routerLinkActive="router-link-active">Terms &amp;
-                  Conditions</a> and <a [routerLink]="['/cancellationPolicy']"   target="_blank" routerLinkActive="router-link-active" >Cancellation</a> policy of Visa2fly.
+                            <label class="custom-control-label tnc" for="checkAll">I agree with the <a [routerLink]="['/tnc']" target="_blank" routerLinkActive="router-link-active">Terms &amp;
+                  Conditions</a> and <a [routerLink]="['/cancellationPolicy']" target="_blank" routerLinkActive="router-link-active" >Cancellation Policy</a> of Visa2fly.
 
               </label>
                         </div>
@@ -534,9 +534,9 @@
            <span aria-hidden="true">&times;</span>
          </button>
                 </div>
-                <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;">
+                <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;" >
                     <p *ngFor = "let error of errorMessage">
-                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>{{error.travelDateWarning }}
+                        <i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i> {{ error.travelDateWarning}}
                     </p>
                     
                     <div class="form-group form-check" style="margin-bottom: 0px; margin-top: 20px;">

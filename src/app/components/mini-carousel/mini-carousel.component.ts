@@ -19,7 +19,7 @@ export class MiniCarouselComponent implements OnInit {
 
 
   proceedToHome (countryName : string) {
-    //console.log(countryName);
+    // console.log(countryName);
     this.otherCountryService.validateCountryPopular(countryName);
   }
 

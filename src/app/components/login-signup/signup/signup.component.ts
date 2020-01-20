@@ -42,7 +42,6 @@ export class SignupComponent implements OnInit {
       this.onSubmit();
     }
 
-
   ngOnInit() {
 
     this.prevRoute = this.routerHistory.getPrevRoute();

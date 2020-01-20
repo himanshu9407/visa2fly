@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
       this.sendOtp();
     }
 
-
   ngOnInit() {
 
 
@@ -92,6 +91,7 @@ export class LoginComponent implements OnInit {
     this.showSendOtp = false;
     // this.showOtpField  =true;
     let userId = this.loginForm.get('userId').value;
+    // console.log(userId);
     this.loginService.sendLoginOtp(userId).subscribe(
       (data) => {
         if(!data) {
@@ -133,7 +133,7 @@ export class LoginComponent implements OnInit {
     let otp = this.loginForm.get('otp').value;
     let rememberMe = this.loginForm.get('rememberMe').value;
     let temp = this.checkUserId();
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
 
     this.getIP.getClientIP().subscribe (
       (data1 : {ip:string}) => {
@@ -144,14 +144,14 @@ export class LoginComponent implements OnInit {
             // console.log(data);
 
             if (!data) {
-              console.log("req failed"+data);
+              // console.log("req failed"+data);
               this.toastService.showNotification("Something Went wrong! Please try again later.",4000);
               this.setFormFresh();
 
             }
             else {
               if (data.code == "0") {
-                //console.log(data);
+                // console.log(data);
                 this.loginService.setAuthToken(data.data.authentication.token);
                 // this.toastService.showNotification(data.message,4000);
                 this.loginService.setUserStatus(true);
@@ -201,7 +201,7 @@ export class LoginComponent implements OnInit {
               }
             }
           },
-          (err) => console.log(err)
+          // (err) => console.log(err)
         )
       },
       (err) => {
@@ -219,6 +219,8 @@ export class LoginComponent implements OnInit {
 
 
   }
+
+  
 
 
 

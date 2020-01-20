@@ -74,7 +74,7 @@ export class SimcheckoutComponent implements OnInit {
       day: today.getDate()
     };
 
-    console.log(this.simCart);
+    // console.log(this.simCart);
 
     this.simCheckoutForm = new FormGroup({
       firstName: new FormControl("", [Validators.required]),
@@ -108,7 +108,7 @@ export class SimcheckoutComponent implements OnInit {
   totalQuantity() {
     this.simCart.forEach((item: any) => {
       let qty = item.quantity;
-      console.log(qty)
+      // console.log(qty)
       this.totalQty = this.totalQty + qty;
     });
     // return this.totalQty;
@@ -174,27 +174,24 @@ export class SimcheckoutComponent implements OnInit {
       .proceedToPayment(formValueObj)
       .subscribe((data: any) => {
         if (data.code == "0") {
-          this.simCheckoutService.hitPaymentApi().subscribe (
-            (data1 : any) => {
-              //console.log(data1);
-              this.buyerEmail = data1.buyerEmail;
-              this.orderId = data1.orderId;
-              this.amount = data1.amount;
-              this.currency = data1.currency;
-              this.merchantIdentifier = data1.merchantIdentifier;
-              this.returnUrl = data1.returnUrl;
-              this.checksum = data1.checksum;
-              console.log(document.forms["paymentForm"]);
+          this.simCheckoutService.hitPaymentApi().subscribe((data1: any) => {
+            // console.log(data1);
+            this.buyerEmail = data1.buyerEmail;
+            this.orderId = data1.orderId;
+            this.amount = data1.amount;
+            this.currency = data1.currency;
+            this.merchantIdentifier = data1.merchantIdentifier;
+            this.returnUrl = data1.returnUrl;
+            this.checksum = data1.checksum;
+            // console.log(document.forms["paymentForm"]);
 
-              console.log(this.paymentForm);
-              setTimeout(() => {
-                this.preloaderService.showPreloader(false);
-                document.forms["paymentForm"].submit();
-              }, 2000);
-            }
-          );
-        }
-        else {
+            // console.log(this.paymentForm);
+            setTimeout(() => {
+              this.preloaderService.showPreloader(false);
+              document.forms["paymentForm"].submit();
+            }, 2000);
+          });
+        } else {
           this.preloaderService.showPreloader(false);
           this.toastService.showNotification(data.message, 4000);
           this.router.navigate(["/sim/checkout"]);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeServiceService } from 'src/app/home-service.service';
 import{testimonialsData} from '../../interfaces/testimonials';
 import { TestimonialService } from './testimonial.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { TestimonialModel } from './testimonial.model';
 
 @Component({

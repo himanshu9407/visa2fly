@@ -1,60 +1,66 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login-signup/login/login.service';
-import { LoginStatusService } from 'src/app/shared/login-status.service';
-import { LogoutService } from 'src/app/shared/logout.service';
-import { SignupResponseModel } from '../login-signup/signup/SignupResponse.model';
-import { ToastService } from 'src/app/shared/toast.service';
-import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
-import { PreloaderService } from 'src/app/shared/preloader.service';
-import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { Component, OnInit } from "@angular/core";
+import { LoginService } from "../login-signup/login/login.service";
+import { LoginStatusService } from "src/app/shared/login-status.service";
+import { LogoutService } from "src/app/shared/logout.service";
+import { SignupResponseModel } from "../login-signup/signup/SignupResponse.model";
+import { ToastService } from "src/app/shared/toast.service";
+import { Router, ActivatedRoute, NavigationStart } from "@angular/router";
+import { PreloaderService } from "src/app/shared/preloader.service";
+import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
+import { CanDeactivateGuard } from "src/app/shared/can-deactivate.service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
+  userLoggedIn: boolean = false;
+  showDropDown: boolean = false;
+  showTransparentNavbar: boolean = true;
 
-  userLoggedIn : boolean = false;
-  showDropDown : boolean = false;
-  showTransparentNavbar : boolean = true;
-
-  userDetails : any;
-  constructor(private loginService: LoginService, private loginStatus : LoginStatusService,
-    private logoutService : LogoutService,private toastService : ToastService,
-    private router : Router,private actRoute : ActivatedRoute, private preloaderService : PreloaderService, private userFlowDetails : UserFlowDetails) { 
-      
-    }
-
-
-
+  userDetails: any;
+  constructor(
+    private loginService: LoginService,
+    private loginStatus: LoginStatusService,
+    private logoutService: LogoutService,
+    private toastService: ToastService,
+    private router: Router,
+    private actRoute: ActivatedRoute,
+    private preloaderService: PreloaderService,
+    private userFlowDetails: UserFlowDetails,
+    private deactivate: CanDeactivateGuard
+  ) {}
 
   ngOnInit() {
-    
-
     // console.log("header called again");
-    this.router.events.subscribe(
-      (event) => {
-        if (event instanceof NavigationStart) {
-          let url : string = event.url;
-          
-          let arr = url.split('/');
-          // console.log(arr);
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        // console.log(event.url);
+        let url: string = event.url;
+        let arr = url.split("/");
 
-          if(event.url == "/" || event.url == "/visa" || event.url == "/sim" || event.url == "/sim/simplans" ) {
-            this.showTransparentNavbar = true;
-            // console.log('checkout3');
-          }
-          else if(arr[1] == "visa" || arr[1] == "" ) {
-            this.showTransparentNavbar = true;
-            // console.log('checkout1');
-          }
-          else {
-            this.showTransparentNavbar = false;
-            // console.log('Kuldeep');
-          }
-      }      }
-    );
+        if (this.deactivate.showColorHeader) {
+          this.showTransparentNavbar = false;
+          // console.log("checkout1");
+          // event.url == "/"
+        } else if (
+          event.url == "/" ||
+          event.url == "/visa" ||
+          event.url == "/sim" ||
+          event.url == "/sim/simplans"
+        ) {
+          this.showTransparentNavbar = true;
+          // console.log('checkout3');
+        }  else if (arr[1] == "visa" || arr[1] == "") {
+          this.showTransparentNavbar = true;
+          // console.log("checkout7");
+        } else {
+          this.showTransparentNavbar = false;
+          // console.log("Kuldeep");
+        }
+      }
+    });
     // if (this.router.url == "/") {
     //   showTransparent = true;
     // }
@@ -62,76 +68,61 @@ export class HeaderComponent implements OnInit {
     //   false;
     // }
 
-    
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
-    
-  //  console.log(this.userLoggedIn);
 
-    this.userDetails = JSON.parse(localStorage.getItem('profile'));
+    //  console.log(this.userLoggedIn);
+
+    this.userDetails = JSON.parse(localStorage.getItem("profile"));
     // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 
-    this.loginStatus.getData().subscribe(
-      (userLoggedIn) => {
-        this.userLoggedIn = userLoggedIn;
-      }
-    );
+    this.loginStatus.getData().subscribe(userLoggedIn => {
+      this.userLoggedIn = userLoggedIn;
+    });
 
-    this.loginStatus.getProfileData().subscribe(
-      (profile) => {
-        this.userDetails = profile;
-      }
-    );
-
-    
-
-
+    this.loginStatus.getProfileData().subscribe(profile => {
+      this.userDetails = profile;
+    });
   }
 
-
-  logoutUser () {
+  logoutUser() {
     this.preloaderService.showPreloader(true);
     // console.log("logout called");
     this.toogleDropdown();
     this.logoutService.logoutUser().subscribe(
-      (data : SignupResponseModel) => {
+      (data: SignupResponseModel) => {
         if (!data) {
-          this.toastService.showNotification("Something went wrong! Please try again later",4000);
-          this.router.navigate(['visa']);
+          this.toastService.showNotification(
+            "Something went wrong! Please try again later",
+            4000
+          );
+          this.router.navigate(["visa"]);
           this.preloaderService.showPreloader(false);
-        }
-        else if (data.code == "0") {
+        } else if (data.code == "0") {
           this.loginService.setAuthToken("");
           this.loginStatus.setUserStatus(false);
           this.loginStatus.setUserLoggedIn(false);
-          this.router.navigate(['visa']);
-          localStorage.setItem("profile",JSON.stringify({}));
+          this.router.navigate(["visa"]);
+          localStorage.setItem("profile", JSON.stringify({}));
           this.preloaderService.showPreloader(false);
-        }
-        else if (data.code == "301") {
+        } else if (data.code == "301") {
           this.loginService.setAuthToken("");
           this.loginStatus.setUserStatus(false);
           this.loginStatus.setUserLoggedIn(false);
-          this.router.navigate(['visa']);
+          this.router.navigate(["visa"]);
           this.preloaderService.showPreloader(false);
-          localStorage.setItem("profile",JSON.stringify({}));
-          this.toastService.showNotification(""+data.message,4000);
-        }
-
-        else {
-          this.toastService.showNotification(data.message.toString(),4000);
-          this.router.navigate(['visa']);
+          localStorage.setItem("profile", JSON.stringify({}));
+          this.toastService.showNotification("" + data.message, 4000);
+        } else {
+          this.toastService.showNotification(data.message.toString(), 4000);
+          this.router.navigate(["visa"]);
           this.preloaderService.showPreloader(false);
         }
-
       },
 
-      (err) => {
-
-      }
+      err => {}
     );
   }
-  
 
   toogleDropdown() {
     this.showDropDown = !this.showDropDown;

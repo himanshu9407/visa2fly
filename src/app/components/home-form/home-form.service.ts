@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
+
 @Injectable({
     providedIn : "root"
 })
@@ -17,7 +18,7 @@ export class HomeFormService {
 
     setHomeFormData (data) {
         this.homeFormData = data;
-        console.log("data set")
+        // console.log("data set");
     }
   getHomeFormDataFromServer () :Promise <any> {
 
@@ -28,5 +29,12 @@ export class HomeFormService {
           
     }
 
+    // getQuotation(){
+    //     const base_url = this.userFlow.getBaseURL();
+
+    //     return this.http.get(base_url + "info/"+ { }+"/quotation");
+    // }
+  
+    
 
 }

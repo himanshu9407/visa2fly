@@ -1,113 +1,132 @@
-<button type="button " class="btn btn-primary help" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+<button type="button " class="btn btn-primary help" data-toggle="modal" data-target="#exampleModal"
+  data-whatever="@getbootstrap">
   <!-- <i class="fa fa-question"></i> -->
   <i class="material-icons">
     chat
   </i>
 </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
-                {{alertMessage}}
-            </div>
-            <div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
-                {{alertMessage}}
-            </div>
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    <img src="./../assets/chatbot/support.png" alt="support icon" class="img-fluid" height="32" width="32" style="margin: 0px 4px;"> Get a call back from us.
-                </h5>
-                <button id="closeModel" type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+        {{alertMessage}}
+      </div>
+      <div *ngIf="showErrorAlert" class="alert alert-danger" role="alert">
+        {{alertMessage}}
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <img src="./../assets/chatbot/support.png" alt="support icon" class="img-fluid" height="32" width="32"
+            style="margin: 0px 4px;"> Get a call back from us.
+        </h5>
+        <button id="closeModel" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="callBackForm">
+          <div class="form-row">
+            <div class="form-group col-sm-12">
+              <input
+                [ngClass]="{'is-invalid':callBackForm.get('name').invalid && callBackForm.get('name').dirty,'is-valid':!(callBackForm.get('name').invalid && callBackForm.get('name').dirty) && !callBackForm.get('name').pristine}"
+                pattern="[A-Z a-z]{3,32}" formControlName="name" type="text" class="form-control form-control-sm"
+                id="inputName" placeholder="Name" />
+              <div class="invalid-feedback" style="display: block"
+                *ngIf="callBackForm.get('name').invalid && callBackForm.get('name').dirty ">Enter a valid Name</div>
             </div>
-            <div class="modal-body">
-                <form [formGroup]="callBackForm">
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <input [ngClass]="{'is-invalid':callBackForm.get('name').invalid && callBackForm.get('name').dirty,'is-valid':!(callBackForm.get('name').invalid && callBackForm.get('name').dirty) && !callBackForm.get('name').pristine}" pattern="[A-Z a-z]{3,32}"
-                                formControlName="name" type="text" class="form-control form-control-sm" id="inputName" placeholder="Name" />
-                            <div class="invalid-feedback" style="display: block" *ngIf="callBackForm.get('name').invalid && callBackForm.get('name').dirty ">Enter a valid Name</div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <input [ngClass]="{'is-invalid':callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty,'is-valid':!(callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty) && !callBackForm.get('emailId').pristine}" pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?" formControlName="emailId"
-                                type="email" class="form-control form-control-sm" id="inputEmail" placeholder="Email" />
-                            <div class="invalid-feedback" style="display: block" *ngIf="callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty ">Enter a valid email</div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-sm-12">
+              <input
+                [ngClass]="{'is-invalid':callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty,'is-valid':!(callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty) && !callBackForm.get('emailId').pristine}"
+                pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
+                formControlName="emailId" type="email" class="form-control form-control-sm" id="inputEmail"
+                placeholder="Email" />
+              <div class="invalid-feedback" style="display: block"
+                *ngIf="callBackForm.get('emailId').invalid && callBackForm.get('emailId').dirty ">Enter a valid email
+              </div>
 
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <input pattern="^[4-9][0-9]{9}$" [ngClass]="{'is-invalid':callBackForm.get('cell').invalid && callBackForm.get('cell').dirty,'is-valid':!(callBackForm.get('cell').invalid && callBackForm.get('cell').dirty) && !callBackForm.get('cell').pristine}" formControlName="cell" type="number"
-                                class="form-control form-control-sm" id="inputMobile" placeholder="Phone" />
-                            <div class="invalid-feedback" style="display: block" *ngIf="callBackForm.get('cell').invalid && callBackForm.get('cell').dirty ">Enter a valid Name</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-sm-12">
+              <input pattern="^[4-9][0-9]{9}$"
+                [ngClass]="{'is-invalid':callBackForm.get('cell').invalid && callBackForm.get('cell').dirty,'is-valid':!(callBackForm.get('cell').invalid && callBackForm.get('cell').dirty) && !callBackForm.get('cell').pristine}"
+                formControlName="cell" type="number" class="form-control form-control-sm" id="inputMobile"
+                placeholder="Phone" />
+              <div class="invalid-feedback" style="display: block"
+                *ngIf="callBackForm.get('cell').invalid && callBackForm.get('cell').dirty ">Enter a valid Name</div>
 
-                        </div>
-                    </div>
-                    <div class="form-row marginLeft">
-                        <div class="form-group col-6 mgBtm">
-                            <div class="form-check">
-                                <input formControlName="visa" class="form-check-input smallCheck" type="checkbox" id="chatbot-visa" />
-                                <label class="form-check-label smallLabel" for="chatbot-visa">
-                  <img src="./../assets/chatbot/passport (1).png" alt="passport icon" class="img-fluid" height="22" width="22"
-                    style="margin: 0px 4px;">
+            </div>
+          </div>
+          <div class="form-row marginLeft">
+            <div class="form-group col-6 mgBtm">
+              <div class="form-check">
+                <input formControlName="visa" class="form-check-input smallCheck" type="checkbox" id="chatbot-visa" />
+                <label class="form-check-label smallLabel" for="chatbot-visa">
+                  <img src="./../assets/chatbot/passport (1).png" alt="passport icon" class="img-fluid" height="22"
+                    width="22" style="margin: 0px 4px;">
                   <b>Visa</b>
                 </label>
-                            </div>
-                        </div>
-                        <div class="form-group col-6 mgBtm">
-                            <div class="form-check">
-                                <input formControlName="sim" class="form-check-input smallCheck" type="checkbox" id="chatbot-sim" />
-                                <label class="form-check-label smallLabel" for="chatbot-sim">
+              </div>
+            </div>
+            <div class="form-group col-6 mgBtm">
+              <div class="form-check">
+                <input formControlName="sim" class="form-check-input smallCheck" type="checkbox" id="chatbot-sim" />
+                <label class="form-check-label smallLabel" for="chatbot-sim">
                   <img src="./../assets/chatbot/sim.png" alt="sim icon" class="img-fluid" height="22" width="22"
                     style="margin: 0px 4px;">
                   <b>Sim Card</b>
                 </label>
-                            </div>
-                        </div>
-                        <div class="form-group col-6">
-                            <div class="form-check">
-                                <input formControlName="forex" class="form-check-input smallCheck" type="checkbox" id="chatbot-forex" />
-                                <label class="form-check-label smallLabel" for="chatbot-forex">
-                  <img src="./../assets/chatbot/credit-card.png" alt="credit card icon" class="img-fluid" height="22" width="22"
-                    style="margin: 0px 4px;">
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <div class="form-check">
+                <input formControlName="forex" class="form-check-input smallCheck" type="checkbox" id="chatbot-forex" />
+                <label class="form-check-label smallLabel" for="chatbot-forex">
+                  <img src="./../assets/chatbot/credit-card.png" alt="credit card icon" class="img-fluid" height="22"
+                    width="22" style="margin: 0px 4px;">
                   <b>Forex</b>
                 </label>
-                            </div>
-                        </div>
-                        <div class="form-group col-6">
-                            <div class="form-check">
-                                <input formControlName="insurance" class="form-check-input smallCheck" type="checkbox" id="chatbot-insurance" />
-                                <label class="form-check-label smallLabel" for="chatbot-insurance">
-                  <img src="./../assets/chatbot/travel-insurance.png" alt="travel insurance icon" class="img-fluid" height="22" width="22"
-                    style="margin: 0px 4px;">
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <div class="form-check">
+                <input formControlName="insurance" class="form-check-input smallCheck" type="checkbox"
+                  id="chatbot-insurance" />
+                <label class="form-check-label smallLabel" for="chatbot-insurance">
+                  <img src="./../assets/chatbot/travel-insurance.png" alt="travel insurance icon" class="img-fluid"
+                    height="22" width="22" style="margin: 0px 4px;">
                   <b>Insurance</b>
                 </label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="col-lg-12 mgTop">
-                    <p style="font-weight: 600;" class="contactLabel">Contact Info :</p>
-
-                    <p style="margin-bottom: 0px;"><a href="mailto:support@visa2fly.com" target="_top" style="color: #000; text-decoration: none;"><i class="fas fa-envelope mr-3"></i>support@visa2fly.com</a></p>
-                    <p style="margin-bottom: 0px;"><a href="tel:1800120220032" style="color: #000; text-decoration: none;"><i class="fas fa-phone mr-3" style="transform: rotate(90deg);"></i>1800-120-220-032</a></p>
-                    <p class="mgBtm2">(Available From 9:00am To 5:00pm)</p>
-                    <!-- <p style="margin-bottom: 0px !important; font-weight: 500;">Visa2Fly Contact</p>
-        <p style="margin-bottom: 0px !important;"><i class="fas fa-envelope mr-3"></i>visa2fly@mail.com</p>
-        <p><i class="fas fa-phone mr-3"></i>+91 09887654321</p> -->
-                </div>
+              </div>
             </div>
-            <div class="modal-footer" style="justify-content: center">
-                <!-- <div style=""> -->
-                <button (click)="onSubmit()" type="button" class="btn btn-primary btn-oval" [disabled]="!callBackForm.valid">
+          </div>
+        </form>
+        <div class="col-lg-12 mgTop">
+          <p style="font-weight: 600;" class="contactLabel">Contact Info :</p>
+
+          <p style="margin-bottom: 0px;"><a href="mailto:support@visa2fly.com" target="_top"
+              style="color: #000; text-decoration: none;"><i class="fa fa-envelope mr-3"></i>support@visa2fly.com</a>
+          </p>
+          <p style="margin-bottom: 0px;"><a href="tel:1800120220032" style="color: #000; text-decoration: none;"><i
+                class="fa fa-phone mr-3" style="transform: rotate(90deg);"></i>1800-120-220-032</a></p>
+          <p class="mgBtm2">(Available From 9:00am To 5:00pm)</p>
+          <!-- <p style="margin-bottom: 0px !important; font-weight: 500;">Visa2Fly Contact</p>
+        <p style="margin-bottom: 0px !important;"><i class="fa fa-envelope mr-3"></i>visa2fly@mail.com</p>
+        <p><i class="fa fa-phone mr-3"></i>+91 09887654321</p> -->
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: center">
+        <!-- <div style=""> -->
+        <button (click)="onSubmit()" type="button" class="btn btn-primary btn-oval"
+          [disabled]="!callBackForm.valid  || callBackForm.get('visa').value == false && callBackForm.get('sim').value == false && callBackForm.get('insurance').value == false && callBackForm.get('forex').value == false">
           Submit
         </button>
-                <!-- </div> -->
-            </div>
-        </div>
+        <!-- </div> -->
+      </div>
     </div>
+  </div>
 </div>

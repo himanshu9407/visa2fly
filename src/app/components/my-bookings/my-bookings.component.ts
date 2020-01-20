@@ -146,6 +146,7 @@ export class MyBookingsComponent implements OnInit {
     //end of constructor
 }
 
+    // console.log(this.activePcPageNumber == i);
   
   ngOnInit() {
   
