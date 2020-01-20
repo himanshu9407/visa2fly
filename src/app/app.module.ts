@@ -57,6 +57,7 @@ import { AustraliaComponent } from './components/visa-requirements/australia/aus
 import { UnitedKingdomComponent } from './components/visa-requirements/united-kingdom/united-kingdom.component';
 import { FranceComponent } from './components/visa-requirements/france/france.component';
 import { ChinaComponent } from './components/visa-requirements/china/china.component';
+import { SwitzerlandComponent } from './components/visa-requirements/switzerland/switzerland.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { ChinaComponent } from './components/visa-requirements/china/china.compo
     AustraliaComponent,
     UnitedKingdomComponent,
     FranceComponent,
-    ChinaComponent
+    ChinaComponent,
+    SwitzerlandComponent
   ],
   imports: [
     BrowserModule,

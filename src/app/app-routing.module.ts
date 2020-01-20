@@ -26,6 +26,8 @@ import { SimplansComponent } from "./components/simplans/simplans.component";
 import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
 import { AboutUsComponent } from "./components/static/about-us/about-us.component";
 import { ChinaComponent } from "./components/visa-requirements/china/china.component";
+import { SwitzerlandComponent } from './components/visa-requirements/switzerland/switzerland.component';
+
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -70,6 +72,8 @@ const routes: Routes = [
     path: "visa-requirements/apply-for-China-visa-online/:purpose",
     component: ChinaComponent
   },
+  {path: "visa-requirement/Switzerland/:purpose", component:SwitzerlandComponent},
+
   { path: "**", redirectTo: "visa", pathMatch: "full" }
 ];
 
