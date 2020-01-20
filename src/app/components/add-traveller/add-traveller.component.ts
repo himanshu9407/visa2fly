@@ -642,8 +642,8 @@ seeValues () {
               }
             }
       
-            let dob:{year : number, month : number , day : number} = form.get('dateOfBirth').value;
-            let doe :{year : number, month : number , day : number} = form.get('passportExpiryDate').value 
+            let dob:{year : number, month : number , day : number} = form.get('dateOfBirthCopy').value;
+            let doe :{year : number, month : number , day : number} = form.get('passportExpiryDateCopy').value 
             let tempDob ="";
             let tempDoe = "";
             
