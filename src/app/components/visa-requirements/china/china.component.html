@@ -189,31 +189,31 @@
 
 <div class="container-fluid wrapContainer">
   <div class="row">
-      <div class="col-md-5">
-          <div class="row">
-              <div class="col-lg-3 col-md-4 col-4 setPadding">
-                  Visa Type :
-              </div>
-              <div class="col-lg-5 col-md-6 col-8">
-                  <form [formGroup]="purposeChooseForm">
-                  <mat-form-field class="setWidth">
-                      <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
-                          <mat-option value="Tourist">
-                              Tourist
-                          </mat-option>
-                          <mat-option value="Business">
-                              Business
-                          </mat-option>
-                          <mat-option value="Transit">
-                              Transit
-                          </mat-option>
-                      </mat-select>
-                      <!-- {{selectedPurpose}} -->
-                  </mat-form-field>
-              </form>
-              </div>
-          </div>
+    <div class="col-md-5">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-4 setPadding">
+          Visa Type :
+        </div>
+        <div class="col-lg-5 col-md-6 col-8">
+          <form [formGroup]="purposeChooseForm">
+            <mat-form-field class="setWidth">
+              <mat-select (selectionChange)="purposeChanged()" formControlName="purposeSelected">
+                <mat-option value="Tourist">
+                  Tourist
+                </mat-option>
+                <mat-option value="Business">
+                  Business
+                </mat-option>
+                <mat-option value="Transit">
+                  Transit
+                </mat-option>
+              </mat-select>
+              <!-- {{selectedPurpose}} -->
+            </mat-form-field>
+          </form>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 
@@ -238,42 +238,42 @@
 
 
 <div class="container-fluid wrapContainer">
-  <div class="row" >
-      <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
-      
-          <div class="card planCard">
-              <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
-                  {{quotation.purpose}}
-              </div>
-              <div class="card-body planCardBody">
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
-                      </div>
-                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow"> 
-                       {{quotation.processingTime}}
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
-                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
-                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
-                  </div>
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
-                      <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.entryType}}</div>
-                  </div>
-                  <div class="row">
-                      <div class="col-lg-6 col-md-6 col-6 planCardRow
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
+
+      <div class="card planCard">
+        <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
+          {{quotation.purpose}}
+        </div>
+        <div class="card-body planCardBody">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
+            </div>
+            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+              {{quotation.processingTime}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
+            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
+            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
+            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.entryType}}</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-6 planCardRow
                       ">Fees:</div>
-                      <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
+            <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
                       planCardRow" style="color: #000080;">
-                      INR {{quotation.basePrice + quotation.serviceTax}}</div>
-                  </div>
-                  <!-- <div class="col-6">Processing time:</div>
+              INR {{quotation.basePrice + quotation.serviceTax}}</div>
+          </div>
+          <!-- <div class="col-6">Processing time:</div>
                   <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
                   <div class="col-6">Stay period :</div>
                   <div class="col-6">Lorem, ipsum se</div>
@@ -283,15 +283,16 @@
                   <div class="col-6">Lorem, ipsum se</div>
                   <div class="col-6">Fees:</div>
                   <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
-                  <div class="row mt-3">
-                      <div class="col-12 text-center">
-                          <button class="btn btn-primary btn-sm font-weight-bold submitBtn" (click)="navigate(quotation.quoteId,  quotation.purpose, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
-                      </div>
-                  </div>
-              </div>
+          <div class="row mt-3">
+            <div class="col-12 text-center">
+              <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
+                (click)="navigate(quotation.quoteId,  quotation.purpose, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
+            </div>
           </div>
-      
+        </div>
       </div>
+
+    </div>
 
   </div>
 </div>
@@ -327,9 +328,9 @@
                       <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true"
                         aria-controls="touristOne" [class.showDiv]="selectedTourist === 1"
                         (click)="setActiveTourist(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -337,9 +338,14 @@
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory. The applicant passport must have at least 6 months
-                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                            <h1 class="requiredIconHeading">Application form</h1>
+                            <p>The applicant will require to fill up a China visa online form that will
+                              require details such as personal information, travel information, and other extra
+                              information.</p>
+                            <p>
+                              Don’t worry! When you apply for China visa online, an agent from Visa2Fly will
+                              come to your doorstep and assist you in understanding the entire process.
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -350,19 +356,21 @@
                       <div data-toggle="collapse" data-target="#touristTwo" aria-expanded="false"
                         aria-controls="touristTwo" [class.showDiv]="selectedTourist === 2"
                         (click)="setActiveTourist(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
                       <div id="touristTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <h1 class="requiredIconHeading">Passport</h1>
                             <p>
-                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
-                              33mm)
+                              Passport details are mandatory. The applicant passport must have at least 6
+                              months remaining validity, available blank pages and a photocopy of the passport&#39;s
+                              data
+                              page.
                             </p>
                           </div>
                         </div>
@@ -374,9 +382,9 @@
                       <div data-toggle="collapse" data-target="#touristThree" aria-expanded="false"
                         aria-controls="touristThree" [class.showDiv]="selectedTourist === 3"
                         (click)="setActiveTourist(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
-                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Application form</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -384,15 +392,11 @@
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Application form
+                            <h1 class="requiredIconHeading">Photograph
                             </h1>
                             <p>
-                              The applicant will require to fill up an online form that will require details such as
-                              personal information, travel information and other extra information.
-                            </p>
-                            <p>
-                              Don’t worry! When you apply for a China visa online, an agent from Visa2Fly will
-come to your doorstep and assist you in understanding the entire process.
+                              Chinese visa requires a recent passport-size color photo with a white
+                              background. (48mm X 33mm)
                             </p>
                           </div>
                         </div>
@@ -472,9 +476,10 @@ come to your doorstep and assist you in understanding the entire process.
                             <h1 class="requiredIconHeading">Itinerary
                             </h1>
                             <p>
-                              Your detailed travel itinerary gives information about your travel plans in China along
-                              with tickets, Places you are going to visit, Your meeting agenda, Tours booked in advance,
-                              Your festival agenda, etc.
+                              When you apply for China visa online, your detailed travel itinerary gives
+                              information about your travel plans in China along with tickets, Places you are
+                              going to visit, Your meeting agenda, Tours booked in advance, Your festival
+                              agenda, etc.
                             </p>
                           </div>
                         </div>
@@ -499,9 +504,10 @@ come to your doorstep and assist you in understanding the entire process.
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Invitation Letter from China</h1>
                             <p>
-                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or any
-                              individual) with the following details.</p>
-                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of birth, Passport number etc.</p>
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or
+                              any individual) with the following details</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of
+                              birth, Passport number etc.</p>
 
                             <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
                               of arrival, Date of departure, Purpose, Place(s) to be visited</p>
@@ -533,19 +539,23 @@ come to your doorstep and assist you in understanding the entire process.
                             <h1 class="requiredIconHeading">Other Supporting Documents</h1>
                             <p>
                               If you are not applying in your country of citizenship, proof of legal stay or residence
-                              status will be required.
-                              In some cases, the applicant might have to submit a certification letter from the employer
-                              with the following details :
-                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of
-                                the Employer</p>
-                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>The Income Statement of the
-                                Applicant, or</p>
-                              <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Original copy of the 6-month
-                                Bank Statement of the Applicant.</p>
+                              status will be required when you apply for China visa online.</p>
+                            <p>
+                              In some cases, the applicant might have to submit a certification letter from the
+                              employer with the following details :
+                            </p>
+                            <p>
+                              <i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of
+                              the Employer
+                            </p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>The Income Statement of the
+                              Applicant, or</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Original copy of the 6-month
+                              Bank Statement of the Applicant.</p>
 
-                              <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the
-                                Tourism Bureau of Tibet Autonomous Region.
-                              </p>
+                            <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the
+                              Tourism Bureau of Tibet Autonomous Region.
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -554,8 +564,6 @@ come to your doorstep and assist you in understanding the entire process.
                 </ngb-tabset>
               </div>
             </div>
-
-
 
             <!-- mobileContainer -->
             <div class="mobileContainer accordion" id="touristAccodionMobile">
@@ -567,9 +575,9 @@ come to your doorstep and assist you in understanding the entire process.
                       <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
                         aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1"
                         (click)="setActiveTourist(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -577,9 +585,13 @@ come to your doorstep and assist you in understanding the entire process.
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory. The applicant passport must have at least 6 months
-                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                            <p>The applicant will require to fill up a China visa online form that will
+                              require details such as personal information, travel information, and other extra
+                              information.</p>
+                            <p>
+                              Don’t worry! When you apply for China visa online, an agent from Visa2Fly will
+                              come to your doorstep and assist you in understanding the entire process.
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -590,9 +602,9 @@ come to your doorstep and assist you in understanding the entire process.
                       <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
                         aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2"
                         (click)="setActiveTourist(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -600,10 +612,12 @@ come to your doorstep and assist you in understanding the entire process.
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <h1 class="requiredIconHeading">Passport</h1>
                             <p>
-                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
-                              33mm)
+                              Passport details are mandatory. The applicant passport must have at least 6
+                              months remaining validity, available blank pages and a photocopy of the passport&#39;s
+                              data
+                              page.
                             </p>
                           </div>
                         </div>
@@ -621,9 +635,9 @@ come to your doorstep and assist you in understanding the entire process.
                       <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
                         aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3"
                         (click)="setActiveTourist(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
-                          alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Application form</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -631,14 +645,12 @@ come to your doorstep and assist you in understanding the entire process.
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Application form
+                            <h1 class="requiredIconHeading">Photograph
                             </h1>
                             <p>
-                              The applicant will require to fill up an online form that will require details such as
-                              personal information, travel information and other extra information.
+                              Chinese visa requires a recent passport-size color photo with a white
+                              background. (48mm X 33mm)
                             </p>
-                            <p>Don’t worry! When you apply for a China visa online, an agent from Visa2Fly will
-                              come to your doorstep and assist you in understanding the entire process.</p>
                           </div>
                         </div>
                       </div>
@@ -720,9 +732,10 @@ come to your doorstep and assist you in understanding the entire process.
                             <h1 class="requiredIconHeading">Itinerary
                             </h1>
                             <p>
-                              Your detailed travel itinerary gives information about your travel plans in China along
-                              with tickets, Places you are going to visit, Your meeting agenda, Tours booked in advance,
-                              Your festival agenda, etc.
+                              When you apply for China visa online, your detailed travel itinerary gives
+                              information about your travel plans in China along with tickets, Places you are
+                              going to visit, Your meeting agenda, Tours booked in advance, Your festival
+                              agenda, etc.
                             </p>
                           </div>
                         </div>
@@ -750,16 +763,16 @@ come to your doorstep and assist you in understanding the entire process.
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Invitation Letter from China
-                            </h1>
+                            <h1 class="requiredIconHeading">Invitation Letter from China</h1>
                             <p>
-                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or any
-                              individual) with the following details</p>
-
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or
+                              any individual) with the following details</p>
                             <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of
                               birth, Passport number etc.</p>
+
                             <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
                               of arrival, Date of departure, Purpose, Place(s) to be visited</p>
+
                             <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
                               Address, Official stamp, Signature, etc.</p>
                           </div>
@@ -785,19 +798,23 @@ come to your doorstep and assist you in understanding the entire process.
                             <h1 class="requiredIconHeading">Other Supporting Documents</h1>
                             <p>
                               If you are not applying in your country of citizenship, proof of legal stay or residence
-                              status will be required.
-                              In some cases, the applicant might have to submit a certification letter from the employer
-                              with the following details :</p>
-                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of the
-                              Employer</p>
+                              status will be required when you apply for China visa online.</p>
+                            <p>
+                              In some cases, the applicant might have to submit a certification letter from the
+                              employer with the following details :
+                            </p>
+                            <p>
+                              <i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Name and Contact number of
+                              the Employer
+                            </p>
                             <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>The Income Statement of the
                               Applicant, or</p>
                             <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Original copy of the 6-month
                               Bank Statement of the Applicant.</p>
 
-                            <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the Tourism
-                              Bureau of Tibet Autonomous Region.</p>
-
+                            <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the
+                              Tourism Bureau of Tibet Autonomous Region.
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -822,23 +839,21 @@ come to your doorstep and assist you in understanding the entire process.
                       <li>All Indian passport holders require a valid visa to enter China.</li>
                     </p>
                     <p>
-                      <li>Each applicant must have all the mandatory documents as mentioned in
-                        requirement tabs below</li>
+                      <li>Applicant must have all the mandatory documents while applying for China
+                        Visa online as mentioned in requirement tabs below</li>
                     </p>
                     <p>
-                      <li>In addition to the documents mentioned, our visa experts or the
-                        concerned embassy may require
-                        you to furnish additional documents to process your visa.Your cooperation in furnishing any
-                        such
-                        additional documents is essential for a positive outcome.</li>
+                      <li>In addition to the documents mentioned, our visa experts or the concerned
+                        embassy may require you to furnish additional documents to process your visa.
+                        Your cooperation in furnishing any such additional documents is essential for a
+                        positive outcome.</li>
                     </p>
                     <p>
-                      <li>If all the documents are not ready at the time of agent visit then
-                        additional charges levied
-                        when agent visits your residence again</li>
+                      <li>If all the documents are not ready at the time of agent visit then additional
+                        charges levied when agent visits your residence again</li>
                     </p>
                     <p>
-                      <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                      <li>The fee may vary for the country if the rate of the embassy fluctuates.</li>
                     </p>
                   </div>
                 </div>
@@ -871,9 +886,9 @@ come to your doorstep and assist you in understanding the entire process.
                       <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne"
                         aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -881,10 +896,14 @@ come to your doorstep and assist you in understanding the entire process.
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Passport</h1>
+                            <h1 class="requiredIconHeading">Application form</h1>
                             <p>
-                              Passport details are mandatory. the applicant passport must have at least 6 months
-                              remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                              The applicant will require to fill up a China visa online form
+                              that will require details such as personal information, travel information, and other
+                              extra information about the purpose of the visit.</p>
+                            <p>Don’t worry! Once you apply for China visa online, An agent from Visa2Fly will
+                              come to your doorstep and assist you in
+                              understanding the entire process.</p>
                           </div>
                         </div>
                       </div>
@@ -895,9 +914,9 @@ come to your doorstep and assist you in understanding the entire process.
                       <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse" data-target="#businessTwo"
                         aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2"
                         (click)="setActiveBusiness(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
 
                     </ng-template>
@@ -906,10 +925,11 @@ come to your doorstep and assist you in understanding the entire process.
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <h1 class="requiredIconHeading">Passport</h1>
                             <p>
-                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X
-                              33mm)
+                              Passport details are mandatory. the applicant passport must have at
+                              least 6 months remaining validity, available blank pages and a photocopy of the
+                              passport's data page.
                             </p>
                           </div>
                         </div>
@@ -921,9 +941,9 @@ come to your doorstep and assist you in understanding the entire process.
                       <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
                         data-target="#businessThree" aria-expanded="false" aria-controls="businessThree"
                         [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
-                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Application form</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                          style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -931,14 +951,12 @@ come to your doorstep and assist you in understanding the entire process.
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Application form
+                            <h1 class="requiredIconHeading">Photograph
                             </h1>
                             <p>
-                              The applicant will require to fill up an online form that will require details such as
-                              personal information, travel information and other extra information about the purpose of
-                              the visit
+                              Chinese visa requires a recent passport-size color photo with a
+                              white background. (48mm X 33mm)
                             </p>
-                            <p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in understanding the entire process.</p>
                           </div>
                         </div>
                       </div>
@@ -980,27 +998,33 @@ come to your doorstep and assist you in understanding the entire process.
             </div>
 
             <!-- mobileContainer -->
-            <div class="mobileContainer accordion" id="touristAccodionMobile">
+            <div class="mobileContainer accordion" id="businessAccodionMobile">
               <div class="row mt-4">
                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
-                        aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1"
+                      <div data-toggle="collapse" data-target="#businessMobileOne" aria-expanded="true"
+                        aria-controls="businessMobileOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Form"
-                          style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Passport</h2>
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
+                          alt="Application form" style="height: 45px; margin-bottom: 10px;" />
+                        <h2 class="setFontSize">Application form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
-                        data-parent="#touristAccodionMobile">
+                      <div id="businessMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
+                        data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory. the applicant passport must have at least 6 months remaining validity, available blank pages and a photocopy of the passport's data page.</p>
+                            <h1 class="requiredIconHeading">Application form</h1>
+                            <p>
+                              The applicant will require to fill up a China visa online form
+                              that will require details such as personal information, travel information, and other
+                              extra information about the purpose of the visit.</p>
+                            <p>Don’t worry! Once you apply for China visa online, An agent from Visa2Fly will
+                              come to your doorstep and assist you in
+                              understanding the entire process.</p>
                           </div>
                         </div>
                       </div>
@@ -1008,22 +1032,24 @@ come to your doorstep and assist you in understanding the entire process.
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
-                        aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2"
+                      <div data-toggle="collapse" data-target="#businessMobileTwo" aria-expanded="true"
+                        aria-controls="businessMobileTwo" [class.showDiv]="selectedBusiness === 2"
                         (click)="setActiveBusiness(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Photograph</h2>
+                        <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
-                        data-parent="#touristAccodionMobile">
+                      <div id="businessMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
+                        data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <h1 class="requiredIconHeading">Passport</h1>
                             <p>
-                              Chinese visa requires a recent passport-size color photo with a white background. (48mm X 33mm)
+                              Passport details are mandatory. the applicant passport must have at
+                              least 6 months remaining validity, available blank pages and a photocopy of the
+                              passport's data page.
                             </p>
                           </div>
                         </div>
@@ -1038,25 +1064,24 @@ come to your doorstep and assist you in understanding the entire process.
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
-                        aria-controls="touristMobileThree" [class.showDiv]="selectedBusiness === 3"
+                      <div data-toggle="collapse" data-target="#businessMobileThree" aria-expanded="true"
+                        aria-controls="businessMobileThree" [class.showDiv]="selectedBusiness === 3"
                         (click)="setActiveBusiness(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png" alt="Application form"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Application form</h2>
+                        <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobileThree" class="collapse" aria-labelledby="headingMobileThree"
-                        data-parent="#touristAccodionMobile">
+                      <div id="businessMobileThree" class="collapse" aria-labelledby="headingMobileThree"
+                        data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Application form
+                            <h1 class="requiredIconHeading">Photograph
                             </h1>
                             <p>
-                              The applicant will require to fill up an online form that will require details such as personal information, travel information and other extra information about the purpose of the visit.</p>
-
-<p>Don’t worry! An agent from Visa2Fly will come to your doorstep and assist you in filling up the complete form as per the information provided by you.
+                              Chinese visa requires a recent passport-size color photo with a
+                              white background. (48mm X 33mm)
                             </p>
                           </div>
                         </div>
@@ -1067,8 +1092,8 @@ come to your doorstep and assist you in understanding the entire process.
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
-                        aria-controls="touristMobileFour" [class.showDiv]="selectedBusiness === 4"
+                      <div data-toggle="collapse" data-target="#businessMobileFour" aria-expanded="true"
+                        aria-controls="businessMobileFour" [class.showDiv]="selectedBusiness === 4"
                         (click)="setActiveBusiness(4)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Invitation Letter.png"
                           alt="Business Invitation Letter" style="height: 45px; margin-bottom: 10px;" />
@@ -1076,17 +1101,20 @@ come to your doorstep and assist you in understanding the entire process.
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour"
-                        data-parent="#touristAccodionMobile">
+                      <div id="businessMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                        data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
                             <h1 class="requiredIconHeading">Business Invitation Letter</h1>
                             <p>
-The Invitation letter should cover the following details:</p>
+                              The Invitation letter should cover the following details:</p>
 
-<p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of birth,  Passport number, etc.</p>
-<p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
-  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number, Address, Official stamp, Signature, etc.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Applicant’s full name, Date of
+                              birth, Passport number, etc.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
+                            <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
                           </div>
                         </div>
                       </div>
@@ -1112,23 +1140,21 @@ The Invitation letter should cover the following details:</p>
                       <li>All Indian passport holders require a valid visa to enter China.</li>
                     </p>
                     <p>
-                      <li>Each applicant must have all the mandatory documents as mentioned in
-                        requirement tabs below</li>
+                      <li>Applicant must have all the mandatory documents while applying for China
+                        Visa online as mentioned in requirement tabs below</li>
                     </p>
                     <p>
-                      <li>In addition to the documents mentioned, our visa experts or the
-                        concerned embassy may require
-                        you to furnish additional documents to process your visa.Your cooperation in furnishing any
-                        such
-                        additional documents is essential for a positive outcome.</li>
+                      <li>In addition to the documents mentioned, our visa experts or the concerned
+                        embassy may require you to furnish additional documents to process your visa.
+                        Your cooperation in furnishing any such additional documents is essential for a
+                        positive outcome.</li>
                     </p>
                     <p>
-                      <li>If all the documents are not ready at the time of agent visit then
-                        additional charges levied
-                        when agent visits your residence again</li>
+                      <li>If all the documents are not ready at the time of agent visit then additional
+                        charges levied when agent visits your residence again</li>
                     </p>
                     <p>
-                      <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                      <li>The fee may vary for the country if the rate of the embassy fluctuates.</li>
                     </p>
                   </div>
                 </div>
@@ -1206,8 +1232,8 @@ The Invitation letter should cover the following details:</p>
                       <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true"
                         aria-controls="transitThree" [class.showDiv]="selectedTransit === 3"
                         (click)="setActiveTransit(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png"
-                          alt="Ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png" alt="Ticket"
+                          style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Ticket</h2>
                       </div>
                     </ng-template>
@@ -1225,10 +1251,10 @@ The Invitation letter should cover the following details:</p>
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                     
+
                     </ng-template>
                     <ng-template ngbTabContent>
-                     
+
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
@@ -1298,8 +1324,8 @@ The Invitation letter should cover the following details:</p>
                       <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true"
                         aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3"
                         (click)="setActiveTransit(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png"
-                          alt="Ticket" style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Ticket.png" alt="Ticket"
+                          style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Ticket</h2>
                       </div>
                     </ng-template>
@@ -1317,10 +1343,10 @@ The Invitation letter should cover the following details:</p>
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      
+
                     </ng-template>
                     <ng-template ngbTabContent>
-                     
+
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
@@ -1341,23 +1367,21 @@ The Invitation letter should cover the following details:</p>
                       <li>All Indian passport holders require a valid visa to enter China.</li>
                     </p>
                     <p>
-                      <li>Each applicant must have all the mandatory documents as mentioned in
-                        requirement tabs below</li>
+                      <li>Applicant must have all the mandatory documents while applying for China
+                        Visa online as mentioned in requirement tabs below</li>
                     </p>
                     <p>
-                      <li>In addition to the documents mentioned, our visa experts or the
-                        concerned embassy may require
-                        you to furnish additional documents to process your visa.Your cooperation in furnishing any
-                        such
-                        additional documents is essential for a positive outcome.</li>
+                      <li>In addition to the documents mentioned, our visa experts or the concerned
+                        embassy may require you to furnish additional documents to process your visa.
+                        Your cooperation in furnishing any such additional documents is essential for a
+                        positive outcome.</li>
                     </p>
                     <p>
-                      <li>If all the documents are not ready at the time of agent visit then
-                        additional charges levied
-                        when agent visits your residence again</li>
+                      <li>If all the documents are not ready at the time of agent visit then additional
+                        charges levied when agent visits your residence again</li>
                     </p>
                     <p>
-                      <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                      <li>The fee may vary for the country if the rate of the embassy fluctuates.</li>
                     </p>
                   </div>
                 </div>
@@ -1365,7 +1389,6 @@ The Invitation letter should cover the following details:</p>
             </div>
           </div>
           
-
         </ng-template>
       </ngb-tab>
     </ngb-tabset>
