@@ -51,13 +51,13 @@ import { BookingDetailsComponent } from "./components/booking-details/booking-de
 import { SimplansComponent } from "./components/simplans/simplans.component";
 import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
 import { AboutUsComponent } from "./components/static/about-us/about-us.component";
-import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { AustraliaComponent } from "./components/visa-requirements/australia/australia.component";
 import { UnitedKingdomComponent } from "./components/visa-requirements/united-kingdom/united-kingdom.component";
 import { FranceComponent } from "./components/visa-requirements/france/france.component";
 import { ChinaComponent } from "./components/visa-requirements/china/china.component";
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import { SwitzerlandComponent } from './components/visa-requirements/switzerland/switzerland.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +101,8 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
     AustraliaComponent,
     UnitedKingdomComponent,
     FranceComponent,
-    ChinaComponent
+    ChinaComponent,
+    SwitzerlandComponent
   ],
   imports: [
     BrowserModule,
@@ -114,10 +115,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
     MatSelectModule,
     ReactiveFormsModule,
     // CarouselModule,
-    NgbModule,
-    ServiceWorkerModule.register("safety-worker.js", {
-      enabled: environment.production
-    })
+    NgbModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

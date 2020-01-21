@@ -95,6 +95,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
         // console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
+          this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
             

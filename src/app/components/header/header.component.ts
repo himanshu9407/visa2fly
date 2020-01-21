@@ -8,6 +8,7 @@ import { Router, ActivatedRoute, NavigationStart } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { CanDeactivateGuard } from "src/app/shared/can-deactivate.service";
+import { RouterHistory } from 'src/app/shared/router-history.service';
 
 @Component({
   selector: "app-header",
@@ -29,22 +30,20 @@ export class HeaderComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private preloaderService: PreloaderService,
     private userFlowDetails: UserFlowDetails,
-    private deactivate: CanDeactivateGuard
+    private deactivate: CanDeactivateGuard,
+    private routerHistory: RouterHistory
   ) {}
 
   ngOnInit() {
     // console.log("header called again");
+    
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         // console.log(event.url);
         let url: string = event.url;
         let arr = url.split("/");
 
-        if (this.deactivate.showColorHeader) {
-          this.showTransparentNavbar = false;
-          // console.log("checkout1");
-          // event.url == "/"
-        } else if (
+        if (
           event.url == "/" ||
           event.url == "/visa" ||
           event.url == "/sim" ||

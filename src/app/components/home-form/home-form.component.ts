@@ -53,11 +53,6 @@ import {
 export class HomeFormComponent {
 
   homeForm: FormGroup;
-  
-
-
-
-
   public homeFormData : any = {
     "code": "0",
     "status": "SUCCESS",
@@ -362,7 +357,12 @@ export class HomeFormComponent {
            // this.setDetailsOnLocalStorage();
             this.router.navigate(['visa-requirements/UK-visa-application', "" + purpose]);
             break;
-          } 
+          }
+          case "Switzerland" : {
+            // this.setDetailsOnLocalStorage();
+             this.router.navigate(['visa-requirements/apply-for-Swiss-visa-online', "" + purpose]);
+             break;
+           }
           case "France" : {
             //this.setDetailsOnLocalStorage();
             this.router.navigate(['visa-requirements/France/',"" + purpose]);

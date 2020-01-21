@@ -167,9 +167,9 @@ export class RequirementsComponent implements OnInit {
     this.preloaderService.showPreloader(true);
     this.activateRoute.params.subscribe((params: any) => {
       this.selectedPurposeType = params.purpose;
-      console.log(this.selectedPurposeType);
+      // console.log(this.selectedPurposeType);
       this.selectedCountrytype = params.country;
-      console.log(this.selectedCountrytype);
+      // console.log(this.selectedCountrytype);
     });
     let tempPurpose = this.selectedPurposeType;
     //console.log(tempPurpose);
@@ -180,7 +180,7 @@ export class RequirementsComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        console.log(data);
+        // console.log(data);
         if (data.code == "0") {
           // this.preloaderService.showPreloader(false);
           this.requirementsData = data;

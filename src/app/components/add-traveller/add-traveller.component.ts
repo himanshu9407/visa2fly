@@ -1066,37 +1066,37 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  canDeactivate() {
-    if (
-      this.travellerForm.pristine &&
-      this.travellerForm.dirty &&
-      this.travellerForm.invalid &&
-      this.travelDetails.pristine &&
-      this.travelDetails.dirty &&
-      this.travelDetails.invalid &&
-      this.valueAddedService.pristine &&
-      this.valueAddedService.dirty &&
-      this.valueAddedService.invalid
-    ) {
-      // console.log("1");
-      return true;
-    } else if (this.succeedToPayment) {
-      return false;
-    } else {
-      if (confirm("Are you sure!")) {
-        // console.log("2");
-        return false;
-      } else {
-        // console.log("3");
-        return true;
-      }
-    }
-  }
+  // canDeactivate() {
+  //   if (
+  //     this.travellerForm.pristine &&
+  //     this.travellerForm.dirty &&
+  //     this.travellerForm.invalid &&
+  //     this.travelDetails.pristine &&
+  //     this.travelDetails.dirty &&
+  //     this.travelDetails.invalid &&
+  //     this.valueAddedService.pristine &&
+  //     this.valueAddedService.dirty &&
+  //     this.valueAddedService.invalid
+  //   ) {
+  //     // console.log("1");
+  //     return true;
+  //   } else if (this.succeedToPayment) {
+  //     return false;
+  //   } else {
+  //     if (confirm("Are you sure!")) {
+  //       // console.log("2");
+  //       return false;
+  //     } else {
+  //       // console.log("3");
+  //       return true;
+  //     }
+  //   }
+  // }
 
-  @HostListener("window:beforeunload", ["$event"])
-  unloadNotification($event: any) {
-    if (this.canDeactivate()) {
-      $event.returnValue = true;
-    }
-  }
+  // @HostListener("window:beforeunload", ["$event"])
+  // unloadNotification($event: any) {
+  //   if (this.canDeactivate()) {
+  //     $event.returnValue = true;
+  //   }
+  // }
 }

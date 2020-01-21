@@ -26,7 +26,8 @@ import { SimplansComponent } from "./components/simplans/simplans.component";
 import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
 import { AboutUsComponent } from "./components/static/about-us/about-us.component";
 import { ChinaComponent } from "./components/visa-requirements/china/china.component";
-import { CanDeactivateGuard } from './shared/can-deactivate.service';
+import { CanDeactivateGuard } from "./shared/can-deactivate.service";
+import { SwitzerlandComponent } from "./components/visa-requirements/switzerland/switzerland.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -48,7 +49,7 @@ const routes: Routes = [
     path: "addTraveller",
     component: AddTravellerComponent,
     canActivate: [AuthenticationGuard],
-    canDeactivate: [CanDeactivateGuard]
+    // canDeactivate: [CanDeactivateGuard]
   },
   { path: "freeVisa", component: FreeVisaComponent },
   { path: "visOnArrival", component: VisaArrivalComponent },
@@ -67,11 +68,15 @@ const routes: Routes = [
     component: UnitedKingdomComponent
   },
   { path: "visa-requirements/France/:purpose", component: FranceComponent },
-  //  {path: 'australia', component: AustraliaComponent},
   {
     path: "visa-requirements/apply-for-China-visa-online/:purpose",
     component: ChinaComponent
   },
+  {
+    path: "visa-requirements/apply-for-Swiss-visa-online/:purpose",
+    component: SwitzerlandComponent
+  },
+
   { path: "**", redirectTo: "visa", pathMatch: "full" }
 ];
 
