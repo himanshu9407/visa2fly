@@ -46,6 +46,8 @@ export class LoginComponent implements OnInit {
 
 
     this.prevRoute = this.routerHistory.getPrevRoute();
+    // console.log(this.prevRoute);
+    
    
 
     this.loginForm = new FormGroup ({

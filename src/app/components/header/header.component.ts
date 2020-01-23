@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, NavigationStart } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { CanDeactivateGuard } from "src/app/shared/can-deactivate.service";
-import { RouterHistory } from 'src/app/shared/router-history.service';
+import { RouterHistory } from "src/app/shared/router-history.service";
 
 @Component({
   selector: "app-header",
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // console.log("header called again");
-    
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         // console.log(event.url);
@@ -44,20 +44,15 @@ export class HeaderComponent implements OnInit {
         let arr = url.split("/");
 
         if (
-          event.url == "/" ||
-          event.url == "/visa" ||
-          event.url == "/sim" ||
-          event.url == "/sim/simplans"
+          arr[1] == "visa-requirement" || arr[1] == "freeVisa" || arr[1] == "visOnArrival" || arr[1] == "profile" || arr[1] == "myBookings" || arr[1] == "bookingDetail" || arr[1] == "visa-requirements" || arr[1] == "addTraveller" || event.url == "/sim/checkout"
         ) {
-          this.showTransparentNavbar = true;
-          // console.log('checkout3');
-        }  else if (arr[1] == "visa" || arr[1] == "") {
-          this.showTransparentNavbar = true;
-          // console.log("checkout7");
-        } else {
           this.showTransparentNavbar = false;
+          // console.log('checkout3');
+        } else {
+          this.showTransparentNavbar = true;
           // console.log("Kuldeep");
         }
+
       }
     });
     // if (this.router.url == "/") {

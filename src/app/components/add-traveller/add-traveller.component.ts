@@ -18,6 +18,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { from } from "rxjs";
+import { RouterHistory } from 'src/app/shared/router-history.service';
 
 @Component({
   selector: "app-add-traveller",
@@ -87,7 +88,8 @@ export class AddTravellerComponent implements OnInit {
     private loginService: LoginService,
     private http: HttpClient,
     private router: Router,
-    private preloaderService: PreloaderService
+    private preloaderService: PreloaderService,
+    private routerHistory: RouterHistory
   ) {
     this.today = new Date();
     this.tomorrow = new Date(this.today);
@@ -1066,37 +1068,39 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  // canDeactivate() {
-  //   if (
-  //     this.travellerForm.pristine &&
-  //     this.travellerForm.dirty &&
-  //     this.travellerForm.invalid &&
-  //     this.travelDetails.pristine &&
-  //     this.travelDetails.dirty &&
-  //     this.travelDetails.invalid &&
-  //     this.valueAddedService.pristine &&
-  //     this.valueAddedService.dirty &&
-  //     this.valueAddedService.invalid
-  //   ) {
-  //     // console.log("1");
-  //     return true;
-  //   } else if (this.succeedToPayment) {
-  //     return false;
-  //   } else {
-  //     if (confirm("Are you sure!")) {
-  //       // console.log("2");
-  //       return false;
-  //     } else {
-  //       // console.log("3");
-  //       return true;
-  //     }
-  //   }
-  // }
+  canDeactivate() {
+    if (
+      this.travellerForm.pristine &&
+      this.travellerForm.dirty &&
+      this.travellerForm.invalid &&
+      this.travelDetails.pristine &&
+      this.travelDetails.dirty &&
+      this.travelDetails.invalid &&
+      this.valueAddedService.pristine &&
+      this.valueAddedService.dirty &&
+      this.valueAddedService.invalid
+    ) {
+      // console.log("1");
+      return true;
+    } else if (this.succeedToPayment) {
+      return false;
+    } else {
+      if (confirm("Are you sure!")) {
+        // console.log("2");
+        return false;
+      } else {
+        // console.log("3");
+        // this.router.navigateByUrl('/addTraveller');
+        window.history.replaceState("", "", "/addTraveller") ;
+        return true;
+      }
+    }
+  }
 
-  // @HostListener("window:beforeunload", ["$event"])
-  // unloadNotification($event: any) {
-  //   if (this.canDeactivate()) {
-  //     $event.returnValue = true;
-  //   }
-  // }
+  @HostListener("window:beforeunload", ["$event"])
+  unloadNotification($event: any) {
+    if (this.canDeactivate()) {
+      $event.returnValue = true;
+    }
+  }
 }

@@ -28,6 +28,7 @@ import { AddTravellerComponent } from "./components/add-traveller/add-traveller.
 import { Ng2FlatpickrModule } from "ng2-flatpickr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // import { CarouselModule } from "ngx-owl-carousel-o";
+// import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { DateComponent } from "./components/date/date.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -115,19 +116,11 @@ import { SwitzerlandComponent } from './components/visa-requirements/switzerland
     MatSelectModule,
     ReactiveFormsModule,
     // CarouselModule,
-    NgbModule
+    NgbModule,
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
-    {
-      provide: "CanDeactivateGuard",
-      useValue: (
-        component: AddTravellerComponent,
-        currentRoute: ActivatedRouteSnapshot,
-        currentState: RouterStateSnapshot,
-        nextState: RouterStateSnapshot
-      ) => true
-    }
   ],
   bootstrap: [AppComponent]
 })

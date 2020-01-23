@@ -3,18 +3,13 @@
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-user"></i></span>
     </div>
-    <<<<<<< HEAD <input minlength="6"
-      pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$"
-      (keydown.enter)="onKeyPress1($event)" formControlName="userId" placeholder="Email/Mobile" type="text"
-      class="form-control roundedinput"
-      [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}" />
-    =======
+
     <input minlength="6"
       pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$"
       (keydown.enter)="onKeyPress1($event)" formControlName="userId" placeholder="Email/Mobile" type="text"
       class="form-control roundedinput"
       [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}" />
-    >>>>>>> e28cff62f825c57de7f4ccd606bf530711c22cf3
+
     <div class="invalid-feedback" style="display: block;margin-left: 8%;">
       <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
       <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address or
@@ -61,11 +56,8 @@
   </div> -->
 
   <div class="cntr" *ngIf="showOtpField">
-    <<<<<<< HEAD <input formControlName="rememberMe" class="hidden-xs-up" id="cbx" type="checkbox"
-      style="display: none;" />
-    =======
+
     <input class="hidden-xs-up" id="cbx" type="checkbox" formControlName="rememberMe" style="display: none;" />
-    >>>>>>> e28cff62f825c57de7f4ccd606bf530711c22cf3
     <label class="cbx" for="cbx"></label>
     <label class="lbl" for="cbx">Remember Me</label>
   </div>

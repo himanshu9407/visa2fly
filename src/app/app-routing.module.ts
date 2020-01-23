@@ -17,7 +17,7 @@ import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
 import { MyBookingsComponent } from "./components/my-bookings/my-bookings.component";
 import { TermsandConditionsComponent } from "./components/static/termsand-conditions/termsand-conditions.component";
-import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
+// import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
 import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
 import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
 import { ProfileComponent } from "./components/profile/profile.component";
@@ -28,6 +28,7 @@ import { AboutUsComponent } from "./components/static/about-us/about-us.componen
 import { ChinaComponent } from "./components/visa-requirements/china/china.component";
 import { CanDeactivateGuard } from "./shared/can-deactivate.service";
 import { SwitzerlandComponent } from "./components/visa-requirements/switzerland/switzerland.component";
+import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
