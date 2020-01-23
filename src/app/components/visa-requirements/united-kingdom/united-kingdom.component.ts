@@ -165,7 +165,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/UK-visa-application/" + purpose
+      "/visa-requirements/apply-for-UK-visa-online/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -221,7 +221,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
      window.history.replaceState(
        "",
        "",
-     "/visa-requirements/UK-visa-application/" + purposeUrl
+     "/visa-requirements/apply-for-UK-visa-online/" + purposeUrl
      );
      // console.log("url changed");
      }

@@ -65,10 +65,10 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard]
   },
   {
-    path: "visa-requirements/UK-visa-application/:purpose",
+    path: "visa-requirements/apply-for-UK-visa-online/:purpose",
     component: UnitedKingdomComponent
   },
-  { path: "visa-requirements/France/:purpose", component: FranceComponent },
+  { path: "visa-requirements/apply-for-France-visa-online/:purpose", component: FranceComponent },
   {
     path: "visa-requirements/apply-for-China-visa-online/:purpose",
     component: ChinaComponent

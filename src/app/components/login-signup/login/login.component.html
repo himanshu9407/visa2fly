@@ -1,7 +1,7 @@
 <form [formGroup]="loginForm">
   <div class="input-group form-group">
     <div class="input-group-prepend">
-      <span class="input-group-text"><i class="fas fa-user"></i></span>
+      <span class="input-group-text"><i class="fa fa-user"></i></span>
     </div>
 
     <input minlength="6"
@@ -19,7 +19,7 @@
 
   <div *ngIf="showOtpField" class="input-group form-group">
     <div class="input-group-prepend">
-      <span class="input-group-text"><i class="fas fa-lock"></i></span>
+      <span class="input-group-text"><i class="fa fa-lock"></i></span>
     </div>
     <input
       [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}"
@@ -36,11 +36,11 @@
     <strong> OTP Sent Successfully!</strong>
   </div>
   <!-- <div *ngIf="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
-            <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i> Resend OTP</span></a>
+            <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i> Resend OTP</span></a>
         </div> -->
 
   <div *ngIf="otpSentCount > 0" class="row align-items-center resendBtn">
-    <a (click)="sendOtp()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fas fa-redo-alt"></i>
+    <a (click)="sendOtp()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i>
         Resend OTP</span></a>
   </div>
 

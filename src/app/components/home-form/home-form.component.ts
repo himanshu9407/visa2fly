@@ -355,7 +355,7 @@ export class HomeFormComponent {
           // }
           case "United Kingdom" : {
            // this.setDetailsOnLocalStorage();
-            this.router.navigate(['visa-requirements/UK-visa-application', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-UK-visa-online', "" + purpose]);
             break;
           }
           case "Switzerland" : {
@@ -365,7 +365,7 @@ export class HomeFormComponent {
            }
           case "France" : {
             //this.setDetailsOnLocalStorage();
-            this.router.navigate(['visa-requirements/France/',"" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-France-visa-online/',"" + purpose]);
             break;
           } 
           case "China" : {

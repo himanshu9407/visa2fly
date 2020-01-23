@@ -5,8 +5,8 @@
   style=" height: 60px;">
   <!-- Navbar brand -->
 
-  <a class="navbar-brand" [routerLink]="['visa']"><img src="../../../assets/logo.png" width="100" height="60%"
-      class="d-inline-block align-top" alt="visa2fly logo" /></a>
+  <a class="navbar-brand" [routerLink]="['visa']"><img data-src="https://static.visa2fly.com/assets/logo.webp" width="100" height="60%"
+      class="d-inline-block lazyload align-top" alt="visa2fly logo" /></a>
 
   <!-- Collapse button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -58,8 +58,8 @@
           <button (click)="toogleDropdown()" ngbDropdownToggle role="button" class="btn btn-sm dropdown-toggle ml-3 user-dropdown user-name"
           id="profileDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img
-              src="../../../assets/profile/download.png"
-              alt="default user image icon" style="width: 25px;  border-radius: 50px;">
+              data-src="https://static.visa2fly.com/assets/download.webp"
+              alt="default user image icon" class="lazyload" style="width: 25px;  border-radius: 50px;">
             {{  userDetails.firstName == null ||userDetails.firstName == undefined ?  userDetails.emailId : userDetails.firstName}}
           </button>
           <div  style="z-index: 1500" class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown" [ngClass]="{'show':showDropDown}">

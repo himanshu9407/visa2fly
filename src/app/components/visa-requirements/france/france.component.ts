@@ -145,7 +145,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/France/" + purpose
+      "/visa-requirements/apply-for-France-visa-online/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -201,7 +201,7 @@ export class FranceComponent implements OnInit,AfterViewInit {
      window.history.replaceState(
        "",
        "",
-     "/visa-requirements/France/" + purposeUrl
+     "/visa-requirements/apply-for-France-visa-online/" + purposeUrl
      );
      // console.log("url changed");
      }
