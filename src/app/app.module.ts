@@ -59,6 +59,7 @@ import { FranceComponent } from "./components/visa-requirements/france/france.co
 import { ChinaComponent } from "./components/visa-requirements/china/china.component";
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { SwitzerlandComponent } from './components/visa-requirements/switzerland/switzerland.component';
+import { EthiopianComponent } from './components/visa-requirements/ethiopian/ethiopian.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { SwitzerlandComponent } from './components/visa-requirements/switzerland
     UnitedKingdomComponent,
     FranceComponent,
     ChinaComponent,
-    SwitzerlandComponent
+    SwitzerlandComponent,
+    EthiopianComponent
   ],
   imports: [
     BrowserModule,

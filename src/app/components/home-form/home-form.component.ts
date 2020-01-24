@@ -372,6 +372,11 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-China-visa-online/', "" + purpose]);
             break;
           }
+
+          case "Ethiopia" : {
+            this.router.navigate(['visa-requirements/apply-for-Ethiopia-visa-online/', "" + purpose]);
+            break;
+          }
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();
           //   this.router.navigate(['']);
