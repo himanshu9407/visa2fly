@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { trigger, state, transition, animate, style } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -32,7 +32,7 @@ import { ToastService } from 'src/app/shared/toast.service';
     ])
   ]
 })
-export class ChinaComponent implements OnInit {
+export class ChinaComponent implements OnInit, AfterViewInit {
  
   @ViewChild("t", { static : false }) t;
   ngbTabTitleClass;
