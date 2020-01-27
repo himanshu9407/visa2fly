@@ -30,6 +30,7 @@ import { CanDeactivateGuard } from "./shared/can-deactivate.service";
 import { SwitzerlandComponent } from "./components/visa-requirements/switzerland/switzerland.component";
 import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
 import { EthiopianComponent } from './components/visa-requirements/ethiopian/ethiopian.component';
+import { MaldivesComponent } from './components/visa-requirements/maldives/maldives.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Ethiopia-visa-online/:purpose",
     component: EthiopianComponent 
+  },
+  {
+    path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
+    component:  MaldivesComponent
   },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }
