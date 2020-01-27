@@ -386,6 +386,16 @@ export class HomeFormComponent {
             break;
           }
         
+
+          case "Maldives" : {
+            this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
+            break;
+          }
+          // case "Japan" : {
+          //   this.setDetailsOnLocalStorage();
+          //   this.router.navigate(['']);
+          //   break;
+          // }
           default : {
             //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())

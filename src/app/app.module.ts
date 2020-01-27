@@ -62,6 +62,7 @@ import { SwitzerlandComponent } from './components/visa-requirements/switzerland
 import { EthiopianComponent } from './components/visa-requirements/ethiopian/ethiopian.component';
 import { DubaiComponent } from './components/visa-requirements/dubai/dubai.component';
 import { MalaysiaComponent } from './components/visa-requirements/malaysia/malaysia.component';
+import { MaldivesComponent } from './components/visa-requirements/maldives/maldives.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { MalaysiaComponent } from './components/visa-requirements/malaysia/malay
     SwitzerlandComponent,
     EthiopianComponent,
     DubaiComponent,
-    MalaysiaComponent
+    MalaysiaComponent,
+    MaldivesComponent
   ],
   imports: [
     BrowserModule,

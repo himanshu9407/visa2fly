@@ -32,6 +32,7 @@ import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-
 import { EthiopianComponent } from './components/visa-requirements/ethiopian/ethiopian.component';
 import { MalaysiaComponent } from './components/visa-requirements/malaysia/malaysia.component';
 import { DubaiComponent } from './components/visa-requirements/dubai/dubai.component';
+import { MaldivesComponent } from './components/visa-requirements/maldives/maldives.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -92,7 +93,10 @@ const routes: Routes = [
     path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
     component: DubaiComponent
   },
-
+{
+    path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
+    component:  MaldivesComponent
+  },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }
 ];
