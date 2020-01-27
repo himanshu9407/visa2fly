@@ -1,32 +1,20 @@
-import { FormGroup, FormControl } from "@angular/forms";
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from "@angular/animations";
-import { ActivatedRoute, Router } from "@angular/router";
-import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
-import { VisaRequirementService } from "../visa-requirement.service";
-import { HomeFormComponent } from "../../home-form/home-form.component";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { LoginService } from "../../login-signup/login/login.service";
-import { PreloaderService } from "src/app/shared/preloader.service";
-import { RouterHistory } from "src/app/shared/router-history.service";
-import { RequirementsService } from "../../requirements/requirements.service";
-import { ToastService } from "src/app/shared/toast.service";
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ActivatedRoute, Router } from '@angular/router';
+import { VisaRequirementService } from '../visa-requirement.service';
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
+import { LoginService } from '../../login-signup/login/login.service';
+import { PreloaderService } from 'src/app/shared/preloader.service';
+import { RouterHistory } from 'src/app/shared/router-history.service';
+import { RequirementsService } from '../../requirements/requirements.service';
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
-  selector: "app-france",
-  templateUrl: "./france.component.html",
-  styleUrls: ["./france.component.css"],
+  selector: 'app-malaysia',
+  templateUrl: './malaysia.component.html',
+  styleUrls: ['./malaysia.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -44,29 +32,30 @@ export interface Food {
     ])
   ]
 })
-export class FranceComponent implements OnInit, AfterViewInit {
-  @ViewChild("t", { static: false }) t;
+export class MalaysiaComponent implements OnInit {
+  
+  @ViewChild("t", { static : false }) t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
 
-  // public selectedCountryType = "France";
+  // public selectedCountryType = "Malaysia";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
-  userControlDetail: any;
-  public MyQuotation: Array<any> = [];
-  public MyQuotation1: Array<any> = [];
-  public imagefield1: Array<any> = [];
-  public purposeChooseForm: FormGroup;
-  // public selectedPurpose = 'Tourist';
-  businessArr: Array<any> = [];
-  touristArr: Array<any> = [];
-  transitArr: Array<any> = [];
+  userControlDetail : any;
+  public MyQuotation : Array<any> = [];
+  public MyQuotation1 : Array<any> = [];
+  public imagefield1 : Array<any> = [];
+  public purposeChooseForm : FormGroup;
+  // public selectedPurpose = 'Tourist'; 
+  businessArr : Array<any> =[];
+  touristArr : Array<any> =[];
+  transitArr : Array<any> =[];
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "France";
+  public selectedCountrytype = 'Malaysia';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -87,7 +76,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
 
     this.activeRoute.params.subscribe((params: any) => {
       this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
+      // this.selectedCountryType = 'Malaysia';
       //  console.log(this.selectedCountryType);
     });
 
@@ -139,7 +128,8 @@ export class FranceComponent implements OnInit, AfterViewInit {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
@@ -151,7 +141,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-France-visa-online/" + purpose
+      "/visa-requirements/apply-for-Malaysia-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
@@ -198,7 +188,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-France-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Malaysia-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }
@@ -281,4 +271,5 @@ export class FranceComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
 }

@@ -377,11 +377,15 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Ethiopia-visa-online/', "" + purpose]);
             break;
           }
-          // case "Japan" : {
-          //   this.setDetailsOnLocalStorage();
-          //   this.router.navigate(['']);
-          //   break;
-          // }
+          case "Malaysia" : {
+            this.router.navigate(['visa-requirements/apply-for-Malaysia-visa-online/', "" + purpose]);
+            break;
+          }
+          case "United Arab Emirates" : {
+            this.router.navigate(['visa-requirements/apply-for-Dubai-visa-online/', "" + purpose]);
+            break;
+          }
+        
           default : {
             //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())

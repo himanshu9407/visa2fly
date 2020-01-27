@@ -30,6 +30,8 @@ import { CanDeactivateGuard } from "./shared/can-deactivate.service";
 import { SwitzerlandComponent } from "./components/visa-requirements/switzerland/switzerland.component";
 import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
 import { EthiopianComponent } from './components/visa-requirements/ethiopian/ethiopian.component';
+import { MalaysiaComponent } from './components/visa-requirements/malaysia/malaysia.component';
+import { DubaiComponent } from './components/visa-requirements/dubai/dubai.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -82,6 +84,15 @@ const routes: Routes = [
     path: "visa-requirements/apply-for-Ethiopia-visa-online/:purpose",
     component: EthiopianComponent 
   },
+  {
+    path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",
+    component: MalaysiaComponent 
+  }, 
+  {
+    path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
+    component: DubaiComponent
+  },
+
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }
 ];
