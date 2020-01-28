@@ -54,6 +54,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
   transitArr : Array<any> =[];
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
+  selectedVisaBusiness: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = 'Ethiopia';
 
@@ -177,6 +178,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
          this.MyQuotation1 = this.businessArr;
          this.selectedVisaType = 'Business';
          this.selectedBusiness = 1;
+         this.selectedVisaBusiness = 1;
          // console.log(this.MyQuotation1);
          //this.t.select("Business");
        }else
@@ -204,6 +206,12 @@ setActiveTourist(index: number) {
    this.selectedBusiness = index;
   //  console.log('business');
  }
+
+ setBusinessVisa(index: number) {
+  this.selectedVisaBusiness = index;
+ //  console.log('business');
+}
+
 
  setActiveTransit(index: number) {
   this.selectedTransit = index;

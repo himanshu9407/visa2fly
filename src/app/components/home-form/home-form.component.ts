@@ -381,15 +381,15 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Malaysia-visa-online/', "" + purpose]);
             break;
           }
-          case "United Arab Emirates" : {
+          case "Dubai" : {
             this.router.navigate(['visa-requirements/apply-for-Dubai-visa-online/', "" + purpose]);
             break;
           }
 
-          case "Maldives" : {
-            this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
-            break;
-          }
+          // case "Maldives" : {
+          //   this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
+          //   break;
+          // }
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();
           //   this.router.navigate(['']);
