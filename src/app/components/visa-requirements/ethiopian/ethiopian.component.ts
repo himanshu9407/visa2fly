@@ -218,7 +218,7 @@ setActiveTourist(index: number) {
   // console.log('business');
 }
 
-navigate(quoteId : string, purpose: string, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
+navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
                 
   this.preloaderService.showPreloader(true);
 
