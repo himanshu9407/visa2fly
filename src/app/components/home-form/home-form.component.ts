@@ -385,6 +385,8 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Dubai-visa-online/', "" + purpose]);
             break;
           }
+
+          
         
 
           case "Maldives" : {
