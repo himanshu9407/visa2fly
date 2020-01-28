@@ -386,9 +386,6 @@ export class HomeFormComponent {
             break;
           }
 
-          
-        
-
           case "Maldives" : {
             this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
             break;

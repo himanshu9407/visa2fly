@@ -196,7 +196,7 @@
         </div>
         <div class="col-lg-5 col-md-6 col-8">
           <form [formGroup]="purposeChooseForm">
-            <mat-form-field class="setWidth">
+            <!-- <mat-form-field class="setWidth">
               <mat-select (selectionChange)="purposeChanged()" formControlName="purposeSelected">
                 <mat-option value="Tourist">
                   Tourist
@@ -208,8 +208,43 @@
                   Transit
                 </mat-option>
               </mat-select>
-              <!-- {{selectedPurpose}} -->
-            </mat-form-field>
+            </mat-form-field> -->
+            <div class="select-box">
+              <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                    formControlName="purposeSelected" checked="checked" />
+                  <p class="select-box__input-text">Tourist</p>
+                </div>
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="Business" value="Business" name="purposeSelected"
+                    formControlName="purposeSelected" checked="checked" />
+                  <p class="select-box__input-text">Business</p>
+                </div>
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
+                    formControlName="purposeSelected" checked="checked" />
+                  <p class="select-box__input-text">Transit</p>
+                </div>
+                <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+                  aria-hidden="true" />
+                <!-- <i class="fa fa-sort-desc select-box__icon" aria-hidden="true"></i> -->
+              </div>
+              <ul class="select-box__list">
+                <li>
+                  <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                    aria-hidden="aria-hidden">Tourist</label>
+                </li>
+                <li>
+                  <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                    aria-hidden="aria-hidden">Business</label>
+                </li>
+                <li>
+                  <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                    aria-hidden="aria-hidden">Transit</label>
+                </li>
+              </ul>
+            </div>
           </form>
         </div>
       </div>
@@ -883,17 +918,17 @@
                       data-parent="#unitedkingdomAccordionTourist">
                       <div class="card-body">
                         <p>All Indian passport holders are eligible to apply for a China visa online. This visa is
-                        valid for most airports except the ones listed below. You need a visa if you have a
-                        layover at these airports :</p>
-                        
+                          valid for most airports except the ones listed below. You need a visa if you have a
+                          layover at these airports :</p>
+
                         <li>Mudanjiang Hailang Airport</li>
                         <li>Yanji Chaoyangchuan Airport</li>
                         <li>Fuzhou Changle Airport</li>
                         <li>Huangshan Tunxi Airport</li>
-                        
+
                         <p>At Urumqi Diwopu International Airport, Visa-free transit is applicable only for 2 hours
-                        and the traveler is not allowed to exit the airport. If the traveler is transiting Guangzhou
-                        via air, they will be issued the 24h transit visa under a qualified travel itinerary.</p>
+                          and the traveler is not allowed to exit the airport. If the traveler is transiting Guangzhou
+                          via air, they will be issued the 24h transit visa under a qualified travel itinerary.</p>
                       </div>
                     </div>
                   </div>
@@ -912,9 +947,11 @@
                       <div class="card-body">
                         <p><b>Validity :</b> number of months your visa is valid.</p>
 
-<p><b>Duration:</b> how many days you can stay in a country while your china visa is still valid</p>
+                        <p><b>Duration:</b> how many days you can stay in a country while your china visa is still valid
+                        </p>
 
-<p><b>Number of entries:</b> how many times you can enter the country land while your china visa is valid and you haven’t exhausted your duration days </p>
+                        <p><b>Number of entries:</b> how many times you can enter the country land while your china visa
+                          is valid and you haven’t exhausted your duration days </p>
                       </div>
                     </div>
                   </div>
@@ -1246,21 +1283,21 @@
                       </h5>
                     </div>
 
-                    <div id="unitedkingdomAccordionbusinessOne" class="collapse show" aria-labelledby="headingbusinessOne"
-                      data-parent="#unitedkingdomAccordionbusiness">
+                    <div id="unitedkingdomAccordionbusinessOne" class="collapse show"
+                      aria-labelledby="headingbusinessOne" data-parent="#unitedkingdomAccordionbusiness">
                       <div class="card-body">
                         <p>All Indian passport holders are eligible to apply for a China visa online. This visa is
-                        valid for most airports except the ones listed below. You need a visa if you have a
-                        layover at these airports :</p>
-                        
+                          valid for most airports except the ones listed below. You need a visa if you have a
+                          layover at these airports :</p>
+
                         <li>Mudanjiang Hailang Airport</li>
                         <li>Yanji Chaoyangchuan Airport</li>
                         <li>Fuzhou Changle Airport</li>
                         <li>Huangshan Tunxi Airport</li>
-                        
+
                         <p>At Urumqi Diwopu International Airport, Visa-free transit is applicable only for 2 hours
-                        and the traveler is not allowed to exit the airport. If the traveler is transiting Guangzhou
-                        via air, they will be issued the 24h transit visa under a qualified travel itinerary.</p>
+                          and the traveler is not allowed to exit the airport. If the traveler is transiting Guangzhou
+                          via air, they will be issued the 24h transit visa under a qualified travel itinerary.</p>
                       </div>
                     </div>
                   </div>
@@ -1279,9 +1316,11 @@
                       <div class="card-body">
                         <p><b>Validity :</b> number of months your visa is valid.</p>
 
-<p><b>Duration:</b> how many days you can stay in a country while your china visa is still valid</p>
+                        <p><b>Duration:</b> how many days you can stay in a country while your china visa is still valid
+                        </p>
 
-<p><b>Number of entries:</b> how many times you can enter the country land while your china visa is valid and you haven’t exhausted your duration days </p>
+                        <p><b>Number of entries:</b> how many times you can enter the country land while your china visa
+                          is valid and you haven’t exhausted your duration days </p>
                       </div>
                     </div>
                   </div>
@@ -1543,17 +1582,17 @@
                       data-parent="#unitedkingdomAccordiontransit">
                       <div class="card-body">
                         <p>All Indian passport holders are eligible to apply for a China visa online. This visa is
-                        valid for most airports except the ones listed below. You need a visa if you have a
-                        layover at these airports :</p>
-                        
+                          valid for most airports except the ones listed below. You need a visa if you have a
+                          layover at these airports :</p>
+
                         <li>Mudanjiang Hailang Airport</li>
                         <li>Yanji Chaoyangchuan Airport</li>
                         <li>Fuzhou Changle Airport</li>
                         <li>Huangshan Tunxi Airport</li>
-                        
+
                         <p>At Urumqi Diwopu International Airport, Visa-free transit is applicable only for 2 hours
-                        and the traveler is not allowed to exit the airport. If the traveler is transiting Guangzhou
-                        via air, they will be issued the 24h transit visa under a qualified travel itinerary.</p>
+                          and the traveler is not allowed to exit the airport. If the traveler is transiting Guangzhou
+                          via air, they will be issued the 24h transit visa under a qualified travel itinerary.</p>
                       </div>
                     </div>
                   </div>
@@ -1572,9 +1611,11 @@
                       <div class="card-body">
                         <p><b>Validity :</b> number of months your visa is valid.</p>
 
-<p><b>Duration:</b> how many days you can stay in a country while your china visa is still valid</p>
+                        <p><b>Duration:</b> how many days you can stay in a country while your china visa is still valid
+                        </p>
 
-<p><b>Number of entries:</b> how many times you can enter the country land while your china visa is valid and you haven’t exhausted your duration days </p>
+                        <p><b>Number of entries:</b> how many times you can enter the country land while your china visa
+                          is valid and you haven’t exhausted your duration days </p>
                       </div>
                     </div>
                   </div>

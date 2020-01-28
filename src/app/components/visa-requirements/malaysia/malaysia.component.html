@@ -187,7 +187,7 @@
   </div>
 </div>
 
-<!-- <div class="container-fluid wrapContainer">
+<div class="container-fluid wrapContainer">
   <div class="row">
     <div class="col-md-5">
       <div class="row">
@@ -196,25 +196,46 @@
         </div>
         <div class="col-lg-5 col-md-6 col-8">
           <form [formGroup]="purposeChooseForm">
-            <mat-form-field class="setWidth">
-              <mat-select (selectionChange)="purposeChanged()" formControlName="purposeSelected">
-                <mat-option value="Tourist">
-                  Tourist
-                </mat-option>
-                <mat-option value="Business">
-                  Business
-                </mat-option>
-                <mat-option value="Transit">
-                  Transit
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+            <div class="select-box">
+              <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected" formControlName="purposeSelected"
+                    checked="checked" />
+                  <p class="select-box__input-text">Tourist</p>
+                </div>
+                <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="Business" value="Business" name="purposeSelected" formControlName="purposeSelected"
+                    checked="checked" />
+                  <p class="select-box__input-text">Business</p>
+                </div>
+                <!-- <div class="select-box__value">
+                  <input class="select-box__input" type="radio" id="2" value="3" name="purposeSelected" checked="checked" />
+                  <p class="select-box__input-text">Milk</p>
+                </div> -->
+                <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+                  aria-hidden="true" />
+                <!-- <i class="fa fa-sort-desc select-box__icon" aria-hidden="true"></i> -->
+              </div>
+              <ul class="select-box__list">
+                <li>
+                  <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                    aria-hidden="aria-hidden">Tourist</label>
+                </li>
+                <li>
+                  <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                    aria-hidden="aria-hidden">Business</label>
+                </li>
+                <!-- <li>
+                  <label class="select-box__option" style="margin-bottom: 0px;" for="2" aria-hidden="aria-hidden">Milk</label>
+                </li> -->
+              </ul>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- <div class="container-fluid wrapContainer mobileView">
     <div class="row">
@@ -235,8 +256,7 @@
     </div>
   </div> -->
 
-
-<!-- <div class="container-fluid wrapContainer">
+<div class="container-fluid wrapContainer">
   <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
 
@@ -284,7 +304,7 @@
     </div>
 
   </div>
-</div> -->
+</div>
 
 <div class="container-fluid wrapContainer">
   <div class="iconSection">
@@ -758,7 +778,7 @@
                         <li>Confirmed air tickets (onward & return.</li>
                         <li>Complete travel itinerary</li>
                         <li>Adequate funding to cover any expenses during your stay in Malaysia
-                        (This could be in the form of cash/credit cards/ATM cards).</li>
+                          (This could be in the form of cash/credit cards/ATM cards).</li>
                         <li>Proof of accommodation (hotel bookings etc.)</li>
                       </div>
                     </div>
@@ -849,8 +869,8 @@
                       <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne"
                         aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
-                          alt="Passport" style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
@@ -902,8 +922,8 @@
                       <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
                         data-target="#businessThree" aria-expanded="false" aria-controls="businessThree"
                         [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Government ID card.png" alt="Government ID card"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Government ID card.png"
+                          alt="Government ID card" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Government ID card</h2>
                       </div>
                     </ng-template>
@@ -980,8 +1000,8 @@
                       <div class="collapsed" id="#businessHeadingSix" data-toggle="collapse" data-target="#businessSix"
                         aria-expanded="false" aria-controls="businessSix" [class.showDiv]="selectedBusiness === 6"
                         (click)="setActiveBusiness(6)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Cover Letter.png" alt="Cover Letter"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Cover Letter.png"
+                          alt="Cover Letter" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Cover Letter</h2>
                       </div>
 
@@ -994,7 +1014,7 @@
                             <h1 class="requiredIconHeading">Cover Letter</h1>
                             <p>
                               This is a cover letter from the organization on letterhead stating the purpose
-of visit and duration of stay.
+                              of visit and duration of stay.
                             </p>
                           </div>
                         </div>
@@ -1006,8 +1026,8 @@ of visit and duration of stay.
                       <div class="collapsed" id="#businessHeadingSeven" data-toggle="collapse"
                         data-target="#businessSeven" aria-expanded="false" aria-controls="businessSeven"
                         [class.showDiv]="selectedBusiness === 7" (click)="setActiveBusiness(7)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="Invitation Letter"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png"
+                          alt="Invitation Letter" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Invitation Letter</h2>
                       </div>
                     </ng-template>
@@ -1061,8 +1081,8 @@ of visit and duration of stay.
                       <div data-toggle="collapse" id="#businessHeadingNine" data-target="#businessNine"
                         aria-expanded="true" aria-controls="businessNine" [class.showDiv]="selectedBusiness === 9"
                         (click)="setActiveBusiness(9)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
-                          alt="Passport" style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Additional Documents</h2>
                       </div>
                     </ng-template>
@@ -1082,26 +1102,26 @@ of visit and duration of stay.
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                    
+
                     </ng-template>
                     <ng-template ngbTabContent>
-                     
+
                     </ng-template>
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      
+
                     </ng-template>
                     <ng-template ngbTabContent>
-                     
+
                     </ng-template>
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                   
+
                     </ng-template>
                     <ng-template ngbTabContent>
-                    
+
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
@@ -1119,8 +1139,8 @@ of visit and duration of stay.
                       <div data-toggle="collapse" data-target="#businessMobileOne" aria-expanded="true"
                         aria-controls="businessMobileOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
-                          alt="Passport" style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Passport"
+                          style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
@@ -1177,8 +1197,8 @@ of visit and duration of stay.
                       <div data-toggle="collapse" data-target="#businessMobileThree" aria-expanded="true"
                         aria-controls="businessMobileThree" [class.showDiv]="selectedBusiness === 3"
                         (click)="setActiveBusiness(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Government ID card.png" alt="Government ID card"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Government ID card.png"
+                          alt="Government ID card" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Government ID card</h2>
                       </div>
                     </ng-template>
@@ -1233,8 +1253,8 @@ of visit and duration of stay.
                       <div data-toggle="collapse" data-target="#businessMobileFive" aria-expanded="true"
                         aria-controls="businessMobileFive" [class.showDiv]="selectedBusiness === 5"
                         (click)="setActiveBusiness(5)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="Bank Statement"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png"
+                          alt="Bank Statement" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Bank Statement</h2>
                       </div>
                     </ng-template>
@@ -1272,7 +1292,7 @@ of visit and duration of stay.
                             <h1 class="requiredIconHeading">Cover Letter</h1>
                             <p>
                               This is a cover letter from the organization on letterhead stating the purpose
-of visit and duration of stay.
+                              of visit and duration of stay.
                             </p>
                           </div>
                         </div>
@@ -1290,8 +1310,8 @@ of visit and duration of stay.
                       <div data-toggle="collapse" data-target="#businessMobileSeven" aria-expanded="true"
                         aria-controls="businessMobileSeven" [class.showDiv]="selectedBusiness === 7"
                         (click)="setActiveBusiness(7)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="Invitation Letter"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png"
+                          alt="Invitation Letter" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Invitation Letter</h2>
                       </div>
                     </ng-template>
@@ -1347,8 +1367,8 @@ of visit and duration of stay.
                       <div data-toggle="collapse" data-target="#businessMobileNine" aria-expanded="true"
                         aria-controls="businessMobileNine" [class.showDiv]="selectedBusiness === 9"
                         (click)="setActiveBusiness(9)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Additional Documents.png" alt="Additional Documents"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Additional Documents.png"
+                          alt="Additional Documents" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Additional Documents</h2>
                       </div>
                     </ng-template>
@@ -1370,10 +1390,10 @@ of visit and duration of stay.
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      
+
                     </ng-template>
                     <ng-template ngbTabContent>
-                     
+
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
