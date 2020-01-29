@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserFlowDetails } from './user-flow-details.service';
 import { LoginService } from '../components/login-signup/login/login.service';
+import { isPlatformBrowser } from '@angular/common';
+
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +14,7 @@ export class LoginStatusService {
     isAuthenticated :boolean = false;
 
     constructor( private http : HttpClient, private userFlow : UserFlowDetails,
-        private loginService:  LoginService){}
+        private loginService:  LoginService, @Inject(PLATFORM_ID) private platformId: Object){}
 
     public subject = new  Subject<any>();
     public subject1 = new Subject<any>();
@@ -36,12 +38,15 @@ export class LoginStatusService {
     }
 
     setUserLoggedIn(status: boolean) {
-        localStorage.setItem("userLoggedIn",""+status);
+        if (isPlatformBrowser(this.platformId)) {
+            localStorage.setItem("userLoggedIn",""+status);
+        }
     }
 
     getUserLoggedIn() {
+        if (isPlatformBrowser(this.platformId)) {
         return JSON.parse(localStorage.getItem("userLoggedIn"));
-    }
+    }}
 
 
     verifyAuthToken (authToken : string) {

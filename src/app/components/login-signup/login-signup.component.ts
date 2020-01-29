@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import * as $ from 'jquery';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+
 @Component({
   selector: 'app-login-signup',
   templateUrl: './login-signup.component.html',
@@ -8,7 +10,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class LoginSignupComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute, private router : Router) {
+  constructor(private route : ActivatedRoute, private router : Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+    ) {
 
    }
 public show_login:boolean = false;
@@ -48,6 +52,7 @@ $('#SignUp').css("border-radius","20px 0px 0px 20px");
     this.show_login = true;
     }
   this.show_signup = false;
+  if (isPlatformBrowser(this.platformId)) {
   $('#SignUp').css("border-radius","20px 0px 0px 20px");
 
   $('#SignUp').removeClass('signup-capsule');
@@ -55,7 +60,7 @@ $('#SignUp').css("border-radius","20px 0px 0px 20px");
   $('#Login').removeClass('login-capsule');
   $('#Login').addClass('signup-capsule');
   $('#Login').css("border-radius","0px 20px 20px 0px");
-
+  }
 
 
   }

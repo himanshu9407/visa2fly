@@ -44,6 +44,10 @@ export class ProfileComponent implements OnInit {
         
       });
 
+      setTimeout(() => {
+        this.preloaderService.showPreloader(false);
+      }, 4000);
+
     
   
   
@@ -52,7 +56,6 @@ export class ProfileComponent implements OnInit {
           if (data.code == "0") {
             this.profile = data.data.profile;
             // console.log(this.profile.firstName);
-            // this.preloaderService.showPreloader(false);
 
             this.profileForm.setValue({
               'title' : this.profile.title,
@@ -75,14 +78,25 @@ export class ProfileComponent implements OnInit {
               this.profileForm.get('pinCode').updateValueAndValidity();
               this.profileForm.updateValueAndValidity();
             }
+
+            // setTimeout(() => {
+            //   this.preloaderService.showPreloader(false);
+            // }, 2000);
           }
           else {
             this.router.navigate(['visa']);
             // this.preloaderService.showPreloader(false);
           }
+
+          // setTimeout(() => {
+          //   this.preloaderService.showPreloader(false);
+          // }, 2000);
+
+
         }
       )
 
+     
         // console.log("hello worold");
      
      }
@@ -95,9 +109,7 @@ export class ProfileComponent implements OnInit {
       day: current.getDate()
     };
 
-    setTimeout(() => {
-      this.preloaderService.showPreloader(false);
-    }, 2000);
+   
  
   }
 

@@ -187,7 +187,7 @@
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-12">
                                         <img data-src="https://static.visa2fly.com/assets/text-document.webp" alt="text-document icon"
-                                            class="img-fluid mgTop" style="height: 30px; width: 30px;" />
+                                            class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-12 diffMg2">
                                         <h5 class="visaStepMainPoint">Book Online</h5>
@@ -202,7 +202,7 @@
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-12 ">
                                         <img src="https://static.visa2fly.com/assets/checked-files.webp" alt="checked-files icon"
-                                            class="img-fluid mgTop" style="height: 30px; width: 30px;" />
+                                            class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-12 diffMg2">
                                         <h5 class="visaStepMainPoint">
@@ -221,7 +221,7 @@
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-12 ">
                                         <img data-src="https://static.visa2fly.com/assets/time-left.webp" alt="time-left icon"
-                                            class="img-fluid mgTop" style="height: 30px; width: 30px;" />
+                                            class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-12 diffMg2">
                                         <h5 class="visaStepMainPoint">
@@ -239,7 +239,7 @@
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-12">
                                         <img data-src="https://static.visa2fly.com/assets/passport1.webp" alt="passport icon"
-                                            class="img-fluid mgTop" style="height: 30px; width: 30px;" />
+                                            class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-12 diffMg2">
                                         <h5 class="visaStepMainPoint">
@@ -272,7 +272,7 @@
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-12">
                                         <img data-src="https://static.visa2fly.com/assets/file.webp" alt="file icon"
-                                            class="img-fluid mgTop" style="height: 30px; width: 30px;" />
+                                            class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-12 diffMg2">
                                         <h5 class="visaStepMainPoint">Upload Document</h5>
@@ -287,7 +287,7 @@
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-12 ">
                                         <img data-src="https://static.visa2fly.com/assets/credit.webp" alt="credit icon"
-                                            class="img-fluid mgTop" style="height: 30px; width: 30px;" />
+                                            class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-12 diffMg2">
                                         <h5 class="visaStepMainPoint">
@@ -496,7 +496,7 @@
 
                         <div class="parent ng-scope active">
                             <img class="img-fluid requiredIcon lazyload"
-                                data-src="https://static.visa2fly.com/icon/{{item.fieldName}}.webp" [alt]="item.fieldName"
+                                data-src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" [alt]="item.fieldName"
                                 style="height: 45px; margin-bottom: 10px;" />
                             <p>{{item.fieldName}}</p>
                         </div>
@@ -504,8 +504,7 @@
 
                 </div>
 
-                <div [@inOutAnimation] *ngIf="mobileShowRequirementsDetailArr[i]" id="innerwrap" class="innerWrap"
-                    style="">
+                <div [@inOutAnimation] *ngIf="mobileShowRequirementsDetailArr[i]" id="innerwrap" class="innerWrap">
                     <h1 style="color: navy">{{mobileSelectedDataArr[i].fieldName}}</h1>
                     <p>
                         {{mobileSelectedDataArr[i].content}}

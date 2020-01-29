@@ -114,7 +114,7 @@ import { MaldivesComponent } from './components/visa-requirements/maldives/maldi
     MaldivesComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

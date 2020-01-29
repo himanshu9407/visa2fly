@@ -1,5 +1,5 @@
 import { element } from "protractor";
-import { Component, OnInit, ɵConsole } from "@angular/core";
+import { Component, OnInit, ɵConsole, PLATFORM_ID, Inject } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { HomeServiceService } from "../../home-service.service";
 import { requirementData } from "../../interfaces/requirement";
@@ -13,6 +13,7 @@ import { LoginService } from "../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: "app-requirements",
@@ -33,6 +34,8 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class RequirementsComponent implements OnInit {
   public regData: requirementData;
+  public fieldName: string;
+
 
   requirement: requirementData = {
     code: "0",
@@ -160,7 +163,8 @@ export class RequirementsComponent implements OnInit {
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
     // console.log(this.userFlowDetails);
@@ -180,7 +184,8 @@ export class RequirementsComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        // console.log(data);
+        console.log(data);
+        if (isPlatformBrowser(this.platformId)) {
         if (data.code == "0") {
           // this.preloaderService.showPreloader(false);
           this.requirementsData = data;
@@ -352,6 +357,7 @@ export class RequirementsComponent implements OnInit {
 
           // console.log(this.selectedDataArr);
         }
+      }
       });
   }
 
