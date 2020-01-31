@@ -88,7 +88,7 @@ export class MalaysiaComponent implements OnInit {
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        // console.log(res);
+        console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
           this.userFlow.setUserFlowDetails(
