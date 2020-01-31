@@ -370,7 +370,7 @@ export class AddTravellerComponent implements OnInit {
 
       this.minDatePassportExpiry = {
         year: current.getFullYear(),
-        month: current.getMonth() + 6,
+        month: current.getMonth() + 7,
         day: current.getDate()
       };
     }
