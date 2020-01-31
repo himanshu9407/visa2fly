@@ -93,10 +93,10 @@ const routes: Routes = [
     path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
     component: DubaiComponent
   },
-// {
-//     path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
-//     component:  MaldivesComponent
-//   },
+{
+    path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
+    component:  MaldivesComponent
+  },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }
 ];
