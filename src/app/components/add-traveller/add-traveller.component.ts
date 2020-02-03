@@ -553,6 +553,7 @@ export class AddTravellerComponent implements OnInit {
       this.travelDateError = false;
     }
   }
+
   checkDateOfCollection() {
     if (!this.onlineCategory) {
       if (
@@ -875,18 +876,6 @@ export class AddTravellerComponent implements OnInit {
     // });
   }
 
-  // showWarning (item : boolean){
-
-  //   let modalWarning = (<any>document.getElementById('modalWarning')).value;
-
-  //   if(item && modalWarning ) {
-  //     return true;
-  //   }
-  //   else {
-  //     return false;
-  //   }
-  // }
-
   goToHome() {
     var modal = document.getElementById("exampleModal1");
 
@@ -895,6 +884,7 @@ export class AddTravellerComponent implements OnInit {
     modal.classList.add("fade");
     // this.router.navigate(['visa']);
   }
+
   setAddressSame(i: number) {
     // let same = form.get('addressForPickupSame').value;
     let form = (<FormArray>this.travellerForm.get("travellers")).controls[i];
@@ -963,10 +953,6 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  callMe() {
-    // console.log("hellow orld");
-  }
-
   removeTraveller(index: number) {
     let temp = this.travellerForm.get("travellers") as FormArray;
     temp.removeAt(index);
@@ -1021,6 +1007,15 @@ export class AddTravellerComponent implements OnInit {
         "Please fill in existing traveller details first",
         4000
       );
+
+      window.scrollTo({
+        top: 300,
+        left: 0,
+        behavior: "smooth"
+      });
+
+      
+      
     } else {
       if (this.count <= 9) {
         this.count = this.count + 1;
@@ -1091,16 +1086,16 @@ export class AddTravellerComponent implements OnInit {
       } else {
         // console.log("3");
         // this.router.navigateByUrl('/addTraveller');
-        window.history.replaceState("", "", "/addTraveller") ;
+        // window.history.replaceState("", "", "/addTraveller");
         return true;
       }
     }
   }
 
-  @HostListener("window:beforeunload", ["$event"])
-  unloadNotification($event: any) {
-    if (this.canDeactivate()) {
-      $event.returnValue = true;
-    }
-  }
+  // @HostListener("window:beforeunload", ["$event"])
+  // unloadNotification($event: any) {
+  //   if (this.canDeactivate()) {
+  //     $event.returnValue = true;
+  //   }
+  // }
 }
