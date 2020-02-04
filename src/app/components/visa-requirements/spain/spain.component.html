@@ -1382,79 +1382,18 @@
                             </div>
                         </div>
 
-                        <div class="row mt-4">
-                            <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                <ngb-tab>
-                                    <ng-template ngbTabTitle>
-                                        <div data-toggle="collapse" data-target="#businessThirteen" aria-expanded="true" aria-controls="businessThirteen" [class.showDiv]="selectedBusiness === 13" (click)="setActiveBusiness(13)">
-                                            <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="Invitation Letter" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                                            <h2 class="setFontSize">Invitation Letter</h2>
-                                        </div>
-                                    </ng-template>
-                                    <ng-template ngbTabContent>
-                                        <div id="businessThirteen" class="collapse" aria-labelledby="businessThirteen" data-parent="#businessAccodion">
-                                            <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                                                <div class="card-body">
-                                                    <h1 class="requiredIconHeading">Invitation Letter
-                                                    </h1>
-                                                    <p>
-                                                        An official invitation letter from the Spanish 
-                                                        company/ organization that reflects the name 
-                                                        and passport number of the applicant, the purpose 
-                                                        of visit, whether the expenses of the travel and 
-                                                        accommodation are paid by the applicant/organizers, 
-                                                        and involvement of the applicant in the event. Corporate 
-                                                        participants require an additional letter from the 
-                                                        applicant’s company that states the names of all 
-                                                        employees that are traveling to Spain. 
-                                                    </p>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ng-template>
-                                </ngb-tab>
-                                <ngb-tab>
-                                    <ng-template ngbTabTitle>
-                                        
-                                    </ng-template>
-                                    <ng-template ngbTabContent>
-                                       
-                                    </ng-template>
-                                </ngb-tab>
-                                <ngb-tab>
-                                    <ng-template ngbTabTitle>
-                                        
-                                    </ng-template>
-                                    <ng-template ngbTabContent>
-                                       
-                                    </ng-template>
-                                </ngb-tab>
-                                <ngb-tab>
-                                    <ng-template ngbTabTitle>
-                                        
-                                    </ng-template>
-                                    <ng-template ngbTabContent>
-                                        
-                                    </ng-template>
-                                </ngb-tab>
-                            </ngb-tabset>
-                        </div>
-                    </div>
-
-                        <!-- mobileContainer -->
-                        <div class="mobileContainer accordion" id="touristAccodionMobile">
+                        <div class="mobileContainer accordion" id="businessAccodionMobile">
                             <div class="row mt-4">
                                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true" aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1" (click)="setActiveBusiness(1)">
+                                            <div data-toggle="collapse" data-target="#businessMobileOne" aria-expanded="true" aria-controls="businessMobileOne" [class.showDiv]="selectedBusiness === 1" (click)="setActiveBusiness(1)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="Form" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Form</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileOne" class="collapsed" aria-labelledby="headingMobileOne" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileOne" class="collapsed" aria-labelledby="headingMobileOne" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Form</h1>
@@ -1473,13 +1412,13 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true" aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2" (click)="setActiveBusiness(2)">
+                                            <div data-toggle="collapse" data-target="#businessMobileTwo" aria-expanded="true" aria-controls="businessMobileTwo" [class.showDiv]="selectedBusiness === 2" (click)="setActiveBusiness(2)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Passport</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileTwo" class="collapse" aria-labelledby="headingMobileTwo" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileTwo" class="collapse" aria-labelledby="headingMobileTwo" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Passport</h1>
@@ -1505,13 +1444,13 @@
                                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true" aria-controls="touristMobileThree" [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
+                                            <div data-toggle="collapse" data-target="#businessMobileThree" aria-expanded="true" aria-controls="businessMobileThree" [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Photograph" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Photograph</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileThree" class="collapse" aria-labelledby="headingMobileThree" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileThree" class="collapse" aria-labelledby="headingMobileThree" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Photograph
@@ -1530,13 +1469,13 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true" aria-controls="touristMobileFour" [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
+                                            <div data-toggle="collapse" data-target="#businessMobileFour" aria-expanded="true" aria-controls="businessMobileFour" [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png" alt="Flight Tickets" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Flight Tickets</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileFour" class="collapse" aria-labelledby="headingMobileFour" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Flight Tickets
@@ -1556,13 +1495,13 @@
                                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true" aria-controls="touristMobileFive" [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5)">
+                                            <div data-toggle="collapse" data-target="#businessMobileFive" aria-expanded="true" aria-controls="businessMobileFive" [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="Hotel Reservation" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Hotel Reservation</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileFive" class="collapse" aria-labelledby="headingMobileFive" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileFive" class="collapse" aria-labelledby="headingMobileFive" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Hotel Reservation
@@ -1577,13 +1516,13 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true" aria-controls="touristMobileSix" [class.showDiv]="selectedBusiness === 6" (click)="setActiveBusiness(6)">
+                                            <div data-toggle="collapse" data-target="#businessMobileSix" aria-expanded="true" aria-controls="businessMobileSix" [class.showDiv]="selectedBusiness === 6" (click)="setActiveBusiness(6)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png" alt="Travel Insurance" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Travel Insurance</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileSix" class="collapse" aria-labelledby="headingMobileSix" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileSix" class="collapse" aria-labelledby="headingMobileSix" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body">
                                                         <h1 class="requiredIconHeading">Travel Insurance
@@ -1605,13 +1544,13 @@
                                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true" aria-controls="touristMobileSeven" [class.showDiv]="selectedBusiness === 7" (click)="setActiveBusiness(7)">
+                                            <div data-toggle="collapse" data-target="#businessMobileSeven" aria-expanded="true" aria-controls="businessMobileSeven" [class.showDiv]="selectedBusiness === 7" (click)="setActiveBusiness(7)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Cover Letter.png" alt="Cover Letter" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Cover Letter</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileSeven" class="collapse" aria-labelledby="headingMobileSeven" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileSeven" class="collapse" aria-labelledby="headingMobileSeven" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Cover Letter
@@ -1626,13 +1565,13 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true" aria-controls="touristMobileEight" [class.showDiv]="selectedBusiness === 8" (click)="setActiveBusiness(8)">
+                                            <div data-toggle="collapse" data-target="#businessMobileEight" aria-expanded="true" aria-controls="businessMobileEight" [class.showDiv]="selectedBusiness === 8" (click)="setActiveBusiness(8)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="Travel Itinerary" style="height: 45px; margin-bottom: 10px;" />
                                                 <h2 class="setFontSize">Travel Itinerary</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileEight" class="collapse" aria-labelledby="headingMobileEight" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileEight" class="collapse" aria-labelledby="headingMobileEight" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Travel Itinerary</h1>
@@ -1652,13 +1591,13 @@
                                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileNine" aria-expanded="true" aria-controls="touristMobileNine" [class.showDiv]="selectedBusiness === 9" (click)="setActiveBusiness(9)">
+                                            <div data-toggle="collapse" data-target="#businessMobileNine" aria-expanded="true" aria-controls="businessMobileNine" [class.showDiv]="selectedBusiness === 9" (click)="setActiveBusiness(9)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Residence.png" alt="Proof Of Civil Status" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                                                 <h2 class="setFontSize">Proof Of Civil Status</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileNine" class="collapse" aria-labelledby="headingMobileNine" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileNine" class="collapse" aria-labelledby="headingMobileNine" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Proof Of Civil Status
@@ -1673,13 +1612,13 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileTen" aria-expanded="true" aria-controls="touristMobileTen" [class.showDiv]="selectedBusiness === 10" (click)="setActiveBusiness(10)">
+                                            <div data-toggle="collapse" data-target="#businessMobileTen" aria-expanded="true" aria-controls="businessMobileTen" [class.showDiv]="selectedBusiness === 10" (click)="setActiveBusiness(10)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/euro.png" alt="Foreign Exchange" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                                                 <h2 class="setFontSize">Foreign Exchange</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileTen" class="collapse" aria-labelledby="headingMobileNine" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileTen" class="collapse" aria-labelledby="headingMobileNine" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Foreign Exchange</h1>
@@ -1698,13 +1637,13 @@
                                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileEleven" aria-expanded="true" aria-controls="touristMobileEleven" [class.showDiv]="selectedBusiness === 11" (click)="setActiveBusiness(11)">
+                                            <div data-toggle="collapse" data-target="#businessMobileEleven" aria-expanded="true" aria-controls="businessMobileEleven" [class.showDiv]="selectedBusiness === 11" (click)="setActiveBusiness(11)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Status.png" alt="Employment Status" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                                                 <h2 class="setFontSize">Evidence Of Employment Status</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileEleven" class="collapse" aria-labelledby="headingMobileEleven" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileEleven" class="collapse" aria-labelledby="headingMobileEleven" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Evidence Of Employment Status
@@ -1727,13 +1666,13 @@
                                     </ngb-tab>
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileTwelve" aria-expanded="true" aria-controls="touristMobileTwelve" [class.showDiv]="selectedBusiness === 12" (click)="setActiveBusiness(12)">
+                                            <div data-toggle="collapse" data-target="#businessMobileTwelve" aria-expanded="true" aria-controls="businessMobileTwelve" [class.showDiv]="selectedBusiness === 12" (click)="setActiveBusiness(12)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Minor.png" alt="For Minors" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                                                 <h2 class="setFontSize">For Minors</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileTwelve" class="collapse" aria-labelledby="headingMobileTwelve" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileTwelve" class="collapse" aria-labelledby="headingMobileTwelve" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">For Minors</h1>
@@ -1754,13 +1693,13 @@
                                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileThirteen" aria-expanded="true" aria-controls="touristMobileThirteen" [class.showDiv]="selectedBusiness === 13" (click)="setActiveBusiness(13)">
+                                            <div data-toggle="collapse" data-target="#businessMobileThirteen" aria-expanded="true" aria-controls="businessMobileThirteen" [class.showDiv]="selectedBusiness === 13" (click)="setActiveBusiness(13)">
                                                 <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="Invitation Letter" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                                                 <h2 class="setFontSize">Invitation Letter</h2>
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
-                                            <div id="touristMobileThirteen" class="collapse" aria-labelledby="headingMobileThirteen" data-parent="#touristAccodionMobile">
+                                            <div id="businessMobileThirteen" class="collapse" aria-labelledby="headingMobileThirteen" data-parent="#businessAccodionMobile">
                                                 <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                                                     <div class="card-body" style="padding: 10px">
                                                         <h1 class="requiredIconHeading">Invitation Letter
@@ -1790,7 +1729,13 @@
                                     </ngb-tab>
                                 </ngb-tabset>
                             </div>
+                        </div>
+
+                      
                     </div>
+
+                        <!-- mobileContainer -->
+                       
 
 
                     
