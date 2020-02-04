@@ -2,8 +2,9 @@ import {
   Component,
   OnInit,
   ViewChild,
-  Input
+  Input,  Injectable, PLATFORM_ID, Inject
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {
   Router
 } from '@angular/router';
@@ -168,7 +169,8 @@ export class HomeFormComponent {
   constructor(private router: Router, private httpClient: HttpClient,
     private homeFormService: HomeFormService, private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService, private authService: AuthenticationGuard,
-    private loginStatus: LoginStatusService, private loginService: LoginService) {
+    private loginStatus: LoginStatusService, private loginService: LoginService,
+    @Inject(PLATFORM_ID) private platformId: Object) {
 
     this.preloaderService.showPreloader(true);
 
@@ -190,9 +192,9 @@ export class HomeFormComponent {
 
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
+        if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
        // console.log(this.homeFormData);
-        
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
@@ -203,7 +205,7 @@ export class HomeFormComponent {
         }
         else {
           this.country.setValue(activeCountry);
-          localStorage.setItem("activeCountry", "");
+            localStorage.setItem("activeCountry", "");
           // console.log("here 2");
         }
         if(popularCountry == ""  || popularCountry == undefined || popularCountry == null) {
@@ -214,13 +216,14 @@ export class HomeFormComponent {
         }
         else {
           this.country.setValue(popularCountry);
-          localStorage.setItem("popularCountry", "");
+            localStorage.setItem("popularCountry", "");
          // console.log("here 4");
         }
 
-        localStorage.setItem("countryList",JSON.stringify(data.data.countries));
+          localStorage.setItem("countryList",JSON.stringify(data.data.countries));
        // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
+      }
       });
 
   }

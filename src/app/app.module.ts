@@ -116,7 +116,7 @@ import { SpainComponent } from './components/visa-requirements/spain/spain.compo
     SpainComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

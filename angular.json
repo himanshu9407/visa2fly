@@ -22,7 +22,8 @@
             "assets": [
               "src/favicon.png",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/styles.css"
@@ -98,7 +99,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+	      "src/sitemap.xml"
             ]
           }
         },
@@ -114,7 +116,29 @@
             ]
           }
         },
-       
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/visa-App-server",
+            "main": "server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
+          }
+        },
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
@@ -170,5 +194,5 @@
       }
     }
   },
-  "defaultProject": "visa-App"
+  "defaultProject": "visa-App/browser"
 }

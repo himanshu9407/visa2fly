@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
 import { LoginService } from "../login-signup/login/login.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LogoutService } from "src/app/shared/logout.service";
@@ -9,6 +9,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { CanDeactivateGuard } from "src/app/shared/can-deactivate.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: "app-header",
@@ -31,7 +32,8 @@ export class HeaderComponent implements OnInit {
     private preloaderService: PreloaderService,
     private userFlowDetails: UserFlowDetails,
     private deactivate: CanDeactivateGuard,
-    private routerHistory: RouterHistory
+    private routerHistory: RouterHistory,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit() {
@@ -64,8 +66,9 @@ export class HeaderComponent implements OnInit {
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
 
     //  console.log(this.userLoggedIn);
-
+    if (isPlatformBrowser(this.platformId)) {
     this.userDetails = JSON.parse(localStorage.getItem("profile"));
+    }
     // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 
@@ -76,9 +79,11 @@ export class HeaderComponent implements OnInit {
     this.loginStatus.getProfileData().subscribe(profile => {
       this.userDetails = profile;
     });
+    
   }
 
   logoutUser() {
+    if (isPlatformBrowser(this.platformId)) {
     this.preloaderService.showPreloader(true);
     // console.log("logout called");
     this.toogleDropdown();
@@ -116,6 +121,7 @@ export class HeaderComponent implements OnInit {
       err => {}
     );
   }
+}
 
   toogleDropdown() {
     this.showDropDown = !this.showDropDown;
