@@ -33,6 +33,7 @@ import { EthiopianComponent } from './components/visa-requirements/ethiopian/eth
 import { MalaysiaComponent } from './components/visa-requirements/malaysia/malaysia.component';
 import { DubaiComponent } from './components/visa-requirements/dubai/dubai.component';
 import { MaldivesComponent } from './components/visa-requirements/maldives/maldives.component';
+import { SpainComponent } from './components/visa-requirements/spain/spain.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -96,6 +97,10 @@ const routes: Routes = [
 {
     path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
     component:  MaldivesComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Spain-visa-online/:purpose",
+    component:  SpainComponent
   },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }

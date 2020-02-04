@@ -390,6 +390,10 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
             break;
           }
+          case "Spain" : {
+            this.router.navigate(['visa-requirements/apply-for-Spain-visa-online/', "" + purpose]);
+            break;
+          }
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();
           //   this.router.navigate(['']);
@@ -398,7 +402,7 @@ export class HomeFormComponent {
           default : {
             //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())
-            this.router.navigate(['visa-requirement/',   country1,purpose]);
+            this.router.navigate(['visa-requirement/', "" + country1,purpose]);
           }
         }      
     }
