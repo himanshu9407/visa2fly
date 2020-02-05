@@ -58,7 +58,7 @@ const routes: Routes = [
     // canDeactivate: [CanDeactivateGuard]
   },
   { path: "freeVisa", component: FreeVisaComponent },
-  { path: "visOnArrival", component: VisaArrivalComponent },
+  { path: "visaOnArrival", component: VisaArrivalComponent },
   { path: "visaArrival", component: VisaArrivalComponent },
   { path: "sim", component: SimComponent },
   { path: "sim/simplans", component: SimplansComponent },
