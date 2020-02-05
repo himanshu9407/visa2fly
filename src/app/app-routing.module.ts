@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: "slcontainer/:form", component: LoginSignupComponent },
   { path: "profile", component: ProfileComponent },
   {
-    path: "visa-requirement/:country/:purpose",
+    path: "visa-requirements/:country/:variable/:purpose",
     component: RequirementsComponent
   },
   {

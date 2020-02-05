@@ -1033,6 +1033,8 @@ export class AddTravellerComponent implements OnInit {
         this.travellers = this.travellerForm.get("travellers") as FormArray;
         this.travellers.push(this.createTraveller());
 
+        //console.log(this.travellers);
+
         // for (let i = 0; i < this.imageUploads.length; i++) {
 
         //   this.filedNameArr.push(this.imageUploads[i].fieldName);
