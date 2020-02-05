@@ -70,36 +70,36 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard]
   },
   {
-    path: "visa-requirements/apply-for-UK-visa-online/:purpose",
+    path: "requirement/apply-for-UK-visa-online/:purpose",
     component: UnitedKingdomComponent
   },
-  { path: "visa-requirements/apply-for-France-visa-online/:purpose", component: FranceComponent },
+  { path: "requirement/apply-for-France-visa-online/:purpose", component: FranceComponent },
   {
-    path: "visa-requirements/apply-for-China-visa-online/:purpose",
+    path: "requirement/apply-for-China-visa-online/:purpose",
     component: ChinaComponent
   },
   {
-    path: "visa-requirements/apply-for-Swiss-visa-online/:purpose",
+    path: "requirement/apply-for-Swiss-visa-online/:purpose",
     component: SwitzerlandComponent
   },
   {
-    path: "visa-requirements/apply-for-Ethiopia-visa-online/:purpose",
+    path: "requirement/apply-for-Ethiopia-visa-online/:purpose",
     component: EthiopianComponent 
   },
   {
-    path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",
+    path: "requirement/apply-for-Malaysia-visa-online/:purpose",
     component: MalaysiaComponent 
   }, 
   {
-    path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
+    path: "requirement/apply-for-Dubai-visa-online/:purpose",
     component: DubaiComponent
   },
 {
-    path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
+    path: "requirement/apply-for-Maldives-visa-online/:purpose",
     component:  MaldivesComponent
   },
   {
-    path: "visa-requirements/apply-for-Spain-visa-online/:purpose",
+    path: "requirement/apply-for-Spain-visa-online/:purpose",
     component:  SpainComponent
   },
 

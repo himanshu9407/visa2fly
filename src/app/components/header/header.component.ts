@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
         let arr = url.split("/");
 
         if (
-          arr[1] == "requirement" || arr[1] == "freeVisa" || arr[1] == "visaOnArrival" || arr[1] == "profile" || arr[1] == "myBookings" || arr[1] == "bookingDetail" || arr[1] == "visa-requirements" || arr[1] == "addTraveller" || event.url == "/sim/checkout" || arr[1] == "slcontainer" || arr[1] == "tnc" || arr[1] == "privacyPolicy" || arr[1] == "cookiePolicy" || arr[1] == "cookiePolicy"       ) {
+          arr[1] == "requirement" || arr[1] == "freeVisa" || arr[1] == "visaOnArrival" || arr[1] == "profile" || arr[1] == "myBookings" || arr[1] == "bookingDetail" || arr[1] == "addTraveller" || event.url == "/sim/checkout" || arr[1] == "slcontainer" || arr[1] == "tnc" || arr[1] == "privacyPolicy" || arr[1] == "cookiePolicy" || arr[1] == "cookiePolicy"       ) {
           this.showTransparentNavbar = false;
           // console.log('checkout3');
         } else {
