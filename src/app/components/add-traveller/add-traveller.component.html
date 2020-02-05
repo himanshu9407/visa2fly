@@ -44,7 +44,7 @@
                         </button>
                       </div>
                     </div>
-                    <div *ngIf="travelDateError" class="invalid-feedback" style="display: block">
+                    <div *ngIf="travelDateError && travelDetails.get('dateOfTravel').pristine" class="invalid-feedback" style="display: block">
                       Please select Date of Travel .
 
                     </div>
@@ -120,18 +120,13 @@
     </div>
 
     <div id="accordion">
-
-
       <form [formGroup]="travellerForm">
         <div formArrayName="travellers"
           *ngFor="let traveller of travellerForm.get('travellers').controls; let first=first; let i = index ;"
           class="card">
           <form [formGroupName]="i">
-
-
             <div class="card-header" id="dataSource[i].id">
               <h5 class="mb-0">
-
                 <button class="btn btn-link travelerHeading" data-toggle="collapse"
                   attr.aria-controls="{{ dataSource[i].dataToggle }}"
                   attr.data-target="{{ dataSource[i].dataToggleHash }}" aria-expanded="false">
@@ -174,52 +169,54 @@
                   </div>
                   <div class="col-md-2 mb-3">
                     <label>First Name</label>
-                    <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
-                  .firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty,
-                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.firstName.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.firstName.pristine}" pattern="[A-Za-z]{3,32}" formControlName="firstName" type="text"
-                      class="form-control" placeholder="First name" required />
+                    <input
+                      [ngClass]="{
+                      'is-invalid':
+                        travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty,
+                      'is-valid':
+                        !(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) && !travellerForm.controls.travellers.controls[i].controls.firstName.pristine}"
+                      pattern="[A-Za-z]{3,32}" formControlName="firstName" type="text" class="form-control"
+                      placeholder="First name" required />
 
                     <div
-                      *ngIf="(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.firstName.dirty ) || (travellerForm.controls.travellers.controls[i].controls.firstName.errors?.valueErr)"
+                      *ngIf="
+                        (travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) || (travellerForm.controls.travellers.controls[i].controls.firstName.errors?.valueErr) || 
+                        (travellerForm.controls.travellers.controls[i].controls.firstName.pristine && travellerForm.controls.travellers.controls[i].controls.firstName.firstNameError)"
                       class="invalid-feedback" style="display: block">
                       Enter a valid first name
-
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
                     <label>Middle Name</label>
-                    <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
-                  .middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
-                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.middleName.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.middleName.pristine}" pattern="[A-Za-z]{3,32}" type="text" formControlName="middleName"
+                    <input [ngClass]="{
+                      'is-invalid':travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
+                      'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty) &&                    !travellerForm.controls.travellers.controls[i].controls.middleName.pristine}" 
+                      pattern="[A-Za-z]{3,32}" type="text" formControlName="middleName"
                       class="form-control" id="middlename" placeholder="Middle name" />
 
                     <div
-                      *ngIf="(travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.middleName.dirty) || (travellerForm.controls.travellers.controls[i].controls.middleName.errors?.valueErr) "
+                      *ngIf="
+                        (travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty) || 
+                        (travellerForm.controls.travellers.controls[i].controls.middleName.errors?.valueErr) "
                       class="invalid-feedback" style="display: block">
                       Enter a valid middle name
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
                     <label>Last Name</label>
-                    <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
-                  .lastName.invalid && travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
-                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.lastName.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.lastName.pristine}" pattern="[A-Za-z]{3,32}" type="text" formControlName="lastName"
+                    <input [ngClass]="{
+                      'is-invalid':travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
+                      'is-valid':!(travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty) &&                      !travellerForm.controls.travellers.controls[i].controls.lastName.pristine}"
+                      pattern="[A-Za-z]{3,32}" type="text" formControlName="lastName"
                       class="form-control" placeholder="Last name" required />
 
                     <div
-                      *ngIf="(travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.lastName.dirty) || (travellerForm.controls.travellers.controls[i].controls.lastName.errors?.valueErr)"
-                      class="invalid-feedback" style="display: block">
+                      *ngIf="
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.travellers.controls[i].controls.lastName.dirty) || 
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.errors?.valueErr) || 
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.pristine && travellerForm.controls.travellers.controls[i].controls.lastName.lastNameError)"
+                        class="invalid-feedback" style="display: block">
                       Enter a valid last name
-
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
@@ -237,7 +234,10 @@
                         </div>
                       </div>
                     </div>
-                    <div *ngIf="travellerForm.controls.travellers.controls[i].controls.dateOfBirth.errors?.valueErr"
+                    <div *ngIf="
+                    travellerForm.controls.travellers.controls[i].controls.dateOfBirth.errors?.valueErr || 
+                    (travellerForm.controls.travellers.controls[i].controls.dateOfBirth.dateOfBirthError &&
+                        travellerForm.controls.travellers.controls[i].controls.dateOfBirthCopy.pristine)"
                       class="invalid-feedback" style="display: block">
                       Invalid Date of Birth
                     </div>
@@ -253,8 +253,9 @@
                         type="text" class="form-control" id="PassportNumber" placeholder="Passport Number" required />
 
                       <div
-                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
-                      travellers.controls[i].controls.passportNumber.dirty) || ((travellerForm.controls.travellers.controls[i].controls.passportNumber.errors?.valueErr))"
+                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty) || (travellerForm.controls.travellers.controls[i].controls.passportNumber.errors?.valueErr) ||
+                        (travellerForm.controls.travellers.controls[i].controls.passportNumber.passportError &&
+                        travellerForm.controls.travellers.controls[i].controls.passportNumber.pristine)"
                         class="invalid-feedback" style="display: block">
                         Enter a valid passport number
                       </div>
@@ -279,7 +280,10 @@
                         </div>
                       </div>
                       <div
-                        *ngIf="travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.errors?.valueErr"
+                        *ngIf="
+                         travellerForm.controls.travellers.controls[i].controls.dateOfBirth.errors?.valueErr || 
+                    (travellerForm.controls.travellers.controls[i].controls.dateOfBirth.dateOfBirthError &&
+                        travellerForm.controls.travellers.controls[i].controls.dateOfBirthCopy.pristine)"
                         class="invalid-feedback" style="display: block">
                         Invalid Date of Passport Expiry
                       </div>
@@ -299,8 +303,10 @@
                         id="EmailId" placeholder="Email ID" required />
 
                       <div
-                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
-                        travellers.controls[i].controls.emailId.dirty) || (travellerForm.controls.travellers.controls[i].controls.emailId.errors?.valueErr)"
+                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && 
+                        travellerForm.controls.travellers.controls[i].controls.emailId.dirty) || 
+                        (travellerForm.controls.travellers.controls[i].controls.emailId.errors?.valueErr) || (travellerForm.controls.travellers.controls[i].controls.emailId.emailError &&
+                        travellerForm.controls.travellers.controls[i].controls.emailId.pristine)"
                         class="invalid-feedback" style="display: block">
                         Enter a valid Email ID
                       </div>
@@ -317,8 +323,9 @@
                         id="GstNumber" placeholder="GSTIN No. (Optional)" />
 
                       <div
-                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
-                      travellers.controls[i].controls.gstNumber.dirty) ||  (travellerForm.controls.travellers.controls[i].controls.gstNumber.errors?.valueErr)"
+                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && 
+                        travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty) || 
+                        (travellerForm.controls.travellers.controls[i].controls.gstNumber.errors?.valueErr)"
                         class="invalid-feedback" style="display: block">
                         Enter a valid GST number
                       </div>
@@ -333,8 +340,11 @@
                   controls.cellNumber.pristine}" pattern="^[4-9][0-9]{9}$" type="tel" formControlName="cellNumber"
                       class="form-control" placeholder="Mobile Number" required />
                     <div
-                      *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.cellNumber.dirty) ||  (travellerForm.controls.travellers.controls[i].controls.cellNumber.errors?.valueErr)"
+                      *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && 
+                      travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) || 
+                      (travellerForm.controls.travellers.controls[i].controls.cellNumber.errors?.valueErr) ||
+                      (travellerForm.controls.travellers.controls[i].controls.cellNumber.cellError &&
+                      travellerForm.controls.travellers.controls[i].controls.cellNumber.pristine)"
                       class="invalid-feedback" style="display: block">
                       Enter a valid mobile number
                     </div>
@@ -347,8 +357,8 @@
                     <br>
                     <div *ngIf="!first" class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
                       <input (click)="setAddressSame(i)" formControlName="addressForPickupSame" class="form-check-input"
-                        type="checkbox" value="" id="defaultCheck1">
-                      <label class="form-check-label" for="defaultCheck1" style="font-size: 13px">
+                        type="checkbox" [id]="i">
+                      <label class="form-check-label" [for]="i" style="font-size: 13px">
                         Same as Primary Traveller
                       </label>
                     </div>
@@ -365,8 +375,11 @@
                     controls.address.pristine}" formControlName="address" class="form-control "
                         placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
                       <div
-                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.address.dirty) ||  (travellerForm.controls.travellers.controls[i].controls.address.errors?.valueErr)"
+                        *ngIf="(travellerForm.controls.travellers.controls[i].controls.address.invalid && 
+                        travellerForm.controls.travellers.controls[i].controls.address.dirty) ||  
+                        (travellerForm.controls.travellers.controls[i].controls.address.errors?.valueErr) || 
+                        (travellerForm.controls.travellers.controls[i].controls.address.addressError &&
+                        travellerForm.controls.travellers.controls[i].controls.address.pristine)"
                         class="invalid-feedback" style="display: block">
                         Enter a valid address
                       </div>
@@ -395,10 +408,6 @@
                         *ngFor="let city of list.cities[travellerForm.controls.travellers.controls[i].controls.state.value];let first=first"
                         value="{{city}}">{{city}}</option>
                     </select>
-                    <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.city.errors.required && travellerForm.controls.
-                      travellers.controls[i].controls.state.touched" class="invalid-feedback" style="display: block">
-                      State is required-
-                    </div> -->
                     <div *ngIf=" (travellerForm.controls.travellers.controls[i].controls.city.errors?.valueErr)"
                       class="invalid-feedback" style="display: block">
                       Select a valid city
@@ -416,8 +425,11 @@
                       placeholder="Pin Code" />
 
                     <div
-                      *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
-                  travellers.controls[i].controls.pinCode.dirty) ||  (travellerForm.controls.travellers.controls[i].controls.pinCode.errors?.valueErr)"
+                      *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && 
+                      travellerForm.controls.travellers.controls[i].controls.pinCode.dirty) || 
+                      (travellerForm.controls.travellers.controls[i].controls.pinCode.errors?.valueErr) ||
+                      (this.travellerForm.controls.travellers.controls[i].controls.pinCode.zipCodeError &&
+                      travellerForm.controls.travellers.controls[i].controls.pinCode.pristine)"
                       class="invalid-feedback" style="display: block">
                       Enter valid pincode
                     </div>
