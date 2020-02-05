@@ -405,7 +405,7 @@ export class HomeFormComponent {
           default : {
             //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())
-            this.router.navigate(['visa-requirements/', "" + country1,variable,purpose]);
+            this.router.navigate(['requirement/', "" + country1,variable,purpose]);
           }
         }      
     }
