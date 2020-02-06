@@ -187,16 +187,7 @@
         </div>
         <div class="col-lg-5 col-md-6 col-8">
           <form [formGroup]="purposeChooseForm">
-            <!-- <mat-form-field class="setWidth">
-                            <mat-select (selectionChange)="purposeChanged()" formControlName="purposeSelected">
-                                <mat-option value="Tourist">
-                                    Tourist
-                                </mat-option>
-                                <mat-option value="Business">
-                                    Business
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field> -->
+           
             <div class="select-box">
               <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
                 <div class="select-box__value">
@@ -238,24 +229,6 @@
   </div>
 </div>
 
-<!-- <div class="container-fluid wrapContainer mobileView">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="col-lg-3 col-md-2 col-4">
-                    Visa Type
-                </div>
-                <div class="col-lg-6 col-md-3 col-5">
-                    <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                        <option value="tourist">Tourist</option>
-                        <option value="business">Business</option>
-                        <option value="transit">Transit</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 
 <div class="container-fluid wrapContainer">
@@ -294,16 +267,7 @@
                         planCardRow" style="color: #000080;">
               INR {{quotation.basePrice + quotation.serviceTax}}</div>
           </div>
-          <!-- <div class="col-6">Processing time:</div>
-                    <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
-                    <div class="col-6">Stay period :</div>
-                    <div class="col-6">Lorem, ipsum se</div>
-                    <div class="col-6">Validity :</div>
-                    <div class="col-6">Lorem, ipsum se</div>
-                    <div class="col-6">Entry:</div>
-                    <div class="col-6">Lorem, ipsum se</div>
-                    <div class="col-6">Fees:</div>
-                    <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
+         
           <div class="row mt-3">
             <div class="col-12 text-center">
               <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
@@ -1275,11 +1239,10 @@
                         data-target="#businessVisaFive" aria-expanded="false" aria-controls="businessVisaFive"
                         [class.showDiv]="selectedVisaBusiness === 5" (click)="setBusinessVisa(5)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Journalist Visa.png"
-                          ="Journalist Visa" style="height: 45px; margin-bottom: 10px;" />
+                         alt="Journalist Visa" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Journalist Visa</h2>
                       </div>
-
-                    </ng-template>
+                     </ng-template>
                     <ng-template ngbTabContent>
                       <div id="businessVisaFive" class="collapse" aria-labelledby="businessVisaFive"
                         data-parent="#businessVisaAccodion">
@@ -1294,8 +1257,7 @@
                         </div>
                       </div>
                     </ng-template>
-                  </ngb-tab>
-
+                  </ngb-tab> 
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div class="collapsed" id="#businessVisaSix" data-toggle="collapse" data-target="#businessVisaSix"
@@ -1306,8 +1268,7 @@
                           alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Ethiopian Private Business Firm Work Visa</h2>
                       </div>
-
-                    </ng-template>
+                      </ng-template>
                     <ng-template ngbTabContent>
                       <div id="businessVisaSix" class="collapse" aria-labelledby="businessVisaSix"
                         data-parent="#businessVisaAccodion">
@@ -1323,7 +1284,6 @@
                       </div>
                     </ng-template>
                   </ngb-tab>
-
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div class="collapsed" id="#businessVisaSeven" data-toggle="collapse"
@@ -1353,7 +1313,6 @@
                       </div>
                     </ng-template>
                   </ngb-tab>
-
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div class="collapsed" id="#businessVisaEight" data-toggle="collapse"
@@ -1381,7 +1340,6 @@
                       </div>
                     </ng-template>
                   </ngb-tab>
-
                 </ngb-tabset>
               </div>
 

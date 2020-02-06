@@ -358,43 +358,43 @@ export class HomeFormComponent {
           // }
           case "United Kingdom" : {
            // this.setDetailsOnLocalStorage();
-            this.router.navigate(['requirement/apply-for-UK-visa-online', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-UK-visa-online', "" + purpose]);
             break;
           }
           case "Switzerland" : {
             // this.setDetailsOnLocalStorage();
-             this.router.navigate(['requirement/apply-for-Swiss-visa-online', "" + purpose]);
+             this.router.navigate(['visa-requirements/apply-for-Swiss-visa-online', "" + purpose]);
              break;
            }
           case "France" : {
             //this.setDetailsOnLocalStorage();
-            this.router.navigate(['requirement/apply-for-France-visa-online/',"" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-France-visa-online/',"" + purpose]);
             break;
           } 
           case "China" : {
-            this.router.navigate(['requirement/apply-for-China-visa-online/', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-China-visa-online/', "" + purpose]);
             break;
           }
 
           case "Ethiopia" : {
-            this.router.navigate(['requirement/apply-for-Ethiopia-visa-online/', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-Ethiopia-visa-online/', "" + purpose]);
             break;
           }
           case "Malaysia" : {
-            this.router.navigate(['requirement/apply-for-Malaysia-visa-online/', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-Malaysia-visa-online/', "" + purpose]);
             break;
           }
           case "Dubai" : {
-            this.router.navigate(['requirement/apply-for-Dubai-visa-online/', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-Dubai-visa-online/', "" + purpose]);
             break;
           }
 
           case "Maldives" : {
-            this.router.navigate(['requirement/apply-for-Maldives-visa-online/', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
             break;
           }
           case "Spain" : {
-            this.router.navigate(['requirement/apply-for-Spain-visa-online/', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-Spain-visa-online/', "" + purpose]);
             break;
           }
           // case "Japan" : {
@@ -405,7 +405,7 @@ export class HomeFormComponent {
           default : {
             //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())
-            this.router.navigate(['requirement/', "" + country1,variable,purpose]);
+            this.router.navigate(['visa-requirements/', "" + country1,variable,purpose]);
           }
         }      
     }

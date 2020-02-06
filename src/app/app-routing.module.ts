@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: "slcontainer/:form", component: LoginSignupComponent },
   { path: "profile", component: ProfileComponent },
   {
-    path: "requirement/:country/:variable/:purpose",
+    path: "visa-requirements/:country/:variable/:purpose",
     component: RequirementsComponent
   },
   {
@@ -70,36 +70,36 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard]
   },
   {
-    path: "requirement/apply-for-UK-visa-online/:purpose",
+    path: "visa-requirements/apply-for-UK-visa-online/:purpose",
     component: UnitedKingdomComponent
   },
-  { path: "requirement/apply-for-France-visa-online/:purpose", component: FranceComponent },
+  { path: "visa-requirements/apply-for-France-visa-online/:purpose", component: FranceComponent },
   {
-    path: "requirement/apply-for-China-visa-online/:purpose",
+    path: "visa-requirements/apply-for-China-visa-online/:purpose",
     component: ChinaComponent
   },
   {
-    path: "requirement/apply-for-Swiss-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Swiss-visa-online/:purpose",
     component: SwitzerlandComponent
   },
   {
-    path: "requirement/apply-for-Ethiopia-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Ethiopia-visa-online/:purpose",
     component: EthiopianComponent 
   },
   {
-    path: "requirement/apply-for-Malaysia-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",
     component: MalaysiaComponent 
   }, 
   {
-    path: "requirement/apply-for-Dubai-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
     component: DubaiComponent
   },
 {
-    path: "requirement/apply-for-Maldives-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
     component:  MaldivesComponent
   },
   {
-    path: "requirement/apply-for-Spain-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Spain-visa-online/:purpose",
     component:  SpainComponent
   },
 
