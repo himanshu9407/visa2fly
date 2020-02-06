@@ -594,21 +594,13 @@ export class AddTravellerComponent implements OnInit {
       let i = index;
       // console.log(i);
 
-      let firstNameValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.firstName.value;
-      let lastNameValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.lastName.value;
-      let emailValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.emailId.value;
-      let passportNumberValue = this.travellerForm.controls.travellers.controls[
-        i
-      ].controls.passportNumber.value;
-      let dateOfBirthValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.dateOfBirthCopy.value;
-      let passportExpiryDateValue = this.travellerForm.controls.travellers
-        .controls[i].controls.passportExpiryDate.value; 
-      let passportExpiryDateCopyValue = this.travellerForm.controls.travellers
-        .controls[i].controls.passportExpiryDateCopy.value;
+      let firstNameValue = this.travellerForm.controls.travellers.controls[i].controls.firstName.value;
+      let lastNameValue = this.travellerForm.controls.travellers.controls[i].controls.lastName.value;
+      let emailValue = this.travellerForm.controls.travellers.controls[i].controls.emailId.value;
+      let passportNumberValue = this.travellerForm.controls.travellers.controls[i].controls.passportNumber.value;
+      let dateOfBirthValue = this.travellerForm.controls.travellers.controls[i].controls.dateOfBirthCopy.value;
+      let passportExpiryDateValue = this.travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.value; 
+      let passportExpiryDateCopyValue = this.travellerForm.controls.travellers.controls[i].controls.passportExpiryDateCopy.value;
       // let gstNumberValue = this.travellerForm.controls.travellers.controls[i].controls.gstNumber.value;
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
