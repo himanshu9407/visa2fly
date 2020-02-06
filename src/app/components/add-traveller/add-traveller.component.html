@@ -149,7 +149,7 @@
                 </button>
               </h5>
             </div>
-            <div id="{{ dataSource[i].dataToggle }}" class="collapse" [ngClass]="{'show': first}"
+            <div id="{{ dataSource[i].dataToggle }}" class="collapse" [class.show]="selectedTravellerForm === i"
               attr.aria-labelledby="{{ dataSource[i].id }}" data-parent="#accordion">
               <div class="card-body">
                 <div class="form-row">

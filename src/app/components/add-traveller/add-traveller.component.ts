@@ -42,6 +42,7 @@ export class AddTravellerComponent implements OnInit {
   originalImageArr = [];
   // firstCity = "Gurgaon"
   // firstState = "Haryana"
+  selectedTravellerForm: number = 0;
 
   list = {
     states: ["Delhi", "Haryana", "Uttar Pradesh"],
@@ -1218,6 +1219,9 @@ export class AddTravellerComponent implements OnInit {
       });
     } else {
       if (this.count <= 9) {
+        this.selectedTravellerForm = this.count;
+        console.log(this.selectedTravellerForm);
+        
         this.count = this.count + 1;
         let temp = { id: "", dataToggle: "", dataToggleHash: "" };
         temp.id = "Traveller " + this.count;
