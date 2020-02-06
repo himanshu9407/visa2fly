@@ -345,7 +345,7 @@ export class HomeFormComponent {
          let country1 = this.homeForm.get('country').value;
         //  console.log(country1);
          //  let countryTemp = this.homeForm.get('country').value;
-
+        let variable = "apply-for-" + country1 + "-visa-online";
          // console.log(countryTemp);
          let countryTemp1 = this.staticPagesArr.includes(this.selectedCountry);
         //  console.log(countryTemp1)
@@ -393,6 +393,10 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
             break;
           }
+          case "Spain" : {
+            this.router.navigate(['visa-requirements/apply-for-Spain-visa-online/', "" + purpose]);
+            break;
+          }
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();
           //   this.router.navigate(['']);
@@ -401,7 +405,7 @@ export class HomeFormComponent {
           default : {
             //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())
-            this.router.navigate(['visa-requirement/',   country1,purpose]);
+            this.router.navigate(['visa-requirements/', "" + country1,variable,purpose]);
           }
         }      
     }

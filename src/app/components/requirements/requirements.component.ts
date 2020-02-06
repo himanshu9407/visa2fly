@@ -184,7 +184,7 @@ export class RequirementsComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        console.log(data);
+        //console.log(data);
         if (isPlatformBrowser(this.platformId)) {
         if (data.code == "0") {
           // this.preloaderService.showPreloader(false);

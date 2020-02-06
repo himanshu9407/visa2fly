@@ -1035,7 +1035,9 @@ export class AddTravellerComponent implements OnInit {
               // console.log(key, data.data.warnings[key]);
               // this.modalWarnings.push(data.data.warnings[key]);
               // }
-              this.errorMessage.push(data.data.warnings);
+              this.errorMessage.push(data.data.warnings.travelDateWarning);
+              
+              console.log(this.errorMessage);
               var modal = document.getElementById("exampleModal1");
               modal.classList.remove("fade");
               modal.classList.add("show");
@@ -1079,6 +1081,7 @@ export class AddTravellerComponent implements OnInit {
     modal.classList.remove("show");
     modal.style.display = "none";
     modal.classList.add("fade");
+    this.errorMessage = [];
     // this.router.navigate(['visa']);
   }
 
@@ -1224,6 +1227,8 @@ export class AddTravellerComponent implements OnInit {
 
         this.travellers = this.travellerForm.get("travellers") as FormArray;
         this.travellers.push(this.createTraveller());
+
+        //console.log(this.travellers);
 
         // for (let i = 0; i < this.imageUploads.length; i++) {
 
