@@ -1288,10 +1288,10 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  // @HostListener("window:beforeunload", ["$event"])
-  // unloadNotification($event: any) {
-  //   if (this.canDeactivate()) {
-  //     $event.returnValue = true;
-  //   }
-  // }
+  @HostListener("window:beforeunload", ["$event"])
+  unloadNotification($event: any) {
+    if (this.canDeactivate()) {
+      $event.returnValue = true;
+    }
+  }
 }
