@@ -1273,17 +1273,18 @@ export class AddTravellerComponent implements OnInit {
     ) {
       // console.log("1");
       return true;
-    } else if (this.succeedToPayment) {
-      return false;
     } else {
-      if (confirm("Are you sure!")) {
+      if (this.succeedToPayment) {
+      return false;
+    // } else {
+    //   if (confirm("Are you sure!")) {
         // console.log("2");
-        return false;
-      } else {
+      //   return false;
+      // } else {
         // console.log("3");
         // this.router.navigateByUrl('/addTraveller');
-        window.history.replaceState("", "", "/addTraveller");
-        return true;
+        // window.history.replaceState("", "", "/addTraveller");
+        // return true;
       }
     }
   }
