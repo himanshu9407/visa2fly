@@ -10,6 +10,7 @@ import { LoginService } from '../../login-signup/login/login.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { ToastService } from 'src/app/shared/toast.service';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-china',
@@ -38,6 +39,8 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
+  public onlinestatus: boolean = false;
+
 
   // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
@@ -83,6 +86,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
         // console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
+          this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
@@ -112,9 +116,14 @@ export class ChinaComponent implements OnInit, AfterViewInit {
           }
 
           setTimeout(() => {
-                              
             this.preloaderService.showPreloader(false);
-            }, 500);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(['/']);
+          }, 2000);
+          this.toastService.showNotification("Country Not Found", 10000);
         }
       });
      }

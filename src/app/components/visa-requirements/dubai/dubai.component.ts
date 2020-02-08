@@ -51,6 +51,7 @@ export class DubaiComponent implements OnInit, AfterViewInit {
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
+  public onlinestatus: boolean = false;
 
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
@@ -96,6 +97,7 @@ export class DubaiComponent implements OnInit, AfterViewInit {
           // console.log(res);
           if(res.code == 0){
             this.MyQuotation = res.data.quotations;
+            this.onlinestatus = res.data.onlineCategory;
             this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
             //console.log(this.MyQuotation);
             this.MyQuotation.forEach((element) => {

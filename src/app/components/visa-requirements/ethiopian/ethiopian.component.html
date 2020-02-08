@@ -8,10 +8,10 @@
       </div>
     </div>
 
-    <div class="col-lg-4 visaStepContainer">
+    <div class="col-lg-4 visaStepContainer" *ngIf="!onlinestatus">
       <div class="visaStep">
         <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">Apply For Ethiopia Visa Online</h1>
+          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
         </div>
         <div class="visaStepContent">
           <div class="row">
@@ -21,8 +21,8 @@
                   <h5 style="font-size: 14px;">Step 1</h5>
                 </div>
                 <div class="col-2">
-                  <img src="https://static.visa2fly.com/assets/text-document.png" alt="ethiopian visa online" class="img-fluid"
-                    style="height: 30px; width: 30px; margin-top: 4px;" />
+                  <img src="https://static.visa2fly.com/assets/text-document.png" alt="dubai visa for indians"
+                    class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
                 </div>
                 <div class="col-10">
                   <h5 style="font-size: 16px; margin-bottom: 5px;">Booking Online</h5>
@@ -36,8 +36,8 @@
                   <h5 style="font-size: 14px;">Step 2</h5>
                 </div>
                 <div class="col-2">
-                  <img src="https://static.visa2fly.com/assets/checked-files.png" alt="ethiopian visa online" class="img-fluid"
-                    style="height: 30px; width: 30px; margin-top: 4px;" />
+                  <img src="https://static.visa2fly.com/assets/checked-files.png" alt="dubai visa for indians"
+                    class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
                 </div>
                 <div class="col-10">
                   <h5 style="font-size: 16px; margin-bottom: 5px;">
@@ -53,8 +53,8 @@
                   <h5 style="font-size: 14px;">Step 3</h5>
                 </div>
                 <div class="col-2">
-                  <img src="https://static.visa2fly.com/assets/time-left.png" alt="ethiopian visa online" class="img-fluid"
-                    style="height: 30px; width: 30px; margin-top: 4px;" />
+                  <img src="https://static.visa2fly.com/assets/time-left.png" alt="dubai visa for indians"
+                    class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
                 </div>
                 <div class="col-10">
                   <h5 style="font-size: 16px; margin-bottom: 5px;">
@@ -70,8 +70,8 @@
                   <h5 style="font-size: 14px;">Step 4</h5>
                 </div>
                 <div class="col-2">
-                  <img src="https://static.visa2fly.com/assets/passport(1).png" alt="ethiopian e visa online" class="img-fluid"
-                    style="height: 30px; width: 30px; margin-top: 4px;" />
+                  <img src="https://static.visa2fly.com/assets/passport(1).png" alt="dubai visa for indians"
+                    class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
                 </div>
                 <div class="col-10">
                   <h5 style="font-size: 16px; margin-bottom: 5px;">
@@ -79,6 +79,68 @@
                     Visa at doorstep</h5>
                   <p style="font-size: 12px; margin-bottom: 7px;">Passport gets delivered at your doorstep.
                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 visaStepContainer" *ngIf="onlinestatus">
+      <div class="visaStep">
+        <div class="visaStepHeader text-center">
+          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
+        </div>
+        <div class="visaStepContent">
+          <div class="row">
+            <div class="col-md-6 col-lg-12 col-6 mt-2">
+              <div class="row">
+                <div class="col-12">
+                  <h5 style="font-size: 16px;">Step 1</h5>
+                </div>
+                <div class="col-2">
+                  <img data-src="https://static.visa2fly.com/assets/file.png" alt="file-icon" class="img-fluid lazyload"
+                    style="height: 30px; width: 30px; margin-top: 4px;" />
+                </div>
+                <div class="col-10">
+                  <h5 style="font-size: 16px; margin-bottom: 5px;">Upload Document</h5>
+                  <p style="font-size: 12px; margin-bottom: 7px;">Upload soft copy passport front
+                    and book your Visa</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-12 col-6 mt-2">
+              <div class="row">
+                <div class="col-12">
+                  <h5 style="font-size: 16px;">Step 2</h5>
+                </div>
+                <div class="col-2">
+                  <img data-src="https://static.visa2fly.com/assets/credit.png" alt="credit-card-icon"
+                    class="img-fluid lazyload" style="height: 30px; width: 30px; margin-top: 4px;" />
+                </div>
+                <div class="col-10">
+                  <h5 style="font-size: 16px; margin-bottom: 5px;">
+
+                    Pay online</h5>
+                  <p style="font-size: 12px; margin-bottom: 7px;">Pay online securely.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-12 col-6 mt-2">
+              <div class="row">
+                <div class="col-12">
+                  <h5 style="font-size: 16px;">Step 3</h5>
+                </div>
+                <div class="col-2">
+                  <img src="https://static.visa2fly.com/assets/passport(1).png" alt="passport icon" class="img-fluid"
+                    style="height: 30px; width: 30px; margin-top: 4px;" />
+                </div>
+                <div class="col-10">
+                  <h5 style="font-size: 16px; margin-bottom: 5px;">
+
+                    Get your visa</h5>
+                  <p style="font-size: 12px; margin-bottom: 7px;">Receive your approved visa .</p>
                 </div>
               </div>
             </div>
@@ -98,10 +160,10 @@
       </div>
     </div>
 
-    <div class="col-lg-12 visaStepContainer">
+    <div class="col-lg-12 visaStepContainer" *ngIf="!onlinestatus">
       <div class="visaStep">
         <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">Apply For Ethiopia Visa Online</h1>
+          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
         </div>
         <div class="visaStepContent mt-3">
           <div class="row">
@@ -111,8 +173,8 @@
                   <h5 style="font-size: 14px;">Step 1</h5>
                 </div>
                 <div class="col-lg-2 col-md-2 col-12">
-                  <img src="https://static.visa2fly.com/assets/text-document.png" alt="ethiopian e visa online" class="img-fluid mgTop"
-                    style="height: 30px; width: 30px;" />
+                  <img src="https://static.visa2fly.com/assets/text-document.png" alt="dubai visa for indians"
+                    class="img-fluid mgTop" style="height: 30px; width: 30px;" />
                 </div>
                 <div class="col-lg-10 col-md-10 col-12 diffMg2">
                   <h5 class="visaStepMainPoint">Booking Online</h5>
@@ -126,8 +188,8 @@
                   <h5 style="font-size: 14px;">Step 2</h5>
                 </div>
                 <div class="col-lg-2 col-md-2 col-12 ">
-                  <img src="https://static.visa2fly.com/assets/checked-files.png" alt="ethiopian e visa online" class="img-fluid mgTop"
-                    style="height: 30px; width: 30px;" />
+                  <img src="https://static.visa2fly.com/assets/checked-files.png" alt="dubai visa for indians"
+                    class="img-fluid mgTop" style="height: 30px; width: 30px;" />
                 </div>
                 <div class="col-lg-10 col-md-10 col-12 diffMg2">
                   <h5 class="visaStepMainPoint">
@@ -143,8 +205,8 @@
                   <h5 style="font-size: 14px;">Step 3</h5>
                 </div>
                 <div class="col-lg-2 col-md-2 col-12 ">
-                  <img src="https://static.visa2fly.com/assets/time-left.png" alt="ethiopian e visa online" class="img-fluid mgTop"
-                    style="height: 30px; width: 30px;" />
+                  <img src="https://static.visa2fly.com/assets/time-left.png" alt="dubai visa for indians"
+                    class="img-fluid mgTop" style="height: 30px; width: 30px;" />
                 </div>
                 <div class="col-lg-10 col-md-10 col-12 diffMg2">
                   <h5 class="visaStepMainPoint">
@@ -159,8 +221,8 @@
                   <h5 style="font-size: 14px;">Step 4</h5>
                 </div>
                 <div class="col-lg-2 col-md-2 col-12">
-                  <img src="https://static.visa2fly.com/assets/passport(1).png" alt="ethiopian e visa online" class="img-fluid mgTop"
-                    style="height: 30px; width: 30px;" />
+                  <img src="https://static.visa2fly.com/assets/passport(1).png" alt="dubai visa for indians"
+                    class="img-fluid mgTop" style="height: 30px; width: 30px;" />
                 </div>
                 <div class="col-lg-10 col-md-10 col-12 diffMg2">
                   <h5 class="visaStepMainPoint">
@@ -175,6 +237,66 @@
         </div>
       </div>
     </div>
+
+    <div class="col-lg-12 visaStepContainer" *ngIf="onlinestatus">
+      <div class="visaStep">
+        <div class="visaStepHeader text-center">
+          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
+        </div>
+        <div class="visaStepContent mt-3">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-6 txtCenter">
+              <div class="row">
+                <div class="col-12 ">
+                  <h5 style="font-size: 16px;">Step 1</h5>
+                </div>
+                <div class="col-lg-2 col-md-2 col-12">
+                  <img data-src="https://static.visa2fly.com/assets/file.png" alt="file icon"
+                    class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
+                </div>
+                <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                  <h5 class="visaStepMainPoint">Upload Document</h5>
+                  <p class="visaStepPoints">Upload soft copy passport front and book your Visa</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-6 txtCenter">
+              <div class="row">
+                <div class="col-12">
+                  <h5 style="font-size: 16px;">Step 2</h5>
+                </div>
+                <div class="col-lg-2 col-md-2 col-12 ">
+                  <img data-src="https://static.visa2fly.com/assets/credit.png" alt="credit icon"
+                    class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
+                </div>
+                <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                  <h5 class="visaStepMainPoint">
+                    Pay online</h5>
+                  <p class="visaStepPoints">Pay online securely.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-12 txtCenter diffMg" style="display: flex;justify-content: center;">
+              <div class="row">
+                <div class="col-12">
+                  <h5 style="font-size: 16px;">Step 3</h5>
+                </div>
+                <div class="col-lg-3 col-md-3 col-12 ">
+                  <img data-src="https://static.visa2fly.com/assets/passport(1).png" alt="passport icon"
+                    class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
+                </div>
+                <div class="col-lg-9 col-md-9 col-12 diffMg2">
+                  <h5 class="visaStepMainPoint">
+                    Get your visa</h5>
+                  <p class="visaStepPoints">Receive your approved visa.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -187,7 +309,7 @@
         </div>
         <div class="col-lg-5 col-md-6 col-8">
           <form [formGroup]="purposeChooseForm">
-           
+
             <div class="select-box">
               <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
                 <div class="select-box__value">
@@ -204,8 +326,8 @@
                                               <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                                               <p class="select-box__input-text">Transit</p>
                                             </div> -->
-                <img class="select-box__icon" src="https://static.visa2fly.com/assets/arrow.svg" alt="ethiopian e visa online"
-                  aria-hidden="true" />
+                <img class="select-box__icon" src="https://static.visa2fly.com/assets/arrow.svg"
+                  alt="ethiopian e visa online" aria-hidden="true" />
                 <!-- <i class="fa fa-sort-desc select-box__icon" aria-hidden="true"></i> -->
               </div>
               <ul class="select-box__list">
@@ -267,7 +389,7 @@
                         planCardRow" style="color: #000080;">
               INR {{quotation.basePrice + quotation.serviceTax}}</div>
           </div>
-         
+
           <div class="row mt-3">
             <div class="col-12 text-center">
               <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
@@ -311,8 +433,8 @@
                       <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true"
                         aria-controls="touristOne" [class.showDiv]="selectedTourist === 1"
                         (click)="setActiveTourist(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
@@ -338,8 +460,8 @@
                       <div data-toggle="collapse" data-target="#touristTwo" aria-expanded="false"
                         aria-controls="touristTwo" [class.showDiv]="selectedTourist === 2"
                         (click)="setActiveTourist(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
@@ -363,8 +485,8 @@
                       <div data-toggle="collapse" data-target="#touristThree" aria-expanded="false"
                         aria-controls="touristThree" [class.showDiv]="selectedTourist === 3"
                         (click)="setActiveTourist(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Application Form</h2>
                       </div>
                     </ng-template>
@@ -515,8 +637,8 @@
                       <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
                         aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1"
                         (click)="setActiveTourist(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
@@ -541,8 +663,8 @@
                       <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
                         aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2"
                         (click)="setActiveTourist(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>
@@ -573,8 +695,8 @@
                       <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
                         aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3"
                         (click)="setActiveTourist(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Application Form</h2>
                       </div>
                     </ng-template>
@@ -1055,27 +1177,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card faqQueryCard">
-                    <div class="card-header faqQuery" id="headingTouristSix" data-toggle="collapse"
-                      data-target="#ethiopiaAccordionTouristSix" aria-expanded="false"
-                      aria-controls="ethiopiaAccordionTouristSix">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button">
-                          What if I need to apply for an extension, or overstay my visa date?
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="ethiopiaAccordionTouristSix" class="collapse" aria-labelledby="headingTouristSix"
-                      data-parent="#ethiopiaAccordionTourist">
-                      <div class="card-body">
-                        <p>You can apply Ethiopian e-visa online while still in Ethiopia, as well. Overstaying your visa
-                          can lead to fines or even imprisonment. Passengers are allowed to request an extension (before
-                          the visa expires)
-                          by traveling in person to the Head Office of The Main Department for Immigration and
-                          Nationality Affairs (Addis Ababa, Ethiopia). </p>
-                      </div>
-                    </div>
-                  </div>
+                 
                   <div class="card faqQueryCard">
                     <div class="card-header faqQuery" id="headingTouristSeven" data-toggle="collapse"
                       data-target="#ethiopiaAccordionTouristSeven" aria-expanded="false"
@@ -1239,10 +1341,10 @@
                         data-target="#businessVisaFive" aria-expanded="false" aria-controls="businessVisaFive"
                         [class.showDiv]="selectedVisaBusiness === 5" (click)="setBusinessVisa(5)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Journalist Visa.png"
-                         alt="Journalist Visa" style="height: 45px; margin-bottom: 10px;" />
+                          alt="Journalist Visa" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Journalist Visa</h2>
                       </div>
-                     </ng-template>
+                    </ng-template>
                     <ng-template ngbTabContent>
                       <div id="businessVisaFive" class="collapse" aria-labelledby="businessVisaFive"
                         data-parent="#businessVisaAccodion">
@@ -1257,7 +1359,7 @@
                         </div>
                       </div>
                     </ng-template>
-                  </ngb-tab> 
+                  </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div class="collapsed" id="#businessVisaSix" data-toggle="collapse" data-target="#businessVisaSix"
@@ -1268,7 +1370,7 @@
                           alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Ethiopian Private Business Firm Work Visa</h2>
                       </div>
-                      </ng-template>
+                    </ng-template>
                     <ng-template ngbTabContent>
                       <div id="businessVisaSix" class="collapse" aria-labelledby="businessVisaSix"
                         data-parent="#businessVisaAccodion">
@@ -1291,8 +1393,7 @@
                         [class.showDiv]="selectedVisaBusiness === 7" (click)="setBusinessVisa(7)">
                         <img class="img-fluid"
                           src="https://static.visa2fly.com/icon/International Organizations-Embassies Work Visa.png"
-                          alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">International Organizations-Embassies Work Visa</h2>
                       </div>
 
@@ -1594,8 +1695,7 @@
                         [class.showDiv]="selectedVisaBusiness === 7" (click)="setBusinessVisa(7)">
                         <img class="img-fluid"
                           src="https://static.visa2fly.com/icon/International Organizations-Embassies Work Visa.png"
-                          alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">International Organizations-Embassies Work Visa</h2>
                       </div>
 
@@ -1714,8 +1814,8 @@
                       <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne"
                         aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
@@ -1740,8 +1840,8 @@
                       <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse" data-target="#businessTwo"
                         aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2"
                         (click)="setActiveBusiness(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
 
@@ -2047,8 +2147,8 @@
                       <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
                         aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1"
                         (click)="setActiveBusiness(1)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Passport</h2>
                       </div>
                     </ng-template>
@@ -2073,8 +2173,8 @@
                       <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
                         aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2"
                         (click)="setActiveBusiness(2)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="ethiopian e visa online"
-                          style="height: 45px; margin-bottom: 10px;" />
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png"
+                          alt="ethiopian e visa online" style="height: 45px; margin-bottom: 10px;" />
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
                     </ng-template>

@@ -47,6 +47,8 @@ export class SpainComponent implements OnInit, AfterViewInit  {
 
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
+  public onlinestatus: boolean = false;
+
 
   selectedRequirement: boolean = false;
 
@@ -101,6 +103,8 @@ export class SpainComponent implements OnInit, AfterViewInit  {
         // console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
+          this.onlinestatus = res.data.onlineCategory;
+
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)

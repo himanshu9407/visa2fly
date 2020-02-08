@@ -56,6 +56,8 @@ export class MalaysiaComponent implements OnInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = 'Malaysia';
+  public onlinestatus: boolean = false;
+
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -91,6 +93,8 @@ export class MalaysiaComponent implements OnInit {
         console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
+          this.onlinestatus = res.data.onlineCategory;
+
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)

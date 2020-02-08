@@ -67,6 +67,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = "France";
+  public onlinestatus: boolean = false;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -102,6 +103,8 @@ export class FranceComponent implements OnInit, AfterViewInit {
         // console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
+          this.onlinestatus = res.data.onlineCategory;
+
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
