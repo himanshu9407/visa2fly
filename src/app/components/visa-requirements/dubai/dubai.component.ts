@@ -69,6 +69,12 @@ export class DubaiComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = 'Dubai';
+  public imageCatogory: Array<any> = [];
+  public imageCatogoryBusinessTemp: Array<any> = [];
+  public imageCatogoryTouristTemp: Array<any> = [];
+  public imageCatogoryTransitTemp: Array<any> = [];
+  public imageCatogoryTemp: Array<any> = [];
+  public imageUpload1: Array<any> = [];
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
@@ -96,7 +102,20 @@ export class DubaiComponent implements OnInit, AfterViewInit {
          this.requireQuotation.getRequireQuotation(this.selectedCountrytype).subscribe((res : any) => {
           // console.log(res);
           if(res.code == 0){
-            this.MyQuotation = res.data.quotations;
+          this.MyQuotation = res.data.quotations;
+
+          this.imageCatogory.push(res.data.imageUploadInfo);
+        
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+          console.log(this.imageCatogoryBusinessTemp);
+          
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+          console.log(this.imageCatogoryTouristTemp);
+          
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          console.log(this.imageCatogoryTransitTemp);
+          
+
             this.onlinestatus = res.data.onlineCategory;
             this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
             //console.log(this.MyQuotation);
@@ -118,13 +137,18 @@ export class DubaiComponent implements OnInit, AfterViewInit {
             if(purposeUrl == 'Business')
             {
               this.MyQuotation1 = this.businessArr;
+              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
             }else if(purposeUrl == 'Tourist') {
               this.MyQuotation1 = this.touristArr;
+              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
             }else if(purposeUrl == 'Transit'){
               this.MyQuotation1 = this.transitArr;
+              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
             }else{
               this.router.navigate(['visa/']);
             }
+
+            this.imagefield1 = this.imageCatogoryTemp;
   
             setTimeout(() => {
                                 

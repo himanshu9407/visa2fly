@@ -607,10 +607,6 @@ export class AddTravellerComponent implements OnInit {
       // let gstNumberValue = this.travellerForm.controls.travellers.controls[i].controls.gstNumber.value;
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
-      let addressValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.address.value;
-      let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.pinCode.value;
 
       if (
         firstNameValue == "" ||
@@ -725,6 +721,14 @@ export class AddTravellerComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
+    if (!this.onlineCategory) {
+
+    let addressValue = this.travellerForm.controls.travellers.controls[i]
+      .controls.address.value;
+    let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
+      .controls.pinCode.value;
+
+
       if (
         addressValue == "" ||
         addressValue == null ||
@@ -752,6 +756,7 @@ export class AddTravellerComponent implements OnInit {
           i
         ].controls.pinCode.zipCodeError = false;
       }
+    }
     }
   }
 
