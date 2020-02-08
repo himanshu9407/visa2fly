@@ -102,6 +102,8 @@ export class SpainComponent implements OnInit, AfterViewInit  {
       .subscribe((res: any) => {
         // console.log(res);
         if (res.code == 0) {
+          // console.log(res);
+          
           this.MyQuotation = res.data.quotations;
           this.onlinestatus = res.data.onlineCategory;
 
