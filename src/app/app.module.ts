@@ -64,6 +64,8 @@ import { DubaiComponent } from './components/visa-requirements/dubai/dubai.compo
 import { MalaysiaComponent } from './components/visa-requirements/malaysia/malaysia.component';
 import { MaldivesComponent } from './components/visa-requirements/maldives/maldives.component';
 import { SpainComponent } from './components/visa-requirements/spain/spain.component';
+import { SingaporeComponent } from './components/visa-requirements/singapore/singapore.component';
+import { SriLankaComponent } from './components/visa-requirements/sri-lanka/sri-lanka.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,9 @@ import { SpainComponent } from './components/visa-requirements/spain/spain.compo
     DubaiComponent,
     MalaysiaComponent,
     MaldivesComponent,
-    SpainComponent
+    SpainComponent,
+    SingaporeComponent,
+    SriLankaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

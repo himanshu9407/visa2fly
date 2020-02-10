@@ -397,6 +397,11 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Spain-visa-online/', "" + purpose]);
             break;
           }
+
+          case "Singapore" : {
+            this.router.navigate(['visa-requirements/apply-for-Singapore-visa-online/', "" + purpose]);
+            break;
+          }
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();
           //   this.router.navigate(['']);
