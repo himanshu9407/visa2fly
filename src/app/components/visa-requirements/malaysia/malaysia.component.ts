@@ -95,7 +95,7 @@ export class MalaysiaComponent implements OnInit {
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
           
@@ -172,14 +172,22 @@ export class MalaysiaComponent implements OnInit {
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.t.select("Business");
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
     } else {
       this.MyQuotation1 = this.transitArr;
       this.t.select("Transit");
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
     }
+
+    this.imagefield1 = this.imageCatogoryTemp;
     // console.log(this.MyQuotation1);
   }
 
@@ -196,19 +204,28 @@ export class MalaysiaComponent implements OnInit {
       this.MyQuotation1 = this.touristArr;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+
       //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
       // console.log(this.MyQuotation1);
       //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
       this.selectedVisaType = "Transit";
       this.selectedTransit = 1;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
       //this.t.select("Transit");
     }
+
+    this.imagefield1 = this.imageCatogoryTemp;
+
     // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",

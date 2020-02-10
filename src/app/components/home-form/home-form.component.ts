@@ -190,7 +190,7 @@ export class HomeFormComponent {
       .then((data) => {
         if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
-       console.log(this.homeFormData);
+      //  console.log(this.homeFormData);
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {

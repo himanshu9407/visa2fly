@@ -97,13 +97,13 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
           this.imageCatogory.push(res.data.imageUploadInfo);
         
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          console.log(this.imageCatogoryBusinessTemp);
+          // console.log(this.imageCatogoryBusinessTemp);
           
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          console.log(this.imageCatogoryTouristTemp);
+          // console.log(this.imageCatogoryTouristTemp);
           
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          console.log(this.imageCatogoryTransitTemp);
+          // console.log(this.imageCatogoryTransitTemp);
           
           this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
@@ -169,17 +169,24 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
       {
         this.MyQuotation1 = this.touristArr;
         this.t.select("Tourist");
+        this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
 
       }else if(purpose == 'Business')
       {
         this.MyQuotation1 = this.businessArr;
         this.t.select("Business");
+        this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
       }else
       {
         this.MyQuotation1 = this.transitArr;
         this.t.select("Transit");
+        this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
       }
       // console.log(this.MyQuotation1);
+      this.imagefield1 = this.imageCatogoryTemp;
+
       
   }
 
@@ -196,6 +203,8 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
          this.MyQuotation1 = this.touristArr;
          this.selectedVisaType = 'Tourist';
          this.selectedTourist = 1;
+         this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+
          //this.t.select("Tourist");
 
      }else if(purposeString == 'Business')
@@ -204,6 +213,8 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
          this.selectedVisaType = 'Business';
          this.selectedBusiness = 1;
          this.selectedVisaBusiness = 1;
+         this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
          // console.log(this.MyQuotation1);
          //this.t.select("Business");
        }else
@@ -211,9 +222,13 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
          this.MyQuotation1 = this.transitArr;
          this.selectedVisaType = 'Transit';
          this.selectedTransit = 1;
+         this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
          //this.t.select("Transit");
        }
         // console.log(this.MyQuotation1);
+        this.imagefield1 = this.imageCatogoryTemp;
+
      window.history.replaceState(
        "",
        "",

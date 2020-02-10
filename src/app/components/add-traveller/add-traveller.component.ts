@@ -321,7 +321,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    // console.log(this.imageUploads);
+    console.log(this.imageUploads);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
