@@ -668,7 +668,7 @@ export class AddTravellerComponent implements OnInit {
         this.travellerForm.controls.travellers.controls[
           i
         ].controls.passportExpiryDate.passportExpiryError = true;
-        console.log('true');
+        // console.log('true');
       } else {
         this.travellerForm.controls.travellers.controls[
           i
@@ -684,7 +684,7 @@ export class AddTravellerComponent implements OnInit {
           i
         ].controls.passportExpiryDateCopy.passportExpiryCopyError = true;
         // console.log('true');
-        console.log('false');
+        // console.log('false');
 
       } else {
         this.travellerForm.controls.travellers.controls[
@@ -784,7 +784,7 @@ export class AddTravellerComponent implements OnInit {
         });
       } else {
         let eliminateEnter = form.get('address').value.replace(/[\r\n]+/g," ");
-        console.log(eliminateEnter);
+        // console.log(eliminateEnter);
         
         form.get("address").setValue(eliminateEnter);
         form.get("address").updateValueAndValidity();
@@ -792,7 +792,7 @@ export class AddTravellerComponent implements OnInit {
         this.primaryAddress = (<FormArray>(
           this.travellerForm.get("travellers")
         )).controls[0].get("address").value.replace(/[\r\n]+/g," ");
-        console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
+        // console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
         
         this.primaryState = (<FormArray>(
           this.travellerForm.get("travellers")
@@ -1024,7 +1024,7 @@ export class AddTravellerComponent implements OnInit {
               this.preloaderService.showPreloader(false);
               this.errorMessage.push(data.data.warnings.travelDateWarning);
               
-              console.log(this.errorMessage);
+              // console.log(this.errorMessage);
               var modal = document.getElementById("exampleModal1");
               modal.classList.remove("fade");
               modal.classList.add("show");
@@ -1049,7 +1049,7 @@ export class AddTravellerComponent implements OnInit {
       this.toastService.showNotification('Some details missing !', 10000)
       // this.toastService.showNotification("Travel details missing!", 4000);
       this.validateTravellerForm();
-      console.log(this.scrollBy);
+      // console.log(this.scrollBy);
       // this.errorForm = '';
       
       if (this.travellerForm.invalid && this.travelDetails.valid) {
@@ -1151,7 +1151,7 @@ export class AddTravellerComponent implements OnInit {
     this.dataSource.splice(index, 1);
     this.count = this.count - 1;
     this.selectedTravellerForm = this.count;
-    console.log(this.selectedTravellerForm);
+    // console.log(this.selectedTravellerForm);
   }
 
   selectedFile = null;
@@ -1209,10 +1209,10 @@ export class AddTravellerComponent implements OnInit {
     } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
-        console.log(this.selectedTravellerForm);
+        // console.log(this.selectedTravellerForm);
         this.count = this.count + 1;
         this.scrollBy = 50 * this.count;
-        console.log(this.scrollBy);
+        // console.log(this.scrollBy);
         window.scrollTo({
           top: 350 + this.scrollBy,
           left: 0,
@@ -1294,10 +1294,10 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  @HostListener("window:beforeunload", ["$event"])
-  unloadNotification($event: any) {
-    if (this.canDeactivate()) {
-      $event.returnValue = true;
-    }
-  }
+  // @HostListener("window:beforeunload", ["$event"])
+  // unloadNotification($event: any) {
+  //   if (this.canDeactivate()) {
+  //     $event.returnValue = true;
+  //   }
+  // }
 }
