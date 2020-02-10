@@ -115,6 +115,8 @@ export class DubaiComponent implements OnInit, AfterViewInit {
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           //console.log(this.imageCatogoryTransitTemp);
           
+          
+          
 
             this.onlinestatus = res.data.onlineCategory;
             this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
@@ -123,13 +125,13 @@ export class DubaiComponent implements OnInit, AfterViewInit {
               
               if(element.purpose == 'Business'){
               this.businessArr.push(element);
-             // console.log(this.businessArr);
+            //  console.log(this.businessArr);
             }else if(element.purpose == 'Tourist'){
               this.touristArr.push(element);
-              //console.log(this.touristArr);
+              // console.log(this.touristArr);
             }else if(element.purpose == 'Transit'){
               this.transitArr.push(element);
-             // console.log(this.transitArr);
+            //  console.log(this.transitArr);
             }
             });
             let purposeMain = this.selectedVisaType;
@@ -138,17 +140,22 @@ export class DubaiComponent implements OnInit, AfterViewInit {
             {
               this.MyQuotation1 = this.businessArr;
               this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+              // console.log(this.imageCatogoryTemp);
             }else if(purposeUrl == 'Tourist') {
               this.MyQuotation1 = this.touristArr;
               this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          // console.log(this.imageCatogoryTemp);
             }else if(purposeUrl == 'Transit'){
               this.MyQuotation1 = this.transitArr;
               this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+              // console.log(this.imageCatogoryTemp);
             }else{
               this.router.navigate(['visa/']);
             }
 
             this.imagefield1 = this.imageCatogoryTemp;
+            // console.log(this.imagefield1);
+
   
             setTimeout(() => {
                                 
@@ -181,18 +188,25 @@ export class DubaiComponent implements OnInit, AfterViewInit {
           this.MyQuotation1 = this.touristArr;
           this.imageUpload1 = this.imageCatogoryTouristTemp;
           this.t.select("Tourist");
-  
+          this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          // console.log(this.imageCatogoryTemp);
         }else if(purpose == 'Business')
         {
           this.MyQuotation1 = this.businessArr;
           this.imageUpload1 = this.imageCatogoryBusinessTemp;
           this.t.select("Business");
+          this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          // console.log(this.imageCatogoryTemp);
         }else
         {
           this.MyQuotation1 = this.transitArr;
           this.t.select("Transit");
-          this.imageUpload1 = this.imageCatogoryTransitTemp;
+          this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          // console.log(this.imageCatogoryTemp);
         }
+
+        this.imagefield1 = this.imageCatogoryTemp;
+        // console.log(this.imagefield1);
         // console.log(this.MyQuotation1);
         
     }
@@ -210,6 +224,8 @@ export class DubaiComponent implements OnInit, AfterViewInit {
            this.MyQuotation1 = this.touristArr;
            this.selectedVisaType = 'Tourist';
            this.selectedTourist = 1;
+           this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          //  console.log(this.imageCatogoryTemp);
            //this.t.select("Tourist");
   
        }else if(purposeString == 'Business')
@@ -217,6 +233,8 @@ export class DubaiComponent implements OnInit, AfterViewInit {
            this.MyQuotation1 = this.businessArr;
            this.selectedVisaType = 'Business';
            this.selectedBusiness = 1;
+           this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          //  console.log(this.imageCatogoryTemp);
            // console.log(this.MyQuotation1);
            //this.t.select("Business");
          }else
@@ -224,8 +242,15 @@ export class DubaiComponent implements OnInit, AfterViewInit {
            this.MyQuotation1 = this.transitArr;
            this.selectedVisaType = 'Transit';
            this.selectedTransit = 1;
+           this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          //  console.log(this.imageCatogoryTemp);
            //this.t.select("Transit");
          }
+
+         
+         this.imagefield1 = this.imageCatogoryTemp;
+        //  console.log(this.imagefield1);
+         
           // console.log(this.MyQuotation1);
        window.history.replaceState(
          "",
