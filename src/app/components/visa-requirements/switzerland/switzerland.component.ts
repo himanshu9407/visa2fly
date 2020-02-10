@@ -47,7 +47,7 @@ export interface Food {
 export class SwitzerlandComponent implements OnInit {
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
-
+  public onlinestatus: boolean = false;
   selectedRequirement: boolean = false;
 
   // public selectedCountryType = "France";
@@ -104,6 +104,7 @@ export class SwitzerlandComponent implements OnInit {
         console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
+          this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach(element => {

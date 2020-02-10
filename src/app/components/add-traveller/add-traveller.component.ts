@@ -42,6 +42,7 @@ export class AddTravellerComponent implements OnInit {
   originalImageArr = [];
   // firstCity = "Gurgaon"
   // firstState = "Haryana"
+  selectedTravellerForm: number = 0;
 
   list = {
     states: ["Delhi", "Haryana", "Uttar Pradesh"],
@@ -90,6 +91,8 @@ export class AddTravellerComponent implements OnInit {
   cellError: boolean;
   addressError: boolean;
   zipCodeError: boolean;
+  scrollBy: number = 0;
+  errorForm = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -604,10 +607,6 @@ export class AddTravellerComponent implements OnInit {
       // let gstNumberValue = this.travellerForm.controls.travellers.controls[i].controls.gstNumber.value;
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
-      let addressValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.address.value;
-      let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
-        .controls.pinCode.value;
 
       if (
         firstNameValue == "" ||
@@ -722,6 +721,14 @@ export class AddTravellerComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
+    if (!this.onlineCategory) {
+
+    let addressValue = this.travellerForm.controls.travellers.controls[i]
+      .controls.address.value;
+    let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
+      .controls.pinCode.value;
+
+
       if (
         addressValue == "" ||
         addressValue == null ||
@@ -750,6 +757,7 @@ export class AddTravellerComponent implements OnInit {
         ].controls.pinCode.zipCodeError = false;
       }
     }
+    }
   }
 
   seeValues() {
@@ -775,9 +783,17 @@ export class AddTravellerComponent implements OnInit {
           // console.log(this.tempImageArr);
         });
       } else {
+        let eliminateEnter = form.get('address').value.replace(/[\r\n]+/g," ");
+        console.log(eliminateEnter);
+        
+        form.get("address").setValue(eliminateEnter);
+        form.get("address").updateValueAndValidity();
+
         this.primaryAddress = (<FormArray>(
           this.travellerForm.get("travellers")
-        )).controls[0].get("address").value;
+        )).controls[0].get("address").value.replace(/[\r\n]+/g," ");
+        console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
+        
         this.primaryState = (<FormArray>(
           this.travellerForm.get("travellers")
         )).controls[0].get("state").value;
@@ -959,10 +975,7 @@ export class AddTravellerComponent implements OnInit {
                 }, 2000);
               });
             } else if (data.code == "1000") {
-              // console.log(data.data.applicantsFormValidationResult);
-
               let errArr: Array<any> = data.data.applicantsFormValidationResult;
-
               let chunk = this.filedNameArr.length;
               let temparray = [];
 
@@ -972,8 +985,6 @@ export class AddTravellerComponent implements OnInit {
               }
 
               this.tempImageArr = [];
-
-              // console.log(this.originalImageArr);
 
               let tempArr =
                 (<FormArray>this.travellerForm.get("travellers")).controls ||
@@ -989,52 +1000,28 @@ export class AddTravellerComponent implements OnInit {
               });
 
               this.originalImageArr = [];
-
-              // tempArr.forEach((form:FormGroup,index) => {
-              //   console.log(form.get('dateOfBirth').value);
-              //   let respDob : string = form.get('dateOfBirth').value;
-              //   let year = respDob.substring(0,4);
-              //   let month = respDob.substring(5,7);
-              //   let day = respDob.substring(8,10);
-              //   console.log(year+"*"+month+"*"+day);
-              //   let dateObj = {year : year,month : month,day : day};
-
-              //   form.get('dateOfBirth').setValue(dateObj);
-
-              //   });
               tempArr.forEach((form: FormGroup, index) => {
-                // console.log(Object.keys(errArr[index]));
                 let keysArr: Array<any> = Object.keys(errArr[index]);
                 keysArr.forEach((el: string) => {
                   let tempObj = errArr[index];
+                  this.errorForm = tempObj.travellerId;
+                  // this.errorForm = errArr[index].travellerId;
+                  
                   if (tempObj[el] == true) {
                     let control = form.get(el);
                     if (control != null) {
                       // control.s
                       control.setErrors(null);
                       control.setErrors({ valueErr: true });
-                      // console.log(this.travellerForm.controls.travellers.controls[0].controls.dateOfBirth.value)
-                      // control.get
-                      // control.updateValueAndValidity();
-                      // console.log(control.getError("valueErr") + el);
-                      // control.
-                      // console.log(control);
                     }
                   }
                 });
-
-                // })
               });
-              // console.log(tempArr);
               this.preloaderService.showPreloader(false);
+              this.toastService.showNotification('Some Details Missing ' + this.errorForm, 4000);
             } else if (data.code == "1001") {
               this.modalWarnings = [];
               this.preloaderService.showPreloader(false);
-              // console.log(data.data.warnings);
-              // for (var key in data.data.warnings) {
-              // console.log(key, data.data.warnings[key]);
-              // this.modalWarnings.push(data.data.warnings[key]);
-              // }
               this.errorMessage.push(data.data.warnings.travelDateWarning);
               
               console.log(this.errorMessage);
@@ -1052,8 +1039,6 @@ export class AddTravellerComponent implements OnInit {
               this.toastService.showNotification(data.message, 4000);
             }
           });
-
-        // console.log(fd);
       } else {
         this.toastService.showNotification(
           "Please accept out terms and conditions",
@@ -1061,11 +1046,15 @@ export class AddTravellerComponent implements OnInit {
         );
       }
     } else {
-      this.toastService.showNotification("Travel details missing!", 4000);
+      this.toastService.showNotification('Some details missing !', 10000)
+      // this.toastService.showNotification("Travel details missing!", 4000);
       this.validateTravellerForm();
+      console.log(this.scrollBy);
+      // this.errorForm = '';
+      
       if (this.travellerForm.invalid && this.travelDetails.valid) {
         window.scrollTo({
-          top: 300,
+          top: 350 + this.scrollBy,
           left: 0,
           behavior: "smooth"
         });
@@ -1161,6 +1150,8 @@ export class AddTravellerComponent implements OnInit {
     temp.removeAt(index);
     this.dataSource.splice(index, 1);
     this.count = this.count - 1;
+    this.selectedTravellerForm = this.count;
+    console.log(this.selectedTravellerForm);
   }
 
   selectedFile = null;
@@ -1210,15 +1201,23 @@ export class AddTravellerComponent implements OnInit {
         "Please fill in existing traveller details first",
         4000
       );
-
       window.scrollTo({
-        top: 300,
+        top: 350,
         left: 0,
         behavior: "smooth"
       });
     } else {
       if (this.count <= 9) {
+        this.selectedTravellerForm = this.count;
+        console.log(this.selectedTravellerForm);
         this.count = this.count + 1;
+        this.scrollBy = 50 * this.count;
+        console.log(this.scrollBy);
+        window.scrollTo({
+          top: 350 + this.scrollBy,
+          left: 0,
+          behavior: "smooth"
+        });
         let temp = { id: "", dataToggle: "", dataToggleHash: "" };
         temp.id = "Traveller " + this.count;
         temp.dataToggle = "toogle" + this.count;
@@ -1279,25 +1278,26 @@ export class AddTravellerComponent implements OnInit {
     ) {
       // console.log("1");
       return true;
-    } else if (this.succeedToPayment) {
-      return false;
     } else {
-      if (confirm("Are you sure!")) {
+      if (this.succeedToPayment) {
+      return false;
+    // } else {
+    //   if (confirm("Are you sure!")) {
         // console.log("2");
-        return false;
-      } else {
+      //   return false;
+      // } else {
         // console.log("3");
         // this.router.navigateByUrl('/addTraveller');
-        window.history.replaceState("", "", "/addTraveller");
-        return true;
+        // window.history.replaceState("", "", "/addTraveller");
+        // return true;
       }
     }
   }
 
-  // @HostListener("window:beforeunload", ["$event"])
-  // unloadNotification($event: any) {
-  //   if (this.canDeactivate()) {
-  //     $event.returnValue = true;
-  //   }
-  // }
+  @HostListener("window:beforeunload", ["$event"])
+  unloadNotification($event: any) {
+    if (this.canDeactivate()) {
+      $event.returnValue = true;
+    }
+  }
 }

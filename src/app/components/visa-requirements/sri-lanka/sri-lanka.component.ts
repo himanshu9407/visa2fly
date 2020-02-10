@@ -60,6 +60,8 @@ export class SriLankaComponent implements OnInit {
   public MyQuotation1: Array<any> = [];
   public imagefield1: Array<any> = [];
   public purposeChooseForm: FormGroup;
+  public onlinestatus: boolean = false;
+
   // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
@@ -67,7 +69,13 @@ export class SriLankaComponent implements OnInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Sri lanka";
+  public selectedCountrytype = "Sri Lanka";
+  public imageCatogory: Array<any> = [];
+  public imageCatogoryBusinessTemp: Array<any> = [];
+  public imageCatogoryTouristTemp: Array<any> = [];
+  public imageCatogoryTransitTemp: Array<any> = [];
+  public imageCatogoryTemp: Array<any> = [];
+  public imageUpload1: Array<any> = [];
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -99,9 +107,23 @@ export class SriLankaComponent implements OnInit {
       this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        // console.log(res);
+        //  console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
+
+          this.imageCatogory.push(res.data.imageUploadInfo);
+        
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+          //console.log(this.imageCatogoryBusinessTemp);
+          
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+          //console.log(this.imageCatogoryTouristTemp);
+          
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          //console.log(this.imageCatogoryTransitTemp);
+
+          this.onlinestatus = res.data.onlineCategory;
+
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
@@ -120,17 +142,22 @@ export class SriLankaComponent implements OnInit {
             }
           });
           let purposeMain = this.selectedVisaType;
-          let purposeUrl =
-            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if (purposeUrl == "Business") {
-            this.MyQuotation1 = this.businessArr;
-          } else if (purposeUrl == "Tourist") {
-            this.MyQuotation1 = this.touristArr;
-          } else if (purposeUrl == "Transit") {
-            this.MyQuotation1 = this.transitArr;
-          } else {
-            this.router.navigate(["visa/"]);
-          }
+          let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if(purposeUrl == 'Business')
+            {
+              this.MyQuotation1 = this.businessArr;
+              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+            }else if(purposeUrl == 'Tourist') {
+              this.MyQuotation1 = this.touristArr;
+              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+            }else if(purposeUrl == 'Transit'){
+              this.MyQuotation1 = this.transitArr;
+              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+            }else{
+              this.router.navigate(['visa/']);
+            }
+
+            this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -152,20 +179,26 @@ export class SriLankaComponent implements OnInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri lanka-visa-online/" + purpose
+      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
+      
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
+    this.imagefield1 = this.imageCatogoryTemp;
+
     // console.log(this.MyQuotation1);
   }
 
@@ -175,31 +208,36 @@ export class SriLankaComponent implements OnInit {
 
     let purposeString: string = purpose.nextId;
     // console.log(purposeString);
-    let purposeUrl =
-      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
       //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
       // console.log(this.MyQuotation1);
       //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
+
       this.selectedTransit = 1;
       //this.t.select("Transit");
     }
+
+    this.imagefield1 = this.imageCatogoryTemp;
     // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri lanka-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }

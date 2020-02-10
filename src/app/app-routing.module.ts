@@ -35,6 +35,7 @@ import { DubaiComponent } from './components/visa-requirements/dubai/dubai.compo
 import { MaldivesComponent } from './components/visa-requirements/maldives/maldives.component';
 import { SpainComponent } from './components/visa-requirements/spain/spain.component';
 import { SingaporeComponent } from './components/visa-requirements/singapore/singapore.component';
+import { SriLankaComponent } from './components/visa-requirements/sri-lanka/sri-lanka.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -106,6 +107,10 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Singapore-visa-online/:purpose",
     component:  SingaporeComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Sri-Lanka-visa-online/:purpose",
+    component:  SriLankaComponent
   },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }

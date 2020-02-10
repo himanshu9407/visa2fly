@@ -139,10 +139,6 @@ export class HomeFormComponent {
     }
 };
 
-
-
-
-
   public selectedResidenceOf: string = "select";
 
   //public selectedVisaType: string = "select";
@@ -194,7 +190,7 @@ export class HomeFormComponent {
       .then((data) => {
         if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
-       // console.log(this.homeFormData);
+       //console.log(this.homeFormData);
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
@@ -393,6 +389,11 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
             break;
           }
+          case "Sri Lanka" : {
+           // this.setDetailsOnLocalStorage();
+            this.router.navigate(['visa-requirements/apply-for-Sri-Lanka-visa-online', "" + purpose]);
+            break;
+          }
           case "Spain" : {
             this.router.navigate(['visa-requirements/apply-for-Spain-visa-online/', "" + purpose]);
             break;
@@ -402,6 +403,8 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Singapore-visa-online/', "" + purpose]);
             break;
           }
+
+          
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();
           //   this.router.navigate(['']);

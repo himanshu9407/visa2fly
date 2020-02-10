@@ -8,10 +8,10 @@
       </div>
     </div>
 
-    <div class="col-lg-4 visaStepContainer">
+    <div class="col-lg-4 visaStepContainer" *ngIf="!onlinestatus">
       <div class="visaStep">
         <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">Apply For Dubai Visa Online</h1>
+          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
         </div>
         <div class="visaStepContent">
           <div class="row">
@@ -86,6 +86,68 @@
         </div>
       </div>
     </div>
+
+    <div class="col-lg-4 visaStepContainer" *ngIf="onlinestatus">
+      <div class="visaStep">
+        <div class="visaStepHeader text-center">
+          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
+        </div>
+        <div class="visaStepContent">
+          <div class="row">
+              <div class="col-md-6 col-lg-12 col-6 mt-2">
+                  <div class="row">
+                      <div class="col-12">
+                          <h5 style="font-size: 16px;">Step 1</h5>
+                      </div>
+                      <div class="col-2">
+                          <img data-src="https://static.visa2fly.com/assets/file.png" alt="file-icon" class="img-fluid lazyload"
+                              style="height: 30px; width: 30px; margin-top: 4px;" />
+                      </div>
+                      <div class="col-10">
+                          <h5 style="font-size: 16px; margin-bottom: 5px;">Upload Document</h5>
+                          <p style="font-size: 12px; margin-bottom: 7px;">Upload soft copy passport front
+                              and book your Visa</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 col-lg-12 col-6 mt-2">
+                  <div class="row">
+                      <div class="col-12">
+                          <h5 style="font-size: 16px;">Step 2</h5>
+                      </div>
+                      <div class="col-2">
+                          <img data-src="https://static.visa2fly.com/assets/credit.png" alt="credit-card-icon" class="img-fluid lazyload"
+                              style="height: 30px; width: 30px; margin-top: 4px;" />
+                      </div>
+                      <div class="col-10">
+                          <h5 style="font-size: 16px; margin-bottom: 5px;">
+
+                              Pay online</h5>
+                          <p style="font-size: 12px; margin-bottom: 7px;">Pay online securely.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 col-lg-12 col-6 mt-2">
+                  <div class="row">
+                      <div class="col-12">
+                          <h5 style="font-size: 16px;">Step 3</h5>
+                      </div>
+                      <div class="col-2">
+                          <img src="https://static.visa2fly.com/assets/passport(1).png" alt="passport icon" class="img-fluid"
+                              style="height: 30px; width: 30px; margin-top: 4px;" />
+                      </div>
+                      <div class="col-10">
+                          <h5 style="font-size: 16px; margin-bottom: 5px;">
+
+                              Get your visa</h5>
+                          <p style="font-size: 12px; margin-bottom: 7px;">Receive your approved visa .</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -98,10 +160,10 @@
       </div>
     </div>
 
-    <div class="col-lg-12 visaStepContainer">
+    <div class="col-lg-12 visaStepContainer" *ngIf="!onlinestatus">
       <div class="visaStep">
         <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">Apply For Dubai Visa Online</h1>
+          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
         </div>
         <div class="visaStepContent mt-3">
           <div class="row">
@@ -175,6 +237,65 @@
         </div>
       </div>
     </div>
+
+    <div class="col-lg-12 visaStepContainer" *ngIf="onlinestatus">
+      <div class="visaStep">
+          <div class="visaStepHeader text-center">
+              <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
+          </div>
+          <div class="visaStepContent mt-3">
+              <div class="row">
+                  <div class="col-md-6 col-lg-6 col-6 txtCenter">
+                      <div class="row">
+                          <div class="col-12 ">
+                              <h5 style="font-size: 16px;">Step 1</h5>
+                          </div>
+                          <div class="col-lg-2 col-md-2 col-12">
+                              <img data-src="https://static.visa2fly.com/assets/file.png" alt="file icon"
+                                  class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
+                          </div>
+                          <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                              <h5 class="visaStepMainPoint">Upload Document</h5>
+                              <p class="visaStepPoints">Upload soft copy passport front and book your Visa</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-6 txtCenter">
+                      <div class="row">
+                          <div class="col-12">
+                              <h5 style="font-size: 16px;">Step 2</h5>
+                          </div>
+                          <div class="col-lg-2 col-md-2 col-12 ">
+                              <img data-src="https://static.visa2fly.com/assets/credit.png" alt="credit icon"
+                                  class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
+                          </div>
+                          <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                              <h5 class="visaStepMainPoint">
+                                  Pay online</h5>
+                              <p class="visaStepPoints">Pay online securely.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-12 txtCenter diffMg" style="display: flex;justify-content: center;">
+                      <div class="row">
+                          <div class="col-12">
+                              <h5 style="font-size: 16px;">Step 3</h5>
+                          </div>
+                          <div class="col-lg-3 col-md-3 col-12 ">
+                              <img data-src="https://static.visa2fly.com/assets/passport(1).png" alt="passport icon"
+                                  class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" />
+                          </div>
+                          <div class="col-lg-9 col-md-9 col-12 diffMg2">
+                              <h5 class="visaStepMainPoint">
+                                  Get your visa</h5>
+                              <p class="visaStepPoints">Receive your approved visa.</p>
+                          </div>
+                      </div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
   </div>
 </div>
 
@@ -213,11 +334,11 @@
                     formControlName="purposeSelected" checked="checked" />
                   <p class="select-box__input-text">Business</p>
                 </div>
-                <!-- <div class="select-box__value">
+                <div class="select-box__value">
                   <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
                     formControlName="purposeSelected" checked="checked" />
                   <p class="select-box__input-text">Transit</p>
-                </div> -->
+                </div>
                 <img class="select-box__icon" src="https://static.visa2fly.com/assets/arrow.svg" alt="dubai visa for indians"
                   aria-hidden="true" />
                 <!-- <i class="fa fa-sort-desc select-box__icon" aria-hidden="true"></i> -->
@@ -231,10 +352,10 @@
                   <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                     aria-hidden="aria-hidden">Business</label>
                 </li>
-                <!-- <li>
+                <li>
                   <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
                     aria-hidden="aria-hidden">Transit</label>
-                </li> -->
+                </li>
               </ul>
             </div>
           </form>
@@ -880,7 +1001,7 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      <li>All Indian passport holders require a valid visa to enter United Kingdom.</li>
+                      <li>All Indian passport holders require a valid visa to enter Dubai.</li>
                     </p>
                     <p>
                       <li>Each applicant must have all the mandatory documents as mentioned in requirement tabs below
@@ -1501,7 +1622,7 @@
 
         </ng-template>
       </ngb-tab>
-      <!-- <ngb-tab id="Transit" title="Transit">
+      <ngb-tab id="Transit" title="Transit">
         <ng-template ngbTabContent>
 
           <div class="container-fluid" [@simpleFadeAnimation]="'in'">
@@ -1576,9 +1697,9 @@
                       <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true"
                         aria-controls="transitThree" [class.showDiv]="selectedTransit === 3"
                         (click)="setActiveTransit(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Id Proof.png" alt="Id Proof"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="Flight"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Id Proof</h2>
+                        <h2 class="setFontSize">Flight</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1586,9 +1707,9 @@
                         data-parent="#transitAccodion">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Id Proof
+                            <h1 class="requiredIconHeading">Flight
                             </h1>
-                            <p>You need a proof of identification for dubai visa eg PAN Card, Adhar Card etc.
+                            <p>Applicant must provide both departure and arrival flight tickets.
                             </p>
                           </div>
                         </div>
@@ -1597,16 +1718,31 @@
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                    
+                      <div data-toggle="collapse" data-target="#transitFour" aria-expanded="true"
+                      aria-controls="transitFour" [class.showDiv]="selectedTransit === 4"
+                      (click)="setActiveTransit(4)">
+                      <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="PAN Card"
+                        style="height: 45px; margin-bottom: 10px;" />
+                      <h2 class="setFontSize">PAN Card</h2>
+                    </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      
+                      <div id="transitFour" class="collapse" aria-labelledby="transitFour"
+                      data-parent="#transitAccodion">
+                      <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                        <div class="card-body">
+                          <h1 class="requiredIconHeading">PAN Card
+                          </h1>
+                          <p>Applicant have to provide Pan card if applicant is employed / self employed.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
               </div>
             </div>
-
 
             <div class="mobileContainer accordion" id="transitAccodionMobile">
               <div class="row mt-4">
@@ -1678,9 +1814,9 @@
                       <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true"
                         aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3"
                         (click)="setActiveTransit(3)">
-                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Id Proof.png" alt="Id Proof"
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="Flight"
                           style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Id Proof</h2>
+                        <h2 class="setFontSize">Flight</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -1688,9 +1824,9 @@
                         data-parent="#transitAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Id Proof
+                            <h1 class="requiredIconHeading">Flight
                             </h1>
-                            <p>You need a proof of identification for dubai visa eg PAN Card, Adhar Card etc.
+                            <p>Applicant must provide both departure and arrival flight tickets.
                             </p>
                           </div>
                         </div>
@@ -1699,10 +1835,26 @@
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                    
+                      <div data-toggle="collapse" data-target="#transitMobileFour" aria-expanded="true"
+                      aria-controls="transitMobileFour" [class.showDiv]="selectedTransit === 4"
+                      (click)="setActiveTransit(4)">
+                      <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="PAN Card"
+                        style="height: 45px; margin-bottom: 10px;" />
+                      <h2 class="setFontSize">PAN Card</h2>
+                    </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                     
+                      <div id="transitMobileFour" class="collapse" aria-labelledby="transitMobileFour"
+                      data-parent="#transitAccodion">
+                      <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                        <div class="card-body">
+                          <h1 class="requiredIconHeading">PAN Card
+                          </h1>
+                          <p>Applicant have to provide Pan card if applicant is employed / self employed.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                     </ng-template>
                   </ngb-tab>
                 </ngb-tabset>
@@ -1833,7 +1985,7 @@
           </div>
 
         </ng-template>
-      </ngb-tab> -->
+      </ngb-tab>
     </ngb-tabset>
   </div>
 </div>
