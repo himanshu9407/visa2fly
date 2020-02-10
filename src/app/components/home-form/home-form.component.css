@@ -1,12 +1,4 @@
 /* FIREFOX FIX OF UGLY SELECT BOXES */
-
-@supports (-moz-appearance:none) {
-    SELECT {
-        -moz-appearance: none !important;
-        background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
-        background-position: calc(100% - 5px) center !important;
-    }
-}
  
 
 /* select:-moz-focusring {
@@ -176,4 +168,903 @@ label {
         margin-bottom: 50px !important;
     }
 
+}
+
+
+
+/*for FireFox*/
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+select::-moz-focus-inner,
+a::-moz-focus-inner
+{   
+    border : 0px !important;
+} 
+/*for IE8 */
+input[type="submit"]:focus,
+input[type="button"]:focus,
+select:focus,
+a:focus
+{     
+    outline : none !important; 
+}
+
+
+
+/*::-webkit-scrollbar-track
+{
+	border: 2px solid white;
+	background-color: #fff;
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #555;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #888;
+}*/
+
+
+.homeDate input {
+  border: 0;
+  outline: none;
+  padding: 0;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 700;
+  height: 23px;
+}
+/*may end */
+/*14 may */
+/*end here*/
+.bagcalendar {
+  /* background: #ffffff url('../../Contents/Images/pink-calander.png') right no-repeat; */
+  cursor: pointer;
+}
+/*End 01-02-2018*/
+a {
+  text-decoration: none !important;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: none !important;
+}
+input[type="submit"],
+button {
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  outline: none !important;
+}
+.clear {
+  clear: both;
+}
+/*header.fixHeader .headerMain .hRight .navMenu {
+   top: 20px;
+ }*/
+/*header .logo .beta {
+   position: absolute;
+   font-size: 12px;
+   color: #522583;
+   right: -28px;
+   top: -20px;
+   color: #fff;
+ }*/
+/* Youtube Video */
+/* Embed Video */
+.chkIn {
+  background-color: #fff;
+  margin: auto;
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  /*Edit 31-01-218*/
+  /*End */
+}
+.chkIn .chkIp {
+  float: left;
+  border-right: 1px solid #e1e1e1;
+  padding: 5px 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  /*.chkInput,.chkselect{width: ~"calc(100% - 35px)";float: left;margin-left: 10px;display: inline-block;vertical-align: middle;.det (#000, 12px,  700);border: 0; outline: 0; height: 23px;*/
+  /*Edit 31-01-2018*/
+}
+
+/*@media (min-width: 480px) and (max-width: 768px) { 
+.chkIn .chkIp {
+  float: left;
+  border-right: 1px solid #e1e1e1;
+  padding: 5px 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+}*/
+
+.chkIn .chkIp .chkLabel {
+  color: navy;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.chkIn .chkIp .chkselect {
+  background-color: white;
+  width: calc(100% - 35px);
+  float: left;
+  margin-left: 10px;
+  border: 1px solid #aaa;
+  display: inline-block;
+  vertical-align: middle;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 600;
+  /* border: 0; */
+  outline: 0;
+  height: 23px;
+  /*end*/
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus,
+  input:focus {
+    font-size: 16px;
+  }
+}
+
+.chkIn .chkIp1 {
+  width: 28%;
+}
+.chkIn .chkIp2 {
+  width: 28%;
+}
+.chkIn .chkIp3 {
+  width: 28%;
+}
+
+.chkIn .chkSubmit {
+  height: 39px !important;
+  font-size: 14px;
+  margin-top: 19px;
+  width: calc(10% + 13px);
+  background: navy;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  margin-left: .5%;
+  height: 85px;
+  /* position: absolute; */
+  top: 0;
+  right: 0;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+}
+.chkIn .chkSubmit:hover {
+  border: 2px solid navy;
+  color: navy;
+  background-color: white;
+}
+.chkIn .chkIpBack {
+  width: 20px !important;
+  border: 0;
+  outline: 0;
+  /*.chkIpBack{ width: 20px; border: 0; outline: 0; */
+}
+.chkIn .chkIpBack span {
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  background: #eee;
+  color: navy;
+  height: 85px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  width: 40px;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 85px;
+  text-align: center;
+}
+.chkIn .chkIpBack span:hover {
+  background: #999;
+}
+.chkIn.chkInSec2 {
+  position: relative;
+  bottom: 100%;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+}
+/*.chkIn.chkInSec2.nextFieldsIn { bottom: 0; }*/
+.chkIn.chkInSec2.nextFieldsIn {
+  bottom: 0;
+  width: 100%;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-group-addon {
+  display: none;
+}
+.homeDate input {
+  border: 0;
+  outline: none;
+  padding: 0;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 700;
+  height: 23px;
+}
+.homeDate input:focus {
+  outline: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+/*.srchTxt{ color: #ec008c; font-size: 14px; font-weight: 600; margin: 15px 0; text-align: center; letter-spacing: 1px;}*/
+/*Edit 31-01-2017*/
+/*End */
+/* Home Popup */
+/* Why GetMyVisa */
+/* // Why GetMyVisa */
+/* Footer */
+/* // Footer */
+/* How It Works  */
+/* // How It Works  */
+/* Country Options */
+/*.cntryOptions .cntry.c1 {
+   background-image: url('../../Contents/Images/c1.png');
+ }
+ .cntryOptions .cntry.c2 {
+   background-image: url('../../Contents/Images/c2.png');
+ }
+ .cntryOptions .cntry.c3 {
+   background-image: url('../../Contents/Images/c3.png');
+ }
+ .cntryOptions .cntry.c4 {
+   background-image: url('../../Contents/Images/c4.png');
+ }*/
+/*
+ .cntryOptions .cntry.c1 {
+   background-image: url('../../Contents/Images/hong-kong.jpg');
+ }
+ .cntryOptions .cntry.c2 {
+   background-image: url('../../Contents/Images/malaysia.jpg');
+ }
+ .cntryOptions .cntry.c3 {
+   background-image: url('../../Contents/Images/c2.png');
+ }
+ .cntryOptions .cntry.c4 {
+   background-image: url('../../Contents/Images/sri-lanka.jpg');
+ }
+ .cntryOptions .cntry.c5 {
+   background-image: url('../../Contents/Images/cambodia.jpg');
+ }
+ .cntryOptions .cntry.c6 {
+   background-image: url('../../Contents/Images/kenya.png');
+ }
+ .cntryOptions .cntry.c7 {
+   background-image: url('../../Contents/Images/bahrain.jpg');
+ }
+ .cntryOptions .cntry.c8 {
+   background-image: url('../../Contents/Images/oman.jpg');
+ }
+  */
+/* // Country Options */
+/* footer */
+/* --/footer -- */
+/*New Changes as per Ritesh Sir suggestion*/
+/*New Changes as per Ritesh Sir suggestion end*/
+/* --- login page ---*/
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+@keyframes toggle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.date .input-group-addon {
+  display: table-cell;
+}
+.date .input-group-addon {
+  position: absolute;
+  opacity: 0;
+}
+
+
+.removeradius {
+  border-radius: 0px;
+  margin-top: 10px;
+}
+
+select {
+  border-radius: 0;
+}
+
+.serchcountrybtn {
+  height: 85px !important;
+}
+
+.img-loader {
+  position: absolute;
+  margin-left: 50px;
+  margin-top: -12px;
+  width: 100%;
+  display: none;
+}
+
+@media (max-width: 1500px) {
+  /*Edit 31-01-2017*/
+  .chkIn .chkIp {
+    padding: 2px 10px;
+    height: 100%;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  
+  .chkIn .chkIp .chkselect {
+    font-size: 11px;
+  }
+  .chkIn .chkIp .chkLabel {
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .chkIn .chkIp .chkLabel,
+  .chkIn .chkIp .chkselect {
+    font-size: 14px;
+  }
+
+  .chkIn .chkSubmit {
+    clear: both;
+    width: 100%;
+    float: right;
+    position: relative;
+    height: 50px !important;
+  }
+  .chkIn .chkIp {
+    padding: 0px 10px;
+    height: 100%;
+    float: left;
+    width: 25.6% !important;
+    border: none;
+    margin-bottom: 0px;
+    position: relative;
+  }
+  .chkIp.chkIpBack {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    float: right;
+    z-index: 99999999 !important;
+  }
+  .chkIn .chkIpBack span {
+    height: 32px;
+    left: -12px;
+    width: 42px;
+    font-size: 24px;
+    line-height: 28px;
+    background: #522583 !important;
+    color: #fff !important;
+  }
+  .chkIn .chkIpBack span:hover {
+    background: #ec008c !important;
+    color: #fff !important;
+  }
+  .chkIn .chkIpBack span i {
+    margin-left: -5px;
+    margin-top: 3px;
+  }
+  .mobile {
+    display: block !important;
+  }
+  .main-wrapper-button {
+    float: left;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    padding: 15px 0;
+  }
+  .main-wrapper-button .serchcountrybtn {
+    width: auto;
+    display: inline-block !important;
+    clear: none;
+    margin-top: 10px;
+    padding: 10px 40px !important;
+    margin-right: 10px;
+    font-size: 14px;
+    line-height: 10px;
+    float: none;
+  }
+  .chkIn .chkSubmit {
+    height: 40px !important;
+  }
+  .chkIn .chkIp .chkLabel {
+    margin-bottom: 5px;
+  }
+  /*.popular-prev, .popular-next,.visaNews-button-next,.visaNews-button-prev,.partners-button-next,.partners-button-prev{
+		 top: auto !important;
+		 border: 1px solid @purple;
+		 bottom: -45px;
+	 }*/
+  .chkIp.chkIpBack {
+    display: none;
+  }
+  /*.visaNews-button-next,.visaNews-button-prev{
+		 display: none;
+	 }*/
+  /*.check-insurance-page {
+	 top: auto;
+   }*/
+  /*.deactivated{
+			 opacity: 1;
+			 pointer-events:auto;
+		 }*/
+}
+@media (max-width: 640px) {
+  /*wheel csss*/
+  /*end wheell csss*/
+
+  /*edit for browserstack*/
+  .chkIn .chkIp {
+    width: 100% !important;
+  }
+  /*End here*/
+  .main-wrapper-button .serchcountrybtn {
+    padding: 10px 20px !important;
+  }
+  .chkIn .chkSubmit {
+    height: 35px !important;
+  }
+
+  .main-wrapper-button .serchcountrybtn {
+    width: 100px !important;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  /*.whyGmv.section {
+	 display: none;
+   }*/
+  /*.testimonials{
+		 padding-top: 0;
+	 }*/
+}
+@media (max-width: 520px) {
+  /*Edit as per browserstack*/
+
+  /*End browserstack*/
+  /*.chkInBox{
+		 top: 10px;
+	 }*/
+  .chkIn .chkIp .chkLabel,
+  .chkIn .chkIp .chkLabel,
+  .chkIn .chkIp .chkselect {
+    font-size: 10px;
+  }
+}
+@media (max-width: 320px) {
+  /*.payment-wrapper .payment-list-wrap::before {
+	 top: 62px;
+   }*/
+}
+/*@media (max-width: 320px){
+   .countrytab {
+	 padding: 14px 8px;
+	}
+ }*/
+/*@media all and (max-width: 640px) {
+	 .popularDestination .countryName li {
+		 width: calc(100% / 4);
+		 padding: 5px 0;
+	 }
+	 .hl h2 {
+		 font-size: 18px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .hright {
+		 line-height: 40px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .clientDetail h2 {
+		 font-size: 24px;
+	 }
+	 .swiper-button-prev,
+	 .swiper-button-next {
+		 height: 35px;
+		 width: 35px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .clientDetail {
+		 padding: 0 50px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .hright span {
+		 padding: 0px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .lableText {
+		 margin-left: 15px;
+		 font-size: 14px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .hright {
+		 margin-right: 15px;
+	 }
+	 .blogDtailContainer .quotesDetail {
+		 padding: 0 35px 10px;
+	 }
+ }
+
+ @media all and (max-width: 600px) {
+	 .tripImg {
+		 margin-bottom: 0px;
+	 }
+	 .popularDestination .popHeading input {
+		 width: 100%;
+		 margin-top: 40px;
+	 }
+	 .popularDestination .countryName {
+		 margin: 10px 0px 0;
+	 }
+	 .popularDestination .countryName li {
+		 width: 33.33%;
+	 }
+	 .sosLink,
+	 .twiterLink {
+		 height: 150px;
+		 line-height: 150px;
+		 margin-bottom: 0;
+	 }
+	 .blogRight .featurePost {
+		 width: 100%;
+		 margin: 15px 0;
+	 }
+	 .blogRight {
+		 padding: 0 15px;
+	 }
+	 .blogSocial {
+		 padding: 15px 0;
+		 padding-bottom: 0;
+	 }
+	 .twiterLink.sosLink img {
+		 width: 40%;
+	 }
+	 .popularDestination .countryName {
+		 margin: 0;
+	 }
+	 .gvmFooter .gvm_cr .designed {
+		 float: none;
+		 text-align: center;
+		 width: 100%;
+		 padding-bottom: 5px;
+	 }
+	 .gvmFooter .gvm_cr .rights {
+		 text-align: center;
+		 width: 100%;
+	 }
+	 .gvmFooter .gvm_cr {
+		 line-height: 30px;
+		 padding-top: 5px;
+	 }
+	 .blogDtailContainer .blogRight {
+		 padding: 0 10px;
+	 }
+ }
+
+ @media all and (max-width: 480px) {
+	 .blogContainer .blogLeft .blogBox {
+		 margin-top: 20px;
+	 }
+	 .tripImg {
+		 min-height: 190px;
+	 }
+	 .tripImg .labelText {
+		 top: 20px;
+	 }
+	 .blogAdBox.blogBox .tripImg,
+	 .blogContainer .blogLeft .blogBox {
+		 min-height: 330px;
+	 }
+	 .tripImg {
+		 margin-bottom: 20px;
+	 }
+	 .blogBox.blogAdBox {
+		 margin-bottom: 20px;
+	 }
+	 .blogAdBox.blogBox .tripImg,
+	 .blogContainer .blogLeft .blogBox {
+		 min-height: 250px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .lableText {
+		 margin-left: 10px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .hright {
+		 margin-right: 10px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .clientDetail h2 {
+		 font-size: 20px;
+	 }
+ }
+ */
+/*@media all and (max-width: 400px) {
+	 .popularDestination .countryName li {
+		 width: 50%;
+	 }
+	 .fbLink.sosLink img {
+		 max-width: 90%
+	 }
+	 header .headerMain .hRight ul.menuAccount li a.myAcnt {
+		 padding: 7px 10px;
+	 }
+	 header .headerMain .logo img {
+		 max-width: 90%;
+	 }
+	 .gvmFooter ul.footer_social li {
+		 margin: 0 15px 0 0;
+	 }
+	 header .headerMain .logo,
+	 header .headerMain .hRight,
+	 header.fixHeader .headerMain .hRight {
+		 line-height: 50px;
+	 }
+	 header .headerMain .hRight .navMenu,
+	 header.fixHeader .headerMain .hRight .navMenu {
+		 top: 14px;
+	 }
+	 header .headerMain {
+		 height: 50px;
+	 }
+
+	 header.fixHeader .headerMain .logo {
+		 width: 110px;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .hright {
+		 width: 100%;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag .lableText {
+		 display: inline-block;
+		 float: none !important;
+		 margin-left: 0;
+	 }
+	 .blogDetailMain .blogSlider .swiper-slide .lableTag {
+		 text-align: center;
+		 bottom: 10%;
+	 }
+	 .blogDetailRight.blogRight .featurePost .fetBox {
+		 width: 100% !important;
+	 }
+	 .blogDtailContainer .quotesDetail {
+		 padding: 0 5px 10px 30px;
+		 font-size: 16px;
+		 line-height: 24px;
+	 }
+	 .blogDtailContainer .commentDisply .dispText {
+		 padding-left: 10px;
+	 }
+	 .blogDtailContainer .paraDetail {
+		 line-height: 24px;
+	 }
+	 .blogDtailContainer .mountainImg {
+		 margin: 15px 0;
+	 }
+	 .blogDtailContainer .socialLinks ul li a {
+		 margin-right: 6px;
+	 }
+	 .blogDtailContainer .commentText textarea {
+		 margin: 10px 0;
+	 }
+ }*/
+/*@media all and (max-width: 360px) {
+	 .popularDestination .popHeading input {
+		 width: 100%;
+		 margin-top: 40px;
+	 }
+	 .gvmFooter ul.footer_social li {
+		 margin: 0 10px 0 0;
+	 }
+	 header .headerMain .logo img {
+		 max-width: 100%;
+	 }
+	 header .headerMain .logo {
+		 width: 90px;
+	 }
+	 header .headerMain .hRight ul.menuAccount li a.myAcnt {
+		 padding: 4px 6px;
+	 }
+	 header .headerMain .hRight ul.menuAccount li a {
+		 font-size: 16px;
+	 }
+	 header.fixHeader .headerMain .logo {
+		 width: 90px;
+	 }
+ }*/
+/*IE 9 Csss*/
+
+/*body {
+	 background:blue \0/ !important;
+ }*/
+/*Implementation of the page hide show accroding to the mobile and desktop*/
+/*@media (min-width:992px){
+	 .low-resolution{
+		 display: none;
+		 z-index: 99999;
+	 }
+ }
+
+ @media (max-width:991px){
+	 .gvmFooter ,header,.mainContainer{
+	   display: none !important;
+	 }
+ }
+ */
+
+@media (width: 768px) {
+  .main-wrapper-button .chkIp {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto !important;
+    /* padding: 0px 8px 0px; */
+  }
+}
+
+/*# sourceMappingURL=main.css.map
+
+
+ /*Safari css*/
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  ::i-block-chrome,
+  input {
+    line-height: 10px !important;
+  }
+  ::i-block-chrome {
+    width: 55.5% !important;
+  }
+
+  ::i-block-chrome {
+    width: auto;
+    float: right;
+  }
+  ::i-block-chrome {
+    position: absolute;
+    right: 10px;
+  }
+  ::i-block-chrome {
+    clear: both;
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline;
+  }
+  ::i-block-chrome {
+    display: inline-block;
+    margin: 0 5%;
+    float: none !important;
+  }
+  ::i-block-chrome,
+  ::i-block-chrome,
+  .chkIn .chkIp .chkselect {
+    width: 85% !important;
+  }
+  ::i-block-chrome,
+  .chkIn .chkSubmit {
+    width: 10% !important;
+  }
+  ::i-block-chrome {
+    width: 50%;
+  }
+  ::i-block-chrome {
+    padding: 10px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 640px) {
+}
+
+/*End Safari css*/
+
+/*IE CSS */
+
+@media screen and (min-width: 0\0) {
+  /*end*/
+
+  .chkIn .chkSubmit {
+    height: 20px !important;
+    margin-top: 10px;
+    width: calc(10% + 13px);
+    background: navy;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    height: 85px;
+    /* position: absolute; */
+    margin-left: 1%;
+    top: 0;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+  }
+
+  .main-wrapper-button .serchcountrybtn {
+    width: 50px;
+  }
+}
+/*End Here*/
+
+
+/* @media screen and (max-width: 640px) {
+  .makeCenter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+} */
+
+@media screen and (min-width: 570px) and (max-width: 900px) {
+  .chkIn .chkIp {
+    padding: 0px 10px;
+    height: 100%;
+    float: left;
+    width: 25% !important;
+    border: none;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.main-wrapper-button {
+  float: left;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  padding: 15px 0;
+}
+}
+
+@media screen and (width: 800px) {
+  .chkIn .chkIp {
+    padding: 0px 10px;
+    height: 100%;
+    float: left;
+    width: 25% !important;
+    border: none;
+    margin-bottom: 7px !important; 
+    position: relative;
+}
 }

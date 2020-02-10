@@ -18,6 +18,7 @@ export class SimplansComponent implements OnInit {
 
   simCountries : Array<any> = [];
   revertCountry: Array<any> = [];
+  selectedSimCountry :any = "";
   selectedRevertCountry: string = "";
   simHomeForm : FormGroup;
   selectedCountry : string = "";
@@ -30,7 +31,7 @@ export class SimplansComponent implements OnInit {
   simResp : any ;
   showMobileCart : boolean  = false;
   buttonLabel : string = "View Cart";
-  selectedSimCountry : any = "";
+  //selectedSimCountry : any = "";
 
   constructor(private simService : SimService, private router : Router, 
     private preloaderService : PreloaderService, private toastService :ToastService,
@@ -86,7 +87,6 @@ export class SimplansComponent implements OnInit {
           if(data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
             localStorage.setItem("simResp",JSON.stringify(data.data));
-            this.preloaderService.showPreloader(false);
             
             this.selectedSimCountryData.forEach((element : any) => {
               element.quantity = 0;
@@ -172,7 +172,7 @@ export class SimplansComponent implements OnInit {
 
   increaseItemCount (item : any) {
 
-    // console.log(item);
+    //console.log(item);
     let totalQuantity = 0;
     this.simCart.forEach(element => {
       totalQuantity =totalQuantity + element.quantity;
@@ -221,7 +221,7 @@ export class SimplansComponent implements OnInit {
       
     }
 
-    // console.log(this.simCart);
+    //console.log(this.simCart);
     this.updateTotal();
 
   }
@@ -271,7 +271,7 @@ export class SimplansComponent implements OnInit {
       
     
 
-    // console.log(this.simCart);
+    //console.log(this.simCart);
     this.updateTotal()
   }
 

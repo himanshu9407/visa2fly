@@ -50,6 +50,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
   
   @ViewChild("t", { static : false }) t;
   ngbTabTitleClass;
+  public onlinestatus: boolean = false;
 
   selectedRequirement: boolean = false;
 
@@ -80,6 +81,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
       // this.userControlDetail = this.userFlow.getUserFlowDetails();
       // // console.log(this.userControlDetail);
       this.userControlDetail = this.userFlow.getUserFlowDetails();
+        this.preloaderService.showPreloader(true);
      // console.log(this.userControlDetail.purpose);
       
       this.activeRoute.params.subscribe((params : any) =>{
@@ -96,6 +98,8 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
         //console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
+          this.onlinestatus = res.data.onlineCategory;
+          this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           // console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
             
@@ -122,6 +126,11 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
           }else{
             this.router.navigate(['visa/']);
           }
+
+          setTimeout(() => {
+                              
+            this.preloaderService.showPreloader(false);
+            }, 500);
         }
       });
       
@@ -159,7 +168,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa/UK-visa-application/" + purpose
+      "/visa-requirements/apply-for-UK-visa-online/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -215,7 +224,7 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
      window.history.replaceState(
        "",
        "",
-     "/visa/UK-visa-application/" + purposeUrl
+     "/visa-requirements/apply-for-UK-visa-online/" + purposeUrl
      );
      // console.log("url changed");
      }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { trigger, state, transition, animate, style } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { LoginService } from '../../login-signup/login/login.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { ToastService } from 'src/app/shared/toast.service';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-china',
@@ -32,12 +33,14 @@ import { ToastService } from 'src/app/shared/toast.service';
     ])
   ]
 })
-export class ChinaComponent implements OnInit {
+export class ChinaComponent implements OnInit, AfterViewInit {
  
   @ViewChild("t", { static : false }) t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
+  public onlinestatus: boolean = false;
+
 
   // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
@@ -65,6 +68,8 @@ export class ChinaComponent implements OnInit {
     private reqService : RequirementsService,private toastService :ToastService) {
       this.userControlDetail = this.userFlow.getUserFlowDetails();
      // console.log(this.userControlDetail.purpose);
+
+      this.preloaderService.showPreloader(true);
       
       this.activeRoute.params.subscribe((params : any) =>{
         this.selectedVisaType = params.purpose;
@@ -81,6 +86,8 @@ export class ChinaComponent implements OnInit {
         // console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
+          this.onlinestatus = res.data.onlineCategory;
+          this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
             
@@ -107,6 +114,16 @@ export class ChinaComponent implements OnInit {
           }else{
             this.router.navigate(['visa/']);
           }
+
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(['/']);
+          }, 2000);
+          this.toastService.showNotification("Country Not Found", 10000);
         }
       });
      }
@@ -125,7 +142,7 @@ export class ChinaComponent implements OnInit {
     window.history.replaceState(
       "",
       "",
-      "/visa/apply-for-China-visa-online/" + purpose
+      "/visa-requirements/apply-for-China-visa-online/" + purpose
     );
     // console.log(this.businessArr);
     
@@ -181,7 +198,7 @@ export class ChinaComponent implements OnInit {
      window.history.replaceState(
        "",
        "",
-     "/visa/apply-for-China-visa-online/" + purposeUrl
+     "/visa-requirements/apply-for-China-visa-online/" + purposeUrl
      );
      // console.log("url changed");
      }

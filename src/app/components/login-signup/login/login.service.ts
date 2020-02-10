@@ -1,7 +1,8 @@
-import {Inject, Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
     providedIn: 'root'
@@ -11,9 +12,14 @@ export class LoginService {
     AUTH_TOKEN :string = "";
     loggedIn = false;
    
-    constructor( private http : HttpClient, private userFlow : UserFlowDetails){
+    constructor( private http : HttpClient, private userFlow : UserFlowDetails,
+        @Inject(PLATFORM_ID) private platformId: Object){
+
+             // Client only code.
+             if (isPlatformBrowser(this.platformId)) {
+                this.AUTH_TOKEN = localStorage.getItem("AUTH_TOKEN") || null ; 
+            }
         
-        this.AUTH_TOKEN = localStorage.getItem("AUTH_TOKEN") || null ; 
     }
 
     getUserStatus () {
@@ -26,7 +32,9 @@ export class LoginService {
     }
 
     getAuthToken () {
-        return localStorage.getItem("AUTH_TOKEN");
+        if (isPlatformBrowser(this.platformId)) {
+            return localStorage.getItem("AUTH_TOKEN");
+        }
     }
 
 
@@ -64,13 +72,13 @@ export class LoginService {
         }
         else if (temp.mobile) {
             reqBody = {emailId : "",cell : userId, otp : otp ,remember :rememberMe,ipAddress :ip,loginAttemptMethod : "0" };
-
+            
         }
-
+        
         let reqBodyFinal = JSON.stringify(reqBody);
 
       
-        console.log(reqBody);
+        //console.log(reqBody);
 
         let random = new Date().getTime();
         const base_url = this.userFlow.getBaseURL();

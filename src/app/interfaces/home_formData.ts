@@ -11,3 +11,11 @@ export interface country {
     entryType:   string[];
     residenceOf: string[];
 }
+
+export interface feedbackModal {
+    bookingId : string;
+    product : string;
+    info  : string;
+    recommend : string;
+    userFeedback  :string;
+}

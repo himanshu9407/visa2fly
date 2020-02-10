@@ -1,5 +1,4 @@
-
-        <!-- <div class="col-md-7 col-lg-8 mobileLogoContainer">
+<!-- <div class="col-md-7 col-lg-8 mobileLogoContainer">
             <img src="../../../assets/logo4.jpg" class="mobileLogo" alt="">
             <div class="dropdown" style="display: flex;align-content: center;align-items: center;justify-content: center;">
                     <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -13,100 +12,103 @@
                 </div>
 
           </div> -->
-          <nav class="navbar heightNav fixed-top navbar-expand-lg navbar-light headerPrimary" style="padding-left: 50px;padding-right: 50px;">
+<nav class="navbar heightNav fixed-top navbar-expand-lg navbar-light headerPrimary"
+  style="padding-left: 50px;padding-right: 50px;">
 
-                <!-- Navbar brand -->
-                <a class="navbar-brand" [routerLink]="['']"><img src="../../../assets/logo4.jpg" width="100" height="60%" class="d-inline-block align-top"  alt="visa2fly logo"></a>
+  <!-- Navbar brand -->
+  <a class="navbar-brand" [routerLink]="['']"><img data-src="https://static.visa2fly.com/assets/logo4.jpg" width="100"
+      height="60%" class="d-inline-block lazyload align-top" alt="visa2fly apply visa online"></a>
 
-                <!-- Collapse button -->
-                <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-                <!-- Collapsible content -->
-                
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <form *ngIf="userLoggedIn" class="form-inline">
-                    <li class="nav-item dropdown">
-                      <div class="btn-group">
-                        <button [routerLink] = "['profile']" class="btn btn-sm  ml-3 user-dropdown user-name"
-                          type="button" >
-                          <img
-                          src="../../../assets/profile/download.png"
-                            alt="default user icon" style="width: 25px;  border-radius: 50px;">
-                          {{userDetails.firstName}}
-                        </button>
-                        <!-- <div class="dropdown-menu" [ngClass]="{'show':showDropDown}">
+  <!-- Collapsible content -->
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <form *ngIf="userLoggedIn" class="form-inline">
+      <li class="nav-item dropdown">
+        <div class="btn-group">
+          <button [routerLink]="['profile']" class="btn btn-sm  ml-3 user-dropdown user-name" type="button">
+            <img data-src="https://static.visa2fly.com/assets/download.png" class="lazyload" alt="apply visa online"
+              style="width: 25px;  border-radius: 50px;">
+            {{userDetails.firstName}}
+          </button>
+          <!-- <div class="dropdown-menu" [ngClass]="{'show':showDropDown}">
                           <button class="dropdown-item">My Profile</button>
                           <button class="dropdown-item">My Bookings</button>
                           <div class="dropdown-divider"></div>
                           <button (click)="logoutUser()" class="dropdown-item">Logout</button>
               
                         </div> -->
-                      </div>
-                    </li>
-                  </form>
-                        <a *ngIf="userLoggedIn" class="dropdown-item" [routerLink]="['profile']" style="color: navy">My Profile</a>
-                        
-                        <a class="dropdown-item" [routerLink]="['freeVisa']"  style="color: navy">Free Visas</a>
-                        <a class="dropdown-item" [routerLink]="['visOnArrival']" style="color: navy">Visa On Arrival</a>
-                  <button *ngIf="userLoggedIn" [routerLink]="['myBookings']" class="dropdown-item" style="color: navy">My Bookings</button>
+        </div>
+      </li>
+    </form>
+    <a *ngIf="userLoggedIn" class="dropdown-item" [routerLink]="['profile']" style="color: navy">My Profile</a>
+    <!-- <a target="_blank" class="dropdown-item" href="https://blog.visa2fly.com" style="color: navy">Blog</a> -->
+    <a class="dropdown-item" [routerLink]="['freeVisa']" style="color: navy">Free Visas</a>
+    <a class="dropdown-item" [routerLink]="['visOnArrival']" style="color: navy">Visa On Arrival</a>
+    <button *ngIf="userLoggedIn" [routerLink]="['myBookings']" class="dropdown-item" style="color: navy">My
+      Bookings</button>
 
-                  <a  class="dropdown-item" *ngIf="userLoggedIn" (click) = "logoutUser()"   style="color: navy">Logout</a>
-                  <!-- <button (click)="logoutUser()" class="dropdown-item">Logout</button> -->
+    <a class="dropdown-item" *ngIf="userLoggedIn" (click)="logoutUser()" style="color: navy">Logout</a>
+    <!-- <button (click)="logoutUser()" class="dropdown-item">Logout</button> -->
 
-                        <form *ngIf="!userLoggedIn" class="form-inline">
-                            <li class="nav-item">
-                              <a class="login" [routerLink]="['slcontainer','login']">Login</a>
-                            </li>
-                            <button class="btn btn-primary my-2 my-sm-0 ml-3 btn-sm" type="submit"
-                              [routerLink]="['slcontainer','signup']">
-                              Signup
-                            </button>
-                          </form>
+    <form *ngIf="!userLoggedIn" class="form-inline">
+      <li class="nav-item">
+        <a class="login" [routerLink]="['slcontainer','login']">Login</a>
+      </li>
+      <button class="btn btn-primary my-2 my-sm-0 ml-3 btn-sm" type="submit" [routerLink]="['slcontainer','signup']">
+        Signup
+      </button>
+    </form>
 
-                          <!-- After Login SignUp -->
-    
-                      </div>
-                <!-- Collapsible content -->
+    <!-- After Login SignUp -->
 
-              </nav>
+  </div>
+  <!-- Collapsible content -->
 
-    <div class="topNavContainer">
-        <div class="container-fluid1">
-            <div class="row noMargin">
-                <div class="col topNavItem " [routerLink]="['visa']" >
+</nav>
 
-                    <div class="topNavItemIcon">
-                        <!-- <i class="fab fa-angellist"></i> -->
-                        <img src="../../../assets/mobile-header/visa.png" class="headerIcon" alt="visa icon">
-                    </div>
-                    <div class="topNavItemContent " routerLinkActive="selectedItem">
-                        Visa
-                    </div>
-                </div>
-                <div class="col topNavItem" [routerLink]="['sim']"   >
-                    <div class="topNavItemIcon">
-                        <img src="../../../assets/mobile-header/sim.png" class="headerIcon" alt="sim icon">
+<div class="topNavContainer">
+  <div class="container-fluid1">
+    <div class="row noMargin">
+      <div class="col topNavItem " [routerLink]="['visa']">
 
-                    </div>
-                    <div class="topNavItemContent" routerLinkActive="selectedItem">
-                        Sim
-                        <!-- <span class="badge badge-warning soon">coming soon</span> -->
-                    </div>
-                </div>
-                <div class="col topNavItem"  >
-                    <div class="topNavItemIcon">
-                            <img src="../../../assets/mobile-header/shield.png" class="headerIcon" alt="visa2fly insurance icon">
-                        <!-- <i class="fab fa-angellist"></i> -->
-                    </div>
-                    <div class="topNavItemContent" routerLinkActive="selectedItem">
-                        Insurance<span class="badge badge-warning soon">coming soon</span>
-                    </div>
+        <div class="topNavItemIcon">
+          <!-- <i class="fab fa-angellist"></i> -->
+          <img data-src="https://static.visa2fly.com/assets/visa.png" class="headerIcon lazyload"
+            alt="apply visa online">
+        </div>
+        <div class="topNavItemContent " routerLinkActive="selectedItem">
+          Visa
+        </div>
+      </div>
+      <div class="col topNavItem" [routerLink]="['sim']">
+        <div class="topNavItemIcon">
+          <img data-src="https://static.visa2fly.com/assets/sim (2).png" class="headerIcon lazyload"
+            alt="apply visa online">
 
-                </div>
-                <!-- <div class="col topNavItem">
+        </div>
+        <div class="topNavItemContent" routerLinkActive="selectedItem">
+          Sim
+          <!-- <span class="badge badge-warning soon">coming soon</span> -->
+        </div>
+      </div>
+      <div class="col topNavItem">
+        <div class="topNavItemIcon">
+          <img data-src="https://static.visa2fly.com/assets/shield.png" class="headerIcon lazyload"
+            alt="visa2fly apply visa online">
+          <!-- <i class="fab fa-angellist"></i> -->
+        </div>
+        <div class="topNavItemContent" routerLinkActive="selectedItem">
+          Insurance<span class="badge badge-warning soon">coming soon</span>
+        </div>
+
+      </div>
+      <!-- <div class="col topNavItem">
                     <div class="topNavItemIcon">
                         <img src="../../../assets/mobile-header/money.png" class="headerIcon" alt="money icon">
 
@@ -118,6 +120,6 @@
                     </div>
                 </div> -->
 
-            </div>
-        </div>
     </div>
+  </div>
+</div>

@@ -14,7 +14,7 @@ export class SimCheckoutService {
 
 
     proceedToPayment(reqObj : any) {
-        console.log(reqObj);
+       // console.log(reqObj);
         let token = this.loginService.getAuthToken();
         if(token == null || token == undefined) {
             token = "";

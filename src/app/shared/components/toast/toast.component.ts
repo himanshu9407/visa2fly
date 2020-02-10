@@ -17,7 +17,7 @@ export class ToastComponent implements OnInit {
   ngOnInit() {
     this.toastService.getAlert().subscribe(
       (toastData : {message:string,duration:number}) => {
-        // console.log(toastData.message + "this is toast data")
+       // console.log(toastData.message + "this is toast data")
         this.notificationMessage = toastData.message;
         this.showToast = true;
 

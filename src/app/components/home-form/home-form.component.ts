@@ -2,8 +2,9 @@ import {
   Component,
   OnInit,
   ViewChild,
-  Input
+  Input,  Injectable, PLATFORM_ID, Inject
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {
   Router
 } from '@angular/router';
@@ -53,11 +54,6 @@ import {
 export class HomeFormComponent {
 
   homeForm: FormGroup;
-  
-
-
-
-
   public homeFormData : any = {
     "code": "0",
     "status": "SUCCESS",
@@ -143,10 +139,6 @@ export class HomeFormComponent {
     }
 };
 
-
-
-
-
   public selectedResidenceOf: string = "select";
 
   //public selectedVisaType: string = "select";
@@ -173,7 +165,8 @@ export class HomeFormComponent {
   constructor(private router: Router, private httpClient: HttpClient,
     private homeFormService: HomeFormService, private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService, private authService: AuthenticationGuard,
-    private loginStatus: LoginStatusService, private loginService: LoginService) {
+    private loginStatus: LoginStatusService, private loginService: LoginService,
+    @Inject(PLATFORM_ID) private platformId: Object) {
 
     this.preloaderService.showPreloader(true);
 
@@ -195,9 +188,9 @@ export class HomeFormComponent {
 
     this.homeFormService.getHomeFormDataFromServer()
       .then((data) => {
+        if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
-       // console.log(this.homeFormData);
-        
+       console.log(this.homeFormData);
         let activeCountry : string = localStorage.getItem("activeCountry");
         let popularCountry : string = localStorage.getItem('popularCountry');
         if(activeCountry == ""  || activeCountry == undefined || activeCountry == null) {
@@ -208,7 +201,7 @@ export class HomeFormComponent {
         }
         else {
           this.country.setValue(activeCountry);
-          localStorage.setItem("activeCountry", "");
+            localStorage.setItem("activeCountry", "");
           // console.log("here 2");
         }
         if(popularCountry == ""  || popularCountry == undefined || popularCountry == null) {
@@ -219,13 +212,14 @@ export class HomeFormComponent {
         }
         else {
           this.country.setValue(popularCountry);
-          localStorage.setItem("popularCountry", "");
+            localStorage.setItem("popularCountry", "");
          // console.log("here 4");
         }
 
-        localStorage.setItem("countryList",JSON.stringify(data.data.countries));
+          localStorage.setItem("countryList",JSON.stringify(data.data.countries));
        // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
+      }
       });
 
   }
@@ -237,7 +231,7 @@ export class HomeFormComponent {
 
 
 
-
+    // console.log(this.homeForm.get('purpose').value == "");
 
 
 
@@ -252,6 +246,7 @@ export class HomeFormComponent {
     this.homeForm.get('purpose').setValue('select');
    // this.homeForm.get('visatype').setValue('select');
     this.homeForm.get('livingin').setValue('select');
+    // this.homeForm.get('purpose')
     this.selectedPurpose = 'select';
     //this.selectedVisaType = 'select';
     this.selectedResidenceOf = 'select';
@@ -287,7 +282,7 @@ export class HomeFormComponent {
   }
 
   validateForm() {
-    console.log("validate form method called");
+     //console.log("validate form method called");
     this.validatePurpose();
     //this.validatePurposeType();
     this.validateLivingIn();
@@ -346,7 +341,7 @@ export class HomeFormComponent {
          let country1 = this.homeForm.get('country').value;
         //  console.log(country1);
          //  let countryTemp = this.homeForm.get('country').value;
-
+        let variable = "apply-for-" + country1 + "-visa-online";
          // console.log(countryTemp);
          let countryTemp1 = this.staticPagesArr.includes(this.selectedCountry);
         //  console.log(countryTemp1)
@@ -359,16 +354,43 @@ export class HomeFormComponent {
           // }
           case "United Kingdom" : {
            // this.setDetailsOnLocalStorage();
-            this.router.navigate(['visa/UK-visa-application', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-UK-visa-online', "" + purpose]);
             break;
-          } 
+          }
+          case "Switzerland" : {
+            // this.setDetailsOnLocalStorage();
+             this.router.navigate(['visa-requirements/apply-for-Swiss-visa-online', "" + purpose]);
+             break;
+           }
           case "France" : {
             //this.setDetailsOnLocalStorage();
-            this.router.navigate(['visa/France/',"" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-France-visa-online/',"" + purpose]);
             break;
           } 
           case "China" : {
-            this.router.navigate(['visa/apply-for-China-visa-online/', "" + purpose]);
+            this.router.navigate(['visa-requirements/apply-for-China-visa-online/', "" + purpose]);
+            break;
+          }
+
+          case "Ethiopia" : {
+            this.router.navigate(['visa-requirements/apply-for-Ethiopia-visa-online/', "" + purpose]);
+            break;
+          }
+          case "Malaysia" : {
+            this.router.navigate(['visa-requirements/apply-for-Malaysia-visa-online/', "" + purpose]);
+            break;
+          }
+          case "Dubai" : {
+            this.router.navigate(['visa-requirements/apply-for-Dubai-visa-online/', "" + purpose]);
+            break;
+          }
+
+          case "Maldives" : {
+            this.router.navigate(['visa-requirements/apply-for-Maldives-visa-online/', "" + purpose]);
+            break;
+          }
+          case "Spain" : {
+            this.router.navigate(['visa-requirements/apply-for-Spain-visa-online/', "" + purpose]);
             break;
           }
           // case "Japan" : {
@@ -379,7 +401,7 @@ export class HomeFormComponent {
           default : {
             //this.setDetailsOnLocalStorage();
             //console.log(this.userFlow.getUserFlowDetails())
-            this.router.navigate(['visa-requirement/',   country1,purpose]);
+            this.router.navigate(['visa-requirements/', "" + country1,variable,purpose]);
           }
         }      
     }

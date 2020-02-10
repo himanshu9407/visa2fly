@@ -89,6 +89,7 @@ export class SignupComponent implements OnInit {
       this.singUpService.createUser(reqBody)
         .subscribe(
           (data : any) => {
+            console.log(data);
             if (!data) {
               this.toastService.showNotification("Something Went wrong", 4000);
               this.setFormFresh();
@@ -136,7 +137,7 @@ export class SignupComponent implements OnInit {
             else {
               this.toastService.showNotification(data.message.toString(),5000);
               this.setFormFresh();
-              this.router.navigate(['visa']);
+              this.router.navigate(['slcontainer','signup']);
             }
 
           }
@@ -149,7 +150,8 @@ export class SignupComponent implements OnInit {
       this.signupForm.enable();
       this.signupForm.setValue({email : "", mobile : "", otp : "",firstName:"",lastName:"",tnc:false});
       this.showLoader = false;
-      this.showSendOtpButton = true;
+      this.showSignUpButton = true;
+      //this.showSendOtpButton = true;
     }
 
     showAlertMessage () {
@@ -186,7 +188,7 @@ export class SignupComponent implements OnInit {
       this.signupForm.get('otp').enable();
       this.signupForm.get('tnc').enable();
     
-      console.log("submitted");
+     // console.log("submitted");
       let enteredMobile = this.signupForm.get('mobile').value;
       this.singUpService.getOtp(enteredMobile).subscribe(
         (data : SignupResponseModel) => {

@@ -1,115 +1,131 @@
 <div class="mgContainer mt-4">
-    <div class=" text-center my-3" style="width: 100%;">
-        <h3 class="popularVisa">Popular Destinations</h3>
-        <p class="popularVisaSubHeading">Apply Visa Online For These Popular Destinations.</p>
-        <div id="recipeCarouselLarge" class="carousel slide w-100 largeCarousel" data-ride="carousel" data-interval="3000" style="padding: 0px 15px;">
-            <div class="carousel-inner  w-100 " role="listbox">
-                <!-- for tablet and upper -->
-                <div class="carousel-item row no-gutters active ">
-                    <div (click) = "proceedToHome('United States')" class="col-3 float-left img-fluid rounded">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/United State Of America.jpg" alt="United State Of America" />
-                        <div class="country">United States</div>
-                    </div>
-                    <div (click) = "proceedToHome('United Kingdom')" class="col-3 float-left">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/United Kingdom.jpg" alt="United Kingdom" />
-                        <div class="country">United Kingdom</div>
-                    </div>
-                    <div (click) = "proceedToHome('Italy')" class="col-3 float-left rounded">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Italy.jpg" alt="Italy" />
-                        <div class="country">Italy</div>
-                    </div>
-                    <div (click) = "proceedToHome('France')" class="col-3 float-left rounded">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/France.jpg" alt="France" />
-                        <div class="country">France</div>
-                    </div>
-                </div>
-                <div (click) = "proceedToHome('Germany')" class="carousel-item row no-gutters ">
-                    <div class="col-3 float-left rounded">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Germany.jpg" alt="Germany" />
-                        <div class="country">Germany</div>
-                    </div>
-                    <div (click) = "proceedToHome('Australia')" class="col-3 float-left rounded">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Australia.jpg" alt="Australia" />
-                        <div class="country">Australia</div>
-                    </div>
-                    <div (click) = "proceedToHome('United Arab Emirates')" class="col-3 float-left rounded">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/United Arab Emirates.jpg" alt="United Arab Emirates" />
-                        <div class="country">United Arab Emirates</div>
-                    </div>
-                    <div (click) = "proceedToHome('Singapore')" class="col-3 float-left rounded">
-                        <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Singapore.jpg" alt="Singapore" />
-                        <div class="country">Singapore</div>
-                    </div>
-                </div>
-                <!--  -->
-            </div>
-            <a class="carousel-control-prev" href="#recipeCarouselLarge" role="button" data-slide="prev">
-                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-            </a>
-            <a class="carousel-control-next" href="#recipeCarouselLarge" role="button" data-slide="next">
-                <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-            <!-- large controls -->
+  <div class=" text-center my-3" style="width: 100%;">
+    <h3 class="popularVisa">Popular Destinations</h3>
+    <p class="popularVisaSubHeading">Apply Visa Online For These Popular Destinations.</p>
+    <div id="recipeCarouselLarge" class="carousel slide w-100 largeCarousel" data-ride="carousel" data-interval="3000"
+      style="padding: 0px 15px;">
+      <div class="carousel-inner  w-100 " role="listbox">
+        <!-- for tablet and upper -->
+        <div class="carousel-item row no-gutters active ">
+          <div (click)="proceedToHome('United States')" class="col-3 float-left img-fluid rounded">
+            <img class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/United State Of America.jpg" alt="apply visa online" />
+            <div class="country">United States</div>
+          </div>
+          <div (click)="proceedToHome('United Kingdom')" class="col-3 float-left">
+            <img class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/United Kingdom.jpg" alt="apply visa online" />
+            <div class="country">United Kingdom</div>
+          </div>
+          <div (click)="proceedToHome('Italy')" class="col-3 float-left rounded">
+            <img class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/Italy.jpg" alt="apply visa online" />
+            <div class="country">Italy</div>
+          </div>
+          <div (click)="proceedToHome('France')" class="col-3 float-left rounded">
+            <img class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/France.jpg" alt="apply visa online" />
+            <div class="country">France</div>
+          </div>
         </div>
-
-        <!-- small Carousel -->
-        <div class="smallHeader">
-            <h2 class="smallVisaHeading">Popular Destinations</h2>
-            <p class="smallVisaSubHeading">Apply Visa Online For These Popular Destinations.</p>
+        <div (click)="proceedToHome('Germany')" class="carousel-item row no-gutters ">
+          <div class="col-3 float-left rounded">
+            <img class="img-fluid carouselImage lazyload rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/Germany.jpg" alt="apply visa online" />
+            <div class="country">Germany</div>
+          </div>
+          <div (click)="proceedToHome('Australia')" class="col-3 float-left rounded">
+            <img class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/Australia.jpg" alt="apply visa online" />
+            <div class="country">Australia</div>
+          </div>
+          <div (click)="proceedToHome('United Arab Emirates')" class="col-3 float-left rounded">
+            <img class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/United Arab Emirates.jpg" alt="apply visa online" />
+            <div class="country">United Arab Emirates</div>
+          </div>
+          <div (click)="proceedToHome('Singapore')" class="col-3 float-left rounded">
+            <img class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/Singapore.jpg" alt="apply visa online" />
+            <div class="country">Singapore</div>
+          </div>
         </div>
-        <div id="recipeCarouselSmall" class="carousel slide smallCarousel" data-ride="carousel" data-interval="3000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div (click) = "proceedToHome('United States')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/United State Of America.jpg" alt="United State Of America" />
-                            <div class="country">United States</div>
-                        </div>
-                        <div (click) = "proceedToHome('United Kingdom')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/United Kingdom.jpg" alt="United Kingdom" />
-                            <div class="country">United Kingdom</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div (click) = "proceedToHome('Italy')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Italy.jpg" alt="Italy" />
-                            <div class="country">Italy</div>
-                        </div>
-                        <div (click) = "proceedToHome('France')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/France.jpg" alt="France" />
-                            <div class="country">France</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="row">
-                        <div (click) = "proceedToHome('Germany')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Germany.jpg" alt="Germany" />
-                            <div class="country">Germany</div>
-                        </div>
-                        <div (click) = "proceedToHome('Australia')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Australia.jpg" alt="Australia" />
-                            <div class="country">Australia</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="row">
-                        <div (click) = "proceedToHome('United Arab Emirates')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/United Arab Emirates.jpg" alt="United Arab Emirate" />
-                            <div class="country">United Arab Emirates</div>
-                        </div>
-                        <div (click) = "proceedToHome('Singapore')" class="col-6 img-pd">
-                            <img class="img-fluid carouselImage rounded" src="../../../assets/eVisa/Singapore.jpg" alt="Singapore" />
-                            <div class="country">Singapore</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!--  -->
+      </div>
+      <a class="carousel-control-prev" data-slide="prev" href="#recipeCarouselLarge" role="button"><i aria-hidden="true" class="fa fa-chevron-left"></i></a>
+      <a class="carousel-control-next" href="#recipeCarouselLarge" role="button" data-slide="next">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <!-- large controls -->
     </div>
+
+    <!-- small Carousel -->
+    <div class="smallHeader">
+      <h2 class="smallVisaHeading">Popular Destinations</h2>
+      <p class="smallVisaSubHeading">Apply Visa Online For These Popular Destinations.</p>
+    </div>
+    <div id="recipeCarouselSmall" class="carousel slide smallCarousel" data-ride="carousel" data-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div (click)="proceedToHome('United States')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/United State Of America.jpg"
+                alt="apply visa online" />
+              <div class="country">United States</div>
+            </div>
+            <div (click)="proceedToHome('United Kingdom')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/United Kingdom.jpg" alt="apply visa online" />
+              <div class="country">United Kingdom</div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div (click)="proceedToHome('Italy')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/Italy.jpg" alt="apply visa online" />
+              <div class="country">Italy</div>
+            </div>
+            <div (click)="proceedToHome('France')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/France.jpg" alt="apply visa online" />
+              <div class="country">France</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div (click)="proceedToHome('Germany')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/Germany.jpg" alt="apply visa online" />
+              <div class="country">Germany</div>
+            </div>
+            <div (click)="proceedToHome('Australia')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/Australia.jpg" alt="apply visa online" />
+              <div class="country">Australia</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div (click)="proceedToHome('United Arab Emirates')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/United Arab Emirates.jpg" alt="apply visa online" />
+              <div class="country">United Arab Emirates</div>
+            </div>
+            <div (click)="proceedToHome('Singapore')" class="col-6 img-pd">
+              <img class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/Singapore.jpg" alt="apply visa online" />
+              <div class="country">Singapore</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

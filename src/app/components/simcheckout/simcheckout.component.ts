@@ -54,6 +54,7 @@ export class SimcheckoutComponent implements OnInit {
       month: current.getMonth() + 1,
       day: current.getDate()
     };
+    //console.log(this.simCart);
 
     let yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);

@@ -12,7 +12,7 @@ export class AddTravellerService {
 
     submitForm (reqData) {
         let AUTH_TOKEN = this.loginService.getAuthToken();
-        console.log(AUTH_TOKEN);
+        // console.log(AUTH_TOKEN);
         let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});
 
         const base_url = this.userFlow.getBaseURL();
