@@ -546,7 +546,7 @@ export class AddTravellerComponent implements OnInit {
       day: temp.day - 3
     };
 
-    this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
+ this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
     // console.log(this.minDateOfCollection);
     // console.log("hello world");
   }
@@ -608,6 +608,12 @@ export class AddTravellerComponent implements OnInit {
       // let gstNumberValue = this.travellerForm.controls.travellers.controls[i].controls.gstNumber.value;
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
+
+      let image1 = this.travellerForm.controls.travellers.controls[i].controls.passportFrontImage.value;
+      let image2 = this.travellerForm.controls.travellers.controls[i].controls.passportBioImage.value;
+      let image3 = this.travellerForm.controls.travellers.controls[i].controls.userImage.value;
+      let image4 = this.travellerForm.controls.travellers.controls[i].controls.businessCard.value;
+      let image5 = this.travellerForm.controls.travellers.controls[i].controls.hotelAccommodation.value;
 
       if (
         firstNameValue == "" ||
@@ -722,6 +728,73 @@ export class AddTravellerComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
+      // if (
+      //   image1 == "" ||
+      //   image1 == null ||
+      //   image1 == undefined
+      // ) {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.passportFrontImage.passportFrontImageError = true;
+      // } else {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.passportFrontImage.passportFrontImageError = false;
+      // }
+      // if (
+      //   image2 == "" ||
+      //   image2 == null ||
+      //   image2 == undefined
+      // ) {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.passportBioImage.passportBioImageError = true;
+      // } else {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.passportBioImage.passportBioImageError = false;
+      // }
+      // if (
+      //   image3 == "" ||
+      //   image3 == null ||
+      //   image3 == undefined
+      // ) {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.userImage.userImageError = true;
+      // } else {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.userImage.userImageError = false;
+      // }
+
+      // if (
+      //   image4 == "" ||
+      //   image4 == null ||
+      //   image4 == undefined
+      // ) {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.businessCard.businessCardError = true;
+      // } else {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.businessCard.businessCardError = false;
+      // }
+      // if (
+      //   image5 == "" ||
+      //   image5 == null ||
+      //   image5 == undefined
+      // ) {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.hotelAccommodation.hotelAccommodationError = true;
+      // } else {
+      //   this.travellerForm.controls.travellers.controls[
+      //     i
+      //   ].controls.hotelAccommodation.hotelAccommodationError = false;
+      // }
+
     if (!this.onlineCategory) {
 
     let addressValue = this.travellerForm.controls.travellers.controls[i]
@@ -761,11 +834,13 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
+
   seeValues() {
     this.validateTravellerForm();
     this.validateDate();
     this.checkDateOfCollection();
-    // console.log(this.travellerForm);
+    this.canDeactivate();
+    console.log(this.travellerForm);
     // console.log(this.travelDetails);
     // console.log(this.valueAddedService);
 
@@ -773,6 +848,9 @@ export class AddTravellerComponent implements OnInit {
     this.formData1.set("images", "");
 
     let tempArr = (<FormArray>this.travellerForm.get("travellers")).controls || [];
+
+    
+
     tempArr.forEach((form: FormGroup, index) => {
       if (this.onlineCategory) {
         this.filedNameArr.forEach(el => {
@@ -782,6 +860,10 @@ export class AddTravellerComponent implements OnInit {
           // form.re
           // console.log(this.tempImageArr);
         });
+
+      
+      
+
       } else {
         let eliminateEnter = form.get('address').value.replace(/[\r\n]+/g," ");
         // console.log(eliminateEnter);
@@ -795,7 +877,9 @@ export class AddTravellerComponent implements OnInit {
         this.primaryState = (<FormArray>(this.travellerForm.get("travellers"))).controls[0].get("state").value;
         this.primaryCity = (<FormArray>(this.travellerForm.get("travellers"))).controls[0].get("city").value;
         this.primaryPinCode = (<FormArray>(this.travellerForm.get("travellers"))).controls[0].get("pinCode").value;
-        // console.log("inside other travellers")
+
+        
+       
         let same = form.get("addressForPickupSame").value;
 
         if (same) {
@@ -810,7 +894,7 @@ export class AddTravellerComponent implements OnInit {
       let dob: { year: number; month: number; day: number } = form.get("dateOfBirthCopy").value;
       let doe: { year: number; month: number; day: number } = form.get("passportExpiryDateCopy").value;
 
-      // console.log(doe);
+
 
       let tempDob = "";
       let tempDoe = "";
@@ -841,7 +925,11 @@ export class AddTravellerComponent implements OnInit {
 
       form.get("dateOfBirth").updateValueAndValidity();
       form.get("passportExpiryDate").updateValueAndValidity();
+      
+      console.log("Dhruv");
     });
+
+    console.log("Pradeep");
 
     if (this.travellerForm.valid && this.travelDetails.valid && this.valueAddedService.valid) {
       if (this.termsAndConditions.valid) {
@@ -856,55 +944,9 @@ export class AddTravellerComponent implements OnInit {
           element["id"] = this.dataSource[index].id;
           // console.log(element);
         });
-
         
-    let tempArr =
-    (<FormArray>this.travellerForm.get("travellers")).controls || [];
-  tempArr.forEach((form: FormGroup, index) => {
-    if (this.onlineCategory) {
-      this.filedNameArr.forEach(el => {
-        this.formData1.append("images", form.get(el).value);
-        this.tempImageArr.push(form.get(el).value);
-        form.get(el).setValue(form.get(el).value.name);
-        // form.re
-        // console.log(this.tempImageArr);
-      });
-    } else {
-      let eliminateEnter = form.get('address').value.replace(/[\r\n]+/g," ");
-      // console.log(eliminateEnter);
-      
-      form.get("address").setValue(eliminateEnter);
-      form.get("address").updateValueAndValidity();
-
-      this.primaryAddress = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("address").value.replace(/[\r\n]+/g," ");
-      // console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
-      
-      this.primaryState = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("state").value;
-      this.primaryCity = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("city").value;
-      this.primaryPinCode = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("pinCode").value;
-      // console.log("inside other travellers")
-      let same = form.get("addressForPickupSame").value;
-
-      if (same) {
-        form.get("address").setValue(this.primaryAddress);
-        form.get("state").setValue(this.primaryState);
-        form.get("city").setValue(this.primaryCity);
-        form.get("pinCode").setValue(this.primaryPinCode);
-        form.updateValueAndValidity();
-      }
-    }
-  });
-
         // console.log(ptdata[0]);
-        // console.log(tempArr);
+        console.log("himanshu");
 
         let dot: {
           year: number;
@@ -1083,9 +1125,9 @@ export class AddTravellerComponent implements OnInit {
       this.toastService.showNotification('Some details missing !', 10000)
       // this.toastService.showNotification("Travel details missing!", 4000);
       this.validateTravellerForm();
-      // console.log(this.scrollBy);
-      // this.errorForm = '';
-      //console.log(this.filedNameArr);
+      console.log("Kuldeep");
+
+      
       
       if (this.travellerForm.invalid && this.travelDetails.valid) {
         window.scrollTo({
