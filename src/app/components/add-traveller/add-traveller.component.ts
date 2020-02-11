@@ -774,6 +774,47 @@ export class AddTravellerComponent implements OnInit {
     let tempArr =
       (<FormArray>this.travellerForm.get("travellers")).controls || [];
     tempArr.forEach((form: FormGroup, index) => {
+      if (this.onlineCategory) {
+        this.filedNameArr.forEach(el => {
+          this.formData1.append("images", form.get(el).value);
+          this.tempImageArr.push(form.get(el).value);
+          form.get(el).setValue(form.get(el).value.name);
+          // form.re
+          // console.log(this.tempImageArr);
+        });
+      } else {
+        let eliminateEnter = form.get('address').value.replace(/[\r\n]+/g," ");
+        // console.log(eliminateEnter);
+        
+        form.get("address").setValue(eliminateEnter);
+        form.get("address").updateValueAndValidity();
+
+        this.primaryAddress = (<FormArray>(
+          this.travellerForm.get("travellers")
+        )).controls[0].get("address").value.replace(/[\r\n]+/g," ");
+        // console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
+        
+        this.primaryState = (<FormArray>(
+          this.travellerForm.get("travellers")
+        )).controls[0].get("state").value;
+        this.primaryCity = (<FormArray>(
+          this.travellerForm.get("travellers")
+        )).controls[0].get("city").value;
+        this.primaryPinCode = (<FormArray>(
+          this.travellerForm.get("travellers")
+        )).controls[0].get("pinCode").value;
+        // console.log("inside other travellers")
+        let same = form.get("addressForPickupSame").value;
+
+        if (same) {
+          form.get("address").setValue(this.primaryAddress);
+          form.get("state").setValue(this.primaryState);
+          form.get("city").setValue(this.primaryCity);
+          form.get("pinCode").setValue(this.primaryPinCode);
+          form.updateValueAndValidity();
+        }
+      }
+
       let dob: { year: number; month: number; day: number } = form.get(
         "dateOfBirthCopy"
       ).value;
@@ -830,52 +871,6 @@ export class AddTravellerComponent implements OnInit {
           element["id"] = this.dataSource[index].id;
           // console.log(element);
         });
-
-        
-    let tempArr =
-    (<FormArray>this.travellerForm.get("travellers")).controls || [];
-  tempArr.forEach((form: FormGroup, index) => {
-    if (this.onlineCategory) {
-      this.filedNameArr.forEach(el => {
-        this.formData1.append("images", form.get(el).value);
-        this.tempImageArr.push(form.get(el).value);
-        form.get(el).setValue(form.get(el).value.name);
-        // form.re
-        // console.log(this.tempImageArr);
-      });
-    } else {
-      let eliminateEnter = form.get('address').value.replace(/[\r\n]+/g," ");
-      // console.log(eliminateEnter);
-      
-      form.get("address").setValue(eliminateEnter);
-      form.get("address").updateValueAndValidity();
-
-      this.primaryAddress = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("address").value.replace(/[\r\n]+/g," ");
-      // console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
-      
-      this.primaryState = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("state").value;
-      this.primaryCity = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("city").value;
-      this.primaryPinCode = (<FormArray>(
-        this.travellerForm.get("travellers")
-      )).controls[0].get("pinCode").value;
-      // console.log("inside other travellers")
-      let same = form.get("addressForPickupSame").value;
-
-      if (same) {
-        form.get("address").setValue(this.primaryAddress);
-        form.get("state").setValue(this.primaryState);
-        form.get("city").setValue(this.primaryCity);
-        form.get("pinCode").setValue(this.primaryPinCode);
-        form.updateValueAndValidity();
-      }
-    }
-  });
 
         // console.log(ptdata[0]);
         // console.log(tempArr);
