@@ -321,7 +321,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    console.log(this.imageUploads);
+    //console.log(this.imageUploads);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
@@ -428,6 +428,7 @@ export class AddTravellerComponent implements OnInit {
     this.travellerForm = this.formBuilder.group({
       travellers: this.formBuilder.array([this.createTraveller()])
     });
+    
 
     let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
@@ -771,8 +772,7 @@ export class AddTravellerComponent implements OnInit {
     // console.log(this.filedNameArr);
     this.formData1.set("images", "");
 
-    let tempArr =
-      (<FormArray>this.travellerForm.get("travellers")).controls || [];
+    let tempArr = (<FormArray>this.travellerForm.get("travellers")).controls || [];
     tempArr.forEach((form: FormGroup, index) => {
       if (this.onlineCategory) {
         this.filedNameArr.forEach(el => {
@@ -789,20 +789,12 @@ export class AddTravellerComponent implements OnInit {
         form.get("address").setValue(eliminateEnter);
         form.get("address").updateValueAndValidity();
 
-        this.primaryAddress = (<FormArray>(
-          this.travellerForm.get("travellers")
-        )).controls[0].get("address").value.replace(/[\r\n]+/g," ");
+        this.primaryAddress = (<FormArray>(this.travellerForm.get("travellers"))).controls[0].get("address").value.replace(/[\r\n]+/g," ");
         // console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
         
-        this.primaryState = (<FormArray>(
-          this.travellerForm.get("travellers")
-        )).controls[0].get("state").value;
-        this.primaryCity = (<FormArray>(
-          this.travellerForm.get("travellers")
-        )).controls[0].get("city").value;
-        this.primaryPinCode = (<FormArray>(
-          this.travellerForm.get("travellers")
-        )).controls[0].get("pinCode").value;
+        this.primaryState = (<FormArray>(this.travellerForm.get("travellers"))).controls[0].get("state").value;
+        this.primaryCity = (<FormArray>(this.travellerForm.get("travellers"))).controls[0].get("city").value;
+        this.primaryPinCode = (<FormArray>(this.travellerForm.get("travellers"))).controls[0].get("pinCode").value;
         // console.log("inside other travellers")
         let same = form.get("addressForPickupSame").value;
 
@@ -815,12 +807,8 @@ export class AddTravellerComponent implements OnInit {
         }
       }
 
-      let dob: { year: number; month: number; day: number } = form.get(
-        "dateOfBirthCopy"
-      ).value;
-      let doe: { year: number; month: number; day: number } = form.get(
-        "passportExpiryDateCopy"
-      ).value;
+      let dob: { year: number; month: number; day: number } = form.get("dateOfBirthCopy").value;
+      let doe: { year: number; month: number; day: number } = form.get("passportExpiryDateCopy").value;
       // console.log(doe);
 
       let tempDob = "";
@@ -854,11 +842,7 @@ export class AddTravellerComponent implements OnInit {
       form.get("passportExpiryDate").updateValueAndValidity();
     });
 
-    if (
-      this.travellerForm.valid &&
-      this.travelDetails.valid &&
-      this.valueAddedService.valid
-    ) {
+    if (this.travellerForm.valid && this.travelDetails.valid && this.valueAddedService.valid) {
       if (this.termsAndConditions.valid) {
         this.preloaderService.showPreloader(true);
         let otherTravellersArr: Array<any> = [];
@@ -978,6 +962,7 @@ export class AddTravellerComponent implements OnInit {
               let errArr: Array<any> = data.data.applicantsFormValidationResult;
               let chunk = this.filedNameArr.length;
               let temparray = [];
+              console.log(chunk);
 
               for (let i = 0, j = this.tempImageArr.length; i < j; i += chunk) {
                 temparray = this.tempImageArr.slice(i, i + chunk);
@@ -989,6 +974,8 @@ export class AddTravellerComponent implements OnInit {
               let tempArr =
                 (<FormArray>this.travellerForm.get("travellers")).controls ||
                 [];
+
+                
 
               tempArr.forEach((form: FormGroup, i) => {
                 if (this.onlineCategory) {
@@ -1051,6 +1038,7 @@ export class AddTravellerComponent implements OnInit {
       this.validateTravellerForm();
       // console.log(this.scrollBy);
       // this.errorForm = '';
+      //console.log(this.filedNameArr);
       
       if (this.travellerForm.invalid && this.travelDetails.valid) {
         window.scrollTo({
