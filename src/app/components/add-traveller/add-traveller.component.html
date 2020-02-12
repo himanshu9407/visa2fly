@@ -455,10 +455,17 @@
                       </div>
                     </div>
                     <div
-                      *ngIf="(this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.type  && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty) "
+                      *ngIf="((this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.type  && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty)) "
                       class="invalid-feedback" style="display: block">
                       Select a file of type png, pdf, jpg or jpeg only !
                     </div>
+
+                    <div
+                      *ngIf="(this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].pristine && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].checkUploadedImages)"
+                      class="invalid-feedback" style="display: block">
+                      Please Upload the document
+                    </div>
+
                     <div
                       *ngIf=" this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.size && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty"
                       class="invalid-feedback" style="display: block">
