@@ -732,7 +732,6 @@ export class AddTravellerComponent implements OnInit {
 
       // if (
       //   image1 == "" ||
-      //   image1 == null ||
       //   image1 == undefined
       // ) {
       //   this.travellerForm.controls.travellers.controls[
@@ -745,7 +744,6 @@ export class AddTravellerComponent implements OnInit {
       // }
       // if (
       //   image2 == "" ||
-      //   image2 == null ||
       //   image2 == undefined
       // ) {
       //   this.travellerForm.controls.travellers.controls[
@@ -758,7 +756,6 @@ export class AddTravellerComponent implements OnInit {
       // }
       // if (
       //   image3 == "" ||
-      //   image3 == null ||
       //   image3 == undefined
       // ) {
       //   this.travellerForm.controls.travellers.controls[
@@ -772,7 +769,6 @@ export class AddTravellerComponent implements OnInit {
 
       // if (
       //   image4 == "" ||
-      //   image4 == null ||
       //   image4 == undefined
       // ) {
       //   this.travellerForm.controls.travellers.controls[
@@ -785,7 +781,6 @@ export class AddTravellerComponent implements OnInit {
       // }
       // if (
       //   image5 == "" ||
-      //   image5 == null ||
       //   image5 == undefined
       // ) {
       //   this.travellerForm.controls.travellers.controls[
@@ -842,7 +837,7 @@ export class AddTravellerComponent implements OnInit {
     this.validateDate();
     this.checkDateOfCollection();
     this.canDeactivate();
-    console.log(this.travellerForm);
+    // console.log(this.travellerForm);
     // console.log(this.travelDetails);
     // console.log(this.valueAddedService);
 
@@ -928,10 +923,10 @@ export class AddTravellerComponent implements OnInit {
       form.get("dateOfBirth").updateValueAndValidity();
       form.get("passportExpiryDate").updateValueAndValidity();
       
-      console.log("Dhruv");
+      // console.log("Dhruv");
     });
 
-    console.log("Pradeep");
+    // console.log("Pradeep");
 
     if (this.travellerForm.valid && this.travelDetails.valid && this.valueAddedService.valid) {
       if (this.termsAndConditions.valid) {
@@ -948,7 +943,7 @@ export class AddTravellerComponent implements OnInit {
         });
         
         // console.log(ptdata[0]);
-        console.log("himanshu");
+        // console.log("himanshu");
 
         let dot: {
           year: number;
@@ -1053,7 +1048,7 @@ export class AddTravellerComponent implements OnInit {
               let errArr: Array<any> = data.data.applicantsFormValidationResult;
               let chunk = this.filedNameArr.length;
               let temparray = [];
-              console.log(chunk);
+              // console.log(chunk);
 
               for (let i = 0, j = this.tempImageArr.length; i < j; i += chunk) {
                 temparray = this.tempImageArr.slice(i, i + chunk);
@@ -1102,7 +1097,7 @@ export class AddTravellerComponent implements OnInit {
               this.preloaderService.showPreloader(false);
               this.errorMessage.push(data.data.warnings.travelDateWarning);
               
-              console.log(this.errorMessage);
+              // console.log(this.errorMessage);
               var modal = document.getElementById("exampleModal1");
               modal.classList.remove("fade");
               modal.classList.add("show");
@@ -1229,7 +1224,7 @@ export class AddTravellerComponent implements OnInit {
     this.dataSource.splice(index, 1);
     this.count = this.count - 1;
     this.selectedTravellerForm = this.count;
-    console.log(this.selectedTravellerForm);
+    // console.log(this.selectedTravellerForm);
   }
 
   selectedFile = null;
