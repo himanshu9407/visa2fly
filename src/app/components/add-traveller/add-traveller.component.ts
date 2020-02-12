@@ -321,7 +321,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    console.log(this.imageUploads);
+    // console.log(this.imageUploads);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
@@ -757,6 +757,146 @@ export class AddTravellerComponent implements OnInit {
         ].controls.pinCode.zipCodeError = false;
       }
     }
+
+    if (this.onlineCategory) {
+      let passportFrontImageValue = this.travellerForm.controls.travellers.controls[i].controls.passportFrontImage.value;
+      let passportBioImageValue = this.travellerForm.controls.travellers.controls[i].controls.passportBioImage.value;
+      let sixMonthsBankStatementValue = this.travellerForm.controls.travellers.controls[i].controls.sixMonthsBankStatement.value;
+      let insuranceValue = this.travellerForm.controls.travellers.controls[i].controls.insurance.value;
+      let userImageValue = this.travellerForm.controls.travellers.controls[i].controls.userImage.value;
+      let departureFlightTicketValue = this.travellerForm.controls.travellers.controls[i].controls.departureFlightTicket.value;
+      let arrivalFlightTicketValue = this.travellerForm.controls.travellers.controls[i].controls.arrivalFlightTicket.value;
+      let hotelAccommodationValue = this.travellerForm.controls.travellers.controls[i].controls.hotelAccommodation.value;
+      let businessCardValue = this.travellerForm.controls.travellers.controls[i].controls.businessCard.value;
+
+      if (
+        passportFrontImageValue == "" ||
+        passportFrontImageValue == null ||
+        passportFrontImageValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.passportFrontImage.passportFrontImageError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.passportFrontImage.passportFrontImageError = false;
+      }
+
+      if (
+        passportBioImageValue == "" ||
+        passportBioImageValue == null ||
+        passportBioImageValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.passportBioImage.passportBioImageError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.passportBioImage.passportBioImageError = false;
+      }
+
+      if (
+        sixMonthsBankStatementValue == "" ||
+        sixMonthsBankStatementValue == null ||
+        sixMonthsBankStatementValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.sixMonthsBankStatement.sixMonthsBankStatementError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.sixMonthsBankStatement.sixMonthsBankStatementError = false;
+      }
+
+      if (
+        insuranceValue == "" ||
+        insuranceValue == null ||
+        insuranceValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.insurance.insuranceError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.insurance.insuranceError = false;
+      }
+
+      if (
+        userImageValue == "" ||
+        userImageValue == null ||
+        userImageValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.userImage.userImageError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.userImage.userImageError = false;
+      }
+
+      if (
+        departureFlightTicketValue == "" ||
+        departureFlightTicketValue == null ||
+        departureFlightTicketValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.departureFlightTicket.departureFlightTicketError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.departureFlightTicket.departureFlightTicketError = false;
+      }
+
+      if (
+        arrivalFlightTicketValue == "" ||
+        arrivalFlightTicketValue == null ||
+        arrivalFlightTicketValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.arrivalFlightTicket.arrivalFlightTicketError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.arrivalFlightTicket.arrivalFlightTicketError = false;
+      }
+
+      if (
+        hotelAccommodationValue == "" ||
+        hotelAccommodationValue == null ||
+        hotelAccommodationValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.hotelAccommodation.hotelAccommodationError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.hotelAccommodation.hotelAccommodationError = false;
+      }
+
+      if (
+        businessCardValue == "" ||
+        businessCardValue == null ||
+        businessCardValue == undefined
+      ) {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.businessCard.businessCardError = true;
+      } else {
+        this.travellerForm.controls.travellers.controls[
+          i
+        ].controls.businessCard.businessCardError = false;
+      }
+
+
+    }
     }
   }
 
@@ -784,7 +924,7 @@ export class AddTravellerComponent implements OnInit {
         });
       } else {
         let eliminateEnter = form.get('address').value.replace(/[\r\n]+/g," ");
-        // console.log(eliminateEnter);
+        console.log(eliminateEnter);
         
         form.get("address").setValue(eliminateEnter);
         form.get("address").updateValueAndValidity();
@@ -792,7 +932,7 @@ export class AddTravellerComponent implements OnInit {
         this.primaryAddress = (<FormArray>(
           this.travellerForm.get("travellers")
         )).controls[0].get("address").value.replace(/[\r\n]+/g," ");
-        // console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
+        console.log(this.primaryAddress.replace(/[\r\n]+/g," "));
         
         this.primaryState = (<FormArray>(
           this.travellerForm.get("travellers")
@@ -1024,7 +1164,7 @@ export class AddTravellerComponent implements OnInit {
               this.preloaderService.showPreloader(false);
               this.errorMessage.push(data.data.warnings.travelDateWarning);
               
-              // console.log(this.errorMessage);
+              console.log(this.errorMessage);
               var modal = document.getElementById("exampleModal1");
               modal.classList.remove("fade");
               modal.classList.add("show");
@@ -1049,7 +1189,7 @@ export class AddTravellerComponent implements OnInit {
       this.toastService.showNotification('Some details missing !', 10000)
       // this.toastService.showNotification("Travel details missing!", 4000);
       this.validateTravellerForm();
-      // console.log(this.scrollBy);
+      console.log(this.scrollBy);
       // this.errorForm = '';
       
       if (this.travellerForm.invalid && this.travelDetails.valid) {
@@ -1151,7 +1291,7 @@ export class AddTravellerComponent implements OnInit {
     this.dataSource.splice(index, 1);
     this.count = this.count - 1;
     this.selectedTravellerForm = this.count;
-    // console.log(this.selectedTravellerForm);
+    console.log(this.selectedTravellerForm);
   }
 
   selectedFile = null;
@@ -1209,10 +1349,10 @@ export class AddTravellerComponent implements OnInit {
     } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
-        // console.log(this.selectedTravellerForm);
+        console.log(this.selectedTravellerForm);
         this.count = this.count + 1;
         this.scrollBy = 50 * this.count;
-        // console.log(this.scrollBy);
+        console.log(this.scrollBy);
         window.scrollTo({
           top: 350 + this.scrollBy,
           left: 0,
@@ -1294,10 +1434,10 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  // @HostListener("window:beforeunload", ["$event"])
-  // unloadNotification($event: any) {
-  //   if (this.canDeactivate()) {
-  //     $event.returnValue = true;
-  //   }
-  // }
+  @HostListener("window:beforeunload", ["$event"])
+  unloadNotification($event: any) {
+    if (this.canDeactivate()) {
+      $event.returnValue = true;
+    }
+  }
 }

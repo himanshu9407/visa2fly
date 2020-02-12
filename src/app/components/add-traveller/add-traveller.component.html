@@ -149,7 +149,7 @@
                 </button>
               </h5>
             </div>
-            <div id="{{ dataSource[i].dataToggle }}" class="collapse" [class.show]="selectedTravellerForm === i"
+            <div id="{{ dataSource[i].dataToggle }}" class="collapse" [class.show]="selectedTravellerForm === i || travellerForm.controls.travellers.controls[i].invalid"
               attr.aria-labelledby="{{ dataSource[i].id }}" data-parent="#accordion">
               <div class="card-body">
                 <div class="form-row">
@@ -337,7 +337,7 @@
                   .cellNumber.invalid && travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
                   travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.cellNumber.pristine}" pattern="^[6-9][0-9]{9}$" type="tel" formControlName="cellNumber"
+                  controls.cellNumber.pristine}" pattern="^[4-9][0-9]{9}$" type="tel" formControlName="cellNumber"
                       class="form-control" placeholder="Mobile Number" required />
                     <div
                       *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && 
