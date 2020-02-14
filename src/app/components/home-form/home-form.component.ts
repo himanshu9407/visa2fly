@@ -403,7 +403,18 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Singapore-visa-online/', "" + purpose]);
             break;
           }
-
+          case "Combodia" : {
+            this.router.navigate(['visa-requirements/apply-for-Combodia-visa-online/', "" + purpose]);
+            break;
+          }
+          case "Turkey" : {
+            this.router.navigate(['visa-requirements/apply-for-Turkey-visa-online/', "" + purpose]);
+            break;
+          }
+          case "Azerbaijan" : {
+            this.router.navigate(['visa-requirements/apply-for-Azerbaijan-visa-online/', "" + purpose]);
+            break;
+          }
           
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();
