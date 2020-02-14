@@ -403,8 +403,8 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Singapore-visa-online/', "" + purpose]);
             break;
           }
-          case "Combodia" : {
-            this.router.navigate(['visa-requirements/apply-for-Combodia-visa-online/', "" + purpose]);
+          case "Cambodia" : {
+            this.router.navigate(['visa-requirements/apply-for-Cambodia-visa-online/', "" + purpose]);
             break;
           }
           case "Turkey" : {

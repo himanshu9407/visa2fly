@@ -180,7 +180,7 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
+      "/visa-requirements/apply-for-Turkey-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
@@ -238,7 +238,7 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Turkey-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }

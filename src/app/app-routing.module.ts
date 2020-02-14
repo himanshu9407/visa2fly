@@ -116,7 +116,7 @@ const routes: Routes = [
     component:  SriLankaComponent
   },
   {
-    path: "visa-requirements/apply-for-Combodia-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Cambodia-visa-online/:purpose",
     component:  CombodiaComponent
   },
   {

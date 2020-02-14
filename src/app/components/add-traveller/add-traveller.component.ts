@@ -611,11 +611,11 @@ export class AddTravellerComponent implements OnInit {
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
 
-      let image1 = this.travellerForm.controls.travellers.controls[i].controls.passportFrontImage.value;
-      let image2 = this.travellerForm.controls.travellers.controls[i].controls.passportBioImage.value;
-      let image3 = this.travellerForm.controls.travellers.controls[i].controls.userImage.value;
-      let image4 = this.travellerForm.controls.travellers.controls[i].controls.businessCard.value;
-      let image5 = this.travellerForm.controls.travellers.controls[i].controls.hotelAccommodation.value;
+      // let image1 = this.travellerForm.controls.travellers.controls[i].controls.passportFrontImage.value;
+      // let image2 = this.travellerForm.controls.travellers.controls[i].controls.passportBioImage.value;
+      // let image3 = this.travellerForm.controls.travellers.controls[i].controls.userImage.value;
+      // let image4 = this.travellerForm.controls.travellers.controls[i].controls.businessCard.value;
+      // let image5 = this.travellerForm.controls.travellers.controls[i].controls.hotelAccommodation.value;
 
       if (
         firstNameValue == "" ||
@@ -836,7 +836,7 @@ export class AddTravellerComponent implements OnInit {
     this.validateTravellerForm();
     this.validateDate();
     this.checkDateOfCollection();
-    this.canDeactivate();
+    // this.canDeactivate();
     // console.log(this.travellerForm);
     // console.log(this.travelDetails);
     // console.log(this.valueAddedService);

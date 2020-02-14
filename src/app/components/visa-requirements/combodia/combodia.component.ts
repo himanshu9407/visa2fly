@@ -69,7 +69,7 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Combodia";
+  public selectedCountrytype = "Cambodia";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
@@ -181,7 +181,7 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Combodia-visa-online/" + purpose
+      "/visa-requirements/apply-for-Cambodia-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
@@ -239,7 +239,7 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Combodia-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Cambodia-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }
