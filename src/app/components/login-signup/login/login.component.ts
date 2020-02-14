@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   showSendOtp : boolean = true;
   showAlert: boolean = false;
   prevRoute = "";
+  changeNumber : boolean = false;
 
   constructor( private loginService : LoginService,
     private getIP : GetIPService, private toastService : ToastService,
@@ -85,11 +86,29 @@ export class LoginComponent implements OnInit {
     this.loginForm.setValue({userId : "", otp : "",rememberMe : false});
     this.showLoader = false;
     this.showLoginButton = false;
+    
   }
  
+  setFormForUser(){
+    this.showOtpField = false;
+    this.loginForm.enable();
+    this.showLoader = false;
+    this.loginForm.markAsPristine();
+    this.loginForm.markAsUntouched();
+    this.loginForm.setValue({userId : "", otp : "",rememberMe : false});
+    this.showLoginButton = true;
+    this.showSendOtp = true;
+    this.showLoginButton = false;
+  }
+
+
+  // bringBack(){
+  //   this.showLoader = true;
+  //   this.showSendOtp = false;
+  // }
 
   sendOtp() {
-    this.showLoader = true;
+    //this.showLoader = true;
     this.showSendOtp = false;
     // this.showOtpField  =true;
     let userId = this.loginForm.get('userId').value;
@@ -107,16 +126,24 @@ export class LoginComponent implements OnInit {
           this.showAlertMessage();
           this.loginForm.get('userId').disable();
           this.showOtpField = true;
+          this.changeNumber = true;
           this.otpSentCount = this.otpSentCount+1;
         }
         else {
           this.toastService.showNotification(data.message,4000);
-          this.setFormFresh();
+          //this.setFormFresh();
           this.showSendOtp = true;
 
         }
       }
     );
+  }
+
+  changeUserNumber(){
+    this.setFormForUser();
+    // this.bringBack();
+    this.changeNumber = false;
+    this.showAlert = false;
   }
 
   showAlertMessage () {
@@ -194,10 +221,13 @@ export class LoginComponent implements OnInit {
               else {
                 // console.log("sartahk agrawal");
                 this.toastService.showNotification(data.message,4000);
-                this.setFormFresh();
+                // this.setFormFresh();
+                this.showLoader = false;
+                this.showLoginButton = true;
                 // this.showOtpField = false;
                 this.otpSentCount = 0;
-                this.showSendOtp = true;
+                //this.showSendOtp = true;
+                //this.showLoginButton = true;
                 this.loginService.setUserStatus(false);
                 this.loginStatus.setUserStatus(false);
               }

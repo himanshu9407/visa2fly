@@ -354,7 +354,7 @@
     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 card-top " *ngFor="let quote of MyQuotation">
       <div class="card shadow" style="border-radius: 5px;">
         <div class="card-header priceHeading font-weight-bold">
-          {{quote.purpose}}
+          {{quote.purpose}} ({{quote.processingType}})
         </div>
         <div class="card-body">
           <ul class="row visa-type">
@@ -367,6 +367,12 @@
 
           </ul>
           <ul class="visa-type">
+            <li>
+              Category :
+              <span class="fieldData font-weight-bold">{{
+                quote.category
+              }}</span>
+            </li>
             <li>
               Stay period :
               <span class="fieldData">{{
@@ -383,17 +389,18 @@
               Entry:
               <span class="fieldData">
                 {{ quote.entryType }}
-                <button type="button" *ngIf="quote.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="top" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
-                    <i class="fa fa-question-circle"></i>
-                </button>
 
-                <button type="button" *ngIf="quote.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="top" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
-                    <i class="fa fa-question-circle"></i>
-                </button>
+                <button type="button" *ngIf="quote.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
+                  <i class="fa fa-question-circle"></i>
+              </button>
 
-                <button type="button" *ngIf="quote.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="top" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
-                    <i class="fa fa-question-circle"></i>
-                </button>
+              <button type="button" *ngIf="quote.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
+                  <i class="fa fa-question-circle"></i>
+              </button>
+
+              <button type="button" *ngIf="quote.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
+                  <i class="fa fa-question-circle"></i>
+              </button>
               </span>
             </li>
             <li>

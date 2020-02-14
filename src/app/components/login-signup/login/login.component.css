@@ -1,153 +1,156 @@
+  .input-group>.form-control:not(:last-child) {
+      border-top-right-radius: 20px !important;
+      border-bottom-right-radius: 20px !important;
+  }
   
-   .input-group>.form-control:not(:last-child) {
-    border-top-right-radius: 20px !important;
-    border-bottom-right-radius: 20px !important;
+  .changeBtn {
+      margin-right: 10px;
   }
-
+  
   .resendBtn {
-    margin-left: 0px;
-    margin-bottom: 10px;
-        width: 130px;
-        border: 1px solid #e6e6e6;
-        border-bottom-width: 3px;
-        border-radius: 6px;
-        padding: 2px 6px;
+      margin-left: 0px;
+      margin-bottom: 10px;
+      width: 130px;
+      border: 1px solid #e6e6e6;
+      border-bottom-width: 3px;
+      display: initial;
+      border-radius: 6px;
+      padding: 2px 6px;
   }
-
+  
   .cbx {
-    position: relative;
-    top: 1px;
-    width: 17px;
-    height: 17px;
-    border: 1px solid #c8ccd4;
-    border-radius: 3px;
-    vertical-align: middle;
-    transition: background 0.1s ease;
-    cursor: pointer;
+      position: relative;
+      top: 1px;
+      width: 17px;
+      height: 17px;
+      border: 1px solid #c8ccd4;
+      border-radius: 3px;
+      vertical-align: middle;
+      transition: background 0.1s ease;
+      cursor: pointer;
   }
+  
   .cbx:after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 5px;
-    width: 5px;
-    height: 11px;
-    opacity: 0;
-    transform: rotate(45deg) scale(0);
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    transition: all 0.3s ease;
-    transition-delay: 0.15s;
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 5px;
+      width: 5px;
+      height: 11px;
+      opacity: 0;
+      transform: rotate(45deg) scale(0);
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transition: all 0.3s ease;
+      transition-delay: 0.15s;
   }
+  
   .lbl {
-    margin-left: 5px;
-    vertical-align: middle;
-    cursor: pointer;
+      margin-left: 5px;
+      vertical-align: middle;
+      cursor: pointer;
   }
-  #cbx:checked ~ .cbx {
-    border-color: transparent;
-    background: #6871f1;
-    animation: jelly 0.6s ease;
+  
+  #cbx:checked~.cbx {
+      border-color: transparent;
+      background: #6871f1;
+      animation: jelly 0.6s ease;
   }
-  #cbx:checked ~ .cbx:after {
-    opacity: 1;
-    transform: rotate(45deg) scale(1);
+  
+  #cbx:checked~.cbx:after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
   }
+  
   @keyframes jelly {
-    from {
-      transform: scale(1, 1);
-    }
-    30% {
-      transform: scale(1.25, 0.75);
-    }
-    40% {
-      transform: scale(0.75, 1.25);
-    }
-    50% {
-      transform: scale(1.15, 0.85);
-    }
-    65% {
-      transform: scale(0.95, 1.05);
-    }
-    75% {
-      transform: scale(1.05, 0.95);
-    }
-    to {
-      transform: scale(1, 1);
-    }
+      from {
+          transform: scale(1, 1);
+      }
+      30% {
+          transform: scale(1.25, 0.75);
+      }
+      40% {
+          transform: scale(0.75, 1.25);
+      }
+      50% {
+          transform: scale(1.15, 0.85);
+      }
+      65% {
+          transform: scale(0.95, 1.05);
+      }
+      75% {
+          transform: scale(1.05, 0.95);
+      }
+      to {
+          transform: scale(1, 1);
+      }
   }
-
-    /* On mouse-over, add a deeper shadow */
-
-    i.fas {
+  /* On mouse-over, add a deeper shadow */
+  
+  i.fas {
       transition: all 800ms ease-in-out;
-    }
-
-    .agree:focus i.fas {
+  }
+  
+  .agree:focus i.fas {
       -ms-transform: rotate(360deg);
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
-      
-    }
-
-    .roundedinput {
+  }
+  
+  .roundedinput {
       border-radius: 20px;
-    }
-
-    .remember {
+  }
+  
+  .remember {
       margin-top: 10px;
-    }
-
-    label {
+  }
+  
+  label {
       margin-bottom: 0px !important;
-    }
-
-
-    /* On mouse-over, add a deeper shadow */
-
-    input {
+  }
+  /* On mouse-over, add a deeper shadow */
+  
+  input {
       border: 1px solid #e6e6e6;
-    border-bottom-width: 3px;
-    }
-
-
-
-    .input-group-prepend span {
+      border-bottom-width: 3px;
+  }
+  
+  .input-group-prepend span {
       border-radius: 20px 0px 0px 20px;
       width: 50px;
       background-color: navy;
       padding-left: 20px;
       color: white;
       border: 0 !important;
-    }
-
-    input:focus {
+  }
+  
+  input:focus {
       outline: none !important;
       box-shadow: none !important;
-    }
-
-    .remember {
+  }
+  
+  .remember {
       color: navy;
-    }
-
-    .remember input {
+  }
+  
+  .remember input {
       width: 20px;
       height: 20px;
       margin-left: 15px;
       margin-right: 5px;
-    }
-
-    .login_btn {
+  }
+  
+  .login_btn {
       border-radius: 20px;
       margin-top: 10px;
       border-bottom-width: 3px;
       color: white;
       background-color: navy;
       width: 100px;
-    }
-
-    .login_btn:hover {
+  }
+  
+  .login_btn:hover {
       border-color: #2A2A72;
       color: navy;
       background-color: white;
-    }
+  }

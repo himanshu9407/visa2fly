@@ -71,6 +71,10 @@ import { B2bHomeComponent } from './components/b2b/b2b-home/b2b-home.component';
 import { B2bReqComponent } from './components/b2b/b2b-req/b2b-req.component';
 import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component';
 import { B2bAddTrvComponent } from './components/b2b/b2b-add-trv/b2b-add-trv.component'
+import { CombodiaComponent } from './components/visa-requirements/combodia/combodia.component';
+import { TurkeyComponent } from './components/visa-requirements/turkey/turkey.component';
+import { AzerbaijanComponent } from './components/visa-requirements/azerbaijan/azerbaijan.component';
+import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
 
 @NgModule({
   declarations: [
@@ -124,11 +128,16 @@ import { B2bAddTrvComponent } from './components/b2b/b2b-add-trv/b2b-add-trv.com
     SpainComponent,
     SingaporeComponent,
     SriLankaComponent,
+    CombodiaComponent,
+    TurkeyComponent,
+    AzerbaijanComponent,
+    RemovewhitespacePipe,
     
     B2bHomeComponent,
     B2bReqComponent,
     B2bHeaderComponent,
     B2bAddTrvComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -24,9 +24,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-sri-lanka',
-  templateUrl: './sri-lanka.component.html',
-  styleUrls: ['./sri-lanka.component.css'],
+  selector: 'app-combodia',
+  templateUrl: './combodia.component.html',
+  styleUrls: ['./combodia.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -44,7 +44,7 @@ export interface Food {
     ])
   ]
 })
-export class SriLankaComponent implements OnInit, AfterViewInit {
+export class CombodiaComponent implements OnInit, AfterViewInit {
 
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
@@ -69,7 +69,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Sri Lanka";
+  public selectedCountrytype = "Cambodia";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
@@ -88,6 +88,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private toastService: ToastService) {
 
+
       this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
 
@@ -104,7 +105,8 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose)
         });
-      this.requireQuotation
+
+        this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         //  console.log(res);
@@ -169,7 +171,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
   }
 
@@ -179,7 +181,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
+      "/visa-requirements/apply-for-Cambodia-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
@@ -237,7 +239,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Cambodia-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }
@@ -320,6 +322,5 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 
 }

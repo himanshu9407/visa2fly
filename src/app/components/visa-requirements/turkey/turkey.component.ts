@@ -24,9 +24,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-sri-lanka',
-  templateUrl: './sri-lanka.component.html',
-  styleUrls: ['./sri-lanka.component.css'],
+  selector: 'app-turkey',
+  templateUrl: './turkey.component.html',
+  styleUrls: ['./turkey.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -44,7 +44,7 @@ export interface Food {
     ])
   ]
 })
-export class SriLankaComponent implements OnInit, AfterViewInit {
+export class TurkeyComponent implements OnInit, AfterViewInit {
 
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
@@ -69,7 +69,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Sri Lanka";
+  public selectedCountrytype = "Turkey";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
@@ -91,20 +91,21 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
 
-    this.preloaderService.showPreloader(true);
+          this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
-    });
+          this.activeRoute.params.subscribe((params: any) => {
+          this.selectedVisaType = params.purpose;
+          // this.selectedCountryType = 'France';
+          //  console.log(this.selectedCountryType);
+          });
 
-    let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
-    this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
-        });
-      this.requireQuotation
+            let tempPurpose = this.selectedVisaType;
+            //console.log(tempPurpose);
+            this.purposeChooseForm = new FormGroup({
+            purposeSelected: new FormControl(tempPurpose)
+            });
+
+            this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         //  console.log(res);
@@ -169,7 +170,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
   }
 
@@ -179,7 +180,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
+      "/visa-requirements/apply-for-Turkey-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
@@ -237,7 +238,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Turkey-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }

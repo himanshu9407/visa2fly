@@ -1,84 +1,96 @@
 <form [formGroup]="loginForm">
-  <div class="input-group form-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"><i class="fa fa-user"></i></span>
+    <div class="input-group form-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-user"></i></span>
+        </div>
+
+        <input minlength="6" pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$" (keydown.enter)="onKeyPress1($event)" formControlName="userId"
+            placeholder="Email/Mobile" type="text" class="form-control roundedinput" [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}"
+        />
+
+
+
+        <div class="invalid-feedback" style="display: block;margin-left: 8%;">
+            <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
+            <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address or mobile number</div>
+        </div>
+        <!-- <div>
+            <a (click)="changeNumber()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i>
+            Change Number</span></a>
+        </div> -->
     </div>
 
-    <input minlength="6"
-      pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$"
-      (keydown.enter)="onKeyPress1($event)" formControlName="userId" placeholder="Email/Mobile" type="text"
-      class="form-control roundedinput"
-      [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}" />
-
-    <div class="invalid-feedback" style="display: block;margin-left: 8%;">
-      <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
-      <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address or
-        mobile number</div>
+    <div *ngIf="showOtpField" class="input-group form-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+        </div>
+        <input [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}" (keydown.enter)="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$"
+            formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP" />
+        <div class="invalid-feedback" style="display: block;margin-left: 8%;">
+            <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
+            <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp </div>
+        </div>
     </div>
-  </div>
-
-  <div *ngIf="showOtpField" class="input-group form-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"><i class="fa fa-lock"></i></span>
-    </div>
-    <input
-      [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}"
-      (keydown.enter)="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text"
-      class="form-control roundedinput" placeholder="OTP" />
-    <div class="invalid-feedback" style="display: block;margin-left: 8%;">
-      <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
-      <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp </div>
-    </div>
-  </div>
-  <div *ngIf="showAlert" class="alert alert-primary alert-dismissible fade show" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+    <div *ngIf="showAlert" class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
         aria-hidden="true">&times;</span></button>
-    <strong> OTP Sent Successfully!</strong>
-  </div>
-  <!-- <div *ngIf="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
+        <strong> OTP Sent Successfully!</strong>
+    </div>
+    <!-- <div *ngIf="otpSentCount > 0"  class="row align-items-center" style="margin-left: 5%;">
             <a (onclick) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i> Resend OTP</span></a>
         </div> -->
 
-  <div *ngIf="otpSentCount > 0" class="row align-items-center resendBtn">
-    <a (click)="sendOtp()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i>
-        Resend OTP</span></a>
-  </div>
 
-  <!-- <div  *ngIf = "showOtpField" class="row align-items-center remember">
+    <!-- *ngIf="otpSentCount > 0" -->
+
+    <!-- <div  *ngIf = "showOtpField" class="row align-items-center remember">
     <input formControlName="rememberMe" id="remember" type="checkbox">
     <label for="remember">Remember Me</label>
   </div> -->
-  <!-- 
+    <!-- 
   <div  class="row align-items-center remember cntr">
     <input formControlName="rememberMe" id="remember" type="checkbox" class="cbx" style="display: none;">
     <label class="cbx" for="remember"></label>
     <label class="lbl" for="remember">Remember Me</label>
   </div> -->
 
-  <div class="cntr" *ngIf="showOtpField">
+    <div class="cntr" *ngIf="showOtpField">
 
-    <input class="hidden-xs-up" id="cbx" type="checkbox" formControlName="rememberMe" style="display: none;" />
-    <label class="cbx" for="cbx"></label>
-    <label class="lbl" for="cbx">Remember Me</label>
-  </div>
+        <input class="hidden-xs-up" id="cbx" type="checkbox" formControlName="rememberMe" style="display: none;" />
+        <label class="cbx" for="cbx"></label>
+        <label class="lbl" for="cbx">Remember Me</label>
+    </div>
 
-  <div *ngIf="showSendOtp" class=" row form-group d-flex justify-content-center ">
-    <div class="form-group" style="margin-bottom: 0px;">
-      <button (click)="sendOtp()"
-        [disabled]="loginForm.get('userId').invalid && loginForm.get('userId').dirty || loginForm.get('userId').pristine"
-        type="button" class="btn float-right login_btn" style="width:200px;">Send OTP</button>
+    <div *ngIf="showSendOtp" class=" row form-group d-flex justify-content-center ">
+        <div class="form-group" style="margin-bottom: 0px;">
+            <button (click)="sendOtp()" [disabled]="loginForm.get('userId').invalid && loginForm.get('userId').dirty || loginForm.get('userId').pristine" type="button" class="btn float-right login_btn" style="width:200px;">Send OTP</button>
+        </div>
     </div>
-  </div>
-  <div *ngIf="showLoginButton" class=" row form-group d-flex justify-content-center ">
-    <div class="form-group">
-      <button (click)="onSubmit()"
-        [disabled]="loginForm.get('otp').invalid && loginForm.get('otp').dirty || loginForm.get('otp').pristine"
-        type="button" class="btn float-right login_btn" style="width:200px;">Login</button>
+
+    <div *ngIf="showLoginButton" class=" row form-group d-flex justify-content-center ">
+        <div class="form-group">
+            <button (click)="onSubmit()" [disabled]="loginForm.get('otp').invalid && loginForm.get('otp').dirty || loginForm.get('otp').pristine" type="button" class="btn float-right login_btn" style="width:200px;">Login</button>
+        </div>
     </div>
-  </div>
-  <div *ngIf="showLoader" class="d-flex justify-content-center mb-3">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
+
+    <div class="text-center row">
+        <div class="col-lg-12">
+
+            <div class="resendBtn changeBtn" *ngIf="changeNumber">
+                <a (click)="sendOtp()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i>
+  Resend OTP</span></a>
+            </div>
+            <div class="resendBtn" *ngIf="changeNumber">
+                <a (click)="changeUserNumber()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i>
+    Change Number/Email</span></a>
+            </div>
+        </div>
     </div>
-  </div>
+    <div *ngIf="showLoader" class="d-flex justify-content-center mb-3">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+
+    </div>
 </form>

@@ -29,6 +29,10 @@ import { MaldivesComponent } from "./components/visa-requirements/maldives/maldi
 import { SpainComponent } from "./components/visa-requirements/spain/spain.component";
 import { SingaporeComponent } from "./components/visa-requirements/singapore/singapore.component";
 import { SriLankaComponent } from "./components/visa-requirements/sri-lanka/sri-lanka.component";
+import { CombodiaComponent } from './components/visa-requirements/combodia/combodia.component';
+import { TurkeyComponent } from './components/visa-requirements/turkey/turkey.component';
+import { AzerbaijanComponent } from './components/visa-requirements/azerbaijan/azerbaijan.component';
+
 import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
 import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
 import { ProfileComponent } from "./components/profile/profile.component";
@@ -36,6 +40,7 @@ import { BookingDetailsComponent } from "./components/booking-details/booking-de
 import { SimplansComponent } from "./components/simplans/simplans.component";
 import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
 import { AboutUsComponent } from "./components/static/about-us/about-us.component";
+
 import { B2bHomeComponent } from "./components/b2b/b2b-home/b2b-home.component";
 import { B2bReqComponent } from "./components/b2b/b2b-req/b2b-req.component";
 import { B2bAddTrvComponent } from "./components/b2b/b2b-add-trv/b2b-add-trv.component";
@@ -147,6 +152,18 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Sri-Lanka-visa-online/:purpose",
     component: SriLankaComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Cambodia-visa-online/:purpose",
+    component:  CombodiaComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Turkey-visa-online/:purpose",
+    component:  TurkeyComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Azerbaijan-visa-online/:purpose",
+    component:  AzerbaijanComponent
   },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }
