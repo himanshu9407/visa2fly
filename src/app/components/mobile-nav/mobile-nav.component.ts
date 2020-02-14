@@ -8,6 +8,8 @@ import { PreloaderService } from 'src/app/shared/preloader.service';
 import { Router } from '@angular/router';
 import { SignupResponseModel } from '../login-signup/signup/SignupResponse.model';
 import { isPlatformBrowser } from '@angular/common';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-mobile-nav',

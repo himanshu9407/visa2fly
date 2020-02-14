@@ -1,0 +1,68 @@
+<section class="b2b-home">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12">
+
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                <form [formGroup]="b2bHomeForm" (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <div class="col-12">
+                      <h2 class="b2b-header">Get Visa Online</h2>
+                    </div>
+                    <div class="col-12">
+                      <label for="destination">Destination</label>
+                      <select (change)="countryChanged()" [(ngModel)]="selectedCountry" formControlName="country"
+                        required id="ddlCountry" class="form-control form-control-sm" name="country">
+                        <!-- <option value="0">Select</option> -->
+                        <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <label for="purpose">Visa Type</label>
+                      <select formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"
+                        class=" form-control form-control-sm" name="purpose">
+                        <option value="select">Select</option>
+                        <option class="purpose-opt"
+                          *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose"
+                          value="{{purpose}}">{{purpose}}</option>
+                      </select>
+
+                      <div *ngIf="purposeNotSelected" class="invalid">
+                        Please choose a purpose.
+                      </div>
+
+                    </div>
+                    <div class="col-12 mt-2">
+                      <label for="resideIn">Reside In</label>
+                      <select formControlName="livingIn" [(ngModel)]="selectedResideIn" required name="livingin"
+                        id="ddlJurisction" class=" form-control form-control-sm">
+                        <option value="select">Select</option>
+                        <option class="purpose-opt"
+                          *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf"
+                          value="{{livesin}}">{{livesin}}</option>
+                      </select>
+
+                      <div  *ngIf="livesInNotSelected" class="invalid">
+                        Please choose where you live.
+                      </div>
+
+                    </div>
+                    <div class="col-12 mt-2 text-center">
+                      <button type="submit" class="btn submitBtn">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

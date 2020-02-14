@@ -6,6 +6,8 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class UserFlowDetails {
 
+    
+
 
     public userObject : object = {};
 

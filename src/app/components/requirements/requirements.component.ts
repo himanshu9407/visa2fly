@@ -14,7 +14,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
 import { isPlatformBrowser } from '@angular/common';
-
+import * as $ from 'jquery';
 @Component({
   selector: "app-requirements",
   templateUrl: "./requirements.component.html",
@@ -32,6 +32,7 @@ import { isPlatformBrowser } from '@angular/common';
     ])
   ]
 })
+
 export class RequirementsComponent implements OnInit {
   public regData: requirementData;
   public fieldName: string;
@@ -361,6 +362,7 @@ export class RequirementsComponent implements OnInit {
         }
       }
       });
+
   }
 
   navigate(

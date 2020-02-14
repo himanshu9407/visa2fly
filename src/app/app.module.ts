@@ -41,18 +41,6 @@ import { SimComponent } from "./components/sim/sim.component";
 import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { PreloaderComponent } from "./shared/preloader/preloader.component";
 
-import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
-import { MyBookingsComponent } from "./components/my-bookings/my-bookings.component";
-import { TermsandConditionsComponent } from "./components/static/termsand-conditions/termsand-conditions.component";
-import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
-import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
-import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
-import { ProfileComponent } from "./components/profile/profile.component";
-import { BookingDetailsComponent } from "./components/booking-details/booking-details.component";
-import { SimplansComponent } from "./components/simplans/simplans.component";
-import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
-import { AboutUsComponent } from "./components/static/about-us/about-us.component";
-import { environment } from "../environments/environment";
 import { AustraliaComponent } from "./components/visa-requirements/australia/australia.component";
 import { UnitedKingdomComponent } from "./components/visa-requirements/united-kingdom/united-kingdom.component";
 import { FranceComponent } from "./components/visa-requirements/france/france.component";
@@ -66,6 +54,23 @@ import { MaldivesComponent } from './components/visa-requirements/maldives/maldi
 import { SpainComponent } from './components/visa-requirements/spain/spain.component';
 import { SingaporeComponent } from './components/visa-requirements/singapore/singapore.component';
 import { SriLankaComponent } from './components/visa-requirements/sri-lanka/sri-lanka.component';
+import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { TermsandConditionsComponent } from './components/static/termsand-conditions/termsand-conditions.component';
+import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
+import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
+import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
+import { SimplansComponent } from './components/simplans/simplans.component';
+import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
+import { AboutUsComponent } from './components/static/about-us/about-us.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { B2bHomeComponent } from './components/b2b/b2b-home/b2b-home.component';
+import { B2bReqComponent } from './components/b2b/b2b-req/b2b-req.component';
+import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component';
+import { B2bAddTrvComponent } from './components/b2b/b2b-add-trv/b2b-add-trv.component'
 
 @NgModule({
   declarations: [
@@ -106,6 +111,7 @@ import { SriLankaComponent } from './components/visa-requirements/sri-lanka/sri-
     SimplansComponent,
     SimcheckoutComponent,
     AboutUsComponent,
+
     AustraliaComponent,
     UnitedKingdomComponent,
     FranceComponent,
@@ -117,7 +123,12 @@ import { SriLankaComponent } from './components/visa-requirements/sri-lanka/sri-
     MaldivesComponent,
     SpainComponent,
     SingaporeComponent,
-    SriLankaComponent
+    SriLankaComponent,
+    
+    B2bHomeComponent,
+    B2bReqComponent,
+    B2bHeaderComponent,
+    B2bAddTrvComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
