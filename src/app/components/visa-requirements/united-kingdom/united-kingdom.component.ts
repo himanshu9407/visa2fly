@@ -244,7 +244,8 @@ export class UnitedKingdomComponent implements OnInit,AfterViewInit {
   // console.log('business');
 }
 
-navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string, purpose : string) {
+navigate(quoteId : string,  category: string,
+  minTravelDate: number, basePrice : number, serviceTax : number, stayPeriod:string, purpose : string) {
                 
   this.preloaderService.showPreloader(true);
 
@@ -252,6 +253,9 @@ navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:s
   this.userFlow.setUserFlowDetails("country", this.countryStatic);
   this.userFlow.setUserFlowDetails("quoteId",quoteId);
   //console.log(quoteId);
+  this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
   this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
   this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
   this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);

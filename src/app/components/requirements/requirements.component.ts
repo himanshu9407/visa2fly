@@ -370,7 +370,8 @@ export class RequirementsComponent implements OnInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUploads: string,
+    category: string
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -382,6 +383,7 @@ export class RequirementsComponent implements OnInit {
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
+    this.userFlow.setUserFlowDetails("category", JSON.stringify(category));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
     this.userFlow.setUserFlowDetails(

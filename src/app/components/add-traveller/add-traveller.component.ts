@@ -94,6 +94,8 @@ export class AddTravellerComponent implements OnInit {
   scrollBy: number = 0;
   errorForm = "";
   checkUploadedImages: boolean;
+  category: string;
+  minTravelDate: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -178,53 +180,6 @@ export class AddTravellerComponent implements OnInit {
             day: 1
           };
         }
-      }
-    }
-  }
-
-  checkDateOfTravelOverflow(date: { month: any; year: any; day: any }) {
-    if (
-      date.month == 4 ||
-      date.month == 6 ||
-      date.month == 9 ||
-      date.month == 11
-    ) {
-      if (date.day > 30) {
-        let tempDay = date.day - 30;
-        this.minDateOfTravel = {
-          year: date.year,
-          month: date.month + 1,
-          day: tempDay
-        };
-      }
-    } else if (date.month == 2) {
-      if (date.year % 4 == 0 && date.year % 100 != 0 && date.year % 400 == 0) {
-        if (date.day > 29) {
-          let tempDay = date.day - 29;
-          this.minDateOfTravel = {
-            year: date.year,
-            month: date.month + 1,
-            day: tempDay
-          };
-        }
-      } else {
-        if (date.day > 28) {
-          let tempDay = date.day - 28;
-          this.minDateOfTravel = {
-            year: date.year,
-            month: date.month + 1,
-            day: tempDay
-          };
-        }
-      }
-    } else {
-      if (date.day > 31) {
-        let tempDay = date.day - 31;
-        this.minDateOfTravel = {
-          year: date.year,
-          month: date.month + 1,
-          day: tempDay
-        };
       }
     }
   }
@@ -322,10 +277,17 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    // console.log(this.imageUploads);
+    console.log(this.userFlowDetails);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
+
+    this.category = this.userFlowDetails.category;
+    console.log(this.category);
+
+    this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
+    console.log(this.minTravelDate);
+    
 
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
@@ -352,20 +314,19 @@ export class AddTravellerComponent implements OnInit {
     // this.checkDateOfDob(this.maxDateDob) ;
 
     this.minDateOfTravel = {
-      // {year: minDate.year, month: minDate.month, day: minDate.day +3}
-
       year: this.minDate.year,
       month: this.minDate.month,
-      day: this.minDate.day + 4
+      day: this.minDate.day + this.minTravelDate + 1
     };
-    this.checkDateOfTravelOverflow(this.minDateOfTravel);
+    // this.checkDateOfTravelOverflow(this.minDateOfTravel);
     // console.log(this.minDateOfTravel);
 
+    
     this.minDateOfCollection = {
       // {year: minDate.year, month: minDate.month, day: minDate.day +1}
-      year: this.dateOfTravelModel.year,
-      month: this.dateOfTravelModel.month,
-      day: this.dateOfTravelModel.day - 3
+      year: this.minDateOfTravel.year,
+      month: this.minDateOfTravel.month,
+      day: this.minDateOfTravel.day - this.minTravelDate
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
@@ -403,7 +364,7 @@ export class AddTravellerComponent implements OnInit {
     // console.log(this.serviceTax);
     this.stayPeriod = data.stayPeriod;
 
-    if (this.onlineCategory) {
+    if (this.category == 'e-visa') {
       this.travelDetails = new FormGroup({
         dateOfTravel: new FormControl("", [Validators.required]),
         dateOfCollection: new FormControl("", [Validators.nullValidator])
@@ -480,7 +441,7 @@ export class AddTravellerComponent implements OnInit {
   }
 
   createTraveller(): FormGroup {
-    if (this.onlineCategory) {
+    if (this.category == 'e-visa') {
       return this.formBuilder.group({
         title: ["Mr", [Validators.required]],
         firstName: ["", [Validators.required]],
@@ -543,7 +504,7 @@ export class AddTravellerComponent implements OnInit {
       // {year: minDate.year, month: minDate.month, day: minDate.day +1}
       year: temp.year,
       month: temp.month,
-      day: temp.day - 3
+      day: temp.day - this.minTravelDate
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
@@ -552,7 +513,7 @@ export class AddTravellerComponent implements OnInit {
   }
 
   checkDateOfCollection() {
-    if (!this.onlineCategory) {
+    if (this.category == 'Sticker') {
       if (
         this.travelDetails.get("dateOfCollection").value == undefined ||
         this.travelDetails.get("dateOfCollection").value == null ||
@@ -797,7 +758,7 @@ export class AddTravellerComponent implements OnInit {
       //   ].controls.hotelAccommodation.hotelAccommodationError = false;
       // }
 
-      if (!this.onlineCategory) {
+      if (this.category == 'Sticker') {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
           .controls.address.value;
         let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
@@ -901,7 +862,7 @@ export class AddTravellerComponent implements OnInit {
           (<FormArray>this.travellerForm.get("travellers")).controls || [];
 
         tempArr.forEach((form: FormGroup, index) => {
-          if (this.onlineCategory) {
+          if (this.category == 'e-visa') {
             this.filedNameArr.forEach(el => {
               this.formData1.append("images", form.get(el).value);
               this.tempImageArr.push(form.get(el).value);
@@ -1000,7 +961,7 @@ export class AddTravellerComponent implements OnInit {
         fd["primaryTraveller"] = ptdata[0];
         fd["otherTravellers"] = other;
         fd["dateOfTravel"] = finalDot;
-        if (!this.onlineCategory) {
+        if (this.category == 'Sticker') {
           fd["dateOfDocumentCollection"] = finalDoc;
         }
         fd["quoteId"] = this.quoteId;
@@ -1078,7 +1039,7 @@ export class AddTravellerComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.onlineCategory) {
+                if (this.category == 'e-visa') {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                     // form.re
@@ -1120,7 +1081,7 @@ export class AddTravellerComponent implements OnInit {
               modal.style.display = "block";
             } else {
               tempArr.forEach((form: FormGroup, index) => {
-                if (this.onlineCategory) {
+                if (this.category == 'e-visa') {
                   this.formData1.delete("images");
                 }
               });
@@ -1326,7 +1287,7 @@ export class AddTravellerComponent implements OnInit {
 
         let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-        if (this.onlineCategory) {
+        if (this.category == 'e-visa') {
           arr.forEach((element: FormGroup, i) => {
             if (i == arr.length - 1) {
               this.filedNameArr.forEach(fieldName => {

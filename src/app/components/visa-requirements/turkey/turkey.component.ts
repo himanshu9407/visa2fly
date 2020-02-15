@@ -261,6 +261,8 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
   navigate(
     quoteId: string,
     purpose: string,
+    category: string,
+    minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
@@ -272,6 +274,9 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     //console.log(quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);

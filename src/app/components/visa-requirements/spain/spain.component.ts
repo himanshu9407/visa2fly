@@ -225,6 +225,8 @@ export class SpainComponent implements OnInit, AfterViewInit  {
   navigate(
     quoteId: string,
     purpose: string,
+    category: string,
+    minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
@@ -235,6 +237,9 @@ export class SpainComponent implements OnInit, AfterViewInit  {
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));

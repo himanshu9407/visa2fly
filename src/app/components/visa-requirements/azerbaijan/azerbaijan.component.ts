@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -24,9 +24,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-azerbaijan',
-  templateUrl: './azerbaijan.component.html',
-  styleUrls: ['./azerbaijan.component.css'],
+  selector: "app-azerbaijan",
+  templateUrl: "./azerbaijan.component.html",
+  styleUrls: ["./azerbaijan.component.css"],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -45,7 +45,6 @@ export interface Food {
   ]
 })
 export class AzerbaijanComponent implements OnInit, AfterViewInit {
-
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
@@ -76,8 +75,10 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  // category: string;
 
-  constructor(private activeRoute: ActivatedRoute,
+  constructor(
+    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
@@ -86,49 +87,51 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService) {
-
-      this.userControlDetail = this.userFlow.getUserFlowDetails();
+    private toastService: ToastService
+  ) {
+    this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
 
-          this.preloaderService.showPreloader(true);
+    this.preloaderService.showPreloader(true);
 
-          this.activeRoute.params.subscribe((params: any) => {
-          this.selectedVisaType = params.purpose;
-          // this.selectedCountryType = 'France';
-          //  console.log(this.selectedCountryType);
-          });
+    this.activeRoute.params.subscribe((params: any) => {
+      this.selectedVisaType = params.purpose;
+      // this.selectedCountryType = 'France';
+      //  console.log(this.selectedCountryType);
+    });
 
-            let tempPurpose = this.selectedVisaType;
-            //console.log(tempPurpose);
-            this.purposeChooseForm = new FormGroup({
-            purposeSelected: new FormControl(tempPurpose)
-            });
+    let tempPurpose = this.selectedVisaType;
+    //console.log(tempPurpose);
+    this.purposeChooseForm = new FormGroup({
+      purposeSelected: new FormControl(tempPurpose)
+    });
 
-            this.requireQuotation
+    this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        //  console.log(res);
+         console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           //console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           //console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           //console.log(this.imageCatogoryTransitTemp);
 
           this.onlinestatus = res.data.onlineCategory;
+          // this.category = res.data.category;
 
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
+
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach(element => {
             if (element.purpose == "Business") {
@@ -143,32 +146,31 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
             }
           });
           let purposeMain = this.selectedVisaType;
-          let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if(purposeUrl == 'Business')
-            {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            }else if(purposeUrl == 'Tourist') {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            }else if(purposeUrl == 'Transit'){
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }else{
-              this.router.navigate(['visa/']);
-            }
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
 
-            this.imagefield1 = this.imageCatogoryTemp;
+          this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
         }
       });
-     }
-
-  ngOnInit() {
   }
+
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
@@ -190,7 +192,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -209,7 +211,8 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
 
     let purposeString: string = purpose.nextId;
     // console.log(purposeString);
-    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let purposeUrl =
+      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -261,24 +264,29 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   navigate(
     quoteId: string,
     purpose: string,
+    category: string,
+    minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
     imageUploads: string
-    ) {
+  ) {
     this.preloaderService.showPreloader(true);
 
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     //console.log(quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imagefield1)
-    );
+    this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imagefield1));
+
+    // console.log(this.userFlow.getUserFlowDetails(category));
+    
 
     //console.log(quoteId);
 
@@ -321,5 +329,4 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 }

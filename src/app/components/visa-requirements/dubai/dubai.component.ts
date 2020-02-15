@@ -275,14 +275,19 @@ export class DubaiComponent implements OnInit, AfterViewInit {
       // console.log('business');
     }
 
-    navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
+    navigate(quoteId : string,  category: string,
+      minTravelDate: number,basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
                 
       this.preloaderService.showPreloader(true);
     
       this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
       this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
       this.userFlow.setUserFlowDetails("quoteId",quoteId);
+      this.userFlow.setUserFlowDetails("category",category);
       //console.log(quoteId);
+      this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
       this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
       this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
       this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
