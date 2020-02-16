@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormControlName, AbstractControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { HomeFormService } from '../../home-form/home-form.service';
@@ -8,6 +8,7 @@ import { PreloaderService } from 'src/app/shared/preloader.service';
 import { AuthenticationGuard } from 'src/app/shared/AuthenticationGuard.service';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LoginService } from '../../login-signup/login/login.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-b2b-home',
@@ -31,11 +32,20 @@ export class B2bHomeComponent implements OnInit {
 
   purposeNotSelected: boolean = false;
   livesInNotSelected: boolean;
+  id: string;
 
   constructor(private router: Router, private httpClient: HttpClient,
     private homeFormService: HomeFormService, private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService, private authService: AuthenticationGuard,
-    private loginStatus: LoginStatusService, private loginService: LoginService) {
+    private loginStatus: LoginStatusService, private loginService: LoginService,
+    private route: ActivatedRoute) {
+      this.id = this.route.snapshot.queryParamMap.get('id');
+
+      console.log(this.id);
+
+      this.userFlow.setB2BUserFlowDetails("id", this.id);
+      
+
     this.b2bHomeForm = new FormGroup({
       'country': new FormControl('Sri Lanka'),
       'purpose': new FormControl('select'),

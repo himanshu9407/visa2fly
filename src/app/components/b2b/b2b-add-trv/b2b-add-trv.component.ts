@@ -99,6 +99,11 @@ export class B2bAddTrvComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory
   ) {
+    
+    setTimeout(() => {
+      this.preloaderService.showPreloader(false);
+    }, 2000);
+
     this.today = new Date();
     this.tomorrow = new Date(this.today);
     this.tomorrow.setDate(this.tomorrow.getDate() + 1);
@@ -312,7 +317,7 @@ export class B2bAddTrvComponent implements OnInit {
       this.intialInfo = false; // ..??
     }, 10000);
 
-    this.userFlowDetails = this.userFlow.getUserFlowDetails();
+    this.userFlowDetails = this.userFlow.getB2BUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
     console.log(this.userFlowDetails);
@@ -332,7 +337,7 @@ export class B2bAddTrvComponent implements OnInit {
     } else {
       this.onlineCategory = false;
     }
-    let data = this.userFlow.getUserFlowDetails();
+    let data = this.userFlow.getB2BUserFlowDetails();
     const current = new Date();
 
     this.minDate = {

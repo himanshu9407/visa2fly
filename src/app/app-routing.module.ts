@@ -81,7 +81,7 @@ const routes: Routes = [
     component: B2bReqComponent
   },
   {
-    path: "b2b/visa-requirement/b2b-add-traveller",
+    path: "b2b/b2b-add-traveller",
     component: B2bAddTrvComponent
   },
 

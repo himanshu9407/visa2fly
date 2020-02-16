@@ -64,4 +64,8 @@ export class UserFlowDetails {
   getBaseURL() {
     return "https://test.visa2fly.com/api/";
   }
+
+  getB2BBaseURL() {
+    return "https://test.visa2fly.com/api/b2b";
+  }
 }
