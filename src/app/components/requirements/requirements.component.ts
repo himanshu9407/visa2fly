@@ -387,7 +387,6 @@ export class RequirementsComponent implements OnInit {
 
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-    // this.userFlow.setUserFlowDetails("category", JSON.stringify(category));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
     this.userFlow.setUserFlowDetails(

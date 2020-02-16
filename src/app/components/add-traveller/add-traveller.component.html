@@ -156,7 +156,7 @@
               <div class="card-body">
                 <div class="form-row">
                   <div class="col-md-2 mb-3">
-                    <label>Title</label>
+                    <label>Title *</label>
                     <select formControlName="title" id="inputState" class="form-control">
                       <!-- <option selected>Title</option> -->
                       <option selected>Mr</option>
@@ -170,7 +170,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>First Name</label>
+                    <label>First Name *</label>
                     <input
                       [ngClass]="{
                       'is-invalid':
@@ -205,7 +205,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Last Name</label>
+                    <label>Last Name *</label>
                     <input
                       [ngClass]="{
                       'is-invalid':travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
@@ -223,7 +223,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Date Of Birth</label>
+                    <label>Date Of Birth *</label>
                     <div class="form-group mb-0">
                       <div class="input-group">
                         <input hidden formControlName="dateOfBirth" type="text">
@@ -246,7 +246,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Passport Number</label>
+                    <label>Passport Number *</label>
                     <div class="input-group">
                       <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
@@ -268,7 +268,7 @@
                 <div class="form-row">
                   <div class="col-md-2 mb-3">
                     <!-- <app-date></app-date> -->
-                    <label>Passport Expiry Date</label>
+                    <label>Passport Expiry Date *</label>
                     <div class="form-group">
                       <div class="input-group">
                         <input hidden formControlName="passportExpiryDate">
@@ -292,7 +292,7 @@
 
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Email</label>
+                    <label>Email *</label>
                     <div class="input-group">
                       <input
                         pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
@@ -331,12 +331,12 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Mobile Number</label>
+                    <label>Mobile Number *</label>
                     <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                   .cellNumber.invalid && travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
                   travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.cellNumber.pristine}" pattern="^[4-9][0-9]{9}$" type="tel" formControlName="cellNumber"
+                  controls.cellNumber.pristine}" pattern="^[6-9][0-9]{9}$" type="tel" formControlName="cellNumber"
                       class="form-control" placeholder="Mobile Number" required />
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && 
                       travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) || 
@@ -364,7 +364,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-4 mb-3">
-                    <label>Address</label>
+                    <label>Address *</label>
                     <div class="input-group">
                       <textarea minlength="10" pattern="^[ A-Za-z0-9-:./\n,]*$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
@@ -387,7 +387,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
-                    <label>State</label>
+                    <label>State *</label>
                     <select (change)="checkCity(i)" formControlName="state" id="" class="form-control">
                       <option *ngFor="let state of list.states;let first=first" value="{{state}}">{{state}}</option>
                     </select>
@@ -399,7 +399,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
-                    <label>City</label>
+                    <label>City *</label>
                     <select formControlName="city" name="" id="" class="form-control">
                       <option
                         *ngFor="let city of list.cities[travellerForm.controls.travellers.controls[i].controls.state.value];let first=first"
@@ -413,7 +413,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
-                    <label>PinCode</label>
+                    <label>PinCode *</label>
                     <input formControlName="pinCode" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                   .pinCode.invalid && travellerForm.controls.travellers.controls[i].controls.pinCode.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
@@ -440,7 +440,7 @@
                     <label><b> Upload required documents here </b></label>
                   </div>
                   <div *ngFor="let image of imageUploads;let j = index" class="col-md-3 mb-3">
-                    <label>{{image.content}}</label>
+                    <label>{{image.content}}*</label>
 
                     <button *ngIf="image.content === 'Passport front page'" type="button" class="btn" data-toggle="modal" data-target="#samplePassportFront">
                       <i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -593,11 +593,10 @@
           <div class="form-check">
             <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
               <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
-              <label class="custom-control-label tnc" for="checkAll">I agree with the <a [routerLink]="['/tnc']"
+              <label class="custom-control-label tnc" for="checkAll" style="cursor: pointer;">I agree with the <a [routerLink]="['/tnc']"
                   target="_blank" routerLinkActive="router-link-active">Terms &amp;
                   Conditions</a> and <a [routerLink]="['/cancellationPolicy']" target="_blank"
                   routerLinkActive="router-link-active">Cancellation Policy</a> of Visa2fly.
-
               </label>
             </div>
             <div class="invalid-feedback">

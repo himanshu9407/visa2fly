@@ -363,7 +363,7 @@ export class AddTravellerComponent implements OnInit {
     this.minDateOfTravel = {
       year: this.minDate.year,
       month: this.minDate.month,
-      day: this.minDate.day + this.minTravelDate + 1
+      day: this.minDate.day + this.minTravelDate + 2
     };
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
     console.log(this.minDateOfTravel);
@@ -373,11 +373,11 @@ export class AddTravellerComponent implements OnInit {
       // {year: minDate.year, month: minDate.month, day: minDate.day +1}
       year: this.minDateOfTravel.year,
       month: this.minDateOfTravel.month,
-      day: this.minDateOfTravel.day - this.minTravelDate
+      day: this.minDateOfTravel.day - this.minTravelDate 
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
-    // console.log(this.minDateOfCollection);
+    console.log(this.minDateOfCollection);
 
     if (current.getMonth() >= 6) {
       // console.log("greater than 6 month");
@@ -1117,7 +1117,63 @@ export class AddTravellerComponent implements OnInit {
                 "Some Details Missing " + this.errorForm,
                 4000
               );
+            } else if (data.code == "500") {
+              let chunk = this.filedNameArr.length;
+              let temparray = [];
+              // console.log(chunk);
+
+              for (let i = 0, j = this.tempImageArr.length; i < j; i += chunk) {
+                temparray = this.tempImageArr.slice(i, i + chunk);
+                this.originalImageArr.push(temparray);
+              }
+
+              this.tempImageArr = [];
+
+              let tempArr =
+                (<FormArray>this.travellerForm.get("travellers")).controls ||
+                [];
+
+              tempArr.forEach((form: FormGroup, i) => {
+                if (this.category == 'e-visa') {
+                  this.filedNameArr.forEach((el, j) => {
+                    form.get(el).setValue(this.originalImageArr[i][j]);
+                    // form.re
+                  });
+                }
+              });
+
+              this.originalImageArr = [];
+            
+              this.preloaderService.showPreloader(false);
+      this.toastService.showNotification(data.message, 10000);
+            
             } else if (data.code == "1001") {
+              let chunk = this.filedNameArr.length;
+              let temparray = [];
+              // console.log(chunk);
+
+              for (let i = 0, j = this.tempImageArr.length; i < j; i += chunk) {
+                temparray = this.tempImageArr.slice(i, i + chunk);
+                this.originalImageArr.push(temparray);
+              }
+
+              this.tempImageArr = [];
+
+              let tempArr =
+                (<FormArray>this.travellerForm.get("travellers")).controls ||
+                [];
+
+              tempArr.forEach((form: FormGroup, i) => {
+                if (this.category == 'e-visa') {
+                  this.filedNameArr.forEach((el, j) => {
+                    form.get(el).setValue(this.originalImageArr[i][j]);
+                    // form.re
+                  });
+                }
+              });
+
+              this.originalImageArr = [];
+              
               this.modalWarnings = [];
               this.preloaderService.showPreloader(false);
               this.errorMessage.push(data.data.warnings.travelDateWarning);
@@ -1126,14 +1182,6 @@ export class AddTravellerComponent implements OnInit {
               modal.classList.remove("fade");
               modal.classList.add("show");
               modal.style.display = "block";
-            } else {
-              tempArr.forEach((form: FormGroup, index) => {
-                if (this.category == 'e-visa') {
-                  this.formData1.delete("images");
-                }
-              });
-              this.preloaderService.showPreloader(false);
-              this.toastService.showNotification(data.message, 4000);
             }
           });
       } else {
