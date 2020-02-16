@@ -17,6 +17,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { ToastService } from "src/app/shared/toast.service";
+import { Title, Meta } from '@angular/platform-browser';
 
 export interface Food {
   value: string;
@@ -76,6 +77,7 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  title: string = 'Get Cambodia E Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -86,7 +88,10 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService) {
+    private toastService: ToastService,
+    private titleService: Title,
+    private meta: Meta
+    ) {
 
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
@@ -169,6 +174,16 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Cambodia e visa online" },
+      {
+        name: "description",
+        content: "Now you can apply for Cambodia e-visa online at Visa2Fly to make your visa process hassle-free and faster. Visa2Fly offers the best online visa solutions so that you get rid of visa processing worries. Apply your Cambodia e-visa online here. "
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   ngAfterViewInit() {

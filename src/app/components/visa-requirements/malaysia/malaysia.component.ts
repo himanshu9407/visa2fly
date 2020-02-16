@@ -10,6 +10,7 @@ import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { ToastService } from 'src/app/shared/toast.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-malaysia',
@@ -63,6 +64,7 @@ export class MalaysiaComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  title: string = 'Apply For A Malaysia E Visa Online- Visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -74,7 +76,9 @@ export class MalaysiaComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private titleService: Title,
+    private meta: Meta
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -154,6 +158,16 @@ export class MalaysiaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Malaysia e visa online" },
+      {
+        name: "description",
+        content: "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here."
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   ngAfterViewInit() {

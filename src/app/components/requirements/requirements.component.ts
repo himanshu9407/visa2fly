@@ -367,11 +367,12 @@ export class RequirementsComponent implements OnInit {
 
   navigate(
     quoteId: string,
+    category: string,
+    minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
     imageUploads: string,
-    category: string
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -381,9 +382,12 @@ export class RequirementsComponent implements OnInit {
       this.purposeChooseForm1.get("purposeSelected").value
     );
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-    this.userFlow.setUserFlowDetails("category", JSON.stringify(category));
+    // this.userFlow.setUserFlowDetails("category", JSON.stringify(category));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
     this.userFlow.setUserFlowDetails(

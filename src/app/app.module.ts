@@ -75,6 +75,7 @@ import { CombodiaComponent } from './components/visa-requirements/combodia/combo
 import { TurkeyComponent } from './components/visa-requirements/turkey/turkey.component';
 import { AzerbaijanComponent } from './components/visa-requirements/azerbaijan/azerbaijan.component';
 import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
+import { B2bResponseComponent } from './components/b2b/b2b-response/b2b-response.component';
 
 @NgModule({
   declarations: [
@@ -136,7 +137,8 @@ import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
     B2bHomeComponent,
     B2bReqComponent,
     B2bHeaderComponent,
-    B2bAddTrvComponent
+    B2bAddTrvComponent,
+    B2bResponseComponent
 
   ],
   imports: [

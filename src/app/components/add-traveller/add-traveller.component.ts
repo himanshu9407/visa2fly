@@ -184,6 +184,53 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
+  checkDateOfTravelOverflow(date: { month: any; year: any; day: any }) {
+    if (
+      date.month == 4 ||
+      date.month == 6 ||
+      date.month == 9 ||
+      date.month == 11
+    ) {
+      if (date.day > 30) {
+        let tempDay = date.day - 30;
+        this.minDateOfTravel = {
+          year: date.year,
+          month: date.month + 1,
+          day: tempDay
+        };
+      }
+    } else if (date.month == 2) {
+      if (date.year % 4 == 0 && date.year % 100 != 0 && date.year % 400 == 0) {
+        if (date.day > 29) {
+          let tempDay = date.day - 29;
+          this.minDateOfTravel = {
+            year: date.year,
+            month: date.month + 1,
+            day: tempDay
+          };
+        }
+      } else {
+        if (date.day > 28) {
+          let tempDay = date.day - 28;
+          this.minDateOfTravel = {
+            year: date.year,
+            month: date.month + 1,
+            day: tempDay
+          };
+        }
+      }
+    } else {
+      if (date.day > 31) {
+        let tempDay = date.day - 31;
+        this.minDateOfTravel = {
+          year: date.year,
+          month: date.month + 1,
+          day: tempDay
+        };
+      }
+    }
+  }
+
   checkDateOfCollectionUnderFlow(date: { month: any; year: any; day: any }) {
     let prevMonth = date.month - 1;
     if (date.day < 1) {
@@ -318,8 +365,8 @@ export class AddTravellerComponent implements OnInit {
       month: this.minDate.month,
       day: this.minDate.day + this.minTravelDate + 1
     };
-    // this.checkDateOfTravelOverflow(this.minDateOfTravel);
-    // console.log(this.minDateOfTravel);
+    this.checkDateOfTravelOverflow(this.minDateOfTravel);
+    console.log(this.minDateOfTravel);
 
     
     this.minDateOfCollection = {

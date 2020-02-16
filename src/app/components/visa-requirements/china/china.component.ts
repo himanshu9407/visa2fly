@@ -17,6 +17,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { ToastService } from "src/app/shared/toast.service";
 import { timeout, min } from "rxjs/operators";
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: "app-china",
@@ -63,6 +64,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = "China";
+  title: string = 'Apply For China Visa Online- Visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -74,7 +76,9 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private titleService: Title,
+    private meta: Meta
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -142,7 +146,18 @@ export class ChinaComponent implements OnInit, AfterViewInit {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "apply for china visa online" },
+      {
+        name: "description",
+        content: "Apply for China visa online at Visa2fly. Once you apply for a China visa online, get assured online visa services and maximum benefits entitled to it. Visa2fly offers travel insurance and travel sim cards inclusive with assured online visa services. Know more."
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+  }
 
   ngAfterViewInit() {
     this.t.select(this.selectedVisaType);

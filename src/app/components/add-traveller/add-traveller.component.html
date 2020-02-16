@@ -53,7 +53,7 @@
                 </div>
               </div>
               <div class="center">
-                <div *ngIf="!onlineCategory" class="dateOfTravelContainer visaDateHeading documents">
+                <div *ngIf="category == 'Sticker'" class="dateOfTravelContainer visaDateHeading documents">
                   Date Of Collection <br /> of Documents
                   <div class="form-group">
                     <div class="input-group">
@@ -459,7 +459,7 @@
                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-body">
-                            <img data-src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg" alt="" class="img-fluid feedImage lazyload">
+                            <img src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg" alt="" class="img-fluid feedImage ">
                           </div>
                         </div>
                       </div>
@@ -470,7 +470,7 @@
                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-body">
-                            <img data-src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg" alt="" class="img-fluid feedImage lazyload">
+                            <img src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg" alt="" class="img-fluid feedImage">
                           </div>
                         </div>
                       </div>
@@ -481,7 +481,7 @@
                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-body">
-                            <img data-src="https://static.visa2fly.com/sample/photograph/{{country}}.jpg" alt="" class="img-fluid feedImage lazyload">
+                            <img src="https://static.visa2fly.com/sample/photograph/{{country}}.jpg" alt="" class="img-fluid feedImage">
                           
                           </div>
                         </div>

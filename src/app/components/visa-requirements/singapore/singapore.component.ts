@@ -17,6 +17,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { ToastService } from "src/app/shared/toast.service";
+import { Title, Meta } from '@angular/platform-browser';
 
 export interface Food {
   value: string;
@@ -68,6 +69,7 @@ export class SingaporeComponent implements OnInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = "Singapore";
+  title: string = 'Apply Now For A Singapore E Visa For Indians- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -78,7 +80,10 @@ export class SingaporeComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService) {
+    private toastService: ToastService,
+    private titleService: Title,
+    private meta: Meta
+    ) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -141,6 +146,16 @@ export class SingaporeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Singapore e visa for Indians | Singapore e visa online" },
+      {
+        name: "description",
+        content: "Visit Singapore with Visa2Fly online visa services offering Singapore e-visa for Indians. Visa2Fly offers the best online visa services for Indian passport holders that also includes maximum benefits like travel insurance and Travel sim cards. Apply here. "
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   ngAfterViewInit() {

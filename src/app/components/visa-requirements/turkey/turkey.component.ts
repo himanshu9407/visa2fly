@@ -17,6 +17,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { ToastService } from "src/app/shared/toast.service";
+import { Title, Meta } from '@angular/platform-browser';
 
 export interface Food {
   value: string;
@@ -76,6 +77,7 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  title: string = 'Turkey E Visa Apply Online Now With- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -86,7 +88,10 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService) {
+    private toastService: ToastService,
+    private titleService: Title,
+    private meta: Meta
+    ) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -168,6 +173,16 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Turkey e visa apply online" },
+      {
+        name: "description",
+        content: "Planning to visit Turkey? Try Visa2Fly for faster processing of Turkey e-visa apply online directly to get additional benefits like Travel insurance and Travel sim cards. At the Visa2Fly web portal, you get urgent visa processing at the best rates available. Apply here."
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   ngAfterViewInit() {
