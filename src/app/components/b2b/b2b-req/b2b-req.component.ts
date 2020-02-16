@@ -257,7 +257,7 @@ export class B2bReqComponent implements OnInit {
         }
 
         setTimeout(() => {
-        this.preloaderService.showPreloader(false);
+          this.preloaderService.showPreloader(false);
         }, 1000);
       });
 
@@ -283,7 +283,6 @@ export class B2bReqComponent implements OnInit {
   //     JSON.stringify(this.imageUpload1)
   //   );
 
-  
   // }
 
   navigate(
@@ -293,7 +292,7 @@ export class B2bReqComponent implements OnInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string,
+    imageUploads: string
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -304,19 +303,35 @@ export class B2bReqComponent implements OnInit {
     );
     this.userFlow.setB2BUserFlowDetails("quoteId", quoteId);
     this.userFlow.setB2BUserFlowDetails("category", category);
-    this.userFlow.setB2BUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setB2BUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
 
     this.userFlow.setB2BUserFlowDetails("basePrice", JSON.stringify(basePrice));
-    this.userFlow.setB2BUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
+    this.userFlow.setB2BUserFlowDetails(
+      "serviceTax",
+      JSON.stringify(serviceTax)
+    );
     this.userFlow.setB2BUserFlowDetails("stayPeriod", stayPeriod);
     this.userFlow.setB2BUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageUpload1)
     );
 
-    this.preloaderService.showPreloader(true);
-    this.router.navigate(['b2b/b2b-add-traveller']);
+    // this.preloaderService.showPreloader(true);
 
+    this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
+      if (data.code == "0") {
+        console.log(data);
+        
+        this.router.navigate(["b2b/b2b-add-traveller"]);
+        // this.preloaderService.showPreloader(false);
+      } else {
+        this.preloaderService.showPreloader(false);
+        this.toastService.showNotification("" + data.message, 4000);
+      }
+    });
   }
 
   onClickRequrements(i, j, item) {

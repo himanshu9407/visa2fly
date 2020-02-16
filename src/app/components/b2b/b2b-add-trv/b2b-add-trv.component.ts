@@ -5,10 +5,11 @@ import { ToastService } from 'src/app/shared/toast.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
-import { AddTravellerService } from '../../add-traveller/addTraveller.service';
+// import { AddTravellerService } from '../../add-traveller/addTraveller.service';
 import { LoginService } from '../../login-signup/login/login.service';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
+import { B2bAddTrvService } from './b2b-add-trv.service';
 
 @Component({
   selector: 'app-b2b-add-trv',
@@ -90,7 +91,7 @@ export class B2bAddTrvComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private travellerService: AddTravellerService,
+    private travellerService: B2bAddTrvService,
     private toastService: ToastService,
     private userFlow: UserFlowDetails,
     private loginService: LoginService,
@@ -739,67 +740,8 @@ export class B2bAddTrvComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
-      // if (
-      //   image1 == "" ||
-      //   image1 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportFrontImage.passportFrontImageError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportFrontImage.passportFrontImageError = false;
-      // }
-      // if (
-      //   image2 == "" ||
-      //   image2 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportBioImage.passportBioImageError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportBioImage.passportBioImageError = false;
-      // }
-      // if (
-      //   image3 == "" ||
-      //   image3 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.userImage.userImageError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.userImage.userImageError = false;
-      // }
-
-      // if (
-      //   image4 == "" ||
-      //   image4 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.businessCard.businessCardError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.businessCard.businessCardError = false;
-      // }
-      // if (
-      //   image5 == "" ||
-      //   image5 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.hotelAccommodation.hotelAccommodationError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.hotelAccommodation.hotelAccommodationError = false;
-      // }
+    
+  
 
       if (this.category == 'Sticker') {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
@@ -1054,11 +996,6 @@ export class B2bAddTrvComponent implements OnInit {
                 this.returnUrl = data1.returnUrl;
                 this.checksum = data1.checksum;
                 this.succeedToPayment = true;
-                // this.paymentUrl = data1.paymentUrl;
-
-                // console.log(document.forms["paymentForm"]);
-
-                // console.log(this.paymentForm);
                 setTimeout(() => {
                   this.preloaderService.showPreloader(false);
                   document.forms["paymentForm"].submit();
