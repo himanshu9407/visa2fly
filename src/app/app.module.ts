@@ -76,6 +76,9 @@ import { TurkeyComponent } from './components/visa-requirements/turkey/turkey.co
 import { AzerbaijanComponent } from './components/visa-requirements/azerbaijan/azerbaijan.component';
 import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
 import { B2bResponseComponent } from './components/b2b/b2b-response/b2b-response.component';
+import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.component';
+import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
+import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
 
 @NgModule({
   declarations: [
@@ -138,7 +141,10 @@ import { B2bResponseComponent } from './components/b2b/b2b-response/b2b-response
     B2bReqComponent,
     B2bHeaderComponent,
     B2bAddTrvComponent,
-    B2bResponseComponent
+    B2bResponseComponent,
+    B2bFooterComponent,
+    B2bMobileNavComponent,
+    SomethingWrongComponent
 
   ],
   imports: [

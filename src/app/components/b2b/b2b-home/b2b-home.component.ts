@@ -165,6 +165,7 @@ export class B2bHomeComponent implements OnInit {
       // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
       // this.userFlow.setUserFlowDetails("livesIn", this.selectedResideIn);
       // console.log(this.userFlow.getUserFlowDetails())
+      this.preloaderService.showPreloader(true);
       this.router.navigate(['b2b/visa-requirement/', this.selectedCountry, this.selectedPurpose]);
     }
   }

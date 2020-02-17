@@ -619,14 +619,11 @@
 
 <div style="display: none">
   <form name="paymentForm" ngNoForm
-    action="http://zaakpaystaging.centralindia.cloudapp.azure.com:8080/api/paymentTransact/V8?" method="POST">
-    <input type="text" name="buyerEmail" id="buyerEmail" [(ngModel)]="buyerEmail">
-    <input type="text" name="orderId" id="orderId" [(ngModel)]="orderId">
+    action="{{redirect}}" method="POST">
+    <input type="text" name="bookingId" id="bookingId" [(ngModel)]="bookingId">
+    <input type="text" name="collectPayment" id="collectPayment" [(ngModel)]="collectPayment">
     <input type="text" name="amount" id="amount" [(ngModel)]="amount">
-    <input type="text" name="currency" id="currency" [(ngModel)]="currency">
-    <input type="text" name="merchantIdentifier" id="merchantIdentifier" [(ngModel)]="merchantIdentifier">
-    <input type="text" name="returnUrl" id="returnUrl" [(ngModel)]="returnUrl">
-    <input type="text" name="checksum" id="checksum" [(ngModel)]="checksum">
+    <input type="text" name="hash" id="hash" [(ngModel)]="hash">
   </form>
 </div>
 

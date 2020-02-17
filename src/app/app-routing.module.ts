@@ -44,6 +44,7 @@ import { AboutUsComponent } from "./components/static/about-us/about-us.componen
 import { B2bHomeComponent } from "./components/b2b/b2b-home/b2b-home.component";
 import { B2bReqComponent } from "./components/b2b/b2b-req/b2b-req.component";
 import { B2bAddTrvComponent } from "./components/b2b/b2b-add-trv/b2b-add-trv.component";
+import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -164,6 +165,10 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Azerbaijan-visa-online/:purpose",
     component:  AzerbaijanComponent
+  },
+  {
+    path: "b2b/something-went-wrong",
+    component:  SomethingWrongComponent
   },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }

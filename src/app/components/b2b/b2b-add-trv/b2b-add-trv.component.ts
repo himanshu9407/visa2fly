@@ -1,32 +1,44 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { FormArray, FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
-import { requiredFileType } from 'src/app/shared/Custom-Image.validator';
-import { ToastService } from 'src/app/shared/toast.service';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { Component, OnInit, HostListener } from "@angular/core";
+import {
+  FormArray,
+  FormGroup,
+  Validators,
+  FormControl,
+  FormBuilder
+} from "@angular/forms";
+import { requiredFileType } from "src/app/shared/Custom-Image.validator";
+import { ToastService } from "src/app/shared/toast.service";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
+import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 // import { AddTravellerService } from '../../add-traveller/addTraveller.service';
-import { LoginService } from '../../login-signup/login/login.service';
-import { PreloaderService } from 'src/app/shared/preloader.service';
-import { RouterHistory } from 'src/app/shared/router-history.service';
-import { B2bAddTrvService } from './b2b-add-trv.service';
+import { LoginService } from "../../login-signup/login/login.service";
+import { PreloaderService } from "src/app/shared/preloader.service";
+import { RouterHistory } from "src/app/shared/router-history.service";
+import { B2bAddTrvService } from "./b2b-add-trv.service";
 
 @Component({
-  selector: 'app-b2b-add-trv',
-  templateUrl: './b2b-add-trv.component.html',
-  styleUrls: ['./b2b-add-trv.component.css']
+  selector: "app-b2b-add-trv",
+  templateUrl: "./b2b-add-trv.component.html",
+  styleUrls: ["./b2b-add-trv.component.css"]
 })
-
 export class B2bAddTrvComponent implements OnInit {
   // model: NgbDateStruct;
   public paymentForm: any = {};
   buyerEmail = "";
   orderId = "";
-  amount = "";
+  // amount = "";
   currency = "";
   merchantIdentifier = "";
   returnUrl = "";
   checksum = "";
+
+  bookingId = "";
+  collectPayment = "";
+  amount = "";
+  hash = "";
+  redirect = "";
+
   primaryAddress = "";
   intialInfo = true;
   dateOfTravelModel: any = "";
@@ -100,7 +112,6 @@ export class B2bAddTrvComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory
   ) {
-    
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
     }, 2000);
@@ -331,7 +342,6 @@ export class B2bAddTrvComponent implements OnInit {
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
     console.log(this.minTravelDate);
-    
 
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
@@ -365,12 +375,11 @@ export class B2bAddTrvComponent implements OnInit {
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
     console.log(this.minDateOfTravel);
 
-    
     this.minDateOfCollection = {
       // {year: minDate.year, month: minDate.month, day: minDate.day +1}
       year: this.minDateOfTravel.year,
       month: this.minDateOfTravel.month,
-      day: this.minDateOfTravel.day - this.minTravelDate 
+      day: this.minDateOfTravel.day - this.minTravelDate
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
@@ -408,7 +417,7 @@ export class B2bAddTrvComponent implements OnInit {
     // console.log(this.serviceTax);
     this.stayPeriod = data.stayPeriod;
 
-    if (this.category == 'e-visa') {
+    if (this.category == "e-visa") {
       this.travelDetails = new FormGroup({
         dateOfTravel: new FormControl("", [Validators.required]),
         dateOfCollection: new FormControl("", [Validators.nullValidator])
@@ -485,7 +494,7 @@ export class B2bAddTrvComponent implements OnInit {
   }
 
   createTraveller(): FormGroup {
-    if (this.category == 'e-visa') {
+    if (this.category == "e-visa") {
       return this.formBuilder.group({
         title: ["Mr", [Validators.required]],
         firstName: ["", [Validators.required]],
@@ -557,7 +566,7 @@ export class B2bAddTrvComponent implements OnInit {
   }
 
   checkDateOfCollection() {
-    if (this.category == 'Sticker') {
+    if (this.category == "Sticker") {
       if (
         this.travelDetails.get("dateOfCollection").value == undefined ||
         this.travelDetails.get("dateOfCollection").value == null ||
@@ -740,10 +749,7 @@ export class B2bAddTrvComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
-    
-  
-
-      if (this.category == 'Sticker') {
+      if (this.category == "Sticker") {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
           .controls.address.value;
         let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
@@ -792,7 +798,6 @@ export class B2bAddTrvComponent implements OnInit {
       (<FormArray>this.travellerForm.get("travellers")).controls || [];
 
     tempArr.forEach((form: FormGroup, index) => {
-
       let dob: { year: number; month: number; day: number } = form.get(
         "dateOfBirthCopy"
       ).value;
@@ -828,13 +833,17 @@ export class B2bAddTrvComponent implements OnInit {
 
       form.get("dateOfBirth").updateValueAndValidity();
       form.get("passportExpiryDate").updateValueAndValidity();
-      
+
       // console.log("Dhruv");
     });
 
     // console.log("Pradeep");
 
-    if (this.travellerForm.valid && this.travelDetails.valid && this.valueAddedService.valid) {
+    if (
+      this.travellerForm.valid &&
+      this.travelDetails.valid &&
+      this.valueAddedService.valid
+    ) {
       if (this.termsAndConditions.valid) {
         this.preloaderService.showPreloader(true);
         let otherTravellersArr: Array<any> = [];
@@ -847,7 +856,7 @@ export class B2bAddTrvComponent implements OnInit {
           (<FormArray>this.travellerForm.get("travellers")).controls || [];
 
         tempArr.forEach((form: FormGroup, index) => {
-          if (this.category == 'e-visa') {
+          if (this.category == "e-visa") {
             this.filedNameArr.forEach(el => {
               this.formData1.append("images", form.get(el).value);
               this.tempImageArr.push(form.get(el).value);
@@ -946,7 +955,7 @@ export class B2bAddTrvComponent implements OnInit {
         fd["primaryTraveller"] = ptdata[0];
         fd["otherTravellers"] = other;
         fd["dateOfTravel"] = finalDot;
-        if (this.category == 'Sticker') {
+        if (this.category == "Sticker") {
           fd["dateOfDocumentCollection"] = finalDoc;
         }
         fd["quoteId"] = this.quoteId;
@@ -983,24 +992,36 @@ export class B2bAddTrvComponent implements OnInit {
         this.travellerService
           .submitForm(this.formData1)
           .subscribe((data: any) => {
-            // console.log(data);
+            console.log(data);
 
             if (data.code == "0") {
-              this.travellerService.hitPaymentApi().subscribe((data1: any) => {
-                // console.log(data1);
-                this.buyerEmail = data1.buyerEmail;
-                this.orderId = data1.orderId;
-                this.amount = data1.amount;
-                this.currency = data1.currency;
-                this.merchantIdentifier = data1.merchantIdentifier;
-                this.returnUrl = data1.returnUrl;
-                this.checksum = data1.checksum;
-                this.succeedToPayment = true;
-                setTimeout(() => {
-                  this.preloaderService.showPreloader(false);
-                  document.forms["paymentForm"].submit();
-                }, 2000);
-              });
+              // this.travellerService.hitPaymentApi().subscribe((data1: any) => {
+              //   this.buyerEmail = data1.buyerEmail;
+              //   this.orderId = data1.orderId;
+              //   this.amount = data1.amount;
+              //   this.currency = data1.currency;
+              //   this.merchantIdentifier = data1.merchantIdentifier;
+              //   this.returnUrl = data1.returnUrl;
+              //   this.checksum = data1.checksum;
+              //   this.succeedToPayment = true;
+              //   setTimeout(() => {
+              //     this.preloaderService.showPreloader(false);
+              //     document.forms["paymentForm"].submit();
+              //   }, 2000);
+              // });
+
+              this.bookingId = data.data.bookingId;
+              this.collectPayment = data.data.collectPayment;
+              this.amount = data.data.amount;
+              this.hash = data.data.hash;
+              this.redirect = data.data.redirectUrl;
+              console.log(data.data.redirectUrl);
+              
+
+              setTimeout(() => {
+                this.preloaderService.showPreloader(false);
+                document.forms["paymentForm"].submit();
+              }, 2000);
             } else if (data.code == "1000") {
               let errArr: Array<any> = data.data.applicantsFormValidationResult;
               let chunk = this.filedNameArr.length;
@@ -1019,7 +1040,7 @@ export class B2bAddTrvComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == 'e-visa') {
+                if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                     // form.re
@@ -1067,7 +1088,7 @@ export class B2bAddTrvComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == 'e-visa') {
+                if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                     // form.re
@@ -1076,10 +1097,9 @@ export class B2bAddTrvComponent implements OnInit {
               });
 
               this.originalImageArr = [];
-            
+
               this.preloaderService.showPreloader(false);
-      this.toastService.showNotification(data.message, 10000);
-            
+              this.toastService.showNotification(data.message, 10000);
             } else if (data.code == "1001") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
@@ -1097,7 +1117,7 @@ export class B2bAddTrvComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == 'e-visa') {
+                if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                     // form.re
@@ -1106,7 +1126,7 @@ export class B2bAddTrvComponent implements OnInit {
               });
 
               this.originalImageArr = [];
-              
+
               this.modalWarnings = [];
               this.preloaderService.showPreloader(false);
               this.errorMessage.push(data.data.warnings.travelDateWarning);
@@ -1197,24 +1217,24 @@ export class B2bAddTrvComponent implements OnInit {
 
       this.preloaderService.showPreloader(true);
 
-      this.travellerService.hitPaymentApi().subscribe((data1: any) => {
-        // console.log(data1);
-        this.buyerEmail = data1.buyerEmail;
-        this.orderId = data1.orderId;
-        this.amount = data1.amount;
-        this.currency = data1.currency;
-        this.merchantIdentifier = data1.merchantIdentifier;
-        this.returnUrl = data1.returnUrl;
-        this.checksum = data1.checksum;
-        // this.paymentUrl = data1.paymentUrl;
+      // this.travellerService.hitPaymentApi().subscribe((data1: any) => {
+      //   // console.log(data1);
+      //   this.buyerEmail = data1.buyerEmail;
+      //   this.orderId = data1.orderId;
+      //   this.amount = data1.amount;
+      //   this.currency = data1.currency;
+      //   this.merchantIdentifier = data1.merchantIdentifier;
+      //   this.returnUrl = data1.returnUrl;
+      //   this.checksum = data1.checksum;
+      //   // this.paymentUrl = data1.paymentUrl;
 
-        // console.log(document.forms["paymentForm"]);
+      //   // console.log(document.forms["paymentForm"]);
 
-        // console.log(this.paymentForm);
-        setTimeout(() => {
-          document.forms["paymentForm"].submit();
-        }, 2000);
-      });
+      //   // console.log(this.paymentForm);
+      //   setTimeout(() => {
+      //     document.forms["paymentForm"].submit();
+      //   }, 2000);
+      // });
     } else {
       this.toastService.showNotification(
         "Please agree to the warning and then continue.",
@@ -1315,7 +1335,7 @@ export class B2bAddTrvComponent implements OnInit {
 
         let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-        if (this.category == 'e-visa') {
+        if (this.category == "e-visa") {
           arr.forEach((element: FormGroup, i) => {
             if (i == arr.length - 1) {
               this.filedNameArr.forEach(fieldName => {

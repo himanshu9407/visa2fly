@@ -1,26 +1,28 @@
 <div [ngClass]="{'show':!showPreloader,'hide':showPreloader}">
 
-  <app-b2b-header *ngIf="showB2BHeader"></app-b2b-header>
+  <app-b2b-header class="pcOnly" *ngIf="showB2BHeader"></app-b2b-header>
   <app-header class="pcOnly" *ngIf="!showB2BHeader"></app-header>
-  <app-mobile-nav class="mobileOnly"></app-mobile-nav>
+  <app-mobile-nav class="mobileOnly" *ngIf="!showB2BHeader"></app-mobile-nav>
+  <app-b2b-mobile-nav class="mobileOnly" *ngIf="showB2BHeader"></app-b2b-mobile-nav>
   <div id="main" class="paddingTop">
-      <app-toast></app-toast>
-   <router-outlet></router-outlet>
-   <app-chatbox></app-chatbox>
-   <app-mobile-footer class="mobileOnly"></app-mobile-footer>
-  </div>
-  <app-footer class="pcOnly"> </app-footer>
+    <app-toast></app-toast>
+    <router-outlet></router-outlet>
+    <app-chatbox></app-chatbox>
+    <app-mobile-footer class="mobileOnly"></app-mobile-footer>
+    <div>
+      <app-footer class="pcOnly" *ngIf="!showB2BHeader"> </app-footer>
+      <app-b2b-footer class="pcOnly" *ngIf="showB2BHeader"></app-b2b-footer>
 
-</div>
+    </div>
 
 
 
-<div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">
-  <app-preloader></app-preloader>
-</div>
+    <div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">
+      <app-preloader></app-preloader>
+    </div>
 
-<!-- <app-login-signup></app-login-signup> -->
-<!-- <ul>
+    <!-- <app-login-signup></app-login-signup> -->
+    <!-- <ul>
     <li *ngFor="let person of people">
       {{ person.name }}
     </li>

@@ -19,7 +19,7 @@ export class B2bAddTrvService {
   }
 
   submitForm(reqData) {
-    let AUTH_TOKEN = this.loginService.getAuthToken();
+    // let AUTH_TOKEN = this.loginService.getAuthToken();
     // console.log(AUTH_TOKEN);
     const headers = new HttpHeaders({ id: this.ID, "visa-client": "0" });
 
@@ -30,14 +30,14 @@ export class B2bAddTrvService {
     });
   }
 
-  hitPaymentApi() {
-    let base_url = this.userFlow.getBaseURL();
-    let AUTH_TOKEN = this.loginService.getAuthToken();
-    let headers = new HttpHeaders({ token: AUTH_TOKEN, "visa-client": "0" });
-    return this.http.post(
-      base_url + "payment/process",
-      {},
-      { headers: headers }
-    );
-  }
+  // hitPaymentApi() {
+  //   let base_url = this.userFlow.getBaseURL();
+  //   let AUTH_TOKEN = this.loginService.getAuthToken();
+  //   let headers = new HttpHeaders({ token: AUTH_TOKEN, "visa-client": "0" });
+  //   return this.http.post(
+  //     base_url + "payment/process",
+  //     {},
+  //     { headers: headers }
+  //   );
+  // }
 }

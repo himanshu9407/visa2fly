@@ -5,10 +5,6 @@ import {ActivatedRouteSnapshot,RouterStateSnapshot, Router, CanActivate} from '@
 import { Observable } from 'rxjs';
 import { PreloaderService } from './preloader.service';
 
-
-
-
-
   @Injectable({
     providedIn:"root"
 })
