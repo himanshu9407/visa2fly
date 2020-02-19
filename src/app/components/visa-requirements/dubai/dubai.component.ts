@@ -47,7 +47,7 @@ export interface Food {
 })
 export class DubaiComponent implements OnInit, AfterViewInit {
 
-  @ViewChild("t", { static : false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;

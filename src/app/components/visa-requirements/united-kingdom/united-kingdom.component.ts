@@ -48,7 +48,7 @@ export interface Food {
 })
 export class UnitedKingdomComponent implements OnInit,AfterViewInit {
   
-  @ViewChild("t", { static : false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
 

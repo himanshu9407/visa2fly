@@ -45,7 +45,7 @@ export interface Food {
   ]
 })
 export class SwitzerlandComponent implements OnInit {
-  @ViewChild("t", { static: false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
   selectedRequirement: boolean = false;

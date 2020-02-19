@@ -34,7 +34,7 @@ import { ToastService } from 'src/app/shared/toast.service';
 })
 export class MalaysiaComponent implements OnInit {
   
-  @ViewChild("t", { static : false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;

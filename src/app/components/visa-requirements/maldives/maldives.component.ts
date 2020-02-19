@@ -46,7 +46,7 @@ export interface Food {
 })
 export class MaldivesComponent implements OnInit, AfterViewInit {
 
-  @ViewChild("t", { static : false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
 

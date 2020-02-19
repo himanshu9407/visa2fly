@@ -45,7 +45,7 @@ export interface Food {
 })
 export class SpainComponent implements OnInit, AfterViewInit  {
 
-  @ViewChild("t", { static: false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
 
