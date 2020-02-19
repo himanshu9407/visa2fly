@@ -19,11 +19,11 @@ export class SimCheckoutService {
         if(token == null || token == undefined) {
             token = "";
         }
-        console.log(token);
+        console.log(reqObj);
         let headers = new HttpHeaders({'token':token,'visa-client':"0"});
         const base_url = this.userFlow.getBaseURL();
 
-        return this.http.post(base_url+'sim/select/plans',reqObj,{headers : headers});
+        return this.http.post(base_url +'sim/select/plans',reqObj,{headers : headers});
 
 
     }
@@ -33,6 +33,6 @@ export class SimCheckoutService {
         let base_url = this.userFlow.getBaseURL();
         let AUTH_TOKEN = this.loginService.getAuthToken();
         let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});
-        return this.http.post(base_url+"payment/process",{},{headers:headers});
+        return this.http.post(base_url +"payment/process",{},{headers:headers});
     }
 }

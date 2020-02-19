@@ -157,8 +157,9 @@ export class SimcheckoutComponent implements OnInit {
     formValueObj.dateOfBirth = tempDob;
     // formValueObj.departureDate = tempdod;
     formValueObj.simPlanForCountry = this.selectedCountry;
+    
     formValueObj.totalPayableAmount = this.totalPrice.toFixed(2);
-
+    // console.log(formValueObj.totalPayableAmount);
     this.simCart.forEach(element => {
       element.totalAmount =
         element.quantity *
@@ -168,17 +169,20 @@ export class SimcheckoutComponent implements OnInit {
     });
 
     formValueObj.plansSelected = this.simCart;
-
+    // console.log(formValueObj);
     this.preloaderService.showPreloader(true);
     this.simCheckoutService
       .proceedToPayment(formValueObj)
       .subscribe((data: any) => {
+        // console.log(data);
         if (data.code == "0") {
+          // console.log(data);
           this.simCheckoutService.hitPaymentApi().subscribe((data1: any) => {
             // console.log(data1);
             this.buyerEmail = data1.buyerEmail;
             this.orderId = data1.orderId;
             this.amount = data1.amount;
+            // console.log(this.amount);
             this.currency = data1.currency;
             this.merchantIdentifier = data1.merchantIdentifier;
             this.returnUrl = data1.returnUrl;

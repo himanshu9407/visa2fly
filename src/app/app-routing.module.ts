@@ -44,6 +44,8 @@ import { AboutUsComponent } from "./components/static/about-us/about-us.componen
 import { B2bHomeComponent } from "./components/b2b/b2b-home/b2b-home.component";
 import { B2bReqComponent } from "./components/b2b/b2b-req/b2b-req.component";
 import { B2bAddTrvComponent } from "./components/b2b/b2b-add-trv/b2b-add-trv.component";
+import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
+import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -164,6 +166,15 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Azerbaijan-visa-online/:purpose",
     component:  AzerbaijanComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Thailand-visa-online/:purpose",
+    component:  ThailandComponent
+  },
+
+  {
+    path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose",
+    component: VietnamComponent
   },
 
   { path: "**", redirectTo: "visa", pathMatch: "full" }
