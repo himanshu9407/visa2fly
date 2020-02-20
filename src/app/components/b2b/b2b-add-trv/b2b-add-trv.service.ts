@@ -30,6 +30,18 @@ export class B2bAddTrvService {
     });
   }
 
+  submitWarningForm() {
+    // let AUTH_TOKEN = this.loginService.getAuthToken();
+    // console.log(AUTH_TOKEN);
+    const headers = new HttpHeaders({ id: this.ID, "visa-client": "0" });
+
+    const base_url = this.userFlow.getBaseURL();
+
+    return this.http.post(base_url + "b2b/redirect/visa/warning", {}, {
+      headers: headers
+    });
+  }
+
   // hitPaymentApi() {
   //   let base_url = this.userFlow.getBaseURL();
   //   let AUTH_TOKEN = this.loginService.getAuthToken();
