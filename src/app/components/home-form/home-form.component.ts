@@ -415,6 +415,15 @@ export class HomeFormComponent {
             this.router.navigate(['visa-requirements/apply-for-Azerbaijan-visa-online/', "" + purpose]);
             break;
           }
+          case "Thailand" : {
+            this.router.navigate(['visa-requirements/apply-for-Thailand-visa-online/', "" + purpose]);
+            break;
+          }
+
+          case "Vietnam" : {
+            this.router.navigate(['visa-requirements/apply-for-Vietnam-visa-online/', "" + purpose]);
+            break;
+          }
           
           // case "Japan" : {
           //   this.setDetailsOnLocalStorage();

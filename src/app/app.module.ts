@@ -79,6 +79,8 @@ import { B2bResponseComponent } from './components/b2b/b2b-response/b2b-response
 import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.component';
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
 import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
+import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
+import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 
 @NgModule({
   declarations: [
@@ -144,7 +146,9 @@ import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile
     B2bResponseComponent,
     B2bFooterComponent,
     B2bMobileNavComponent,
-    SomethingWrongComponent
+    SomethingWrongComponent,
+    ThailandComponent,
+    VietnamComponent
 
   ],
   imports: [

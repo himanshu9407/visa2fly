@@ -32,6 +32,8 @@ import { SriLankaComponent } from "./components/visa-requirements/sri-lanka/sri-
 import { CombodiaComponent } from './components/visa-requirements/combodia/combodia.component';
 import { TurkeyComponent } from './components/visa-requirements/turkey/turkey.component';
 import { AzerbaijanComponent } from './components/visa-requirements/azerbaijan/azerbaijan.component';
+import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
+import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 
 import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
 import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
@@ -133,6 +135,14 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",
     component: MalaysiaComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Thailand-visa-online/:purpose",
+    component: ThailandComponent
+  },  
+  {
+    path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose",
+    component: VietnamComponent
   },
   {
     path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",

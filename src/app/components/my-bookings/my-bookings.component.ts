@@ -91,7 +91,7 @@ export class MyBookingsComponent implements OnInit {
     });
 
     this.AUTH_TOKEN = this.loginService.getAuthToken();
-
+    
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
       if (data.code == "0") {
         this.bookingService.getBookingsFromServer().subscribe(res => {
@@ -99,7 +99,7 @@ export class MyBookingsComponent implements OnInit {
           this.bookings = this.allBooking.data.bookings;
           this.bookingsForLoop = this.allBooking.data.bookings;
           this.filterdDateArr = this.allBooking.data.bookings;
-        
+          
           if (this.allBooking != null) {
             this.totalCount = this.allBooking.data.bookings.length;
 
@@ -154,7 +154,9 @@ export class MyBookingsComponent implements OnInit {
 
   // console.log(this.activePcPageNumber == i);
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.preloaderService.showPreloader(true);
+  }
 
   fromDateChanged() {
     this.minDateOfTo = this.bookingSearchForm.get("fromDate").value;
@@ -346,6 +348,7 @@ export class MyBookingsComponent implements OnInit {
     this.bookingSearchForm.get("bookingId").setValue("");
     this.bookingsForLoop = this.bookings;
     this.filteredBookingsEmpty = false;
+    // this.preloaderService.showPreloader(true);
   }
 
   closeFeed() {
