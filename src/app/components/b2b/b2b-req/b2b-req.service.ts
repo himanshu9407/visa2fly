@@ -18,10 +18,11 @@ export class B2bReqService {
     private loginService: LoginService
   ) {
     this.b2bUserFlowDetail = this.userFlow.getB2BUserFlowDetails();
-    this.ID = this.b2bUserFlowDetail.id;
   }
 
   getRequirementsData(country: string): Promise<any> {
+    this.ID = this.b2bUserFlowDetail.id;
+
     const base_url = this.userFlow.getBaseURL();
     const headers = new HttpHeaders({ id: this.ID, "visa-client": "0" });
 
@@ -31,6 +32,7 @@ export class B2bReqService {
   }
 
   verifyQuotation(quoteId: string) {
+    this.ID = this.b2bUserFlowDetail.id;
     const base_url = this.userFlow.getBaseURL();
     const headers = new HttpHeaders({ id: this.ID, "visa-client": "0" });
     const params = new HttpParams().set("quotationId", quoteId);
