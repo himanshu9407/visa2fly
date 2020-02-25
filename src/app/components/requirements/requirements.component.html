@@ -348,7 +348,7 @@
   </div>
 </div>
 
-<div class="visaPriceContainer largeVisaPriceContainer">
+<div class="visaPriceContainer largeVisaPriceContainer" style="overflow: hidden;">
   <div class="row">
     <!-- <div class=""> -->
     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 card-top " *ngFor="let quote of MyQuotation">
@@ -390,15 +390,15 @@
               <span class="fieldData">
                 {{ quote.entryType }}
 
-                <button type="button" *ngIf="quote.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
+                <button type="button" *ngIf="quote.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
                   <i class="fa fa-question-circle"></i>
               </button>
 
-              <button type="button" *ngIf="quote.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
+              <button type="button" *ngIf="quote.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
                   <i class="fa fa-question-circle"></i>
               </button>
 
-              <button type="button" *ngIf="quote.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
+              <button type="button" *ngIf="quote.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
                   <i class="fa fa-question-circle"></i>
               </button>
               </span>

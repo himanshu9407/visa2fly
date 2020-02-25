@@ -45,7 +45,7 @@ export class MyBookingsService {
     }
 
     setActiveBooking(booking : any) {
-        console.log(booking);
+        // console.log(booking);
         this.activeBooking = booking;
 
         this.router.navigate(['bookingDetails']);

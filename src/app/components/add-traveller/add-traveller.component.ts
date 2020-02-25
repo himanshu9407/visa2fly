@@ -324,16 +324,16 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    console.log(this.userFlowDetails);
+    // console.log(this.userFlowDetails);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
 
     this.category = this.userFlowDetails.category;
-    console.log(this.category);
+    // console.log(this.category);
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
-    console.log(this.minTravelDate);
+    // console.log(this.minTravelDate);
     
 
     if (this.userFlowDetails.onlineCountry == "true") {
@@ -366,7 +366,7 @@ export class AddTravellerComponent implements OnInit {
       day: this.minDate.day + this.minTravelDate + 2
     };
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
-    console.log(this.minDateOfTravel);
+    // console.log(this.minDateOfTravel);
 
     
     this.minDateOfCollection = {
@@ -377,7 +377,7 @@ export class AddTravellerComponent implements OnInit {
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
-    console.log(this.minDateOfCollection);
+    // console.log(this.minDateOfCollection);
 
     if (current.getMonth() >= 6) {
       // console.log("greater than 6 month");
@@ -848,7 +848,7 @@ export class AddTravellerComponent implements OnInit {
     this.checkDateOfCollection();
 
     this.formData1.set("images", "");
-    console.log(this.formData1);
+    // console.log(this.formData1);
 
     let tempArr =
       (<FormArray>this.travellerForm.get("travellers")).controls || [];
@@ -903,7 +903,7 @@ export class AddTravellerComponent implements OnInit {
         const fd = {};
 
         this.formData1.set("images", "");
-        console.log(this.formData1);
+        // console.log(this.formData1);
 
         let tempArr =
           (<FormArray>this.travellerForm.get("travellers")).controls || [];
@@ -915,13 +915,13 @@ export class AddTravellerComponent implements OnInit {
               this.tempImageArr.push(form.get(el).value);
               form.get(el).setValue(form.get(el).value.name);
               form.get(el).updateValueAndValidity();
-              console.log(this.tempImageArr);
+              // console.log(this.tempImageArr);
             });
           } else {
             let eliminateEnter = form
               .get("address")
               .value.replace(/[\r\n]+/g, " ");
-            console.log(eliminateEnter);
+            // console.log(eliminateEnter);
 
             form.get("address").setValue(eliminateEnter);
             form.get("address").updateValueAndValidity();
@@ -953,10 +953,10 @@ export class AddTravellerComponent implements OnInit {
               form.updateValueAndValidity();
             }
           }
-          console.log("Dhruv");
+          // console.log("Dhruv");
         });
 
-        console.log("Pradeep");
+        // console.log("Pradeep");
 
         let ptdata: any = this.travellerForm.get("travellers").value || [];
         ptdata["id"] = this.dataSource[0].id;
@@ -1354,10 +1354,10 @@ export class AddTravellerComponent implements OnInit {
     } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
-        console.log(this.selectedTravellerForm);
+        // console.log(this.selectedTravellerForm);
         this.count = this.count + 1;
         this.scrollBy = 50 * this.count;
-        console.log(this.scrollBy);
+        // console.log(this.scrollBy);
         window.scrollTo({
           top: 350 + this.scrollBy,
           left: 0,

@@ -81,10 +81,10 @@ export class AppComponent implements OnInit {
 
         if (arr[1] == "b2b") {
           this.showB2BHeader = true;
-          console.log('checkout3');
+          // console.log('checkout3');
         } else {
           this.showB2BHeader = false;
-          console.log("Kuldeep");
+          // console.log("Kuldeep");
         }
       }
     });

@@ -1217,7 +1217,7 @@ export class B2bAddTrvComponent implements OnInit {
       this.preloaderService.showPreloader(true);
 
       this.travellerService.submitWarningForm().subscribe((data1: any) => {
-        console.log(data1);
+        // console.log(data1);
         if (data1.code == 0) {
           
           this.bookingId = data1.data.bookingId;

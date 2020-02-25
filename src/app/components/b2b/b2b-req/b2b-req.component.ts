@@ -114,10 +114,10 @@ export class B2bReqComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        console.log(data);
+        // console.log(data);
         if (data.code == "0") {
           this.requirementsData = data;
-          console.log(data.data);
+          // console.log(data.data);
           this.Quotation = data.data.displayQuotes;
           //console.log(this.Quotation);
           this.Quotation.forEach(element => {
@@ -171,7 +171,7 @@ export class B2bReqComponent implements OnInit {
 
           if (this.onlinestatus) {
             this.imageCatogory.push(data.data.imageUploadInfo);
-            console.log(data.data.imageUploadInfo);
+            // console.log(data.data.imageUploadInfo);
 
             this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
             this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
@@ -323,7 +323,7 @@ export class B2bReqComponent implements OnInit {
 
     this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
       if (data.code == "0") {
-        console.log(data);
+        // console.log(data);
         
         this.router.navigate(["b2b/b2b-add-traveller"]);
         // this.preloaderService.showPreloader(false);
@@ -348,12 +348,12 @@ export class B2bReqComponent implements OnInit {
     ) {
       this.showRequirementsDetailArr[i] = true;
     } else {
-      console.log("else");
+      // console.log("else");
       this.showRequirementsDetailArr[i] = true;
     }
 
     this.selectedDataArr[i] = this.mainArr[i][j];
-    console.log(this.selectedDataArr[i]);
+    // console.log(this.selectedDataArr[i]);
   }
   purposeChanged() {
     var purpose = this.purposeChooseForm1.get("purposeSelected").value;

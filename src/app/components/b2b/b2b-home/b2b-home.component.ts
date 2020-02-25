@@ -80,7 +80,7 @@ export class B2bHomeComponent implements OnInit {
         } else {
           this.country.setValue(activeCountry);
           localStorage.setItem("activeCountry", "");
-          console.log("here 2");
+          // console.log("here 2");
         }
         if (
           popularCountry == "" ||
@@ -143,7 +143,7 @@ export class B2bHomeComponent implements OnInit {
   }
 
   validateForm() {
-    console.log("validate form method called");
+    // console.log("validate form method called");
     this.validatePurpose();
     this.validateLivingIn();
     if (this.validatePurpose() == false || this.validateLivingIn() == false) {
@@ -160,7 +160,7 @@ export class B2bHomeComponent implements OnInit {
       } else {
         this.purposeNotSelected = false;
       }
-      console.log(this.purpose);
+      // console.log(this.purpose);
     });
 
     this.livesIn.valueChanges.subscribe(value => {

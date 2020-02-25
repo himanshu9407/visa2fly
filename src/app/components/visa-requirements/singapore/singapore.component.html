@@ -214,7 +214,7 @@
 
 
 
-<div class="container-fluid wrapContainer">
+<div class="container-fluid wrapContainer" style="overflow: hidden;">
     <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
 
@@ -249,15 +249,15 @@
                         <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
                             {{quotation.entryType}}
 
-                            <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
+                            <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
                                 <i class="fa fa-question-circle"></i>
                             </button>
             
-                            <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
+                            <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
                                 <i class="fa fa-question-circle"></i>
                             </button>
             
-                            <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" placement="left" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
+                            <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
                                 <i class="fa fa-question-circle"></i>
                             </button>
 
