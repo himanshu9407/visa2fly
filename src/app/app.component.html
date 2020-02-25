@@ -9,20 +9,19 @@
     <router-outlet></router-outlet>
     <app-chatbox></app-chatbox>
     <app-mobile-footer class="mobileOnly"></app-mobile-footer>
-    <div>
-      <app-footer class="pcOnly" *ngIf="!showB2BHeader"> </app-footer>
-      <app-b2b-footer class="pcOnly" *ngIf="showB2BHeader"></app-b2b-footer>
+  </div>
+  <app-footer class="pcOnly" *ngIf="!showB2BHeader"> </app-footer>
+  <app-b2b-footer class="pcOnly" *ngIf="showB2BHeader"></app-b2b-footer>
 
-    </div>
+</div>
 
 
+<div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">
+  <app-preloader></app-preloader>
+</div>
 
-    <div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">
-      <app-preloader></app-preloader>
-    </div>
-
-    <!-- <app-login-signup></app-login-signup> -->
-    <!-- <ul>
+<!-- <app-login-signup></app-login-signup> -->
+<!-- <ul>
     <li *ngFor="let person of people">
       {{ person.name }}
     </li>
