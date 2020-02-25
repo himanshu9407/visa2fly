@@ -1236,8 +1236,6 @@ export class B2bAddTrvComponent implements OnInit {
           setTimeout(() => {
             document.forms["paymentForm"].submit();
           }, 2000);
-        } else {
-          this.toastService.showNotification(data1.message, 10000);
         }
       });
     } else {

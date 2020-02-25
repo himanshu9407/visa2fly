@@ -15,12 +15,12 @@ export class B2bAddTrvService {
     private userFlow: UserFlowDetails
   ) {
     this.b2bUserFlowDetail = this.userFlow.getB2BUserFlowDetails();
-    this.ID = this.b2bUserFlowDetail.id;
   }
 
   submitForm(reqData) {
     // let AUTH_TOKEN = this.loginService.getAuthToken();
     // console.log(AUTH_TOKEN);
+    this.ID = this.b2bUserFlowDetail.id;
     const headers = new HttpHeaders({ id: this.ID, "visa-client": "0" });
 
     const base_url = this.userFlow.getBaseURL();
@@ -33,6 +33,7 @@ export class B2bAddTrvService {
   submitWarningForm() {
     // let AUTH_TOKEN = this.loginService.getAuthToken();
     // console.log(AUTH_TOKEN);
+    this.ID = this.b2bUserFlowDetail.id;
     const headers = new HttpHeaders({ id: this.ID, "visa-client": "0" });
 
     const base_url = this.userFlow.getBaseURL();

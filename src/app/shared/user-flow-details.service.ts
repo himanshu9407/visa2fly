@@ -23,7 +23,10 @@ export class UserFlowDetails {
     this.userObject[name] = value;
 
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem("b2bUserFlowDetails", JSON.stringify(this.userObject));
+      localStorage.setItem(
+        "b2bUserFlowDetails",
+        JSON.stringify(this.userObject)
+      );
     }
 
     // console.log(this.userObject);
@@ -51,15 +54,15 @@ export class UserFlowDetails {
 
   getUserFlowDetails() {
     if (isPlatformBrowser(this.platformId)) {
-        return JSON.parse(localStorage.getItem("userFlowDetails"));
-      }
+      return JSON.parse(localStorage.getItem("userFlowDetails"));
     }
+  }
 
-    getB2BUserFlowDetails() {
-        if (isPlatformBrowser(this.platformId)) {
-            return JSON.parse(localStorage.getItem("b2bUserFlowDetails"));
-          }
-        }
+  getB2BUserFlowDetails() {
+    if (isPlatformBrowser(this.platformId)) {
+      return JSON.parse(localStorage.getItem("b2bUserFlowDetails"));
+    }
+  }
 
   getBaseURL() {
     return "https://test.visa2fly.com/api/";

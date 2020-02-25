@@ -97,8 +97,8 @@ export class B2bReqComponent implements OnInit {
     private preloaderService: PreloaderService,
     private activateRoute: ActivatedRoute
   ) {
-    this.userFlowDetails = this.userFlow.getUserFlowDetails();
     this.preloaderService.showPreloader(true);
+    this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     // console.log(this.userFlowDetails);
     this.activateRoute.params.subscribe((params: any) => {
