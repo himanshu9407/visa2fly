@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NgxPaginationModule } from "ngx-pagination";
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { MatSelectModule } from "@angular/material/select";
 
@@ -161,7 +162,7 @@ import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
-    // CarouselModule,
+    CarouselModule,
     NgbModule,
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

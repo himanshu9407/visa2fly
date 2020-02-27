@@ -3,6 +3,7 @@ import { HomeServiceService } from 'src/app/home-service.service';
 import{testimonialsData} from '../../interfaces/testimonials';
 import { TestimonialService } from './testimonial.service';
 import { TestimonialModel } from './testimonial.model';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-testimonial',
@@ -70,5 +71,30 @@ export class TestimonialComponent implements OnInit {
     let arr = Array.from(Array(stars)).map((x, i) => i )
 
     return arr;
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 300,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
   }
 }
