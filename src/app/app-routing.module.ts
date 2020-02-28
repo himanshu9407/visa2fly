@@ -78,8 +78,10 @@ const routes: Routes = [
     component: MyBookingsComponent,
     canActivate: [AuthenticationGuard]
   },
-  { path: "b2b", redirectTo: "b2b/home", pathMatch: "full" },
-  { path: "b2b/home", component: B2bHomeComponent },
+  { path: "b2b", redirectTo: "b2b/home", pathMatch: "prefix" },
+  { path: "b2b/home", component: B2bHomeComponent, children : [
+    { path: "b2b/home/:id", component: B2bHomeComponent }
+  ] },
   {
     path: "b2b/visa-requirement/:country/:purpose",
     component: B2bReqComponent

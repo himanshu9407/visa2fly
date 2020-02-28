@@ -15,6 +15,7 @@ import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { stringify } from "querystring";
 import { isPlatformBrowser } from "@angular/common";
+import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: "app-b2b-home",
@@ -37,11 +38,13 @@ export class B2bHomeComponent implements OnInit {
   purposeNotSelected: boolean = false;
   livesInNotSelected: boolean = false;
   id: string;
+  isIdExist: boolean;
 
   constructor(
     private router: Router,
     private httpClient: HttpClient,
     private homeFormService: HomeFormService,
+    private toastService: ToastService,
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
     private authService: AuthenticationGuard,
@@ -52,6 +55,15 @@ export class B2bHomeComponent implements OnInit {
   ) {
     this.id = this.route.snapshot.queryParamMap.get("id");
     this.userFlow.setB2BUserFlowDetails("id", this.id);
+
+    // console.log(this.id);
+
+    if (this.id == "" || this.id == null || this.id == undefined) {
+      this.isIdExist = false;
+      this.toastService.showNotification("Something Went Wrong. ID is missing", 4000);
+    } else {
+      this.isIdExist = true;
+    }
 
     this.b2bHomeForm = new FormGroup({
       country: new FormControl("Sri Lanka"),
@@ -146,7 +158,11 @@ export class B2bHomeComponent implements OnInit {
     // console.log("validate form method called");
     this.validatePurpose();
     this.validateLivingIn();
-    if (this.validatePurpose() == false || this.validateLivingIn() == false) {
+    if (
+      this.validatePurpose() == false ||
+      this.validateLivingIn() == false ||
+      this.isIdExist == false
+    ) {
       return false;
     } else {
       return true;
@@ -170,6 +186,10 @@ export class B2bHomeComponent implements OnInit {
         this.livesInNotSelected = false;
       }
     });
+
+    if (this.id == "" || this.id == null || this.id == undefined) {
+      this.toastService.showNotification("Something Went Wrong. ID is missing", 4000);
+    }
 
     if (this.validateForm()) {
       // this.userFlow.setUserFlowDetails("country", this.selectedCountry);
