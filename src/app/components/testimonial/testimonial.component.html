@@ -1,52 +1,21 @@
-<div class="testimonial-bg" *ngIf="showTestimonialComponent">
-  <div class="testimonialHeading text-white"> What our customers say about us</div>
-  <!-- <div id="carouselBigTestimonialControls " class="carousel slide bigTestimonial" data-interval="10000"
-    data-ride="carousel" style="margin-left: 50px;margin-right: 50px;margin-top: 45px;">
-    <div class="carousel-inner">
-      <div class="carousel-item active" *ngIf="firstTestimonialArrExists">
-        <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-          <div class="testimonialContainer bg-white rounded">
-            <div class="col">
-              <div class="testimonialName">
-                {{testimonial.fullName}}
-              </div>
-              <div style="display: flex; justify-content: center; min-height: 70px;"
-                class="font-weight-normal testimonialContent"><i class="fa fa-quote-left pr-2"></i>
-                {{testimonial.review}}
-              </div>
-              <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                <i class="fa fa-star" *ngFor="let stars of createStarArray(testimonial.stars)"> </i>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="testimonial">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="testimonialHeading text-center"> What our customers say about us</div>
       </div>
-      <div class="carousel-item" *ngIf="secondTestimonialArrExists">
-        <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-          <div class="testimonialContainer bg-white rounded" *ngFor="let testimonial of secondTestimonialArr; ">
-            <div class="col">
-              <div class="testimonialName">
-                {{testimonial.fullName}}
-              </div>
-              <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i
-                  class="fa fa-quote-left pr-2"></i>
-                {{testimonial.review}}
-              </div>
-              <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                <i class="fa fa-star" *ngFor="let stars of createStarArray(testimonial.stars)"> </i>
-              </div>
-            </div>
+    </div>
+    <div class="row pt-4 pb-4">
+      <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            This is some text within a card body.
           </div>
         </div>
       </div>
     </div>
-  </div> -->
-
-    <div class="container">
-      <div class="row">
-        <div class="col-12"></div>
-      </div>
-    </div>
+  </div>
 </div>
 
-*ngFor="let testimonial of firstTestimonialArr"
+<div class="testimonial-bg"></div>
+<!-- *ngFor="let testimonial of firstTestimonialArr" -->
