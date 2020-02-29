@@ -2,95 +2,92 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="title-box">
-              <h2>Order History ({{totalCount}})</h2>
+                <h2>Order History ({{totalCount}})</h2>
             </div>
         </div>
-  </div>
+    </div>
 
-  <div class="row summaryContainer">
-      <div class="col-md-12">
-        <h3 class="containerHeading">Search For Booking</h3>
-      </div>
-      <form [formGroup]="bookingSearchForm" style="width: 100%;">
-        <div class="col-md-12 mt-2 form-inline">
-          <label for="" class="filterLabel">Search By</label>
-          <label for="opt1" class="radio inputTop">
+    <div class="row summaryContainer">
+        <div class="col-md-12">
+            <h3 class="containerHeading">Search For Booking</h3>
+        </div>
+        <form [formGroup]="bookingSearchForm" style="width: 100%;">
+            <div class="col-md-12 mt-2 form-inline">
+                <label for="" class="filterLabel">Search By</label>
+                <label for="opt1" class="radio inputTop">
             <input (change)="clearFilters()" type="radio" name="searchBy" id="opt1"  formControlName="searchBy" value="byDate" class="hidden" />
             <span class="filterLabel"></span>By Date Range
           </label>
-  
-          <label for="opt2" class="radio radio2 inputTop">
+
+                <label for="opt2" class="radio radio2 inputTop">
             <input (change)="clearFilters()" type="radio" name="searchBy" id="opt2"  formControlName="searchBy" value="byBookingId" class="hidden" />
             <span class="filterLabel"></span>By Booking Id
           </label>
-        </div>
-        <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'">
-          <div class="form-row">
-            <div class="col-md-12 col-lg-8">
-              <div class="row">
-                <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
-                  <label for="" class="filterLabel">From Date</label>
-                  <div class="input-group">
-                    <input (ngModelChange)="fromDateChanged()" [(ngModel)]="fromDate" formControlName="fromDate" class="form-control form-control-sm dateInput"
-                      placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" />
-                    <div class="input-group-append">
-                      <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
-                  <label for="" class="filterLabel">To Date</label>
-                  <div class="input-group">
-                    <input [(ngModel)]="toDate" [disabled]="this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate"  class="form-control form-control-sm dateInput"
-                      placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo" [maxDate]="maxDate" />
-                    <div class="input-group-append">
-                      <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="col-md-12 col-lg-4 marginTop">
-              <div class="row">
-                <div class="col-4 noPadd text-center">
-                  <button (click) = "searchBookingsByDate()" [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm roundedBorder" type="submit">
+            <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'">
+                <div class="form-row">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="row">
+                            <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
+                                <label for="" class="filterLabel">From Date</label>
+                                <div class="input-group">
+                                    <input (ngModelChange)="fromDateChanged()" [(ngModel)]="fromDate" formControlName="fromDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
+                                <label for="" class="filterLabel">To Date</label>
+                                <div class="input-group">
+                                    <input [(ngModel)]="toDate" [disabled]="this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo"
+                                        [maxDate]="maxDate" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4 marginTop">
+                        <div class="row">
+                            <div class="col-4 noPadd text-center">
+                                <button (click)="searchBookingsByDate()" [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm roundedBorder" type="submit">
                     Search
                   </button>
-                </div>
-                <div class="col-4 noPadd text-center p-0">
-                  <button (click)="clearFilters()" class="btn btn-sm" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
+                            </div>
+                            <div class="col-4 noPadd text-center p-0">
+                                <button (click)="clearFilters()" class="btn btn-sm" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
                     Clear Filters
                   </button>
-                </div>
-                <div class="col-4 noPadd borderLeft">
-                  <!-- Button trigger modal -->
-                  <div class="text-center">
-                    <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
-                      data-target="#filterBtn">
+                            </div>
+                            <div class="col-4 noPadd borderLeft">
+                                <!-- Button trigger modal -->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal" data-target="#filterBtn">
                       <i class="fa fa-filter"></i>&nbsp; Filter By
                     </button>
-                  </div>
-  
-                  <!-- Modal -->
-                  <div class="modal fade" id="filterBtn" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Filter By</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="filterBtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Filter By</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
-                        </div>
-                        <div class="modal-body filterBody">
-                          <form [formGroup]="bookingFilterForm">
-                          <div class="col-12">
-                            <input formControlName="visa" class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
-                            <label class="cbx" for="datecbx1">
+                                            </div>
+                                            <div class="modal-body filterBody">
+                                                <form [formGroup]="bookingFilterForm">
+                                                    <div class="col-12">
+                                                        <input formControlName="visa" class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
+                                                        <label class="cbx" for="datecbx1">
                               <span>
                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
                                   <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
@@ -98,10 +95,10 @@
                               </span>
                               <span>Visa</span>
                             </label>
-                          </div>
-                          <div class="col-12">
-                            <input formControlName="sim" class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
-                            <label class="cbx" for="datecbx2">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <input formControlName="sim" class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
+                                                        <label class="cbx" for="datecbx2">
                               <span>
                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
                                   <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
@@ -109,10 +106,10 @@
                               </span>
                               <span>Sim</span>
                             </label>
-                          </div>
-                          <div class="col-12">
-                            <input formControlName="insurance" class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
-                            <label class="cbx" for="datecbx3">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <input formControlName="insurance" class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
+                                                        <label class="cbx" for="datecbx3">
                               <span>
                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
                                   <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
@@ -120,425 +117,413 @@
                               </span>
                               <span>Insurance</span>
                             </label>
-                          </div>
-                        </form>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer filterFooter">
+                                                <button (click)="filterBookings()" type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="border-radius: 20px; background: #000080;">Apply Changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-footer filterFooter">
-                          <button (click)= "filterBookings()" type="button" class="btn btn-sm btn-primary"
-                          data-dismiss="modal"
-                            style="border-radius: 20px; background: #000080;">Apply Changes</button>
-                        </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'">
-          <div class="form-row">
-            <div class="col-md-6 col-lg-8">
-              <div class="row inputTop">
-                <div class="col-md-12 form-inline inputpad10">
-                  <label for="" class="mr-2 filterLabel">Booking Id </label>
-                  <input  formControlName="bookingId" type="text" class="form-control form-control-sm mr-2 ml-2"
-                    placeholder="Enter Booking Id" /> 
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 bookMargin ">
-              <div class="row">
-                <div class="col-6 noPadd text-center">
-                  <button (click)="searchBookingsByBookingId()" [disabled] = "this.bookingSearchForm.get('bookingId').value == null" class="btn btn-sm btn-primary roundedBorder">
+            <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'">
+                <div class="form-row">
+                    <div class="col-md-6 col-lg-8">
+                        <div class="row inputTop">
+                            <div class="col-md-12 form-inline inputpad10">
+                                <label for="" class="mr-2 filterLabel">Booking Id </label>
+                                <input formControlName="bookingId" type="text" class="form-control form-control-sm mr-2 ml-2" placeholder="Enter Booking Id" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 bookMargin ">
+                        <div class="row">
+                            <div class="col-6 noPadd text-center">
+                                <button (click)="searchBookingsByBookingId()" [disabled]="this.bookingSearchForm.get('bookingId').value == null" class="btn btn-sm btn-primary roundedBorder">
                     Search
                   </button>
-                </div>
-                          <div class="col-6 noPadd text-center">
-                            <button (click)="clearFilters()" class="btn btn-sm showAll" *ngIf = "this.isButtonVisible" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
+                            </div>
+                            <div class="col-6 noPadd text-center">
+                                <button (click)="clearFilters()" class="btn btn-sm showAll" *ngIf="this.isButtonVisible" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
                               View All
                             </button>
-                          </div>
-              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </form>
+        </form>
     </div>
 
 </div>
 
 <div class="pcOnly">
-  <div *ngIf="totalCount > 0" class="container myBooking">
-    <div class="row">
-      <div
-        *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
-        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
-          <div class="card">
-            <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
-            </div>
-            <div class="card-body">
-              <ul class="visa-type">
-                <li>
-                  Booking ID:
-                  <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
-                </li>
-                <li>
-                  Transaction ID :
-                  <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
-                </li>
-                <li>
-                  {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}} For :
-                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
-                </li>
-                <li *ngIf="booking.booking.bookingType == 'Visa'">
-                  Visa Type:
-                  <span class="fieldData">{{booking.booking.visaType}}</span>
-                </li>
-                <li *ngIf="booking.booking.bookingType == 'Visa'">
-                  Entry Type:
-                  <span class="fieldData">{{booking.booking.entryType}}</span>
-                </li>
-                <li>
-                  Total Travellers:
-                  <span class="fieldData">{{booking.booking.totalTravellers}}</span>
-                </li>
-                <li>
-                  Booking date:
-                  <span class="fieldData">{{booking.booking.bookingDate}}</span>
-                </li>
-                <li *ngIf="booking.booking.bookingType == 'Visa'">
-                  Document Collection Date:
-                  <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
-                </li>
-                <li *ngIf="booking.booking.bookingType == 'Visa'">
-                  Date of travel:
-                  <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
-                </li>
-                <li>
-                  Booking Status:
-                  <!-- <span class="fieldData">123</span> -->
-                  <span
-                    [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }"
-                    class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
-                </li>
-                <li>
-                  Payment status:
-                  <!-- <span class="fieldData"></span> -->
-                  <!-- <span class="fieldData badge badge-danger">Failed</span> -->
-                  <span class="fieldData badge "
-                    [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
-                </li>
-              </ul>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-6 button">
-                  <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
+    <div *ngIf="totalCount > 0" class="container myBooking">
+        <div class="row">
+            <div *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+                <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+                    <div class="card">
+                        <div class="card-header priceHeading text-white">
+                            {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
+                        </div>
+                        <div class="card-body">
+                            <ul class="visa-type">
+                                <li>
+                                    Booking ID:
+                                    <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
+                                </li>
+                                <li>
+                                    Transaction ID :
+                                    <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                                </li>
+                                <li>
+                                    {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}} For :
+                                    <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                                </li>
+                                <li *ngIf="booking.booking.bookingType == 'Visa'">
+                                    Visa Type:
+                                    <span class="fieldData">{{booking.booking.visaType}}</span>
+                                </li>
+                                <li *ngIf="booking.booking.bookingType == 'Visa'">
+                                    Entry Type:
+                                    <span class="fieldData">{{booking.booking.entryType}}</span>
+                                </li>
+                                <li>
+                                    Total Travellers:
+                                    <span class="fieldData">{{booking.booking.totalTravellers}}</span>
+                                </li>
+                                <li>
+                                    Booking date:
+                                    <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                                </li>
+                                <li *ngIf="booking.booking.bookingType == 'Visa'">
+                                    Document Collection Date:
+                                    <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
+                                </li>
+                                <li *ngIf="booking.booking.bookingType == 'Visa'">
+                                    Date of travel:
+                                    <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                                </li>
+                                <li>
+                                    Booking Status:
+                                    <!-- <span class="fieldData">123</span> -->
+                                    <span [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }" class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
+                                </li>
+                                <li>
+                                    Payment status:
+                                    <!-- <span class="fieldData"></span> -->
+                                    <!-- <span class="fieldData badge badge-danger">Failed</span> -->
+                                    <span class="fieldData badge " [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-6 button">
+                                    <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
                     View Detail
                   </button>
-                </div>
+                                </div>
 
-                <div class="col-6 button">
-                  <button (click) = "downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)" type="button" class="btn btn-outline-success btn-sm">
+                                <div class="col-6 button">
+                                    <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)" type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
                   </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+
+        <div class="row" *ngIf="!filteredBookingsEmpty">
+            <div class="col-12 mt-3">
+                <pagination-controls (pageChange)="currentPage1 = $event" maxSize="6" id="first" class="my-pagination text-center" responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                    screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+            </div>
+        </div>
+
+        <div *ngIf="filteredBookingsEmpty">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 p-0 text-center emptyBanner">
+                        <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="img-fluid lazyload" alt="empty cart image">
+                    </div>
+                    <div class="col-md-12 text-center" style="vertical-align: middle;">
+                        <button class="btn" (click)="seeBooking()" style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="row" *ngIf="!filteredBookingsEmpty">
-      <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="currentPage1 = $event" maxSize="6" id="first" class="my-pagination text-center"
-responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
-          screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
-          screenReaderCurrentLabel="You're on page">
-        </pagination-controls>
-      </div>
-    </div>
-
-    <div *ngIf="filteredBookingsEmpty">
-      <div class="container">
+    <div class="container" *ngIf="totalCount < 1">
         <div class="row">
-          <div class="col-md-12 p-0 text-center emptyBanner">
-              <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="img-fluid lazyload" alt="empty cart image">
-          </div>
-          <div class="col-md-12 text-center" style="vertical-align: middle;">
-            <button class="btn" (click)="seeBooking()" style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View All</button>
-           </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="container" *ngIf="totalCount < 1">
-    <div class="row">
-      <div class="col-md-12 emptyBanner text-center">
-          <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="lazyload img-fluid mt-3" alt="empty cart image">
-      </div>
-      <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 10px;">
+            <div class="col-md-12 emptyBanner text-center">
+                <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="lazyload img-fluid mt-3" alt="empty cart image">
+            </div>
+            <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 10px;">
         <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
        </div> -->
-      <div class="col-md-12 text-center" style="vertical-align: middle;">
-        <button class="btn" style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View All</button>
-       </div>
+            <div class="col-md-12 text-center" style="vertical-align: middle;">
+                <button class="btn" style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View All</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
 <div class="mobileOnly">
 
 
-  <div *ngIf="totalCount > 0" class="container myBooking">
-    <div class="row mt-4">
-      <div
-        *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
-        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
-          <div class="card">
-            <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
-            </div>
-            <div class="card-body">
-              <!-- <h5 class="card-title">Special title treatment</h5>
+    <div *ngIf="totalCount > 0" class="container myBooking">
+        <div class="row mt-4">
+            <div *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+                <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+                    <div class="card">
+                        <div class="card-header priceHeading text-white">
+                            {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
+                        </div>
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Special title treatment</h5>
                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a> -->
-              <ul class="visa-type">
-                <li>
-                  Booking ID:
-                  <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
-                </li>
-                <li>
-                  Transaction ID :
-                  <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
-                </li>
-                <li>
-                  Visa For :
-                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
-                </li>
-                <li>
-                  Visa Type:
-                  <span class="fieldData">{{booking.booking.visaType}}</span>
-                </li>
-                <li>
-                  Entry Type:
-                  <span class="fieldData">{{booking.booking.entryType}}</span>
-                </li>
-                <li>
-                  Total Travellers:
-                  <span class="fieldData">{{booking.booking.totalTravellers}}</span>
-                </li>
-                <li>
-                  Booking date:
-                  <span class="fieldData">{{booking.booking.bookingDate}}</span>
-                </li>
-                <li>
-                  Document Collection Date:
-                  <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
-                </li>
-                <li>
-                  Date of travel:
-                  <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
-                </li>
-                <li>
-                  Booking Status:
-                  <!-- <span class="fieldData">123</span> -->
-                  <span
-                    [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }"
-                    class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
-                </li>
-                <li>
-                  Payment status:
-                  <!-- <span class="fieldData"></span> -->
-                  <!-- <span class="fieldData badge badge-danger">Failed</span> -->
-                  <span class="fieldData badge "
-                    [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
-                </li>
-              </ul>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-6 button">
-                  <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
-                    View Detail
+                            <ul class="visa-type">
+                                <li>
+                                    Booking ID:
+                                    <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
+                                </li>
+                                <li>
+                                    Transaction ID :
+                                    <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                                </li>
+                                <li>
+                                    Visa For :
+                                    <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                                </li>
+                                <li>
+                                    Visa Type:
+                                    <span class="fieldData">{{booking.booking.visaType}}</span>
+                                </li>
+                                <li>
+                                    Entry Type:
+                                    <span class="fieldData">{{booking.booking.entryType}}</span>
+                                </li>
+                                <li>
+                                    Total Travellers:
+                                    <span class="fieldData">{{booking.booking.totalTravellers}}</span>
+                                </li>
+                                <li>
+                                    Booking date:
+                                    <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                                </li>
+                                <li>
+                                    Document Collection Date:
+                                    <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
+                                </li>
+                                <li>
+                                    Date of travel:
+                                    <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                                </li>
+                                <li>
+                                    Booking Status:
+                                    <!-- <span class="fieldData">123</span> -->
+                                    <span [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }" class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
+                                </li>
+                                <li>
+                                    Payment status:
+                                    <!-- <span class="fieldData"></span> -->
+                                    <!-- <span class="fieldData badge badge-danger">Failed</span> -->
+                                    <span class="fieldData badge " [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-6 button">
+                                    <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
+                    Go Back
                   </button>
-                </div>
+                                </div>
 
-                <div class="col-6 button">
-                  <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)" type="button"
-                    class="btn btn-outline-success btn-sm">
+                                <div class="col-6 button">
+                                    <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)" type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
                   </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row" *ngIf="!filteredBookingsEmpty">
-      <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="currentPage2 = $event;" id="second" maxSize="3" class="my-pagination text-center"
-          autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
-          screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
-        </pagination-controls>
-      </div>
-    </div>
-
-    <div *ngIf="filteredBookingsEmpty">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-              <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="lazyload img-fluid" alt="empty cart image">
-          </div>
-          <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 15px;">
-            <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
-           </div> -->
-          <div class="col-md-12 text-center" style="vertical-align: middle;">
-            <button class="btn btn-sm" (click)="seeBooking()" style="background: #000080; color: #fff; font-weight: 600; font-size: 14px;">View All</button>
-           </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div *ngIf="totalCount < 1" class="container d-flex justify-content-center" style="margin-top: 140px 0px 40px;">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="emptyBanner">
-          <img data-src="https://static.visa2fly.com/assets/emptycart.png" class="lazyload img-fluid" alt="empty cart image">
-        </div>
-      </div>
-      <div class="col-md-12">
-        <button class="btn btn-primary text-center mb-4 mt-2" [routerLink]="['/home']" style="width: 100%">Shop
-          Now</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="feedback-popup" >
-  <!-- <button type="button" class="btn btn-primary" style="margin-top: 80px;" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button> -->
-
-<!-- Modal -->
-
-<div class="modal fade show" tabindex="-1" role="dialog"
- aria-hidden="true" [ngStyle]="{'display': bookingStatus ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body" style="padding: 0px;">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-6 wrap-left p-4">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="feedHeading text-center text-uppercase">Feedback Form</h4>
-                                </div>
-                                <div class="col-md-12">
-                                    <p class="value text-capitalize">Your feedback is valuable to us.</p>
-                                </div>
-                                <div class="col-md-12">
-                                    <h1>
-                                        <img data-src="https://static.visa2fly.com/assets/feedback.webp" alt="" class="img-fluid feedImage lazyload">
-                                    </h1>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 wrap-right p-4">
-                            <div class="row">
-                              <div class="cross-times" (click)="closeFeed()">
-                                  <button type="button">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                              </div>
-                                <div class="col-md-12">
-                                    <h6>Please provide your feedback on following topics:</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="!filteredBookingsEmpty">
+            <div class="col-12 mt-3">
+                <pagination-controls (pageChange)="currentPage2 = $event;" id="second" maxSize="3" class="my-pagination text-center" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                    screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+            </div>
+        </div>
+
+        <div *ngIf="filteredBookingsEmpty">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="lazyload img-fluid" alt="empty cart image">
+                    </div>
+                    <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 15px;">
+            <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
+           </div> -->
+                    <div class="col-md-12 text-center" style="vertical-align: middle;">
+                        <button class="btn btn-sm" (click)="seeBooking()" style="background: #000080; color: #fff; font-weight: 600; font-size: 14px;">View All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="totalCount < 1" class="container d-flex justify-content-center" style="margin-top: 140px 0px 40px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="emptyBanner">
+                    <img data-src="https://static.visa2fly.com/assets/emptycart.png" class="lazyload img-fluid" alt="empty cart image">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-primary text-center mb-4 mt-2" [routerLink]="['/home']" style="width: 100%">Shop
+          Now</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="feedback-popup">
+    <!-- <button type="button" class="btn btn-primary" style="margin-top: 80px;" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+    <!-- Modal -->
+
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-hidden="true" [ngStyle]="{'display': bookingStatus ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="padding: 0px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6 wrap-left p-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="feedHeading text-center text-uppercase">Booking Details</h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <svg height="210" width="500">
+                                            <line class="lineArrange" x1="0" y1="0" x2="325" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
+                                          </svg>
+                                    </div>
+                                    <div class="col-md-12 detailsSetting" *ngFor="let item of feedbackBookingDetail">
+                                        <ul class="listSet">
+                                            <li>Booking Id :
+                                                <span class="fieldData">{{item.booking.bookingId}}</span>
+                                            </li>
+                                            <li>Visa For :
+                                                <span class="fieldData">{{item.booking.visaForCountry}}</span>
+                                            </li>
+                                            <li>Visa Type :
+                                                <span class="fieldData">{{item.booking.visaType}}</span>
+                                            </li>
+                                            <li>Booking Date :
+                                                <span class="fieldData">{{item.booking.bookingDate}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <h1>
+                                            <img data-src="https://static.visa2fly.com/assets/feedback.webp" alt="" class="img-fluid feedImage lazyload">
+                                        </h1>
+                                    </div>
                                 </div>
                             </div>
-                            <form class="form-row" [formGroup]="FeedbackForm" (ngSubmit)="onSubmit()" >
-                              <div class="col-md-12">
-                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How well does our
-                                      product meet your needs ?</p>
-                                  <fieldset class="rating" id="customCheck1" >
-                                      <input type="radio" id="f3-star5"  formControlName="f3-rating" value="5" /><label
-                                          class="full" for="f3-star5"></label>
-                                      <input type="radio" id="f3-star4"  formControlName="f3-rating" value="4" /><label
-                                          class="full" for="f3-star4"></label>
-                                      <input type="radio" id="f3-star3"  formControlName="f3-rating" value="3" /><label
-                                          class="full" for="f3-star3"></label>
-                                      <input type="radio" id="f3-star2"  formControlName="f3-rating" value="2" /><label
-                                          class="full" for="f3-star2"></label>
-                                      <input type="radio" id="f3-star1"  formControlName="f3-rating" value="1" /><label
-                                          class="full" for="f3-star1"></label>
-                                  </fieldset>
-                              </div>
-                              <div class="col-md-12">
-                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Were you able to
-                                      find the information you were looking for on our website ?
-                                  </p>
-                                  <fieldset class="rating" id="customCheck1" >
-                                      <input type="radio" id="f1-star5"  formControlName="f1-rating" value="5" /><label
-                                          class="full" for="f1-star5"></label>
-                                      <input type="radio" id="f1-star4"  formControlName="f1-rating" value="4" /><label
-                                          class="full" for="f1-star4"></label>
-                                      <input type="radio" id="f1-star3"  formControlName="f1-rating" value="3" /><label
-                                          class="full" for="f1-star3"></label>
-                                      <input type="radio" id="f1-star2"  formControlName="f1-rating" value="2" /><label
-                                          class="full" for="f1-star2"></label>
-                                      <input type="radio" id="f1-star1"  formControlName="f1-rating" value="1" /><label
-                                          class="full" for="f1-star1"></label>
-                                  </fieldset>
-                              </div>
-                              <div class="col-md-12">
-                                  <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How likely are you
-                                      to recommend visa2fly to a friends or family ?</p>
-                                  <fieldset class="rating" id="customCheck1" >
-                                      <input type="radio" id="f2-star5"  formControlName="f2-rating" value="5" /><label
-                                          class="full" for="f2-star5"></label>
-                                      <input type="radio" id="f2-star4"  formControlName="f2-rating" value="4" /><label
-                                          class="full" for="f2-star4"></label>
-                                      <input type="radio" id="f2-star3"  formControlName="f2-rating" value="3" /><label
-                                          class="full" for="f2-star3"></label>
-                                      <input type="radio" id="f2-star2"  formControlName="f2-rating" value="2" /><label
-                                          class="full" for="f2-star2"></label>
-                                      <input type="radio" id="f2-star1"  formControlName="f2-rating" value="1" /><label
-                                          class="full" for="f2-star1"></label>
-                                  </fieldset>
-                              </div>
-                              <div class="col-md-12">
-                                  <h6>If you could change just one thing about our product, what would it be ?
-                                  </h6>
-                              </div>
-                              <div class="col-md-12">
-                                  <textarea class="form-control" formControlName="FeedbackEdit"  id="" cols="30"
-                                      rows="4"></textarea>
-                              </div>
-                              <div class="col-md-12 text-center mt-2">
-                                  <button  value="submit" class="btn text-white btn-submit btn-sm btn-block" (click) = "onSubmit()">Submit</button>
-                              </div>
-                              <div class="col-md-12 text-center mt-2">
-                                <button type="button"  class="btn btn btn-outline-info btn-sm btn-block" (click)="closeFeed()">No, I'm not interested</button>
+                            <div class="col-lg-6 wrap-right p-4">
+                                <div class="row">
+                                    <div class="cross-times" (click)="closeFeed()">
+                                        <button type="button">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="feedHeading text-center text-uppercase">Feedback Form</h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p class="value text-capitalize">Your feedback is valuable to us.</p>
+                                    </div>
+                                    <div class="col-md-12 headingSet">
+                                        <h6>Please provide your feedback on following topics:</h6>
+                                    </div>
+                                </div>
+                                <form class="form-row" [formGroup]="FeedbackForm" (ngSubmit)="onSubmit()">
+                                    <div class="col-md-12">
+                                        <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How well does our product meet your needs ?</p>
+                                        <fieldset class="rating" id="customCheck1">
+                                            <input type="radio" id="f3-star5" formControlName="f3-rating" value="5" /><label class="full" for="f3-star5"></label>
+                                            <input type="radio" id="f3-star4" formControlName="f3-rating" value="4" /><label class="full" for="f3-star4"></label>
+                                            <input type="radio" id="f3-star3" formControlName="f3-rating" value="3" /><label class="full" for="f3-star3"></label>
+                                            <input type="radio" id="f3-star2" formControlName="f3-rating" value="2" /><label class="full" for="f3-star2"></label>
+                                            <input type="radio" id="f3-star1" formControlName="f3-rating" value="1" /><label class="full" for="f3-star1"></label>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>Were you able to find the information you were looking for on our website ?
+                                        </p>
+                                        <fieldset class="rating" id="customCheck1">
+                                            <input type="radio" id="f1-star5" formControlName="f1-rating" value="5" /><label class="full" for="f1-star5"></label>
+                                            <input type="radio" id="f1-star4" formControlName="f1-rating" value="4" /><label class="full" for="f1-star4"></label>
+                                            <input type="radio" id="f1-star3" formControlName="f1-rating" value="3" /><label class="full" for="f1-star3"></label>
+                                            <input type="radio" id="f1-star2" formControlName="f1-rating" value="2" /><label class="full" for="f1-star2"></label>
+                                            <input type="radio" id="f1-star1" formControlName="f1-rating" value="1" /><label class="full" for="f1-star1"></label>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p><i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i>How likely are you to recommend visa2fly to a friends or family ?</p>
+                                        <fieldset class="rating" id="customCheck1">
+                                            <input type="radio" id="f2-star5" formControlName="f2-rating" value="5" /><label class="full" for="f2-star5"></label>
+                                            <input type="radio" id="f2-star4" formControlName="f2-rating" value="4" /><label class="full" for="f2-star4"></label>
+                                            <input type="radio" id="f2-star3" formControlName="f2-rating" value="3" /><label class="full" for="f2-star3"></label>
+                                            <input type="radio" id="f2-star2" formControlName="f2-rating" value="2" /><label class="full" for="f2-star2"></label>
+                                            <input type="radio" id="f2-star1" formControlName="f2-rating" value="1" /><label class="full" for="f2-star1"></label>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h6>If you could change just one thing about our product, what would it be ?
+                                        </h6>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" formControlName="FeedbackEdit" id="" cols="30" rows="4"></textarea>
+                                    </div>
+                                    <div class="col-md-12 text-center mt-2">
+                                        <button type="button" class="btn text-white btn-submit btn-sm btn-block" (click)="onSubmit()">Submit</button>
+                                    </div>
+                                    <div class="col-md-12 text-center mt-2">
+                                        <button type="button" class="btn btn btn-outline-info btn-sm btn-block" (click)="closeFeed()">No, I'm not interested</button>
+                                    </div>
+                                </form>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

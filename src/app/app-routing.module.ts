@@ -36,6 +36,9 @@ import { MaldivesComponent } from './components/visa-requirements/maldives/maldi
 import { SpainComponent } from './components/visa-requirements/spain/spain.component';
 
 const routes: Routes = [
+
+  
+
   { path: "", redirectTo: "visa", pathMatch: "full" },
   { path: "visa", component: HomeContainerComponent },
   { path: "tnc", component: TermsandConditionsComponent },
@@ -94,7 +97,7 @@ const routes: Routes = [
     path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
     component: DubaiComponent
   },
-{
+  {
     path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
     component:  MaldivesComponent
   },
@@ -103,12 +106,15 @@ const routes: Routes = [
     component:  SpainComponent
   },
 
+  
   { path: "**", redirectTo: "visa", pathMatch: "full" }
+
+ 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled" })
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", onSameUrlNavigation: 'reload'})
   ],
   exports: [RouterModule],
   declarations: []

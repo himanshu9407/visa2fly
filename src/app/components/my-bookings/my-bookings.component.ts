@@ -7,7 +7,7 @@ import {
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../login-signup/login/login.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
@@ -19,7 +19,10 @@ import { feedbackModal } from "../../interfaces/home_formData";
   styleUrls: ["./my-bookings.component.css"]
 })
 export class MyBookingsComponent implements OnInit {
+  [x: string]: any;
   totalCount: number = 0;
+
+  
 
   myBookings: Array<any> = [];
   myBookingsPc: Array<any> = [];
@@ -47,6 +50,8 @@ export class MyBookingsComponent implements OnInit {
   filteredBookingsEmpty: boolean = false;
   filterdDateArr = [];
   private isButtonVisible = false;
+  feedbackBookingDetail : Array<any> = [];
+  
 
   constructor(
     private loginStatus: LoginStatusService,
@@ -56,10 +61,13 @@ export class MyBookingsComponent implements OnInit {
     private bookingService: MyBookingsService,
     private downloadImageService: DownloadImageService,
     private toastService: ToastService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private activatedRoute : ActivatedRoute
   ) {
     this.myBookings = [];
-    this.preloaderService.showPreloader(true);
+    // this.preloaderService.showPreloader(true);
+
+
 
     var bookingIdC;
 
@@ -94,56 +102,17 @@ export class MyBookingsComponent implements OnInit {
 
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
       if (data.code == "0") {
-        this.bookingService.getBookingsFromServer().subscribe(res => {
-          this.allBooking = res;
-          this.bookings = this.allBooking.data.bookings;
-          this.bookingsForLoop = this.allBooking.data.bookings;
-          this.filterdDateArr = this.allBooking.data.bookings;
-        
-          if (this.allBooking != null) {
-            this.totalCount = this.allBooking.data.bookings.length;
-
-            localStorage.setItem(
-              "bookingStatus",
-              JSON.stringify(this.allBooking.data.takeFeedback)
-            );
-
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-            }, 1000);
-
-            //  bookingIdC= localStorage.getItem('bookingStatus');
-            // this.bookingStatus = bookingIdC;
-            this.allBooking.data.bookings.forEach(element => {
-              if (
-                element.booking.bookingStatus == "Sim order confirmed" ||
-                element.booking.bookingStatus == "Payment completed" ||
-                element.booking.bookingStatus == "Visa application approved"
-              ) {
-                element.booking.statusColor = "g";
-              } else if (
-                (element.booking.bookingStatus =
-                  "Payment failed" ||
-                  element.booking.bookingStatus == "Visa application rejected")
-              ) {
-                element.booking.statusColor = "r";
-              } else {
-                element.booking.statusColor = "y";
-              }
-              if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
-              } else if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
-              } else {
-                element.booking.paymentColor = "y";
-              }
-            });
-
-            this.activeMobileBookingPage = this.myBookingsMobile[0];
-          } else {
-            this.totalCount = 0;
-          }
-        });
+        if (this.bookingService.allBookings.length > 0) {
+          this.bookingsForLoop = [...this.bookingService.allBookings];
+          this.totalCount = this.bookingsForLoop.length;
+          // console.log("found bookings in service variable");
+          
+        }
+        else {
+          // console.log("service varialbel empty");
+          
+          this.getAllBookings();
+        }
       } else {
         this.router.navigate(["/visa"]);
       }
@@ -154,7 +123,76 @@ export class MyBookingsComponent implements OnInit {
 
   // console.log(this.activePcPageNumber == i);
 
-  ngOnInit() {}
+  getAllBookings () {
+    this.bookingService.getBookingsFromServer().subscribe(res => {
+      this.allBooking = res;
+      this.bookings = this.allBooking.data.bookings;
+      this.bookingsForLoop = this.allBooking.data.bookings;
+      this.bookingService.allBookings = this.allBooking.data.bookings;
+      this.filterdDateArr = this.allBooking.data.bookings;
+    
+      if (this.allBooking != null) {
+        this.totalCount = this.allBooking.data.bookings.length;
+
+        localStorage.setItem(
+          "bookingStatus",
+          JSON.stringify(this.allBooking.data.takeFeedback)
+        );
+        let bookingOption = JSON.parse(localStorage.getItem("bookingStatus"));
+        this.bookingStatus = bookingOption;
+
+        setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+        }, 1000);
+
+        var bookingid = this.allBooking.data.feedbackToBeTakenFor;
+        //  bookingIdC= localStorage.getItem('bookingStatus');
+        // this.bookingStatus = bookingIdC;
+        this.allBooking.data.bookings.forEach(element => {
+          if (
+            element.booking.bookingStatus == "Sim order confirmed" ||
+            element.booking.bookingStatus == "Payment completed" ||
+            element.booking.bookingStatus == "Visa application approved"
+          ) {
+            element.booking.statusColor = "g";
+          } else if (
+            (element.booking.bookingStatus =
+              "Payment failed" ||
+              element.booking.bookingStatus == "Visa application rejected")
+          ) {
+            element.booking.statusColor = "r";
+          } else {
+            element.booking.statusColor = "y";
+          }
+          if (element.booking.paymentStatus == "Payment completed") {
+            element.booking.paymentColor = "g";
+          } else if (element.booking.paymentStatus == "Payment completed") {
+            element.booking.paymentColor = "g";
+          } else {
+            element.booking.paymentColor = "y";
+          }
+        });
+        let arr1 = [];
+        this.bookings.forEach(booking => {
+          if (booking.booking.bookingId == bookingid) {
+            // console.log("hello");
+            arr1.push(booking);
+            this.feedbackBookingDetail = arr1;
+            // this.isButtonVisible = true;
+          }
+        });
+
+
+        this.activeMobileBookingPage = this.myBookingsMobile[0];
+      } else {
+        this.totalCount = 0;
+      }
+    });
+  }
+
+  ngOnInit() {
+    
+  }
 
   fromDateChanged() {
     this.minDateOfTo = this.bookingSearchForm.get("fromDate").value;
@@ -197,17 +235,17 @@ export class MyBookingsComponent implements OnInit {
   }
 
   onSubmit() {
-    var bookingId = this.allBooking.data.feedbackToBeTakenFor;
+    var bookingid = this.allBooking.data.feedbackToBeTakenFor;
     // console.log(bookingId);
 
-    let product = this.FeedbackForm.get("f3-rating").value;
-    let info = this.FeedbackForm.get("f1-rating").value;
-    let recommend = this.FeedbackForm.get("f2-rating").value;
-    let userFeedback = this.FeedbackForm.get("FeedbackEdit").value;
+    let rateOne = this.FeedbackForm.get("f3-rating").value;
+    let rateTwo = this.FeedbackForm.get("f1-rating").value;
+    let rateThree = this.FeedbackForm.get("f2-rating").value;
+    let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
     // console.log(this.FeedbackForm.value);
-
+    let notInterested = false;
     this.bookingService
-      .postFeedback(bookingId, product, info, recommend, userFeedback)
+      .postFeedback(bookingid,rateOne, rateTwo, rateThree, suggestion, notInterested)
       .subscribe(res => {
         // this.toastService.showNotification("Feedback Submitted", 1000);
       });
@@ -349,6 +387,20 @@ export class MyBookingsComponent implements OnInit {
   }
 
   closeFeed() {
+    var bookingid = this.allBooking.data.feedbackToBeTakenFor;
+    // console.log(bookingId);
+
+    let rateOne = this.FeedbackForm.get("f3-rating").value;
+    let rateTwo = this.FeedbackForm.get("f1-rating").value;
+    let rateThree = this.FeedbackForm.get("f2-rating").value;
+    let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
+    // console.log(this.FeedbackForm.value);
+    let notInterested = true;
+    this.bookingService
+      .postFeedback(bookingid,rateOne, rateTwo, rateThree, suggestion, notInterested)
+      .subscribe(res => {
+        // this.toastService.showNotification("Feedback Submitted", 1000);
+      });
     this.bookingStatus = false;
   }
 
