@@ -1,0 +1,14 @@
+<section class="world">
+  <div class="glow" [ngClass]="{
+    'pulse':exploreWorld === 'simpleRotate',
+    'exploreTheWorld':exploreWorld === 'findingDestination',
+    'finallyReach':exploreWorld === 'reachYourDestination'
+  }" [ngStyle]="{
+      'background-image':exploreWorld === 'reachYourDestination' ? 'url(../../../assets/world.jpg)' : '',
+      'background-size':exploreWorld === 'reachYourDestination' ? 'cover' : '',
+      'background-position':exploreWorld === 'reachYourDestination' ? generatePosition: ''
+    }" (click)="findPlace()">
+    {{generatePosition}}
+
+  </div>
+</section>

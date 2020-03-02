@@ -1,0 +1,65 @@
+.world {
+  position: relative;
+  height: 100vh;
+  /* color: #ffffff;
+    text-shadow: 0 0 140px rgba(0, 0, 0, 0.3); */
+  /* background-color: #d4418e;
+  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%); */
+}
+
+.pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: url(../../../assets/world.jpg);
+  background-size: cover;
+  animation: animateEarth 30s linear infinite;
+  border-radius: 50%;
+  /* box-shadow: inset 0 0 40px rgba(255, 255, 255, .5); */
+  box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,
+    0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
+}
+
+.exploreTheWorld {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: url(../../../assets/world.jpg);
+  background-size: cover;
+  animation: animateEarth 0.5s linear infinite;
+  border-radius: 50%;
+  /* box-shadow: inset 0 0 40px rgba(255, 255, 255, .5); */
+  box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,
+    0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
+}
+
+.finallyReach {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  /* background-size: cover; */
+  /* animation: animateEarth .5s linear infinite; */
+  border-radius: 50%;
+  /* box-shadow: inset 0 0 40px rgba(255, 255, 255, .5); */
+  box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,
+    0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
+}
+
+@keyframes animateEarth {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 1600px 0;
+  }
+}

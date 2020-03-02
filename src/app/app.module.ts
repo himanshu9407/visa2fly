@@ -82,6 +82,7 @@ import { SomethingWrongComponent } from './shared/components/something-wrong/som
 import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
 import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
 import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
+import { WorldComponent } from './components/world/world.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam
     WhyChooseUsComponent,
     MobileNavComponent,
     MobileFooterComponent,
+    WorldComponent,
 
     AddPassengerDetailsComponent,
     AddTravellerComponent,
