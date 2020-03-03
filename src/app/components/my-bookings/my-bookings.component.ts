@@ -99,7 +99,7 @@ export class MyBookingsComponent implements OnInit {
     });
 
     this.AUTH_TOKEN = this.loginService.getAuthToken();
-
+    
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
       if (data.code == "0") {
         if (this.bookingService.allBookings.length > 0) {
@@ -384,6 +384,7 @@ export class MyBookingsComponent implements OnInit {
     this.bookingSearchForm.get("bookingId").setValue("");
     this.bookingsForLoop = this.bookings;
     this.filteredBookingsEmpty = false;
+    // this.preloaderService.showPreloader(true);
   }
 
   closeFeed() {

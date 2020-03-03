@@ -10,6 +10,7 @@ import { LoginService } from '../../login-signup/login/login.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { ToastService } from 'src/app/shared/toast.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ethiopian',
@@ -64,13 +65,16 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  title: string = 'Apply For Ethiopian E Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
     private userFlow : UserFlowDetails,private loginStatus : LoginStatusService,
     private loginService : LoginService, private preloaderService : PreloaderService,
     private routerHistory  :RouterHistory,
-    private reqService : RequirementsService,private toastService :ToastService) { 
+    private reqService : RequirementsService,private toastService :ToastService,
+    private titleService: Title, private meta: Meta
+    ) { 
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
      // console.log(this.userControlDetail.purpose);
@@ -97,13 +101,13 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
           this.imageCatogory.push(res.data.imageUploadInfo);
         
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          console.log(this.imageCatogoryBusinessTemp);
+          // console.log(this.imageCatogoryBusinessTemp);
           
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          console.log(this.imageCatogoryTouristTemp);
+          // console.log(this.imageCatogoryTouristTemp);
           
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          console.log(this.imageCatogoryTransitTemp);
+          // console.log(this.imageCatogoryTransitTemp);
           
           this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
@@ -148,6 +152,16 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
     }
 
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Ethiopian e visa online" },
+      {
+        name: "description",
+        content: "Apply for your Ethiopian e visa online at visa2fly. Find out what benefits are included after filing your Ethiopian e-visa online at visa2fly. Any Indian passport holder willing to visit Brussels can fill your Ethiopian e-visa application online here. Explore more about it here."
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
    ngAfterViewInit () {
@@ -169,17 +183,24 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
       {
         this.MyQuotation1 = this.touristArr;
         this.t.select("Tourist");
+        this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
 
       }else if(purpose == 'Business')
       {
         this.MyQuotation1 = this.businessArr;
         this.t.select("Business");
+        this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
       }else
       {
         this.MyQuotation1 = this.transitArr;
         this.t.select("Transit");
+        this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
       }
       // console.log(this.MyQuotation1);
+      this.imagefield1 = this.imageCatogoryTemp;
+
       
   }
 
@@ -196,6 +217,8 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
          this.MyQuotation1 = this.touristArr;
          this.selectedVisaType = 'Tourist';
          this.selectedTourist = 1;
+         this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+
          //this.t.select("Tourist");
 
      }else if(purposeString == 'Business')
@@ -204,6 +227,8 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
          this.selectedVisaType = 'Business';
          this.selectedBusiness = 1;
          this.selectedVisaBusiness = 1;
+         this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
          // console.log(this.MyQuotation1);
          //this.t.select("Business");
        }else
@@ -211,9 +236,13 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
          this.MyQuotation1 = this.transitArr;
          this.selectedVisaType = 'Transit';
          this.selectedTransit = 1;
+         this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
          //this.t.select("Transit");
        }
         // console.log(this.MyQuotation1);
+        this.imagefield1 = this.imageCatogoryTemp;
+
      window.history.replaceState(
        "",
        "",
@@ -243,7 +272,8 @@ setActiveTourist(index: number) {
   // console.log('business');
 }
 
-navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
+navigate(quoteId : string,  category: string,
+  minTravelDate: number, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
                 
   this.preloaderService.showPreloader(true);
 
@@ -251,6 +281,9 @@ navigate(quoteId : string, basePrice : number, serviceTax : number, stayPeriod:s
   this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
   this.userFlow.setUserFlowDetails("quoteId",quoteId);
   //console.log(quoteId);
+  this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
   this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
   this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
   this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);

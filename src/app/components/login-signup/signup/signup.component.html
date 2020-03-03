@@ -1,103 +1,119 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" > 
-
-  <div class="row">
-    <div class="col-md-6 small-no-padding">
-        <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-user"></i></span>
+    <div class="row">
+        <div class="col-md-6 small-no-padding">
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input pattern="[A-Za-z]{3,32}" formControlName="firstName" type="text" class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}"
+                    placeholder="First Name" />
+                <div class="invalid-feedback" style="display: block;margin-left: 8%;">
+                    <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
+                    <div *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').dirty ">Enter a valid First Name</div>
+                </div>
             </div>
-            <input pattern="[A-Za-z]{3,32}"  formControlName="firstName" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}" placeholder="First Name"  />
-            <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
-                <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
-                <div *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').dirty ">Enter a valid First Name</div>
-              </div>
+        </div>
+
+        <div class="col-md-6 small-no-padding" style="">
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input pattern="[A-Za-z]{3,32}" formControlName="lastName" type="text" class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}"
+                    placeholder="Last Name" />
+                <div class="invalid-feedback" style="display: block;margin-left: 8%;">
+                    <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
+                    <div *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').dirty ">Enter a valid Last Name</div>
+                </div>
             </div>
+        </div>
     </div>
 
-    <div class="col-md-6 small-no-padding" style="" >
-        <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-user"></i></span>
-            </div>
-            <input pattern="[A-Za-z]{3,32}"  formControlName="lastName" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}" placeholder="Last Name"  />
-            <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
-                <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
-                <div *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').dirty ">Enter a valid Last Name</div>
-              </div>
-            </div>
-    </div>
-  </div>
-    
-  <div class="input-group form-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-    </div>
-    <input pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?" formControlName="email" type="text"  class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}" placeholder="Email"  />
-    <div  class="invalid-feedback" style="display: block;margin-left: 8%;">
-        <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
-        <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').dirty ">Enter a valid email address</div>
-      </div>
-    </div>
-    
     <div class="input-group form-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fa fa-mobile" style="font-size: 22px;"></i></span>
-      </div>
-      <input [ngClass]="{'is-invalid':signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,'is-valid':!(signupForm.get('mobile').invalid && signupForm.get('mobile').dirty) && !signupForm.get('mobile').pristine}"  formControlName="mobile" pattern="^[4-9][0-9]{9}$" type="number" class="form-control roundedinput" placeholder="Mobile"  />
-    <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty"  class="invalid-feedback" style="display: block;margin-left: 8%;">
-        <!-- <div>Mobile No. is required</div> -->
-        <div >Invalid Mobile Number</div>
-      </div>
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+        </div>
+        <input pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?" formControlName="email" type="text" class="form-control roundedinput " [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}"
+            placeholder="Email" />
+        <div class="invalid-feedback" style="display: block;margin-left: 8%;">
+            <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
+            <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').dirty ">Enter a valid email address
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group form-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-mobile" style="font-size: 22px;"></i></span>
+        </div>
+        <input [ngClass]="{'is-invalid':signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,'is-valid':!(signupForm.get('mobile').invalid && signupForm.get('mobile').dirty) && !signupForm.get('mobile').pristine}" formControlName="mobile" pattern="^[4-9][0-9]{9}$"
+            type="number" class="form-control roundedinput" placeholder="Mobile" />
+        <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty" class="invalid-feedback" style="display: block;margin-left: 8%;">
+            <!-- <div>Mobile No. is required</div> -->
+            <div>Invalid Mobile Number</div>
+        </div>
     </div>
     <div *ngIf="showOtpFields" class="input-group form-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fa fa-key"></i></span>
-      </div>
-      <input [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}" (keydown.enter) ="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP"  />
-      <div *ngIf="signupForm.get('otp').invalid && signupForm.get('otp').dirty" class="invalid-feedback"  style="display: block;margin-left: 8%;">
-     
-        <div >Invalid OTP</div>
-      </div>
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-key"></i></span>
+        </div>
+        <input [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}" (keydown.enter)="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$"
+            formControlName="otp" type="text" class="form-control roundedinput" placeholder="OTP" />
+        <div *ngIf="signupForm.get('otp').invalid && signupForm.get('otp').dirty" class="invalid-feedback" style="display: block;margin-left: 8%;">
+
+            <div>Invalid OTP</div>
+        </div>
     </div>
-        <div *ngIf="showAlert" class="alert alert-primary alert-dismissible fade show" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong> OTP Sent Successfully!</strong>  
-        </div>
-    
-        <div *ngIf="otpSentCount > 0"  class="row align-items-center resendBtn">
-            <a (click) = "onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i class="fa fa-redo-alt"></i> Resend OTP</span></a>
-        </div>
-  <!-- <div *ngIf="showOtpFields" class="row align-items-center remember">
+    <div *ngIf="showAlert" class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <strong> OTP Sent Successfully!</strong>
+    </div>
+
+
+    <!-- <div *ngIf="showOtpFields" class="row align-items-center remember">
     <input formControlName="tnc" form type="checkbox" checked   aria-selected="true"> <span class="agree">I Agree to Terms and Conditions</span>
   </div> -->
 
-  <div class="cntr" *ngIf="showOtpFields">
-    <input class="hidden-xs-up" formControlName="tnc" (keydown.enter) ="onKeyPress1($event)" form id="cbx" aria-selected="true" type="checkbox" style="display: none;" />
-    <label class="cbx" for="cbx"></label>
-    <label class="lbl agree" for="cbx">I Agree to <a [routerLink]="['/tnc']">Terms and Conditions</a></label>
-  </div>
+    <div class="cntr" *ngIf="showOtpFields">
+        <input class="hidden-xs-up" formControlName="tnc" (keydown.enter)="onKeyPress1($event)" form id="cbx" aria-selected="true" type="checkbox" style="display: none;" />
+        <label class="cbx" for="cbx"></label>
+        <label class="lbl agree" for="cbx">I Agree to <a [routerLink]="['/tnc']">Terms and Conditions</a></label>
+    </div>
 
-  <div class=" row form-group d-flex justify-content-center" >
-    
-    <div class="form-group">
-      <button *ngIf = "showSendOtpButton" [ngClass] = "{'scale-out':showOtpFields}" [disabled]="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty || signupForm.get('email').invalid && signupForm.get('email').dirty || signupForm.get('email').pristine    || signupForm.get('mobile').pristine" 
-       type="submit" value="VerifyOTP" class="scale-transition btn float-right login_btn" style="width:200px;" >
-       Send OTP</button>
-    </div>
-  </div>
-  <div *ngIf="showLoader" class="d-flex justify-content-center">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-  <div class=" row form-group d-flex justify-content-center" >
-  
+    <div class=" row form-group d-flex justify-content-center">
+
         <div class="form-group">
-          <button  [disabled]="signupForm.get('otp').invalid && signupForm.get('otp').dirty  || signupForm.get('otp').pristine ||  signupForm.get('tnc').value == false "  *ngIf="showSignUpButton" (click) = "createUser()"    type="button" value="Signup" 
-          class="btn float-right login_btn scale-transition" style="width:200px;" >Signup</button>
+            <button *ngIf="showSendOtpButton" [ngClass]="{'scale-out':showOtpFields}" [disabled]="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty || signupForm.get('email').invalid && signupForm.get('email').dirty || signupForm.get('email').pristine || signupForm.get('mobile').pristine"
+                type="submit" value="VerifyOTP" class="scale-transition btn float-right login_btn" style="width:200px;">
+                Send OTP</button>
         </div>
-      </div>
-    </form>
-    
+    </div>
+    <div *ngIf="showLoader" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="row form-group d-flex justify-content-center buttonalignment" *ngIf="showSignUpButton">
+        <div class="form-group">
+            <button [disabled]="signupForm.get('otp').invalid && signupForm.get('otp').dirty  || signupForm.get('otp').pristine ||  signupForm.get('tnc').value == false " (click)="createUser()" type="button" value="Signup" class="btn float-right login_btn scale-transition"
+                style="width:200px;">Signup</button>
+        </div>
+        <br>
+    </div>
+    <div class="row" *ngIf="displayButton">
+        <div class="col-lg-12 text-center adjusting">
+
+            <div class="row align-items-center resendBtn changeBtn">
+                <a (click)="onSubmit()" style="cursor: pointer;color: navy;"><span class="agree"> <i
+                            class="fa fa-redo-alt"></i> Resend OTP</span></a>
+            </div>
+            <div class="resendBtn" *ngIf="displayButton">
+                <a (click)="resetDetails()" style="cursor: pointer;color: navy;"><span class="agree"> <i
+                            class="fa fa-redo-alt"></i>
+                        Change Details</span></a>
+            </div>
+        </div>
+    </div>
+</form>

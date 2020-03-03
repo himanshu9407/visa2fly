@@ -17,6 +17,7 @@ import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { ToastService } from 'src/app/shared/toast.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 export interface Food {
   value: string;
@@ -68,12 +69,14 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = 'Maldives';
+  title: string;
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, 
     private requireQuotation : VisaRequirementService,
     private userFlow : UserFlowDetails,private loginStatus : LoginStatusService,
     private loginService : LoginService, private preloaderService : PreloaderService,
     private routerHistory  :RouterHistory,
+    private titleService: Title, private meta: Meta,
     private reqService : RequirementsService,private toastService :ToastService) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
@@ -135,6 +138,16 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
+    // this.titleService.setTitle(this.title);
+    // this.meta.addTags([
+    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
+    //   {
+    //     name: "description",
+    //     content: "Angular project training on rsgitech.com"
+    //   },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    // ]);
   }
 
   ngAfterViewInit () {
@@ -223,7 +236,8 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
       // console.log('business');
     }
 
-    navigate(quoteId : string, purpose: string, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
+    navigate(quoteId : string, purpose: string,  category: string,
+      minTravelDate: number, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
                 
       this.preloaderService.showPreloader(true);
     
@@ -231,6 +245,9 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
       this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
       this.userFlow.setUserFlowDetails("quoteId",quoteId);
       //console.log(quoteId);
+      this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
       this.userFlow.setUserFlowDetails("basePrice",JSON.stringify(basePrice));
       this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
       this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);

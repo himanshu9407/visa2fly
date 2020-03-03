@@ -14,7 +14,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
 import { isPlatformBrowser } from '@angular/common';
-
+import * as $ from 'jquery';
 @Component({
   selector: "app-requirements",
   templateUrl: "./requirements.component.html",
@@ -32,6 +32,7 @@ import { isPlatformBrowser } from '@angular/common';
     ])
   ]
 })
+
 export class RequirementsComponent implements OnInit {
   public regData: requirementData;
   public fieldName: string;
@@ -184,7 +185,7 @@ export class RequirementsComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        //console.log(data);
+        // console.log(data);
         if (isPlatformBrowser(this.platformId)) {
         if (data.code == "0") {
           // this.preloaderService.showPreloader(false);
@@ -299,6 +300,8 @@ export class RequirementsComponent implements OnInit {
           // this.quotes = data.data.quotes;
           //this.quotes = data.data.displayQuotes;
           this.imageUpload1 = this.imageCatogoryTemp;
+          // console.log(this.imageUpload1);
+          
           let temp = [];
           let i,
             j,
@@ -359,14 +362,17 @@ export class RequirementsComponent implements OnInit {
         }
       }
       });
+
   }
 
   navigate(
     quoteId: string,
+    category: string,
+    minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUploads: string,
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -376,6 +382,9 @@ export class RequirementsComponent implements OnInit {
       this.purposeChooseForm1.get("purposeSelected").value
     );
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));

@@ -41,18 +41,6 @@ import { SimComponent } from "./components/sim/sim.component";
 import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { PreloaderComponent } from "./shared/preloader/preloader.component";
 
-import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
-import { MyBookingsComponent } from "./components/my-bookings/my-bookings.component";
-import { TermsandConditionsComponent } from "./components/static/termsand-conditions/termsand-conditions.component";
-import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
-import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
-import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
-import { ProfileComponent } from "./components/profile/profile.component";
-import { BookingDetailsComponent } from "./components/booking-details/booking-details.component";
-import { SimplansComponent } from "./components/simplans/simplans.component";
-import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
-import { AboutUsComponent } from "./components/static/about-us/about-us.component";
-import { environment } from "../environments/environment";
 import { AustraliaComponent } from "./components/visa-requirements/australia/australia.component";
 import { UnitedKingdomComponent } from "./components/visa-requirements/united-kingdom/united-kingdom.component";
 import { FranceComponent } from "./components/visa-requirements/france/france.component";
@@ -64,6 +52,35 @@ import { DubaiComponent } from './components/visa-requirements/dubai/dubai.compo
 import { MalaysiaComponent } from './components/visa-requirements/malaysia/malaysia.component';
 import { MaldivesComponent } from './components/visa-requirements/maldives/maldives.component';
 import { SpainComponent } from './components/visa-requirements/spain/spain.component';
+import { SingaporeComponent } from './components/visa-requirements/singapore/singapore.component';
+import { SriLankaComponent } from './components/visa-requirements/sri-lanka/sri-lanka.component';
+import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { TermsandConditionsComponent } from './components/static/termsand-conditions/termsand-conditions.component';
+import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
+import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
+import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
+import { SimplansComponent } from './components/simplans/simplans.component';
+import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
+import { AboutUsComponent } from './components/static/about-us/about-us.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { B2bHomeComponent } from './components/b2b/b2b-home/b2b-home.component';
+import { B2bReqComponent } from './components/b2b/b2b-req/b2b-req.component';
+import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component';
+import { B2bAddTrvComponent } from './components/b2b/b2b-add-trv/b2b-add-trv.component'
+import { CombodiaComponent } from './components/visa-requirements/combodia/combodia.component';
+import { TurkeyComponent } from './components/visa-requirements/turkey/turkey.component';
+import { AzerbaijanComponent } from './components/visa-requirements/azerbaijan/azerbaijan.component';
+import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
+import { B2bResponseComponent } from './components/b2b/b2b-response/b2b-response.component';
+import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.component';
+import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
+import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
+import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
+import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +121,7 @@ import { SpainComponent } from './components/visa-requirements/spain/spain.compo
     SimplansComponent,
     SimcheckoutComponent,
     AboutUsComponent,
+
     AustraliaComponent,
     UnitedKingdomComponent,
     FranceComponent,
@@ -113,7 +131,25 @@ import { SpainComponent } from './components/visa-requirements/spain/spain.compo
     DubaiComponent,
     MalaysiaComponent,
     MaldivesComponent,
-    SpainComponent
+    SpainComponent,
+    SingaporeComponent,
+    SriLankaComponent,
+    CombodiaComponent,
+    TurkeyComponent,
+    AzerbaijanComponent,
+    RemovewhitespacePipe,
+    
+    B2bHomeComponent,
+    B2bReqComponent,
+    B2bHeaderComponent,
+    B2bAddTrvComponent,
+    B2bResponseComponent,
+    B2bFooterComponent,
+    B2bMobileNavComponent,
+    SomethingWrongComponent,
+    ThailandComponent,
+    VietnamComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

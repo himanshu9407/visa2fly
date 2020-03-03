@@ -12,7 +12,7 @@
                      </div>
                     <select (change)="countryChanged()"  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class="form-control form-control-sm"  name="country">
                         <!-- <option value="0">Select</option> -->
-                            <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
+                            <option style="height: 40px;" *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
                     </select>
                     <!-- <div *ngIf="!selectedCountry.valid && selectedCountry.touched" class="invalid-feedback">
                             Please choose a destination.

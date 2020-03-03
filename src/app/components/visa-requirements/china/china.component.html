@@ -366,33 +366,15 @@
   </div>
 </div>
 
-<!-- <div class="container-fluid wrapContainer mobileView">
-  <div class="row">
-      <div class="col-lg-6">
-          <div class="row">
-              <div class="col-lg-3 col-md-2 col-4">
-                  Visa Type
-              </div>
-              <div class="col-lg-6 col-md-3 col-5">
-                  <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                      <option value="tourist">Tourist</option>
-                      <option value="business">Business</option>
-                      <option value="transit">Transit</option>
-                  </select>
-              </div>
-          </div>
-      </div>
-  </div>
-</div> -->
 
 
-<div class="container-fluid wrapContainer">
+<div class="container-fluid wrapContainer" style="overflow: hidden;">
   <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
 
       <div class="card planCard">
         <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
-          {{quotation.purpose}}
+          {{quotation.purpose}} ({{quotation.processingType}})
         </div>
         <div class="card-body planCardBody">
           <div class="row">
@@ -402,6 +384,11 @@
               {{quotation.processingTime}}
             </div>
           </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-6 planCardRow">Category:</div>
+            <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right planCardRow">{{quotation.category}}
+            </div>
+        </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
             <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
@@ -413,7 +400,21 @@
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
-            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.entryType}}</div>
+            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+              {{quotation.entryType}}
+
+              <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
+                <i class="fa fa-question-circle"></i>
+            </button>
+
+            <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
+                <i class="fa fa-question-circle"></i>
+            </button>
+
+            <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
+                <i class="fa fa-question-circle"></i>
+            </button>
+            </div>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow
@@ -435,7 +436,7 @@
           <div class="row mt-3">
             <div class="col-12 text-center">
               <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
-                (click)="navigate(quotation.quoteId,  quotation.purpose, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
+                (click)="navigate(quotation.quoteId,  quotation.purpose, quotation.category, quotation.minTravelDate, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
             </div>
           </div>
         </div>
@@ -724,7 +725,7 @@
                         (click)="setActiveTourist(1)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png"
                           alt="apply for china visa online" style="height: 45px; margin-bottom: 10px;" />
-                        <h2 class="setFontSize">Application form</h2>
+                        <h2 class="setFontSize">Application Form</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -732,6 +733,7 @@
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                           <div class="card-body" style="padding: 10px">
+                          <h1 class="requiredIconHeading">Application Form</h1>
                             <p>The applicant will require to fill up a China visa online form that will
                               require details such as personal information, travel information, and other extra
                               information.</p>

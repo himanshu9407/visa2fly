@@ -17,6 +17,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { ToastService } from "src/app/shared/toast.service";
+import { Title, Meta } from '@angular/platform-browser';
 
 export interface Food {
   value: string;
@@ -69,6 +70,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = "Spain";
+  title: string;
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -79,7 +81,10 @@ export class SpainComponent implements OnInit, AfterViewInit  {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService) {
+    private toastService: ToastService,
+    private titleService: Title,
+    private meta: Meta
+    ) {
       this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
 
@@ -145,6 +150,16 @@ export class SpainComponent implements OnInit, AfterViewInit  {
      }
 
   ngOnInit() {
+    // this.titleService.setTitle(this.title);
+    // this.meta.addTags([
+    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
+    //   {
+    //     name: "description",
+    //     content: "Angular project training on rsgitech.com"
+    //   },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    // ]);
   }
   ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
@@ -225,6 +240,8 @@ export class SpainComponent implements OnInit, AfterViewInit  {
   navigate(
     quoteId: string,
     purpose: string,
+    category: string,
+    minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
@@ -235,6 +252,9 @@ export class SpainComponent implements OnInit, AfterViewInit  {
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));

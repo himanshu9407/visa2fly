@@ -27,6 +27,7 @@ export class SignupComponent implements OnInit {
   otpFormSubmitted : boolean = false;
   showSignUpButton : boolean = false;
   prevRoute = "";
+  displayButton : boolean = false;
 
 
 
@@ -89,7 +90,7 @@ export class SignupComponent implements OnInit {
       this.singUpService.createUser(reqBody)
         .subscribe(
           (data : any) => {
-            console.log(data);
+            // console.log(data);
             if (!data) {
               this.toastService.showNotification("Something Went wrong", 4000);
               this.setFormFresh();
@@ -136,7 +137,9 @@ export class SignupComponent implements OnInit {
             }
             else {
               this.toastService.showNotification(data.message.toString(),5000);
-              this.setFormFresh();
+              // this.setFormFresh();
+              this.showLoader = false;
+              this.showSignUpButton = true;
               this.router.navigate(['slcontainer','signup']);
             }
 
@@ -169,21 +172,32 @@ export class SignupComponent implements OnInit {
       this.signupForm.get('email').disable();
       this.signupForm.get('mobile').disable();
       this.otpSentCount++;
+      this.displayButton = true;
       this.showOtpFields = true;
       this.showSignUpButton = true;
       this.showLoader = false;
       this.showAlertMessage();
     }
     
-    check () {
-      // console.log("hello world");
+    resetDetails () {
+        this.signupForm.markAsPristine();
+        this.signupForm.markAsUntouched();
+        this.signupForm.enable();
+        this.signupForm.setValue({email : "", mobile : "", otp : "",firstName:"",lastName:"",tnc:false});
+        this.showLoader = false;
+        this.displayButton = false;
+        this.showLoader = false;
+        this.showOtpFields = false;
+        this.showSendOtpButton = true;
+        this.showSignUpButton = false;
+        this.showAlert = false;
     }
     
-    onSubmit() {
-      this.showLoader = true;
+     onSubmit() {
+      // this.showLoader = true;
       this.showSendOtpButton = false;
-      this.signupForm.markAsPristine();
-      this.signupForm.markAsUntouched()
+      // this.signupForm.markAsPristine();
+      // this.signupForm.markAsUntouched()
       this.signupForm.disable();
       this.signupForm.get('otp').enable();
       this.signupForm.get('tnc').enable();
@@ -207,14 +221,14 @@ export class SignupComponent implements OnInit {
             }
             else if(data.code == "309") {
               this.toastService.showNotification(data.message.toString(),4000);
-              this.afterSuccessfullOtpSent();
+              // this.afterSuccessfullOtpSent();
               this.otpFormSubmitted = true;
               
             }
             else {
               this.toastService.showNotification(data.message.toString(),4000);
 
-              this.setFormFresh();
+              // this.setFormFresh();
             }
           }
           

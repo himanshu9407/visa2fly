@@ -10,6 +10,7 @@ import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { ToastService } from 'src/app/shared/toast.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-malaysia',
@@ -63,6 +64,7 @@ export class MalaysiaComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  title: string = 'Apply For A Malaysia E Visa Online- Visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -74,7 +76,9 @@ export class MalaysiaComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private titleService: Title,
+    private meta: Meta
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -95,7 +99,7 @@ export class MalaysiaComponent implements OnInit {
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
           
@@ -154,6 +158,16 @@ export class MalaysiaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Malaysia e visa online" },
+      {
+        name: "description",
+        content: "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here."
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   ngAfterViewInit() {
@@ -172,14 +186,22 @@ export class MalaysiaComponent implements OnInit {
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.t.select("Business");
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
     } else {
       this.MyQuotation1 = this.transitArr;
       this.t.select("Transit");
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
     }
+
+    this.imagefield1 = this.imageCatogoryTemp;
     // console.log(this.MyQuotation1);
   }
 
@@ -196,19 +218,28 @@ export class MalaysiaComponent implements OnInit {
       this.MyQuotation1 = this.touristArr;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+
       //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+
       // console.log(this.MyQuotation1);
       //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
       this.selectedVisaType = "Transit";
       this.selectedTransit = 1;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+
       //this.t.select("Transit");
     }
+
+    this.imagefield1 = this.imageCatogoryTemp;
+
     // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",
@@ -236,6 +267,8 @@ export class MalaysiaComponent implements OnInit {
   navigate(
     quoteId: string,
     purpose: string,
+     category: string,
+    minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
@@ -247,6 +280,9 @@ export class MalaysiaComponent implements OnInit {
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     //console.log(quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);

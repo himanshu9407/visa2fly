@@ -1,19 +1,36 @@
   input {
       border: 1px solid #e6e6e6;
-    border-bottom-width: 3px;
-    }
-    
-    .resendBtn {
-      margin-left: 0px;
+      border-bottom-width: 3px;
+  }
+  
+  .adjusting {
+      margin-bottom: 25px;
+      margin-top: -7px;
+      margin-left: 30px;
+  }
+  /* .adjusting1 {
+      margin-top: 20px;
+      margin-left: -15px;
+  } */
+  
+  .changeBtn {
+      margin-right: 10px;
+      display: inline;
+      padding: 10px;
+  }
+  
+  .resendBtn {
+      margin-left: 12px;
       margin-bottom: 10px;
-          width: 130px;
-          border: 1px solid #e6e6e6;
-          border-bottom-width: 3px;
-          border-radius: 6px;
-          padding: 2px 6px;
-    }
-
-    .cbx {
+      width: 130px;
+      border: 1px solid #e6e6e6;
+      border-bottom-width: 3px;
+      display: initial;
+      border-radius: 6px;
+      padding: 5px 5px;
+  }
+  
+  .cbx {
       position: relative;
       top: 1px;
       width: 17px;
@@ -23,8 +40,9 @@
       vertical-align: middle;
       transition: background 0.1s ease;
       cursor: pointer;
-    }
-    .cbx:after {
+  }
+  
+  .cbx:after {
       content: '';
       position: absolute;
       top: 1px;
@@ -37,48 +55,45 @@
       border-bottom: 2px solid #fff;
       transition: all 0.3s ease;
       transition-delay: 0.15s;
-    }
-    .lbl {
+  }
+  
+  .lbl {
       margin-left: 5px;
       vertical-align: middle;
       cursor: pointer;
-    }
-    #cbx:checked ~ .cbx {
+  }
+  
+  #cbx:checked~.cbx {
       border-color: transparent;
       background: #6871f1;
       animation: jelly 0.6s ease;
-    }
-    #cbx:checked ~ .cbx:after {
+  }
+  
+  #cbx:checked~.cbx:after {
       opacity: 1;
       transform: rotate(45deg) scale(1);
-    }
-
-
-    @media(max-width:480px) {
+  }
+  
+  @media(max-width:480px) {
       .small-no-padding {
-        padding-left: 0px;
-        padding-right: 0px;
+          padding-left: 0px;
+          padding-right: 0px;
       }
-    }
-
-    /* On mouse-over, add a deeper shadow */
-
-    .roundedinput {
+  }
+  /* On mouse-over, add a deeper shadow */
+  
+  .roundedinput {
       border-radius: 20px;
       height: 35px;
       font-size: 16px;
-    }
-
-    .input-group {
+  }
+  
+  .input-group {
       margin-bottom: 14px;
-    }
-
-
-    /* On mouse-over, add a deeper shadow */
-
-
-
-    .input-group-prepend span {
+  }
+  /* On mouse-over, add a deeper shadow */
+  
+  .input-group-prepend span {
       border-radius: 20px 0px 0px 20px;
       width: 50px;
       background-color: navy;
@@ -86,70 +101,101 @@
       color: white;
       padding-left: 20px;
       border: 0 !important;
-    }
-
-    input:focus {
+  }
+  
+  input:focus {
       outline: 0 0 0 0 !important;
       box-shadow: 0 0 0 0 !important;
-    }
-
-    .remember {
+  }
+  
+  .remember {
       color: navy;
-    }
-
-    .remember input {
+  }
+  
+  .remember input {
       width: 20px;
       height: 20px;
       margin-left: 15px;
       margin-right: 5px;
-    }
-
-    .login_btn {
+  }
+  
+  .adjusting {
+      margin-bottom: 25px;
+      margin-top: -16px;
+      margin-left: -2px;
+  }
+  
+  .buttonalignment {
+      margin-top: -20px;
+  }
+  
+  .login_btn {
       border-radius: 20px;
-      margin-top: 10px;
+      margin-left: 5px;
       border-bottom-width: 3px;
       color: white;
       background-color: navy;
       width: 100px;
       transition: .5s;
-    }
-
-    .login_btn:hover {
+  }
+  
+  .login_btn:hover {
       border-color: #2A2A72;
       color: navy;
       background-color: white;
-    }
-
-    @media (max-width: 410px) {
-     
-
+  }
+  
+  @media (max-width: 410px) {
       .agree {
-        font-size: 14px;
+          font-size: 14px;
       }
-    }
-
-    .spinner-border {
+  }
+  
+  .spinner-border {
       animation: spinner-border .8s linear infinite !important;
       color: navy;
-    }
-
-
-    .scale-transition {
+  }
+  
+  .scale-transition {
       -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
       transition: -webkit-transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
       transition: transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
       transition: transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63), -webkit-transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
   }
+  
   .scale-transition.scale-out {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    -webkit-transition: -webkit-transform .2s !important;
-    transition: -webkit-transform .2s !important;
-    transition: transform .2s !important;
-    transition: transform .2s, -webkit-transform .2s !important;
-}
-
- .input-group>.form-control:not(:last-child) {
-  border-top-right-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
-}
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transition: -webkit-transform .2s !important;
+      transition: -webkit-transform .2s !important;
+      transition: transform .2s !important;
+      transition: transform .2s, -webkit-transform .2s !important;
+  }
+  
+  .input-group>.form-control:not(:last-child) {
+      border-top-right-radius: 20px !important;
+      border-bottom-right-radius: 20px !important;
+  }
+  
+  @media screen and (width: 320px) {
+      .login_btn {
+          border-radius: 20px;
+          margin-left: 5px;
+          padding: 2px;
+          border-bottom-width: 3px;
+          color: white;
+          background-color: navy;
+          width: 100px;
+          transition: .5s;
+      }
+      .resendBtn {
+          margin-left: 12px;
+          margin-bottom: 10px;
+          width: 130px;
+          border: 1px solid #e6e6e6;
+          border-bottom-width: 3px;
+          display: initial;
+          border-radius: 6px;
+          padding: 2px 2px !important;
+      }
+  }
