@@ -60,7 +60,7 @@ export class B2bHomeComponent implements OnInit {
 
     if (this.id == "" || this.id == null || this.id == undefined) {
       this.isIdExist = false;
-      this.toastService.showNotification("Something Went Wrong. ID is missing", 4000);
+      this.toastService.showNotification("ID Is Missing. Kindly Go Back And Try Again", 10000);
     } else {
       this.isIdExist = true;
     }
@@ -188,7 +188,7 @@ export class B2bHomeComponent implements OnInit {
     });
 
     if (this.id == "" || this.id == null || this.id == undefined) {
-      this.toastService.showNotification("Something Went Wrong. ID is missing", 4000);
+      this.toastService.showNotification("ID Is Missing. Kindly Go Back And Try Again", 10000);
     }
 
     if (this.validateForm()) {
