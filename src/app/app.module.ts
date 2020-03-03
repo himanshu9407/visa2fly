@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NgxPaginationModule } from "ngx-pagination";
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { MatSelectModule } from "@angular/material/select";
 
@@ -81,6 +82,7 @@ import { SomethingWrongComponent } from './shared/components/something-wrong/som
 import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
 import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
 import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
+import { WorldComponent } from './components/world/world.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,7 @@ import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam
     WhyChooseUsComponent,
     MobileNavComponent,
     MobileFooterComponent,
+    WorldComponent,
 
     AddPassengerDetailsComponent,
     AddTravellerComponent,
@@ -161,7 +164,7 @@ import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
-    // CarouselModule,
+    CarouselModule,
     NgbModule,
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
