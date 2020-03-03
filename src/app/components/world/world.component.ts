@@ -1,4 +1,10 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ElementRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Inject,
+  PLATFORM_ID,
+  ElementRef
+} from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 
 @Component({
@@ -10,7 +16,7 @@ export class WorldComponent implements OnInit {
   exploreWorld: string = "simpleRotate";
   generatePosition: number;
 
-  constructor( @Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {}
 
@@ -22,13 +28,5 @@ export class WorldComponent implements OnInit {
     this.exploreWorld = "findingDestination";
 
     this.generatePosition = Math.floor(Math.random() * 1600);
-// console.log(element);
-
-
-
-
-    console.log(this.generatePosition);
-
-
   }
 }
