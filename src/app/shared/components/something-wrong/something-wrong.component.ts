@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserFlowDetails } from '../../user-flow-details.service';
 
 @Component({
   selector: 'app-something-wrong',
@@ -8,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class SomethingWrongComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userFlow: UserFlowDetails) { }
 
   ngOnInit() {
   }
 
   goHome() {
-    this.router.navigate(['b2b/home']);
+    const ID = this.userFlow.getB2BUserFlowDetails().id;
+    this.router.navigate(["b2b/home"], { queryParams: { id: ID } });
   }
 
 }
