@@ -1,6 +1,6 @@
 <section class="world">
-
-  <div class="talk-bubble tri-right round btn-top-left btm-right">
+  <div class="talk-bubble tri-right round btn-top-left btm-right"
+    [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
     <div class="talktext">
       <h5>Incridable India</h5>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div class="talk-bubble tri-right round btn-top-right btm-left">
+  <div class="talk-bubble tri-right round btn-top-right btm-left" [@flipState]="flip">
     <div class="talktext">
       <h5>Incridable India</h5>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
@@ -25,13 +25,30 @@
   }" [ngStyle]="{
       'background-image':exploreWorld === 'reachYourDestination' ? 'url(../../../assets/world.jpg)' : '',
       'background-size':exploreWorld === 'reachYourDestination' ? 'cover' : '',
-      'background-position':exploreWorld === 'reachYourDestination' ? generatePosition: ''
-    }" (click)="findPlace()">
+      'background-position':exploreWorld === 'reachYourDestination' ? randomPosition(): ''
+    }" (click)="findPlace()" usemap="shapes-map">
     {{generatePosition}}
-
+    <img src="../../../assets/pin.png" alt="" style="transform: rotate(-27deg); height: 100px; position: relative;">
   </div>
 
-  <div class="talk-bubble tri-right round btn-bottom-left btm-top-right">
+  <!-- <img src="../../../assets/world.jpg" usemap="#image-map"> -->
+  
+
+  <!-- <map name="image-map">
+    <area target="_blank" alt="Go Go Go Africe" title="Go Go Go Africe" href="../../../assets/pin.png"
+      coords="787,430,736,439,709,448,683,479,671,526,690,567,740,579,775,584,782,623,782,667,796,716,835,743,871,714,891,680,915,671,915,695,934,695,946,667,948,640,935,636,914,651,914,627,914,609,939,585,952,560,953,533,928,535,910,520,900,497,891,480,891,469,881,455,864,455,840,451,820,444,809,446,796,442,761,428"
+      shape="poly">
+  </map> -->
+
+
+  <!-- <map name="shapes-map">
+    <area target="_self" alt="Go Go Go Africe" title="Go Go Go Africe" href=""
+      coords="787,430,736,439,709,448,683,479,671,526,690,567,740,579,775,584,782,623,782,667,796,716,835,743,871,714,891,680,915,671,915,695,934,695,946,667,948,640,935,636,914,651,914,627,914,609,939,585,952,560,953,533,928,535,910,520,900,497,891,480,891,469,881,455,864,455,840,451,820,444,809,446,796,442,761,428"
+      shape="poly">
+  </map> -->
+
+  <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
+    [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
     <div class="talktext">
       <h5>Incridable India</h5>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
@@ -40,7 +57,8 @@
     </div>
   </div>
 
-  <div class="talk-bubble tri-right round btn-bottom-right btm-top-left">
+  <div class="talk-bubble tri-right round btn-bottom-right btm-top-left"
+    [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
     <div class="talktext">
       <h5>Incridable India</h5>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
