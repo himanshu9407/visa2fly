@@ -163,9 +163,9 @@
 
 </div>
 
-<div class="pcOnly">
-    <div *ngIf="totalCount > 0" class="container myBooking">
-        <div class="row">
+<div class="pcOnly" >
+    <div *ngIf="totalCount > 0" class="container myBooking" [@simpleFadeAnimation]="'in'">
+        <div class="row" >
             <div *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }" class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
                 <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
                     <div class="card">
@@ -424,6 +424,11 @@
                         <div class="row">
                             <div class="col-lg-6 wrap-left p-4">
                                 <div class="row">
+                                  <div class="cross-times checking" (click)="closeFeed()">
+                                    <button type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                   </button>
+                                 </div>
                                     <div class="col-md-12">
                                         <h4 class="feedHeading text-center text-uppercase">Booking Details</h4>
                                     </div>
@@ -451,7 +456,7 @@
 
                                     <div class="col-md-12">
                                         <h1>
-                                            <img data-src="https://static.visa2fly.com/assets/feedback.webp" alt="" class="img-fluid feedImage lazyload">
+                                            <img data-src="https://static.visa2fly.com/assets/feedback.png" alt="" class="img-fluid feedImage lazyload">
                                         </h1>
                                     </div>
                                 </div>

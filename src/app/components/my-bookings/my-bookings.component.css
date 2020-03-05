@@ -16,10 +16,14 @@
     margin-top: 25px;
 }
 
+.checking{
+  display: none;
+}
+
 .listSet {
     padding: 20px;
     margin-top: -240px;
-    
+
 }
 
 .listSet li {
@@ -228,6 +232,18 @@ input[type="radio"]:checked+.filterLabel:after {
     .radio2 {
         margin-left: 0px;
     }
+    .cross-times button {
+      position: absolute;
+      top: -7px;
+      border: 1px solid #000;
+      right: -3px;
+      font-size: 30px;
+      color: #fff;
+      background: #000;
+      border-radius: 50px;
+      height: 30px;
+      width: 30px;
+  }
 }
 
 @media screen and (min-width: 380px) and (max-width: 480px) {
@@ -237,6 +253,7 @@ input[type="radio"]:checked+.filterLabel:after {
         /* margin-right: 10px; */
         width: 370px;
     }
+
 }
 
 @media screen and (min-width: 351px) and (max-width: 379px) {
@@ -380,6 +397,24 @@ input[type="radio"]:checked+.filterLabel:after {
         word-break: break-all;
         text-align: right;
     }
+    .cross-times button {
+      position: absolute;
+      top: -7px;
+      border: 1px solid #000;
+      right: -4px;
+      font-size: 26px;
+      color: #fff;
+      background: #000;
+      border-radius: 50px;
+      height: 30px;
+      width: 30px;
+  }
+  .cross-times button span {
+    left: 6px;
+    top: -5px;
+    font-weight: 700;
+    position: absolute;
+}
 }
 
 .priceHeading {
@@ -588,7 +623,7 @@ ul {
 }
 
 
-/* 
+/*
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
 */
@@ -609,7 +644,7 @@ ul {
 } */
 
 
-/* 
+/*
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
 */
@@ -624,7 +659,7 @@ ul {
 }
 
 
-/* 
+/*
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
 */
@@ -648,7 +683,7 @@ ul {
 }
 
 
-/* 
+/*
 ##Device = Most of the Smartphones Mobiles (Portrait)
 ##Screen = B/w 320px to 479px
 */
@@ -722,9 +757,9 @@ textarea:focus,
 
 .cross-times button {
     position: absolute;
-    top: -16px;
+    top: -7px;
     border: 1px solid #000;
-    right: -15px;
+    right: -5px;
     font-size: 30px;
     color: #fff;
     background: #000;
@@ -817,5 +852,28 @@ label {
 @media screen and (max-width: 990px) {
     .cross-times {
         display: none;
+    }
+
+    .cross-times button {
+      position: absolute;
+      top: -7px;
+      border: 1px solid #000;
+      right: -2px;
+      font-size: 26px;
+      color: #fff;
+      background: #000;
+      border-radius: 50px;
+      height: 24px;
+      width: 24px;
+  }
+  .cross-times button span {
+    left: 4px;
+    top: -8px;
+    font-weight: 700;
+    position: absolute;
+}
+
+    .checking{
+      display: initial;
     }
 }

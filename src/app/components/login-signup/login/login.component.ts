@@ -16,8 +16,8 @@ import { RequirementsService } from '../../requirements/requirements.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    
-  
+
+
   otpSentCount : number = 0;
   loginForm : FormGroup;
   showLoader : boolean = false;
@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
 
     this.prevRoute = this.routerHistory.getPrevRoute();
     // console.log(this.prevRoute);
-    
-   
+
+
 
     this.loginForm = new FormGroup ({
         'userId' : new FormControl (null,[Validators.required]),
@@ -86,9 +86,9 @@ export class LoginComponent implements OnInit {
     this.loginForm.setValue({userId : "", otp : "",rememberMe : false});
     this.showLoader = false;
     this.showLoginButton = false;
-    
+
   }
- 
+
   setFormForUser(){
     this.showOtpField = false;
     this.loginForm.enable();
@@ -186,6 +186,7 @@ export class LoginComponent implements OnInit {
                 this.loginService.setUserStatus(true);
                 this.loginStatus.setUserStatus(true);
                 this.loginStatus.setUserLoggedIn(true);
+                this.changeNumber = false;
                 this.userFlowService.setUserProfile(data.data.profile);
                 this.loginStatus.setUserProfile(data.data.profile);
                 // window.location.reload();
@@ -195,7 +196,7 @@ export class LoginComponent implements OnInit {
                 }
                 else if (this.prevRoute == "req-and-quote") {  // req-and-quotere use in req page
                   let quoteId = this.userFlowService.getUserFlowDetails().quoteId;
-                  
+
                   this.reqService.verifyQuotation(quoteId).subscribe(
                     (data : any) => {
                       if (data.code == "0") {
@@ -252,7 +253,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  
+
 
 
 

@@ -13,16 +13,39 @@ import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
 import { ToastService } from "src/app/shared/toast.service";
 import { feedbackModal } from "../../interfaces/home_formData";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from "@angular/animations";
 @Component({
   selector: "app-my-bookings",
   templateUrl: "./my-bookings.component.html",
-  styleUrls: ["./my-bookings.component.css"]
+  styleUrls: ["./my-bookings.component.css"],
+  animations: [
+    // the fade-in/fade-out animation.
+    trigger("simpleFadeAnimation", [
+      // the "in" style determines the "resting" state of the element when it is visible.
+      state("in", style({ opacity: 1 })),
+
+      // fade in when created. this could also be written as transition('void => *')
+      transition(":enter", [style({ opacity: 0 }), animate(800)]),
+
+      // fade out when destroyed. this could also be written as transition('void => *')
+      transition(
+        ":leave",
+        animate(800, style({ opacity: 0, background: "green" }))
+      )
+    ])
+  ]
 })
 export class MyBookingsComponent implements OnInit {
   [x: string]: any;
   totalCount: number = 0;
 
-  
+
 
   myBookings: Array<any> = [];
   myBookingsPc: Array<any> = [];
@@ -51,7 +74,7 @@ export class MyBookingsComponent implements OnInit {
   filterdDateArr = [];
   private isButtonVisible = false;
   feedbackBookingDetail : Array<any> = [];
-  
+
 
   constructor(
     private loginStatus: LoginStatusService,
@@ -99,24 +122,27 @@ export class MyBookingsComponent implements OnInit {
     });
 
     this.AUTH_TOKEN = this.loginService.getAuthToken();
-    
-    this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
-      if (data.code == "0") {
-        if (this.bookingService.allBookings.length > 0) {
-          this.bookingsForLoop = [...this.bookingService.allBookings];
-          this.totalCount = this.bookingsForLoop.length;
-          // console.log("found bookings in service variable");
-          
-        }
-        else {
-          // console.log("service varialbel empty");
-          
+    if (this.bookingService.allBookings.length > 0) {
+      this.bookingsForLoop = [...this.bookingService.allBookings];
+      this.totalCount = this.bookingsForLoop.length;
+      this.bookings = [...this.bookingService.allBookings];
+      this.bookingsForLoop = [...this.bookingService.allBookings];
+      // this.bookingService.allBookings = this.allBooking.data.bookings;
+      this.filterdDateArr = [...this.bookingService.allBookings];
+      // console.log("found bookings in service variable");
+    }
+    else {
+      this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
+        if (data.code == "0") {
           this.getAllBookings();
+        } else {
+          this.router.navigate(["/visa"]);
         }
-      } else {
-        this.router.navigate(["/visa"]);
-      }
-    });
+      });
+      // console.log("service varialbel empty");
+
+    }
+
 
     //end of constructor
   }
@@ -130,7 +156,7 @@ export class MyBookingsComponent implements OnInit {
       this.bookingsForLoop = this.allBooking.data.bookings;
       this.bookingService.allBookings = this.allBooking.data.bookings;
       this.filterdDateArr = this.allBooking.data.bookings;
-    
+
       if (this.allBooking != null) {
         this.totalCount = this.allBooking.data.bookings.length;
 
@@ -191,7 +217,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   fromDateChanged() {
@@ -291,6 +317,10 @@ export class MyBookingsComponent implements OnInit {
       if (fromDateTime <= bookingDateTime && bookingDateTime <= toDateTime) {
         searchedBookingsArr.push(booking);
         //  console.log(booking);
+        this.toastService.showNotification(
+          "Booking find by Date !",
+          2000
+        );
       } else {
         //  console.log("sadsa");
       }
@@ -309,7 +339,7 @@ export class MyBookingsComponent implements OnInit {
       this.filteredBookingsEmpty = true;
       this.toastService.showNotification(
         "Bookings with applied filter not found !",
-        10000
+        2000
       );
     } else {
       this.filteredBookingsEmpty = false;
@@ -330,12 +360,20 @@ export class MyBookingsComponent implements OnInit {
         this.bookingsForLoop = arr;
         found = true;
         this.isButtonVisible = true;
+        this.toastService.showNotification(
+          "Booking find by ID !",
+          2000
+        );
       }
     });
     if (!found) {
       this.bookingsForLoop = [];
       this.filteredBookingsEmpty = true;
       this.isButtonVisible = true;
+      this.toastService.showNotification(
+        "Please Check Booking ID !",
+        2000
+      );
     }
   }
 
