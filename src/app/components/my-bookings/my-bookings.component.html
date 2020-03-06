@@ -15,39 +15,39 @@
             <div class="col-md-12 mt-2 form-inline">
                 <label for="" class="filterLabel">Search By</label>
                 <label for="opt1" class="radio inputTop">
-            <input (change)="clearFilters()" type="radio" name="searchBy" id="opt1"  formControlName="searchBy" value="byDate" class="hidden" />
-            <span class="filterLabel"></span>By Date Range
-          </label>
+                  <input (change)="clearFilters()" type="radio" name="searchBy" id="opt1"  formControlName="searchBy" value="byDate" class="hidden" />
+                  <span class="filterLabel"></span>By Date Range
+                </label>
 
                 <label for="opt2" class="radio radio2 inputTop">
-            <input (change)="clearFilters()" type="radio" name="searchBy" id="opt2"  formControlName="searchBy" value="byBookingId" class="hidden" />
-            <span class="filterLabel"></span>By Booking Id
-          </label>
-            </div>
-            <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'">
+                  <input (change)="clearFilters()" type="radio" name="searchBy" id="opt2"  formControlName="searchBy" value="byBookingId" class="hidden" />
+                  <span class="filterLabel"></span>By Booking Id
+                </label>
+              </div>
+                <div class="col-md-12 mt-2 inputTop" *ngIf= "this.bookingSearchForm.get('searchBy').value === 'byDate'">
                 <div class="form-row">
                     <div class="col-md-12 col-lg-8">
                         <div class="row">
                             <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
                                 <label for="" class="filterLabel">From Date</label>
                                 <div class="input-group">
-                                    <input (ngModelChange)="fromDateChanged()" [(ngModel)]="fromDate" formControlName="fromDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate" />
-                                    <div class="input-group-append">
-                                        <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                      </button>
+                                  <input (ngModelChange) = "fromDateChanged()" [(ngModel)]= "fromDate" formControlName="fromDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]= "maxDate" />
+                                  <div class="input-group-append">
+                                      <button class="btn btn-sm btn-outline-secondary calendar" (click)= "d.toggle()" type="button">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                      </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
                                 <label for="" class="filterLabel">To Date</label>
                                 <div class="input-group">
-                                    <input [(ngModel)]="toDate" [disabled]="this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo"
-                                        [maxDate]="maxDate" />
+                                    <input [(ngModel)] = "toDate" [disabled]= "this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]= "minDateOfTo"
+                                        [maxDate]= "maxDate" />
                                     <div class="input-group-append">
-                                        <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                      </button>
+                                        <button class="btn btn-sm btn-outline-secondary calendar" (click)= "tp.toggle()" type="button">
+                                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -56,21 +56,21 @@
                     <div class="col-md-12 col-lg-4 marginTop">
                         <div class="row">
                             <div class="col-4 noPadd text-center">
-                                <button (click)="searchBookingsByDate()" [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm roundedBorder" type="submit">
-                    Search
-                  </button>
+                                <button (click)= "searchBookingsByDate()" [disabled]= "this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null " class="btn btn-sm roundedBorder" type="submit">
+                                  Search
+                                </button>
                             </div>
                             <div class="col-4 noPadd text-center p-0">
                                 <button (click)="clearFilters()" class="btn btn-sm" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
-                    Clear Filters
-                  </button>
+                                  Clear Filters
+                                </button>
                             </div>
                             <div class="col-4 noPadd borderLeft">
                                 <!-- Button trigger modal -->
                                 <div class="text-center">
                                     <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal" data-target="#filterBtn">
-                      <i class="fa fa-filter"></i>&nbsp; Filter By
-                    </button>
+                                      <i class="fa fa-filter"></i>&nbsp; Filter By
+                                    </button>
                                 </div>
 
                                 <!-- Modal -->
@@ -80,45 +80,45 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">Filter By</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
                                             <div class="modal-body filterBody">
-                                                <form [formGroup]="bookingFilterForm">
-                                                    <div class="col-12">
-                                                        <input formControlName="visa" class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
-                                                        <label class="cbx" for="datecbx1">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Visa</span>
-                            </label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <input formControlName="sim" class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
-                                                        <label class="cbx" for="datecbx2">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Sim</span>
-                            </label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <input formControlName="insurance" class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
-                                                        <label class="cbx" for="datecbx3">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Insurance</span>
-                            </label>
-                                                    </div>
-                                                </form>
+                                              <form [formGroup]="bookingFilterForm">
+                                              <div class="col-12">
+                                                <input formControlName="visa" class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
+                                                <label class="cbx" for="datecbx1">
+                                                  <span>
+                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                      <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </svg>
+                                                  </span>
+                                                  <span>Visa</span>
+                                                </label>
+                                              </div>
+                                              <div class="col-12">
+                                                <input formControlName="sim" class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
+                                                <label class="cbx" for="datecbx2">
+                                                  <span>
+                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                      <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </svg>
+                                                  </span>
+                                                  <span>Sim</span>
+                                                </label>
+                                              </div>
+                                              <div class="col-12">
+                                                <input formControlName="insurance" class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
+                                                <label class="cbx" for="datecbx3">
+                                                  <span>
+                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                      <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </svg>
+                                                  </span>
+                                                  <span>Insurance</span>
+                                                </label>
+                                              </div>
+                                            </form>
                                             </div>
                                             <div class="modal-footer filterFooter">
                                                 <button (click)="filterBookings()" type="button" class="btn btn-sm btn-primary" data-dismiss="modal" style="border-radius: 20px; background: #000080;">Apply Changes</button>
@@ -146,13 +146,13 @@
                         <div class="row">
                             <div class="col-6 noPadd text-center">
                                 <button (click)="searchBookingsByBookingId()" [disabled]="this.bookingSearchForm.get('bookingId').value == null" class="btn btn-sm btn-primary roundedBorder">
-                    Search
-                  </button>
+                                  Search
+                                </button>
                             </div>
                             <div class="col-6 noPadd text-center">
-                                <button (click)="clearFilters()" class="btn btn-sm showAll" *ngIf="this.isButtonVisible" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
-                              View All
-                            </button>
+                                <button (click)= "clearFilters()" class="btn btn-sm showAll" *ngIf= "this.isButtonVisible" style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
+                                  View All
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -434,7 +434,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <svg height="210" width="500">
-                                            <line class="lineArrange" x1="0" y1="0" x2="325" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
+                                            <line class="lineArrange" x1="0" y1="0" x2="350" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
                                           </svg>
                                     </div>
                                     <div class="col-md-12 detailsSetting" *ngFor="let item of feedbackBookingDetail">

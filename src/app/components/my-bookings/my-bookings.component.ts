@@ -4,7 +4,7 @@ import {
   FormBuilder,
   Validators
 } from "@angular/forms";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../login-signup/login/login.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
@@ -218,6 +218,13 @@ export class MyBookingsComponent implements OnInit {
 
   ngOnInit() {
 
+
+
+  }
+
+
+  @HostListener('click') doSomething(){
+    this.bookingStatus = false;
   }
 
   fromDateChanged() {
