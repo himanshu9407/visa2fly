@@ -86,7 +86,7 @@
                                             <div class="modal-body filterBody">
                                               <form [formGroup]="bookingFilterForm">
                                               <div class="col-12">
-                                                <input formControlName="visa" class="inp-cbx" id="datecbx1" type="checkbox" style="display: none;" />
+                                                <input type="checkbox" formControlName="visa" class="inp-cbx" id="datecbx1"  style="display: none;" />
                                                 <label class="cbx" for="datecbx1">
                                                   <span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -97,7 +97,7 @@
                                                 </label>
                                               </div>
                                               <div class="col-12">
-                                                <input formControlName="sim" class="inp-cbx" id="datecbx2" type="checkbox" style="display: none;" />
+                                                <input type="checkbox" formControlName="sim" class="inp-cbx" id="datecbx2"  style="display: none;" />
                                                 <label class="cbx" for="datecbx2">
                                                   <span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -108,7 +108,7 @@
                                                 </label>
                                               </div>
                                               <div class="col-12">
-                                                <input formControlName="insurance" class="inp-cbx" id="datecbx3" type="checkbox" style="display: none;" />
+                                                <input type="checkbox" formControlName="insurance" class="inp-cbx" id="datecbx3"  style="display: none;" />
                                                 <label class="cbx" for="datecbx3">
                                                   <span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -409,14 +409,14 @@
 
 </div>
 
-<div class="feedback-popup">
+<div class="feedback-popup" id="myId">
     <!-- <button type="button" class="btn btn-primary" style="margin-top: 80px;" data-toggle="modal" data-target="#exampleModal">
     Launch demo modal
   </button> -->
 
     <!-- Modal -->
 
-    <div class="modal fade show" tabindex="-1" role="dialog" aria-hidden="true" [ngStyle]="{'display': bookingStatus ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
+    <div class="modal fade show" tabindex="-1" role="dialog" data-backdrop="false" aria-hidden="true" [ngStyle]="{'display': bookingStatus ? 'block' : 'none'}" style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body" style="padding: 0px;">

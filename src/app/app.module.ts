@@ -84,6 +84,7 @@ import { ThailandComponent } from './components/visa-requirements/thailand/thail
 import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 import { WorldComponent } from './components/world/world.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -141,7 +142,7 @@ import { WorldComponent } from './components/world/world.component';
     TurkeyComponent,
     AzerbaijanComponent,
     RemovewhitespacePipe,
-    
+
     B2bHomeComponent,
     B2bReqComponent,
     B2bHeaderComponent,
@@ -165,7 +166,7 @@ import { WorldComponent } from './components/world/world.component';
     MatSelectModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgbModule,
+    NgbModule
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [

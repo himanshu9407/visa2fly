@@ -13,6 +13,7 @@ import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
 import { ToastService } from "src/app/shared/toast.service";
 import { feedbackModal } from "../../interfaces/home_formData";
+
 import {
   trigger,
   state,
@@ -74,6 +75,7 @@ export class MyBookingsComponent implements OnInit {
   filterdDateArr = [];
   private isButtonVisible = false;
   feedbackBookingDetail : Array<any> = [];
+
 
 
   constructor(
@@ -142,6 +144,8 @@ export class MyBookingsComponent implements OnInit {
       // console.log("service varialbel empty");
 
     }
+
+
 
 
     //end of constructor
@@ -223,9 +227,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
 
-  @HostListener('click') doSomething(){
-    this.bookingStatus = false;
-  }
+
 
   fromDateChanged() {
     this.minDateOfTo = this.bookingSearchForm.get("fromDate").value;
