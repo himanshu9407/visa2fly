@@ -7,16 +7,75 @@
   margin-right: 10px;
   border-radius: 20px;
   font-weight: 700;
+  padding: 3px;
+}
+
+.showDiv {
+  background: rgba(0, 28, 105, 0.5) !important;
 }
 
 :host ::ng-deep .tabset .nav-pills {
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-left: 370px;
+  margin-right: 370px;
 }
 
 :host ::ng-deep .tabset a.nav-link.active {
   background: #000080;
   color: #fff;
+}
+
+:host ::ng-deep .iconTabset a.nav-link {
+  /* background: #fff; */
+  /* color: #000; */
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 0px;
+  font-weight: 700;
+  padding: 0px;
+  /* max-width: 295px; */
+}
+
+:host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+  background: rgba(0, 37, 131, 0.2);
+  color: #000;
+  /* border: 1px solid #000080; */
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 0px;
+  height: 120px;
+  padding: 20px !important;
+  border: none;
+  /* max-width: 295px !important; */
+  font-weight: 700;
+}
+
+:host ::ng-deep .iconTabset .nav-pills {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+:host ::ng-deep .iconTabset a.nav-link.active {
+  /* background: #a49cb2; */
+  background: none;
+  color: #000;
+}
+
+.bannerImage {
+  height: 370px;
+  width: 100%;
+}
+
+.mgxTop {
+  margin-top: 10px;
+}
+
+.setFontSize {
+  font-size: 16px;
+}
+
+.setPadding {
+  font-weight: 600;  padding-right: 0px;
 }
 
 .requiredIconHeading {
@@ -32,9 +91,10 @@ color: #fff !important;
 padding: 4px 10px !important;
 }
 
-p {
+p, li {
   font-size: 14px;
 }
+
 
 .btn {
   display: inline-block;
@@ -83,17 +143,20 @@ font-size: 14px;
 }
 
 .faqQuery {
-  background: #0000bb;
+  /* background: #0000bb; */
   /* border-radius: 10px; */
-  color: #fff !important;  
+  background-color: rgba(0,0,0,.03);
+  /* border-bottom: 1px solid rgba(0,0,0,.125); */
+  /* color: #0000bb !important;   */
   text-decoration: none !important;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .visaTypeButton {
   background: #000080;
   /* border-radius: 10px; */
-  color: #fff !important;  
+  color: #fff !important;
   text-decoration: none !important;
   border-radius: 10px;
   padding: 5px !important;
@@ -112,16 +175,16 @@ font-size: 14px;
 }
 
 .faqQuery button {
-  font-weight: 650;
+  font-weight: 500;
   font-size: 16px;
-  color: #fff !important;  
+  color: #0000bb !important;
   text-decoration: none !important;
 }
 
 .visaTypeButton button {
   font-weight: 650;
   font-size: 16px;
-  color: #fff !important;  
+  color: #fff !important;
   text-decoration: none !important;
 }
 
@@ -157,7 +220,10 @@ select:focus {
 
 .requiredIcon {
   border-radius: 0px;
-  background: rgba(0, 37, 131, 0.2);
+  margin-top: 4px;
+  background: #918b9c;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .setHeight {
@@ -171,10 +237,7 @@ select:focus {
 .imageContainer {
   padding: 80px 40px 10px;
 }
-.bannerImage {
-  height: 368px;
-  width: 100%;
-}
+
 .visaStep {
   background: #f5f5f5;
   padding: 12px 20px;
@@ -182,7 +245,7 @@ select:focus {
   border-radius: 20px;
 }
 .visaStepHeading {
-  font-size: 24px;
+  font-size: 16px;
 }
 .planCard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -195,7 +258,7 @@ select:focus {
   color: #000;
   border-bottom: 2px solid navy;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .faqContainer {
@@ -205,15 +268,47 @@ select:focus {
   font-size: 24px;
   margin-bottom: 20px;
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+.iconSection {
+  border: 5px solid #e2e2e2;
+  padding: 35px 20px 20px;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
   .imageContainer {
     padding: 90px 30px 10px;
   }
 
+  .mgTop {
+    margin-top: 10px;
+  }
 
 :host ::ng-deep .tabset .nav-pills {
   margin-left: 150px;
   margin-right: 150px;
+}
+
+:host ::ng-deep .iconTabset .nav-pills {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+:host ::ng-deep .iconTabset a.nav-link {
+  max-width: 220px !important;
+}
+
+:host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+  background: rgba(0, 37, 131, 0.2);
+  color: #000;
+  /* border: 1px solid #000080; */
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 0px;
+  height: 140px;
+  padding: 20px !important;
+  border: none;
+  /* max-width: 340px !important; */
+  font-weight: 700;
 }
 
 .requirementContainer {
@@ -236,15 +331,127 @@ select:focus {
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 767px) {
+
+@media screen and (min-width: 768px) and (max-width: 800px) {
+
+  :host ::ng-deep .tabset .nav-pills {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    max-width: 165px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 135px;
+    padding: 20px !important;
+    border: none;
+    max-width: 165px !important;
+    font-weight: 700;
+  }
+
+  .setFontSize {
+    font-size: 15px;
+  }
+
+  .visaStepContainer {
+    margin-top: 20px;
+  }
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 500px) {
   .imageContainer {
     padding: 120px 10px 10px;
   }
 
+
+  .outerRequirement {
+    margin-top: 10px;
+    line-height: 20px;
+  }
+
+  :host ::ng-deep .tabset a.nav-link {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000080;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 14px !important;
+    border-radius: 20px;
+    padding: 2px 5px;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .tabset .nav-pills {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    /* background: #fff; */
+    /* color: #000; */
+    border: none;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    font-weight: 700;
+    padding: 0px;
+    width: 155px;
+    max-width: 216px;
+  }
+
+  .bannerImage {
+    height: 230px;
+  }
+
+  .visaStepMainPoint {
+    font-size: 16px;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 20px !important;
+    border: none;
+    max-width: 340px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link.active {
+    /* background: #a49cb2; */
+    background: none;
+  }
+
+
+
   .faqQuery button {
-    font-weight: 650;
+    font-weight: 500;
     font-size: 14px;
-    color: #fff !important;  
+    color: #0000bb !important;
     text-decoration: none !important;
   }
 
@@ -261,10 +468,183 @@ select:focus {
   }
 }
 
+@media screen and (min-width: 501px) and (max-width: 767px) {
+  .imageContainer {
+    padding: 120px 10px 10px;
+  }
+
+
+  .outerRequirement {
+    margin-top: 10px;
+    line-height: 20px;
+  }
+
+  :host ::ng-deep .tabset a.nav-link {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000080;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 14px !important;
+    border-radius: 20px;
+    padding: 2px 5px;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .tabset .nav-pills {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    /* background: #fff; */
+    /* color: #000; */
+    border: none;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    font-weight: 700;
+    padding: 0px;
+    width: 216px;
+    max-width: 216px;
+  }
+
+  .bannerImage {
+    height: 230px;
+  }
+
+  .visaStepMainPoint {
+    font-size: 16px;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 20px !important;
+    border: none;
+    max-width: 340px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link.active {
+    /* background: #a49cb2; */
+    background: none;
+  }
+
+
+
+  .faqQuery button {
+    font-weight: 500;
+    font-size: 14px;
+    color: #0000bb !important;
+    text-decoration: none !important;
+  }
+
+  .visaStepContainer {
+    margin-top: 20px;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .desktopView {
+    display: none;
+  }
+}
+
+
 @media screen and (min-width: 360px) and (max-width: 480px) {
   .imageContainer {
     padding: 120px 10px 10px;
   }
+
+  .setPadding {
+    font-weight: 600;  padding: 0px;
+  }
+
+  .setFontSize {
+    font-size: 13px;
+  }
+
+  .impRequired {
+    padding: 0px;
+  }
+
+  .iconSection {
+    border: 5px solid #e2e2e2; padding: 20px 0px !important;
+  }
+
+
+  :host ::ng-deep .tabset a.nav-link {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000080;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    border-radius: 20px;
+    padding: 2px 5px;
+   font-size: 14px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .tabset .nav-pills {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    /* background: #fff; */
+    /* color: #000; */
+    border: none;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    font-weight: 700;
+    padding: 0px;
+    width: 210px;
+    max-width: 216px;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 100px !important;
+    padding: 10px !important;
+    border: none;
+    max-width: 340px !important;
+    font-weight: 700;
+  }
+
+
+
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link.active {
+    /* background: #a49cb2; */
+    background: none;
+  }
+
 
   .planCardBody {
     padding: 10px 15px;
@@ -275,9 +655,9 @@ select:focus {
   }
 
   .faqQuery button {
-    font-weight: 650;
+    font-weight: 500;
     font-size: 14px;
-    color: #fff !important;  
+    color: #0000bb !important;
     text-decoration: none !important;
   }
 
@@ -295,8 +675,9 @@ select:focus {
 
   .outerRequirement {
     line-height: 20px;
+    margin-top: 10px;
   }
-  
+
   .faqContainer {
     color: #000;
     border-bottom: 2px solid navy;
@@ -366,7 +747,7 @@ select:focus {
   }
 
   .visaStepHeading {
-    font-size: 22px;
+    font-size: 14px;
   }
 }
 
@@ -375,9 +756,81 @@ select:focus {
     padding: 120px 10px 10px;
   }
 
-  .visaStepHeading {
-    font-size: 22px;
+  .setWidth {
+    width: 148px !important;
+}
+
+  .setPadding {
+    font-weight: 600;  padding: 0px;
   }
+
+  .setFontSize {
+    font-size: 13px;
+  }
+
+  .iconSection {
+    border: 5px solid #e2e2e2; padding: 20px 0px !important;
+  }
+
+
+  .visaStepHeading {
+    font-size: 14px;
+  }
+
+  :host ::ng-deep .tabset a.nav-link {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000080;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 14px !important;
+    border-radius: 20px;
+    padding: 2px 5px;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .tabset .nav-pills {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 100px !important;
+    padding: 10px !important;
+    border: none;
+    font-weight: 700;
+  }
+
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 100px !important;
+    padding: 10px !important;
+    border: none;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset .nav-pills {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link.active {
+    /* background: #a49cb2; */
+    background: none;
+  }
+
 
   .planCardBody {
     padding: 10px 15px;
@@ -387,7 +840,7 @@ select:focus {
     color: #000;
     border-bottom: 2px solid navy;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .mat-form-field-infix {
@@ -396,9 +849,10 @@ select:focus {
 
 
   .outerRequirement {
+    margin-top: 10px;
     line-height: 20px;
   }
-  
+
   .faqContainer {
     color: #000;
     border-bottom: 2px solid navy;
@@ -412,10 +866,6 @@ select:focus {
     margin-top: 20px;
   }
 
-  .bannerImage {
-    height: 150px;
-    width: 100%;
-  }
 
   .mobileView {
     display: block;
@@ -455,23 +905,223 @@ select:focus {
     padding: 0px;
   }
 
+  .impRequired {
+    padding: 0px;
+  }
+
 
   .wrapContainer {
     padding: 10px 15px 10px;
   }
 }
 
+@media screen and (min-width: 461px) and (max-width: 480px) {
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 100px;
+    /* padding: 10px; */
+    border: none;
+    width: 193px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted{
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 115px;
+    padding: 10px;
+    border: none;
+    width: 193px !important;
+    font-weight: 700;
+  }
+
+}
+
+
+@media screen and (min-width: 421px) and (max-width: 460px) {
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 115px;
+    padding: 10px;
+    border: none;
+    width: 170px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted{
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 115px;
+    padding: 10px;
+    border: none;
+    width: 170px !important;
+    font-weight: 700;
+  }
+
+}
+
+@media screen and (min-width: 393px) and (max-width: 420px) {
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    /* height: 115px; */
+    /* padding: 10px; */
+    border: none;
+    width: 165px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted{
+    background: rgba(0, 37, 131, 0.2);
+  }
+
+}
+
+@media screen and (min-width: 380px) and (max-width: 392px) {
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 115px;
+    padding: 10px;
+    border: none;
+    width: 149px !important;
+    font-weight: 700;
+  }
+
+}
+
+@media screen and (min-width: 361px) and (max-width: 379px) {
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    /* height: 140px; */
+    padding: 0px !important;
+    border: none;
+    width: 145px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 140px;
+    padding: 20px;
+    border: none;
+    width: 145px !important;
+    font-weight: 700;
+  }
+
+}
+
+@media screen and (min-width: 351px) and (max-width: 360px) {
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    /* height: 140px; */
+    padding: 0px !important;
+    width: 140px !important;
+    border: none;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 100px;
+    padding: 10px !important;
+    width: 140px !important;
+    border: none;
+    font-weight: 700;
+  }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 350px) {
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    /* height: 140px; */
+    padding: 0px !important;
+    border: none;
+    width: 120px !important;
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 100px;
+    padding: 10px !important;
+    border: none;
+    width: 120px !important;
+    font-weight: 700;
+  }
+
+
+
+
+}
+
+
+
+
 @media screen and (max-width: 600px) {
   .mobileView, .mobileContainer {
     display: block;
   }
-  
+
   .desktopView, .desktopContainer {
     display: none;
-  }
-
-  .txtCenter {
-    text-align: center;
   }
 
   .diffMg {
@@ -486,14 +1136,257 @@ select:focus {
     color: #000;
     border-bottom: 2px solid navy;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
   }
-  
+
   .faqContainer {
     color: #000;
     border-bottom: 2px solid navy;
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 20px;
+  }
+
+
+}
+
+@media screen and (min-width: 1600px) {
+
+  :host ::ng-deep .iconTabset a.nav-link {
+    background: none;
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 0px !important;
+    border: none;
+    /* max-width: 456px !important; */
+    font-weight: 700;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    background: rgba(0, 37, 131, 0.2);
+    color: #000;
+    /* border: 1px solid #000080; */
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    height: 120px;
+    padding: 20px;
+    border: none;
+    /* max-width: 456px !important; */
+    font-weight: 700;
+  }
+
+}
+
+@media screen and (min-width: 1801px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1660px;
+  }
+}
+
+
+@media screen and (min-width: 1701px) and (max-width: 1800px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1550px;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 382px !important;
+  }
+}
+
+@media screen and (min-width: 1601px) and (max-width: 1700px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1480px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 350px !important;
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1501px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1375px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 335px !important;
+  }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1401px) {
+
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1287px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 310px !important;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1301px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1215px !important;
+  }
+
+  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+    max-width: 295px !important;
+  }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 1225px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 1090px !important;
+  }
+}
+
+@media screen and (width: 768px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 633px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+ .txtCenter {
+   text-align: center !important;
+ }
+}
+
+
+@media screen and (width: 800px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 667px !important;
+  }
+}
+
+@media screen and (width: 1024px) {
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 882px !important;
+  }
+}
+
+@media screen and (width: 320px) {
+  .bannerImage {
+    height: 180px;
+  }
+}
+
+
+.select-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  /* font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif; */
+  font-size: 18px;
+  color: #60666d;
+}
+
+.select-box__current {
+  position: relative;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: none;
+}
+.select-box__current:focus + .select-box__list {
+  opacity: 1;
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+.select-box__current:focus + .select-box__list .select-box__option {
+  cursor: pointer;
+}
+.select-box__current:focus .select-box__icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+.select-box__icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 15px;
+  opacity: 0.8;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.select-box__value {
+  display: -webkit-box;
+  display: flex;
+}
+.select-box__input {
+  display: none;
+}
+.select-box__input:checked + .select-box__input-text {
+  display: block;
+}
+.select-box__input-text {
+  display: none;
+  width: 100%;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+  padding: 5px 10px;
+  background-color: #e1e1e1;
+}
+.select-box__list {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  -webkit-animation-name: HideList;
+          animation-name: HideList;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+.select-box__option {
+  display: block;
+  padding: 10px;
+  background-color: #fff;
+}
+.select-box__option:hover, .select-box__option:focus {
+  color: #546c84;
+  background-color: #fbfbfb;
+}
+
+@-webkit-keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
   }
 }

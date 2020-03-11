@@ -388,6 +388,13 @@ export class HomeFormComponent {
           ]);
           break;
         }
+        case "Australia": {
+          this.router.navigate([
+            "visa-requirements/apply-for-Australia-visa-online/",
+            "" + purpose
+          ]);
+          break;
+        }
 
         // case "Japan" : {
         //   this.setDetailsOnLocalStorage();

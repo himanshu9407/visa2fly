@@ -118,6 +118,10 @@ const routes: Routes = [
     component: UnitedKingdomComponent
   },
   {
+    path: "visa-requirements/apply-for-Australia-visa-online/:purpose",
+    component: AustraliaComponent
+  },
+  {
     path: "visa-requirements/apply-for-France-visa-online/:purpose",
     component: FranceComponent
   },
@@ -140,7 +144,7 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Thailand-visa-online/:purpose",
     component: ThailandComponent
-  },  
+  },
   {
     path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose",
     component: VietnamComponent
