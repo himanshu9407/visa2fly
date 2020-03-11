@@ -111,7 +111,7 @@ export class AustraliaComponent implements OnInit {
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        //  console.log(res);
+         console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
@@ -184,10 +184,6 @@ export class AustraliaComponent implements OnInit {
     ]);
   }
 
-  ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
-  }
-
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     // console.log(purpose);
@@ -200,14 +196,20 @@ export class AustraliaComponent implements OnInit {
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
+
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
+    this.imagefield1 = this.imageCatogoryTemp;
+
     // console.log(this.MyQuotation1);
   }
 
@@ -217,26 +219,31 @@ export class AustraliaComponent implements OnInit {
 
     let purposeString: string = purpose.nextId;
     // console.log(purposeString);
-    let purposeUrl =
-      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
       //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
       // console.log(this.MyQuotation1);
       //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
+
       this.selectedTransit = 1;
       //this.t.select("Transit");
     }
+
+    this.imagefield1 = this.imageCatogoryTemp;
     // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",

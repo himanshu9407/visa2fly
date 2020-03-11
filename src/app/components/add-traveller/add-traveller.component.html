@@ -182,7 +182,7 @@
 
                     <div
                       *ngIf="
-                        (travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) || (travellerForm.controls.travellers.controls[i].controls.firstName.errors?.valueErr) || 
+                        (travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) || (travellerForm.controls.travellers.controls[i].controls.firstName.errors?.valueErr) ||
                         (travellerForm.controls.travellers.controls[i].controls.firstName.pristine && travellerForm.controls.travellers.controls[i].controls.firstName.firstNameError)"
                       class="invalid-feedback" style="display: block">
                       Enter a valid first name
@@ -198,7 +198,7 @@
                       id="middlename" placeholder="Middle name" />
 
                     <div *ngIf="
-                        (travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty) || 
+                        (travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty) ||
                         (travellerForm.controls.travellers.controls[i].controls.middleName.errors?.valueErr) "
                       class="invalid-feedback" style="display: block">
                       Enter a valid middle name
@@ -215,8 +215,8 @@
 
                     <div
                       *ngIf="
-                        (travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.travellers.controls[i].controls.lastName.dirty) || 
-                        (travellerForm.controls.travellers.controls[i].controls.lastName.errors?.valueErr) || 
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.travellers.controls[i].controls.lastName.dirty) ||
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.errors?.valueErr) ||
                         (travellerForm.controls.travellers.controls[i].controls.lastName.pristine && travellerForm.controls.travellers.controls[i].controls.lastName.lastNameError)"
                       class="invalid-feedback" style="display: block">
                       Enter a valid last name
@@ -238,7 +238,7 @@
                       </div>
                     </div>
                     <div *ngIf="
-                    travellerForm.controls.travellers.controls[i].controls.dateOfBirth.errors?.valueErr || 
+                    travellerForm.controls.travellers.controls[i].controls.dateOfBirth.errors?.valueErr ||
                     (travellerForm.controls.travellers.controls[i].controls.dateOfBirth.dateOfBirthError &&
                         travellerForm.controls.travellers.controls[i].controls.dateOfBirthCopy.pristine)"
                       class="invalid-feedback" style="display: block">
@@ -282,7 +282,7 @@
                         </div>
                       </div>
                       <div *ngIf="
-                         travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.errors?.valueErr || 
+                         travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.errors?.valueErr ||
                     (travellerForm.controls.travellers.controls[i].controls.passportExpiryDateCopy.passportExpiryCopyError &&
                         travellerForm.controls.travellers.controls[i].controls.passportExpiryDateCopy.pristine)"
                         class="invalid-feedback" style="display: block">
@@ -303,8 +303,8 @@
                       controls.emailId.pristine}" formControlName="emailId" type="email" class="form-control"
                         id="EmailId" placeholder="Email ID" required />
 
-                      <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && 
-                        travellerForm.controls.travellers.controls[i].controls.emailId.dirty) || 
+                      <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid &&
+                        travellerForm.controls.travellers.controls[i].controls.emailId.dirty) ||
                         (travellerForm.controls.travellers.controls[i].controls.emailId.errors?.valueErr) || (travellerForm.controls.travellers.controls[i].controls.emailId.emailError &&
                         travellerForm.controls.travellers.controls[i].controls.emailId.pristine)"
                         class="invalid-feedback" style="display: block">
@@ -322,8 +322,8 @@
                     controls.gstNumber.pristine}" formControlName="gstNumber" type="text" class="form-control"
                         id="GstNumber" placeholder="GSTIN No. (Optional)" />
 
-                      <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && 
-                        travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty) || 
+                      <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid &&
+                        travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty) ||
                         (travellerForm.controls.travellers.controls[i].controls.gstNumber.errors?.valueErr)"
                         class="invalid-feedback" style="display: block">
                         Enter a valid GST number
@@ -338,8 +338,8 @@
                   travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
                   controls.cellNumber.pristine}" pattern="^[6-9][0-9]{9}$" type="tel" formControlName="cellNumber"
                       class="form-control" placeholder="Mobile Number" required />
-                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && 
-                      travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) || 
+                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid &&
+                      travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) ||
                       (travellerForm.controls.travellers.controls[i].controls.cellNumber.errors?.valueErr) ||
                       (travellerForm.controls.travellers.controls[i].controls.cellNumber.cellError &&
                       travellerForm.controls.travellers.controls[i].controls.cellNumber.pristine)"
@@ -372,9 +372,9 @@
                     travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].
                     controls.address.pristine}" formControlName="address" class="form-control "
                         placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
-                      <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.address.invalid && 
-                        travellerForm.controls.travellers.controls[i].controls.address.dirty) ||  
-                        (travellerForm.controls.travellers.controls[i].controls.address.errors?.valueErr) || 
+                      <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.address.invalid &&
+                        travellerForm.controls.travellers.controls[i].controls.address.dirty) ||
+                        (travellerForm.controls.travellers.controls[i].controls.address.errors?.valueErr) ||
                         (travellerForm.controls.travellers.controls[i].controls.address.addressError &&
                         travellerForm.controls.travellers.controls[i].controls.address.pristine)"
                         class="invalid-feedback" style="display: block">
@@ -421,8 +421,8 @@
                   controls.pinCode.pristine}" pattern="^[1-9][0-9]{5}$" type="text" class="form-control" id="pincode"
                       placeholder="Pin Code" />
 
-                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && 
-                      travellerForm.controls.travellers.controls[i].controls.pinCode.dirty) || 
+                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid &&
+                      travellerForm.controls.travellers.controls[i].controls.pinCode.dirty) ||
                       (travellerForm.controls.travellers.controls[i].controls.pinCode.errors?.valueErr) ||
                       (this.travellerForm.controls.travellers.controls[i].controls.pinCode.zipCodeError &&
                       travellerForm.controls.travellers.controls[i].controls.pinCode.pristine)"
@@ -482,7 +482,7 @@
                         <div class="modal-content">
                           <div class="modal-body">
                             <img src="https://static.visa2fly.com/sample/photograph/{{country}}.jpg" alt="" class="img-fluid feedImage">
-                          
+
                           </div>
                         </div>
                       </div>
