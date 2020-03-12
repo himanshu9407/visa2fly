@@ -395,6 +395,20 @@ export class HomeFormComponent {
           ]);
           break;
         }
+        case "USA": {
+          this.router.navigate([
+            "visa-requirements/apply-for-USA-visa-online/",
+            "" + purpose
+          ]);
+          break;
+        }
+        case "Netherlands": {
+          this.router.navigate([
+            "visa-requirements/apply-for-Netherlands-visa-online/",
+            "" + purpose
+          ]);
+          break;
+        }
 
         // case "Japan" : {
         //   this.setDetailsOnLocalStorage();

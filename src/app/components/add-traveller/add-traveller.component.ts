@@ -508,13 +508,14 @@ export class AddTravellerComponent implements OnInit {
         itr : [null],
         passportBioImage: [null],
         sixMonthsBankStatement: [null],
-        insurance: [null],
+
         userImage: [null],
         noc : [null],
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
-        businessCard: [null]
+        businessCard: [null],
+        insurance: [null],
       });
     } else {
       return this.formBuilder.group({

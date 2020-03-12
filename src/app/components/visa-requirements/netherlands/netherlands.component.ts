@@ -25,9 +25,9 @@ export interface Food {
 }
 
 @Component({
-  selector: "app-switzerland",
-  templateUrl: "./switzerland.component.html",
-  styleUrls: ["./switzerland.component.css"],
+  selector: 'app-netherlands',
+  templateUrl: './netherlands.component.html',
+  styleUrls: ['./netherlands.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -45,7 +45,8 @@ export interface Food {
     ])
   ]
 })
-export class SwitzerlandComponent implements OnInit {
+export class NetherlandsComponent implements OnInit {
+
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
@@ -67,12 +68,11 @@ export class SwitzerlandComponent implements OnInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Switzerland";
+  public selectedCountrytype = "Netherlands";
   onlineCountry: void;
   title: string;
 
-  constructor(
-    private activeRoute: ActivatedRoute,
+  constructor(private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
@@ -83,27 +83,26 @@ export class SwitzerlandComponent implements OnInit {
     private reqService: RequirementsService,
     private toastService: ToastService,
     private titleService: Title,
-    private meta: Meta
+    private meta: Meta) {
 
-  ) {
-    this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
+      this.userControlDetail = this.userFlow.getUserFlowDetails();
+      // console.log(this.userControlDetail.purpose);
 
-    this.preloaderService.showPreloader(true);
+      this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
-    });
+      this.activeRoute.params.subscribe((params: any) => {
+        this.selectedVisaType = params.purpose;
+        // this.selectedCountryType = 'France';
+        //  console.log(this.selectedCountryType);
+      });
 
-    let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
-    this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
-    });
+      let tempPurpose = this.selectedVisaType;
+      //console.log(tempPurpose);
+      this.purposeChooseForm = new FormGroup({
+        purposeSelected: new FormControl(tempPurpose)
+      });
 
-    this.requireQuotation
+      this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         // console.log(res);
@@ -142,19 +141,11 @@ export class SwitzerlandComponent implements OnInit {
           }, 500);
         }
       });
-  }
+
+
+     }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
-    // ]);
   }
 
   ngAfterViewInit() {
@@ -167,8 +158,9 @@ export class SwitzerlandComponent implements OnInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Swiss-visa-online/" + purpose
+      "/visa-requirements/apply-for-Netherlands-visa-online/" + purpose
     );
+    // console.log(this.businessArr);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -212,7 +204,7 @@ export class SwitzerlandComponent implements OnInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Swiss-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Netherlands-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }
@@ -300,4 +292,5 @@ export class SwitzerlandComponent implements OnInit {
       }
     });
   }
+
 }
