@@ -10,9 +10,9 @@
                      <div class="img-loader ldr1" style="display: none;">
                          <div class="icon-s1-small-loader" alt="apply visa online"></div>
                      </div>
-                    <select (change)="countryChanged()"  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class="form-control form-control-sm"  name="country">
+                    <select (change)="countryChanged()" onmousedown="if(this.options.length>7){this.size=7;}"  onchange='this.size=0;' onblur="this.size=0;"  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class="form-control form-control-sm"  name="country">
                         <!-- <option value="0">Select</option> -->
-                            <option style="height: 40px;" *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
+                            <option style="height: 40px;" class="option" *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
                     </select>
                     <!-- <div *ngIf="!selectedCountry.valid && selectedCountry.touched" class="invalid-feedback">
                             Please choose a destination.
@@ -38,10 +38,10 @@
                         <div class="img-loader ldr3" style="display: none;">
                            <div class="icon-s1-small-loader" alt="apply visa online"></div>
                       </div>
-                        <select  formControlName="livingin"  [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
-                            <option value="select">Select</option>
+                        <select  formControlName="livingin" onmousedown="if(this.options.length>7){this.size=7;}"  onchange='this.size=0;' onblur="this.size=0;" [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
+                            <option value="select" class="option">Select</option>
 
-                            <option  class="purpose-opt" *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
+                            <option  class="purpose-opt option" *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
 
                         </select>
                         <div  *ngIf="livesInNotSelected" class="invalid-feedback">
