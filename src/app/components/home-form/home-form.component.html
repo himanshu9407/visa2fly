@@ -10,7 +10,9 @@
                      <div class="img-loader ldr1" style="display: none;">
                          <div class="icon-s1-small-loader" alt="apply visa online"></div>
                      </div>
-                    <select (change)="countryChanged()"  [(ngModel)]="selectedCountry" formControlName="country"  required id="ddlCountry" class="form-control form-control-sm"  name="country">
+                    <select required id="ddlCountry" class="form-control form-control-sm"  name="country" 
+                    (change)="countryChanged()" onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=0;' onblur="this.size=0;"  [(ngModel)]="selectedCountry" formControlName="country"
+                    >
                         <!-- <option value="0">Select</option> -->
                             <option style="height: 40px;" *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}</option>
                     </select>
@@ -38,7 +40,7 @@
                         <div class="img-loader ldr3" style="display: none;">
                            <div class="icon-s1-small-loader" alt="apply visa online"></div>
                       </div>
-                        <select  formControlName="livingin"  [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm"   style="">
+                        <select  formControlName="livingin" onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=0;' onblur="this.size=0;"   [(ngModel)]="selectedResidenceOf" required  name="livingin" id="ddlJurisction" class=" form-control form-control-sm">
                             <option value="select">Select</option>
 
                             <option  class="purpose-opt" *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">{{livesin}}</option>
