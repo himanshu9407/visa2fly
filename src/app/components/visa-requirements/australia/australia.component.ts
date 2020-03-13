@@ -45,7 +45,7 @@ export interface Food {
     ])
   ]
 })
-export class AustraliaComponent implements OnInit {
+export class AustraliaComponent implements OnInit, AfterViewInit {
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
@@ -106,9 +106,8 @@ export class AustraliaComponent implements OnInit {
     //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose)
-    });
-
-    this.requireQuotation
+        });
+      this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
          console.log(res);
@@ -183,6 +182,10 @@ export class AustraliaComponent implements OnInit {
       // { name: "robots", content: "index, follow" }
     ]);
   }
+
+  ngAfterViewInit() {
+    this.t.select(this.selectedVisaType);
+    }
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
@@ -290,10 +293,7 @@ export class AustraliaComponent implements OnInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imagefield1)
-    );
+    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
 
     //console.log(quoteId);
 
@@ -336,5 +336,6 @@ export class AustraliaComponent implements OnInit {
       }
     });
   }
+
 
 }

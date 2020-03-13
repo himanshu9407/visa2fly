@@ -175,10 +175,10 @@ export class USAComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "australia e visa for Indians | australia e visa online" },
+      { name: "keywords", content: "apply for US visa online | Apply for US Visa Online- Visa2Fly" },
       {
         name: "description",
-        content: "Planning to visit Australia? Apply your Australia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
+        content: "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here."
       },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }

@@ -505,12 +505,12 @@ export class AddTravellerComponent implements OnInit {
         cellNumber: ["", [Validators.required]],
 
         passportFrontImage: [null],
-        itr : [null],
+        itr: [null],
         passportBioImage: [null],
         sixMonthsBankStatement: [null],
 
         userImage: [null],
-        noc : [null],
+        noc: [null],
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
@@ -969,7 +969,7 @@ export class AddTravellerComponent implements OnInit {
           // console.log(element);
         });
 
-        // console.log(ptdata[0]);
+        console.log(ptdata[0]);
         // console.log("himanshu");
 
         let dot: {

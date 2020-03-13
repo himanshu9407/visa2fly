@@ -186,7 +186,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
-  }
+    }
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
@@ -294,10 +294,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imagefield1)
-    );
+    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
 
     //console.log(quoteId);
 
