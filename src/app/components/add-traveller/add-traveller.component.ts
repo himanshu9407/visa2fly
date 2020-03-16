@@ -452,7 +452,7 @@ export class AddTravellerComponent implements OnInit {
             Validators.required,
             requiredFileType("png")
           ]);
-          console.log(element.controls[fieldName]);
+          // console.log(element.controls[fieldName]);
           element.controls[fieldName].updateValueAndValidity();
         }
       });
@@ -970,7 +970,7 @@ export class AddTravellerComponent implements OnInit {
           // console.log(element);
         });
 
-        console.log(ptdata[0]);
+        // console.log(ptdata[0]);
         // console.log("himanshu");
 
         let dot: {

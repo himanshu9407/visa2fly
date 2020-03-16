@@ -70,7 +70,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = "Spain";
-  title: string;
+  title: string = 'Apply For Spain Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -108,7 +108,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
         // console.log(res);
         if (res.code == 0) {
           // console.log(res);
-          
+
           this.MyQuotation = res.data.quotations;
           this.onlinestatus = res.data.onlineCategory;
 
@@ -150,7 +150,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
      }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
+    this.titleService.setTitle(this.title);
     // this.meta.addTags([
     //   { name: "keywords", content: "Angular Project, Create Angular Project" },
     //   {

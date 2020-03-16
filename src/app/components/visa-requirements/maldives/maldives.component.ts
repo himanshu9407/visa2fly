@@ -61,7 +61,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   public MyQuotation1 : Array<any> = [];
   public imagefield1 : Array<any> = [];
   public purposeChooseForm : FormGroup;
-  // public selectedPurpose = 'Tourist'; 
+  // public selectedPurpose = 'Tourist';
   businessArr : Array<any> =[];
   touristArr : Array<any> =[];
   transitArr : Array<any> =[];
@@ -69,9 +69,9 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = 'Maldives';
-  title: string;
+  title: string = 'Apply For Maldives Visa Online- Visa2Fly';
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, 
+  constructor(private activeRoute: ActivatedRoute, private router: Router,
     private requireQuotation : VisaRequirementService,
     private userFlow : UserFlowDetails,private loginStatus : LoginStatusService,
     private loginService : LoginService, private preloaderService : PreloaderService,
@@ -83,7 +83,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
      // console.log(this.userControlDetail.purpose);
 
       this.preloaderService.showPreloader(true);
-      
+
       this.activeRoute.params.subscribe((params : any) =>{
         this.selectedVisaType = params.purpose;
         // this.selectedCountryType = 'France';
@@ -103,7 +103,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
           this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
-            
+
             if(element.purpose == 'Business'){
             this.businessArr.push(element);
            // console.log(this.businessArr);
@@ -129,7 +129,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
           }
 
           setTimeout(() => {
-                              
+
             this.preloaderService.showPreloader(false);
             }, 500);
         }
@@ -138,7 +138,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
+    this.titleService.setTitle(this.title);
     // this.meta.addTags([
     //   { name: "keywords", content: "Angular Project, Create Angular Project" },
     //   {
@@ -152,7 +152,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit () {
     this.t.select(this.selectedVisaType);
-      
+
     }
 
     purposeChanged(){
@@ -164,12 +164,12 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
         "/visa-requirements/apply-for-Maldives-visa-online/" + purpose
       );
       // console.log(this.businessArr);
-      
+
       if(purpose == 'Tourist')
         {
           this.MyQuotation1 = this.touristArr;
           this.t.select("Tourist");
-  
+
         }else if(purpose == 'Business')
         {
           this.MyQuotation1 = this.businessArr;
@@ -180,13 +180,13 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
           this.t.select("Transit");
         }
         // console.log(this.MyQuotation1);
-        
+
     }
 
     navigateTo(purpose: any) {
       // window.location
       //let urlpurpose = this.MyQuotation1
-      
+
       let purposeString : string = purpose.nextId;
       // console.log(purposeString);
        let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
@@ -197,7 +197,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
            this.selectedVisaType = 'Tourist';
            this.selectedTourist = 1;
            //this.t.select("Tourist");
-  
+
        }else if(purposeString == 'Business')
          {
            this.MyQuotation1 = this.businessArr;
@@ -225,12 +225,12 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
         this.selectedTourist = index;
         // console.log('business');
      }
-    
+
      setActiveBusiness(index: number) {
        this.selectedBusiness = index;
       //  console.log('business');
      }
-    
+
      setActiveTransit(index: number) {
       this.selectedTransit = index;
       // console.log('business');
@@ -238,9 +238,9 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
 
     navigate(quoteId : string, purpose: string,  category: string,
       minTravelDate: number, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
-                
+
       this.preloaderService.showPreloader(true);
-    
+
       this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
       this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
       this.userFlow.setUserFlowDetails("quoteId",quoteId);
@@ -252,10 +252,10 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
       this.userFlow.setUserFlowDetails("serviceTax",JSON.stringify(serviceTax));
       this.userFlow.setUserFlowDetails("stayPeriod",stayPeriod);
       this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imagefield1));
-    
-    
+
+
        //console.log(quoteId);
-    
+
       let token = this.loginService.getAuthToken();
       if (token == null || token ==  undefined) {
         token = "";
@@ -263,20 +263,20 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
       this.loginStatus.verifyAuthToken(token).subscribe (
         (data : any) => {
           if (data.code == "0") {
-            
+
             this.reqService.verifyQuotation(quoteId).subscribe(
               (data : any) => {
                 // console.log(data);
-                
+
                 if (data.code == "0") {
                   this.routerHistory.pushHistory("visa-requirement");
                   this.router.navigate(['addTraveller']);
-    
+
                   // setTimeout(() => {
-                    
+
                     this.preloaderService.showPreloader(false);
                  // }, 2000);
-                  
+
                 }
                 else {
                   this.toastService.showNotification(""+ data.message, 4000);
@@ -301,12 +301,12 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
             this.router.navigate(['slcontainer/login']);
             this.preloaderService.showPreloader(false);
           }
-          
+
         }
       )
-    
-    
-      
+
+
+
     }
 
 }

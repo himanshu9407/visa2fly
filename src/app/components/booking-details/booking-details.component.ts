@@ -43,7 +43,7 @@ export class BookingDetailsComponent implements OnInit {
     //
 
 
-    console.log(this.selectedBooking);
+    // console.log(this.selectedBooking);
   }
 
   ngOnInit() {

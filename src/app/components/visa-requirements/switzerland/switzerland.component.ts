@@ -69,7 +69,7 @@ export class SwitzerlandComponent implements OnInit {
   selectedTourist: number = 1;
   public selectedCountrytype = "Switzerland";
   onlineCountry: void;
-  title: string;
+  title: string = 'Apply For Swizerland Visa Online- Visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -145,7 +145,7 @@ export class SwitzerlandComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
+    this.titleService.setTitle(this.title);
     // this.meta.addTags([
     //   { name: "keywords", content: "Angular Project, Create Angular Project" },
     //   {

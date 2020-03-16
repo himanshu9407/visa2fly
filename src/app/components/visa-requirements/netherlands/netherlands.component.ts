@@ -70,7 +70,7 @@ export class NetherlandsComponent implements OnInit {
   selectedTourist: number = 1;
   public selectedCountrytype = "Netherlands";
   onlineCountry: void;
-  title: string;
+  title: string = 'Apply For Netherland Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
