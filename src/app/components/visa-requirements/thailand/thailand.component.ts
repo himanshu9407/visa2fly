@@ -72,7 +72,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
   selectedTourist: number = 1;
   public countryStatic = "Thailand";
   public PurposeUse: any;
-  title: string = "Thailand E Visa Online";
+  title: string = "Thailand E Visa Online| Thailand Tourist Visa - Visa2fly";
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
