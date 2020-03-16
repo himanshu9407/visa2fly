@@ -334,7 +334,7 @@ export class AddTravellerComponent implements OnInit {
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
     // console.log(this.minTravelDate);
-    
+
 
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
@@ -368,12 +368,12 @@ export class AddTravellerComponent implements OnInit {
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
     // console.log(this.minDateOfTravel);
 
-    
+
     this.minDateOfCollection = {
       // {year: minDate.year, month: minDate.month, day: minDate.day +1}
       year: this.minDateOfTravel.year,
       month: this.minDateOfTravel.month,
-      day: this.minDateOfTravel.day - this.minTravelDate 
+      day: this.minDateOfTravel.day - this.minTravelDate
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
@@ -443,7 +443,7 @@ export class AddTravellerComponent implements OnInit {
     for (let i = 0; i < this.imageUploads.length; i++) {
       this.filedNameArr.push(this.imageUploads[i].fieldName);
     }
-    //console.log(this.filedNameArr)
+    console.log(this.filedNameArr)
     // console.log((<FormGroup><undefined>(<FormArray>this.travellerForm.get('travellers')).controls[0]).controls[this.filedNameArr[3]])
     arr.forEach((element: FormGroup) => {
       this.filedNameArr.forEach(fieldName => {
@@ -452,7 +452,7 @@ export class AddTravellerComponent implements OnInit {
             Validators.required,
             requiredFileType("png")
           ]);
-          // console.log(element.controls[fieldName]);
+          console.log(element.controls[fieldName]);
           element.controls[fieldName].updateValueAndValidity();
         }
       });
@@ -505,14 +505,17 @@ export class AddTravellerComponent implements OnInit {
         cellNumber: ["", [Validators.required]],
 
         passportFrontImage: [null],
+        itr: [null],
         passportBioImage: [null],
         sixMonthsBankStatement: [null],
-        insurance: [null],
+
         userImage: [null],
+        noc: [null],
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
-        businessCard: [null]
+        businessCard: [null],
+        insurance: [null],
       });
     } else {
       return this.formBuilder.group({
@@ -890,7 +893,7 @@ export class AddTravellerComponent implements OnInit {
 
       form.get("dateOfBirth").updateValueAndValidity();
       form.get("passportExpiryDate").updateValueAndValidity();
-      
+
       // console.log("Dhruv");
     });
 
@@ -966,7 +969,7 @@ export class AddTravellerComponent implements OnInit {
           // console.log(element);
         });
 
-        // console.log(ptdata[0]);
+        console.log(ptdata[0]);
         // console.log("himanshu");
 
         let dot: {
@@ -1143,10 +1146,10 @@ export class AddTravellerComponent implements OnInit {
               });
 
               this.originalImageArr = [];
-            
+
               this.preloaderService.showPreloader(false);
       this.toastService.showNotification(data.message, 10000);
-            
+
             } else if (data.code == "1001") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
@@ -1173,7 +1176,7 @@ export class AddTravellerComponent implements OnInit {
               });
 
               this.originalImageArr = [];
-              
+
               this.modalWarnings = [];
               this.preloaderService.showPreloader(false);
               this.errorMessage.push(data.data.warnings.travelDateWarning);
