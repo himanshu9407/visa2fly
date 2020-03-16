@@ -46,7 +46,8 @@ export interface Food {
   ]
 })
 export class MaldivesComponent implements OnInit, AfterViewInit {
-  @ViewChild("t", { static: false }) t;
+
+  @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
 
@@ -132,16 +133,16 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
-    // { name: "author", content: "rsgitech" },
-    // { name: "robots", content: "index, follow" }
-    // ]);
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Get Maldives tourist visa for Indians now – visa2Fly" },
+      {
+        name: "description",
+        content: "Apply for Maldives tourist visa for Indians online at Visa2Fly to make it quicker. We offer great online visa answers so that you get rid of visa worries. Apply here"
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   ngAfterViewInit() {
@@ -221,75 +222,75 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     // console.log('business');
   }
 
-  navigate(
-    quoteId: string,
-    purpose: string,
-    category: string,
-    minTravelDate: number,
-    basePrice: number,
-    serviceTax: number,
-    stayPeriod: string,
-    imageUploads: string
-  ) {
-    this.preloaderService.showPreloader(true);
+//   navigate(
+//     quoteId: string,
+//     purpose: string,
+//     category: string,
+//     minTravelDate: number,
+//     basePrice: number,
+//     serviceTax: number,
+//     stayPeriod: string,
+//     imageUploads: string
+//   ) {
+//     this.preloaderService.showPreloader(true);
 
-    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-    this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
-    this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
-    this.userFlow.setUserFlowDetails("category", category);
+//     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+//     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+//     this.userFlow.setUserFlowDetails("quoteId", quoteId);
+//     //console.log(quoteId);
+//     this.userFlow.setUserFlowDetails("category", category);
 
-    this.userFlow.setUserFlowDetails(
-      "minTravelDate",
-      JSON.stringify(minTravelDate)
-    );
-    this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-    this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
-    this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imagefield1)
-    );
+//     this.userFlow.setUserFlowDetails(
+//       "minTravelDate",
+//       JSON.stringify(minTravelDate)
+//     );
+//     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
+//     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
+//     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+//     this.userFlow.setUserFlowDetails(
+//       "imageUploads",
+//       JSON.stringify(this.imagefield1)
+//     );
 
-    //console.log(quoteId);
+//     //console.log(quoteId);
 
-    let token = this.loginService.getAuthToken();
-    if (token == null || token == undefined) {
-      token = "";
-    }
-    this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-      if (data.code == "0") {
-        this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-          // console.log(data);
+//     let token = this.loginService.getAuthToken();
+//     if (token == null || token == undefined) {
+//       token = "";
+//     }
+//     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
+//       if (data.code == "0") {
+//         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
+//           // console.log(data);
 
-          if (data.code == "0") {
-            this.routerHistory.pushHistory("visa-requirement");
-            this.router.navigate(["addTraveller"]);
+//           if (data.code == "0") {
+//             this.routerHistory.pushHistory("visa-requirement");
+//             this.router.navigate(["addTraveller"]);
 
-            // setTimeout(() => {
+//             // setTimeout(() => {
 
-            this.preloaderService.showPreloader(false);
-            // }, 2000);
-          } else {
-            this.toastService.showNotification("" + data.message, 4000);
-            this.preloaderService.showPreloader(false);
-          }
-        });
-      } else if (data.code == "301") {
-        this.loginService.setAuthToken("");
-        this.loginStatus.setUserStatus(false);
-        this.loginStatus.setUserLoggedIn(false);
-        // this.router.navigate(['visa']);
-        this.preloaderService.showPreloader(false);
-        localStorage.setItem("profile", JSON.stringify({}));
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      } else {
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      }
-    });
-  }
+//             this.preloaderService.showPreloader(false);
+//             // }, 2000);
+//           } else {
+//             this.toastService.showNotification("" + data.message, 4000);
+//             this.preloaderService.showPreloader(false);
+//           }
+//         });
+//       } else if (data.code == "301") {
+//         this.loginService.setAuthToken("");
+//         this.loginStatus.setUserStatus(false);
+//         this.loginStatus.setUserLoggedIn(false);
+//         // this.router.navigate(['visa']);
+//         this.preloaderService.showPreloader(false);
+//         localStorage.setItem("profile", JSON.stringify({}));
+//         this.routerHistory.pushHistory("req-and-quote");
+//         this.router.navigate(["slcontainer/login"]);
+//         this.preloaderService.showPreloader(false);
+//       } else {
+//         this.routerHistory.pushHistory("req-and-quote");
+//         this.router.navigate(["slcontainer/login"]);
+//         this.preloaderService.showPreloader(false);
+//       }
+//     });
+//   }
 }

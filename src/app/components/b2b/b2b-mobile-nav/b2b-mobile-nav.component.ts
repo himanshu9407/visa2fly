@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 
 @Component({
   selector: 'app-b2b-mobile-nav',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class B2bMobileNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private userFlow: UserFlowDetails) { }
 
   ngOnInit() {
+  }
+
+  navigateToHome() {
+    const ID = this.userFlow.getB2BUserFlowDetails().id;
+    this.router.navigate(["b2b/home"], { queryParams: { id: ID } });
   }
 
 }

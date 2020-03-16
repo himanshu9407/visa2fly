@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NgxPaginationModule } from "ngx-pagination";
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { MatSelectModule } from "@angular/material/select";
 
@@ -81,6 +82,7 @@ import { SomethingWrongComponent } from './shared/components/something-wrong/som
 import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
 import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
 import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
+import { WorldComponent } from './components/world/world.component';
 import { USAComponent } from './components/visa-requirements/usa/usa.component';
 import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -103,6 +105,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     WhyChooseUsComponent,
     MobileNavComponent,
     MobileFooterComponent,
+    WorldComponent,
 
     AddPassengerDetailsComponent,
     AddTravellerComponent,
@@ -141,7 +144,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     TurkeyComponent,
     AzerbaijanComponent,
     RemovewhitespacePipe,
-    
+
     B2bHomeComponent,
     B2bReqComponent,
     B2bHeaderComponent,
@@ -167,8 +170,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
-    // CarouselModule,
-    NgbModule,
+    CarouselModule,
+    NgbModule
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [

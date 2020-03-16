@@ -38,6 +38,7 @@ export class MyBookingsComponent implements OnInit {
   activeMobileBookingPage: Array<any> = [];
   public allBooking: any;
   AUTH_TOKEN = "";
+  feedbackBookingDetail : Array<any> = [];
 
   public bookingData: any;
   bookingStatus: boolean = false;
@@ -200,18 +201,84 @@ export class MyBookingsComponent implements OnInit {
     this.router.navigate(["bookingDetail"]);
   }
 
+  getAllBookings () {
+    this.bookingService.getBookingsFromServer().subscribe(res => {
+      this.allBooking = res;
+      this.bookings = this.allBooking.data.bookings;
+      this.bookingsForLoop = this.allBooking.data.bookings;
+      this.bookingService.allBookings = this.allBooking.data.bookings;
+      this.filterdDateArr = this.allBooking.data.bookings;
+      if (this.allBooking != null) {
+        this.totalCount = this.allBooking.data.bookings.length;
+
+        localStorage.setItem(
+          "bookingStatus",
+          JSON.stringify(this.allBooking.data.takeFeedback)
+        );
+        let bookingOption = JSON.parse(localStorage.getItem("bookingStatus"));
+        this.bookingStatus = bookingOption;
+
+        setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+        }, 1000);
+
+        var bookingid = this.allBooking.data.feedbackToBeTakenFor;
+        //  bookingIdC= localStorage.getItem('bookingStatus');
+        // this.bookingStatus = bookingIdC;
+        this.allBooking.data.bookings.forEach(element => {
+          if (
+            element.booking.bookingStatus == "Sim order confirmed" ||
+            element.booking.bookingStatus == "Payment completed" ||
+            element.booking.bookingStatus == "Visa application approved"
+          ) {
+            element.booking.statusColor = "g";
+          } else if (
+            (element.booking.bookingStatus =
+              "Payment failed" ||
+              element.booking.bookingStatus == "Visa application rejected")
+          ) {
+            element.booking.statusColor = "r";
+          } else {
+            element.booking.statusColor = "y";
+          }
+          if (element.booking.paymentStatus == "Payment completed") {
+            element.booking.paymentColor = "g";
+          } else if (element.booking.paymentStatus == "Payment completed") {
+            element.booking.paymentColor = "g";
+          } else {
+            element.booking.paymentColor = "y";
+          }
+        });
+        let arr1 = [];
+        this.bookings.forEach(booking => {
+          if (booking.booking.bookingId == bookingid) {
+            // console.log("hello");
+            arr1.push(booking);
+            this.feedbackBookingDetail = arr1;
+            // this.isButtonVisible = true;
+          }
+        });
+
+
+        this.activeMobileBookingPage = this.myBookingsMobile[0];
+      } else {
+        this.totalCount = 0;
+      }
+    });
+  }
+
   onSubmit() {
-    var bookingId = this.allBooking.data.feedbackToBeTakenFor;
+    var bookingid = this.allBooking.data.feedbackToBeTakenFor;
     // console.log(bookingId);
 
-    let product = this.FeedbackForm.get("f3-rating").value;
-    let info = this.FeedbackForm.get("f1-rating").value;
-    let recommend = this.FeedbackForm.get("f2-rating").value;
-    let userFeedback = this.FeedbackForm.get("FeedbackEdit").value;
+    let rateOne = this.FeedbackForm.get("f3-rating").value;
+    let rateTwo = this.FeedbackForm.get("f1-rating").value;
+    let rateThree = this.FeedbackForm.get("f2-rating").value;
+    let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
     // console.log(this.FeedbackForm.value);
-
+    let notInterested = false;
     this.bookingService
-      .postFeedback(bookingId, product, info, recommend, userFeedback)
+      .postFeedback(bookingid,rateOne, rateTwo, rateThree, suggestion, notInterested)
       .subscribe(res => {
         // this.toastService.showNotification("Feedback Submitted", 1000);
       });
@@ -283,6 +350,7 @@ export class MyBookingsComponent implements OnInit {
 
     // console.log(this.bookingSearchForm.value);
   }
+
   searchBookingsByBookingId() {
     let bookingId = this.bookingSearchForm.get("bookingId").value;
     // console.log(bookingId);

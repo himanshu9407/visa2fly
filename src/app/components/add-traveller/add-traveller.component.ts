@@ -326,7 +326,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    console.log(this.imageUploads);
+    // console.log(this.imageUploads);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
@@ -913,7 +913,7 @@ export class AddTravellerComponent implements OnInit {
           // console.log(element);
         });
 
-        console.log(ptdata[0]);
+        // console.log(ptdata[0]);
         // console.log("himanshu");
 
         let dot: {

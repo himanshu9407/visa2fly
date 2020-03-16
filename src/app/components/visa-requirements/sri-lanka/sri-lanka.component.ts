@@ -77,7 +77,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string;
+  title: string = 'Sri Lanka E Visa- Visa2fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -112,7 +112,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-         console.log(res);
+        //  console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
@@ -172,16 +172,16 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Sri Lanka Tourist E Visa online| Sri Lanka E Visa- Visa2fly" },
+      {
+        name: "description",
+        content: "From now on, you can get your Srilanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us."
+      },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
-    // ]);
+    ]);
   }
 
    ngAfterViewInit() {

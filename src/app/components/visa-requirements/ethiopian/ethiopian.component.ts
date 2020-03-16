@@ -35,7 +35,7 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class EthiopianComponent implements OnInit,AfterViewInit {
    
-   @ViewChild("t", { static : false }) t;
+   @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
 

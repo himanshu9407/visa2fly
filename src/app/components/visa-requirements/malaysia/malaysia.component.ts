@@ -35,7 +35,7 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class MalaysiaComponent implements OnInit {
   
-  @ViewChild("t", { static : false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;

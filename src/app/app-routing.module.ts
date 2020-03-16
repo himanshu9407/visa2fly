@@ -52,6 +52,9 @@ import { NetherlandsComponent } from './components/visa-requirements/netherlands
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+
+  
+
   { path: "", redirectTo: "visa", pathMatch: "full" },
   { path: "visa", component: HomeContainerComponent },
   { path: "tnc", component: TermsandConditionsComponent },
@@ -81,8 +84,10 @@ const routes: Routes = [
     component: MyBookingsComponent,
     canActivate: [AuthenticationGuard]
   },
-  { path: "b2b", redirectTo: "b2b/home", pathMatch: "full" },
-  { path: "b2b/home", component: B2bHomeComponent },
+  { path: "b2b", redirectTo: "b2b/home", pathMatch: "prefix" },
+  { path: "b2b/home", component: B2bHomeComponent, children : [
+    { path: "b2b/home/:id", component: B2bHomeComponent }
+  ] },
   {
     path: "b2b/visa-requirement/:country/:purpose",
     component: B2bReqComponent
@@ -205,7 +210,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled" })
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", onSameUrlNavigation: 'reload'})
   ],
   exports: [RouterModule],
   declarations: []
