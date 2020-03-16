@@ -69,7 +69,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = 'Maldives';
-  title: string = 'Apply For Maldives Visa Online- Visa2Fly';
+  title: string = 'Get Maldives tourist visa for Indians now – visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute, private router: Router,
     private requireQuotation : VisaRequirementService,
@@ -139,15 +139,15 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
+    this.meta.addTags([
+      { name: "keywords", content: "Get Maldives tourist visa for Indians now – visa2Fly" },
+      {
+        name: "description",
+        content: "Apply for Maldives tourist visa for Indians online at Visa2Fly to make it quicker. We offer great online visa answers so that you get rid of visa worries. Apply here"
+      },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
-    // ]);
+    ]);
   }
 
   ngAfterViewInit () {

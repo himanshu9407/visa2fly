@@ -69,7 +69,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
   selectedTourist: number = 1;
   public selectedCountrytype = "France";
   public onlinestatus: boolean = false;
-  title: string = 'Apply For France E Visa Online- Visa2Fly';
+  title: string = 'Apply for France E visa online';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -148,15 +148,15 @@ export class FranceComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
+    this.meta.addTags([
+      { name: "keywords", content: "Apply for France E visa online | France E Visa-Visa2Fly" },
+      {
+        name: "description",
+        content: "Now you can Apply for France e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more."
+      },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
-    // ]);
+    ]);
   }
 
   ngAfterViewInit() {

@@ -72,7 +72,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
   selectedTourist: number = 1;
   public countryStatic = "Thailand";
   public PurposeUse: any;
-  title: string = "Thailand Visa Application Apply Now - Visa2fly";
+  title: string = "Thailand E Visa Online";
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -138,19 +138,19 @@ export class ThailandComponent implements OnInit, AfterViewInit {
               } else {
                 this.router.navigate(["visa/"]);
               }
-    
+
               setTimeout(() => {
                 this.preloaderService.showPreloader(false);
               }, 500);
             }
           });
-    
+
         this.PurposeUse = this.purposeChooseForm.get("purposeSelected").value;
-    
+
         // let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
         // this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(res.data.onlineCategory));
         // let imgDat = JSON.stringify(data.data.imageUploads);
-    
+
         // if (imgDat == "null") {
         //   this.userFlow.setUserFlowDetails("imageUploads",'[]');
         // }
@@ -163,10 +163,10 @@ export class ThailandComponent implements OnInit, AfterViewInit {
 
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Thailand Visa Application" },
+      { name: "keywords", content: "Thailand E Visa Online| Thailand Tourist Visa - Visa2fly" },
       {
         name: "description",
-        content: ""
+        content: "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More"
       },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
