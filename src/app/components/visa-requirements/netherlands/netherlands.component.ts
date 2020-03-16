@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -25,9 +25,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-sri-lanka',
-  templateUrl: './sri-lanka.component.html',
-  styleUrls: ['./sri-lanka.component.css'],
+  selector: 'app-netherlands',
+  templateUrl: './netherlands.component.html',
+  styleUrls: ['./netherlands.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -45,11 +45,11 @@ export interface Food {
     ])
   ]
 })
-export class SriLankaComponent implements OnInit, AfterViewInit {
+export class NetherlandsComponent implements OnInit {
 
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
-
+  public onlinestatus: boolean = false;
   selectedRequirement: boolean = false;
 
   // public selectedCountryType = "France";
@@ -61,8 +61,6 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   public MyQuotation1: Array<any> = [];
   public imagefield1: Array<any> = [];
   public purposeChooseForm: FormGroup;
-  public onlinestatus: boolean = false;
-
   // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
@@ -70,13 +68,8 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Sri Lanka";
-  public imageCatogory: Array<any> = [];
-  public imageCatogoryBusinessTemp: Array<any> = [];
-  public imageCatogoryTouristTemp: Array<any> = [];
-  public imageCatogoryTransitTemp: Array<any> = [];
-  public imageCatogoryTemp: Array<any> = [];
-  public imageUpload1: Array<any> = [];
+  public selectedCountrytype = "Netherlands";
+  onlineCountry: void;
   title: string;
 
   constructor(private activeRoute: ActivatedRoute,
@@ -90,49 +83,33 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private toastService: ToastService,
     private titleService: Title,
-    private meta: Meta
-    ) {
+    private meta: Meta) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
+      // console.log(this.userControlDetail.purpose);
 
-    this.preloaderService.showPreloader(true);
+      this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
-    });
+      this.activeRoute.params.subscribe((params: any) => {
+        this.selectedVisaType = params.purpose;
+        // this.selectedCountryType = 'France';
+        //  console.log(this.selectedCountryType);
+      });
 
-    let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
-    this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
-        });
+      let tempPurpose = this.selectedVisaType;
+      //console.log(tempPurpose);
+      this.purposeChooseForm = new FormGroup({
+        purposeSelected: new FormControl(tempPurpose)
+      });
+
       this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-         console.log(res);
+        // console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
-
-          this.imageCatogory.push(res.data.imageUploadInfo);
-
-          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          //console.log(this.imageCatogoryBusinessTemp);
-
-          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          //console.log(this.imageCatogoryTouristTemp);
-
-          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          //console.log(this.imageCatogoryTransitTemp);
-
           this.onlinestatus = res.data.onlineCategory;
-
-          this.userFlow.setUserFlowDetails(
-            "onlineCountry",
-            JSON.stringify(res.data.onlineCategory)
-          );
+          this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach(element => {
             if (element.purpose == "Business") {
@@ -147,46 +124,43 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
             }
           });
           let purposeMain = this.selectedVisaType;
-          let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if(purposeUrl == 'Business')
-            {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            }else if(purposeUrl == 'Tourist') {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            }else if(purposeUrl == 'Transit'){
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }else{
-              this.router.navigate(['visa/']);
-            }
-
-            this.imagefield1 = this.imageCatogoryTemp;
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
         }
       });
+
+
      }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Netherland e visa for Indians | Netherland visa application" },
+      {
+        name: "description",
+        content: ""
+      },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
-    // ]);
+    ]);
   }
 
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
-    }
+  }
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
@@ -194,65 +168,53 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
+      "/visa-requirements/apply-for-Netherlands-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    this.imagefield1 = this.imageCatogoryTemp;
-
     // console.log(this.MyQuotation1);
   }
-
   navigateTo(purpose: any) {
     // window.location
     //let urlpurpose = this.MyQuotation1
 
     let purposeString: string = purpose.nextId;
     // console.log(purposeString);
-    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let purposeUrl =
+      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
       //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
       // console.log(this.MyQuotation1);
       //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
-
       this.selectedTransit = 1;
       //this.t.select("Transit");
     }
-
-    this.imagefield1 = this.imageCatogoryTemp;
     // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-Netherlands-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }
@@ -294,7 +256,10 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imagefield1)
+    );
 
     //console.log(quoteId);
 
@@ -337,6 +302,5 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 
 }

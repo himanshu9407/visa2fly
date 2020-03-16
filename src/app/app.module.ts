@@ -83,7 +83,8 @@ import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile
 import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
 import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 import { WorldComponent } from './components/world/world.component';
-
+import { USAComponent } from './components/visa-requirements/usa/usa.component';
+import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
 
 @NgModule({
   declarations: [
@@ -152,7 +153,9 @@ import { WorldComponent } from './components/world/world.component';
     B2bMobileNavComponent,
     SomethingWrongComponent,
     ThailandComponent,
-    VietnamComponent
+    VietnamComponent,
+    USAComponent,
+    NetherlandsComponent
 
   ],
   imports: [

@@ -25,9 +25,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-sri-lanka',
-  templateUrl: './sri-lanka.component.html',
-  styleUrls: ['./sri-lanka.component.css'],
+  selector: 'app-usa',
+  templateUrl: './usa.component.html',
+  styleUrls: ['./usa.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -45,7 +45,7 @@ export interface Food {
     ])
   ]
 })
-export class SriLankaComponent implements OnInit, AfterViewInit {
+export class USAComponent implements OnInit {
 
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
@@ -70,7 +70,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Sri Lanka";
+  public selectedCountrytype = "USA";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
@@ -90,8 +90,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private toastService: ToastService,
     private titleService: Title,
-    private meta: Meta
-    ) {
+    private meta: Meta) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -108,11 +107,12 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose)
-        });
-      this.requireQuotation
+    });
+
+    this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-         console.log(res);
+        //  console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
@@ -169,24 +169,21 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
           }, 500);
         }
       });
-     }
 
-  ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
-    // ]);
   }
 
-   ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
-    }
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "apply for US visa online | Apply for US Visa Online- Visa2Fly" },
+      {
+        name: "description",
+        content: "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here."
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+  }
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
@@ -194,7 +191,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
+      "/visa-requirements/apply-for-USA-visa-online/" + purpose
     );
     // console.log(this.businessArr);
 
@@ -252,7 +249,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     window.history.replaceState(
       "",
       "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
+      "/visa-requirements/apply-for-USA-visa-online/" + purposeUrl
     );
     // console.log("url changed");
   }
@@ -294,7 +291,10 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imagefield1)
+    );
 
     //console.log(quoteId);
 
@@ -337,6 +337,5 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 
 }

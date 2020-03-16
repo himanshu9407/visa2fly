@@ -164,8 +164,11 @@ export class SwitzerlandComponent implements OnInit {
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     // console.log(purpose);
-    window.history.replaceState("", "", "/visa-requirements/France/" + purpose);
-    // console.log(this.businessArr);
+    window.history.replaceState(
+      "",
+      "",
+      "/visa-requirements/apply-for-Swiss-visa-online/" + purpose
+    );
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
