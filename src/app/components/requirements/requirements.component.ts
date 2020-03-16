@@ -1,5 +1,11 @@
 import { element } from "protractor";
-import { Component, OnInit, ɵConsole, PLATFORM_ID, Inject } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ɵConsole,
+  PLATFORM_ID,
+  Inject
+} from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { HomeServiceService } from "../../home-service.service";
 import { requirementData } from "../../interfaces/requirement";
@@ -13,8 +19,9 @@ import { LoginService } from "../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
-import { isPlatformBrowser } from '@angular/common';
-import * as $ from 'jquery';
+import { isPlatformBrowser } from "@angular/common";
+import * as $ from "jquery";
+import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: "app-requirements",
   templateUrl: "./requirements.component.html",
@@ -32,11 +39,9 @@ import * as $ from 'jquery';
     ])
   ]
 })
-
 export class RequirementsComponent implements OnInit {
   public regData: requirementData;
   public fieldName: string;
-
 
   requirement: requirementData = {
     code: "0",
@@ -154,8 +159,11 @@ export class RequirementsComponent implements OnInit {
   public imageUpload1: Array<any> = [];
 
   purposeChooseForm1: FormGroup;
+  title: string;
   constructor(
     private router: Router,
+    private titleService: Title,
+    private meta: Meta,
     private myservice: HomeServiceService,
     private reqService: RequirementsService,
     private userFlow: UserFlowDetails,
@@ -187,182 +195,181 @@ export class RequirementsComponent implements OnInit {
       .then((data: any) => {
         // console.log(data);
         if (isPlatformBrowser(this.platformId)) {
-        if (data.code == "0") {
-          // this.preloaderService.showPreloader(false);
-          this.requirementsData = data;
-          // console.log(data.data);
-          this.Quotation = data.data.displayQuotes;
-          //console.log(this.Quotation);
-          this.Quotation.forEach(element => {
-            this.purposeApi.push(element.purpose);
-            //console.log(this.purposeApi);
-            if (element.purpose == "Tourist") {
-              this.touristArr.push(element);
-            } else if (element.purpose == "Business") {
-              this.businessArr.push(element);
+          if (data.code == "0") {
+            // this.preloaderService.showPreloader(false);
+            this.requirementsData = data;
+            // console.log(data.data);
+            this.Quotation = data.data.displayQuotes;
+            //console.log(this.Quotation);
+            this.Quotation.forEach(element => {
+              this.purposeApi.push(element.purpose);
+              //console.log(this.purposeApi);
+              if (element.purpose == "Tourist") {
+                this.touristArr.push(element);
+              } else if (element.purpose == "Business") {
+                this.businessArr.push(element);
+              } else {
+                this.transitArr.push(element);
+              }
+            });
+
+            //Fetch Value From quotation and remove dublicate
+            for (var value of this.purposeApi) {
+              if (this.purposeApiNew.indexOf(value) === -1) {
+                this.purposeApiNew.push(value);
+              }
+            }
+
+            setTimeout(() => {
+              this.preloaderService.showPreloader(false);
+            }, 500);
+
+            let purposeMain = this.selectedPurposeType;
+            let purposeUrl =
+              purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+            var newImageCatogoryPurpose = purposeMain.toUpperCase();
+            if (purposeUrl == "Business") {
+              this.MyQuotation = this.businessArr;
+            } else if (purposeUrl == "Tourist") {
+              this.MyQuotation = this.touristArr;
+            } else if (purposeUrl == "Transit") {
+              this.MyQuotation = this.transitArr;
             } else {
-              this.transitArr.push(element);
+              this.router.navigate(["visa/"]);
             }
-          });
+            //console.log(this.MyQuotation);
+            this.importantInfo = data.data.importantInfo;
+            // console.log(this.importantInfo);
+            this.onlinestatus = data.data.onlineCategory;
+            let tempFaqs = data.data.faqs;
+            // console.log(tempFaqs);
 
-          //Fetch Value From quotation and remove dublicate
-          for (var value of this.purposeApi) {
-            if (this.purposeApiNew.indexOf(value) === -1) {
-              this.purposeApiNew.push(value);
+            for (let key in tempFaqs) {
+              let tempFaqObj = { title: key, content: tempFaqs[key] };
+              this.faqs.push(tempFaqObj);
             }
-          }
 
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-          }, 500);
+            this.faqs.forEach((element, index) => {
+              let temp = { id: "", dataToggle: "", dataToggleHash: "" };
+              temp.id = "Traveller " + index;
+              temp.dataToggle = "toogle" + index;
+              temp.dataToggleHash = "#toogle" + index;
+              this.dataSource.push(temp);
+            });
 
-          let purposeMain = this.selectedPurposeType;
-          let purposeUrl =
-            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          var newImageCatogoryPurpose = purposeMain.toUpperCase();
-          if (purposeUrl == "Business") {
-            this.MyQuotation = this.businessArr;
-          } else if (purposeUrl == "Tourist") {
-            this.MyQuotation = this.touristArr;
-          } else if (purposeUrl == "Transit") {
-            this.MyQuotation = this.transitArr;
-          } else {
-            this.router.navigate(["visa/"]);
-          }
-          //console.log(this.MyQuotation);
-          this.importantInfo = data.data.importantInfo;
-          // console.log(this.importantInfo);
-          this.onlinestatus = data.data.onlineCategory;
-          let tempFaqs = data.data.faqs;
-          // console.log(tempFaqs);
+            // console.log(this.faqs);
 
-          for (let key in tempFaqs) {
-            let tempFaqObj = { title: key, content: tempFaqs[key] };
-            this.faqs.push(tempFaqObj);
-          }
+            this.imageCatogory.push(data.data.imageUploadInfo);
+            //  console.log(this.imageCatogory);
+            //  this.imageCatogory.forEach((element) => {
+            //    console.log(element);
+            //   if(element == 'BUSINESS')
+            //   {
+            //     this.imageCatogoryBusinessTemp.push(element);
 
-          this.faqs.forEach((element, index) => {
-            let temp = { id: "", dataToggle: "", dataToggleHash: "" };
-            temp.id = "Traveller " + index;
-            temp.dataToggle = "toogle" + index;
-            temp.dataToggleHash = "#toogle" + index;
-            this.dataSource.push(temp);
-          });
+            //   }else if(element == 'TOURIST')
+            //   {
+            //     this.imageCatogoryTouristTemp.push(element);
+            //   }else {
+            //     this.imageCatogoryTransitTemp.push(element);
+            //   }
+            // })
+            this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+            //console.log(this.imageCatogoryBusinessTemp);
+            this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+            //console.log(this.imageCatogoryTouristTemp);
+            this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+            //console.log(this.imageCatogoryTransitTemp);
+            //console.log(this.imageCatogoryBusinessTemp);
+            // var purposeTemp = this.selectedPurposeType;
 
-          // console.log(this.faqs);
+            if (purposeUrl == "Business") {
+              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+            } else if (purposeUrl == "Tourist") {
+              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+            } else {
+              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+            }
 
-          this.imageCatogory.push(data.data.imageUploadInfo);
-          //  console.log(this.imageCatogory);
-          //  this.imageCatogory.forEach((element) => {
-          //    console.log(element);
-          //   if(element == 'BUSINESS')
-          //   {
-          //     this.imageCatogoryBusinessTemp.push(element);
+            let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
+            this.userFlow.setUserFlowDetails(
+              "onlineCountry",
+              JSON.stringify(data.data.onlineCategory)
+            );
+            // let imgDat = JSON.stringify(this.imageCatogoryTemp);
 
-          //   }else if(element == 'TOURIST')
-          //   {
-          //     this.imageCatogoryTouristTemp.push(element);
-          //   }else {
-          //     this.imageCatogoryTransitTemp.push(element);
-          //   }
-          // })
-          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          //console.log(this.imageCatogoryBusinessTemp);
-          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          //console.log(this.imageCatogoryTouristTemp);
-          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          //console.log(this.imageCatogoryTransitTemp);
-          //console.log(this.imageCatogoryBusinessTemp);
-          // var purposeTemp = this.selectedPurposeType;
+            // if (imgDat == "null") {
+            //   this.userFlow.setUserFlowDetails("imageUploads",'[]');
+            // }
+            // else {
+            //   this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imageCatogoryTemp));
+            // }
+            // this.userFlow.setUserFlowDetails("imagesRequired");
+            // this.quotes = data.data.quotes;
+            //this.quotes = data.data.displayQuotes;
+            this.imageUpload1 = this.imageCatogoryTemp;
+            // console.log(this.imageUpload1);
 
-          if (purposeUrl == "Business") {
-            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-          } else if (purposeUrl == "Tourist") {
-            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-          } else {
-            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-          }
+            let temp = [];
+            let i,
+              j,
+              temparray,
+              chunk = 4;
 
-          let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
-          this.userFlow.setUserFlowDetails(
-            "onlineCountry",
-            JSON.stringify(data.data.onlineCategory)
-          );
-          // let imgDat = JSON.stringify(this.imageCatogoryTemp);
+            this.mainArr = [];
 
-          // if (imgDat == "null") {
-          //   this.userFlow.setUserFlowDetails("imageUploads",'[]');
-          // }
-          // else {
-          //   this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imageCatogoryTemp));
-          // }
-          // this.userFlow.setUserFlowDetails("imagesRequired");
-          // this.quotes = data.data.quotes;
-          //this.quotes = data.data.displayQuotes;
-          this.imageUpload1 = this.imageCatogoryTemp;
-          // console.log(this.imageUpload1);
-          
-          let temp = [];
-          let i,
-            j,
-            temparray,
-            chunk = 4;
+            for (i = 0, j = data.data.fieldDetails.length; i < j; i += chunk) {
+              temparray = data.data.fieldDetails.slice(i, i + chunk);
+              this.mainArr.push(temparray);
+              // console.log(this.mainArr);
+            }
 
-          this.mainArr = [];
+            let i1,
+              j1,
+              temparray1,
+              chunk1 = 2;
 
-          for (i = 0, j = data.data.fieldDetails.length; i < j; i += chunk) {
-            temparray = data.data.fieldDetails.slice(i, i + chunk);
-            this.mainArr.push(temparray);
-            // console.log(this.mainArr);
-          }
+            this.mobileMainArr = [];
 
-          let i1,
-            j1,
-            temparray1,
-            chunk1 = 2;
+            for (
+              i1 = 0, j1 = data.data.fieldDetails.length;
+              i1 < j1;
+              i1 += chunk1
+            ) {
+              temparray1 = data.data.fieldDetails.slice(i1, i1 + chunk1);
+              this.mobileMainArr.push(temparray1);
+            }
 
-          this.mobileMainArr = [];
+            this.showRequirementsDetailArr = [];
+            this.selectedDataArr = [];
+            for (let k = 0; k < this.mainArr.length; k++) {
+              //console.log(this.mainArr[k][0]);
+              this.selectedDataArr.push(this.mainArr[k][0]);
+              // console.log(this.selectedDataArr);
+              if (k == 0) {
+                this.showRequirementsDetailArr.push(true);
+                // console.log(this.showRequirementsDetailArr);
+              } else {
+                this.showRequirementsDetailArr.push(false);
+              }
+            }
+            this.mobileShowRequirementsDetailArr = [];
+            this.mobileSelectedDataArr = [];
 
-          for (
-            i1 = 0, j1 = data.data.fieldDetails.length;
-            i1 < j1;
-            i1 += chunk1
-          ) {
-            temparray1 = data.data.fieldDetails.slice(i1, i1 + chunk1);
-            this.mobileMainArr.push(temparray1);
-          }
+            for (let k = 0; k < this.mobileMainArr.length; k++) {
+              this.mobileSelectedDataArr.push(this.mobileMainArr[k][0]);
 
-          this.showRequirementsDetailArr = [];
-          this.selectedDataArr = [];
-          for (let k = 0; k < this.mainArr.length; k++) {
-            //console.log(this.mainArr[k][0]);
-            this.selectedDataArr.push(this.mainArr[k][0]);
+              if (k == 0) {
+                this.mobileShowRequirementsDetailArr.push(true);
+              } else {
+                this.mobileShowRequirementsDetailArr.push(false);
+              }
+            }
+
             // console.log(this.selectedDataArr);
-            if (k == 0) {
-              this.showRequirementsDetailArr.push(true);
-              // console.log(this.showRequirementsDetailArr);
-            } else {
-              this.showRequirementsDetailArr.push(false);
-            }
           }
-          this.mobileShowRequirementsDetailArr = [];
-          this.mobileSelectedDataArr = [];
-
-          for (let k = 0; k < this.mobileMainArr.length; k++) {
-            this.mobileSelectedDataArr.push(this.mobileMainArr[k][0]);
-
-            if (k == 0) {
-              this.mobileShowRequirementsDetailArr.push(true);
-            } else {
-              this.mobileShowRequirementsDetailArr.push(false);
-            }
-          }
-
-          // console.log(this.selectedDataArr);
         }
-      }
       });
-
   }
 
   navigate(
@@ -372,7 +379,7 @@ export class RequirementsComponent implements OnInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string,
+    imageUploads: string
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -383,7 +390,10 @@ export class RequirementsComponent implements OnInit {
     );
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
 
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
@@ -505,7 +515,18 @@ export class RequirementsComponent implements OnInit {
     this.mobileSelectedDataArr[i] = this.mobileMainArr[i][j];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "robots", content: "index, follow" }
+      // { name: "author", content: "rsgitech" },
+    ]);
+  }
 
   // navigateTo(purpose: any) {
   //   // window.location

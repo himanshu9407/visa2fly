@@ -236,73 +236,73 @@
             </div>
             <div class="card-body">
               <ul class="visa-type">
-                <li>
+                <li *ngIf="traveller.emailId != null">
                   Email ID :
                   <span class="fieldData">{{traveller.emailId}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.firstName != null">
                   First Name :
                   <span class="fieldData">{{traveller.firstName}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.middleName != null">
                   Middle Name :
                   <span class="fieldData">{{traveller.middleName}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.lastName != null">
                   Last Name :
                   <span class="fieldData">{{traveller.lastName}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.cellNumber != null">
                   Cell Number :
                   <span class="fieldData">{{traveller.cellNumber}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.code != null">
                   Code:
                   <span class="fieldData">{{traveller.code}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine1 != null">
                   Address Line 1 :
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine1 != null">
                   <textarea name="" class="form-control" disabled id="" cols="30"
                     rows="4">{{traveller.addressLine1 || xyz}}</textarea>
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine2 != null">
                   Address Line 2 :
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine2 != null">
                   <textarea name="" class="form-control" disabled id="" cols="30"
                     rows="4">{{traveller.addressLine2 || xyz}}</textarea>
                 </li>
-                <li>
+                <li *ngIf="traveller.city != null">
                   City:
                   <span class="fieldData">{{traveller.city}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.state != null">
                   State :
                   <span class="fieldData">{{traveller.state}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.pinCode != null">
                   Pin Code :
                   <span class="fieldData">{{traveller.pinCode}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.country != null">
                   Country :
                   <span class="fieldData">{{traveller.country}}</span>
                 </li>
-                <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.title != null">
                   Title :
                   <span class="fieldData">{{traveller.title}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.dateOfBirth != null">
                   Date Of Birth :
                   <span class="fieldData">{{traveller.dateOfBirth}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.passportNumber != null">
                   Passport Number :
                   <span class="fieldData">{{traveller.passportNumber || H1234567}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.passportExpiryDate!= null">
                   Passport Expire Date :
                   <span class="fieldData">{{traveller.passportExpiryDate}}</span>
                 </li>
@@ -371,11 +371,19 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.businessCardUrl != null">
+                    Business Card Url :
+                    <span (click)="downloadImage(traveller.businessCardUrl,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.businessCardUrl == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.noc != null">
                     NOC Url :
                     <span (click)="downloadImage(traveller.noc,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.noc == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -383,7 +391,7 @@
                     PAN Card Url :
                     <span (click)="downloadImage(traveller.panCard,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.panCard == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -391,7 +399,7 @@
                     ITR Url :
                     <span (click)="downloadImage(traveller.itr,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.itr == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -399,7 +407,7 @@
                     ITR Url :
                     <span (click)="downloadImage(traveller.invitation,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.invitation == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>

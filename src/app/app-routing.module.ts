@@ -49,6 +49,7 @@ import { B2bAddTrvComponent } from "./components/b2b/b2b-add-trv/b2b-add-trv.com
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
 import { USAComponent } from './components/visa-requirements/usa/usa.component';
 import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -195,8 +196,11 @@ const routes: Routes = [
     path: "b2b/something-went-wrong",
     component:  SomethingWrongComponent
   },
-
-  { path: "**", redirectTo: "visa", pathMatch: "full" }
+  {
+    path: "page-not-found",
+    component: PageNotFoundComponent
+  },
+  { path: "**", redirectTo: "page-not-found", pathMatch: "full" }
 ];
 
 @NgModule({

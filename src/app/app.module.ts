@@ -83,6 +83,7 @@ import { ThailandComponent } from './components/visa-requirements/thailand/thail
 import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 import { USAComponent } from './components/visa-requirements/usa/usa.component';
 import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -152,7 +153,8 @@ import { NetherlandsComponent } from './components/visa-requirements/netherlands
     ThailandComponent,
     VietnamComponent,
     USAComponent,
-    NetherlandsComponent
+    NetherlandsComponent,
+    PageNotFoundComponent
 
   ],
   imports: [

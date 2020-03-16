@@ -95,6 +95,8 @@ export class MyBookingsComponent implements OnInit {
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
       if (data.code == "0") {
         this.bookingService.getBookingsFromServer().subscribe(res => {
+          // console.log(res);
+          
           this.allBooking = res;
           this.bookings = this.allBooking.data.bookings;
           this.bookingsForLoop = this.allBooking.data.bookings;

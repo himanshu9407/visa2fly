@@ -91,6 +91,8 @@ export class AddTravellerComponent implements OnInit {
   cellError: boolean;
   addressError: boolean;
   zipCodeError: boolean;
+
+  passportFrontImageError: boolean;
   scrollBy: number = 0;
   errorForm = "";
   checkUploadedImages: boolean;
@@ -324,7 +326,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    // console.log(this.userFlowDetails);
+    console.log(this.imageUploads);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
@@ -450,7 +452,7 @@ export class AddTravellerComponent implements OnInit {
             Validators.required,
             requiredFileType("png")
           ]);
-          console.log(element.controls[fieldName]);
+          // console.log(element.controls[fieldName]);
           element.controls[fieldName].updateValueAndValidity();
         }
       });
@@ -510,10 +512,12 @@ export class AddTravellerComponent implements OnInit {
         userImage: [null],
         noc: [null],
         panCard: [null],
+        invitation: [null],
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
-        businessCard: [null]
+        businessCard: [null],
+        insurance: [null]
       });
     } else {
       return this.formBuilder.group({
@@ -775,7 +779,12 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
+  validateImage() {
+    
+  }
+
   seeValues() {
+    this.validateImage();
     this.validateTravellerForm();
     this.validateDate();
     this.checkDateOfCollection();
