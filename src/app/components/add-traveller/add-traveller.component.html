@@ -156,7 +156,7 @@
               <div class="card-body">
                 <div class="form-row">
                   <div class="col-md-2 mb-3">
-                    <label>Title *</label>
+                    <label>Title <span class="astrisk"><span class="astrisk">*</span></span></label>
                     <select formControlName="title" id="inputState" class="form-control">
                       <!-- <option selected>Title</option> -->
                       <option selected>Mr</option>
@@ -170,7 +170,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>First Name *</label>
+                    <label>First Name <span class="astrisk">*</span></label>
                     <input
                       [ngClass]="{
                       'is-invalid':
@@ -205,7 +205,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Last Name *</label>
+                    <label>Last Name <span class="astrisk">*</span></label>
                     <input
                       [ngClass]="{
                       'is-invalid':travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
@@ -223,7 +223,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Date Of Birth *</label>
+                    <label>Date Of Birth <span class="astrisk">*</span></label>
                     <div class="form-group mb-0">
                       <div class="input-group">
                         <input hidden formControlName="dateOfBirth" type="text">
@@ -246,7 +246,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Passport Number *</label>
+                    <label>Passport Number <span class="astrisk">*</span></label>
                     <div class="input-group">
                       <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
@@ -268,7 +268,7 @@
                 <div class="form-row">
                   <div class="col-md-2 mb-3">
                     <!-- <app-date></app-date> -->
-                    <label>Passport Expiry Date *</label>
+                    <label>Passport Expiry Date <span class="astrisk">*</span></label>
                     <div class="form-group">
                       <div class="input-group">
                         <input hidden formControlName="passportExpiryDate">
@@ -292,7 +292,7 @@
 
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Email *</label>
+                    <label>Email <span class="astrisk">*</span></label>
                     <div class="input-group">
                       <input
                         pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
@@ -331,7 +331,7 @@
                     </div>
                   </div>
                   <div class="col-md-2 mb-3">
-                    <label>Mobile Number *</label>
+                    <label>Mobile Number <span class="astrisk">*</span></label>
                     <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                   .cellNumber.invalid && travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
@@ -364,7 +364,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-4 mb-3">
-                    <label>Address *</label>
+                    <label>Address <span class="astrisk">*</span></label>
                     <div class="input-group">
                       <textarea minlength="10" pattern="^[ A-Za-z0-9-:./\n,]*$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                     .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
@@ -387,7 +387,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
-                    <label>State *</label>
+                    <label>State <span class="astrisk">*</span></label>
                     <select (change)="checkCity(i)" formControlName="state" id="" class="form-control">
                       <option *ngFor="let state of list.states;let first=first" value="{{state}}">{{state}}</option>
                     </select>
@@ -399,7 +399,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
-                    <label>City *</label>
+                    <label>City <span class="astrisk">*</span></label>
                     <select formControlName="city" name="" id="" class="form-control">
                       <option
                         *ngFor="let city of list.cities[travellerForm.controls.travellers.controls[i].controls.state.value];let first=first"
@@ -413,7 +413,7 @@
                   <div
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
-                    <label>PinCode *</label>
+                    <label>PinCode <span class="astrisk">*</span></label>
                     <input formControlName="pinCode" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
                   .pinCode.invalid && travellerForm.controls.travellers.controls[i].controls.pinCode.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
@@ -440,7 +440,7 @@
                     <label><b> Upload required documents here </b></label>
                   </div>
                   <div *ngFor="let image of imageUploads;let j = index" class="col-md-3 mb-3">
-                    <label>{{image.content}}*</label>
+                    <label>{{image.content}}<span class="astrisk">*</span></label>
 
                     <button *ngIf="image.content === 'Passport front page'" type="button" class="btn" data-toggle="modal" data-target="#samplePassportFront">
                       <i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -454,7 +454,7 @@
                       <i class="fa fa-question-circle" aria-hidden="true"></i>
                     </button>
 
-                    <div class="modal fade" id="samplePassportFront" tabindex="-1" role="dialog"
+                    <!-- <div class="modal fade" id="samplePassportFront" tabindex="-1" role="dialog"
                       aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -463,9 +463,9 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <div class="modal fade" id="samplePassportBack" tabindex="-1" role="dialog"
+                    <!-- <div class="modal fade" id="samplePassportBack" tabindex="-1" role="dialog"
                       aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -474,9 +474,9 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <div class="modal fade" id="samplePhotograph" tabindex="-1" role="dialog"
+                    <!-- <div class="modal fade" id="samplePhotograph" tabindex="-1" role="dialog"
                       aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -486,7 +486,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="input-group">
                       <div class="custom-file">
@@ -628,6 +628,42 @@
       <input type="text" name="returnUrl" id="returnUrl" [(ngModel)]="returnUrl">
       <input type="text" name="checksum" id="checksum" [(ngModel)]="checksum">
     </form>
+  </div>
+
+  <div class="modal-container">
+    <div class="modal fade" id="samplePassportFront" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg" alt="" class="img-fluid feedImage ">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="samplePassportBack" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg" alt="" class="img-fluid feedImage">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="samplePhotograph" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://static.visa2fly.com/sample/photograph/{{country}}.jpg" alt="" class="img-fluid feedImage">
+        
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 
   <div class="modal  fade" id="exampleModal1" style="top: 200px" data-backdrop="static" data-keyboard="false"
