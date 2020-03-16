@@ -511,6 +511,7 @@ export class AddTravellerComponent implements OnInit {
 
         userImage: [null],
         noc: [null],
+        panCard: [null],
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],

@@ -318,6 +318,18 @@
                                         <span (click)="downloadImage(traveller.userImageUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.userImageUrl == null ? "NA" : "Click Here"}}</a></span>
                                     </li>
                                     <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                                      ITR Url :
+                                      <span (click)="downloadImage(traveller.itr,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.itr == null ? "NA" : "Click Here"}}</a></span>
+                                   </li>
+                                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                                    NOC Url :
+                                    <span (click)="downloadImage(traveller.noc,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.noc == null ? "NA" : "Click Here"}}</a></span>
+                                    </li>
+                                    <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                                      Pan Card Url :
+                                      <span (click)="downloadImage(traveller.panCard,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.panCard == null ? "NA" : "Click Here"}}</a></span>
+                                    </li>
+                                    <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
                                         Department Flight Ticket Url :
                                         <span (click)="downloadImage(traveller.departureFlightTicketUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.departureFlightTicketUrl == null ? "NA" : "Click Here"}}</a></span>
                                     </li>
@@ -334,14 +346,23 @@
                                         <span (click)="downloadImage(traveller.sixMonthsBankStatementUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.sixMonthsBankStatementUrl == null ? "NA" : "Click Here"}}</a></span>
                                     </li>
                                     <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                                      Business Card :
+                                      <span (click)="downloadImage(traveller.businessCard,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.businessCard == null ? "NA" : "Click Here"}}</a></span>
+                                  </li>
+                                    <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
                                         Insurance Url :
                                         <span (click)="downloadImage(traveller.insuranceUrl,selectedBooking.booking.bookingId)" class="fieldData"><a>{{traveller.insuranceUrl == null ? "NA" : "Click Here"}}</a></span>
                                     </li>
                                 </div>
                                 <li>
+                                  Online Country :
+                                  <span class="fieldData">{{traveller.onlineCountry}}</span>
+                                </li>
+                                <li>
                                     Booking Status :
                                     <span class="fieldData">{{traveller.bookingStatus}}</span>
                                 </li>
+
                                 <!-- <li>
                   Online Country :
                   <span class="fieldData">{{traveller.onlineCountry}}</span>
@@ -455,7 +476,7 @@
                       <li>Click the button below to receive your policy on your email (if you have not received it yet)</li>
                     </ul>
                   </div>
-      
+
                 </div>
               </div>
             </div> -->

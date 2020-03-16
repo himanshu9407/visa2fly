@@ -7,7 +7,7 @@ import { ToastService } from 'src/app/shared/toast.service';
 import { DownloadImageService } from 'src/app/shared/DownloadImage.service';
 import{Location} from '@angular/common';
 import { Router } from '@angular/router';
-import { PlatformLocation } from '@angular/common' 
+import { PlatformLocation } from '@angular/common'
 import { PreloaderService } from "src/app/shared/preloader.service";
 
 @Component({
@@ -17,21 +17,21 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 })
 export class BookingDetailsComponent implements OnInit {
 
-  public url : string; 
+  public url : string;
   selectedBooking : any;
   redirectTo : any;
   bookingStatus: boolean = false;
-  constructor(private myBookingService : MyBookingsService, 
+  constructor(private myBookingService : MyBookingsService,
     private toastService : ToastService,
     private downloadImageService: DownloadImageService,
-    private router : Router, 
+    private router : Router,
     private location: PlatformLocation,
     // private activatedRoute = ActivateRoute,
     private preloaderService: PreloaderService)
     {
     let temp = this.myBookingService.getActiveBooking();
 
-    
+
 
     let localStorageBooking = JSON.parse(localStorage.getItem("activeBooking"));
     if (temp == null || temp == undefined) {
@@ -40,15 +40,15 @@ export class BookingDetailsComponent implements OnInit {
     this.selectedBooking = temp;
     // this.router = router;
     // this.redirectTo = activatedRoute.snapshot.data.redirectTo;
-    //   
+    //
 
 
-    // console.log(this.selectedBooking);
+    console.log(this.selectedBooking);
   }
 
   ngOnInit() {
-   
-    
+
+
   }
 
 
@@ -75,7 +75,7 @@ export class BookingDetailsComponent implements OnInit {
 
         }
       );
-     
+
     }
   }
 
