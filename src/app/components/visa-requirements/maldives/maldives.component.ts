@@ -69,7 +69,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = "Maldives";
-  title: string;
+  title: string = 'Get Maldives visa for Indians now – visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
