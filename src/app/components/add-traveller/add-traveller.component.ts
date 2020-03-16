@@ -443,7 +443,7 @@ export class AddTravellerComponent implements OnInit {
     for (let i = 0; i < this.imageUploads.length; i++) {
       this.filedNameArr.push(this.imageUploads[i].fieldName);
     }
-    console.log(this.filedNameArr)
+    // console.log(this.filedNameArr)
     // console.log((<FormGroup><undefined>(<FormArray>this.travellerForm.get('travellers')).controls[0]).controls[this.filedNameArr[3]])
     arr.forEach((element: FormGroup) => {
       this.filedNameArr.forEach(fieldName => {
