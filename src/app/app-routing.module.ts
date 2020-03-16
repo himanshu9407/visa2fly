@@ -47,6 +47,8 @@ import { B2bHomeComponent } from "./components/b2b/b2b-home/b2b-home.component";
 import { B2bReqComponent } from "./components/b2b/b2b-req/b2b-req.component";
 import { B2bAddTrvComponent } from "./components/b2b/b2b-add-trv/b2b-add-trv.component";
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
+import { USAComponent } from './components/visa-requirements/usa/usa.component';
+import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
@@ -118,6 +120,18 @@ const routes: Routes = [
     component: UnitedKingdomComponent
   },
   {
+    path: "visa-requirements/apply-for-USA-visa-online/:purpose",
+    component: USAComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Netherlands-visa-online/:purpose",
+    component: NetherlandsComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Australia-visa-online/:purpose",
+    component: AustraliaComponent
+  },
+  {
     path: "visa-requirements/apply-for-France-visa-online/:purpose",
     component: FranceComponent
   },
@@ -140,7 +154,7 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Thailand-visa-online/:purpose",
     component: ThailandComponent
-  },  
+  },
   {
     path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose",
     component: VietnamComponent

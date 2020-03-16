@@ -112,18 +112,18 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        //  console.log(res);
+         console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           //console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           //console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           //console.log(this.imageCatogoryTransitTemp);
 
@@ -186,7 +186,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
-  }
+    }
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
@@ -204,7 +204,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -294,10 +294,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imagefield1)
-    );
+    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
 
     //console.log(quoteId);
 

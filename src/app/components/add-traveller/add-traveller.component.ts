@@ -441,7 +441,7 @@ export class AddTravellerComponent implements OnInit {
     for (let i = 0; i < this.imageUploads.length; i++) {
       this.filedNameArr.push(this.imageUploads[i].fieldName);
     }
-    //console.log(this.filedNameArr)
+    // console.log(this.filedNameArr)
     // console.log((<FormGroup><undefined>(<FormArray>this.travellerForm.get('travellers')).controls[0]).controls[this.filedNameArr[3]])
     arr.forEach((element: FormGroup) => {
       this.filedNameArr.forEach(fieldName => {
@@ -450,7 +450,7 @@ export class AddTravellerComponent implements OnInit {
             Validators.required,
             requiredFileType("png")
           ]);
-          // console.log(element.controls[fieldName]);
+          console.log(element.controls[fieldName]);
           element.controls[fieldName].updateValueAndValidity();
         }
       });
@@ -503,16 +503,17 @@ export class AddTravellerComponent implements OnInit {
         cellNumber: ["", [Validators.required]],
 
         passportFrontImage: [null],
+        itr: [null],
         passportBioImage: [null],
         sixMonthsBankStatement: [null],
-        insurance: [null],
+
         userImage: [null],
+        noc: [null],
+        panCard: [null],
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
-        businessCard: [null],
-        noc: [null],
-        itr: [null]
+        businessCard: [null]
       });
     } else {
       return this.formBuilder.group({
@@ -903,7 +904,7 @@ export class AddTravellerComponent implements OnInit {
           // console.log(element);
         });
 
-        // console.log(ptdata[0]);
+        console.log(ptdata[0]);
         // console.log("himanshu");
 
         let dot: {

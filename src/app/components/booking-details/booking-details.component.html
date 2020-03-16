@@ -307,7 +307,7 @@
                   <span class="fieldData">{{traveller.passportExpiryDate}}</span>
                 </li>
                 <div *ngIf="traveller.onlineCountry">
-                  <li *ngIf="(selectedBooking.booking.bookingType == 'Visa')">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.passportFrontUrl != null">
                     Passport Front Url :
                     <span (click)="downloadImage(traveller.passportFrontUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -315,7 +315,7 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.passportFrontUrl != null">
                     Passport Bio Image :
                     <span (click)="downloadImage(traveller.passportBioImage,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -323,7 +323,7 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.userImageUrl != null">
                     User Image Url :
                     <span (click)="downloadImage(traveller.userImageUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -331,7 +331,7 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.departureFlightTicketUrl != null">
                     Department Flight Ticket Url :
                     <span (click)="downloadImage(traveller.departureFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -339,7 +339,7 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.arrivalFlightTicketUrl != null">
                     Arrival Flight Ticket Url :
                     <span (click)="downloadImage(traveller.arrivalFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -347,7 +347,7 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.hotelAccommodationUrl != null">
                     Hotel Accommodation Url :
                     <span (click)="downloadImage(traveller.hotelAccommodationUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -355,7 +355,7 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="(selectedBooking.booking.bookingType == 'Visa')">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.sixMonthsBankStatementUrl != null">
                     Six Months Bank Statement Url :
                     <span (click)="downloadImage(traveller.sixMonthsBankStatementUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -363,9 +363,41 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.insuranceUrl != null">
                     Insurance Url :
                     <span (click)="downloadImage(traveller.insuranceUrl,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.noc != null">
+                    NOC Url :
+                    <span (click)="downloadImage(traveller.noc,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.panCard != null">
+                    PAN Card Url :
+                    <span (click)="downloadImage(traveller.panCard,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.itr != null">
+                    ITR Url :
+                    <span (click)="downloadImage(traveller.itr,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.invitation != null">
+                    ITR Url :
+                    <span (click)="downloadImage(traveller.invitation,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
