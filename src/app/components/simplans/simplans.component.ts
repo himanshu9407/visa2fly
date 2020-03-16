@@ -7,6 +7,7 @@ import { LoginService } from '../login-signup/login/login.service';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-simplans',
@@ -31,12 +32,14 @@ export class SimplansComponent implements OnInit {
   simResp : any ;
   showMobileCart : boolean  = false;
   buttonLabel : string = "View Cart";
+  title: string;
   //selectedSimCountry : any = "";
 
   constructor(private simService : SimService, private router : Router, 
     private preloaderService : PreloaderService, private toastService :ToastService,
     private loginService : LoginService, private loginStatus : LoginStatusService,
-    private routerHistory : RouterHistory) {
+    private routerHistory : RouterHistory,  private titleService: Title,
+    private meta: Meta) {
       // this.simCart = JSON.parse(localStorage.getItem('simCart')) || [];
       this.preloaderService.showPreloader(true);
       // this.simResp = JSON.parse(localStorage.getItem('simResp')) || [];
@@ -104,6 +107,17 @@ export class SimplansComponent implements OnInit {
       );
       
     }
+
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   onClickSelect() {

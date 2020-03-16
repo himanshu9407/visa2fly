@@ -4,22 +4,49 @@ import {
   FormBuilder,
   Validators
 } from "@angular/forms";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../login-signup/login/login.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
 import { ToastService } from "src/app/shared/toast.service";
 import { feedbackModal } from "../../interfaces/home_formData";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from "@angular/animations";
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: "app-my-bookings",
   templateUrl: "./my-bookings.component.html",
-  styleUrls: ["./my-bookings.component.css"]
+  styleUrls: ["./my-bookings.component.css"],
+  animations: [
+    // the fade-in/fade-out animation.
+    trigger("simpleFadeAnimation", [
+      // the "in" style determines the "resting" state of the element when it is visible.
+      state("in", style({ opacity: 1 })),
+
+      // fade in when created. this could also be written as transition('void => *')
+      transition(":enter", [style({ opacity: 0 }), animate(800)]),
+
+      // fade out when destroyed. this could also be written as transition('void => *')
+      transition(
+        ":leave",
+        animate(800, style({ opacity: 0, background: "green" }))
+      )
+    ])
+  ]
 })
 export class MyBookingsComponent implements OnInit {
+  [x: string]: any;
   totalCount: number = 0;
+
+
 
   myBookings: Array<any> = [];
   myBookingsPc: Array<any> = [];
@@ -38,7 +65,6 @@ export class MyBookingsComponent implements OnInit {
   activeMobileBookingPage: Array<any> = [];
   public allBooking: any;
   AUTH_TOKEN = "";
-  feedbackBookingDetail : Array<any> = [];
 
   public bookingData: any;
   bookingStatus: boolean = false;
@@ -48,6 +74,8 @@ export class MyBookingsComponent implements OnInit {
   filteredBookingsEmpty: boolean = false;
   filterdDateArr = [];
   private isButtonVisible = false;
+  feedbackBookingDetail : Array<any> = [];
+
 
   constructor(
     private loginStatus: LoginStatusService,
@@ -57,10 +85,14 @@ export class MyBookingsComponent implements OnInit {
     private bookingService: MyBookingsService,
     private downloadImageService: DownloadImageService,
     private toastService: ToastService,
-    private fb: FormBuilder
-  ) {
+    private fb: FormBuilder,
+    private activatedRoute : ActivatedRoute,
+    private titleService: Title,
+    private meta: Meta) {
     this.myBookings = [];
-    this.preloaderService.showPreloader(true);
+    // this.preloaderService.showPreloader(true);
+
+
 
     var bookingIdC;
 
@@ -92,114 +124,33 @@ export class MyBookingsComponent implements OnInit {
     });
 
     this.AUTH_TOKEN = this.loginService.getAuthToken();
-    
-    this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
-      if (data.code == "0") {
-        this.bookingService.getBookingsFromServer().subscribe(res => {
-          // console.log(res);
-          
-          this.allBooking = res;
-          this.bookings = this.allBooking.data.bookings;
-          this.bookingsForLoop = this.allBooking.data.bookings;
-          this.filterdDateArr = this.allBooking.data.bookings;
-          
-          if (this.allBooking != null) {
-            this.totalCount = this.allBooking.data.bookings.length;
+    if (this.bookingService.allBookings.length > 0) {
+      this.bookingsForLoop = [...this.bookingService.allBookings];
+      this.totalCount = this.bookingsForLoop.length;
+      this.bookings = [...this.bookingService.allBookings];
+      this.bookingsForLoop = [...this.bookingService.allBookings];
+      // this.bookingService.allBookings = this.allBooking.data.bookings;
+      this.filterdDateArr = [...this.bookingService.allBookings];
+      // console.log("found bookings in service variable");
+    }
+    else {
+      this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
+        if (data.code == "0") {
+          this.getAllBookings();
+        } else {
+          this.router.navigate(["/visa"]);
+        }
+      });
+      // console.log("service varialbel empty");
 
-            localStorage.setItem(
-              "bookingStatus",
-              JSON.stringify(this.allBooking.data.takeFeedback)
-            );
+    }
 
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-            }, 1000);
-
-            //  bookingIdC= localStorage.getItem('bookingStatus');
-            // this.bookingStatus = bookingIdC;
-            this.allBooking.data.bookings.forEach(element => {
-              if (
-                element.booking.bookingStatus == "Sim order confirmed" ||
-                element.booking.bookingStatus == "Payment completed" ||
-                element.booking.bookingStatus == "Visa application approved"
-              ) {
-                element.booking.statusColor = "g";
-              } else if (
-                (element.booking.bookingStatus =
-                  "Payment failed" ||
-                  element.booking.bookingStatus == "Visa application rejected")
-              ) {
-                element.booking.statusColor = "r";
-              } else {
-                element.booking.statusColor = "y";
-              }
-              if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
-              } else if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
-              } else {
-                element.booking.paymentColor = "y";
-              }
-            });
-
-            this.activeMobileBookingPage = this.myBookingsMobile[0];
-          } else {
-            this.totalCount = 0;
-          }
-        });
-      } else {
-        this.router.navigate(["/visa"]);
-      }
-    });
 
     //end of constructor
   }
 
+
   // console.log(this.activePcPageNumber == i);
-
-  ngOnInit() {
-    this.preloaderService.showPreloader(true);
-  }
-
-  fromDateChanged() {
-    this.minDateOfTo = this.bookingSearchForm.get("fromDate").value;
-  }
-
-  downloadInvoice(bookingId: string, bookingStatus: string) {
-    // console.log("invoice called");
-    if (bookingStatus == "g") {
-      this.downloadImageService
-        .downloadInvoice(bookingId)
-        .subscribe((response: any) => {
-          let dataType = response.type;
-          let binaryData = [];
-          binaryData.push(response);
-          var a = document.createElement("a");
-          document.body.appendChild(a);
-          a.style.display = "none";
-          let url = window.URL.createObjectURL(
-            new Blob(binaryData, { type: dataType })
-          );
-          a.href = url;
-          a.download = "Invoice" + bookingId;
-          a.click();
-          window.URL.revokeObjectURL(url);
-        });
-    } else {
-      this.toastService.showNotification(
-        "Invoice could not be generated as the payment failed.",
-        4000
-      );
-    }
-  }
-
-  setActiveBooking(booking: any) {
-    this.bookingService.setActiveBooking(booking);
-
-    localStorage.setItem("activeBooking", JSON.stringify(booking));
-
-    this.router.navigate(["bookingDetail"]);
-  }
 
   getAllBookings () {
     this.bookingService.getBookingsFromServer().subscribe(res => {
@@ -208,6 +159,7 @@ export class MyBookingsComponent implements OnInit {
       this.bookingsForLoop = this.allBooking.data.bookings;
       this.bookingService.allBookings = this.allBooking.data.bookings;
       this.filterdDateArr = this.allBooking.data.bookings;
+
       if (this.allBooking != null) {
         this.totalCount = this.allBooking.data.bookings.length;
 
@@ -267,6 +219,67 @@ export class MyBookingsComponent implements OnInit {
     });
   }
 
+  ngOnInit() {
+
+   
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+
+  }
+
+
+  @HostListener('click') doSomething(){
+    this.bookingStatus = false;
+  }
+
+  fromDateChanged() {
+    this.minDateOfTo = this.bookingSearchForm.get("fromDate").value;
+  }
+
+  downloadInvoice(bookingId: string, bookingStatus: string) {
+    // console.log("invoice called");
+    if (bookingStatus == "g") {
+      this.downloadImageService
+        .downloadInvoice(bookingId)
+        .subscribe((response: any) => {
+          let dataType = response.type;
+          let binaryData = [];
+          binaryData.push(response);
+          var a = document.createElement("a");
+          document.body.appendChild(a);
+          a.style.display = "none";
+          let url = window.URL.createObjectURL(
+            new Blob(binaryData, { type: dataType })
+          );
+          a.href = url;
+          a.download = "Invoice" + bookingId;
+          a.click();
+          window.URL.revokeObjectURL(url);
+        });
+    } else {
+      this.toastService.showNotification(
+        "Invoice could not be generated as the payment failed.",
+        4000
+      );
+    }
+  }
+
+  setActiveBooking(booking: any) {
+    this.bookingService.setActiveBooking(booking);
+
+    localStorage.setItem("activeBooking", JSON.stringify(booking));
+
+    this.router.navigate(["bookingDetail"]);
+  }
+
   onSubmit() {
     var bookingid = this.allBooking.data.feedbackToBeTakenFor;
     // console.log(bookingId);
@@ -324,6 +337,10 @@ export class MyBookingsComponent implements OnInit {
       if (fromDateTime <= bookingDateTime && bookingDateTime <= toDateTime) {
         searchedBookingsArr.push(booking);
         //  console.log(booking);
+        this.toastService.showNotification(
+          "Booking find by Date !",
+          2000
+        );
       } else {
         //  console.log("sadsa");
       }
@@ -342,7 +359,7 @@ export class MyBookingsComponent implements OnInit {
       this.filteredBookingsEmpty = true;
       this.toastService.showNotification(
         "Bookings with applied filter not found !",
-        10000
+        2000
       );
     } else {
       this.filteredBookingsEmpty = false;
@@ -350,7 +367,6 @@ export class MyBookingsComponent implements OnInit {
 
     // console.log(this.bookingSearchForm.value);
   }
-
   searchBookingsByBookingId() {
     let bookingId = this.bookingSearchForm.get("bookingId").value;
     // console.log(bookingId);
@@ -364,12 +380,20 @@ export class MyBookingsComponent implements OnInit {
         this.bookingsForLoop = arr;
         found = true;
         this.isButtonVisible = true;
+        this.toastService.showNotification(
+          "Booking find by ID !",
+          2000
+        );
       }
     });
     if (!found) {
       this.bookingsForLoop = [];
       this.filteredBookingsEmpty = true;
       this.isButtonVisible = true;
+      this.toastService.showNotification(
+        "Please Check Booking ID !",
+        2000
+      );
     }
   }
 
@@ -422,6 +446,20 @@ export class MyBookingsComponent implements OnInit {
   }
 
   closeFeed() {
+    var bookingid = this.allBooking.data.feedbackToBeTakenFor;
+    // console.log(bookingId);
+
+    let rateOne = this.FeedbackForm.get("f3-rating").value;
+    let rateTwo = this.FeedbackForm.get("f1-rating").value;
+    let rateThree = this.FeedbackForm.get("f2-rating").value;
+    let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
+    // console.log(this.FeedbackForm.value);
+    let notInterested = true;
+    this.bookingService
+      .postFeedback(bookingid,rateOne, rateTwo, rateThree, suggestion, notInterested)
+      .subscribe(res => {
+        // this.toastService.showNotification("Feedback Submitted", 1000);
+      });
     this.bookingStatus = false;
   }
 

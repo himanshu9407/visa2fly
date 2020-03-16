@@ -31,34 +31,17 @@ export class BookingDetailsComponent implements OnInit {
     {
       this.preloaderService.showPreloader(true);
     let temp = this.myBookingService.getActiveBooking();
-
-
-
-
     let localStorageBooking = JSON.parse(localStorage.getItem("activeBooking"));
     if (temp == null || temp == undefined) {
       temp = localStorageBooking;
     }
     this.selectedBooking = temp;
-    // this.router = router;
-    // this.redirectTo = activatedRoute.snapshot.data.redirectTo;
-    //
-
-
-    // console.log(this.selectedBooking);
-
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
     }, 2000);
   }
 
-  ngOnInit() {
-
-
-  }
-
-
-
+  ngOnInit() {}
   downloadImage(url : string, bookingId : string) {
     if (url == null || url == undefined) {
       this.toastService.showNotification("File not found !",4000);

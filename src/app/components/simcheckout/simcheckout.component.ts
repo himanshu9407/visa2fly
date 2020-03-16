@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { ToastService } from "src/app/shared/toast.service";
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: "app-simcheckout",
@@ -34,12 +35,14 @@ export class SimcheckoutComponent implements OnInit {
   minDate: any = "";
   maxTravelDate: any;
   totalQty: number = 0;
+  title: string;
 
   constructor(
     private simCheckoutService: SimCheckoutService,
     private router: Router,
     private preloaderService: PreloaderService,
-    private toastService: ToastService
+    private toastService: ToastService,  private titleService: Title,
+    private meta: Meta
   ) {
     this.simCart = JSON.parse(localStorage.getItem("simCart"));
     this.updateTotal();
@@ -94,6 +97,17 @@ export class SimcheckoutComponent implements OnInit {
       needInsurance: new FormControl(true, [Validators.required]),
       country: new FormControl("India")
     });
+    
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   updateTotal() {
