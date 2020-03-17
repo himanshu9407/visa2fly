@@ -13,6 +13,7 @@ import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
 import { ToastService } from "src/app/shared/toast.service";
 import { feedbackModal } from "../../interfaces/home_formData";
+
 import {
   trigger,
   state,
@@ -20,7 +21,6 @@ import {
   transition,
   animate
 } from "@angular/animations";
-import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: "app-my-bookings",
   templateUrl: "./my-bookings.component.html",
@@ -77,6 +77,7 @@ export class MyBookingsComponent implements OnInit {
   feedbackBookingDetail : Array<any> = [];
 
 
+
   constructor(
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
@@ -86,9 +87,8 @@ export class MyBookingsComponent implements OnInit {
     private downloadImageService: DownloadImageService,
     private toastService: ToastService,
     private fb: FormBuilder,
-    private activatedRoute : ActivatedRoute,
-    private titleService: Title,
-    private meta: Meta) {
+    private activatedRoute : ActivatedRoute
+  ) {
     this.myBookings = [];
     // this.preloaderService.showPreloader(true);
 
@@ -146,9 +146,10 @@ export class MyBookingsComponent implements OnInit {
     }
 
 
+
+
     //end of constructor
   }
-
 
   // console.log(this.activePcPageNumber == i);
 
@@ -221,24 +222,12 @@ export class MyBookingsComponent implements OnInit {
 
   ngOnInit() {
 
-   
-    this.titleService.setTitle(this.title);
-    this.meta.addTags([
-      { name: "keywords", content: "" },
-      {
-        name: "description",
-        content: ""
-      },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
-    ]);
+
 
   }
 
 
-  @HostListener('click') doSomething(){
-    this.bookingStatus = false;
-  }
+
 
   fromDateChanged() {
     this.minDateOfTo = this.bookingSearchForm.get("fromDate").value;
