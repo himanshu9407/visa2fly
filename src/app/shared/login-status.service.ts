@@ -8,7 +8,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
     providedIn: 'root'
-  })  
+  })
 export class LoginStatusService {
 
     isAuthenticated :boolean = false;
@@ -49,7 +49,7 @@ export class LoginStatusService {
     }}
 
 
-    verifyAuthToken (authToken : string) {
+    verifyAuthToken (authToken : string): Observable<any> {
         if (authToken == null || authToken == undefined) {
             authToken = "";
         }
@@ -72,5 +72,5 @@ export class LoginStatusService {
 
     }
 
-    
+
 }
