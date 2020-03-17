@@ -77,7 +77,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Sri Lanka Tourist E Visa online| Sri Lanka E Visa- Visa2fly';
+  title: string = 'Sri Lanka Tourist E Visa online | Sri Lanka E Visa- Visa2fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
