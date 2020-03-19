@@ -174,7 +174,7 @@ export class VietnamComponent implements OnInit, AfterViewInit {
 
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Vietnam e visa apply online" },
+      { name: "keywords", content: "apply for Vietnam e-visa, Vietnam tourist visa application, Vietnam tourist visa for Indian, apply for Vietnam e visa, Vietnam e-visa for Indians" },
       {
         name: "description",
         content: "Apply online for Vietnam e-visa at Visa2fly. To Avail Vietnam e-visa apply online and fill the visa application process online at visa2fly. Visa2Fly offers world-class online visa services so that, you receive maximum benefits without any hassle. Know more about it here."

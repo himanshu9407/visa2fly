@@ -2,7 +2,7 @@ import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
 import * as $ from "jquery";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { isPlatformBrowser } from "@angular/common";
-import { Meta, Title } from '@angular/platform-browser';
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-login-signup",
@@ -14,8 +14,6 @@ export class LoginSignupComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private titleService: Title,
-    private meta: Meta,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
   public show_login: boolean = false;
@@ -23,7 +21,6 @@ export class LoginSignupComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      // console.log(params);
       if (params["form"] == "login") {
         this.showLogin();
       }
@@ -32,16 +29,6 @@ export class LoginSignupComponent implements OnInit {
       }
     });
 
-    this.titleService.setTitle(this.title);
-    this.meta.addTags([
-      { name: "keywords", content: "" },
-      {
-        name: "description",
-        content: ""
-      },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
-    ]);
   }
 
   showSignup() {
@@ -51,13 +38,12 @@ export class LoginSignupComponent implements OnInit {
     this.show_login = false;
     if (isPlatformBrowser(this.platformId)) {
       $("#Login").css("border-radius", "0px 20px 20px 0px");
-  
       $("#Login").removeClass("signup-capsule");
       $("#Login").addClass("login-capsule");
       $("#SignUp").removeClass("login-capsule");
       $("#SignUp").addClass("signup-capsule");
       $("#SignUp").css("border-radius", "20px 0px 0px 20px");
-      }
+    }
   }
 
   showLogin() {

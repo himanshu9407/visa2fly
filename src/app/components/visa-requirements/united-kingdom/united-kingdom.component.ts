@@ -163,7 +163,7 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "UK visa application" },
+      { name: "keywords", content: "apply for UK e-visa, UK tourist visa application, UK tourist visa for Indian, apply for UK e visa, UK e-visa for Indians" },
       {
         name: "description",
         content: "Avail online visa services for your UK visa application at Visa2Fly. Get assured online visa services and immigration services that make your UK visa application process hassle-free and convenient. Fill your UK visa application online at Visa2fly now.  "

@@ -31,7 +31,8 @@ export class OtherCountryService {
             if (isPlatformBrowser(this.platformId)) {
                 localStorage.setItem("activeCountry",country);
             }
-            this.router.navigate(['/home']);
+            this.router.navigate(['/visa']);
+            // window.location.reload();
         }
     }
 
