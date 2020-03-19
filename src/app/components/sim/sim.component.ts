@@ -17,7 +17,7 @@ export class SimComponent implements OnInit {
 
   simHomeForm : FormGroup;
   selectedSimCountry : string = "";
-  title: any;
+  title: string = "Visa2fly | Sim";
 
   constructor(private preloaderService : PreloaderService, private simService : SimService, private titleService: Title,
     private meta: Meta,

@@ -32,7 +32,7 @@ export class SimplansComponent implements OnInit {
   simResp : any ;
   showMobileCart : boolean  = false;
   buttonLabel : string = "View Cart";
-  title: string;
+  title: string = "Visa2fly | Sim Plans";
   //selectedSimCountry : any = "";
 
   constructor(private simService : SimService, private router : Router, 

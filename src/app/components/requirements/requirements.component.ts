@@ -159,7 +159,6 @@ export class RequirementsComponent implements OnInit {
   public imageUpload1: Array<any> = [];
 
   purposeChooseForm1: FormGroup;
-  title: string;
   country: any;
   constructor(
     private router: Router,
@@ -653,7 +652,7 @@ export class RequirementsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Apply For " + this.selectedCountrytype + " Visa Online");
     this.meta.addTags([
       { name: "keywords", content: "" },
       {
