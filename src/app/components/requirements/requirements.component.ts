@@ -21,7 +21,7 @@ import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
 import { isPlatformBrowser } from "@angular/common";
 import * as $ from "jquery";
-import { Meta, Title } from '@angular/platform-browser';
+import { Meta, Title } from "@angular/platform-browser";
 @Component({
   selector: "app-requirements",
   templateUrl: "./requirements.component.html",
@@ -175,6 +175,36 @@ export class RequirementsComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    if (
+      this.router.url ==
+      "/visa-requirements/USA/apply-for-USA-visa-online/Tourist"
+    ) {
+      this.router.navigateByUrl(
+        "/visa-requirements/apply-for-USA-visa-online/Tourist"
+      );
+    } else if (
+      this.router.url ==
+      "/visa-requirements/Cambodia/apply-for-Cambodia-visa-online/Tourist"
+    ) {
+      this.router.navigateByUrl(
+        "/visa-requirements/apply-for-Cambodia-visa-online/Tourist"
+      );
+    } else if (
+      this.router.url ==
+      "/visa-requirements/Singapore/apply-for-Singapore-visa-online/Tourist"
+    ) {
+      this.router.navigateByUrl(
+        "/visa-requirements/apply-for-Singapore-visa-online/Tourist"
+      );
+    } else if (
+      this.router.url ==
+      "/visa-requirements/Australia/apply-for-Australia-visa-online/Tourist"
+    ) {
+      this.router.navigateByUrl(
+        "/visa-requirements/apply-for-Australia-visa-online/Tourist"
+      );
+    }
+
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
     // console.log(this.userFlowDetails);
     this.preloaderService.showPreloader(true);
@@ -522,7 +552,7 @@ export class RequirementsComponent implements OnInit {
       {
         name: "description",
         content: ""
-      },
+      }
       // { name: "robots", content: "index, follow" }
       // { name: "author", content: "rsgitech" },
     ]);

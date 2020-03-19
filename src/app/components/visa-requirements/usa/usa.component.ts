@@ -100,7 +100,7 @@ export class USAComponent implements OnInit {
     this.activeRoute.params.subscribe((params: any) => {
       this.selectedVisaType = params.purpose;
       // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
+      //  console.log(this.router.url);
     });
 
     let tempPurpose = this.selectedVisaType;
