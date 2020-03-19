@@ -179,7 +179,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      {name: 'keywords', content: 'Azerbaijan e visa apply online'},
+      {name:"keywords", content:"apply for azerbaijan e-visa, azerbaijan tourist visa application, azerbaijan tourist visa for indian, apply for azerbaijan e visa, azerbaijan e-visa for indians"},
       {name: 'description', content: 'Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.'},
         // {name: 'author', content: 'rsgitech'},
         // {name: 'robots', content: 'index, follow'}
