@@ -91,6 +91,8 @@ export class AddTravellerComponent implements OnInit {
   cellError: boolean;
   addressError: boolean;
   zipCodeError: boolean;
+
+  passportFrontImageError: boolean;
   scrollBy: number = 0;
   errorForm = "";
   checkUploadedImages: boolean;
@@ -324,7 +326,7 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    // console.log(this.userFlowDetails);
+    // console.log(this.imageUploads);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
@@ -334,7 +336,6 @@ export class AddTravellerComponent implements OnInit {
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
     // console.log(this.minTravelDate);
-    
 
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
@@ -368,12 +369,11 @@ export class AddTravellerComponent implements OnInit {
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
     // console.log(this.minDateOfTravel);
 
-    
     this.minDateOfCollection = {
       // {year: minDate.year, month: minDate.month, day: minDate.day +1}
       year: this.minDateOfTravel.year,
       month: this.minDateOfTravel.month,
-      day: this.minDateOfTravel.day - this.minTravelDate 
+      day: this.minDateOfTravel.day - this.minTravelDate
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
@@ -411,7 +411,7 @@ export class AddTravellerComponent implements OnInit {
     // console.log(this.serviceTax);
     this.stayPeriod = data.stayPeriod;
 
-    if (this.category == 'e-visa') {
+    if (this.category == "e-visa") {
       this.travelDetails = new FormGroup({
         dateOfTravel: new FormControl("", [Validators.required]),
         dateOfCollection: new FormControl("", [Validators.nullValidator])
@@ -443,7 +443,7 @@ export class AddTravellerComponent implements OnInit {
     for (let i = 0; i < this.imageUploads.length; i++) {
       this.filedNameArr.push(this.imageUploads[i].fieldName);
     }
-    //console.log(this.filedNameArr)
+    // console.log(this.filedNameArr)
     // console.log((<FormGroup><undefined>(<FormArray>this.travellerForm.get('travellers')).controls[0]).controls[this.filedNameArr[3]])
     arr.forEach((element: FormGroup) => {
       this.filedNameArr.forEach(fieldName => {
@@ -488,7 +488,7 @@ export class AddTravellerComponent implements OnInit {
   }
 
   createTraveller(): FormGroup {
-    if (this.category == 'e-visa') {
+    if (this.category == "e-visa") {
       return this.formBuilder.group({
         title: ["Mr", [Validators.required]],
         firstName: ["", [Validators.required]],
@@ -505,14 +505,19 @@ export class AddTravellerComponent implements OnInit {
         cellNumber: ["", [Validators.required]],
 
         passportFrontImage: [null],
+        itr: [null],
         passportBioImage: [null],
         sixMonthsBankStatement: [null],
-        insurance: [null],
+
         userImage: [null],
+        noc: [null],
+        panCard: [null],
+        invitation: [null],
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
-        businessCard: [null]
+        businessCard: [null],
+        insurance: [null]
       });
     } else {
       return this.formBuilder.group({
@@ -560,7 +565,7 @@ export class AddTravellerComponent implements OnInit {
   }
 
   checkDateOfCollection() {
-    if (this.category == 'Sticker') {
+    if (this.category == "Sticker") {
       if (
         this.travelDetails.get("dateOfCollection").value == undefined ||
         this.travelDetails.get("dateOfCollection").value == null ||
@@ -624,12 +629,6 @@ export class AddTravellerComponent implements OnInit {
       // let gstNumberValue = this.travellerForm.controls.travellers.controls[i].controls.gstNumber.value;
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
-
-      // let image1 = this.travellerForm.controls.travellers.controls[i].controls.passportFrontImage.value;
-      // let image2 = this.travellerForm.controls.travellers.controls[i].controls.passportBioImage.value;
-      // let image3 = this.travellerForm.controls.travellers.controls[i].controls.userImage.value;
-      // let image4 = this.travellerForm.controls.travellers.controls[i].controls.businessCard.value;
-      // let image5 = this.travellerForm.controls.travellers.controls[i].controls.hotelAccommodation.value;
 
       if (
         firstNameValue == "" ||
@@ -743,69 +742,7 @@ export class AddTravellerComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
-      // if (
-      //   image1 == "" ||
-      //   image1 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportFrontImage.passportFrontImageError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportFrontImage.passportFrontImageError = false;
-      // }
-      // if (
-      //   image2 == "" ||
-      //   image2 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportBioImage.passportBioImageError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.passportBioImage.passportBioImageError = false;
-      // }
-      // if (
-      //   image3 == "" ||
-      //   image3 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.userImage.userImageError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.userImage.userImageError = false;
-      // }
-
-      // if (
-      //   image4 == "" ||
-      //   image4 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.businessCard.businessCardError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.businessCard.businessCardError = false;
-      // }
-      // if (
-      //   image5 == "" ||
-      //   image5 == undefined
-      // ) {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.hotelAccommodation.hotelAccommodationError = true;
-      // } else {
-      //   this.travellerForm.controls.travellers.controls[
-      //     i
-      //   ].controls.hotelAccommodation.hotelAccommodationError = false;
-      // }
-
-      if (this.category == 'Sticker') {
+      if (this.category == "Sticker") {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
           .controls.address.value;
         let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
@@ -842,19 +779,23 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
+  validateImage() {
+    
+  }
+
   seeValues() {
+    this.validateImage();
     this.validateTravellerForm();
     this.validateDate();
     this.checkDateOfCollection();
 
-    this.formData1.set("images", "");
+    // this.formData1.set("images", "");
     // console.log(this.formData1);
 
     let tempArr =
       (<FormArray>this.travellerForm.get("travellers")).controls || [];
 
     tempArr.forEach((form: FormGroup, index) => {
-
       let dob: { year: number; month: number; day: number } = form.get(
         "dateOfBirthCopy"
       ).value;
@@ -890,13 +831,17 @@ export class AddTravellerComponent implements OnInit {
 
       form.get("dateOfBirth").updateValueAndValidity();
       form.get("passportExpiryDate").updateValueAndValidity();
-      
+
       // console.log("Dhruv");
     });
 
     // console.log("Pradeep");
 
-    if (this.travellerForm.valid && this.travelDetails.valid && this.valueAddedService.valid) {
+    if (
+      this.travellerForm.valid &&
+      this.travelDetails.valid &&
+      this.valueAddedService.valid
+    ) {
       if (this.termsAndConditions.valid) {
         this.preloaderService.showPreloader(true);
         let otherTravellersArr: Array<any> = [];
@@ -909,9 +854,11 @@ export class AddTravellerComponent implements OnInit {
           (<FormArray>this.travellerForm.get("travellers")).controls || [];
 
         tempArr.forEach((form: FormGroup, index) => {
-          if (this.category == 'e-visa') {
+          if (this.category == "e-visa") {
             this.filedNameArr.forEach(el => {
               this.formData1.append("images", form.get(el).value);
+              // console.log(form.get(el).value);
+
               this.tempImageArr.push(form.get(el).value);
               form.get(el).setValue(form.get(el).value.name);
               form.get(el).updateValueAndValidity();
@@ -1008,7 +955,7 @@ export class AddTravellerComponent implements OnInit {
         fd["primaryTraveller"] = ptdata[0];
         fd["otherTravellers"] = other;
         fd["dateOfTravel"] = finalDot;
-        if (this.category == 'Sticker') {
+        if (this.category == "Sticker") {
           fd["dateOfDocumentCollection"] = finalDoc;
         }
         fd["quoteId"] = this.quoteId;
@@ -1077,6 +1024,7 @@ export class AddTravellerComponent implements OnInit {
               for (let i = 0, j = this.tempImageArr.length; i < j; i += chunk) {
                 temparray = this.tempImageArr.slice(i, i + chunk);
                 this.originalImageArr.push(temparray);
+                console.log(this.originalImageArr);
               }
 
               this.tempImageArr = [];
@@ -1086,7 +1034,7 @@ export class AddTravellerComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == 'e-visa') {
+                if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                     // form.re
@@ -1134,7 +1082,7 @@ export class AddTravellerComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == 'e-visa') {
+                if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                     // form.re
@@ -1143,10 +1091,9 @@ export class AddTravellerComponent implements OnInit {
               });
 
               this.originalImageArr = [];
-            
+
               this.preloaderService.showPreloader(false);
-      this.toastService.showNotification(data.message, 10000);
-            
+              this.toastService.showNotification(data.message, 10000);
             } else if (data.code == "1001") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
@@ -1164,7 +1111,7 @@ export class AddTravellerComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == 'e-visa') {
+                if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                     // form.re
@@ -1173,7 +1120,7 @@ export class AddTravellerComponent implements OnInit {
               });
 
               this.originalImageArr = [];
-              
+
               this.modalWarnings = [];
               this.preloaderService.showPreloader(false);
               this.errorMessage.push(data.data.warnings.travelDateWarning);
@@ -1382,7 +1329,7 @@ export class AddTravellerComponent implements OnInit {
 
         let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-        if (this.category == 'e-visa') {
+        if (this.category == "e-visa") {
           arr.forEach((element: FormGroup, i) => {
             if (i == arr.length - 1) {
               this.filedNameArr.forEach(fieldName => {

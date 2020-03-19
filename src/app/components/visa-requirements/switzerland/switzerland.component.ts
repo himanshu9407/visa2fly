@@ -46,7 +46,7 @@ export interface Food {
   ]
 })
 export class SwitzerlandComponent implements OnInit {
-  @ViewChild("t", { static: false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
   selectedRequirement: boolean = false;
@@ -69,7 +69,7 @@ export class SwitzerlandComponent implements OnInit {
   selectedTourist: number = 1;
   public selectedCountrytype = "Switzerland";
   onlineCountry: void;
-  title: string;
+  title: string = 'Apply for your Switzerland tourist e visa now – Visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -145,16 +145,16 @@ export class SwitzerlandComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Apply for your Switzerland tourist e visa now – Visa2Fly" },
+      {
+        name: "description",
+        content: "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more."
+      },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
-    // ]);
+    ]);
   }
 
   ngAfterViewInit() {
@@ -164,8 +164,11 @@ export class SwitzerlandComponent implements OnInit {
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     // console.log(purpose);
-    window.history.replaceState("", "", "/visa-requirements/France/" + purpose);
-    // console.log(this.businessArr);
+    window.history.replaceState(
+      "",
+      "",
+      "/visa-requirements/apply-for-Swiss-visa-online/" + purpose
+    );
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;

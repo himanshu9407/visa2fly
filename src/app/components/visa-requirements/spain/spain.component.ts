@@ -46,7 +46,7 @@ export interface Food {
 })
 export class SpainComponent implements OnInit, AfterViewInit  {
 
-  @ViewChild("t", { static: false }) t;
+  @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
 
@@ -70,7 +70,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
   selectedTransit: number = 1;
   selectedTourist: number = 1;
   public selectedCountrytype = "Spain";
-  title: string;
+  title: string = 'Apply Spain e visa online – Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -108,7 +108,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
         // console.log(res);
         if (res.code == 0) {
           // console.log(res);
-          
+
           this.MyQuotation = res.data.quotations;
           this.onlinestatus = res.data.onlineCategory;
 
@@ -150,16 +150,16 @@ export class SpainComponent implements OnInit, AfterViewInit  {
      }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Apply Spain e visa online – Visa2Fly" },
+      {
+        name: "description",
+        content: "Apply for Spain e-visa online at Visa2fly. Visa2Fly gives visa services so that, you obtain most blessings without any hassle. Know more about it here."
+      },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
-    // ]);
+    ]);
   }
   ngAfterViewInit() {
     this.t.select(this.selectedVisaType);

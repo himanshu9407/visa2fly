@@ -2,6 +2,7 @@ import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
 import * as $ from "jquery";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { isPlatformBrowser } from "@angular/common";
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-login-signup",
@@ -9,9 +10,12 @@ import { isPlatformBrowser } from "@angular/common";
   styleUrls: ["./login-signup.component.css"]
 })
 export class LoginSignupComponent implements OnInit {
+  title: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private titleService: Title,
+    private meta: Meta,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
   public show_login: boolean = false;
@@ -27,6 +31,17 @@ export class LoginSignupComponent implements OnInit {
         this.showSignup();
       }
     });
+
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   showSignup() {

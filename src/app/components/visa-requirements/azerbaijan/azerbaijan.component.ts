@@ -78,6 +78,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  // public title: string = 'Apply For Azerbaijan Visa Online- Visa2Fly';
   // category: string;
 
   constructor(
@@ -114,7 +115,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-         console.log(res);
+        //  console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
@@ -299,7 +300,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imagefield1));
 
     // console.log(this.userFlow.getUserFlowDetails(category));
-    
+
 
     //console.log(quoteId);
 

@@ -23,7 +23,7 @@
       </li>
 
       <li [routerLink]="['sim']"  class="nav-item">
-        <a class="navlink sim">Sim Card</a>  
+        <a class="navlink sim">Sim Card</a>
       </li>
       <li class="nav-item">
         <a class="navlink insurance">Insurance<span class="soon badge badge-warning">coming soon</span></a>
@@ -67,7 +67,7 @@
           </button>
           <div  style="z-index: 1500" class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown" [ngClass]="{'show':showDropDown}">
             <button [routerLink] = "['profile']" class="dropdown-item">My Profile</button>
-            <button [routerLink] = "['myBookings']" class="dropdown-item">My Bookings</button>
+            <button routerLink="/myBookings" routerLinkActive="active" class="dropdown-item">My Bookings</button>
             <div class="dropdown-divider"></div>
             <button (click)="logoutUser()" ngbDropdownItem class="dropdown-item">Logout</button>
 

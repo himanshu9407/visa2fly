@@ -518,7 +518,11 @@ export class B2bAddTrvComponent implements OnInit {
         departureFlightTicket: [null],
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
-        businessCard: [null]
+        businessCard: [null],
+        itr: [null],
+        panCard: [null],
+        invitation: [null],
+        noc: [null]
       });
     } else {
       return this.formBuilder.group({

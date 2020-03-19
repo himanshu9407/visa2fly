@@ -3,6 +3,7 @@ import { PreloaderService } from 'src/app/shared/preloader.service';
 import { SimService } from './sim.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sim',
@@ -16,8 +17,10 @@ export class SimComponent implements OnInit {
 
   simHomeForm : FormGroup;
   selectedSimCountry : string = "";
+  title: any;
 
-  constructor(private preloaderService : PreloaderService, private simService : SimService,
+  constructor(private preloaderService : PreloaderService, private simService : SimService, private titleService: Title,
+    private meta: Meta,
     private router : Router) {
     this.preloaderService.showPreloader(true);
    }
@@ -49,6 +52,17 @@ export class SimComponent implements OnInit {
         }
       }
     );
+
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
   }
 
   onSimCountrySelected () {

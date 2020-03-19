@@ -47,8 +47,14 @@ import { B2bHomeComponent } from "./components/b2b/b2b-home/b2b-home.component";
 import { B2bReqComponent } from "./components/b2b/b2b-req/b2b-req.component";
 import { B2bAddTrvComponent } from "./components/b2b/b2b-add-trv/b2b-add-trv.component";
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
+import { USAComponent } from './components/visa-requirements/usa/usa.component';
+import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+
+  
+
   { path: "", redirectTo: "visa", pathMatch: "full" },
   { path: "visa", component: HomeContainerComponent },
   { path: "tnc", component: TermsandConditionsComponent },
@@ -78,8 +84,10 @@ const routes: Routes = [
     component: MyBookingsComponent,
     canActivate: [AuthenticationGuard]
   },
-  { path: "b2b", redirectTo: "b2b/home", pathMatch: "full" },
-  { path: "b2b/home", component: B2bHomeComponent },
+  { path: "b2b", redirectTo: "b2b/home", pathMatch: "prefix" },
+  { path: "b2b/home", component: B2bHomeComponent, children : [
+    { path: "b2b/home/:id", component: B2bHomeComponent }
+  ] },
   {
     path: "b2b/visa-requirement/:country/:purpose",
     component: B2bReqComponent
@@ -118,6 +126,18 @@ const routes: Routes = [
     component: UnitedKingdomComponent
   },
   {
+    path: "visa-requirements/apply-for-USA-visa-online/:purpose",
+    component: USAComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Netherlands-visa-online/:purpose",
+    component: NetherlandsComponent
+  },
+  {
+    path: "visa-requirements/apply-for-Australia-visa-online/:purpose",
+    component: AustraliaComponent
+  },
+  {
     path: "visa-requirements/apply-for-France-visa-online/:purpose",
     component: FranceComponent
   },
@@ -140,7 +160,7 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Thailand-visa-online/:purpose",
     component: ThailandComponent
-  },  
+  },
   {
     path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose",
     component: VietnamComponent
@@ -181,13 +201,16 @@ const routes: Routes = [
     path: "b2b/something-went-wrong",
     component:  SomethingWrongComponent
   },
-
-  { path: "**", redirectTo: "visa", pathMatch: "full" }
+  {
+    path: "page-not-found",
+    component: PageNotFoundComponent
+  },
+  { path: "**", redirectTo: "page-not-found", pathMatch: "full" }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled" })
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", onSameUrlNavigation: 'reload'})
   ],
   exports: [RouterModule],
   declarations: []

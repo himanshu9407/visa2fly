@@ -1,21 +1,23 @@
 <section class="world">
+ <div class="container">
+   <div class="row">
+     <div class="col-12">
+       {{destinationCountry}}
+     </div>
+   </div>
   <div class="talk-bubble tri-right round btn-top-left btm-right"
   [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
     <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+      <h5 class="destinationTitle">{{destinationTitle1}}</h5>
+      <p class="destinationContent">{{destinationContent1}}</p>
     </div>
   </div>
 
   <div class="talk-bubble tri-right round btn-top-right btm-left"
   [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
     <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+      <h5 class="destinationTitle">{{destinationTitle2}}</h5>
+      <p class="destinationContent">{{destinationContent2}}</p>
     </div>
   </div>
 
@@ -24,31 +26,27 @@
     'exploreTheWorld':exploreWorld === 'findingDestination',
     'finallyReach':exploreWorld === 'reachYourDestination'
   }" [ngStyle]="{
-      'background-image':exploreWorld === 'reachYourDestination' ? 'url(../../../assets/world.jpg)' : '',
-      'background-size':exploreWorld === 'reachYourDestination' ? 'cover' : '',
+    
       'background-position':exploreWorld === 'reachYourDestination' ? randomPosition(): ''
     }" (click)="findPlace()" usemap="shapes-map">
     <!-- {{generatePosition}} -->
-    <img src="../../../assets/pin.png" alt="" style="transform: rotate(-27deg); height: 100px; position: relative;">
+    <img src="../../../assets/pin.png" alt="" style="transform: rotate(-27deg); height: 45px; position: relative;">
   </div>
 
   <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
     [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
     <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+      <h5 class="destinationTitle">{{destinationTitle3}}</h5>
+      <p class="destinationContent">{{destinationContent3}}</p>
     </div>
   </div>
 
-  <div class="talk-bubble tri-right round btn-bottom-right btm-top-left"
-    [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+  <div class="talk-bubble tri-right round btn-bottom-right btm-right"
+  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
     <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+      <h5 class="destinationTitle">{{destinationTitle4}}</h5>
+      <p class="destinationContent">{{destinationContent4}}</p>
     </div>
   </div>
+ </div>
 </section>

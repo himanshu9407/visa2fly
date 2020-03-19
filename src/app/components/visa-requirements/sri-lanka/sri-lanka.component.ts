@@ -77,7 +77,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string;
+  title: string = 'Sri Lanka Tourist E Visa online| Sri Lanka E Visa- Visa2fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -117,13 +117,13 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           //console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           //console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           //console.log(this.imageCatogoryTransitTemp);
 
@@ -172,21 +172,21 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
-    // this.titleService.setTitle(this.title);
-    // this.meta.addTags([
-    //   { name: "keywords", content: "Angular Project, Create Angular Project" },
-    //   {
-    //     name: "description",
-    //     content: "Angular project training on rsgitech.com"
-    //   },
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "Sri Lanka Tourist E Visa online| Sri Lanka E Visa- Visa2fly" },
+      {
+        name: "description",
+        content: "From now on, you can get your Srilanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us."
+      },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
-    // ]);
+    ]);
   }
 
    ngAfterViewInit() {
     this.t.select(this.selectedVisaType);
-  }
+    }
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
@@ -204,7 +204,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -294,10 +294,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imagefield1)
-    );
+    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
 
     //console.log(quoteId);
 

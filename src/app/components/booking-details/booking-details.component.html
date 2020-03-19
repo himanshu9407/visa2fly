@@ -1,229 +1,229 @@
 <div style="display: flex; justify-content: center">
 
 
-  <section id="insrSummary">
+    <section id="insrSummary">
 
-    <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Visa'">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
+        <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
+                </div>
+
+                <div class="col-md-7 pdLeft">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>BOOKING ID:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.bookingId}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-6 pdLeft mgTop">
+                                    <div class="labelText ">
+                                        <b>TRANSACTION ID:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.paymentId}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>VISA FOR :</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.visaForCountry}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText ">
+                                        <b>VISA TYPE:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.visaType}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>ENTRY TYPE:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.entryType}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText ">
+                                        <b>TOTAL TRAVELLERS:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.totalTravellers}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5 pdLeft">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>BOOKING DATE:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.bookingDate}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText ">
+                                        <b>DATE OF JOURNEY:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.dateOfTravel}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>BOOKING STATUS:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.bookingStatus}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText ">
+                                        <b>PAYMENT STATUS:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.paymentStatus}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
         </div>
 
-        <div class="col-md-7 pdLeft">
-          <div class="row">
-            <div class="col-md-5">
-              <div class="row">
-                <div class="col-md-12 col-sm-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>BOOKING ID:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.bookingId}}</li>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-6 pdLeft mgTop">
-                  <div class="labelText ">
-                    <b>TRANSACTION ID:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.paymentId}}</li>
-                    </div>
-                  </div>
+        <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Sim'">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
                 </div>
 
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="row">
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>VISA FOR :</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.visaForCountry}}</li>
+                <div class="col-md-12 pdLeft">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>BOOKING ID:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.bookingId}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-6 pdLeft mgTop">
+                                    <div class="labelText ">
+                                        <b>TRANSACTION ID:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.paymentId}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>{{selectedBooking.booking.bookingType == 'Visa' ? 'VISA' : 'SIM'}} FOR :</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.visaForCountry}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText ">
+                                        <b>TOTAL TRAVELLERS:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.totalTravellers}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>BOOKING DATE:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.bookingDate}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText ">
+                                        <b>PAYMENT STATUS:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.paymentStatus}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12 col-6 pdLeft">
+                                    <div class="labelText firstChild">
+                                        <b>BOOKING STATUS:</b>
+                                        <div class="viewDetail">
+                                            <li>{{selectedBooking.booking.bookingStatus}}</li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText ">
-                    <b>VISA TYPE:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.visaType}}</li>
-                    </div>
-                  </div>
                 </div>
 
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="row">
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>ENTRY TYPE:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.entryType}}</li>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText ">
-                    <b>TOTAL TRAVELLERS:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.totalTravellers}}</li>
-                    </div>
-                  </div>
-                </div>
 
-              </div>
+
+
+
+
             </div>
-          </div>
         </div>
-
-        <div class="col-md-5 pdLeft">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>BOOKING DATE:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.bookingDate}}</li>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText ">
-                    <b>DATE OF JOURNEY:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.dateOfTravel}}</li>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>BOOKING STATUS:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.bookingStatus}}</li>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText ">
-                    <b>PAYMENT STATUS:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.paymentStatus}}</li>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-      </div>
-    </div>
-
-    <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Sim'">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
-        </div>
-
-        <div class="col-md-12 pdLeft">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="row">
-                <div class="col-md-12 col-sm-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>BOOKING ID:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.bookingId}}</li>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-sm-6 pdLeft mgTop">
-                  <div class="labelText ">
-                    <b>TRANSACTION ID:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.paymentId}}</li>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="row">
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>{{selectedBooking.booking.bookingType == 'Visa' ? 'VISA' : 'SIM'}} FOR :</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.visaForCountry}}</li>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText ">
-                    <b>TOTAL TRAVELLERS:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.totalTravellers}}</li>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="row">
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>BOOKING DATE:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.bookingDate}}</li>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText ">
-                    <b>PAYMENT STATUS:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.paymentStatus}}</li>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="row">
-                <div class="col-md-12 col-6 pdLeft">
-                  <div class="labelText firstChild">
-                    <b>BOOKING STATUS:</b>
-                    <div class="viewDetail">
-                      <li>{{selectedBooking.booking.bookingStatus}}</li>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-
-
-
-
-      </div>
-    </div>
-  </section>
+    </section>
 </div>
 <section class="bookingDetail" style="margin-bottom: 40px;">
   <div class="container">
@@ -236,86 +236,86 @@
             </div>
             <div class="card-body">
               <ul class="visa-type">
-                <li>
+                <li *ngIf="traveller.emailId != null">
                   Email ID :
                   <span class="fieldData">{{traveller.emailId}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.firstName != null">
                   First Name :
                   <span class="fieldData">{{traveller.firstName}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.middleName != null">
                   Middle Name :
                   <span class="fieldData">{{traveller.middleName}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.lastName != null">
                   Last Name :
                   <span class="fieldData">{{traveller.lastName}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.cellNumber != null">
                   Cell Number :
                   <span class="fieldData">{{traveller.cellNumber}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.code != null">
                   Code:
                   <span class="fieldData">{{traveller.code}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine1 != null">
                   Address Line 1 :
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine1 != null">
                   <textarea name="" class="form-control" disabled id="" cols="30"
                     rows="4">{{traveller.addressLine1 || xyz}}</textarea>
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine2 != null">
                   Address Line 2 :
                 </li>
-                <li>
+                <li *ngIf="traveller.addressLine2 != null">
                   <textarea name="" class="form-control" disabled id="" cols="30"
                     rows="4">{{traveller.addressLine2 || xyz}}</textarea>
                 </li>
-                <li>
+                <li *ngIf="traveller.city != null">
                   City:
                   <span class="fieldData">{{traveller.city}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.state != null">
                   State :
                   <span class="fieldData">{{traveller.state}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.pinCode != null">
                   Pin Code :
                   <span class="fieldData">{{traveller.pinCode}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.country != null">
                   Country :
                   <span class="fieldData">{{traveller.country}}</span>
                 </li>
-                <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.title != null">
                   Title :
                   <span class="fieldData">{{traveller.title}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.dateOfBirth != null">
                   Date Of Birth :
                   <span class="fieldData">{{traveller.dateOfBirth}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.passportNumber != null">
                   Passport Number :
                   <span class="fieldData">{{traveller.passportNumber || H1234567}}</span>
                 </li>
-                <li>
+                <li *ngIf="traveller.passportExpiryDate!= null">
                   Passport Expire Date :
                   <span class="fieldData">{{traveller.passportExpiryDate}}</span>
                 </li>
                 <div *ngIf="traveller.onlineCountry">
-                  <li *ngIf="(selectedBooking.booking.bookingType == 'Visa')">
-                    Passport Front Url :
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.passportFrontUrl != null">
+                    Passport Front :
                     <span (click)="downloadImage(traveller.passportFrontUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.passportFrontUrl == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.passportFrontUrl != null">
                     Passport Bio Image :
                     <span (click)="downloadImage(traveller.passportBioImage,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
@@ -323,51 +323,91 @@
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
-                    User Image Url :
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.userImageUrl != null">
+                    User Image :
                     <span (click)="downloadImage(traveller.userImageUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.userImageUrl == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
-                    Department Flight Ticket Url :
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.departureFlightTicketUrl != null">
+                    Department Flight Ticket :
                     <span (click)="downloadImage(traveller.departureFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.departureFlightTicketUrl == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
-                    Arrival Flight Ticket Url :
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.arrivalFlightTicketUrl != null">
+                    Arrival Flight Ticket :
                     <span (click)="downloadImage(traveller.arrivalFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.arrivalFlightTicketUrl == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
-                    Hotel Accommodation Url :
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.hotelAccommodationUrl != null">
+                    Hotel Accommodation :
                     <span (click)="downloadImage(traveller.hotelAccommodationUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.hotelAccommodationUrl == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="(selectedBooking.booking.bookingType == 'Visa')">
-                    Six Months Bank Statement Url :
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.sixMonthsBankStatementUrl != null">
+                    Six Months Bank Statement :
                     <span (click)="downloadImage(traveller.sixMonthsBankStatementUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.sixMonthsBankStatementUrl == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'">
-                    Insurance Url :
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.insuranceUrl != null">
+                    Insurance :
                     <span (click)="downloadImage(traveller.insuranceUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.businessCardUrl != null">
+                    Business Card :
+                    <span (click)="downloadImage(traveller.businessCardUrl,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.businessCardUrl == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.noc != null">
+                    NOC :
+                    <span (click)="downloadImage(traveller.noc,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.noc == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.panCard != null">
+                    PAN Card :
+                    <span (click)="downloadImage(traveller.panCard,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.panCard == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.itr != null">
+                    ITR :
+                    <span (click)="downloadImage(traveller.itr,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.itr == null ? "NA" : "Click Here"}} 
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                      </a></span>
+                  </li>
+                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.invitation != null">
+                    ITR :
+                    <span (click)="downloadImage(traveller.invitation,selectedBooking.booking.bookingId)"
+                      class="fieldData"><a class="pointer">
+                        {{traveller.invitation == null ? "NA" : "Click Here"}} 
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -380,63 +420,64 @@
                   Online Country :
                   <span class="fieldData">{{traveller.onlineCountry}}</span>
                 </li> -->
-              </ul>
-            </div>
+                            </ul>
 
-          </div>
-        </div>
-      </div>
-      <div *ngFor=" let simItem of selectedBooking.simBookings " class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div class="sim-card">
-          <div class="card">
-            <div class="card-header priceHeading text-white">
-              Sim Booking Detail
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-              <!-- <h5 class="card-title">Special title treatment</h5>
+            <div *ngFor=" let simItem of selectedBooking.simBookings " class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+                <div class="sim-card">
+                    <div class="card">
+                        <div class="card-header priceHeading text-white">
+                            Sim Booking Detail
+                        </div>
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Special title treatment</h5>
                                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                       <a href="#" class="btn btn-primary">Go somewhere</a> -->
-              <ul class="visa-type">
-                <li>
-                  Plan Name :
-                  <span class="fieldData">{{simItem.simPlanName}}</span>
-                </li>
-                <li>
-                  Qty :
-                  <span class="fieldData">{{simItem.quantity}}</span>
-                </li>
-                <li>
-                  Sim For :
-                  <span class="fieldData">{{simItem.simPlanForCountry}}</span>
-                </li>
-                <li>
-                  Status :
-                  <span class="fieldData">{{simItem.status}}</span>
-                </li>
-                <li>
-                  Activate Date :
-                  <span class="fieldData">{{simItem.activationDate}}</span>
-                </li>
+                            <ul class="visa-type">
+                                <li>
+                                    Plan Name :
+                                    <span class="fieldData">{{simItem.simPlanName}}</span>
+                                </li>
+                                <li>
+                                    Qty :
+                                    <span class="fieldData">{{simItem.quantity}}</span>
+                                </li>
+                                <li>
+                                    Sim For :
+                                    <span class="fieldData">{{simItem.simPlanForCountry}}</span>
+                                </li>
+                                <li>
+                                    Status :
+                                    <span class="fieldData">{{simItem.status}}</span>
+                                </li>
+                                <li>
+                                    Activate Date :
+                                    <span class="fieldData">{{simItem.activationDate}}</span>
+                                </li>
 
-                <li>
-                  <div class="summaryContainer">
-                    <h6 class="summaryHeading text-center"
-                      style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px;">
-                      Summary
-                    </h6>
-                    <p>
-                      {{simItem.summary}}
-                    </p>
-                  </div>
-                </li>
-              </ul>
+                                <li>
+                                    <div class="summaryContainer">
+                                        <h6 class="summaryHeading text-center" style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px;">
+                                            Summary
+                                        </h6>
+                                        <p>
+                                            {{simItem.summary}}
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
 
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
-          </div>
-        </div>
-      </div>
-      <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+            <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
               <div class="insurance">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
@@ -488,10 +529,10 @@
                       <li>Click the button below to receive your policy on your email (if you have not received it yet)</li>
                     </ul>
                   </div>
-      
+
                 </div>
               </div>
             </div> -->
+        </div>
     </div>
-  </div>
 </section>

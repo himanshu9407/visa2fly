@@ -83,6 +83,9 @@ import { B2bMobileNavComponent} from './components/b2b/b2b-mobile-nav/b2b-mobile
 import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
 import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
 import { WorldComponent } from './components/world/world.component';
+import { USAComponent } from './components/visa-requirements/usa/usa.component';
+import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -141,7 +144,7 @@ import { WorldComponent } from './components/world/world.component';
     TurkeyComponent,
     AzerbaijanComponent,
     RemovewhitespacePipe,
-    
+
     B2bHomeComponent,
     B2bReqComponent,
     B2bHeaderComponent,
@@ -151,7 +154,10 @@ import { WorldComponent } from './components/world/world.component';
     B2bMobileNavComponent,
     SomethingWrongComponent,
     ThailandComponent,
-    VietnamComponent
+    VietnamComponent,
+    USAComponent,
+    NetherlandsComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
@@ -165,7 +171,7 @@ import { WorldComponent } from './components/world/world.component';
     MatSelectModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgbModule,
+    NgbModule
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
