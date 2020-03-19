@@ -7,7 +7,8 @@ import {
   FormArray,
   Validators
 } from "@angular/forms";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from "src/app/shared/toast.service";
+import { ToastrService } from 'ngx-toastr';
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { requiredFileType } from "../../shared/Custom-Image.validator";
@@ -102,7 +103,8 @@ export class AddTravellerComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private travellerService: AddTravellerService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
+    private toastr: ToastrService,
     private userFlow: UserFlowDetails,
     private loginService: LoginService,
     private http: HttpClient,
@@ -1061,9 +1063,8 @@ export class AddTravellerComponent implements OnInit {
                 });
               });
               this.preloaderService.showPreloader(false);
-              this.toastService.showNotification(
+              this.toastr.warning(
                 "Some Details Missing " + this.errorForm,
-                4000
               );
             } else if (data.code == "500") {
               let chunk = this.filedNameArr.length;
@@ -1093,7 +1094,7 @@ export class AddTravellerComponent implements OnInit {
               this.originalImageArr = [];
 
               this.preloaderService.showPreloader(false);
-              this.toastService.showNotification(data.message, 10000);
+              this.toastr.error(data.message);
             } else if (data.code == "1001") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
@@ -1132,14 +1133,12 @@ export class AddTravellerComponent implements OnInit {
             }
           });
       } else {
-        this.toastService.showNotification(
-          "Please accept out terms and conditions",
-          4000
+        this.toastr.warning(
+          "Please accept out terms and conditions"
         );
       }
     } else {
-      this.toastService.showNotification("Some details missing !", 10000);
-      // this.toastService.showNotification("Travel details missing!", 4000);
+      this.toastr.warning("Some details missing !");
       this.validateTravellerForm();
       // console.log(this.scrollBy);
       // this.errorForm = '';
@@ -1230,9 +1229,8 @@ export class AddTravellerComponent implements OnInit {
         }, 2000);
       });
     } else {
-      this.toastService.showNotification(
-        "Please agree to the warning and then continue.",
-        4000
+      this.toastr.warning(
+        "Please agree to the warning and then continue."
       );
     }
   }
@@ -1289,9 +1287,8 @@ export class AddTravellerComponent implements OnInit {
 
     this.validateTravellerForm();
     if (this.travellerForm.invalid) {
-      this.toastService.showNotification(
-        "Please fill in existing traveller details first",
-        4000
+      this.toastr.warning(
+        "Please fill in existing traveller details first"
       );
       window.scrollTo({
         top: 350,
@@ -1348,9 +1345,8 @@ export class AddTravellerComponent implements OnInit {
           });
         }
       } else {
-        this.toastService.showNotification(
-          "Maximum Travellers Limit of 10 reached !",
-          6000
+        this.toastr.error(
+          "Maximum Travellers Limit of 10 reached !"
         );
       }
     }

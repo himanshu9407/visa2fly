@@ -1,27 +1,33 @@
 <section class="world">
- <div class="container">
-   <div class="row">
-     <div class="col-12">
-       {{destinationCountry}}
-     </div>
-   </div>
-  <div class="talk-bubble tri-right round btn-top-left btm-right"
-  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
-    <div class="talktext">
-      <h5 class="destinationTitle">{{destinationTitle1}}</h5>
-      <p class="destinationContent">{{destinationContent1}}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {{destinationCountry}}
+      </div>
     </div>
-  </div>
-
-  <div class="talk-bubble tri-right round btn-top-right btm-left"
-  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
-    <div class="talktext">
-      <h5 class="destinationTitle">{{destinationTitle2}}</h5>
-      <p class="destinationContent">{{destinationContent2}}</p>
+    <div class="talk-bubble tri-right round btn-top-left btm-right"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/france.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle1}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent1}}</p>
+      </div>
     </div>
-  </div>
 
-  <div class="glow" [ngClass]="{
+    <div class="talk-bubble tri-right round btn-top-right btm-left"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/france.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle2}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent2}}</p>
+      </div>
+    </div>
+
+    <div class="glow" [ngClass]="{
     'pulse':exploreWorld === 'simpleRotate',
     'exploreTheWorld':exploreWorld === 'findingDestination',
     'finallyReach':exploreWorld === 'reachYourDestination'
@@ -29,24 +35,30 @@
     
       'background-position':exploreWorld === 'reachYourDestination' ? randomPosition(): ''
     }" (click)="findPlace()" usemap="shapes-map">
-    <!-- {{generatePosition}} -->
-    <img src="../../../assets/pin.png" alt="" style="transform: rotate(-27deg); height: 45px; position: relative;">
-  </div>
+      <!-- {{generatePosition}} -->
+      <img src="../../../assets/pin.png" alt="" style="transform: rotate(-27deg); height: 45px; position: relative;">
+    </div>
 
-  <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
-    [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
-    <div class="talktext">
-      <h5 class="destinationTitle">{{destinationTitle3}}</h5>
-      <p class="destinationContent">{{destinationContent3}}</p>
+    <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/france.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle3}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent3}}</p>
+      </div>
+    </div>
+
+    <div class="talk-bubble tri-right round btn-bottom-right"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/france.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle4}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent4}}</p>
+      </div>
     </div>
   </div>
-
-  <div class="talk-bubble tri-right round btn-bottom-right btm-right"
-  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
-    <div class="talktext">
-      <h5 class="destinationTitle">{{destinationTitle4}}</h5>
-      <p class="destinationContent">{{destinationContent4}}</p>
-    </div>
-  </div>
- </div>
 </section>

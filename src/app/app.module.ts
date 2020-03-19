@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NgxPaginationModule } from "ngx-pagination";
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ToastrModule } from 'ngx-toastr';
 
 import { MatSelectModule } from "@angular/material/select";
 
@@ -166,6 +167,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    ToastrModule.forRoot(), // ToastrModule added
     Ng2FlatpickrModule,
     FormsModule,
     MatSelectModule,

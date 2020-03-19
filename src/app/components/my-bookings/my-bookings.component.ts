@@ -11,7 +11,8 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from "src/app/shared/toast.service";
+import { ToastrService } from 'ngx-toastr';
 import { feedbackModal } from "../../interfaces/home_formData";
 
 import {
@@ -45,9 +46,7 @@ import {
 export class MyBookingsComponent implements OnInit {
   [x: string]: any;
   totalCount: number = 0;
-  title: string = '';
-
-
+  title: string = "";
 
   myBookings: Array<any> = [];
   myBookingsPc: Array<any> = [];
@@ -75,9 +74,7 @@ export class MyBookingsComponent implements OnInit {
   filteredBookingsEmpty: boolean = false;
   filterdDateArr = [];
   private isButtonVisible = false;
-  feedbackBookingDetail : Array<any> = [];
-
-
+  feedbackBookingDetail: Array<any> = [];
 
   constructor(
     private loginStatus: LoginStatusService,
@@ -86,14 +83,13 @@ export class MyBookingsComponent implements OnInit {
     private preloaderService: PreloaderService,
     private bookingService: MyBookingsService,
     private downloadImageService: DownloadImageService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
     private fb: FormBuilder,
-    private activatedRoute : ActivatedRoute
+    private toastr: ToastrService,
+    private activatedRoute: ActivatedRoute
   ) {
     this.myBookings = [];
     //
-
-
 
     var bookingIdC;
 
@@ -133,25 +129,21 @@ export class MyBookingsComponent implements OnInit {
       // this.bookingService.allBookings = this.allBooking.data.bookings;
       this.filterdDateArr = [...this.bookingService.allBookings];
       // console.log("found bookings in service variable");
-    }
-    else {
+    } else {
       this.getAllBookings();
     }
-
-
-
 
     //end of constructor
   }
 
   // console.log(this.activePcPageNumber == i);
 
-  getAllBookings () {
+  getAllBookings() {
     this.loginStatus.verifyAuthToken(this.AUTH_TOKEN).subscribe((data: any) => {
       if (data.code == "0") {
         this.bookingService.getBookingsFromServer().subscribe(res => {
           console.log(res);
-          
+
           this.allBooking = res;
           this.bookings = this.allBooking.data.bookings;
           this.bookingsForLoop = this.allBooking.data.bookings;
@@ -165,7 +157,9 @@ export class MyBookingsComponent implements OnInit {
               "bookingStatus",
               JSON.stringify(this.allBooking.data.takeFeedback)
             );
-            let bookingOption = JSON.parse(localStorage.getItem("bookingStatus"));
+            let bookingOption = JSON.parse(
+              localStorage.getItem("bookingStatus")
+            );
             this.bookingStatus = bookingOption;
 
             setTimeout(() => {
@@ -209,7 +203,6 @@ export class MyBookingsComponent implements OnInit {
               }
             });
 
-
             this.activeMobileBookingPage = this.myBookingsMobile[0];
           } else {
             this.totalCount = 0;
@@ -219,25 +212,20 @@ export class MyBookingsComponent implements OnInit {
         this.router.navigate(["/visa"]);
       }
     });
-
   }
 
   ngOnInit() {
-
-
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name: "keywords", content: "" },
       {
         name: "description",
         content: ""
-      },
+      }
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
-
   }
-
 
   // @HostListener('click') doSomething(){
   //   this.bookingStatus = false;
@@ -268,9 +256,8 @@ export class MyBookingsComponent implements OnInit {
           window.URL.revokeObjectURL(url);
         });
     } else {
-      this.toastService.showNotification(
-        "Invoice could not be generated as the payment failed.",
-        4000
+      this.toastr.error(
+        "Invoice could not be generated as the payment failed."
       );
     }
   }
@@ -294,11 +281,17 @@ export class MyBookingsComponent implements OnInit {
     // console.log(this.FeedbackForm.value);
     let notInterested = false;
     this.bookingService
-      .postFeedback(bookingid,rateOne, rateTwo, rateThree, suggestion, notInterested)
+      .postFeedback(
+        bookingid,
+        rateOne,
+        rateTwo,
+        rateThree,
+        suggestion,
+        notInterested
+      )
       .subscribe(res => {
-        // this.toastService.showNotification("Feedback Submitted", 1000);
       });
-    this.toastService.showNotification("Feedback Submitted", 2000);
+      this.toastr.success("Feedback Submitted");
     this.bookingStatus = false;
   }
 
@@ -340,10 +333,7 @@ export class MyBookingsComponent implements OnInit {
       if (fromDateTime <= bookingDateTime && bookingDateTime <= toDateTime) {
         searchedBookingsArr.push(booking);
         //  console.log(booking);
-        this.toastService.showNotification(
-          "Booking find by Date !",
-          2000
-        );
+        this.toastr.success("Booking find by Date !");
       } else {
         //  console.log("sadsa");
       }
@@ -360,9 +350,8 @@ export class MyBookingsComponent implements OnInit {
       this.bookingsForLoop.length == 0
     ) {
       this.filteredBookingsEmpty = true;
-      this.toastService.showNotification(
-        "Bookings with applied filter not found !",
-        2000
+      this.toastr.error(
+        "Bookings with applied filter not found !"
       );
     } else {
       this.filteredBookingsEmpty = false;
@@ -383,20 +372,14 @@ export class MyBookingsComponent implements OnInit {
         this.bookingsForLoop = arr;
         found = true;
         this.isButtonVisible = true;
-        this.toastService.showNotification(
-          "Booking find by ID !",
-          2000
-        );
+        this.toastr.success("Booking find by ID !");
       }
     });
     if (!found) {
       this.bookingsForLoop = [];
       this.filteredBookingsEmpty = true;
       this.isButtonVisible = true;
-      this.toastService.showNotification(
-        "Please Check Booking ID !",
-        2000
-      );
+      this.toastr.error("Please Check Booking ID !");
     }
   }
 
@@ -407,7 +390,7 @@ export class MyBookingsComponent implements OnInit {
     // this.bookingSearchForm.get("toDate").setValue(null);
     // this.bookingFilterForm.reset();
     //  console.log(this.bookingFilterForm.value);
-    if(this.filterdDateArr.length !== 0){
+    if (this.filterdDateArr.length !== 0) {
       this.filterdDateArr.forEach(booking => {
         let bookingType = booking.booking.bookingType;
 
@@ -429,28 +412,28 @@ export class MyBookingsComponent implements OnInit {
           }
         }
       });
-    }else{
-    this.bookings.forEach(booking => {
-      let bookingType = booking.booking.bookingType;
+    } else {
+      this.bookings.forEach(booking => {
+        let bookingType = booking.booking.bookingType;
 
-      if (this.bookingFilterForm.get("visa").value == true) {
-        if (bookingType == "Visa") {
-          tempBookingArr.push(booking);
+        if (this.bookingFilterForm.get("visa").value == true) {
+          if (bookingType == "Visa") {
+            tempBookingArr.push(booking);
+          }
         }
-      }
 
-      if (this.bookingFilterForm.get("sim").value == true) {
-        if (bookingType == "Sim") {
-          tempBookingArr.push(booking);
+        if (this.bookingFilterForm.get("sim").value == true) {
+          if (bookingType == "Sim") {
+            tempBookingArr.push(booking);
+          }
         }
-      }
 
-      if (this.bookingFilterForm.get("insurance").value == true) {
-        if (bookingType == "Insurance") {
-          tempBookingArr.push(booking);
+        if (this.bookingFilterForm.get("insurance").value == true) {
+          if (bookingType == "Insurance") {
+            tempBookingArr.push(booking);
+          }
         }
-      }
-    });
+      });
     }
 
     this.bookingsForLoop = tempBookingArr;
@@ -485,9 +468,15 @@ export class MyBookingsComponent implements OnInit {
     // console.log(this.FeedbackForm.value);
     let notInterested = true;
     this.bookingService
-      .postFeedback(bookingid,rateOne, rateTwo, rateThree, suggestion, notInterested)
+      .postFeedback(
+        bookingid,
+        rateOne,
+        rateTwo,
+        rateThree,
+        suggestion,
+        notInterested
+      )
       .subscribe(res => {
-        // this.toastService.showNotification("Feedback Submitted", 1000);
       });
     this.bookingStatus = false;
   }

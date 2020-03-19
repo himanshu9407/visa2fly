@@ -13,13 +13,14 @@ import { RequirementsService } from "./requirements.service";
 import { RequirementsModel } from "./requirements.model";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from "src/app/shared/toast.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
 import { isPlatformBrowser } from "@angular/common";
+import { ToastrService } from 'ngx-toastr';
 import * as $ from "jquery";
 import { Meta, Title } from '@angular/platform-browser';
 @Component({
@@ -42,83 +43,6 @@ import { Meta, Title } from '@angular/platform-browser';
 export class RequirementsComponent implements OnInit {
   public regData: requirementData;
   public fieldName: string;
-
-  requirement: requirementData = {
-    code: "0",
-    status: "SUCCESS",
-    message: "Data Fetched Successfully",
-    data: {
-      country: "Austrailia",
-      passportValidityPeriod: "6 months",
-      minAccountBalanceRquired: "2 lakh",
-      minAccountBalanceMaintainbilityPeriod: "2 months",
-      quotes: [
-        {
-          purpose: "TOURIST",
-          enrtyType: "SINGLE_ENTRY",
-          periodTime: "30 Days",
-          currency: "INR",
-          price: 6562,
-          processingTime: "3-5 Days",
-          validity: "58 Days"
-        },
-        {
-          purpose: "TOURIST",
-          enrtyType: "MULTIPLE_ENTRY",
-          periodTime: "30 Days",
-          currency: "INR",
-          price: 16100,
-          processingTime: "3-5 Days",
-          validity: "58 Days"
-        },
-        {
-          purpose: "TOURIST",
-          enrtyType: "SINGLE_ENTRY",
-          periodTime: "90 Days",
-          currency: "INR",
-          price: 18580,
-          processingTime: "3-5 Days",
-          validity: "58 Days"
-        },
-        {
-          purpose: "TOURIST",
-          enrtyType: "MULTIPLE_ENTRY",
-          periodTime: "90 Days",
-          currency: "INR",
-          price: 34613,
-          processingTime: "3-5 Days",
-          validity: "58 Days"
-        },
-        {
-          purpose: "TRANSIT",
-          enrtyType: null,
-          periodTime: "96 Hrs",
-          currency: "INR",
-          price: 5151,
-          processingTime: "3-5 Days",
-          validity: "58 Days"
-        }
-      ],
-      cancelationPeriod: 2,
-      createdAt: null,
-      updatedAt: null,
-      onlineCategory: true,
-      active: true,
-      fieldDetails: [
-        {
-          fieldName: "passport",
-          display: true,
-          content:
-            "Scanned colour copy of the of Front and Back pages of Passport, if address is not mentioned on last page then require color scan copy of Address page as well. (Passport copy should be color only)"
-        },
-        {
-          fieldName: "flight",
-          display: true,
-          content: "scanned copy of flight books"
-        }
-      ]
-    }
-  };
 
   public onlinestatus: boolean = false;
 
@@ -168,7 +92,8 @@ export class RequirementsComponent implements OnInit {
     private reqService: RequirementsService,
     private userFlow: UserFlowDetails,
     private routerHistory: RouterHistory,
-    private toastService: ToastService,
+    // private toastService: ToastService,
+    private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
@@ -422,7 +347,7 @@ export class RequirementsComponent implements OnInit {
             this.preloaderService.showPreloader(false);
             // }, 2000);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message,);
             this.preloaderService.showPreloader(false);
           }
         });
