@@ -17,7 +17,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { ToastService } from "src/app/shared/toast.service";
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta } from "@angular/platform-browser";
 
 export interface Food {
   value: string;
@@ -69,7 +69,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
   selectedTourist: number = 1;
   public selectedCountrytype = "France";
   public onlinestatus: boolean = false;
-  title: string = 'Apply for France E visa online';
+  title: string = "Apply for France E visa online";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -149,11 +149,16 @@ export class FranceComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name:"keywords", content: "apply for france e-visa, france tourist visa application, france tourist visa for indian, apply for france e visa, france e-visa for indians" },
+      {
+        name: "keywords",
+        content:
+          "apply for france e-visa, france tourist visa application, france tourist visa for indian, apply for france e visa, france e-visa for indians"
+      },
       {
         name: "description",
-        content: "Now you can Apply for France e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more."
-      },
+        content:
+          "Now you can Apply for France e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more."
+      }
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
@@ -254,7 +259,10 @@ export class FranceComponent implements OnInit, AfterViewInit {
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
