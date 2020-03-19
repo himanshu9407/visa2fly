@@ -70,7 +70,7 @@ export class NetherlandsComponent implements OnInit {
   selectedTourist: number = 1;
   public selectedCountrytype = "Netherlands";
   onlineCountry: void;
-  title: string = 'Get your Netherland visa online now – Visa2Fly';
+  title: string = 'Get your Netherlands visa online now – Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -148,10 +148,10 @@ export class NetherlandsComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Get your Netherland visa online now – Visa2Fly" },
+      { name:"keywords", content: "apply for netherlands e-visa, netherlands tourist visa application, netherlands tourist visa for indian, apply for netherlands e visa, netherlands e-visa for indians" },
       {
         name: "description",
-        content: "Apply for your Netherland visa online at Visa2Fly to make it hassle-free and convenient. Visa2Fly gives additional advantages like journey insurance. Know more."
+        content: "Apply for your Netherlands visa online at Visa2Fly to make it hassle-free and convenient. Visa2Fly gives additional advantages like journey insurance. Know more."
       },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }

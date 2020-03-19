@@ -34,7 +34,7 @@ import { Title, Meta } from '@angular/platform-browser';
   ]
 })
 export class EthiopianComponent implements OnInit,AfterViewInit {
-   
+
    @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
@@ -50,7 +50,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
   public MyQuotation1 : Array<any> = [];
   public imagefield1 : Array<any> = [];
   public purposeChooseForm : FormGroup;
-  // public selectedPurpose = 'Tourist'; 
+  // public selectedPurpose = 'Tourist';
   businessArr : Array<any> =[];
   touristArr : Array<any> =[];
   transitArr : Array<any> =[];
@@ -67,20 +67,20 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
   public imageUpload1: Array<any> = [];
   title: string = 'Apply For Ethiopian E Visa Online- Visa2Fly';
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, 
+  constructor(private activeRoute: ActivatedRoute, private router: Router,
     private requireQuotation : VisaRequirementService,
     private userFlow : UserFlowDetails,private loginStatus : LoginStatusService,
     private loginService : LoginService, private preloaderService : PreloaderService,
     private routerHistory  :RouterHistory,
     private reqService : RequirementsService,private toastService :ToastService,
     private titleService: Title, private meta: Meta
-    ) { 
+    ) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
      // console.log(this.userControlDetail.purpose);
 
       this.preloaderService.showPreloader(true);
-      
+
       this.activeRoute.params.subscribe((params : any) =>{
         this.selectedVisaType = params.purpose;
         // this.selectedCountryType = 'France';
@@ -97,23 +97,23 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
         // console.log(res);
         if(res.code == 0){
           this.MyQuotation = res.data.quotations;
-            
+
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           // console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           // console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           // console.log(this.imageCatogoryTransitTemp);
-          
+
           this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
           //console.log(this.MyQuotation);
           this.MyQuotation.forEach((element) => {
-            
+
             if(element.purpose == 'Business'){
             this.businessArr.push(element);
            // console.log(this.businessArr);
@@ -144,7 +144,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
           this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
-                              
+
             this.preloaderService.showPreloader(false);
             }, 500);
         }
@@ -154,7 +154,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Ethiopian e visa online" },
+      { name:"keywords", content: "apply for ethiopia e-visa, ethiopia tourist visa application, ethiopia tourist visa for indian, apply for ethiopia e visa, ethiopia e-visa for indians" },
       {
         name: "description",
         content: "Apply for your Ethiopian e visa online at visa2fly. Find out what benefits are included after filing your Ethiopian e-visa online at visa2fly. Any Indian passport holder willing to visit Brussels can fill your Ethiopian e-visa application online here. Explore more about it here."
@@ -166,7 +166,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
 
    ngAfterViewInit () {
     this.t.select(this.selectedVisaType);
-      
+
     }
 
     purposeChanged(){
@@ -178,7 +178,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
       "/visa-requirements/apply-for-Ethiopia-visa-online/" + purpose
     );
     // console.log(this.businessArr);
-    
+
     if(purpose == 'Tourist')
       {
         this.MyQuotation1 = this.touristArr;
@@ -201,13 +201,13 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
       // console.log(this.MyQuotation1);
       this.imagefield1 = this.imageCatogoryTemp;
 
-      
+
   }
 
   navigateTo(purpose: any) {
     // window.location
     //let urlpurpose = this.MyQuotation1
-    
+
     let purposeString : string = purpose.nextId;
     // console.log(purposeString);
      let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
@@ -274,7 +274,7 @@ setActiveTourist(index: number) {
 
 navigate(quoteId : string,  category: string,
   minTravelDate: number, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
-                
+
   this.preloaderService.showPreloader(true);
 
   this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
@@ -299,20 +299,20 @@ navigate(quoteId : string,  category: string,
   this.loginStatus.verifyAuthToken(token).subscribe (
     (data : any) => {
       if (data.code == "0") {
-        
+
         this.reqService.verifyQuotation(quoteId).subscribe(
           (data : any) => {
             // console.log(data);
-            
+
             if (data.code == "0") {
               this.routerHistory.pushHistory("visa-requirement");
               this.router.navigate(['addTraveller']);
 
               // setTimeout(() => {
-                
+
                 this.preloaderService.showPreloader(false);
              // }, 2000);
-              
+
             }
             else {
               this.toastService.showNotification(""+ data.message, 4000);
@@ -337,11 +337,11 @@ navigate(quoteId : string,  category: string,
         this.router.navigate(['slcontainer/login']);
         this.preloaderService.showPreloader(false);
       }
-      
+
     }
   )
 
 
-  
+
 }
 }

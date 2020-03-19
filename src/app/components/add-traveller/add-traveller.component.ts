@@ -780,7 +780,7 @@ export class AddTravellerComponent implements OnInit {
   }
 
   validateImage() {
-    
+
   }
 
   seeValues() {
@@ -1065,7 +1065,7 @@ export class AddTravellerComponent implements OnInit {
                 "Some Details Missing " + this.errorForm,
                 4000
               );
-            } else if (data.code == "500") {
+              }else if (data.code == "500") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
               // console.log(chunk);
@@ -1094,7 +1094,7 @@ export class AddTravellerComponent implements OnInit {
 
               this.preloaderService.showPreloader(false);
               this.toastService.showNotification(data.message, 10000);
-            } else if (data.code == "1001") {
+             }else if (data.code == "1001") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
               // console.log(chunk);
@@ -1298,7 +1298,7 @@ export class AddTravellerComponent implements OnInit {
         left: 0,
         behavior: "smooth"
       });
-    } else {
+     }else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
         // console.log(this.selectedTravellerForm);

@@ -135,7 +135,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Get Maldives tourist visa for Indians now – visa2Fly" },
+      { name:"keywords", content: "apply for maldives e-visa, maldives tourist visa application, maldives tourist visa for indian, apply for maldives e visa, maldives e-visa for indians" },
       {
         name: "description",
         content: "Apply for Maldives tourist visa for Indians online at Visa2Fly to make it quicker. We offer great online visa answers so that you get rid of visa worries. Apply here"

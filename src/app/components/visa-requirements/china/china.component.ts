@@ -149,7 +149,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "apply for china visa online" },
+      { name:"keywords", content: "apply for china e-visa, china tourist visa application, china tourist visa for indian, apply for china e visa, china e-visa for indians" },
       {
         name: "description",
         content: "Apply for China visa online at Visa2fly. Once you apply for a China visa online, get assured online visa services and maximum benefits entitled to it. Visa2fly offers travel insurance and travel sim cards inclusive with assured online visa services. Know more."

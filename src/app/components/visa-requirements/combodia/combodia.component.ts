@@ -119,13 +119,13 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           //console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           //console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           //console.log(this.imageCatogoryTransitTemp);
 
@@ -176,7 +176,7 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Cambodia e visa online" },
+      { name:"keywords", content: "apply for cambodia e-visa, cambodia tourist visa application, cambodia tourist visa for indian, apply for cambodia e visa, cambodia e-visa for indians" },
       {
         name: "description",
         content: "Now you can apply for Cambodia e-visa online at Visa2Fly to make your visa process hassle-free and faster. Visa2Fly offers the best online visa solutions so that you get rid of visa processing worries. Apply your Cambodia e-visa online here. "
@@ -206,7 +206,7 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
