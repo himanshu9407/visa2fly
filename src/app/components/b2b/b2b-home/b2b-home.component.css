@@ -3,10 +3,54 @@ label {
     font-weight: 550;
 }
 
-.card {
+.desktopView {
+    display: block;
+}
+
+.mobileView {
+    display: none;
+}
+
+.wave-bg {
+    background-image: url(../../../../assets/Wave.png);
+    background-position: center;
+    background-size: cover;
+    height: 380px;
+    border-radius: 10px;
+}
+
+.owl-carousel, .form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel-inner {
+    width: 350px !important;
+}
+
+.form {
+    width: 250px;
+}
+
+.login_img {
+    height: 250px;
+}
+
+.desktopView-card {
+    margin-top: 120px;
+    width: 800px;
+    /* background: #fff; */
+    margin-bottom: 100px;
+    border: none !important;
+}
+
+.mobileView-card {
     margin-top: 180px;
     margin-bottom: 100px;
     border: none !important;
+    /* background: #fff; */
 }
 
 .b2b-header {
@@ -52,13 +96,20 @@ select:focus {
     .card-body {
         padding: 0px;
     }
-}
 
-@media screen and (max-width: 375px) {
-    .b2b-home {
-        height: 110vh !important;
+    .mobileView-card {
+        margin-top: 100px;
+        margin-bottom: 80px;
+        border: none !important;
+        /* background: #fff; */
     }
-    .card {
-        margin-top: 90px !important;
+    
+
+    .desktopView {
+        display: none;
+    }
+
+    .mobileView {
+        display: block;
     }
 }
