@@ -163,7 +163,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
 
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Thailand E Visa Online| Thailand Tourist Visa - Visa2fly" },
+      { name:"keywords", content: "apply for thailand e-visa, thailand tourist visa application, thailand tourist visa for indian, apply for thailand e visa, thailand e-visa for indians" },
       {
         name: "description",
         content: "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More"

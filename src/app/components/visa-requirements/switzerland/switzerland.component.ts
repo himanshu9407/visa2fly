@@ -147,7 +147,7 @@ export class SwitzerlandComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Apply for your Switzerland tourist e visa now – Visa2Fly" },
+      { name:"keywords", content: "apply for switzerland e-visa, switzerland tourist visa application, switzerland tourist visa for indian, apply for switzerland e visa, switzerland e-visa for indians" },
       {
         name: "description",
         content: "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more."

@@ -34,7 +34,7 @@ import { Title, Meta } from '@angular/platform-browser';
   ]
 })
 export class MalaysiaComponent implements OnInit {
-  
+
   @ViewChild("t") t;
   ngbTabTitleClass;
 
@@ -49,7 +49,7 @@ export class MalaysiaComponent implements OnInit {
   public MyQuotation1 : Array<any> = [];
   public imagefield1 : Array<any> = [];
   public purposeChooseForm : FormGroup;
-  // public selectedPurpose = 'Tourist'; 
+  // public selectedPurpose = 'Tourist';
   businessArr : Array<any> =[];
   touristArr : Array<any> =[];
   transitArr : Array<any> =[];
@@ -102,15 +102,15 @@ export class MalaysiaComponent implements OnInit {
         // console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
-          
+
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           // console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           // console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           // console.log(this.imageCatogoryTransitTemp);
           this.onlinestatus = res.data.onlineCategory;
@@ -160,7 +160,7 @@ export class MalaysiaComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Malaysia e visa online" },
+      { name:"keywords", content: "apply for malaysia e-visa, malaysia tourist visa application, malaysia tourist visa for indian, apply for malaysia e visa, malaysia e-visa for indians" },
       {
         name: "description",
         content: "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here."

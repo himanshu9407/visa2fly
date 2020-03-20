@@ -148,7 +148,7 @@ export class SingaporeComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Singapore e visa for Indians | Singapore e visa online" },
+      { name:"keywords", content: "apply for singapore e-visa, singapore tourist visa application, singapore tourist visa for indian, apply for singapore e visa, singapore e-visa for indians" },
       {
         name: "description",
         content: "Visit Singapore with Visa2Fly online visa services offering Singapore e-visa for Indians. Visa2Fly offers the best online visa services for Indian passport holders that also includes maximum benefits like travel insurance and Travel sim cards. Apply here. "

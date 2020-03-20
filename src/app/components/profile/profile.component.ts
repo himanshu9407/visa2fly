@@ -6,6 +6,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { ProfileService } from "./profile.service";
+import { Title, Meta } from '@angular/platform-browser';
 // import { ToastService } from "src/app/shared/toast.service";
 import { ToastrService } from 'ngx-toastr';
 
@@ -26,9 +27,10 @@ export class ProfileComponent implements OnInit {
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
     private router: Router,
-    private toastr: ToastrService,
-    private profleService: ProfileService,
-    // private toastService: ToastService
+private profleService: ProfileService,
+private toastr: ToastrService,
+    private titleService: Title,
+    private meta: Meta
   ) {
     this.preloaderService.showPreloader(true);
     let AUTH_TOKEN = this.loginService.getAuthToken();
@@ -104,6 +106,17 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("Visa2fly | Profile");
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+
     const current = new Date();
     this.mindate = {
       year: current.getFullYear(),

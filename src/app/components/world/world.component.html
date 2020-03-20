@@ -1,8 +1,10 @@
 <section class="world">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        {{destinationCountry}}
+      <div class="col-12 text-center">
+        <h5>
+          {{destinationCountry}}
+        </h5>
       </div>
     </div>
     <div class="talk-bubble tri-right round btn-top-left btm-right"
@@ -27,16 +29,18 @@
       </div>
     </div>
 
-    <div class="glow" [ngClass]="{
+    <div class="jugGhumia">
+      <img src="../../../assets/pin.png" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none','top':exploreWorld === 'reachYourDestination' ? randomTopPosition(): '',
+      'left':exploreWorld === 'reachYourDestination' ? randomLeftPosition(): ''}" class="pin" alt="">
+
+      <div class="glow" [ngClass]="{
     'pulse':exploreWorld === 'simpleRotate',
     'exploreTheWorld':exploreWorld === 'findingDestination',
     'finallyReach':exploreWorld === 'reachYourDestination'
-  }" [ngStyle]="{
-    
-      'background-position':exploreWorld === 'reachYourDestination' ? randomPosition(): ''
-    }" (click)="findPlace()" usemap="shapes-map">
-      <!-- {{generatePosition}} -->
-      <img src="../../../assets/pin.png" alt="" style="transform: rotate(-27deg); height: 45px; position: relative;">
+    }" [ngStyle]="{'background-position':exploreWorld === 'reachYourDestination' ? randomPosition(): ''}"
+        (click)="findPlace()" usemap="shapes-map">
+        <!-- {{generatePosition}} -->
+      </div>
     </div>
 
     <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"

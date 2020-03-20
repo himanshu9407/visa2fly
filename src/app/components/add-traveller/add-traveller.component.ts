@@ -20,6 +20,7 @@ import { Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { from } from "rxjs";
 import { RouterHistory } from "src/app/shared/router-history.service";
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: "app-add-traveller",
@@ -109,6 +110,8 @@ export class AddTravellerComponent implements OnInit {
     private loginService: LoginService,
     private http: HttpClient,
     private router: Router,
+    private titleService: Title,
+    private meta: Meta,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory
   ) {
@@ -324,6 +327,17 @@ export class AddTravellerComponent implements OnInit {
     setTimeout(() => {
       this.intialInfo = false; // ..??
     }, 10000);
+
+    this.titleService.setTitle("Visa2fly | Add Traveller");
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
@@ -782,7 +796,7 @@ export class AddTravellerComponent implements OnInit {
   }
 
   validateImage() {
-    
+
   }
 
   seeValues() {
@@ -1066,7 +1080,7 @@ export class AddTravellerComponent implements OnInit {
               this.toastr.warning(
                 "Some Details Missing " + this.errorForm,
               );
-            } else if (data.code == "500") {
+              }else if (data.code == "500") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
               // console.log(chunk);
@@ -1096,6 +1110,7 @@ export class AddTravellerComponent implements OnInit {
               this.preloaderService.showPreloader(false);
               this.toastr.error(data.message);
             } else if (data.code == "1001") {
+
               let chunk = this.filedNameArr.length;
               let temparray = [];
               // console.log(chunk);
@@ -1295,7 +1310,7 @@ export class AddTravellerComponent implements OnInit {
         left: 0,
         behavior: "smooth"
       });
-    } else {
+     }else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
         // console.log(this.selectedTravellerForm);

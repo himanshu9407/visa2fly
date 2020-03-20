@@ -15,6 +15,7 @@ import { LoginStatusService } from "src/app/shared/login-status.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-login",
@@ -42,6 +43,9 @@ export class LoginComponent implements OnInit {
     private userFlowService: UserFlowDetails,
     private loginStatus: LoginStatusService,
     private routerHistory: RouterHistory,
+
+    private titleService: Title,
+    private meta: Meta,
     private reqService: RequirementsService
   ) {}
 
@@ -54,6 +58,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("Visa2fly | Login");
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      }
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+
     this.prevRoute = this.routerHistory.getPrevRoute();
     // console.log(this.prevRoute);
 
@@ -132,6 +147,7 @@ export class LoginComponent implements OnInit {
         this.otpSentCount = this.otpSentCount + 1;
       } else {
         this.toastr.error(data.message);
+
         //this.setFormFresh();
         this.showSendOtp = true;
       }
@@ -217,6 +233,7 @@ export class LoginComponent implements OnInit {
                 } else {
                   // console.log("sartahk agrawal");
                   this.toastr.error(data.message);
+
                   // this.setFormFresh();
                   this.showLoader = false;
                   this.showLoginButton = true;

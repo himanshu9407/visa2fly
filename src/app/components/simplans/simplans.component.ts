@@ -23,15 +23,16 @@ export class SimplansComponent implements OnInit {
   simHomeForm: FormGroup;
   selectedCountry: string = "";
   // selectedCountry : string = "";
-  selectedSimCountryData: Array<any> = [];
-  simCart: Array<any> = [];
-  simCartEmpty: boolean = true;
-  totalPrice: number = 0;
-  displayTotal: number = 0;
-  simResp: any;
-  showMobileCart: boolean = false;
-  buttonLabel: string = "View Cart";
-  title: string;
+
+  selectedSimCountryData : Array<any> = [];
+  simCart : Array<any> = [];
+  simCartEmpty : boolean = true;
+  totalPrice : number = 0;
+  displayTotal : number = 0;
+  simResp : any ;
+  showMobileCart : boolean  = false;
+  buttonLabel : string = "View Cart";
+  title: string = "Visa2fly | Sim Plans";
   //selectedSimCountry : any = "";
 
   constructor(

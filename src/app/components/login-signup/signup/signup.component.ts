@@ -11,6 +11,7 @@ import { RequirementsService } from "../../requirements/requirements.service";
 import { LoginService } from "../login/login.service";
 import { ToastrService } from "ngx-toastr";
 import { LoginStatusService } from "src/app/shared/login-status.service";
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-signup",
@@ -39,7 +40,9 @@ export class SignupComponent implements OnInit {
     private userFlowService: UserFlowDetails,
     private reqService: RequirementsService,
     private loginService: LoginService,
-    private loginStatus: LoginStatusService
+    private loginStatus: LoginStatusService,
+    private titleService: Title,
+    private meta: Meta
   ) {}
 
   onKeyPress(event: any) {
@@ -51,6 +54,16 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("Visa2fly | SignUp");
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      }
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
     this.prevRoute = this.routerHistory.getPrevRoute();
     // console.log(this.prevRoute);
 
@@ -66,7 +79,6 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(20),
         Validators.minLength(3)
       ]),
-
       mobile: new FormControl(null, [
         Validators.required,
         Validators.maxLength(10),
@@ -75,7 +87,6 @@ export class SignupComponent implements OnInit {
       otp: new FormControl(null, [Validators.required]),
       tnc: new FormControl(false)
     });
-
     //   setTimeout(function() {
     //     $(".alert").fadeTo(500, 0).slideUp(500, function(){
     //         (<any>$(this)).remove();
@@ -141,6 +152,7 @@ export class SignupComponent implements OnInit {
         }
       } else {
         this.toastr.error(data.message.toString());
+
         // this.setFormFresh();
         this.showLoader = false;
         this.showSignUpButton = true;
@@ -223,6 +235,7 @@ export class SignupComponent implements OnInit {
         if (!data) {
           // console.log("req failed"+data);
           this.toastr.error("Something Went wrong");
+
           this.setFormFresh();
         } else {
           if (data.code == "0" /*|| data.code == "15" */) {
@@ -235,6 +248,7 @@ export class SignupComponent implements OnInit {
             this.otpFormSubmitted = true;
           } else {
             this.toastr.error(data.message.toString());
+
 
             // this.setFormFresh();
           }

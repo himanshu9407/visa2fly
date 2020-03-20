@@ -8,8 +8,10 @@ import { DownloadImageService } from "src/app/shared/DownloadImage.service";
 import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
+
 import { PlatformLocation } from "@angular/common";
 import { PreloaderService } from "src/app/shared/preloader.service";
+import { Title, Meta } from "@angular/platform-browser";
 
 @Component({
   selector: "app-booking-details",
@@ -21,6 +23,7 @@ export class BookingDetailsComponent implements OnInit {
   selectedBooking: any;
   redirectTo: any;
   bookingStatus: boolean = false;
+  title: string = "Visa2fly | Booking Details";
   constructor(
     private myBookingService: MyBookingsService,
     // private toastService: ToastService,
@@ -28,6 +31,8 @@ export class BookingDetailsComponent implements OnInit {
     private downloadImageService: DownloadImageService,
     private router: Router,
     private location: PlatformLocation,
+    private titleService: Title,
+    private meta: Meta,
     // private activatedRoute = ActivateRoute,
     private preloaderService: PreloaderService
   ) {
@@ -43,7 +48,19 @@ export class BookingDetailsComponent implements OnInit {
     }, 2000);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      }
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+  }
+
   downloadImage(url: string, bookingId: string) {
     if (url == null || url == undefined) {
       this.toastr.error("File not found !");

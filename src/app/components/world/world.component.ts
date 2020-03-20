@@ -40,6 +40,9 @@ import {
 export class WorldComponent implements OnInit {
   exploreWorld: string = "simpleRotate";
   generatePosition: number;
+  generateLeftPosition: number;
+  generateTopPosition: number;
+
   flip: string = "inactive";
 
   destinationTitle1: string;
@@ -61,9 +64,9 @@ export class WorldComponent implements OnInit {
   destinationQuery: Array<any> = [
     {
       destinationCountry: "Iceland",
-      top: 82,
-      left: 162,
-      position: 1438,
+      top: 164,
+      left: 665,
+      position: 1436,
       destinationInfo: [
         {
           title1: "Geothermal Pools",
@@ -89,9 +92,9 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "Vietnam",
-      top: 82,
-      left: 162,
-      position: 1225,
+      top: 282,
+      left: 610,
+      position: 1212,
       destinationInfo: [
         {
           title1: "Hang Son Doong",
@@ -117,8 +120,8 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "Singapore",
-      top: 82,
-      left: 162,
+      top: 320,
+      left: 624,
       position: 1247,
       destinationInfo: [
         {
@@ -145,9 +148,9 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "New Zealand",
-      top: 82,
-      left: 162,
-      position: 1438,
+      top: 443,
+      left: 653,
+      position: 1200,
       destinationInfo: [
         {
           title1: "Adventure Sport Galore!",
@@ -173,9 +176,9 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "Taiwan",
-      top: 82,
-      left: 162,
-      position: 1438,
+      top: 278,
+      left: 634,
+      position: 1200,
       destinationInfo: [
         {
           title1: "The Landscape",
@@ -230,7 +233,6 @@ export class WorldComponent implements OnInit {
     this.destinationCountry = this.worldChart.destinationCountry;
 
     console.log(this.worldChart);
-
   }
 
   randomPosition() {
@@ -238,5 +240,16 @@ export class WorldComponent implements OnInit {
     console.log(this.generatePosition);
     return this.generatePosition + "px";
   }
-  
+
+  randomLeftPosition() {
+    this.generateLeftPosition = this.worldChart.left;
+    console.log(this.generateLeftPosition);
+    return this.generateLeftPosition + "px";
+  }
+
+  randomTopPosition() {
+    this.generateTopPosition = this.worldChart.top;
+    console.log(this.generateTopPosition);
+    return this.generateTopPosition + "px";
+  }
 }

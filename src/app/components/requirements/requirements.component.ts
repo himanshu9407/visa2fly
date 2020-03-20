@@ -22,7 +22,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { isPlatformBrowser } from "@angular/common";
 import { ToastrService } from 'ngx-toastr';
 import * as $ from "jquery";
-import { Meta, Title } from '@angular/platform-browser';
+import { Meta, Title } from "@angular/platform-browser";
 @Component({
   selector: "app-requirements",
   templateUrl: "./requirements.component.html",
@@ -83,7 +83,7 @@ export class RequirementsComponent implements OnInit {
   public imageUpload1: Array<any> = [];
 
   purposeChooseForm1: FormGroup;
-  title: string;
+  country: any;
   constructor(
     private router: Router,
     private titleService: Title,
@@ -100,13 +100,149 @@ export class RequirementsComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    // if (
+    //   this.router.url ==
+    //   "/visa-requirements/USA/apply-for-USA-visa-online/Tourist"
+    // ) {
+    //   this.router.navigateByUrl(
+    //     "/visa-requirements/apply-for-USA-visa-online/Tourist"
+    //   );
+    // } else if (
+    //   this.router.url ==
+    //   "/visa-requirements/Cambodia/apply-for-Cambodia-visa-online/Tourist"
+    // ) {
+    //   this.router.navigateByUrl(
+    //     "/visa-requirements/apply-for-Cambodia-visa-online/Tourist"
+    //   );
+    // } else if (
+    //   this.router.url ==
+    //   "/visa-requirements/Singapore/apply-for-Singapore-visa-online/Tourist"
+    // ) {
+    //   this.router.navigateByUrl(
+    //     "/visa-requirements/apply-for-Singapore-visa-online/Tourist"
+    //   );
+    // } else if (
+    //   this.router.url ==
+    //   "/visa-requirements/Australia/apply-for-Australia-visa-online/Tourist"
+    //   this.router.navigateByUrl(
+    //     "/visa-requirements/apply-for-Australia-visa-online/Tourist"
+    //   );
+    // }
+    this.preloaderService.showPreloader(true);
+
+    this.activateRoute.params.subscribe((params: any) => {
+      // this.country = params.country;
+      this.selectedPurposeType = params.purpose;
+      this.selectedCountrytype = params.country;
+
+      switch (this.selectedCountrytype) {
+        case "Australia":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Australia-visa-online/Tourist"
+          );
+          break;
+        case "Singapore":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Singapore-visa-online/Tourist"
+          );
+          break;
+        case "Cambodia":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Cambodia-visa-online/Tourist"
+          );
+          break;
+        case "USA":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-USA-visa-online/Tourist"
+          );
+          break;
+        case "China":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-China-visa-online/Tourist"
+          );
+          break;
+        case "Dubai":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Dubai-visa-online/Tourist"
+          );
+          break;
+        case "Ethiopia":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Ethiopia-visa-online/Tourist"
+          );
+          break;
+        case "France":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-France-visa-online/Tourist"
+          );
+          break;
+        case "Maldives":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Maldives-visa-online/Tourist"
+          );
+          break;
+        case "Malaysia":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Malaysia-visa-online/Tourist"
+          );
+          break;
+        case "Spain":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Spain-visa-online/Tourist"
+          );
+          break;
+        case "Swiss":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Swiss-visa-online/Tourist"
+          );
+          break;
+        case "UK":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-UK-visa-online/Tourist"
+          );
+          break;
+        case "Sri-Lanka":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Sri-Lanka-visa-online/Tourist"
+          );
+          break;
+        case "Azerbaijan":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Azerbaijan-visa-online/Tourist"
+          );
+          break;
+        case "Turkey":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Turkey-visa-online/Tourist"
+          );
+          break;
+        case "Thailand":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Thailand-visa-online/Tourist"
+          );
+          break;
+        case "Vietnam":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Vietnam-visa-online/Tourist"
+          );
+          break;
+        case "Netherlands":
+          this.router.navigateByUrl(
+            "/visa-requirements/apply-for-Netherlands-visa-online/Tourist"
+          );
+          break;
+      }
+
+      // <link rel="canonical" href="https://visa2fly.com/visa-requirements/apply-for-Netherlands-visa-online/Tourist">
+
+      // this.selectedCountryType = 'France';
+      //  console.log(this.selectedCountryType);
+    });
+
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
     // console.log(this.userFlowDetails);
-    this.preloaderService.showPreloader(true);
     this.activateRoute.params.subscribe((params: any) => {
-      this.selectedPurposeType = params.purpose;
       // console.log(this.selectedPurposeType);
-      this.selectedCountrytype = params.country;
       // console.log(this.selectedCountrytype);
     });
     let tempPurpose = this.selectedPurposeType;
@@ -441,13 +577,13 @@ export class RequirementsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Apply For " + this.selectedCountrytype + " Visa Online");
     this.meta.addTags([
       { name: "keywords", content: "" },
       {
         name: "description",
         content: ""
-      },
+      }
       // { name: "robots", content: "index, follow" }
       // { name: "author", content: "rsgitech" },
     ]);

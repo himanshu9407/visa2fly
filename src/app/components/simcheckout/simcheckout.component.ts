@@ -36,7 +36,7 @@ export class SimcheckoutComponent implements OnInit {
   minDate: any = "";
   maxTravelDate: any;
   totalQty: number = 0;
-  title: string;
+  title: string = "Visa2fly | Sim Checkout";
 
   constructor(
     private simCheckoutService: SimCheckoutService,

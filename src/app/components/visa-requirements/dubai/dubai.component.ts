@@ -174,7 +174,7 @@ export class DubaiComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "Dubai visa for indians | Dubai e visa online" },
+      { name:"keywords", content: "apply for dubai e-visa, dubai tourist visa application, dubai tourist visa for indian, apply for dubai e visa, dubai e-visa for indians" },
       {
         name: "description",
         content: "Visa2fly offers Dubai visa for Indians visiting UAE. Indian passport holders can easily apply for a Dubai visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Dubai visa online with Visa2Fly here. "

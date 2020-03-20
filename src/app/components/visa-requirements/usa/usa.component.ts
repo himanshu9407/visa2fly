@@ -100,7 +100,7 @@ export class USAComponent implements OnInit {
     this.activeRoute.params.subscribe((params: any) => {
       this.selectedVisaType = params.purpose;
       // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
+      //  console.log(this.router.url);
     });
 
     let tempPurpose = this.selectedVisaType;
@@ -175,7 +175,7 @@ export class USAComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "apply for US visa online | Apply for US Visa Online- Visa2Fly" },
+      { name: "keywords", content: "apply for USA e-visa, USA tourist visa application, USA tourist visa for Indian, apply for USA e visa, USA e-visa for Indians" },
       {
         name: "description",
         content: "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here."
