@@ -56,12 +56,12 @@ import { SpainComponent } from './components/visa-requirements/spain/spain.compo
 import { SingaporeComponent } from './components/visa-requirements/singapore/singapore.component';
 import { SriLankaComponent } from './components/visa-requirements/sri-lanka/sri-lanka.component';
 import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
-import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+
 import { TermsandConditionsComponent } from './components/static/termsand-conditions/termsand-conditions.component';
 import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
 import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
 import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
-import { ProfileComponent } from './components/profile/profile.component';
+
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
 import { SimplansComponent } from './components/simplans/simplans.component';
 import { SimcheckoutComponent } from './components/simcheckout/simcheckout.component';
@@ -86,6 +86,7 @@ import { WorldComponent } from './components/world/world.component';
 import { USAComponent } from './components/visa-requirements/usa/usa.component';
 import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -117,12 +118,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SimComponent,
     InsuranceComponent,
     PreloaderComponent,
-    MyBookingsComponent,
+
     TermsandConditionsComponent,
     CookiePolicyComponent,
     PrivacyPolicyComponent,
     CancellationsAndReturnComponent,
-    ProfileComponent,
+
     BookingDetailsComponent,
     SimplansComponent,
     SimcheckoutComponent,
@@ -171,7 +172,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatSelectModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgbModule
+    NgbModule,
+
+
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [

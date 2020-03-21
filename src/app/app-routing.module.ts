@@ -1,8 +1,8 @@
 import { AustraliaComponent } from "./components/visa-requirements/australia/australia.component";
 import { UnitedKingdomComponent } from "./components/visa-requirements/united-kingdom/united-kingdom.component";
 import { FranceComponent } from "./components/visa-requirements/france/france.component";
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule, Component } from "@angular/core";
+import { RouterModule, Routes, PreloadAllModules } from "@angular/router";
 import { RequirementsComponent } from "./components/requirements/requirements.component";
 import { HomeFormComponent } from "./components/home-form/home-form.component";
 import { LoginSignupComponent } from "./components/login-signup/login-signup.component";
@@ -15,7 +15,7 @@ import { VisaArrivalComponent } from "./components/visa-arrival/visa-arrival.com
 import { SimComponent } from "./components/sim/sim.component";
 import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
-import { MyBookingsComponent } from "./components/my-bookings/my-bookings.component";
+
 import { TermsandConditionsComponent } from "./components/static/termsand-conditions/termsand-conditions.component";
 // import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
 import { ChinaComponent } from "./components/visa-requirements/china/china.component";
@@ -37,7 +37,7 @@ import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam
 
 import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
 import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
-import { ProfileComponent } from "./components/profile/profile.component";
+
 import { BookingDetailsComponent } from "./components/booking-details/booking-details.component";
 import { SimplansComponent } from "./components/simplans/simplans.component";
 import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
@@ -53,7 +53,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 const routes: Routes = [
 
-  
+
 
   { path: "", redirectTo: "visa", pathMatch: "full" },
   { path: "visa", component: HomeContainerComponent },
@@ -65,13 +65,19 @@ const routes: Routes = [
   { path: "bookingDetail", component: BookingDetailsComponent },
 
   { path: "slcontainer/:form", component: LoginSignupComponent },
-  { path: "profile", component: ProfileComponent },
+
   { path: "reg", component: RequirementsComponent },
   {
     path: "addTraveller",
     component: AddTravellerComponent,
     canActivate: [AuthenticationGuard]
   },
+  { path: "profile", loadChildren: () =>
+   import("./components/profile/profile.module").then (m => m.ProfileModule)},
+
+   { path: "myBookings", loadChildren: () =>
+   import("./components/my-bookings/mybookings.module").then (m => m.MyBookingsModule)},
+
   { path: "freeVisa", component: FreeVisaComponent },
   { path: "visOnArrival", component: VisaArrivalComponent },
   { path: "visaArrival", component: VisaArrivalComponent },
@@ -79,11 +85,7 @@ const routes: Routes = [
   { path: "sim/simplans", component: SimplansComponent },
   { path: "sim/checkout", component: SimcheckoutComponent },
   { path: "insurance", component: InsuranceComponent },
-  {
-    path: "myBookings",
-    component: MyBookingsComponent,
-    canActivate: [AuthenticationGuard]
-  },
+
   { path: "b2b", redirectTo: "b2b/home", pathMatch: "prefix" },
   { path: "b2b/home", component: B2bHomeComponent, children : [
     { path: "b2b/home/:id", component: B2bHomeComponent }
@@ -98,7 +100,7 @@ const routes: Routes = [
   },
 
   { path: "slcontainer/:form", component: LoginSignupComponent },
-  { path: "profile", component: ProfileComponent },
+
   {
     path: "visa-requirements/:country/:variable/:purpose",
     component: RequirementsComponent
@@ -116,11 +118,7 @@ const routes: Routes = [
   { path: "sim/simplans", component: SimplansComponent },
   { path: "sim/checkout", component: SimcheckoutComponent },
   { path: "insurance", component: InsuranceComponent },
-  {
-    path: "myBookings",
-    component: MyBookingsComponent,
-    canActivate: [AuthenticationGuard]
-  },
+
   {
     path: "visa-requirements/apply-for-UK-visa-online/:purpose",
     component: UnitedKingdomComponent
@@ -210,7 +208,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload'})
   ],
   exports: [RouterModule],
   declarations: []
