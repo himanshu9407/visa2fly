@@ -6,9 +6,11 @@ import { CommonModule } from '@angular/common';
 import { AuthenticationGuard } from 'src/app/shared/AuthenticationGuard.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BookingDetailsComponent } from '../booking-details/booking-details.component';
 
 const routes: Routes = [
-  { path: "", component: MyBookingsComponent, pathMatch: "full", canActivate: [AuthenticationGuard] }
+  { path: "", component: MyBookingsComponent, pathMatch: "full", canActivate: [AuthenticationGuard] },
+  { path: "", component: BookingDetailsComponent, pathMatch: "full" }
 ]
 
 

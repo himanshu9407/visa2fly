@@ -1,54 +1,14 @@
-import { AustraliaComponent } from "./components/visa-requirements/australia/australia.component";
-import { UnitedKingdomComponent } from "./components/visa-requirements/united-kingdom/united-kingdom.component";
-import { FranceComponent } from "./components/visa-requirements/france/france.component";
 import { NgModule, Component } from "@angular/core";
 import { RouterModule, Routes, PreloadAllModules } from "@angular/router";
-import { RequirementsComponent } from "./components/requirements/requirements.component";
-import { HomeFormComponent } from "./components/home-form/home-form.component";
-import { LoginSignupComponent } from "./components/login-signup/login-signup.component";
-import { MiniCarouselComponent } from "./components/mini-carousel/mini-carousel.component";
-import { HomeContainerComponent } from "./components/home-container/home-container.component";
-import { AddTravellerComponent } from "./components/add-traveller/add-traveller.component";
-import { SignupComponent } from "./components/login-signup/signup/signup.component";
-import { FreeVisaComponent } from "./components/free-visa/free-visa.component";
-import { VisaArrivalComponent } from "./components/visa-arrival/visa-arrival.component";
-import { SimComponent } from "./components/sim/sim.component";
 import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
-
 import { TermsandConditionsComponent } from "./components/static/termsand-conditions/termsand-conditions.component";
 // import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
-import { ChinaComponent } from "./components/visa-requirements/china/china.component";
-import { CanDeactivateGuard } from "./shared/can-deactivate.service";
-import { SwitzerlandComponent } from "./components/visa-requirements/switzerland/switzerland.component";
 import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
-import { EthiopianComponent } from "./components/visa-requirements/ethiopian/ethiopian.component";
-import { MalaysiaComponent } from "./components/visa-requirements/malaysia/malaysia.component";
-import { DubaiComponent } from "./components/visa-requirements/dubai/dubai.component";
-import { MaldivesComponent } from "./components/visa-requirements/maldives/maldives.component";
-import { SpainComponent } from "./components/visa-requirements/spain/spain.component";
-import { SingaporeComponent } from "./components/visa-requirements/singapore/singapore.component";
-import { SriLankaComponent } from "./components/visa-requirements/sri-lanka/sri-lanka.component";
-import { CombodiaComponent } from './components/visa-requirements/combodia/combodia.component';
-import { TurkeyComponent } from './components/visa-requirements/turkey/turkey.component';
-import { AzerbaijanComponent } from './components/visa-requirements/azerbaijan/azerbaijan.component';
-import { ThailandComponent } from './components/visa-requirements/thailand/thailand.component';
-import { VietnamComponent } from './components/visa-requirements/vietnam/vietnam.component';
-
 import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
 import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
-
-import { BookingDetailsComponent } from "./components/booking-details/booking-details.component";
-import { SimplansComponent } from "./components/simplans/simplans.component";
-import { SimcheckoutComponent } from "./components/simcheckout/simcheckout.component";
 import { AboutUsComponent } from "./components/static/about-us/about-us.component";
-
-import { B2bHomeComponent } from "./components/b2b/b2b-home/b2b-home.component";
-import { B2bReqComponent } from "./components/b2b/b2b-req/b2b-req.component";
-import { B2bAddTrvComponent } from "./components/b2b/b2b-add-trv/b2b-add-trv.component";
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
-import { USAComponent } from './components/visa-requirements/usa/usa.component';
-import { NetherlandsComponent } from './components/visa-requirements/netherlands/netherlands.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -56,145 +16,175 @@ const routes: Routes = [
 
 
   { path: "", redirectTo: "visa", pathMatch: "full" },
-  { path: "visa", component: HomeContainerComponent },
   { path: "tnc", component: TermsandConditionsComponent },
   { path: "cookiePolicy", component: CookiePolicyComponent },
   { path: "privacyPolicy", component: PrivacyPolicyComponent },
   { path: "cancellationPolicy", component: CancellationsAndReturnComponent },
   { path: "aboutUs", component: AboutUsComponent },
-  { path: "bookingDetail", component: BookingDetailsComponent },
 
-  { path: "slcontainer/:form", component: LoginSignupComponent },
 
-  { path: "reg", component: RequirementsComponent },
-  {
-    path: "addTraveller",
-    component: AddTravellerComponent,
-    canActivate: [AuthenticationGuard]
-  },
+  // Addtraveller Page
+  { path: "addTraveller", loadChildren: () =>
+   import("./components/add-traveller/add-traveller.module").then (m => m.AddTravellerModule)},
+
+  // Requirement Page
+  { path: "reg", loadChildren: () =>
+   import("./components/requirements/requirements.module").then (m => m.RequirementsModule)},
+
+  // Profile Page
   { path: "profile", loadChildren: () =>
    import("./components/profile/profile.module").then (m => m.ProfileModule)},
-
+  // MyBooking Page
    { path: "myBookings", loadChildren: () =>
    import("./components/my-bookings/mybookings.module").then (m => m.MyBookingsModule)},
 
-  { path: "freeVisa", component: FreeVisaComponent },
-  { path: "visOnArrival", component: VisaArrivalComponent },
-  { path: "visaArrival", component: VisaArrivalComponent },
-  { path: "sim", component: SimComponent },
-  { path: "sim/simplans", component: SimplansComponent },
-  { path: "sim/checkout", component: SimcheckoutComponent },
+   // BookingDetails page
+   { path: "bookingDetail", loadChildren: () =>
+   import("./components/my-bookings/mybookings.module").then (m => m.MyBookingsModule)},
+
+   // Requirement Page
+   { path: "visa-requirements/:country/:variable/:purpose", loadChildren: () =>
+   import("./components/requirements/requirements.module").then (m => m.RequirementsModule)},
+
+   // Uk Page
+   { path: "visa-requirements/apply-for-UK-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/united-kingdom/united-kingdom.module").then (m => m.UnitedKingdomModule)},
+
+   // USA Page
+   { path: "visa-requirements/apply-for-USA-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/usa/usa.module").then (m => m.USAModule)},
+
+   // Netherland Page
+   { path: "visa-requirements/apply-for-Netherlands-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/netherlands/netherlands.module").then (m => m.NetherlandsModule)},
+
+   // Australia Page
+   { path: "visa-requirements/apply-for-Australia-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/australia/australia.module").then (m => m.AustraliaModule)},
+
+   // France Page
+   { path: "visa-requirements/apply-for-France-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/france/France.module").then (m => m.FranceModule)},
+
+   // China Page
+    { path: "visa-requirements/apply-for-China-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/china/china.module").then (m => m.ChinaModule)},
+
+   // Switzerland Page
+   { path: "visa-requirements/apply-for-Swiss-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/switzerland/switzerland.module").then (m => m.SwitzerlandModule)},
+
+   // Ethopia Page
+   { path: "visa-requirements/apply-for-Ethiopia-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/ethiopian/ethopian.module").then (m => m.EthopianModule)},
+
+   // Malaysia Page
+    { path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/malaysia/malaysia.module").then (m => m.MalaysiaModule)},
+
+   // Thailand Page
+   { path: "visa-requirements/apply-for-Thailand-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/thailand/thailand.module").then (m => m.ThailandModule)},
+
+   // Vietnam Page
+   { path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/vietnam/vietnam.module").then (m => m.VietnamModule)},
+
+   // Dubai Page
+    { path: "visa-requirements/apply-for-Dubai-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/dubai/dubai.module").then (m => m.DubaiModule)},
+
+   // Maldives Page
+   { path: "visa-requirements/apply-for-Maldives-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/maldives/maldives.module").then (m => m.MaldivesModule)},
+
+   // Spain Page
+   { path: "visa-requirements/apply-for-Spain-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/spain/spain.module").then (m => m.SpainModule)},
+
+   // Singapore Page
+    { path: "visa-requirements/apply-for-Singapore-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/singapore/singapore.module").then (m => m.SingaporeModule)},
+
+   // Sri-Lanka Page
+   { path: "visa-requirements/apply-for-Sri-Lanka-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/sri-lanka/sri-lanka.module").then (m => m.SrilankaModule)},
+
+   // Camboida Page
+   { path: "visa-requirements/apply-for-Cambodia-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/combodia/combodia.module").then (m => m.CombodiaModule)},
+
+   // Turkey Page
+    { path: "visa-requirements/apply-for-Turkey-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/turkey/turkey.module").then (m => m.TurkeyModule)},
+
+   // Azerbaijan Page
+   { path: "visa-requirements/apply-for-Azerbaijan-visa-online/:purpose", loadChildren: () =>
+   import("./components/visa-requirements/azerbaijan/azerbaijan.module").then (m => m.AzerbaijanModule)},
+
+   // HomeContainer Page
+   { path: "visa", loadChildren: () =>
+   import("./components/home-container/home-container.module").then (m => m.HomeContainerModule)},
+
+   // LoginSignUp Page
+   { path: "slcontainer/:form", loadChildren: () =>
+   import("./components/login-signup/login-signup.module").then (m => m.LoginSignupModule)},
+
+
+   // Sim Page
+   { path: "sim", loadChildren: () =>
+   import("./components/SimModule/sim.module").then (m => m.SimModule)},
+
+   // Sim Plans Page
+   { path: "sim/simplans", loadChildren: () =>
+   import("./components/SimModule/sim.module").then (m => m.SimModule)},
+
+   // Sim Checkout Page
+   { path: "sim/checkout", loadChildren: () =>
+   import("./components/SimModule/sim.module").then (m => m.SimModule)},
+
+  // Visa Arrival Page
+  { path: "visOnArrival", loadChildren: () =>
+  import("./components/SimModule/visa-arrival.module").then (m => m.VisaArrivalModule)},
+
+  // Free Visa Page
+  { path: "freeVisa", loadChildren: () =>
+  import("./components/SimModule/free-visa.module").then (m => m.FreeVisaModule)},
+
+  // B2b Home Page
+  { path: "b2b/home", loadChildren: () =>
+  import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
+
+
   { path: "insurance", component: InsuranceComponent },
 
-  { path: "b2b", redirectTo: "b2b/home", pathMatch: "prefix" },
-  { path: "b2b/home", component: B2bHomeComponent, children : [
-    { path: "b2b/home/:id", component: B2bHomeComponent }
-  ] },
-  {
-    path: "b2b/visa-requirement/:country/:purpose",
-    component: B2bReqComponent
-  },
-  {
-    path: "b2b/b2b-add-traveller",
-    component: B2bAddTrvComponent
-  },
+  // { path: "b2b", redirectTo: "b2b/home", pathMatch: "prefix" },
+  // { path: "b2b/home", component: B2bHomeComponent, children : [
+  //   { path: "b2b/home/:id", component: B2bHomeComponent }
+  // ] },
+  //B2b Requirement page
+  { path: "b2b/visa-requirement/:country/:purpose", loadChildren: () =>
+  import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
 
-  { path: "slcontainer/:form", component: LoginSignupComponent },
 
-  {
-    path: "visa-requirements/:country/:variable/:purpose",
-    component: RequirementsComponent
-  },
-  {
-    path: "addTraveller",
-    component: AddTravellerComponent,
-    canActivate: [AuthenticationGuard]
-    // canDeactivate: [CanDeactivateGuard]
-  },
-  { path: "freeVisa", component: FreeVisaComponent },
-  { path: "visaOnArrival", component: VisaArrivalComponent },
-  { path: "visaArrival", component: VisaArrivalComponent },
-  { path: "sim", component: SimComponent },
-  { path: "sim/simplans", component: SimplansComponent },
-  { path: "sim/checkout", component: SimcheckoutComponent },
+  //B2b Add Traveller page
+  { path: "b2b/b2b-add-traveller", loadChildren: () =>
+  import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
+
+  // {
+  //   path: "b2b/visa-requirement/:country/:purpose",
+  //   component: B2bReqComponent
+  // },
+  // {
+  //   path: "b2b/b2b-add-traveller",
+  //   component: B2bAddTrvComponent
+  // },
+
+
+
+
+
   { path: "insurance", component: InsuranceComponent },
-
-  {
-    path: "visa-requirements/apply-for-UK-visa-online/:purpose",
-    component: UnitedKingdomComponent
-  },
-  {
-    path: "visa-requirements/apply-for-USA-visa-online/:purpose",
-    component: USAComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Netherlands-visa-online/:purpose",
-    component: NetherlandsComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Australia-visa-online/:purpose",
-    component: AustraliaComponent
-  },
-  {
-    path: "visa-requirements/apply-for-France-visa-online/:purpose",
-    component: FranceComponent
-  },
-  {
-    path: "visa-requirements/apply-for-China-visa-online/:purpose",
-    component: ChinaComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Swiss-visa-online/:purpose",
-    component: SwitzerlandComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Ethiopia-visa-online/:purpose",
-    component: EthiopianComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",
-    component: MalaysiaComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Thailand-visa-online/:purpose",
-    component: ThailandComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose",
-    component: VietnamComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
-    component: DubaiComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
-    component: MaldivesComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Spain-visa-online/:purpose",
-    component: SpainComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Singapore-visa-online/:purpose",
-    component: SingaporeComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Sri-Lanka-visa-online/:purpose",
-    component: SriLankaComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Cambodia-visa-online/:purpose",
-    component:  CombodiaComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Turkey-visa-online/:purpose",
-    component:  TurkeyComponent
-  },
-  {
-    path: "visa-requirements/apply-for-Azerbaijan-visa-online/:purpose",
-    component:  AzerbaijanComponent
-  },
   {
     path: "b2b/something-went-wrong",
     component:  SomethingWrongComponent
