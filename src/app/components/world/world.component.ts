@@ -64,9 +64,38 @@ export class WorldComponent implements OnInit {
   destinationQuery: Array<any> = [
     {
       destinationCountry: "Iceland",
-      top: 164,
-      left: 665,
-      position: 1436,
+      top1366: 164,
+      left1366: 665,
+      position1366: 1436,
+
+      top786: 278,
+      left786: 634,
+      position786: 1200,
+
+      top360: 278,
+      left360: 634,
+      position360: 1200,
+
+      top414: 278,
+      left414: 634,
+      position414: 956,
+
+      top375: 44,
+      left375: 157,
+      position375: 1284,
+
+      top320: 278,
+      left320: 634,
+      position320: 1200,
+
+      top393: 278,
+      left393: 634,
+      position393: 1200,
+
+      top1440: 222,
+      left1440: 699,
+      position1440: 629,
+
       destinationInfo: [
         {
           title1: "Geothermal Pools",
@@ -92,9 +121,38 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "Vietnam",
-      top: 282,
-      left: 610,
-      position: 1212,
+      top1366: 282,
+      left1366: 610,
+      position1366: 1212,
+
+      top786: 278,
+      left786: 634,
+      position786: 1200,
+
+      top360: 278,
+      left360: 634,
+      position360: 1200,
+
+      top414: 278,
+      left414: 634,
+      position414: 811,
+
+      top375: 136,
+      left375: 165,
+      position375: 1200,
+
+      top320: 278,
+      left320: 634,
+      position320: 1200,
+
+      top393: 278,
+      left393: 634,
+      position393: 1200,
+
+      top1440: 346,
+      left1440: 655,
+      position1440: 1212,
+
       destinationInfo: [
         {
           title1: "Hang Son Doong",
@@ -120,9 +178,38 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "Singapore",
-      top: 320,
-      left: 624,
-      position: 1247,
+      top1366: 320,
+      left1366: 624,
+      position1366: 1247,
+
+      top786: 278,
+      left786: 634,
+      position786: 1200,
+
+      top360: 278,
+      left360: 634,
+      position360: 1200,
+
+      top414: 278,
+      left414: 634,
+      position414: 818,
+
+      top375: 143,
+      left375: 155,
+      position375: 1200,
+
+      top320: 278,
+      left320: 634,
+      position320: 1200,
+
+      top393: 278,
+      left393: 634,
+      position393: 1200,
+  
+      top1440: 370,
+      left1440: 668,
+      position1440: 1247,
+
       destinationInfo: [
         {
           title1: "Water Sports Galore",
@@ -148,9 +235,38 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "New Zealand",
-      top: 443,
-      left: 653,
-      position: 1200,
+      top1366: 443,
+      left1366: 653,
+      position1366: 1200,
+
+      top786: 278,
+      left786: 634,
+      position786: 1200,
+      
+      top360: 278,
+      left360: 634,
+      position360: 1200,
+
+      top414: 278,
+      left414: 634,
+      position414: 794,
+
+      top375: 199,
+      left375: 145,
+      position375: 1143,
+
+      top320: 278,
+      left320: 634,
+      position320: 1200,
+
+      top393: 278,
+      left393: 634,
+      position393: 1200,
+
+      top1440: 511,
+      left1440: 684,
+      position1440: 1200,
+      
       destinationInfo: [
         {
           title1: "Adventure Sport Galore!",
@@ -176,9 +292,39 @@ export class WorldComponent implements OnInit {
     },
     {
       destinationCountry: "Taiwan",
-      top: 278,
-      left: 634,
-      position: 1200,
+      top1366: 278,
+      left1366: 634,
+      position1366: 1200,
+
+      top786: 278,
+      left786: 634,
+      position786: 1200,
+
+      top360: 234,
+      left360: 634,
+      position360: 1200,
+
+      top414: 278,
+      left414: 634,
+      position414: 808,
+
+      top375: 132,
+      left375: 184,
+      position375: 1200,
+
+      top320: 278,
+      left320: 634,
+      position320: 1200,
+
+      top393: 278,
+      left393: 634,
+      position393: 1200,
+
+      top1440: 342,
+      left1440: 678,
+      position1440: 1200,
+
+
       destinationInfo: [
         {
           title1: "The Landscape",
@@ -236,19 +382,67 @@ export class WorldComponent implements OnInit {
   }
 
   randomPosition() {
-    this.generatePosition = this.worldChart.position;
+    if (window.innerWidth == 1366) {
+      this.generatePosition = this.worldChart.position1366;
+    } else if (window.innerWidth == 360) {
+      this.generatePosition = this.worldChart.position360;
+    } else if (window.innerWidth == 768) {
+      this.generatePosition = this.worldChart.position768;
+    } else if (window.innerWidth == 414) {
+      this.generatePosition = this.worldChart.position414;
+    } else if (window.innerWidth == 320) {
+      this.generatePosition = this.worldChart.position320;
+    } else if (window.innerWidth == 375) {
+      this.generatePosition = this.worldChart.position375;
+    } else if (window.innerWidth == 393) {
+      this.generatePosition = this.worldChart.position393;
+    } else if (window.innerWidth == 1440) {
+      this.generatePosition = this.worldChart.position1440;
+    }
     console.log(this.generatePosition);
     return this.generatePosition + "px";
   }
 
   randomLeftPosition() {
-    this.generateLeftPosition = this.worldChart.left;
+    if (window.innerWidth == 1366) {
+      this.generateLeftPosition = this.worldChart.left1366;
+    } else if (window.innerWidth == 360) {
+      this.generateLeftPosition = this.worldChart.left360;
+    } else if (window.innerWidth == 768) {
+      this.generateLeftPosition = this.worldChart.left768;
+    } else if (window.innerWidth == 414) {
+      this.generateLeftPosition = this.worldChart.left414;
+    } else if (window.innerWidth == 320) {
+      this.generateLeftPosition = this.worldChart.left320;
+    } else if (window.innerWidth == 375) {
+      this.generateLeftPosition = this.worldChart.left375;
+    } else if (window.innerWidth == 393) {
+      this.generateLeftPosition = this.worldChart.left393;
+    } else if (window.innerWidth == 1440) {
+      this.generateLeftPosition = this.worldChart.left1440;
+    }
     console.log(this.generateLeftPosition);
     return this.generateLeftPosition + "px";
   }
 
   randomTopPosition() {
-    this.generateTopPosition = this.worldChart.top;
+    if (window.innerWidth == 1366) {
+      this.generateTopPosition = this.worldChart.top1366;
+    } else if (window.innerWidth == 360) {
+      this.generateTopPosition = this.worldChart.top360;
+    } else if (window.innerWidth == 768) {
+      this.generateTopPosition = this.worldChart.top768;
+    } else if (window.innerWidth == 414) {
+      this.generateTopPosition = this.worldChart.top414;
+    } else if (window.innerWidth == 320) {
+      this.generateTopPosition = this.worldChart.top320;
+    } else if (window.innerWidth == 375) {
+      this.generateTopPosition = this.worldChart.top375;
+    } else if (window.innerWidth == 393) {
+      this.generateTopPosition = this.worldChart.top393;
+    } else if (window.innerWidth == 1440) {
+      this.generateTopPosition = this.worldChart.top1440;
+    }
     console.log(this.generateTopPosition);
     return this.generateTopPosition + "px";
   }

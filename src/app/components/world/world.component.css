@@ -1,10 +1,34 @@
 .world {
   position: relative;
   height: 100vh;
+  margin-top: 30px;
   /* color: #ffffff;
     text-shadow: 0 0 140px rgba(0, 0, 0, 0.3); */
   /* background-color: #d4418e;
   background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%); */
+}
+
+.mobileView {
+  display: none;
+}
+
+.desktopView {
+  display: block;
+}
+
+.worldTitle {
+  font-size: 22px;
+  color: #000;
+  font-weight: 600;
+}
+
+.worldTitle::after {
+  content: "";
+  background: #000080;
+  display: block;
+  height: 3px;
+  width: 120px;
+  margin: 4px auto 2px;
 }
 
 .pin {
@@ -91,7 +115,7 @@
   position: relative;
   width: 365px;
   height: auto;
-  background-color: lightyellow;
+  background-color: #dbe9fb;
 }
 
 .btn-top-left {
@@ -148,7 +172,7 @@
   right: 38px;
   bottom: -20px;
   border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
+  border-color: #dbe9fb #dbe9fb transparent transparent;
 } */
 
 .destinationContent {
@@ -177,7 +201,7 @@
   right: 0px;
   bottom: -20px;
   border: 22px solid;
-  border-color: lightyellow lightyellow transparent transparent;
+  border-color: #dbe9fb #dbe9fb transparent transparent;
 }
 
 /* talk bubble contents */
@@ -241,30 +265,228 @@
   background-size: cover;
 } */
 
-@media screen and (max-width: 767px) {
-  .talk-bubble {
+@media screen and (max-width: 768px) {
+  .mobileView {
+    display: block;
+  }
+
+  .pin {
+    display: none !important;
+  }
+
+  .desktopView {
     display: none;
   }
 
+  .talk-bubble {
+    /* display: none !important; */
+  }
+
+  .destinationContent {
+    line-height: 22px;
+  }
+
+  .bubble {
+    background-color: #dbe9fb;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .talktext {
+    padding: 0px !important;
+  }
+
+  .destinationImage {
+    display: inline;
+    height: 40px;
+    margin-top: -28px;
+  }
+
+  .worldTitle {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .worldSubTitle {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    letter-spacing: 0.9px;
+    text-transform: capitalize;
+  }
+}
+
+@media screen and (width: 320px) {
+
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pulse {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 414px) {
+
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pulse {
+    width: 310px;
+    height: 310px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 310px;
+    height: 310px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 310px;
+    height: 310px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 375px) {
+  .jugGhumia {
+    height: 40vh;
+  } 
   .pulse {
     width: 270px;
-    top: 40%;
+    height: 270px;
+    /* top: 40%; */
   }
 
   .exploreTheWorld {
     width: 270px;
     height: 270px;
-    top: 40%;
+    /* top: 40%; */
   }
 
   .finallyReach {
     width: 270px;
     height: 270px;
-    top: 40%;
+    /* top: 40%; */
+  }
+}
+
+
+@media screen and (width: 768px) {
+  .jugGhumia {
+    height: 50vh;
   }
 
+  .pulse {
+    width: 370px;
+    height: 370px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 370px;
+    height: 370px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 370px;
+    height: 370px;
+    /* top: 40%; */
+  }
+}
+
+
+@media screen and (width: 360px) {
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pulse {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+}
+
+
+@media screen and (width: 393px) {
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pulse {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+}
+
+
+@media screen and (width: 1440px) {
   .world {
-    position: relative;
-    height: 100vh;
+height: 80vh;
+  }
+
+  .pulse {
+    width: 470px;
+    height: 470px;
+    top: 55%;
+  }
+
+  .exploreTheWorld {
+    width: 470px;
+    height: 470px;
+    top: 55%;
+  }
+
+  .finallyReach {
+    width: 470px;
+    height: 470px;
+    top: 55%;
   }
 }
