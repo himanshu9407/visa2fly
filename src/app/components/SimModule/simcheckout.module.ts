@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
-import { SimComponent } from '../sim/sim.component';
+import { SimcheckoutComponent } from '../simcheckout/simcheckout.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", component: SimComponent, pathMatch: "full" },
-
+  { path: "", component: SimcheckoutComponent, pathMatch: "full" }
 ]
 
 @NgModule({
   declarations: [
-    SimComponent,
-
-
+    SimcheckoutComponent,
   ],
   imports: [
     CommonModule,
@@ -24,4 +21,5 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class SimModule {}
+
+export class SimCheckoutModule {}

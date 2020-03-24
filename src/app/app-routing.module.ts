@@ -137,11 +137,11 @@ const routes: Routes = [
 
    // Sim Plans Page
    { path: "sim/simplans", loadChildren: () =>
-   import("./components/SimModule/sim.module").then (m => m.SimModule)},
+   import("./components/SimModule/simplans.module").then (m => m.SimplansModule)},
 
    // Sim Checkout Page
    { path: "sim/checkout", loadChildren: () =>
-   import("./components/SimModule/sim.module").then (m => m.SimModule)},
+   import("./components/SimModule/simCheckout.module").then (m => m.SimCheckoutModule)},
 
   // Visa Arrival Page
   { path: "visOnArrival", loadChildren: () =>
