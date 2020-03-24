@@ -198,7 +198,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", onSameUrlNavigation: 'reload'})
+    // preloadingStrategy: PreloadAllModules,
   ],
   exports: [RouterModule],
   declarations: []
