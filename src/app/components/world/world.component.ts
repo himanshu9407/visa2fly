@@ -72,21 +72,25 @@ export class WorldComponent implements OnInit {
       left786: 634,
       position786: 1200,
 
-      top360: 278,
-      left360: 634,
-      position360: 1200,
+      top360: 25,
+      left360: 140,
+      position360: 1133,
 
-      top414: 278,
-      left414: 634,
-      position414: 956,
+      top415: 58,
+      left415: 182,
+      position415: 956,
 
-      top375: 44,
+      top411: 63,
+      left411: 208,
+      position411: 956,
+
+      top375: 34,
       left375: 157,
       position375: 1284,
 
-      top320: 278,
-      left320: 634,
-      position320: 1200,
+      top321: 45,
+      left321: 136,
+      position321: 1144,
 
       top393: 278,
       left393: 634,
@@ -129,21 +133,27 @@ export class WorldComponent implements OnInit {
       left786: 634,
       position786: 1200,
 
-      top360: 278,
-      left360: 634,
-      position360: 1200,
+      top360: 98,
+      left360: 135,
+      position360: 1045,
 
-      top414: 278,
-      left414: 634,
-      position414: 811,
+      top415: 142,
+      left415: 155,
+      position415: 817,
 
-      top375: 136,
+
+
+      top411: 138,
+      left411: 173,
+      position411: 811,
+
+      top375: 125,
       left375: 165,
       position375: 1200,
 
-      top320: 278,
-      left320: 634,
-      position320: 1200,
+      top321: 114,
+      left321: 123,
+      position321: 1047,
 
       top393: 278,
       left393: 634,
@@ -186,21 +196,25 @@ export class WorldComponent implements OnInit {
       left786: 634,
       position786: 1200,
 
-      top360: 278,
-      left360: 634,
-      position360: 1200,
+      top360: 112,
+      left360: 138,
+      position360: 1058,
 
-      top414: 278,
-      left414: 634,
-      position414: 818,
+      top415: 148,
+      left415: 145,
+      position415: 818,
 
-      top375: 143,
+      top411: 151,
+      left411: 169,
+      position411: 818,
+
+      top375: 134,
       left375: 155,
       position375: 1200,
 
-      top320: 278,
-      left320: 634,
-      position320: 1200,
+      top321: 123,
+      left321: 118,
+      position321: 1050,
 
       top393: 278,
       left393: 634,
@@ -243,21 +257,25 @@ export class WorldComponent implements OnInit {
       left786: 634,
       position786: 1200,
       
-      top360: 278,
-      left360: 634,
-      position360: 1200,
+      top360: 177,
+      left360: 141,
+      position360: 1027,
 
-      top414: 278,
-      left414: 634,
-      position414: 794,
+      top415: 240,
+      left415: 163,
+      position415: 792,
 
-      top375: 199,
+      top411: 238,
+      left411: 190,
+      position411: 794,
+
+      top375: 192,
       left375: 145,
       position375: 1143,
 
-      top320: 278,
-      left320: 634,
-      position320: 1200,
+      top321: 189,
+      left321: 122,
+      position321: 1020,
 
       top393: 278,
       left393: 634,
@@ -300,21 +318,25 @@ export class WorldComponent implements OnInit {
       left786: 634,
       position786: 1200,
 
-      top360: 234,
-      left360: 634,
-      position360: 1200,
+      top360: 94,
+      left360: 144,
+      position360: 1035,
 
-      top414: 278,
-      left414: 634,
-      position414: 808,
+      top415: 138,
+      left415: 171,
+      position415: 808,
 
-      top375: 132,
+      top411: 138,
+      left411: 193,
+      position411: 808,
+
+      top375: 123,
       left375: 184,
       position375: 1200,
 
-      top320: 278,
-      left320: 634,
-      position320: 1200,
+      top321: 110,
+      left321: 132,
+      position321: 1036,
 
       top393: 278,
       left393: 634,
@@ -388,10 +410,12 @@ export class WorldComponent implements OnInit {
       this.generatePosition = this.worldChart.position360;
     } else if (window.innerWidth == 768) {
       this.generatePosition = this.worldChart.position768;
-    } else if (window.innerWidth == 414) {
-      this.generatePosition = this.worldChart.position414;
-    } else if (window.innerWidth == 320) {
-      this.generatePosition = this.worldChart.position320;
+    } else if (window.innerWidth == 415) {
+      this.generatePosition = this.worldChart.position415;
+    } else if (window.innerWidth == 411) {
+      this.generatePosition = this.worldChart.position411;
+    } else if (window.innerWidth == 321) {
+      this.generatePosition = this.worldChart.position321;
     } else if (window.innerWidth == 375) {
       this.generatePosition = this.worldChart.position375;
     } else if (window.innerWidth == 393) {
@@ -400,6 +424,8 @@ export class WorldComponent implements OnInit {
       this.generatePosition = this.worldChart.position1440;
     }
     console.log(this.generatePosition);
+    console.log(window.innerWidth);
+    
     return this.generatePosition + "px";
   }
 
@@ -410,10 +436,12 @@ export class WorldComponent implements OnInit {
       this.generateLeftPosition = this.worldChart.left360;
     } else if (window.innerWidth == 768) {
       this.generateLeftPosition = this.worldChart.left768;
-    } else if (window.innerWidth == 414) {
-      this.generateLeftPosition = this.worldChart.left414;
-    } else if (window.innerWidth == 320) {
-      this.generateLeftPosition = this.worldChart.left320;
+    } else if (window.innerWidth == 415) {
+      this.generateLeftPosition = this.worldChart.left415;
+    } else if (window.innerWidth == 411) {
+      this.generateLeftPosition = this.worldChart.left411;
+    } else if (window.innerWidth == 321) {
+      this.generateLeftPosition = this.worldChart.left321;
     } else if (window.innerWidth == 375) {
       this.generateLeftPosition = this.worldChart.left375;
     } else if (window.innerWidth == 393) {
@@ -432,10 +460,12 @@ export class WorldComponent implements OnInit {
       this.generateTopPosition = this.worldChart.top360;
     } else if (window.innerWidth == 768) {
       this.generateTopPosition = this.worldChart.top768;
-    } else if (window.innerWidth == 414) {
-      this.generateTopPosition = this.worldChart.top414;
-    } else if (window.innerWidth == 320) {
-      this.generateTopPosition = this.worldChart.top320;
+    } else if (window.innerWidth == 415) {
+      this.generateTopPosition = this.worldChart.top415;
+    } else if (window.innerWidth == 411) {
+      this.generateTopPosition = this.worldChart.top411;
+    } else if (window.innerWidth == 321) {
+      this.generateTopPosition = this.worldChart.top321;
     } else if (window.innerWidth == 375) {
       this.generateTopPosition = this.worldChart.top375;
     } else if (window.innerWidth == 393) {
