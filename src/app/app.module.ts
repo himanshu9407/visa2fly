@@ -22,11 +22,6 @@ import { ChatboxComponent } from "./chatbox/chatbox.component";
 import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { PreloaderComponent } from "./shared/preloader/preloader.component";
 import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
-import { TermsandConditionsComponent } from './components/static/termsand-conditions/termsand-conditions.component';
-import { CookiePolicyComponent } from './components/static/cookie-policy/cookie-policy.component';
-import { PrivacyPolicyComponent } from './components/static/privacy-policy/privacy-policy.component';
-import { CancellationsAndReturnComponent } from './components/static/cancellations-and-return/cancellations-and-return.component';
-import { AboutUsComponent } from './components/static/about-us/about-us.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
@@ -35,8 +30,6 @@ import { WorldComponent } from './components/world/world.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-
 
 
 @NgModule({
@@ -53,11 +46,6 @@ import { FooterComponent } from './components/footer/footer.component';
     ChatboxComponent,
     InsuranceComponent,
     PreloaderComponent,
-    TermsandConditionsComponent,
-    CookiePolicyComponent,
-    PrivacyPolicyComponent,
-    CancellationsAndReturnComponent,
-    AboutUsComponent,
     RemovewhitespacePipe,
     SomethingWrongComponent,
     PageNotFoundComponent

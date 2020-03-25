@@ -1,26 +1,34 @@
 import { NgModule, Component } from "@angular/core";
-import { RouterModule, Routes, PreloadAllModules } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
-import { TermsandConditionsComponent } from "./components/static/termsand-conditions/termsand-conditions.component";
 // import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
-import { CookiePolicyComponent } from "./components/static/cookie-policy/cookie-policy.component";
-import { PrivacyPolicyComponent } from "./components/static/privacy-policy/privacy-policy.component";
-import { CancellationsAndReturnComponent } from "./components/static/cancellations-and-return/cancellations-and-return.component";
-import { AboutUsComponent } from "./components/static/about-us/about-us.component";
+
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-
-
-
   { path: "", redirectTo: "visa", pathMatch: "full" },
-  { path: "tnc", component: TermsandConditionsComponent },
-  { path: "cookiePolicy", component: CookiePolicyComponent },
-  { path: "privacyPolicy", component: PrivacyPolicyComponent },
-  { path: "cancellationPolicy", component: CancellationsAndReturnComponent },
-  { path: "aboutUs", component: AboutUsComponent },
+
+  // About Us Page
+  { path: "cookiePolicy", loadChildren: () =>
+  import("./components/static/about-us/about-us.module").then (m => m.AboutUsModule)},
+
+  // Cancellation Page
+  { path: "cancellationPolicy", loadChildren: () =>
+  import("./components/static/cancellations-and-return/cancellations-and-return.module").then (m => m.CancellationsAndReturnModule)},
+
+   // Cookie Policy Page
+   { path: "cookiePolicy", loadChildren: () =>
+   import("./components/static/cookie-policy/cookie-policy.module").then (m => m.CookiePolicyModule)},
+
+  // Terms And condition  Page
+  { path: "privacyPolicy", loadChildren: () =>
+   import("./components/static/privacy-policy/privacy-policy.module").then (m => m.PrivacyPolicyModule)},
+
+  // Terms And condition  Page
+  { path: "tnc", loadChildren: () =>
+   import("./components/static/termsand-conditions/termsand-conditions.module").then (m => m.TermsandConditionsModule)},
 
 
   // Addtraveller Page
@@ -163,26 +171,12 @@ const routes: Routes = [
   //   { path: "b2b/home/:id", component: B2bHomeComponent }
   // ] },
   //B2b Requirement page
-  { path: "b2b/visa-requirement/:country/:purpose", loadChildren: () =>
-  import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
+  { path: "b2b/visa-requirement/:country/:purpose",
+  loadChildren: () => import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
 
 
   //B2b Add Traveller page
-  { path: "b2b/b2b-add-traveller", loadChildren: () =>
-  import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
-
-  // {
-  //   path: "b2b/visa-requirement/:country/:purpose",
-  //   component: B2bReqComponent
-  // },
-  // {
-  //   path: "b2b/b2b-add-traveller",
-  //   component: B2bAddTrvComponent
-  // },
-
-
-
-
+  { path: "b2b/b2b-add-traveller", loadChildren: () => import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
 
   { path: "insurance", component: InsuranceComponent },
   {
@@ -194,12 +188,20 @@ const routes: Routes = [
     component: PageNotFoundComponent
   },
   { path: "**", redirectTo: "page-not-found", pathMatch: "full" }
+
+  // {
+  //   path: "b2b/visa-requirement/:country/:purpose",
+  //   component: B2bReqComponent
+  // },
+  // {
+  //   path: "b2b/b2b-add-traveller",
+  //   component: B2bAddTrvComponent
+  // },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled", onSameUrlNavigation: 'reload'})
-    // preloadingStrategy: PreloadAllModules,
   ],
   exports: [RouterModule],
   declarations: []
