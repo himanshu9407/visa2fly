@@ -36,6 +36,40 @@ import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.compo
 import { B2bMobileNavComponent } from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
 import { HomeContainerModule } from './components/home-container/home-container.module';
 import { MalaysiaModule } from './components/visa-requirements/malaysia/malaysia.module';
+import { AddTravellerModule } from './components/add-traveller/add-traveller.module';
+import { LoginSignupModule } from './components/login-signup/login-signup.module';
+import { MyBookingsModule } from './components/my-bookings/mybookings.module';
+import { ProfileModule } from './components/profile/profile.module';
+import { RequirementsModule } from './components/requirements/requirements.module';
+import { FreeVisaModule } from './components/SimModule/free-visa.module';
+import { SimModule } from './components/SimModule/sim.module';
+import { SimCheckoutModule } from './components/SimModule/simCheckout.module';
+import { SimplansModule } from './components/SimModule/simplans.module';
+import { VisaArrivalModule } from './components/SimModule/visa-arrival.module';
+import { AboutUsModule } from './components/static/about-us/about-us.module';
+import { CancellationsAndReturnModule } from './components/static/cancellations-and-return/cancellations-and-return.module';
+import { CookiePolicyModule } from './components/static/cookie-policy/cookie-policy.module';
+import { PrivacyPolicyModule } from './components/static/privacy-policy/privacy-policy.module';
+import { TermsandConditionsModule } from './components/static/termsand-conditions/termsand-conditions.module';
+import { AustraliaModule } from './components/visa-requirements/australia/australia.module';
+import { AzerbaijanModule } from './components/visa-requirements/azerbaijan/azerbaijan.module';
+import { ChinaModule } from './components/visa-requirements/china/china.module';
+import { CombodiaModule } from './components/visa-requirements/combodia/combodia.module';
+import { DubaiModule } from './components/visa-requirements/dubai/dubai.module';
+import { EthopianModule } from './components/visa-requirements/ethiopian/ethopian.module';
+import { FranceModule } from './components/visa-requirements/france/France.module';
+import { NetherlandsModule } from './components/visa-requirements/netherlands/netherlands.module';
+import { SingaporeModule } from './components/visa-requirements/singapore/singapore.module';
+import { SpainModule } from './components/visa-requirements/spain/spain.module';
+import { SrilankaModule } from './components/visa-requirements/sri-lanka/sri-lanka.module';
+import { SwitzerlandModule } from './components/visa-requirements/switzerland/switzerland.module';
+import { ThailandModule } from './components/visa-requirements/thailand/thailand.module';
+import { TurkeyModule } from './components/visa-requirements/turkey/turkey.module';
+import { UnitedKingdomModule } from './components/visa-requirements/united-kingdom/united-kingdom.module';
+import { USAModule } from './components/visa-requirements/usa/usa.module';
+import { VietnamModule } from './components/visa-requirements/vietnam/vietnam.module';
+import { MaldivesModule } from './components/visa-requirements/maldives/maldives.module';
+import { VisaRequirementModule } from './components/visa-requirements/visa-requirement.module';
 
 
 
@@ -74,8 +108,42 @@ import { MalaysiaModule } from './components/visa-requirements/malaysia/malaysia
     CarouselModule,
     NgbModule,
     HomeContainerModule,
-    B2BModule
-
+    B2BModule,
+    AddTravellerModule,
+    LoginSignupModule,
+    MyBookingsModule,
+    ProfileModule,
+    RequirementsModule,
+    FreeVisaModule,
+    SimModule,
+    SimCheckoutModule,
+    SimplansModule,
+    VisaArrivalModule,
+    AboutUsModule,
+    CancellationsAndReturnModule,
+    CookiePolicyModule,
+    PrivacyPolicyModule,
+    TermsandConditionsModule,
+    VisaRequirementModule
+    // AustraliaModule,
+    // AzerbaijanModule,
+    // ChinaModule,
+    // MaldivesModule,
+    // CombodiaModule,
+    // DubaiModule,
+    // EthopianModule,
+    // FranceModule,
+    // MalaysiaModule,
+    // NetherlandsModule,
+    // SingaporeModule,
+    // SpainModule,
+    // SrilankaModule,
+    // SwitzerlandModule,
+    // ThailandModule,
+    // TurkeyModule,
+    // UnitedKingdomModule,
+    // USAModule,
+    // VietnamModule
     // ServiceWorkerModule.registe,r('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [

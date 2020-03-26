@@ -16,6 +16,8 @@ import { SpainModule } from './spain/spain.module';
 import { SwitzerlandModule } from './switzerland/switzerland.module';
 import { ThailandModule } from './thailand/thailand.module';
 import { TurkeyModule } from './turkey/turkey.module';
+import { UnitedKingdomModule } from './united-kingdom/united-kingdom.module';
+import { USAModule } from './usa/usa.module';
 
 @NgModule({
   imports: [
@@ -36,7 +38,9 @@ import { TurkeyModule } from './turkey/turkey.module';
     SrilankaModule,
     SwitzerlandModule,
     ThailandModule,
-    TurkeyModule
+    TurkeyModule,
+    UnitedKingdomModule,
+    USAModule,
   ]
 })
 
