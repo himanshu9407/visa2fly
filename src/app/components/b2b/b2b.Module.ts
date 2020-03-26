@@ -14,11 +14,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
-  { path: "", component: B2bHomeComponent, pathMatch: "full", children : [
+  { path: "", component: B2bHomeComponent, children : [
     { path: "b2b/home/:id", component: B2bHomeComponent }
   ] },
-  { path: "", component: B2bReqComponent, pathMatch: "full"},
-  { path: "", component: B2bAddTrvComponent, pathMatch: "full" },
+  { path: "", component: B2bReqComponent},
+  { path: "", component: B2bAddTrvComponent},
 
 ]
 
@@ -27,10 +27,10 @@ const routes: Routes = [
     B2bAddTrvComponent,
     B2bHomeComponent,
     B2bReqComponent,
-    B2bHeaderComponent,
+    // B2bHeaderComponent,
     B2bResponseComponent,
-    B2bFooterComponent,
-    B2bMobileNavComponent,
+    // B2bFooterComponent,
+    // B2bMobileNavComponent,
   ],
   imports: [
     FormsModule,

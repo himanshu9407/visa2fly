@@ -30,6 +30,13 @@ import { WorldComponent } from './components/world/world.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { B2BModule } from './components/b2b/b2b.Module';
+import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component';
+import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.component';
+import { B2bMobileNavComponent } from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
+import { HomeContainerModule } from './components/home-container/home-container.module';
+import { MalaysiaModule } from './components/visa-requirements/malaysia/malaysia.module';
+
 
 
 @NgModule({
@@ -48,7 +55,10 @@ import { FooterComponent } from './components/footer/footer.component';
     PreloaderComponent,
     RemovewhitespacePipe,
     SomethingWrongComponent,
-    PageNotFoundComponent
+    // PageNotFoundComponent,
+    B2bHeaderComponent,
+    B2bFooterComponent,
+    B2bMobileNavComponent
 
   ],
   imports: [
@@ -62,9 +72,11 @@ import { FooterComponent } from './components/footer/footer.component';
     MatSelectModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgbModule
+    NgbModule,
+    HomeContainerModule,
+    B2BModule
 
-    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    // ServiceWorkerModule.registe,r('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
