@@ -361,8 +361,7 @@
                     </label>
                   </div>
                 </div>
-                <div
-                  *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                   class="col-md-4 mb-3">
                   <label>Address *</label>
                   <div class="input-group">
@@ -384,8 +383,7 @@
                 </div>
 
 
-                <div
-                  *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                   class="col-md-2 mb-3">
                   <label>State *</label>
                   <select (change)="checkCity(i)" formControlName="state" id="" class="form-control">
@@ -396,8 +394,7 @@
                     Select a valid state
                   </div>
                 </div>
-                <div
-                  *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                   class="col-md-2 mb-3">
                   <label>City *</label>
                   <select formControlName="city" name="" id="" class="form-control">
@@ -410,8 +407,7 @@
                     Select a valid city
                   </div>
                 </div>
-                <div
-                  *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                   class="col-md-2 mb-3">
                   <label>PinCode *</label>
                   <input formControlName="pinCode" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
@@ -425,8 +421,8 @@
                     travellerForm.controls.travellers.controls[i].controls.pinCode.dirty) || 
                     (travellerForm.controls.travellers.controls[i].controls.pinCode.errors?.valueErr) ||
                     (this.travellerForm.controls.travellers.controls[i].controls.pinCode.zipCodeError &&
-                    travellerForm.controls.travellers.controls[i].controls.pinCode.pristine)"
-                    class="invalid-feedback" style="display: block">
+                    travellerForm.controls.travellers.controls[i].controls.pinCode.pristine)" class="invalid-feedback"
+                    style="display: block">
                     Enter valid pincode
                   </div>
                   <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.pinCode.errors.required && travellerForm.controls.
@@ -442,51 +438,20 @@
                 <div *ngFor="let image of imageUploads;let j = index" class="col-md-3 mb-3">
                   <label>{{image.content}}*</label>
 
-                  <button *ngIf="image.content === 'Passport front page'" type="button" class="btn" data-toggle="modal" data-target="#samplePassportFront">
+                  <button *ngIf="image.content === 'Passport front page'" type="button" class="btn" data-toggle="modal"
+                    data-target="#samplePassportFront">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                   </button>
 
-                  <button *ngIf="image.content === 'Passport last page'" type="button" class="btn" data-toggle="modal" data-target="#samplePassportBack">
+                  <button *ngIf="image.content === 'Passport last page'" type="button" class="btn" data-toggle="modal"
+                    data-target="#samplePassportBack">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                   </button>
 
-                  <button *ngIf="image.content === 'Applicant passport size photograph'" type="button" class="btn" data-toggle="modal" data-target="#samplePhotograph">
+                  <button *ngIf="image.content === 'Applicant passport size photograph'" type="button" class="btn"
+                    data-toggle="modal" data-target="#samplePhotograph">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                   </button>
-
-                  <div class="modal fade" id="samplePassportFront" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <img src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg" alt="" class="img-fluid feedImage ">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="samplePassportBack" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <img src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg" alt="" class="img-fluid feedImage">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="samplePhotograph" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <img src="https://static.visa2fly.com/sample/photograph/{{country}}.jpg" alt="" class="img-fluid feedImage">
-                        
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
                   <div class="input-group">
                     <div class="custom-file">
@@ -540,8 +505,8 @@
           <div class="row" style="margin-left: 4px;">
             <div class="form-check col-sm-4 col-md-3">
               <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-                <input (click)="selectAllFn()" formControlName="selectAll" type="checkbox"
-                  class="custom-control-input" id="selectall" />
+                <input (click)="selectAllFn()" formControlName="selectAll" type="checkbox" class="custom-control-input"
+                  id="selectall" />
                 <label class="custom-control-label" for="selectall">Select All
                 </label>
 
@@ -593,8 +558,8 @@
         <div class="form-check">
           <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
             <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
-            <label class="custom-control-label tnc" for="checkAll" style="cursor: pointer;">I agree with the <a [routerLink]="['/tnc']"
-                target="_blank" routerLinkActive="router-link-active">Terms &amp;
+            <label class="custom-control-label tnc" for="checkAll" style="cursor: pointer;">I agree with the <a
+                [routerLink]="['/tnc']" target="_blank" routerLinkActive="router-link-active">Terms &amp;
                 Conditions</a> and <a [routerLink]="['/cancellationPolicy']" target="_blank"
                 routerLinkActive="router-link-active">Cancellation Policy</a> of Visa2fly.
             </label>
@@ -617,9 +582,45 @@
   </div>
 </div>
 
+<div class="photo-spec">
+
+  <div class="modal fade" id="samplePassportFront" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg" alt="" class="img-fluid feedImage ">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="samplePassportBack" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg" alt="" class="img-fluid feedImage">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="samplePhotograph" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://static.visa2fly.com/sample/photograph/{{country}}.jpg" alt="" class="img-fluid feedImage">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div style="display: none">
-  <form name="paymentForm" ngNoForm
-    action="{{redirect}}" method="POST">
+  <form name="paymentForm" ngNoForm action="{{redirect}}" method="POST">
     <input type="text" name="bookingId" id="bookingId" [(ngModel)]="bookingId">
     <input type="text" name="collectPayment" id="collectPayment" [(ngModel)]="collectPayment">
     <input type="text" name="amount" id="amount" [(ngModel)]="amount">

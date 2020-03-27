@@ -160,7 +160,7 @@ const routes: Routes = [
   import("./components/SimModule/free-visa.module").then (m => m.FreeVisaModule)},
 
   // B2b Home Page
-  { path: "b2b/home", loadChildren: () =>
+  { path: "b2b", loadChildren: () =>
   import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
 
 
@@ -171,12 +171,12 @@ const routes: Routes = [
   //   { path: "b2b/home/:id", component: B2bHomeComponent }
   // ] },
   //B2b Requirement page
-  { path: "b2b/visa-requirement/:country/:purpose",
-  loadChildren: () => import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
+  // { path: "b2b/visa-requirement/:country/:purpose",
+  // loadChildren: () => import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
 
 
   //B2b Add Traveller page
-  { path: "b2b/b2b-add-traveller", loadChildren: () => import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
+  // { path: "b2b/b2b-add-traveller", loadChildren: () => import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
 
   { path: "insurance", component: InsuranceComponent },
   {

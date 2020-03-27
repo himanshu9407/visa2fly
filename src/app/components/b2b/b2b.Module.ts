@@ -14,12 +14,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
-  { path: "", component: B2bHomeComponent, children : [
-    { path: "b2b/home/:id", component: B2bHomeComponent }
-  ] },
-  { path: "", component: B2bReqComponent},
-  { path: "", component: B2bAddTrvComponent},
-
+  { path: "", redirectTo: 'home/b2b', pathMatch: "full" } ,
+  {path: "home", component: B2bHomeComponent, children : [
+    { path: ":id", component: B2bHomeComponent } 
+  ]},
+  { path: "visa-requirement/:country/:purpose", component: B2bReqComponent},
+  { path: "b2b-add-traveller", component: B2bAddTrvComponent}
 ]
 
 @NgModule({
