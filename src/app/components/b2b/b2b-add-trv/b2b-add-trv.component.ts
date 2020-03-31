@@ -38,6 +38,9 @@ export class B2bAddTrvComponent implements OnInit {
   amount = "";
   hash = "";
   redirect = "";
+  code = "";
+  status = "";
+  message = "";
 
   primaryAddress = "";
   intialInfo = true;
@@ -1019,6 +1022,9 @@ export class B2bAddTrvComponent implements OnInit {
               this.amount = data.data.amount;
               this.hash = data.data.hash;
               this.redirect = data.data.redirectUrl;
+              this.code = data.data.code;
+              this.status = data.data.status;
+              this.message = data.data.message;
               // console.log(data.data.redirectUrl);
 
               setTimeout(() => {
@@ -1221,7 +1227,7 @@ export class B2bAddTrvComponent implements OnInit {
       this.preloaderService.showPreloader(true);
 
       this.travellerService.submitWarningForm().subscribe((data1: any) => {
-        // console.log(data1);
+        console.log(data1);
         if (data1.code == 0) {
           
           this.bookingId = data1.data.bookingId;
@@ -1229,6 +1235,10 @@ export class B2bAddTrvComponent implements OnInit {
           this.amount = data1.data.amount;
           this.hash = data1.data.hash;
           this.redirect = data1.data.redirectUrl;
+          this.code = data1.data.code;
+          this.status = data1.data.status;
+          this.message = data1.data.message;
+
 
           // console.log(data1.data.redirectUrl);
 
