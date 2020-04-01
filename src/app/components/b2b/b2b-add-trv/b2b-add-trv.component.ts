@@ -16,6 +16,7 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { B2bAddTrvService } from "./b2b-add-trv.service";
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: "app-b2b-add-trv",
@@ -111,6 +112,8 @@ export class B2bAddTrvComponent implements OnInit {
     private userFlow: UserFlowDetails,
     private loginService: LoginService,
     private http: HttpClient,
+    private titleService: Title,
+    private meta: Meta,
     private router: Router,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory
@@ -133,7 +136,7 @@ export class B2bAddTrvComponent implements OnInit {
   travellers: FormArray;
   filedNameArr = [];
   travelDetails: FormGroup;
-  valueAddedService: FormGroup;
+  // valueAddedService: FormGroup;
   quoteId = "";
   basePrice: number = 0;
   serviceTax: number = 0;
@@ -332,6 +335,17 @@ export class B2bAddTrvComponent implements OnInit {
       this.intialInfo = false; // ..??
     }, 10000);
 
+    this.titleService.setTitle("Add Traveller");
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+
     this.userFlowDetails = this.userFlow.getB2BUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
@@ -436,12 +450,12 @@ export class B2bAddTrvComponent implements OnInit {
       tnc: new FormControl(false, [Validators.requiredTrue])
     });
 
-    this.valueAddedService = new FormGroup({
-      selectAll: new FormControl(false, []),
-      sim: new FormControl(false, []),
-      insurance: new FormControl(false, []),
-      forex: new FormControl(false, [])
-    });
+    // this.valueAddedService = new FormGroup({
+    //   selectAll: new FormControl(false, []),
+    //   sim: new FormControl(false, []),
+    //   insurance: new FormControl(false, []),
+    //   forex: new FormControl(false, [])
+    // });
 
     this.travellerForm = this.formBuilder.group({
       travellers: this.formBuilder.array([this.createTraveller()])
@@ -470,31 +484,31 @@ export class B2bAddTrvComponent implements OnInit {
     });
   }
 
-  selectAllFn() {
-    // console.log('fn callled');
+  // selectAllFn() {
+  //   // console.log('fn callled');
 
-    let simValue = this.valueAddedService.get("sim").value;
-    let insuranceValue = this.valueAddedService.get("insurance").value;
-    let forexValue = this.valueAddedService.get("forex").value;
-    let selectAllValue = this.valueAddedService.get("selectAll").value;
-    if (!simValue || !forexValue || !insuranceValue) {
-      this.valueAddedService.setValue({
-        selectAll: true,
-        sim: true,
-        insurance: true,
-        forex: true
-      });
-    } else {
-      this.valueAddedService.setValue({
-        selectAll: false,
-        sim: false,
-        insurance: false,
-        forex: false
-      });
-    }
+  //   let simValue = this.valueAddedService.get("sim").value;
+  //   let insuranceValue = this.valueAddedService.get("insurance").value;
+  //   let forexValue = this.valueAddedService.get("forex").value;
+  //   let selectAllValue = this.valueAddedService.get("selectAll").value;
+  //   if (!simValue || !forexValue || !insuranceValue) {
+  //     this.valueAddedService.setValue({
+  //       selectAll: true,
+  //       sim: true,
+  //       insurance: true,
+  //       forex: true
+  //     });
+  //   } else {
+  //     this.valueAddedService.setValue({
+  //       selectAll: false,
+  //       sim: false,
+  //       insurance: false,
+  //       forex: false
+  //     });
+  //   }
 
-    this.valueAddedService.updateValueAndValidity();
-  }
+  //   this.valueAddedService.updateValueAndValidity();
+  // }
 
   createTraveller(): FormGroup {
     if (this.category == "e-visa") {
@@ -848,8 +862,7 @@ export class B2bAddTrvComponent implements OnInit {
 
     if (
       this.travellerForm.valid &&
-      this.travelDetails.valid &&
-      this.valueAddedService.valid
+      this.travelDetails.valid
     ) {
       if (this.termsAndConditions.valid) {
         this.preloaderService.showPreloader(true);
@@ -980,9 +993,9 @@ export class B2bAddTrvComponent implements OnInit {
         // this.formData1.append('needForexCard',this.valueAddedService.get('forex').value);
         // this.formData1.append('needInsurance',this.valueAddedService.get('insurance').value);
         // this.formData1.append('agreedToTcAndCancellationPolicy',this.termsAndConditions.get('tnc').value);
-        fd["needSim"] = this.valueAddedService.get("sim").value;
-        fd["needForexCard"] = this.valueAddedService.get("forex").value;
-        fd["needInsurance"] = this.valueAddedService.get("insurance").value;
+        // fd["needSim"] = this.valueAddedService.get("sim").value;
+        // fd["needForexCard"] = this.valueAddedService.get("forex").value;
+        // fd["needInsurance"] = this.valueAddedService.get("insurance").value;
         fd["agreedToTcAndCancellationPolicy"] = this.termsAndConditions.get(
           "tnc"
         ).value;
@@ -1380,10 +1393,7 @@ export class B2bAddTrvComponent implements OnInit {
       this.travellerForm.invalid &&
       this.travelDetails.pristine &&
       this.travelDetails.dirty &&
-      this.travelDetails.invalid &&
-      this.valueAddedService.pristine &&
-      this.valueAddedService.dirty &&
-      this.valueAddedService.invalid
+      this.travelDetails.invalid
     ) {
       // console.log("1");
       return true;

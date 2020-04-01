@@ -92,7 +92,6 @@ export class AppComponent implements OnInit {
     let token = this.loginService.getAuthToken();
 
     if (token == "" || token == null || token == undefined) {
-      // console.log("profile cleared")
       this.userFlow.setUserProfile({});
       this.loginStatusService.setUserLoggedIn(false);
     } else {
@@ -101,18 +100,13 @@ export class AppComponent implements OnInit {
         .toPromise()
         .then((data: any) => {
           if (data.code == "0") {
-            // console.log(data);
             this.userFlow.setUserProfile(data.data);
             this.loginStatusService.setUserLoggedIn(true);
-            // console.log(this.userFlow.getUserFlowDetails());
-            // this.preloaderService.showPreloader(false);
             this.loginStatusService.setUserProfile(data.data.profile);
           } else if (data.code == "301") {
             this.loginService.setAuthToken("");
             this.loginStatusService.setUserStatus(false);
             this.loginStatusService.setUserLoggedIn(false);
-            // this.router.navigate(['visa']);
-            // this.preloaderService.showPreloader(false);
             localStorage.setItem("profile", JSON.stringify({}));
           } else {
             this.userFlow.setUserProfile({});

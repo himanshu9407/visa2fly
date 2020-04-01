@@ -4,22 +4,22 @@ import { B2bHomeComponent } from './b2b-home/b2b-home.component';
 import { B2bReqComponent } from './b2b-req/b2b-req.component';
 import { B2bResponseComponent } from './b2b-response/b2b-response.component';
 import { Routes, RouterModule } from '@angular/router';
-import { B2bHeaderComponent } from './b2b-header/b2b-header.component';
-import { B2bFooterComponent } from './b2b-footer/b2b-footer.component';
-import { B2bMobileNavComponent } from './b2b-mobile-nav/b2b-mobile-nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: 'home/b2b', pathMatch: "full" } ,
+  { path: "", redirectTo: 'home', pathMatch: "full" } ,
   {path: "home", component: B2bHomeComponent, children : [
     { path: ":id", component: B2bHomeComponent } 
   ]},
   { path: "visa-requirement/:country/:purpose", component: B2bReqComponent},
-  { path: "b2b-add-traveller", component: B2bAddTrvComponent}
+  { path: "b2b-add-traveller", component: B2bAddTrvComponent},
+  { path: "page-not-found", component: PageNotFoundComponent},
+  { path: "**", redirectTo: "page-not-found", pathMatch: "prefix"}
 ]
 
 @NgModule({
@@ -29,6 +29,7 @@ const routes: Routes = [
     B2bReqComponent,
     // B2bHeaderComponent,
     B2bResponseComponent,
+    PageNotFoundComponent,
     // B2bFooterComponent,
     // B2bMobileNavComponent,
   ],
