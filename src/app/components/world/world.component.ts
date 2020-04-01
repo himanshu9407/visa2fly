@@ -34,6 +34,28 @@ import {
       ),
       transition("active => inactive", animate("500ms ease-out")),
       transition("inactive => active", animate("500ms ease-in"))
+    ]),
+    trigger("flipWorld", [
+      state(
+        "active",
+        style({
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)"
+        })
+      ),
+      state(
+        "inactive",
+        style({
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)"
+        })
+      ),
+      transition("active => inactive", animate("1000ms ease-out")),
+      transition("inactive => active", animate("1000ms ease-in"))
     ])
   ]
 })
@@ -62,44 +84,10 @@ export class WorldComponent implements OnInit {
   worldChart: any;
 
   destinationQuery: Array<any> = [
+
+    // Iceland
     {
       destinationCountry: "Iceland",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Geothermal Pools",
@@ -123,44 +111,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // Vietnam
     {
       destinationCountry: "Vietnam",
-      top1366: 282,
-      left1366: 610,
-      position1366: 1212,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 98,
-      left360: 135,
-      position360: 1045,
-
-      top415: 142,
-      left415: 155,
-      position415: 817,
-
-      top411: 138,
-      left411: 173,
-      position411: 811,
-
-      top375: 125,
-      left375: 165,
-      position375: 1200,
-
-      top321: 114,
-      left321: 123,
-      position321: 1047,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 346,
-      left1440: 655,
-      position1440: 1212,
-
       destinationInfo: [
         {
           title1: "Hang Son Doong",
@@ -184,44 +138,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // Singapore
     {
       destinationCountry: "Singapore",
-      top1366: 320,
-      left1366: 624,
-      position1366: 1247,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 112,
-      left360: 138,
-      position360: 1058,
-
-      top415: 148,
-      left415: 145,
-      position415: 818,
-
-      top411: 151,
-      left411: 169,
-      position411: 818,
-
-      top375: 134,
-      left375: 155,
-      position375: 1200,
-
-      top321: 123,
-      left321: 118,
-      position321: 1050,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 370,
-      left1440: 668,
-      position1440: 1247,
-
       destinationInfo: [
         {
           title1: "Water Sports Galore",
@@ -245,44 +165,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // New Zealand
     {
       destinationCountry: "New Zealand",
-      top1366: 443,
-      left1366: 653,
-      position1366: 1200,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 177,
-      left360: 141,
-      position360: 1027,
-
-      top415: 240,
-      left415: 163,
-      position415: 792,
-
-      top411: 238,
-      left411: 190,
-      position411: 794,
-
-      top375: 192,
-      left375: 145,
-      position375: 1143,
-
-      top321: 189,
-      left321: 122,
-      position321: 1020,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 511,
-      left1440: 684,
-      position1440: 1200,
-
       destinationInfo: [
         {
           title1: "Adventure Sport Galore!",
@@ -306,44 +192,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // Taiwan
     {
       destinationCountry: "Taiwan",
-      top1366: 278,
-      left1366: 634,
-      position1366: 1200,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 94,
-      left360: 144,
-      position360: 1035,
-
-      top415: 138,
-      left415: 171,
-      position415: 808,
-
-      top411: 138,
-      left411: 193,
-      position411: 808,
-
-      top375: 123,
-      left375: 184,
-      position375: 1200,
-
-      top321: 110,
-      left321: 132,
-      position321: 1036,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 342,
-      left1440: 678,
-      position1440: 1200,
-
       destinationInfo: [
         {
           title1: "The Landscape",
@@ -367,44 +219,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // Sweden
     {
       destinationCountry: "Sweden",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Midsommar and Saint Lucia",
@@ -428,44 +246,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // Canada
     {
       destinationCountry: "Canada",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Allure of Nature",
@@ -489,44 +273,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // Italy
     {
       destinationCountry: "Italy",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Amazing Architecture",
@@ -550,44 +300,10 @@ export class WorldComponent implements OnInit {
         }
       ]
     },
+
+    // Germany
     {
       destinationCountry: "Germany",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Knights And Castles",
@@ -615,42 +331,6 @@ export class WorldComponent implements OnInit {
     // South Korea
     {
       destinationCountry: "South Korea",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "One of The Biggest Economies in the World",
@@ -678,42 +358,6 @@ export class WorldComponent implements OnInit {
     // Philippines
     {
       destinationCountry: "Philippines",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Palawan",
@@ -741,42 +385,6 @@ export class WorldComponent implements OnInit {
     // Brazil
     {
       destinationCountry: "Brazil",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Rio De Janeiro",
@@ -804,42 +412,6 @@ export class WorldComponent implements OnInit {
     // Peru
     {
       destinationCountry: "Peru",
-      top1366: 164,
-      left1366: 665,
-      position1366: 1436,
-
-      top786: 278,
-      left786: 634,
-      position786: 1200,
-
-      top360: 25,
-      left360: 140,
-      position360: 1133,
-
-      top415: 58,
-      left415: 182,
-      position415: 956,
-
-      top411: 63,
-      left411: 208,
-      position411: 956,
-
-      top375: 34,
-      left375: 157,
-      position375: 1284,
-
-      top321: 45,
-      left321: 136,
-      position321: 1144,
-
-      top393: 278,
-      left393: 634,
-      position393: 1200,
-
-      top1440: 222,
-      left1440: 699,
-      position1440: 629,
-
       destinationInfo: [
         {
           title1: "Lima",
@@ -894,79 +466,5 @@ export class WorldComponent implements OnInit {
     this.destinationCountry = this.worldChart.destinationCountry;
 
     console.log(this.worldChart);
-  }
-
-  randomPosition() {
-    if (window.innerWidth == 1366) {
-      this.generatePosition = this.worldChart.position1366;
-    } else if (window.innerWidth == 360) {
-      this.generatePosition = this.worldChart.position360;
-    } else if (window.innerWidth == 768) {
-      this.generatePosition = this.worldChart.position768;
-    } else if (window.innerWidth == 415) {
-      this.generatePosition = this.worldChart.position415;
-    } else if (window.innerWidth == 411) {
-      this.generatePosition = this.worldChart.position411;
-    } else if (window.innerWidth == 321) {
-      this.generatePosition = this.worldChart.position321;
-    } else if (window.innerWidth == 375) {
-      this.generatePosition = this.worldChart.position375;
-    } else if (window.innerWidth == 393) {
-      this.generatePosition = this.worldChart.position393;
-    } else if (window.innerWidth == 1440) {
-      this.generatePosition = this.worldChart.position1440;
-    }
-    console.log(this.generatePosition);
-    console.log(window.innerWidth);
-
-    return this.generatePosition + "px";
-  }
-
-  randomLeftPosition() {
-    if (window.innerWidth == 1366) {
-      this.generateLeftPosition = this.worldChart.left1366;
-    } else if (window.innerWidth == 360) {
-      this.generateLeftPosition = this.worldChart.left360;
-    } else if (window.innerWidth == 768) {
-      this.generateLeftPosition = this.worldChart.left768;
-    } else if (window.innerWidth == 415) {
-      this.generateLeftPosition = this.worldChart.left415;
-    } else if (window.innerWidth == 411) {
-      this.generateLeftPosition = this.worldChart.left411;
-    } else if (window.innerWidth == 321) {
-      this.generateLeftPosition = this.worldChart.left321;
-    } else if (window.innerWidth == 375) {
-      this.generateLeftPosition = this.worldChart.left375;
-    } else if (window.innerWidth == 393) {
-      this.generateLeftPosition = this.worldChart.left393;
-    } else if (window.innerWidth == 1440) {
-      this.generateLeftPosition = this.worldChart.left1440;
-    }
-    console.log(this.generateLeftPosition);
-    return this.generateLeftPosition + "px";
-  }
-
-  randomTopPosition() {
-    if (window.innerWidth == 1366) {
-      this.generateTopPosition = this.worldChart.top1366;
-    } else if (window.innerWidth == 360) {
-      this.generateTopPosition = this.worldChart.top360;
-    } else if (window.innerWidth == 768) {
-      this.generateTopPosition = this.worldChart.top768;
-    } else if (window.innerWidth == 415) {
-      this.generateTopPosition = this.worldChart.top415;
-    } else if (window.innerWidth == 411) {
-      this.generateTopPosition = this.worldChart.top411;
-    } else if (window.innerWidth == 321) {
-      this.generateTopPosition = this.worldChart.top321;
-    } else if (window.innerWidth == 375) {
-      this.generateTopPosition = this.worldChart.top375;
-    } else if (window.innerWidth == 393) {
-      this.generateTopPosition = this.worldChart.top393;
-    } else if (window.innerWidth == 1440) {
-      this.generateTopPosition = this.worldChart.top1440;
-    }
-    console.log(this.generateTopPosition);
-    return this.generateTopPosition + "px";
   }
 }

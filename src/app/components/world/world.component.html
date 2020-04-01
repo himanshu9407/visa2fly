@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    <div class="talk-bubble tri-right round btn-top-left btm-right"
+    <div class="talk-bubble tri-right round btn-top-left"
       [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
       <div class="talktext">
         <div class="talktextHeader">
@@ -33,16 +33,14 @@
     </div>
 
     <div class="jugGhumia">
-      <img src="../../../assets/pin.png" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none','top':exploreWorld === 'reachYourDestination' ? randomTopPosition(): '',
-      'left':exploreWorld === 'reachYourDestination' ? randomLeftPosition(): ''}" class="pin" alt="">
-
       <div class="glow" [ngClass]="{
     'pulse':exploreWorld === 'simpleRotate',
     'exploreTheWorld':exploreWorld === 'findingDestination',
     'finallyReach':exploreWorld === 'reachYourDestination'
-    }" [ngStyle]="{'background-position':exploreWorld === 'reachYourDestination' ? randomPosition(): ''}"
+    }"  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }"
         (click)="findPlace()" usemap="shapes-map">
       </div>
+      <img src="../../../assets/{{destinationCountry}}.png" alt=""  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()" [@flipWorld]="flip" class="counrtyCourt">
     </div>
 
     <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
@@ -84,15 +82,12 @@
 
       <div class="col-12 p-0">
         <div class="jugGhumia">
-        <img src="../../../assets/pin.png" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none','top':exploreWorld === 'reachYourDestination' ? randomTopPosition(): '',
-        'left':exploreWorld === 'reachYourDestination' ? randomLeftPosition(): ''}" class="pin" alt="">
 
         <div class="glow" [ngClass]="{
       'pulse':exploreWorld === 'simpleRotate',
       'exploreTheWorld':exploreWorld === 'findingDestination',
       'finallyReach':exploreWorld === 'reachYourDestination'
-      }" [ngStyle]="{'background-position':exploreWorld === 'reachYourDestination' ? randomPosition(): ''}"
-          (click)="findPlace()">
+      }" (click)="findPlace()">
         </div> 
       </div>
       </div>
