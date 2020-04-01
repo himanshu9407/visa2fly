@@ -25,7 +25,7 @@
       [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
       <div class="talktext">
         <div class="talktextHeader">
-        <img src="../../../assets/{{destinationTitle2}}.png" class="img-fluid destinationImage" alt="">
+          <img src="../../../assets/{{destinationTitle2}}.png" class="img-fluid destinationImage" alt="">
           <h5 class="destinationTitle">{{destinationTitle2}}</h5>
         </div>
         <p class="destinationContent">{{destinationContent2}}</p>
@@ -37,10 +37,12 @@
     'pulse':exploreWorld === 'simpleRotate',
     'exploreTheWorld':exploreWorld === 'findingDestination',
     'finallyReach':exploreWorld === 'reachYourDestination'
-    }"  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }"
-        (click)="findPlace()" usemap="shapes-map">
+    }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
+        usemap="shapes-map">
       </div>
-      <img src="../../../assets/{{destinationCountry}}.png" alt=""  [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()" [@flipWorld]="flip" class="counrtyCourt">
+      <img src="../../../assets/{{destinationCountry}}.png" alt=""
+        [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
+        [@flipWorld]="flip" class="counrtyCourt img-fluid">
     </div>
 
     <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
@@ -82,14 +84,17 @@
 
       <div class="col-12 p-0">
         <div class="jugGhumia">
-
-        <div class="glow" [ngClass]="{
-      'pulse':exploreWorld === 'simpleRotate',
-      'exploreTheWorld':exploreWorld === 'findingDestination',
-      'finallyReach':exploreWorld === 'reachYourDestination'
-      }" (click)="findPlace()">
-        </div> 
-      </div>
+          <div class="glow" [ngClass]="{
+        'pulse':exploreWorld === 'simpleRotate',
+        'exploreTheWorld':exploreWorld === 'findingDestination',
+        'finallyReach':exploreWorld === 'reachYourDestination'
+        }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
+            usemap="shapes-map">
+          </div>
+          <img src="../../../assets/{{destinationCountry}}.png" alt=""
+            [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
+            [@flipWorld]="flip" class="counrtyCourt img-fluid">
+        </div>
       </div>
 
 

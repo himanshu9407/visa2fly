@@ -83,8 +83,9 @@ export class WorldComponent implements OnInit {
 
   worldChart: any;
 
-  destinationQuery: Array<any> = [
+  index: number = 1;
 
+  destinationQuery: Array<any> = [
     // Iceland
     {
       destinationCountry: "Iceland",
@@ -343,7 +344,7 @@ export class WorldComponent implements OnInit {
             "The capital of Jejudo, Jeju is home to interesting beaches, intense volcanic planes and amazing underground caves. Halla Mountain and “Sunrise Peak” are also notably famous - and why not? With its beautiful landscape, how can Jeju’s sunrise be anything less than spectacular?"
         },
         {
-          title3: "Hallyu: The K-Wave!",
+          title3: "Hallyu - The K-Wave!",
           content3:
             "The world has been increasingly jumping on the K-wave (Korean wave) as the days go by - from Korean dramas, films (Proof: “Parasite” even won an Oscar!) and music (K-Pop!), this country churns out hits by the dozen. Walking through the streets of Seoul is paradise for anyone who’s even remotely interested in this fandom!"
         },
@@ -442,15 +443,23 @@ export class WorldComponent implements OnInit {
   ngOnInit() {}
 
   findPlace() {
-    console.log("find you destination");
     setTimeout(() => {
       this.exploreWorld = "reachYourDestination";
       this.flip = this.flip == "inactive" ? "active" : "inactive";
     }, 1000);
     this.exploreWorld = "findingDestination";
-    this.worldChart = this.destinationQuery[
-      Math.floor(Math.random() * this.destinationQuery.length)
-    ];
+
+    if (this.index <= 13) {
+      
+      this.worldChart = this.destinationQuery[this.index];
+      this.index = this.index + 1;
+
+    } if (this.index >= 13) {
+
+      this.index = 1;
+  
+    }
+
     this.destinationTitle1 = this.worldChart.destinationInfo[0].title1;
     this.destinationContent1 = this.worldChart.destinationInfo[0].content1;
 
@@ -465,6 +474,5 @@ export class WorldComponent implements OnInit {
 
     this.destinationCountry = this.worldChart.destinationCountry;
 
-    console.log(this.worldChart);
   }
 }
