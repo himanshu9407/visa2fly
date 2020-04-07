@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeStepComponent } from '../home-step/home-step.component';
+import { WorldComponent } from '../world/world.component';
 
 const routes: Routes = [
   { path: "", component: HomeContainerComponent, pathMatch: "full" }
@@ -23,6 +24,7 @@ const routes: Routes = [
     MiniCarouselComponent,
     WhyChooseUsComponent,
     HomeFormComponent,
+    WorldComponent,
     TestimonialComponent,
     HomeStepComponent
   ],

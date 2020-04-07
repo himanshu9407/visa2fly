@@ -27,11 +27,8 @@ const routes: Routes = [
     B2bAddTrvComponent,
     B2bHomeComponent,
     B2bReqComponent,
-    // B2bHeaderComponent,
     B2bResponseComponent,
     PageNotFoundComponent,
-    // B2bFooterComponent,
-    // B2bMobileNavComponent,
   ],
   imports: [
     FormsModule,

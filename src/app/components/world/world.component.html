@@ -1,93 +1,154 @@
-<section class="world">
-
-  <div class="talk-bubble tri-right round btn-top-left btm-right">
-    <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+<section class="world desktopView">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h5 class="worldTitle">
+          Like Exploring New Places {{destinationCountry}}
+        </h5>
+        <p class="worldSubTitle">
+          Click The Globe To Explore More
+        </p>
+      </div>
     </div>
-  </div>
-
-  <div class="talk-bubble tri-right round btn-top-right btm-left">
-    <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+    <div class="talk-bubble tri-right round btn-top-left"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/{{destinationTitle1}}.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle1}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent1}}</p>
+      </div>
     </div>
-  </div>
 
-  <div class="glow" [ngClass]="{
+    <div class="talk-bubble tri-right round btn-top-right btm-left"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/{{destinationTitle2}}.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle2}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent2}}</p>
+      </div>
+    </div>
+
+    <div class="jugGhumia">
+      <div class="glow" [ngClass]="{
     'pulse':exploreWorld === 'simpleRotate',
     'exploreTheWorld':exploreWorld === 'findingDestination',
     'finallyReach':exploreWorld === 'reachYourDestination'
-  }" [ngStyle]="{
-      'background-image':exploreWorld === 'reachYourDestination' ? 'url(../../../assets/world.jpg)' : '',
-      'background-size':exploreWorld === 'reachYourDestination' ? 'cover' : '',
-      'background-position':exploreWorld === 'reachYourDestination' ? generatePosition: ''
-    }" (click)="findPlace()">
-    {{generatePosition}}
-
-  </div>
-
-  <div class="talk-bubble tri-right round btn-bottom-left btm-top-right">
-    <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+    }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
+        usemap="shapes-map">
+      </div>
+      <img src="../../../assets/{{destinationCountry}}.png" alt=""
+        [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
+        [@flipWorld]="flip" class="counrtyCourt img-fluid">
     </div>
-  </div>
 
-  <div class="talk-bubble tri-right round btn-bottom-right btm-top-left">
-    <div class="talktext">
-      <h5>Incridable India</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum. Maxime facilis quaerat quia, ratione
-        eum alias provident veniam amet architecto veritatis tempore molestias numquam, vero illo repellendus quisquam
-        facere.</p>
+    <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/{{destinationTitle3}}.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle3}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent3}}</p>
+      </div>
+    </div>
+
+    <div class="talk-bubble tri-right round btn-bottom-right"
+      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+      <div class="talktext">
+        <div class="talktextHeader">
+          <img src="../../../assets/{{destinationTitle4}}.png" class="img-fluid destinationImage" alt="">
+          <h5 class="destinationTitle">{{destinationTitle4}}</h5>
+        </div>
+        <p class="destinationContent">{{destinationContent4}}</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- <div class="talk-bubble">
-  <div class="talktext">
-    <p>CSS Talk Bubble configured by classes. Defaults to square shape, no triangle. Height is auto-adjusting to the height of the text.</p>
-  </div>
-</div>
-<div class="talk-bubble tri-right left-top">
-  <div class="talktext">
-    <p>This one adds a right triangle on the left, flush at the top by using .tri-right and .left-top to specify the location.</p>
-  </div>
-</div>
-<div class="talk-bubble tri-right left-in">
-  <div class="talktext">
-    <p>This talk-bubble uses .left-in class to show a triangle on the left slightly indented. Still a blocky square.</p>
-  </div>
-</div> -->
 
-<!-- <div class="talk-bubble tri-right border round btm-left-in">
-  <div class="talktext">
-    <p>Now we add a border and it looks like a comic. Uses .border .round and .btm-left-in</p>
+<section class="mobileView mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h5 class="worldTitle">
+          Like Exploring New Places {{destinationCountry}}
+        </h5>
+        <p class="worldSubTitle">
+          Click The Globe To Explore More
+        </p>
+      </div>
+
+      <div class="col-12 p-0">
+        <div class="jugGhumia">
+          <div class="glow" [ngClass]="{
+        'pulse':exploreWorld === 'simpleRotate',
+        'exploreTheWorld':exploreWorld === 'findingDestination',
+        'finallyReach':exploreWorld === 'reachYourDestination'
+        }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
+            usemap="shapes-map">
+          </div>
+          <img src="../../../assets/{{destinationCountry}}.png" alt=""
+            [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
+            [@flipWorld]="flip" class="counrtyCourt img-fluid">
+        </div>
+      </div>
+
+
+      <div class="col-12 p-0" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }">
+        <div class="bubble" [@flipState]="flip">
+          <div class="talktext">
+            <div class="talktextHeader">
+              <img src="../../../assets/{{destinationTitle1}}.png" class="img-fluid destinationImage" alt="">
+              <h5 class="destinationTitle">{{destinationTitle1}}</h5>
+            </div>
+            <p class="destinationContent">{{destinationContent1}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 p-0 mt-4" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none'}">
+        <div class="bubble" [@flipState]="flip">
+          <div class="talktext">
+            <div class="talktextHeader">
+              <img src="../../../assets/{{destinationTitle2}}.png" class="img-fluid destinationImage" alt="">
+              <h5 class="destinationTitle">{{destinationTitle2}}</h5>
+            </div>
+            <p class="destinationContent">{{destinationContent2}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 p-0 mt-4" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }">
+        <div class="bubble" [@flipState]="flip">
+          <div class="talktext">
+            <div class="talktextHeader">
+              <img src="../../../assets/{{destinationTitle3}}.png" class="img-fluid destinationImage" alt="">
+              <h5 class="destinationTitle">{{destinationTitle3}}</h5>
+            </div>
+            <p class="destinationContent">{{destinationContent3}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 p-0 mt-4" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }">
+        <div class="bubble" [@flipState]="flip">
+          <div class="talktext">
+            <div class="talktextHeader">
+              <img src="../../../assets/{{destinationTitle4}}.png" class="img-fluid destinationImage" alt="">
+              <h5 class="destinationTitle">{{destinationTitle4}}</h5>
+            </div>
+            <p class="destinationContent">{{destinationContent4}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="talk-bubble tri-right border btm-right-in">
-  <div class="talktext">
-    <p>Now flipped the other way and square. Uses .border and .btm-right-in</p>
-  </div>
-</div> -->
-<!-- <div class="talk-bubble tri-right btm-right">
-  <div class="talktext">
-    <p>Flush to the bottom right. Uses .btm-right only.</p>
-  </div>
-</div> -->
-<!--- <div class="talk-bubble tri-right round right-in">
-  <div class="talktext">
-    <p>Moving our way back up the right side indented. Uses .round and .right-in</p>
-  </div>
-</div>
-<div class="talk-bubble tri-right round border right-top">
-  <div class="talktext">
-    <p>And finally on the right flush at the top. Uses .round .border and .right-top</p>
-  </div>
+</section>
+
+<!-- <div class="container-fluid">
+  <img src="../../../assets/3425261-eps.png" style="height: 250px; width: 100%;" class="img-fluid" alt="">
 </div> -->

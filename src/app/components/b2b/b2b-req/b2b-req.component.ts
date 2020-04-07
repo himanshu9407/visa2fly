@@ -15,8 +15,10 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { B2bReqService } from "./b2b-req.service";
+import { ToastrService } from 'ngx-toastr';
 import { HomeServiceService } from "src/app/home-service.service";
 import { FormGroup, FormControl } from "@angular/forms";
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-b2b-req",
@@ -91,7 +93,9 @@ export class B2bReqComponent implements OnInit {
     private reqService: B2bReqService,
     private userFlow: UserFlowDetails,
     private routerHistory: RouterHistory,
-    private toastService: ToastService,
+    private toastr: ToastrService,
+    private titleService: Title,
+    private meta: Meta,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
@@ -329,7 +333,7 @@ export class B2bReqComponent implements OnInit {
         // this.preloaderService.showPreloader(false);
       } else {
         this.preloaderService.showPreloader(false);
-        this.toastService.showNotification("" + data.message, 4000);
+        this.toastr.error("" + data.message);
       }
     });
   }
@@ -405,5 +409,16 @@ export class B2bReqComponent implements OnInit {
     this.mobileSelectedDataArr[i] = this.mobileMainArr[i][j];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.titleService.setTitle("Apply For " + this.selectedCountrytype + " Visa Online");
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+  }
 }

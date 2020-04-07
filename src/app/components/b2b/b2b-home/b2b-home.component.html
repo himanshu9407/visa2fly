@@ -1,8 +1,91 @@
-<section class="b2b-home">
+<section class="b2b-home desktopView">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
-        <div class="card">
+        <div class="desktopView-card card">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-lg-7 col-md-12 col-sm-12 wave-bg">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../../../../assets/undraw_authentication_fsn5.svg" class="login_img d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../../../assets/undraw_fingerprint_swrc.svg" class="login_img d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../../../assets/undraw_personal_data_29co.svg" class="login_img d-block w-100" alt="...">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-12 col-sm-12">
+                <form class="form" [formGroup]="b2bHomeForm" (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <h2 class="b2b-header">Get Visa Online</h2>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <label for="destination">Destination</label>
+                      <select (change)="countryChanged()" [(ngModel)]="selectedCountry" formControlName="country"
+                        required id="ddlCountry" class="form-control form-control-sm" name="country">
+                        <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <label for="purpose">Visa Type</label>
+                      <select formControlName="purpose" [(ngModel)]="selectedPurpose" required id="ddlPurpose"
+                        class=" form-control form-control-sm" name="purpose">
+                        <option value="select">Select</option>
+                        <option class="purpose-opt"
+                          *ngFor="let purpose of homeFormData.data.data[this.selectedCountry].purpose"
+                          value="{{purpose}}">{{purpose}}</option>
+                      </select>
+
+                      <div *ngIf="purposeNotSelected" class="invalid">
+                        Please choose a purpose.
+                      </div>
+
+                    </div>
+                    <div class="col-12 mt-2">
+                      <label for="resideIn">Reside In</label>
+                      <select formControlName="livingIn" [(ngModel)]="selectedResideIn" required name="livingin"
+                        id="ddlJurisction" class=" form-control form-control-sm">
+                        <option value="select">Select</option>
+                        <option class="purpose-opt"
+                          *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf"
+                          value="{{livesin}}">{{livesin}}</option>
+                      </select>
+
+                      <div *ngIf="livesInNotSelected" class="invalid">
+                        Please choose where you live.
+                      </div>
+
+                    </div>
+                    <div class="col-12 mt-2 text-center">
+                      <button type="submit" style="padding: 5px 15px; margin-top: 14px; margin-bottom: 10px;" class="btn submitBtn">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="b2b-home mobileView">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+        <div class="mobileView-card card">
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6 col-md-12 col-sm-12">
@@ -12,7 +95,7 @@
               <div class="col-lg-6 col-md-12 col-sm-12">
                 <form [formGroup]="b2bHomeForm" (ngSubmit)="onSubmit()">
                   <div class="row">
-                    <div class="col-12 text-center mb-3">
+                    <div class="col-12 text-center mt-3 mb-1">
                       <h2 class="b2b-header">Get Visa Online <span><img data-src="https://static.visa2fly.com/assets/passport (1).png" class="img-fluid lazyload ml-1" alt="" style="height: 22px"></span></h2>
                     </div>
                     <div class="col-12">

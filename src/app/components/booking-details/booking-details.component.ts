@@ -3,10 +3,12 @@ import { ActivatedRoute } from "@angular/router";
 // import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, HostListener } from "@angular/core";
 import { MyBookingsService } from "../my-bookings/mybookings.service";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from "src/app/shared/toast.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
 import { Location } from "@angular/common";
 import { Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
+
 import { PlatformLocation } from "@angular/common";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { Title, Meta } from "@angular/platform-browser";
@@ -24,7 +26,8 @@ export class BookingDetailsComponent implements OnInit {
   title: string = "Visa2fly | Booking Details";
   constructor(
     private myBookingService: MyBookingsService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
+    private toastr: ToastrService,
     private downloadImageService: DownloadImageService,
     private router: Router,
     private location: PlatformLocation,
@@ -60,7 +63,7 @@ export class BookingDetailsComponent implements OnInit {
 
   downloadImage(url: string, bookingId: string) {
     if (url == null || url == undefined) {
-      this.toastService.showNotification("File not found !", 4000);
+      this.toastr.error("File not found !");
     } else {
       this.downloadImageService
         .downloadImageWithUrl(url, bookingId)

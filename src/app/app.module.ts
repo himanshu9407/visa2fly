@@ -4,6 +4,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NgxPaginationModule } from "ngx-pagination";
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ToastrModule } from 'ngx-toastr';
+
 import { MatSelectModule } from "@angular/material/select";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -26,7 +28,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
-import { WorldComponent } from './components/world/world.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -51,24 +52,6 @@ import { CancellationsAndReturnModule } from './components/static/cancellations-
 import { CookiePolicyModule } from './components/static/cookie-policy/cookie-policy.module';
 import { PrivacyPolicyModule } from './components/static/privacy-policy/privacy-policy.module';
 import { TermsandConditionsModule } from './components/static/termsand-conditions/termsand-conditions.module';
-import { AustraliaModule } from './components/visa-requirements/australia/australia.module';
-import { AzerbaijanModule } from './components/visa-requirements/azerbaijan/azerbaijan.module';
-import { ChinaModule } from './components/visa-requirements/china/china.module';
-import { CombodiaModule } from './components/visa-requirements/combodia/combodia.module';
-import { DubaiModule } from './components/visa-requirements/dubai/dubai.module';
-import { EthopianModule } from './components/visa-requirements/ethiopian/ethopian.module';
-import { FranceModule } from './components/visa-requirements/france/France.module';
-import { NetherlandsModule } from './components/visa-requirements/netherlands/netherlands.module';
-import { SingaporeModule } from './components/visa-requirements/singapore/singapore.module';
-import { SpainModule } from './components/visa-requirements/spain/spain.module';
-import { SrilankaModule } from './components/visa-requirements/sri-lanka/sri-lanka.module';
-import { SwitzerlandModule } from './components/visa-requirements/switzerland/switzerland.module';
-import { ThailandModule } from './components/visa-requirements/thailand/thailand.module';
-import { TurkeyModule } from './components/visa-requirements/turkey/turkey.module';
-import { UnitedKingdomModule } from './components/visa-requirements/united-kingdom/united-kingdom.module';
-import { USAModule } from './components/visa-requirements/usa/usa.module';
-import { VietnamModule } from './components/visa-requirements/vietnam/vietnam.module';
-import { MaldivesModule } from './components/visa-requirements/maldives/maldives.module';
 import { VisaRequirementModule } from './components/visa-requirements/visa-requirement.module';
 
 
@@ -80,7 +63,6 @@ import { VisaRequirementModule } from './components/visa-requirements/visa-requi
     FooterComponent,
     MobileNavComponent,
     MobileFooterComponent,
-    WorldComponent,
     AddPassengerDetailsComponent,
     DateComponent,
     ToastComponent,
@@ -89,7 +71,6 @@ import { VisaRequirementModule } from './components/visa-requirements/visa-requi
     PreloaderComponent,
     RemovewhitespacePipe,
     SomethingWrongComponent,
-    // PageNotFoundComponent,
     B2bHeaderComponent,
     B2bFooterComponent,
     B2bMobileNavComponent
@@ -101,6 +82,7 @@ import { VisaRequirementModule } from './components/visa-requirements/visa-requi
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    ToastrModule.forRoot(), // ToastrModule added
     Ng2FlatpickrModule,
     FormsModule,
     MatSelectModule,
@@ -125,25 +107,6 @@ import { VisaRequirementModule } from './components/visa-requirements/visa-requi
     PrivacyPolicyModule,
     TermsandConditionsModule,
     VisaRequirementModule
-    // AustraliaModule,
-    // AzerbaijanModule,
-    // ChinaModule,
-    // MaldivesModule,
-    // CombodiaModule,
-    // DubaiModule,
-    // EthopianModule,
-    // FranceModule,
-    // MalaysiaModule,
-    // NetherlandsModule,
-    // SingaporeModule,
-    // SpainModule,
-    // SrilankaModule,
-    // SwitzerlandModule,
-    // ThailandModule,
-    // TurkeyModule,
-    // UnitedKingdomModule,
-    // USAModule,
-    // VietnamModule
     // ServiceWorkerModule.registe,r('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
