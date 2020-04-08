@@ -76,7 +76,6 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
-  public imageUpload1: Array<any> = [];
   title: string = 'Sri Lanka Tourist E Visa online | Sri Lanka E Visa- Visa2fly';
 
   constructor(private activeRoute: ActivatedRoute,
@@ -94,38 +93,30 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     ) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
 
     this.preloaderService.showPreloader(true);
 
     this.activeRoute.params.subscribe((params: any) => {
       this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
     });
 
     let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose)
         });
       this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        //  console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
 
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          //console.log(this.imageCatogoryBusinessTemp);
 
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          //console.log(this.imageCatogoryTouristTemp);
 
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          //console.log(this.imageCatogoryTransitTemp);
 
           this.onlinestatus = res.data.onlineCategory;
 
@@ -133,17 +124,13 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
-          //console.log(this.MyQuotation);
           this.MyQuotation.forEach(element => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              // console.log(this.businessArr);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              //console.log(this.touristArr);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              // console.log(this.transitArr);
             }
           });
           let purposeMain = this.selectedVisaType;
@@ -178,9 +165,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       {
         name: "description",
         content: "From now on, you can get your Srilanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us."
-      },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
+      }
     ]);
   }
 
@@ -190,13 +175,11 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    // console.log(purpose);
     window.history.replaceState(
       "",
       "",
       "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
     );
-    // console.log(this.businessArr);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -214,15 +197,11 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     }
     this.imagefield1 = this.imageCatogoryTemp;
 
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {
-    // window.location
-    //let urlpurpose = this.MyQuotation1
 
     let purposeString: string = purpose.nextId;
-    // console.log(purposeString);
     let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
@@ -230,46 +209,37 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
-      //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
-      // console.log(this.MyQuotation1);
-      //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
 
       this.selectedTransit = 1;
-      //this.t.select("Transit");
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",
       "",
       "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
     );
-    // console.log("url changed");
   }
 
   setActiveTourist(index: number) {
     this.selectedTourist = index;
-    // console.log('business');
   }
 
   setActiveBusiness(index: number) {
     this.selectedBusiness = index;
-    //  console.log('business');
   }
 
   setActiveTransit(index: number) {
     this.selectedTransit = index;
-    // console.log('business');
   }
 
   navigate(
@@ -287,7 +257,6 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
     this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
@@ -296,7 +265,6 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
     this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
 
-    //console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
@@ -305,16 +273,12 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
       if (data.code == "0") {
         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-          // console.log(data);
 
           if (data.code == "0") {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
-            // setTimeout(() => {
-
             this.preloaderService.showPreloader(false);
-            // }, 2000);
           } else {
             this.toastService.showNotification("" + data.message, 4000);
             this.preloaderService.showPreloader(false);
@@ -324,7 +288,6 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
         this.loginService.setAuthToken("");
         this.loginStatus.setUserStatus(false);
         this.loginStatus.setUserLoggedIn(false);
-        // this.router.navigate(['visa']);
         this.preloaderService.showPreloader(false);
         localStorage.setItem("profile", JSON.stringify({}));
         this.routerHistory.pushHistory("req-and-quote");
@@ -337,6 +300,4 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-
 }

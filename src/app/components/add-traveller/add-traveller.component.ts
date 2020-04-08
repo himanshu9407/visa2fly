@@ -342,13 +342,13 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    // console.log(this.imageUploads);
+    console.log(this.userFlowDetails);
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
 
     this.category = this.userFlowDetails.category;
-    // console.log(this.category);
+    console.log(this.category);
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
     // console.log(this.minTravelDate);
