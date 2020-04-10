@@ -265,14 +265,14 @@
                 </li>
                 <li *ngIf="traveller.addressLine1 != null">
                   <textarea name="" class="form-control" disabled id="" cols="30"
-                    rows="4">{{traveller.addressLine1 || xyz}}</textarea>
+                    rows="4">{{traveller.addressLine1 }}</textarea>
                 </li>
                 <li *ngIf="traveller.addressLine2 != null">
                   Address Line 2 :
                 </li>
                 <li *ngIf="traveller.addressLine2 != null">
                   <textarea name="" class="form-control" disabled id="" cols="30"
-                    rows="4">{{traveller.addressLine2 || xyz}}</textarea>
+                    rows="4">{{traveller.addressLine2}}</textarea>
                 </li>
                 <li *ngIf="traveller.city != null">
                   City:
@@ -300,7 +300,7 @@
                 </li>
                 <li *ngIf="traveller.passportNumber != null">
                   Passport Number :
-                  <span class="fieldData">{{traveller.passportNumber || H1234567}}</span>
+                  <span class="fieldData">{{traveller.passportNumber}}</span>
                 </li>
                 <li *ngIf="traveller.passportExpiryDate!= null">
                   Passport Expire Date :
@@ -311,7 +311,7 @@
                     Passport Front :
                     <span (click)="downloadImage(traveller.passportFrontUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.passportFrontUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.passportFrontUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -319,7 +319,7 @@
                     Passport Bio Image :
                     <span (click)="downloadImage(traveller.passportBioImage,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.passportFrontUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.passportFrontUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -327,7 +327,7 @@
                     User Image :
                     <span (click)="downloadImage(traveller.userImageUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.userImageUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.userImageUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -335,7 +335,7 @@
                     Department Flight Ticket :
                     <span (click)="downloadImage(traveller.departureFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.departureFlightTicketUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.departureFlightTicketUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -343,7 +343,7 @@
                     Arrival Flight Ticket :
                     <span (click)="downloadImage(traveller.arrivalFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.arrivalFlightTicketUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.arrivalFlightTicketUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -351,7 +351,7 @@
                     Hotel Accommodation :
                     <span (click)="downloadImage(traveller.hotelAccommodationUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.hotelAccommodationUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.hotelAccommodationUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -359,7 +359,7 @@
                     Six Months Bank Statement :
                     <span (click)="downloadImage(traveller.sixMonthsBankStatementUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.sixMonthsBankStatementUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.sixMonthsBankStatementUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -367,7 +367,7 @@
                     Insurance :
                     <span (click)="downloadImage(traveller.insuranceUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.insuranceUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -375,7 +375,7 @@
                     Business Card :
                     <span (click)="downloadImage(traveller.businessCardUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.businessCardUrl == null ? "NA" : "Click Here"}} 
+                        {{traveller.businessCardUrl == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -383,7 +383,7 @@
                     NOC :
                     <span (click)="downloadImage(traveller.noc,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.noc == null ? "NA" : "Click Here"}} 
+                        {{traveller.noc == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -391,7 +391,7 @@
                     PAN Card :
                     <span (click)="downloadImage(traveller.panCard,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.panCard == null ? "NA" : "Click Here"}} 
+                        {{traveller.panCard == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -399,7 +399,7 @@
                     ITR :
                     <span (click)="downloadImage(traveller.itr,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.itr == null ? "NA" : "Click Here"}} 
+                        {{traveller.itr == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>
@@ -407,7 +407,7 @@
                     ITR :
                     <span (click)="downloadImage(traveller.invitation,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
-                        {{traveller.invitation == null ? "NA" : "Click Here"}} 
+                        {{traveller.invitation == null ? "NA" : "Click Here"}}
                         <i class="fa fa-download" aria-hidden="true"></i>
                       </a></span>
                   </li>

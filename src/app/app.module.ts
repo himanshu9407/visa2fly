@@ -70,6 +70,7 @@ import { USAModule } from './components/visa-requirements/usa/usa.module';
 import { VietnamModule } from './components/visa-requirements/vietnam/vietnam.module';
 import { MaldivesModule } from './components/visa-requirements/maldives/maldives.module';
 import { VisaRequirementModule } from './components/visa-requirements/visa-requirement.module';
+import { BookingDetailsModule } from './components/booking-details/booking-details.module';
 
 
 
@@ -124,7 +125,8 @@ import { VisaRequirementModule } from './components/visa-requirements/visa-requi
     CookiePolicyModule,
     PrivacyPolicyModule,
     TermsandConditionsModule,
-    VisaRequirementModule
+    VisaRequirementModule,
+    BookingDetailsModule
     // AustraliaModule,
     // AzerbaijanModule,
     // ChinaModule,

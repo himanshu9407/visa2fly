@@ -48,7 +48,7 @@ const routes: Routes = [
 
    // BookingDetails page
    { path: "bookingDetail", loadChildren: () =>
-   import("./components/my-bookings/mybookings.module").then (m => m.MyBookingsModule)},
+   import("./components/booking-details/booking-details.module").then (m => m.BookingDetailsModule)},
 
    // Requirement Page
    { path: "visa-requirements/:country/:variable/:purpose", loadChildren: () =>
