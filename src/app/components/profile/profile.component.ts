@@ -6,8 +6,10 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { ProfileService } from "./profile.service";
-import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from '@angular/platform-browser';
+// import { ToastService } from "src/app/shared/toast.service";
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: "app-profile",
@@ -25,8 +27,8 @@ export class ProfileComponent implements OnInit {
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
     private router: Router,
-    private profleService: ProfileService,
-    private toastService: ToastService,
+private profleService: ProfileService,
+private toastr: ToastrService,
     private titleService: Title,
     private meta: Meta
   ) {
@@ -150,11 +152,11 @@ export class ProfileComponent implements OnInit {
     this.profleService.updateProfile(reqData).subscribe((data: any) => {
       if (data.code == "0") {
         // console.log(data);
-        this.toastService.showNotification(data.message, 4000);
+        this.toastr.success(data.message);
         this.router.navigate(["profile"]);
       } else {
         // console.log(data);
-        this.toastService.showNotification(data.message, 4000);
+        this.toastr.error(data.message);
       }
     });
   }

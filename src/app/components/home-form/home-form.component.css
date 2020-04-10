@@ -9,6 +9,33 @@ select {
     background: transparent;
 } */
 
+
+  /* !important is needed sometimes */
+  ::-webkit-scrollbar {
+    width: 1px !important;
+    height: 4px !important;
+ }
+
+ /* Track */
+::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3) !important;
+   -webkit-border-radius: 10px !important;
+   border-radius: 10px !important;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 10px !important;
+   border-radius: 10px !important;
+   background: #41617D !important; 
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important; 
+
+ }
+ ::-webkit-scrollbar-thumb:window-inactive {
+   background: #41617D !important; 
+ }
+
+
 .removeradius {
     z-index: 10;
 }
@@ -562,7 +589,7 @@ select {
   /*Edit 31-01-2017*/
   .chkIn .chkIp {
     padding: 2px 10px;
-    height: 100%;
+    height: 60px;
   }
 }
 

@@ -7,8 +7,9 @@ import {
   FormBuilder
 } from "@angular/forms";
 import { requiredFileType } from "src/app/shared/Custom-Image.validator";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from "src/app/shared/toast.service";
 import { HttpClient } from "@angular/common/http";
+import { ToastrService } from 'ngx-toastr';
 import { Router } from "@angular/router";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 // import { AddTravellerService } from '../../add-traveller/addTraveller.service';
@@ -108,12 +109,12 @@ export class B2bAddTrvComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private travellerService: B2bAddTrvService,
-    private toastService: ToastService,
     private userFlow: UserFlowDetails,
-    private loginService: LoginService,
-    private http: HttpClient,
+    private toastr: ToastrService,
     private titleService: Title,
     private meta: Meta,
+    private loginService: LoginService,
+    private http: HttpClient,
     private router: Router,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory
@@ -335,7 +336,7 @@ export class B2bAddTrvComponent implements OnInit {
       this.intialInfo = false; // ..??
     }, 10000);
 
-    this.titleService.setTitle("Add Traveller");
+    this.titleService.setTitle("Visa2fly | Add Traveller");
     this.meta.addTags([
       { name: "keywords", content: "" },
       {
@@ -537,8 +538,8 @@ export class B2bAddTrvComponent implements OnInit {
         hotelAccommodation: [null],
         businessCard: [null],
         itr: [null],
-        invitation: [null],
         panCard: [null],
+        invitation: [null],
         noc: [null]
       });
     } else {
@@ -1090,9 +1091,8 @@ export class B2bAddTrvComponent implements OnInit {
                 });
               });
               this.preloaderService.showPreloader(false);
-              this.toastService.showNotification(
-                "Some Details Missing " + this.errorForm,
-                4000
+              this.toastr.warning(
+                "Some Details Missing " + this.errorForm
               );
             } else if (data.code == "500") {
               let chunk = this.filedNameArr.length;
@@ -1122,7 +1122,7 @@ export class B2bAddTrvComponent implements OnInit {
               this.originalImageArr = [];
 
               this.preloaderService.showPreloader(false);
-              this.toastService.showNotification(data.message, 10000);
+              this.toastr.error(data.message);
             } else if (data.code == "1001") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
@@ -1161,14 +1161,12 @@ export class B2bAddTrvComponent implements OnInit {
             }
           });
       } else {
-        this.toastService.showNotification(
-          "Please accept out terms and conditions",
-          4000
+        this.toastr.warning(
+          "Please accept out terms and conditions"
         );
       }
     } else {
-      this.toastService.showNotification("Some details missing !", 10000);
-      // this.toastService.showNotification("Travel details missing!", 4000);
+      this.toastr.warning("Some details missing !");
       this.validateTravellerForm();
       // console.log(this.scrollBy);
       // this.errorForm = '';
@@ -1260,9 +1258,8 @@ export class B2bAddTrvComponent implements OnInit {
         }
       });
     } else {
-      this.toastService.showNotification(
-        "Please agree to the warning and then continue.",
-        4000
+      this.toastr.warning(
+        "Please agree to the warning and then continue."
       );
     }
   }
@@ -1319,9 +1316,8 @@ export class B2bAddTrvComponent implements OnInit {
 
     this.validateTravellerForm();
     if (this.travellerForm.invalid) {
-      this.toastService.showNotification(
-        "Please fill in existing traveller details first",
-        4000
+      this.toastr.warning(
+        "Please fill in existing traveller details first"
       );
       window.scrollTo({
         top: 350,
@@ -1378,9 +1374,8 @@ export class B2bAddTrvComponent implements OnInit {
           });
         }
       } else {
-        this.toastService.showNotification(
-          "Maximum Travellers Limit of 10 reached !",
-          6000
+        this.toastr.warning(
+          "Maximum Travellers Limit of 10 reached !"
         );
       }
     }

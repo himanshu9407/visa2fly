@@ -1,19 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap");
+
 .world {
   position: relative;
   height: 100vh;
+  margin-top: 30px;
   /* color: #ffffff;
     text-shadow: 0 0 140px rgba(0, 0, 0, 0.3); */
   /* background-color: #d4418e;
   background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%); */
 }
 
+.counrtyCourt {
+  width: 500px;
+}
+
+.mobileView {
+  display: none;
+}
+
+.desktopView {
+  display: block;
+}
+
+.worldTitle {
+  font-size: 22px;
+  color: #000;
+  font-weight: 600;
+}
+
+.worldTitle::after {
+  content: "";
+  background: #000080;
+  display: block;
+  height: 3px;
+  width: 120px;
+  margin: 4px auto 2px;
+}
+
+.pin {
+  position: absolute;
+  height: 50px;
+  z-index: 1;
+  animation: bounce 0.5s;
+  animation-direction: alternate;
+  animation-iteration-count: 2;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
 .pulse {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
+  transform: translate(-50%, -50%) rotate(27deg);
+  width: 470px;
+  height: 470px;
   background: url(../../../assets/world.jpg);
   background-size: cover;
   animation: animateEarth 30s linear infinite;
@@ -27,9 +75,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
+  transform: translate(-50%, -50%) rotate(27deg);
+  width: 470px;
+  height: 470px;
   background: url(../../../assets/world.jpg);
   background-size: cover;
   animation: animateEarth 0.5s linear infinite;
@@ -43,9 +91,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
+  transform: translate(-50%, -50%) rotate(27deg);
+  width: 470px;
+  height: 470px;
   background: url(../../../assets/world.jpg);
   background-size: cover;
   /* background-size: cover; */
@@ -68,18 +116,18 @@
 
 /* CSS talk bubble */
 .talk-bubble {
-  margin: 40px;
+  margin: 30px;
   display: inline-block;
   position: relative;
-  width: 350px;
+  width: 365px;
   height: auto;
-  background-color: lightyellow;
+  background-color: #dbe9fb;
 }
 
 .btn-top-left {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 20px;
+  left: 20px;
 }
 
 .btn-top-right {
@@ -90,14 +138,14 @@
 
 .btn-bottom-left {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: 10px;
+  left: 20px;
 }
 
 .btn-bottom-right {
   position: absolute;
-  bottom: 0px;
-  right: 0px;
+  bottom: 10px;
+  right: 20px;
 }
 
 .border {
@@ -109,112 +157,8 @@
   -moz-border-radius: 30px;
 }
 
-/* Right triangle placed top left flush. */
-.tri-right.border.left-top:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -40px;
-  right: auto;
-  top: -8px;
-  bottom: auto;
-  border: 32px solid;
-  border-color: #666 transparent transparent transparent;
-}
-.tri-right.left-top:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -20px;
-  right: auto;
-  top: 0px;
-  bottom: auto;
-  border: 22px solid;
-  border-color: lightyellow transparent transparent transparent;
-}
-
-/* Right triangle, left side slightly down */
-.tri-right.border.left-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -40px;
-  right: auto;
-  top: 30px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
-}
-.tri-right.left-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -20px;
-  right: auto;
-  top: 38px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -8px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 32px solid;
-  border-color: transparent transparent transparent #666;
-}
-.tri-right.btm-left:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 0px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 22px solid;
-  border-color: transparent transparent transparent lightyellow;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 30px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 transparent transparent #666;
-}
-.tri-right.btm-left-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 38px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow transparent transparent lightyellow;
-}
-
 /*Right triangle, placed bottom right side slightly in*/
-.tri-right.border.btm-right-in:before {
+/* .tri-right.border.btm-right-in:before {
   content: " ";
   position: absolute;
   width: 0;
@@ -234,34 +178,28 @@
   right: 38px;
   bottom: -20px;
   border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-/*
-	left: -8px;
-  right: auto;
-  top: auto;
-	bottom: -40px;
-	border: 32px solid;
-	border-color: transparent transparent transparent #666;
-	left: 0px;
-  right: auto;
-  top: auto;
-	bottom: -20px;
-	border: 22px solid;
-	border-color: transparent transparent transparent lightyellow;
+  border-color: #dbe9fb #dbe9fb transparent transparent;
+} */
 
-/*Right triangle, placed bottom right side slightly in*/
-.tri-right.border.btm-right:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -8px;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
+.destinationContent {
+  font-size: 15px;
+  margin-bottom: 0px;
 }
+
+.destinationTitle {
+  font-size: 18px;
+  font-weight: 700;
+  display: inline;
+  padding-left: 10px;
+  font-family: "Comic Neue", cursive;
+}
+
+.destinationImage {
+  display: inline;
+  height: 60px;
+  margin-top: -40px;
+}
+
 .tri-right.btm-right:after {
   content: " ";
   position: absolute;
@@ -270,70 +208,324 @@
   left: auto;
   right: 0px;
   bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-
-/* Right triangle, right side slightly down*/
-.tri-right.border.right-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: 30px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: #666 transparent transparent #666;
-}
-.tri-right.right-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 38px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: lightyellow transparent transparent lightyellow;
-}
-
-/* Right triangle placed top right flush. */
-.tri-right.border.right-top:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: -8px;
-  bottom: auto;
-  border: 32px solid;
-  border-color: #666 transparent transparent transparent;
-}
-.tri-right.right-top:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 0px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: lightyellow transparent transparent transparent;
+  border: 22px solid;
+  border-color: #dbe9fb #dbe9fb transparent transparent;
 }
 
 /* talk bubble contents */
 .talktext {
   padding: 1em;
   text-align: left;
+  font-family: "Comic Neue", cursive;
   line-height: 1.5em;
 }
-.talktext p {
+.talktext p::first-letter {
   /* remove webkit p margins */
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* 
+.talk-bubble .talktext h5{
+  margin-left: 72px;
+} 
+
+.talk-bubble:nth-child(1) .talktext h5::before{
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  height: 60px;
+  width: 60px;
+  background-image: url(../../../assets/france.png);
+  background-size: cover;
+}
+
+.talk-bubble:nth-child(2) .talktext h5::before{
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  height: 60px;
+  width: 60px;
+  background-image: url(../../../assets/roman.png);
+  background-size: cover;
+}
+
+.talk-bubble:nth-child(3) .talktext h5::before{
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  height: 60px;
+  width: 60px;
+  background-image: url(../../../assets/taj-mahal.png);
+  background-size: cover;
+}
+
+.talk-bubble:nth-child(4) .talktext h5::before{
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  height: 60px;
+  width: 60px;
+  background-image: url(../../../assets/france1.png);
+  background-size: cover;
+} */
+
+@media screen and (max-width: 768px) {
+  .mobileView {
+    display: block;
+  }
+
+  .pin {
+    /* display: none !important; */
+  }
+
+  .desktopView {
+    display: none;
+  }
+
+  .talk-bubble {
+    /* display: none !important; */
+  }
+
+  .destinationContent {
+    line-height: 22px;
+  }
+
+  .bubble {
+    background-color: #dbe9fb;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .talktext {
+    padding: 0px !important;
+  }
+
+  .destinationImage {
+    display: inline;
+    height: 40px;
+    margin-top: -28px;
+  }
+
+  .worldTitle {
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .worldSubTitle {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    letter-spacing: 0.9px;
+    text-transform: capitalize;
+  }
+}
+
+@media screen and (width: 320px) {
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pin {
+    height: 36px;
+  }
+
+  .pulse {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 414px) {
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pulse {
+    width: 310px;
+    height: 310px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 310px;
+    height: 310px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 310px;
+    height: 310px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 411px) {
+  .jugGhumia {
+    height: 42vh;
+  }
+
+  .pulse {
+    width: 300px;
+    height: 300px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 300px;
+    height: 300px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 300px;
+    height: 300px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 375px) {
+  .jugGhumia {
+    height: 46vh;
+  }
+  .pulse {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 768px) {
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pulse {
+    width: 370px;
+    height: 370px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 370px;
+    height: 370px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 370px;
+    height: 370px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 360px) {
+  .jugGhumia {
+    height: 44vh;
+  }
+
+  .pulse {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 240px;
+    height: 240px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 393px) {
+  .jugGhumia {
+    height: 50vh;
+  }
+
+  .pulse {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+
+  .exploreTheWorld {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+
+  .finallyReach {
+    width: 270px;
+    height: 270px;
+    /* top: 40%; */
+  }
+}
+
+@media screen and (width: 1440px) {
+  .world {
+    height: 80vh;
+  }
+
+  .pulse {
+    width: 470px;
+    height: 470px;
+    top: 55%;
+  }
+
+  .exploreTheWorld {
+    width: 470px;
+    height: 470px;
+    top: 55%;
+  }
+
+  .finallyReach {
+    width: 470px;
+    height: 470px;
+    top: 55%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .counrtyCourt {
+    width: 280px;
+  }
 }

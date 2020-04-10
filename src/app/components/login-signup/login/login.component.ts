@@ -8,7 +8,8 @@ import {
 import { LoginService } from "./login.service";
 import { GetIPService } from "src/app/shared/getIP.service";
 import { LoginResponseModel } from "./loginResponse.model";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from "src/app/shared/toast.service";
+import { ToastrService } from 'ngx-toastr';
 import { Router } from "@angular/router";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -36,11 +37,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private getIP: GetIPService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
     private router: Router,
+    private toastr: ToastrService,
     private userFlowService: UserFlowDetails,
     private loginStatus: LoginStatusService,
     private routerHistory: RouterHistory,
+
     private titleService: Title,
     private meta: Meta,
     private reqService: RequirementsService
@@ -130,9 +133,8 @@ export class LoginComponent implements OnInit {
     // console.log(userId);
     this.loginService.sendLoginOtp(userId).subscribe(data => {
       if (!data) {
-        this.toastService.showNotification(
-          "Something Went wrong! Please try again later.",
-          4000
+        this.toastr.error(
+          "Something Went wrong! Please try again later."
         );
         this.setFormFresh();
       } else if (data.code == "0") {
@@ -144,7 +146,8 @@ export class LoginComponent implements OnInit {
         this.changeNumber = true;
         this.otpSentCount = this.otpSentCount + 1;
       } else {
-        this.toastService.showNotification(data.message, 4000);
+        this.toastr.error(data.message);
+
         //this.setFormFresh();
         this.showSendOtp = true;
       }
@@ -187,9 +190,8 @@ export class LoginComponent implements OnInit {
 
               if (!data) {
                 // console.log("req failed"+data);
-                this.toastService.showNotification(
-                  "Something Went wrong! Please try again later.",
-                  4000
+                this.toastr.error(
+                  "Something Went wrong! Please try again later."
                 );
                 this.setFormFresh();
               } else {
@@ -198,7 +200,6 @@ export class LoginComponent implements OnInit {
                   this.loginService.setAuthToken(
                     data.data.authentication.token
                   );
-                  // this.toastService.showNotification(data.message,4000);
                   this.loginService.setUserStatus(true);
                   this.loginStatus.setUserStatus(true);
                   this.loginStatus.setUserLoggedIn(true);
@@ -231,7 +232,8 @@ export class LoginComponent implements OnInit {
                   }
                 } else {
                   // console.log("sartahk agrawal");
-                  this.toastService.showNotification(data.message, 4000);
+                  this.toastr.error(data.message);
+
                   // this.setFormFresh();
                   this.showLoader = false;
                   this.showLoginButton = true;
@@ -248,9 +250,8 @@ export class LoginComponent implements OnInit {
           );
       },
       err => {
-        this.toastService.showNotification(
+        this.toastr.error(
           "Something went wrong! Please try again later.",
-          4000
         );
       }
     );

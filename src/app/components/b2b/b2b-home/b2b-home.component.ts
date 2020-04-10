@@ -6,6 +6,8 @@ import {
   AbstractControl
 } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
+import { Title, Meta } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from "@angular/common/http";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { HomeFormService } from "../../home-form/home-form.service";
@@ -15,7 +17,7 @@ import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { stringify } from "querystring";
 import { isPlatformBrowser } from "@angular/common";
-import { ToastService } from 'src/app/shared/toast.service';
+// import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: "app-b2b-home",
@@ -43,8 +45,11 @@ export class B2bHomeComponent implements OnInit {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
+    private titleService: Title,
+    private meta: Meta,
+    private toastr: ToastrService,
     private homeFormService: HomeFormService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
     private authService: AuthenticationGuard,
@@ -60,7 +65,7 @@ export class B2bHomeComponent implements OnInit {
 
     if (this.id == "" || this.id == null || this.id == undefined) {
       this.isIdExist = false;
-      this.toastService.showNotification("ID Is Missing. Kindly Go Back And Try Again", 10000);
+      this.toastr.warning("ID Is Missing. Kindly Go Back And Try Again");
     } else {
       this.isIdExist = true;
     }
@@ -116,7 +121,18 @@ export class B2bHomeComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.titleService.setTitle("Visa2fly | Home");
+    this.meta.addTags([
+      { name: "keywords", content: "" },
+      {
+        name: "description",
+        content: ""
+      },
+      // { name: "author", content: "rsgitech" },
+      // { name: "robots", content: "index, follow" }
+    ]);
+  }
 
   countryChanged() {
     // console.log("country changed");
@@ -188,7 +204,7 @@ export class B2bHomeComponent implements OnInit {
     });
 
     if (this.id == "" || this.id == null || this.id == undefined) {
-      this.toastService.showNotification("ID Is Missing. Kindly Go Back And Try Again", 10000);
+      this.toastr.warning("ID Is Missing. Kindly Go Back And Try Again");
     }
 
     if (this.validateForm()) {

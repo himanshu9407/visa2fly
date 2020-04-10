@@ -11,7 +11,8 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from "src/app/shared/toast.service";
+import { ToastrService } from 'ngx-toastr';
 import { feedbackModal } from "../../interfaces/home_formData";
 
 import {
@@ -83,16 +84,15 @@ export class MyBookingsComponent implements OnInit {
     private preloaderService: PreloaderService,
     private bookingService: MyBookingsService,
     private downloadImageService: DownloadImageService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
     private fb: FormBuilder,
+    private toastr: ToastrService,
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute
   ) {
     this.myBookings = [];
     //
-
-    // this.preloaderService.showPreloader(true);
 
     var bookingIdC;
 
@@ -259,9 +259,8 @@ export class MyBookingsComponent implements OnInit {
           window.URL.revokeObjectURL(url);
         });
     } else {
-      this.toastService.showNotification(
-        "Invoice could not be generated as the payment failed.",
-        4000
+      this.toastr.error(
+        "Invoice could not be generated as the payment failed."
       );
     }
   }
@@ -294,9 +293,8 @@ export class MyBookingsComponent implements OnInit {
         notInterested
       )
       .subscribe(res => {
-        // this.toastService.showNotification("Feedback Submitted", 1000);
       });
-    this.toastService.showNotification("Feedback Submitted", 2000);
+      this.toastr.success("Feedback Submitted");
     this.bookingStatus = false;
   }
 
@@ -338,7 +336,7 @@ export class MyBookingsComponent implements OnInit {
       if (fromDateTime <= bookingDateTime && bookingDateTime <= toDateTime) {
         searchedBookingsArr.push(booking);
         //  console.log(booking);
-        this.toastService.showNotification("Booking find by Date !", 2000);
+        this.toastr.success("Booking find by Date !");
       } else {
         //  console.log("sadsa");
       }
@@ -355,9 +353,8 @@ export class MyBookingsComponent implements OnInit {
       this.bookingsForLoop.length == 0
     ) {
       this.filteredBookingsEmpty = true;
-      this.toastService.showNotification(
-        "Bookings with applied filter not found !",
-        2000
+      this.toastr.error(
+        "Bookings with applied filter not found !"
       );
     } else {
       this.filteredBookingsEmpty = false;
@@ -378,14 +375,14 @@ export class MyBookingsComponent implements OnInit {
         this.bookingsForLoop = arr;
         found = true;
         this.isButtonVisible = true;
-        this.toastService.showNotification("Booking find by ID !", 2000);
+        this.toastr.success("Booking find by ID !");
       }
     });
     if (!found) {
       this.bookingsForLoop = [];
       this.filteredBookingsEmpty = true;
       this.isButtonVisible = true;
-      this.toastService.showNotification("Please Check Booking ID !", 2000);
+      this.toastr.error("Please Check Booking ID !");
     }
   }
 
@@ -483,7 +480,6 @@ export class MyBookingsComponent implements OnInit {
         notInterested
       )
       .subscribe(res => {
-        // this.toastService.showNotification("Feedback Submitted", 1000);
       });
     this.bookingStatus = false;
   }

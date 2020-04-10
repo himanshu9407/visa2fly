@@ -13,7 +13,7 @@ export class ToastComponent implements OnInit {
   public showToast : boolean = false ;
 
 
-  public notificationMessage: string = "anu priya";
+  public notificationMessage: string = "";
   ngOnInit() {
     this.toastService.getAlert().subscribe(
       (toastData : {message:string,duration:number}) => {

@@ -10,6 +10,7 @@ import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { CanDeactivateGuard } from "src/app/shared/can-deactivate.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { isPlatformBrowser } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-header",
@@ -26,7 +27,8 @@ export class HeaderComponent implements OnInit {
     private loginService: LoginService,
     private loginStatus: LoginStatusService,
     private logoutService: LogoutService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
+    private toastr: ToastrService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private preloaderService: PreloaderService,
@@ -90,9 +92,8 @@ export class HeaderComponent implements OnInit {
     this.logoutService.logoutUser().subscribe(
       (data: SignupResponseModel) => {
         if (!data) {
-          this.toastService.showNotification(
-            "Something went wrong! Please try again later",
-            4000
+          this.toastr.error(
+            "Something went wrong! Please try again later"
           );
           this.router.navigate(["visa"]);
           this.preloaderService.showPreloader(false);
@@ -110,9 +111,9 @@ export class HeaderComponent implements OnInit {
           this.router.navigate(["visa"]);
           this.preloaderService.showPreloader(false);
           localStorage.setItem("profile", JSON.stringify({}));
-          this.toastService.showNotification("" + data.message, 4000);
+          this.toastr.error("" + data.message);
         } else {
-          this.toastService.showNotification(data.message.toString(), 4000);
+          this.toastr.error(data.message.toString());
           this.router.navigate(["visa"]);
           this.preloaderService.showPreloader(false);
         }

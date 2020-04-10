@@ -3,12 +3,13 @@ import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { SignupService } from "./signup.service";
 import { SignupResponseModel } from "./SignupResponse.model";
 import { HttpParams } from "@angular/common/http";
-import { ToastService } from "src/app/shared/toast.service";
+// import { ToastService } from 'src/app/shared/toast.service';
 import { Router } from "@angular/router";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { LoginService } from "../login/login.service";
+import { ToastrService } from "ngx-toastr";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -32,8 +33,9 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private singUpService: SignupService,
-    private toastService: ToastService,
+    // private toastService: ToastService,
     private router: Router,
+    private toastr: ToastrService,
     private routerHistory: RouterHistory,
     private userFlowService: UserFlowDetails,
     private reqService: RequirementsService,
@@ -62,7 +64,6 @@ export class SignupComponent implements OnInit {
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
-
     this.prevRoute = this.routerHistory.getPrevRoute();
     // console.log(this.prevRoute);
 
@@ -78,7 +79,6 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(20),
         Validators.minLength(3)
       ]),
-
       mobile: new FormControl(null, [
         Validators.required,
         Validators.maxLength(10),
@@ -87,8 +87,6 @@ export class SignupComponent implements OnInit {
       otp: new FormControl(null, [Validators.required]),
       tnc: new FormControl(false)
     });
-
-    // this.toastService.showNotification("sarthak",4000);
     //   setTimeout(function() {
     //     $(".alert").fadeTo(500, 0).slideUp(500, function(){
     //         (<any>$(this)).remove();
@@ -121,7 +119,7 @@ export class SignupComponent implements OnInit {
     this.singUpService.createUser(reqBody).subscribe((data: any) => {
       // console.log(data);
       if (!data) {
-        this.toastService.showNotification("Something Went wrong", 4000);
+        this.toastr.error("Something Went wrong");
         this.setFormFresh();
       } else if (data.code == "0") {
         this.loginService.setAuthToken(data.data.authentication.token);
@@ -147,13 +145,14 @@ export class SignupComponent implements OnInit {
         } else if (this.prevRoute == "fail-login-sim") {
           this.router.navigate(["/sim/checkout"]);
 
-          this.toastService.showNotification(data.message.toString(), 5000);
+          this.toastr.error(data.message.toString());
         } else {
-          this.toastService.showNotification(data.message.toString(), 5000);
+          this.toastr.error(data.message.toString());
           this.router.navigate(["visa"]);
         }
       } else {
-        this.toastService.showNotification(data.message.toString(), 5000);
+        this.toastr.error(data.message.toString());
+
         // this.setFormFresh();
         this.showLoader = false;
         this.showSignUpButton = true;
@@ -235,7 +234,8 @@ export class SignupComponent implements OnInit {
       (data: SignupResponseModel) => {
         if (!data) {
           // console.log("req failed"+data);
-          this.toastService.showNotification("Something Went wrong", 4000);
+          this.toastr.error("Something Went wrong");
+
           this.setFormFresh();
         } else {
           if (data.code == "0" /*|| data.code == "15" */) {
@@ -243,11 +243,12 @@ export class SignupComponent implements OnInit {
             this.afterSuccessfullOtpSent();
             this.otpFormSubmitted = true;
           } else if (data.code == "309") {
-            this.toastService.showNotification(data.message.toString(), 4000);
+            this.toastr.error(data.message.toString());
             // this.afterSuccessfullOtpSent();
             this.otpFormSubmitted = true;
           } else {
-            this.toastService.showNotification(data.message.toString(), 4000);
+            this.toastr.error(data.message.toString());
+
 
             // this.setFormFresh();
           }
@@ -256,9 +257,8 @@ export class SignupComponent implements OnInit {
 
       err => {
         // console.log(err.toString()+ "*****");
-        this.toastService.showNotification(
-          "Something went wrong ! Please try again after some time",
-          4000
+        this.toastr.error(
+          "Something went wrong ! Please try again after some time"
         );
         this.setFormFresh();
         // this.setFormFresh();
