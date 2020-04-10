@@ -8,7 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { RequirementsComponent } from './requirements.component';
 
 const routes: Routes = [
-  { path: "", component: RequirementsComponent, pathMatch: "full" }
+  { path: "", component: RequirementsComponent }
 ]
 
 @NgModule({

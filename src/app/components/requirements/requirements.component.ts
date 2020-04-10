@@ -84,6 +84,7 @@ export class RequirementsComponent implements OnInit {
 
   purposeChooseForm1: FormGroup;
   country: any;
+  selectedVariable: any;
   constructor(
     private router: Router,
     private titleService: Title,
@@ -92,7 +93,6 @@ export class RequirementsComponent implements OnInit {
     private reqService: RequirementsService,
     private userFlow: UserFlowDetails,
     private routerHistory: RouterHistory,
-    // private toastService: ToastService,
     private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
@@ -134,6 +134,7 @@ export class RequirementsComponent implements OnInit {
       // this.country = params.country;
       this.selectedPurposeType = params.purpose;
       this.selectedCountrytype = params.country;
+      this.selectedVariable = params.variable;
 
       switch (this.selectedCountrytype) {
         case "Australia":
@@ -530,11 +531,12 @@ export class RequirementsComponent implements OnInit {
     var purpose = this.purposeChooseForm1.get("purposeSelected").value;
     //console.log(purpose);
     var country = this.selectedCountrytype;
+    var variable = this.selectedVariable;
     // console.log(country);
     window.history.replaceState(
       "",
       "",
-      "visa-requirement/" + country + "/" + purpose
+      "visa-requirements/" + country + "/" + variable + "/" + purpose
     );
     // console.log(this.businessArr);
     // let tempPurpose = this.selectedPurposeType;
