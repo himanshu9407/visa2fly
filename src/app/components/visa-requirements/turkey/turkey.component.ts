@@ -1,13 +1,14 @@
-import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { HomeFormComponent } from "../../home-form/home-form.component";
@@ -16,8 +17,7 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { ToastService } from "src/app/shared/toast.service";
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta } from "@angular/platform-browser";
 
 export interface Food {
   value: string;
@@ -25,9 +25,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-turkey',
-  templateUrl: './turkey.component.html',
-  styleUrls: ['./turkey.component.css'],
+  selector: "app-turkey",
+  templateUrl: "./turkey.component.html",
+  styleUrls: ["./turkey.component.css"],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -41,12 +41,11 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class TurkeyComponent implements OnInit, AfterViewInit {
-
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
@@ -77,40 +76,40 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Turkey E Visa Apply Online Now With- Visa2Fly';
+  title: string = "Turkey E Visa Apply Online Now With- Visa2Fly";
 
-  constructor(private activeRoute: ActivatedRoute,
+  constructor(
+    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
+    private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService,
     private titleService: Title,
     private meta: Meta
-    ) {
-
-      this.userControlDetail = this.userFlow.getUserFlowDetails();
+  ) {
+    this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
 
-          this.preloaderService.showPreloader(true);
+    this.preloaderService.showPreloader(true);
 
-          this.activeRoute.params.subscribe((params: any) => {
-          this.selectedVisaType = params.purpose;
-          // this.selectedCountryType = 'France';
-          //  console.log(this.selectedCountryType);
-          });
+    this.activeRoute.params.subscribe((params: any) => {
+      this.selectedVisaType = params.purpose;
+      // this.selectedCountryType = 'France';
+      //  console.log(this.selectedCountryType);
+    });
 
-            let tempPurpose = this.selectedVisaType;
-            //console.log(tempPurpose);
-            this.purposeChooseForm = new FormGroup({
-            purposeSelected: new FormControl(tempPurpose)
-            });
+    let tempPurpose = this.selectedVisaType;
+    //console.log(tempPurpose);
+    this.purposeChooseForm = new FormGroup({
+      purposeSelected: new FormControl(tempPurpose),
+    });
 
-            this.requireQuotation
+    this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         //  console.log(res);
@@ -118,13 +117,13 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           //console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           //console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           //console.log(this.imageCatogoryTransitTemp);
 
@@ -135,7 +134,7 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
             JSON.stringify(res.data.onlineCategory)
           );
           //console.log(this.MyQuotation);
-          this.MyQuotation.forEach(element => {
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
               // console.log(this.businessArr);
@@ -148,29 +147,37 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
             }
           });
           let purposeMain = this.selectedVisaType;
-          let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if(purposeUrl == 'Business')
-            {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            }else if(purposeUrl == 'Tourist') {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            }else if(purposeUrl == 'Transit'){
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }else{
-              this.router.navigate(['visa/']);
-            }
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
 
-            this.imagefield1 = this.imageCatogoryTemp;
+          this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
+        }  else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error(
+            "Country Not Found"
+          );
         }
       });
-     }
+  }
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
@@ -178,7 +185,8 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
       { name: "keywords", content: "Turkey e visa apply online" },
       {
         name: "description",
-        content: "Planning to visit Turkey? Try Visa2Fly for faster processing of Turkey e-visa apply online directly to get additional benefits like Travel insurance and Travel sim cards. At the Visa2Fly web portal, you get urgent visa processing at the best rates available. Apply here."
+        content:
+          "Planning to visit Turkey? Try Visa2Fly for faster processing of Turkey e-visa apply online directly to get additional benefits like Travel insurance and Travel sim cards. At the Visa2Fly web portal, you get urgent visa processing at the best rates available. Apply here.",
       },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
@@ -205,7 +213,7 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -224,7 +232,8 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
 
     let purposeString: string = purpose.nextId;
     // console.log(purposeString);
-    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let purposeUrl =
+      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -291,7 +300,10 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
@@ -315,12 +327,9 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
-            // setTimeout(() => {
-
             this.preloaderService.showPreloader(false);
-            // }, 2000);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });
@@ -341,6 +350,4 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-
 }

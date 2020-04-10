@@ -10,13 +10,13 @@ import {
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
+import { ToastrService } from 'ngx-toastr';
 import { HomeFormComponent } from "../../home-form/home-form.component";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from '@angular/platform-browser';
 
 export interface Food {
@@ -81,12 +81,12 @@ export class DubaiComponent implements OnInit, AfterViewInit {
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
+    private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService,
     private titleService: Title,
     private meta: Meta
   ) {
@@ -162,11 +162,18 @@ export class DubaiComponent implements OnInit, AfterViewInit {
           }
 
           this.imagefield1 = this.imageCatogoryTemp;
-          // console.log(this.imagefield1);
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error(
+            "Country Not Found"
+          );
         }
       });
   }
@@ -178,9 +185,7 @@ export class DubaiComponent implements OnInit, AfterViewInit {
       {
         name: "description",
         content: "Visa2fly offers Dubai visa for Indians visiting UAE. Indian passport holders can easily apply for a Dubai visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Dubai visa online with Visa2Fly here. "
-      },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
+      }
     ]);
   }
 
@@ -190,44 +195,34 @@ export class DubaiComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    // console.log(purpose);
     window.history.replaceState(
       "",
       "",
       "/visa-requirements/apply-for-Dubai-visa-online/" + purpose
     );
-    // console.log(this.businessArr);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageUpload1 = this.imageCatogoryTouristTemp;
       this.t.select("Tourist");
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      // console.log(this.imageCatogoryTemp);
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageUpload1 = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      // console.log(this.imageCatogoryTemp);
     } else {
       this.MyQuotation1 = this.transitArr;
       this.t.select("Transit");
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      // console.log(this.imageCatogoryTemp);
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    // console.log(this.imagefield1);
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {
-    // window.location
-    //let urlpurpose = this.MyQuotation1
 
     let purposeString: string = purpose.nextId;
-    // console.log(purposeString);
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
@@ -236,54 +231,41 @@ export class DubaiComponent implements OnInit, AfterViewInit {
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      //  console.log(this.imageCatogoryTemp);
-      //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      //  console.log(this.imageCatogoryTemp);
-      // console.log(this.MyQuotation1);
-      //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
       this.selectedVisaType = "Transit";
       this.selectedTransit = 1;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      //  console.log(this.imageCatogoryTemp);
-      //this.t.select("Transit");
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    //  console.log(this.imagefield1);
-
-    // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",
       "",
       "/visa-requirements/apply-for-Dubai-visa-online/" + purposeUrl
     );
-    // console.log("url changed");
   }
 
   setActiveTourist(index: number) {
     this.selectedTourist = index;
-    // console.log('business');
   }
 
   setActiveBusiness(index: number) {
     this.selectedBusiness = index;
-    //  console.log('business');
   }
 
   setActiveTransit(index: number) {
     this.selectedTransit = index;
-    // console.log('business');
   }
 
   navigate(
     quoteId: string,
+    purpose: string,
     category: string,
     minTravelDate: number,
     basePrice: number,
@@ -297,7 +279,6 @@ export class DubaiComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
     this.userFlow.setUserFlowDetails(
@@ -332,7 +313,7 @@ export class DubaiComponent implements OnInit, AfterViewInit {
             this.preloaderService.showPreloader(false);
             // }, 2000);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });

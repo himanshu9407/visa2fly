@@ -8,7 +8,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
-  { path: "", component: MyBookingsComponent, pathMatch: "full", canActivate: [AuthenticationGuard] },
+  { path: "", component: MyBookingsComponent, canActivate: [AuthenticationGuard] },
 ]
 
 

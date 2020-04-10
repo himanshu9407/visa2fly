@@ -5,8 +5,9 @@ import {
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
+import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
@@ -16,8 +17,7 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { ToastService } from "src/app/shared/toast.service";
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta } from "@angular/platform-browser";
 
 export interface Food {
   value: string;
@@ -41,9 +41,9 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class SwitzerlandComponent implements OnInit {
   @ViewChild("t") t;
@@ -67,9 +67,16 @@ export class SwitzerlandComponent implements OnInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+
+  public imageCatogory: Array<any> = [];
+  public imageCatogoryBusinessTemp: Array<any> = [];
+  public imageCatogoryTouristTemp: Array<any> = [];
+  public imageCatogoryTransitTemp: Array<any> = [];
+  public imageCatogoryTemp: Array<any> = [];
+
   public selectedCountrytype = "Switzerland";
   onlineCountry: void;
-  title: string = 'Apply for your Switzerland tourist e visa now – Visa2Fly';
+  title: string = "Apply for your Switzerland tourist e visa now – Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -81,10 +88,9 @@ export class SwitzerlandComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService,
+    private toastr: ToastrService,
     private titleService: Title,
     private meta: Meta
-
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -100,7 +106,7 @@ export class SwitzerlandComponent implements OnInit {
     let tempPurpose = this.selectedVisaType;
     //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
+      purposeSelected: new FormControl(tempPurpose),
     });
 
     this.requireQuotation
@@ -110,18 +116,26 @@ export class SwitzerlandComponent implements OnInit {
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
           this.onlinestatus = res.data.onlineCategory;
-          this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
-          //console.log(this.MyQuotation);
-          this.MyQuotation.forEach(element => {
+
+          this.imageCatogory.push(res.data.imageUploadInfo);
+
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+
+          this.userFlow.setUserFlowDetails(
+            "onlineCountry",
+            JSON.stringify(res.data.onlineCategory)
+          );
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              // console.log(this.businessArr);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              //console.log(this.touristArr);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              // console.log(this.transitArr);
             }
           });
           let purposeMain = this.selectedVisaType;
@@ -129,17 +143,29 @@ export class SwitzerlandComponent implements OnInit {
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
           if (purposeUrl == "Business") {
             this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
           } else if (purposeUrl == "Tourist") {
             this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
           } else if (purposeUrl == "Transit") {
             this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
           } else {
             this.router.navigate(["visa/"]);
           }
 
+          this.imagefield1 = this.imageCatogoryTemp;
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error(
+            "Country Not Found"
+          );
         }
       });
   }
@@ -147,13 +173,16 @@ export class SwitzerlandComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name:"keywords", content: "apply for switzerland e-visa, switzerland tourist visa application, switzerland tourist visa for indian, apply for switzerland e visa, switzerland e-visa for indians" },
+      {
+        name: "keywords",
+        content:
+          "apply for switzerland e-visa, switzerland tourist visa application, switzerland tourist visa for indian, apply for switzerland e visa, switzerland e-visa for indians",
+      },
       {
         name: "description",
-        content: "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more."
+        content:
+          "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more.",
       },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
   }
 
@@ -163,7 +192,6 @@ export class SwitzerlandComponent implements OnInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    // console.log(purpose);
     window.history.replaceState(
       "",
       "",
@@ -180,56 +208,47 @@ export class SwitzerlandComponent implements OnInit {
       this.MyQuotation1 = this.transitArr;
       this.t.select("Transit");
     }
-    // console.log(this.MyQuotation1);
   }
   navigateTo(purpose: any) {
-    // window.location
-    //let urlpurpose = this.MyQuotation1
 
     let purposeString: string = purpose.nextId;
-    // console.log(purposeString);
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
-      //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
-      // console.log(this.MyQuotation1);
-      //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
+
       this.selectedTransit = 1;
-      //this.t.select("Transit");
     }
-    // console.log(this.MyQuotation1);
     window.history.replaceState(
       "",
       "",
       "/visa-requirements/apply-for-Swiss-visa-online/" + purposeUrl
     );
-    // console.log("url changed");
   }
 
   setActiveTourist(index: number) {
     this.selectedTourist = index;
-    // console.log('business');
   }
 
   setActiveBusiness(index: number) {
     this.selectedBusiness = index;
-    //  console.log('business');
   }
 
   setActiveTransit(index: number) {
     this.selectedTransit = index;
-    // console.log('business');
   }
 
   navigate(
@@ -247,10 +266,12 @@ export class SwitzerlandComponent implements OnInit {
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
@@ -259,8 +280,6 @@ export class SwitzerlandComponent implements OnInit {
       JSON.stringify(this.imagefield1)
     );
 
-    //console.log(quoteId);
-
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
       token = "";
@@ -268,18 +287,14 @@ export class SwitzerlandComponent implements OnInit {
     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
       if (data.code == "0") {
         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-          // console.log(data);
 
           if (data.code == "0") {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
-            // setTimeout(() => {
-
             this.preloaderService.showPreloader(false);
-            // }, 2000);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });
@@ -287,7 +302,6 @@ export class SwitzerlandComponent implements OnInit {
         this.loginService.setAuthToken("");
         this.loginStatus.setUserStatus(false);
         this.loginStatus.setUserLoggedIn(false);
-        // this.router.navigate(['visa']);
         this.preloaderService.showPreloader(false);
         localStorage.setItem("profile", JSON.stringify({}));
         this.routerHistory.pushHistory("req-and-quote");

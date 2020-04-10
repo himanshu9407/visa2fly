@@ -7,9 +7,9 @@ import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { LoginService } from '../../login-signup/login/login.service';
 import { PreloaderService } from 'src/app/shared/preloader.service';
+import { ToastrService } from 'ngx-toastr';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
-import { ToastService } from 'src/app/shared/toast.service';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -76,8 +76,8 @@ export class MalaysiaComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService,
     private titleService: Title,
+    private toastr: ToastrService,
     private meta: Meta
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
@@ -153,6 +153,14 @@ export class MalaysiaComponent implements OnInit {
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error(
+            "Country Not Found"
+          );
         }
       });
   }
@@ -311,7 +319,7 @@ export class MalaysiaComponent implements OnInit {
             this.preloaderService.showPreloader(false);
             // }, 2000);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });

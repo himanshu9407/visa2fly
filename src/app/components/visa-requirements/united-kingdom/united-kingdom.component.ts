@@ -10,6 +10,7 @@ import {
   animate
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { HomeFormComponent } from "../../home-form/home-form.component";
@@ -18,7 +19,6 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from "@angular/platform-browser";
 
 export interface Food {
@@ -69,6 +69,13 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+
+  public imageCatogory: Array<any> = [];
+  public imageCatogoryBusinessTemp: Array<any> = [];
+  public imageCatogoryTouristTemp: Array<any> = [];
+  public imageCatogoryTransitTemp: Array<any> = [];
+  public imageCatogoryTemp: Array<any> = [];
+
   public countryStatic = "United Kingdom";
   public PurposeUse: any;
   title: string = "UK Visa Application Apply Now - Visa2fly";
@@ -78,12 +85,12 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
+    private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService,
     private titleService: Title,
     private meta: Meta
   ) {
@@ -109,6 +116,15 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
         //console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
+
+          this.imageCatogory.push(res.data.imageUploadInfo);
+
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+
           this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
@@ -130,34 +146,36 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if (purposeUrl == "Business") {
-            this.MyQuotation1 = this.businessArr;
-          } else if (purposeUrl == "Tourist") {
-            this.MyQuotation1 = this.touristArr;
-          } else if (purposeUrl == "Transit") {
-            this.MyQuotation1 = this.transitArr;
-          } else {
-            this.router.navigate(["visa/"]);
-          }
+            if (purposeUrl == "Business") {
+              this.MyQuotation1 = this.businessArr;
+              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+            }else if(purposeUrl == 'Tourist') {
+              this.MyQuotation1 = this.touristArr;
+              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+            }else if(purposeUrl == 'Transit'){
+              this.MyQuotation1 = this.transitArr;
+              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+            }else{
+              this.router.navigate(['visa/']);
+            }
+
+            this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error(
+            "Country Not Found"
+          );
         }
       });
 
     this.PurposeUse = this.purposeChooseForm.get("purposeSelected").value;
-
-    // let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
-    // this.userFlow.setUserFlowDetails("onlineCountry",JSON.stringify(res.data.onlineCategory));
-    // let imgDat = JSON.stringify(data.data.imageUploads);
-
-    // if (imgDat == "null") {
-    //   this.userFlow.setUserFlowDetails("imageUploads",'[]');
-    // }
-    // else {
-    //   this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(res.data.imageUploads));
-    // }
   }
 
   ngOnInit() {
@@ -168,8 +186,6 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
         name: "description",
         content: "Avail online visa services for your UK visa application at Visa2Fly. Get assured online visa services and immigration services that make your UK visa application process hassle-free and convenient. Fill your UK visa application online at Visa2fly now.  "
       },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
   }
 
@@ -212,22 +228,22 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-    if (purposeString == "Tourist") {
+  if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
-      //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
-      // console.log(this.MyQuotation1);
-      //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
+
       this.selectedTransit = 1;
-      //this.t.select("Transit");
     }
     // console.log(this.MyQuotation1);
     window.history.replaceState(
@@ -295,12 +311,11 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
-            // setTimeout(() => {
 
             this.preloaderService.showPreloader(false);
             // }, 2000);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });

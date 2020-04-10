@@ -7,9 +7,9 @@ import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { LoginService } from '../../login-signup/login/login.service';
+import { ToastrService } from 'ngx-toastr';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
-import { ToastService } from 'src/app/shared/toast.service';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -72,7 +72,7 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
     private userFlow : UserFlowDetails,private loginStatus : LoginStatusService,
     private loginService : LoginService, private preloaderService : PreloaderService,
     private routerHistory  :RouterHistory,
-    private reqService : RequirementsService,private toastService :ToastService,
+    private reqService : RequirementsService,private toastr: ToastrService,
     private titleService: Title, private meta: Meta
     ) {
 
@@ -147,6 +147,14 @@ export class EthiopianComponent implements OnInit,AfterViewInit {
 
             this.preloaderService.showPreloader(false);
             }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error(
+            "Country Not Found"
+          );
         }
       });
     }
@@ -272,8 +280,16 @@ setActiveTourist(index: number) {
   // console.log('business');
 }
 
-navigate(quoteId : string,  category: string,
-  minTravelDate: number, basePrice : number, serviceTax : number, stayPeriod:string,imageUploads: string) {
+navigate(
+  quoteId: string,
+  purpose: string,
+  category: string,
+  minTravelDate: number,
+  basePrice: number,
+  serviceTax: number,
+  stayPeriod: string,
+  imageUploads: string
+  ) {
 
   this.preloaderService.showPreloader(true);
 
@@ -315,7 +331,7 @@ navigate(quoteId : string,  category: string,
 
             }
             else {
-              this.toastService.showNotification(""+ data.message, 4000);
+              this.toastr.error("" + data.message);
               this.preloaderService.showPreloader(false);
           }
           }

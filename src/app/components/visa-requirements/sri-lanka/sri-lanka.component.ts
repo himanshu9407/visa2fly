@@ -8,6 +8,7 @@ import {
   animate
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { HomeFormComponent } from "../../home-form/home-form.component";
@@ -16,7 +17,6 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from '@angular/platform-browser';
 
 export interface Food {
@@ -82,12 +82,12 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
+    private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService,
     private titleService: Title,
     private meta: Meta
     ) {
@@ -154,6 +154,14 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error(
+            "Country Not Found"
+          );
         }
       });
      }
@@ -280,7 +288,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
 
             this.preloaderService.showPreloader(false);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });

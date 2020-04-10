@@ -18,8 +18,8 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from "@angular/platform-browser";
+import { ToastrService } from 'ngx-toastr';
 
 export interface Food {
   value: string;
@@ -84,12 +84,12 @@ export class ThailandComponent implements OnInit, AfterViewInit {
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
+    private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-    private toastService: ToastService,
     private titleService: Title,
     private meta: Meta) {
 
@@ -118,7 +118,6 @@ export class ThailandComponent implements OnInit, AfterViewInit {
     
               this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
 
-              this.imageCatogory.push(res.data.imageUploadInfo);
               this.onlinestatus = res.data.onlineCategory;
               this.userFlow.setUserFlowDetails(
                 "onlineCountry",
@@ -154,6 +153,14 @@ export class ThailandComponent implements OnInit, AfterViewInit {
               setTimeout(() => {
                 this.preloaderService.showPreloader(false);
               }, 500);
+            }  else {
+              setTimeout(() => {
+                this.preloaderService.showPreloader(false);
+                this.router.navigate(["/"]);
+              }, 2000);
+              this.toastr.error(
+                "Country Not Found"
+              );
             }
           });
 
@@ -287,7 +294,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
 
             this.preloaderService.showPreloader(false);
           } else {
-            this.toastService.showNotification("" + data.message, 4000);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });
