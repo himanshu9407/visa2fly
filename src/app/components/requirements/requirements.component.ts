@@ -13,7 +13,6 @@ import { RequirementsService } from "./requirements.service";
 import { RequirementsModel } from "./requirements.model";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
-// import { ToastService } from "src/app/shared/toast.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
@@ -100,38 +99,10 @@ export class RequirementsComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    // if (
-    //   this.router.url ==
-    //   "/visa-requirements/USA/apply-for-USA-visa-online/Tourist"
-    // ) {
-    //   this.router.navigateByUrl(
-    //     "/visa-requirements/apply-for-USA-visa-online/Tourist"
-    //   );
-    // } else if (
-    //   this.router.url ==
-    //   "/visa-requirements/Cambodia/apply-for-Cambodia-visa-online/Tourist"
-    // ) {
-    //   this.router.navigateByUrl(
-    //     "/visa-requirements/apply-for-Cambodia-visa-online/Tourist"
-    //   );
-    // } else if (
-    //   this.router.url ==
-    //   "/visa-requirements/Singapore/apply-for-Singapore-visa-online/Tourist"
-    // ) {
-    //   this.router.navigateByUrl(
-    //     "/visa-requirements/apply-for-Singapore-visa-online/Tourist"
-    //   );
-    // } else if (
-    //   this.router.url ==
-    //   "/visa-requirements/Australia/apply-for-Australia-visa-online/Tourist"
-    //   this.router.navigateByUrl(
-    //     "/visa-requirements/apply-for-Australia-visa-online/Tourist"
-    //   );
-    // }
+  
     this.preloaderService.showPreloader(true);
 
     this.activateRoute.params.subscribe((params: any) => {
-      // this.country = params.country;
       this.selectedPurposeType = params.purpose;
       this.selectedCountrytype = params.country;
       this.selectedVariable = params.variable;
@@ -233,21 +204,12 @@ export class RequirementsComponent implements OnInit {
           );
           break;
       }
-
-      // <link rel="canonical" href="https://visa2fly.com/visa-requirements/apply-for-Netherlands-visa-online/Tourist">
-
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
     });
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
-    // console.log(this.userFlowDetails);
     this.activateRoute.params.subscribe((params: any) => {
-      // console.log(this.selectedPurposeType);
-      // console.log(this.selectedCountrytype);
     });
     let tempPurpose = this.selectedPurposeType;
-    //console.log(tempPurpose);
     this.purposeChooseForm1 = new FormGroup({
       purposeSelected: new FormControl(tempPurpose)
     });
@@ -255,17 +217,12 @@ export class RequirementsComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        // console.log(data);
         if (isPlatformBrowser(this.platformId)) {
           if (data.code == "0") {
-            // this.preloaderService.showPreloader(false);
             this.requirementsData = data;
-            // console.log(data.data);
             this.Quotation = data.data.displayQuotes;
-            //console.log(this.Quotation);
             this.Quotation.forEach(element => {
               this.purposeApi.push(element.purpose);
-              //console.log(this.purposeApi);
               if (element.purpose == "Tourist") {
                 this.touristArr.push(element);
               } else if (element.purpose == "Business") {
@@ -299,12 +256,9 @@ export class RequirementsComponent implements OnInit {
             } else {
               this.router.navigate(["visa/"]);
             }
-            //console.log(this.MyQuotation);
             this.importantInfo = data.data.importantInfo;
-            // console.log(this.importantInfo);
             this.onlinestatus = data.data.onlineCategory;
             let tempFaqs = data.data.faqs;
-            // console.log(tempFaqs);
 
             for (let key in tempFaqs) {
               let tempFaqObj = { title: key, content: tempFaqs[key] };
@@ -319,31 +273,11 @@ export class RequirementsComponent implements OnInit {
               this.dataSource.push(temp);
             });
 
-            // console.log(this.faqs);
-
             this.imageCatogory.push(data.data.imageUploadInfo);
-            //  console.log(this.imageCatogory);
-            //  this.imageCatogory.forEach((element) => {
-            //    console.log(element);
-            //   if(element == 'BUSINESS')
-            //   {
-            //     this.imageCatogoryBusinessTemp.push(element);
-
-            //   }else if(element == 'TOURIST')
-            //   {
-            //     this.imageCatogoryTouristTemp.push(element);
-            //   }else {
-            //     this.imageCatogoryTransitTemp.push(element);
-            //   }
-            // })
+          
             this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-            //console.log(this.imageCatogoryBusinessTemp);
             this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-            //console.log(this.imageCatogoryTouristTemp);
             this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-            //console.log(this.imageCatogoryTransitTemp);
-            //console.log(this.imageCatogoryBusinessTemp);
-            // var purposeTemp = this.selectedPurposeType;
 
             if (purposeUrl == "Business") {
               this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
@@ -358,19 +292,7 @@ export class RequirementsComponent implements OnInit {
               "onlineCountry",
               JSON.stringify(data.data.onlineCategory)
             );
-            // let imgDat = JSON.stringify(this.imageCatogoryTemp);
-
-            // if (imgDat == "null") {
-            //   this.userFlow.setUserFlowDetails("imageUploads",'[]');
-            // }
-            // else {
-            //   this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imageCatogoryTemp));
-            // }
-            // this.userFlow.setUserFlowDetails("imagesRequired");
-            // this.quotes = data.data.quotes;
-            //this.quotes = data.data.displayQuotes;
             this.imageUpload1 = this.imageCatogoryTemp;
-            // console.log(this.imageUpload1);
 
             let temp = [];
             let i,
@@ -383,7 +305,6 @@ export class RequirementsComponent implements OnInit {
             for (i = 0, j = data.data.fieldDetails.length; i < j; i += chunk) {
               temparray = data.data.fieldDetails.slice(i, i + chunk);
               this.mainArr.push(temparray);
-              // console.log(this.mainArr);
             }
 
             let i1,
@@ -405,12 +326,9 @@ export class RequirementsComponent implements OnInit {
             this.showRequirementsDetailArr = [];
             this.selectedDataArr = [];
             for (let k = 0; k < this.mainArr.length; k++) {
-              //console.log(this.mainArr[k][0]);
               this.selectedDataArr.push(this.mainArr[k][0]);
-              // console.log(this.selectedDataArr);
               if (k == 0) {
                 this.showRequirementsDetailArr.push(true);
-                // console.log(this.showRequirementsDetailArr);
               } else {
                 this.showRequirementsDetailArr.push(false);
               }
@@ -428,7 +346,6 @@ export class RequirementsComponent implements OnInit {
               }
             }
 
-            // console.log(this.selectedDataArr);
           }
         }
       });
@@ -457,7 +374,6 @@ export class RequirementsComponent implements OnInit {
       JSON.stringify(minTravelDate)
     );
 
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
@@ -465,8 +381,6 @@ export class RequirementsComponent implements OnInit {
       "imageUploads",
       JSON.stringify(this.imageUpload1)
     );
-
-    //console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
@@ -479,10 +393,8 @@ export class RequirementsComponent implements OnInit {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
-            // setTimeout(() => {
 
             this.preloaderService.showPreloader(false);
-            // }, 2000);
           } else {
             this.toastr.error("" + data.message,);
             this.preloaderService.showPreloader(false);
@@ -492,7 +404,6 @@ export class RequirementsComponent implements OnInit {
         this.loginService.setAuthToken("");
         this.loginStatus.setUserStatus(false);
         this.loginStatus.setUserLoggedIn(false);
-        // this.router.navigate(['visa']);
         this.preloaderService.showPreloader(false);
         localStorage.setItem("profile", JSON.stringify({}));
         this.routerHistory.pushHistory("req-and-quote");
@@ -507,7 +418,6 @@ export class RequirementsComponent implements OnInit {
   }
 
   onClickRequrements(i, j, item) {
-    // console.log(item);
 
     if (
       this.showRequirementsDetailArr[i] == true &&
@@ -520,43 +430,32 @@ export class RequirementsComponent implements OnInit {
     ) {
       this.showRequirementsDetailArr[i] = true;
     } else {
-      // console.log("else");
       this.showRequirementsDetailArr[i] = true;
     }
 
     this.selectedDataArr[i] = this.mainArr[i][j];
-    // console.log(this.selectedDataArr[i]);
   }
   purposeChanged() {
     var purpose = this.purposeChooseForm1.get("purposeSelected").value;
     //console.log(purpose);
     var country = this.selectedCountrytype;
     var variable = this.selectedVariable;
-    // console.log(country);
     window.history.replaceState(
       "",
       "",
       "visa-requirements/" + country + "/" + variable + "/" + purpose
     );
-    // console.log(this.businessArr);
-    // let tempPurpose = this.selectedPurposeType;
-    // this.purposeChooseForm1.get('purposeSelected').setValue(tempPurpose);
     if (purpose == "Tourist") {
       this.MyQuotation = this.touristArr;
       this.imageUpload1 = this.imageCatogoryTouristTemp;
 
-      //this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation = this.businessArr;
       this.imageUpload1 = this.imageCatogoryBusinessTemp;
-      //this.t.select("Business");
     } else {
       this.MyQuotation = this.transitArr;
       this.imageUpload1 = this.imageCatogoryTransitTemp;
-      //this.t.select("Transit");
     }
-    //console.log(this.imageCatogoryTemp);
-    // console.log(this.MyQuotation);
   }
 
   onClickRequrementsMobile(i, j, item) {
@@ -586,41 +485,6 @@ export class RequirementsComponent implements OnInit {
         name: "description",
         content: ""
       }
-      // { name: "robots", content: "index, follow" }
-      // { name: "author", content: "rsgitech" },
     ]);
   }
-
-  // navigateTo(purpose: any) {
-  //   // window.location
-  //   //let urlpurpose = this.MyQuotation1
-  //   var country = this.selectedCountrytype;
-  //   // console.log(country);
-  //   let purposeString : string = purpose.nextId;
-  //    //console.log(purposeString);
-  //   let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-  //   let Purposetemper = this.purposeChooseForm1.get('purposeSelected').setValue(purposeUrl);
-  //   if(purposeUrl == 'Tourist')
-  //     {
-  //       this.MyQuotation = this.touristArr;
-  //       //this.t.select("Tourist");
-
-  //     }else if(purposeUrl == 'Business')
-  //     {
-  //       this.MyQuotation = this.businessArr;
-  //       //this.t.select("Business");
-  //     }else
-  //     {
-  //       this.MyQuotation = this.transitArr;
-  //       //this.t.select("Transit");
-  //     }
-  //      // console.log(this.MyQuotation1);
-  //   window.history.replaceState(
-  //     "",
-  //     "",
-  //     "visa-requirement/" + country + "/" + purposeUrl
-  //   );
-  //   // console.log("url changed");
-
-  //}
 }
