@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: "", redirectTo: "visa", pathMatch: "full" },
 
   // About Us Page
-  { path: "cookiePolicy", loadChildren: () =>
+  { path: "aboutUs", loadChildren: () =>
   import("./components/static/about-us/about-us.module").then (m => m.AboutUsModule)},
 
   // Cancellation Page
@@ -179,10 +179,7 @@ const routes: Routes = [
   // { path: "b2b/b2b-add-traveller", loadChildren: () => import("./components/b2b/b2b.Module").then (m => m.B2BModule)},
 
   { path: "insurance", component: InsuranceComponent },
-  {
-    path: "b2b/something-went-wrong",
-    component:  SomethingWrongComponent
-  },
+
   {
     path: "page-not-found",
     component: PageNotFoundComponent

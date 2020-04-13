@@ -10,6 +10,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SomethingWrongComponent } from 'src/app/shared/components/something-wrong/something-wrong.component';
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: "full" } ,
@@ -19,6 +20,10 @@ const routes: Routes = [
   { path: "visa-requirement/:country/:purpose", component: B2bReqComponent},
   { path: "b2b-add-traveller", component: B2bAddTrvComponent},
   { path: "page-not-found", component: PageNotFoundComponent},
+  {
+    path: "something-went-wrong",
+    component:  SomethingWrongComponent
+  },
   { path: "**", redirectTo: "page-not-found", pathMatch: "prefix"}
 ]
 
@@ -28,7 +33,7 @@ const routes: Routes = [
     B2bHomeComponent,
     B2bReqComponent,
     B2bResponseComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,
