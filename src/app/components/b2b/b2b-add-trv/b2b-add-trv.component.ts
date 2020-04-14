@@ -44,6 +44,9 @@ export class B2bAddTrvComponent implements OnInit {
   status = "";
   message = "";
 
+  extraParams = <any>{};
+  extraParamsObject: Array<any> = [];
+
   primaryAddress = "";
   intialInfo = true;
   dateOfTravelModel: any = "";
@@ -1016,20 +1019,6 @@ export class B2bAddTrvComponent implements OnInit {
             // console.log(data);
 
             if (data.code == "0") {
-              // this.travellerService.hitPaymentApi().subscribe((data1: any) => {
-              //   this.buyerEmail = data1.buyerEmail;
-              //   this.orderId = data1.orderId;
-              //   this.amount = data1.amount;
-              //   this.currency = data1.currency;
-              //   this.merchantIdentifier = data1.merchantIdentifier;
-              //   this.returnUrl = data1.returnUrl;
-              //   this.checksum = data1.checksum;
-              //   this.succeedToPayment = true;
-              //   setTimeout(() => {
-              //     this.preloaderService.showPreloader(false);
-              //     document.forms["paymentForm"].submit();
-              //   }, 2000);
-              // });
 
               this.bookingId = data.data.bookingId;
               this.collectPayment = data.data.collectPayment;
@@ -1040,8 +1029,8 @@ export class B2bAddTrvComponent implements OnInit {
               this.code = data.code;
               this.status = data.status;
               this.message = data.message;
-              // console.log(data.data.redirectUrl);
-
+              this.extraParams = JSON.stringify(data.data.extraParams);
+              
               setTimeout(() => {
                 this.preloaderService.showPreloader(false);
                 document.forms["paymentForm"].submit();
@@ -1067,7 +1056,6 @@ export class B2bAddTrvComponent implements OnInit {
                 if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
-                    // form.re
                   });
                 }
               });
@@ -1078,12 +1066,10 @@ export class B2bAddTrvComponent implements OnInit {
                 keysArr.forEach((el: string) => {
                   let tempObj = errArr[index];
                   this.errorForm = tempObj.travellerId;
-                  // this.errorForm = errArr[index].travellerId;
 
                   if (tempObj[el] == true) {
                     let control = form.get(el);
                     if (control != null) {
-                      // control.s
                       control.setErrors(null);
                       control.setErrors({ valueErr: true });
                     }
@@ -1097,7 +1083,6 @@ export class B2bAddTrvComponent implements OnInit {
             } else if (data.code == "500") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
-              // console.log(chunk);
 
               for (let i = 0, j = this.tempImageArr.length; i < j; i += chunk) {
                 temparray = this.tempImageArr.slice(i, i + chunk);
@@ -1114,7 +1099,6 @@ export class B2bAddTrvComponent implements OnInit {
                 if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
-                    // form.re
                   });
                 }
               });
@@ -1126,7 +1110,6 @@ export class B2bAddTrvComponent implements OnInit {
             } else if (data.code == "1001") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
-              // console.log(chunk);
 
               for (let i = 0, j = this.tempImageArr.length; i < j; i += chunk) {
                 temparray = this.tempImageArr.slice(i, i + chunk);
@@ -1143,7 +1126,6 @@ export class B2bAddTrvComponent implements OnInit {
                 if (this.category == "e-visa") {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
-                    // form.re
                   });
                 }
               });
@@ -1168,8 +1150,6 @@ export class B2bAddTrvComponent implements OnInit {
     } else {
       this.toastr.warning("Some details missing !");
       this.validateTravellerForm();
-      // console.log(this.scrollBy);
-      // this.errorForm = '';
 
       if (this.travellerForm.invalid && this.travelDetails.valid) {
         window.scrollTo({
@@ -1190,17 +1170,12 @@ export class B2bAddTrvComponent implements OnInit {
     modal.style.display = "none";
     modal.classList.add("fade");
     this.errorMessage = [];
-    // this.router.navigate(['visa']);
   }
 
   setAddressSame(i: number) {
-    // let same = form.get('addressForPickupSame').value;
     let form = (<FormArray>this.travellerForm.get("travellers")).controls[i];
-    // console.log(<FormArray>this.travellerForm.get("travellers"));
-    // console.log(i);
 
     let same = form.get("addressForPickupSame").value;
-    // console.log(same);
 
     if (!same) {
       form.get("address").setValidators(null);
@@ -1239,7 +1214,6 @@ export class B2bAddTrvComponent implements OnInit {
       this.preloaderService.showPreloader(true);
 
       this.travellerService.submitWarningForm().subscribe((data1: any) => {
-        // console.log(data1);
         if (data1.code == 0) {
           
           this.bookingId = data1.data.bookingId;
@@ -1251,6 +1225,16 @@ export class B2bAddTrvComponent implements OnInit {
           this.code = data1.code;
           this.status = data1.status;
           this.message = data1.message;
+          this.extraParamsObject = data1.data.extraParams;
+
+          this.extraParams.forEach((element: any) => {
+            this.extraParams.push(element);
+          });
+
+          console.log(this.extraParamsObject);
+          
+
+
 
           setTimeout(() => {
             document.forms["paymentForm"].submit();
