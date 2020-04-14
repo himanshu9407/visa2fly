@@ -126,7 +126,7 @@ export class LoginComponent implements OnInit {
   // }
 
   sendOtp() {
-    //this.showLoader = true;
+    this.showLoader = true;
     this.showSendOtp = false;
     // this.showOtpField  =true;
     let userId = this.loginForm.get("userId").value;
@@ -147,7 +147,7 @@ export class LoginComponent implements OnInit {
         this.otpSentCount = this.otpSentCount + 1;
       } else {
         this.toastr.error(data.message);
-
+        this.showLoader = false;
         //this.setFormFresh();
         this.showSendOtp = true;
       }

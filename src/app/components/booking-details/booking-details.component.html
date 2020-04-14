@@ -404,7 +404,7 @@
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.invitation != null">
-                    ITR :
+                    Invitation :
                     <span (click)="downloadImage(traveller.invitation,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.invitation == null ? "NA" : "Click Here"}}
