@@ -74,7 +74,7 @@ export class MyBookingsComponent implements OnInit {
   bookingFilterForm: FormGroup;
   filteredBookingsEmpty: boolean = false;
   filterdDateArr = [];
-  private isButtonVisible = false;
+  public isButtonVisible = false;
   feedbackBookingDetail: Array<any> = [];
 
   constructor(
@@ -123,9 +123,10 @@ export class MyBookingsComponent implements OnInit {
       insurance: new FormControl(false)
     });
 
-    let AUTH_TOKEN = this.loginService.getAuthToken();
 
-    if (this.bookingService.allBookings.length > 0) {
+    // console.log(AUTH_TOKEN);
+
+      if (this.bookingService.allBookings.length > 0) {
       this.bookingsForLoop = [...this.bookingService.allBookings];
       this.totalCount = this.bookingsForLoop.length;
       this.bookings = [...this.bookingService.allBookings];
@@ -134,25 +135,33 @@ export class MyBookingsComponent implements OnInit {
       this.filterdDateArr = [...this.bookingService.allBookings];
       // console.log("found bookings in service variable");
     } else {
-      this.loginStatus.verifyAuthToken(AUTH_TOKEN).subscribe(data => {
-        if (data.code == "0") {
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-          }, 4000);
-          this.getAllBookings();
-        } else {
-          this.router.navigate(["/visa"]);
-        }
-      });
+      this.getAllBookings();
     }
-
     //end of constructor
   }
 
   // console.log(this.activePcPageNumber == i);
 
+  // verifyTokenapi(){
+  //   let AUTH_TOKEN = this.loginService.getAuthToken();
+  //   this.loginStatus.verifyAuthToken(AUTH_TOKEN).subscribe(data => {
+  //     if (data.code == "0") {
+  //       console.log(data);
+  //       this.bookingService.verifytokendetails = data;
+  //       setTimeout(() => {
+  //         this.preloaderService.showPreloader(false);
+  //       }, 4000);
+  //       this.getAllBookings();
+  //     } else {
+  //       this.router.navigate(["/visa"]);
+  //     }
+  //   });
+  // }
+
   getAllBookings() {
     this.bookingService.getBookingsFromServer().subscribe(res => {
+      if(res.code == 0)
+      {
       this.allBooking = res;
       this.bookings = this.allBooking.data.bookings;
       this.bookingsForLoop = this.allBooking.data.bookings;
@@ -213,6 +222,10 @@ export class MyBookingsComponent implements OnInit {
         this.activeMobileBookingPage = this.myBookingsMobile[0];
       } else {
         this.totalCount = 0;
+      }
+      }else if(res.code == 301)
+      {
+        this.router.navigate(["/visa"]);
       }
     });
   }

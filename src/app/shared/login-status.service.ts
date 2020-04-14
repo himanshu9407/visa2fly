@@ -56,12 +56,12 @@ export class LoginStatusService {
         const headers = new HttpHeaders({"token":authToken,"visa-client":"0"});
         const base_url = this.userFlow.getBaseURL();
 
-        return this.http.get(base_url+'verifyToken', {headers:headers});
+        return this.http.get<any>(base_url+'verifyToken', {headers:headers});
     }
 
 
       checkUserAuthentication () {
-     let authToken = this.loginService.getAuthToken();
+        let authToken = this.loginService.getAuthToken();
         if (authToken == null || authToken == undefined) {
             authToken = "";
         }
