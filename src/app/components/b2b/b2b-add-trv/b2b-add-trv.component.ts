@@ -1225,7 +1225,7 @@ export class B2bAddTrvComponent implements OnInit {
           this.code = data1.code;
           this.status = data1.status;
           this.message = data1.message;
-          this.extraParamsObject = data1.data.extraParams;
+          this.extraParams = JSON.stringify(data1.data.extraParams);
 
           this.extraParams.forEach((element: any) => {
             this.extraParams.push(element);
