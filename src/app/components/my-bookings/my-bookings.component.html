@@ -31,7 +31,7 @@
                             <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
                                 <label for="" class="filterLabel">From Date</label>
                                 <div class="input-group">
-                                  <input (ngModelChange) = "fromDateChanged()" [(ngModel)]="fromDate" formControlName="fromDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]= "maxDate" />
+                                  <input (ngModelChange) = "fromDateChanged()" [(ngModel)]= "fromDate" formControlName="fromDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]= "maxDate" />
                                   <div class="input-group-append">
                                       <button class="btn btn-sm btn-outline-secondary calendar" (click)= "d.toggle()" type="button">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -42,7 +42,7 @@
                             <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
                                 <label for="" class="filterLabel">To Date</label>
                                 <div class="input-group">
-                                    <input [(ngModel)] = "toDate" [disabled]= "this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]= "minDateOfTo"
+                                    <input [(ngModel)]="toDate" [disabled]= "this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]= "minDateOfTo"
                                         [maxDate]= "maxDate" />
                                     <div class="input-group-append">
                                         <button class="btn btn-sm btn-outline-secondary calendar" (click)= "tp.toggle()" type="button">

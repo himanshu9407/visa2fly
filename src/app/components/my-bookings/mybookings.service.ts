@@ -11,11 +11,12 @@ import { response } from 'express';
     providedIn: "root"
 })
 export class MyBookingsService {
-    
+
     activeBooking : any;
-    allBookings : Array <any> = [];    
+    allBookings : Array <any> = [];
+    verifytokendetails : Array<any> = [];
     constructor (private router : Router,private loginService:LoginService, private http : HttpClient,private userFlow : UserFlowDetails)  {}
-    
+
 
     getBookingsFromServer() : Observable<any> {
         let AUTH_TOKEN = this.loginService.getAuthToken();
@@ -23,11 +24,11 @@ export class MyBookingsService {
            this.router.navigateByUrl['/visa'];
         }
         else {
-   
+
               const base_url = this.userFlow.getBaseURL();
               const headers = new HttpHeaders({"token":AUTH_TOKEN,"visa-client":"0"});
               // console.log(AUTH_TOKEN);
-   
+
              return this.http.get(base_url+'fetchBookings',{headers:  headers});
         }
        //  console.log(AUTH_TOKEN);
@@ -42,13 +43,13 @@ export class MyBookingsService {
         }
         else {
         feedback = {bookingId : bookingid, rateOne : rateOne, rateTwo : rateTwo, rateThree :rateThree, suggestion : suggestion, notInterested : notInterested }
-        
+
         const base_url = this.userFlow.getBaseURL();
         return this.http.post(base_url + 'feedback/submit', feedback, {headers:  headers});
             // console.log(feedback);
         }
-                
-                
+
+
         }
 
     setActiveBooking(booking : any) {
@@ -58,7 +59,7 @@ export class MyBookingsService {
         this.router.navigate(['bookingDetails']);
     }
 
-    
+
 
     getActiveBooking () {
 
