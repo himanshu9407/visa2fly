@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", component: AboutUsComponent, pathMatch: "full" }
+  { path: "", component: AboutUsComponent }
 ]
 
 @NgModule({

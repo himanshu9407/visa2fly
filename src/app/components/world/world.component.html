@@ -1,5 +1,5 @@
 <section class="world desktopView">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-12 text-center">
         <h5 class="worldTitle">
@@ -91,7 +91,7 @@
         }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
             usemap="shapes-map">
           </div>
-          <img src="../../../assets/{{destinationCountry}}.png" [alt]="destinationCountry"
+          <img src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
             [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
             [@flipWorld]="flip" class="counrtyCourt img-fluid">
         </div>
