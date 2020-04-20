@@ -271,12 +271,13 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
 
   navigate(
     quoteId: string,
+    purpose: string,
     category: string,
     minTravelDate: number,
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    purpose: string
+    imageUploads: string
   ) {
     this.preloaderService.showPreloader(true);
 

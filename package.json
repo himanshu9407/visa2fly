@@ -13,7 +13,8 @@
     "dev:ssr": "ng run visa-App:serve-ssr",
     "serve:ssr": "node dist/visa-App-server/main.js",
     "build:ssr": "ng build --prod && ng run visa-App:server:production",
-    "prerender": "ng run visa-App:prerender"
+    "prerender": "ng run visa-App:prerender --routesFile routes.txt",
+    "serve:prerender": "http-server ./dist/visa-App/browser"
   },
   "private": true,
   "dependencies": {

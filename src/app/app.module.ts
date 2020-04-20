@@ -55,8 +55,6 @@ import { TermsandConditionsModule } from './components/static/termsand-condition
 import { VisaRequirementModule } from './components/visa-requirements/visa-requirement.module';
 import { BookingDetailsModule } from './components/booking-details/booking-details.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +72,8 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     SomethingWrongComponent,
     B2bHeaderComponent,
     B2bFooterComponent,
-    B2bMobileNavComponent
+    B2bMobileNavComponent,
+
 
   ],
   imports: [
