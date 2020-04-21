@@ -48,6 +48,8 @@ export class MyBookingsComponent implements OnInit {
   [x: string]: any;
   totalCount: number = 0;
   title: string = "Visa2fly | My Bookings";
+  currentPage1 = 1;
+  currentPage2 = 1;
 
   myBookings: Array<any> = [];
   myBookingsPc: Array<any> = [];
