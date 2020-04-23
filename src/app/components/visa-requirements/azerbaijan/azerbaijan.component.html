@@ -462,8 +462,11 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true" aria-controls="touristOne" [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" />
-                                                <h2 class="setFontSize">Passport</h2>
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-passport requiredIcons img-sprite"></div>
+                                                </div>
+                                                <h2 class="setFontSize">Passport</h2> 
                                             </div>
                                         </ng-template>
                                         <ng-template ngbTabContent>
@@ -481,7 +484,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristTwo" aria-expanded="false" aria-controls="touristTwo" [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Photograph</h2>
                                             </div>
                                         </ng-template>
@@ -501,7 +507,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristThree" aria-expanded="false" aria-controls="touristThree" [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Flight Tickets</h2>
                                             </div>
                                         </ng-template>
@@ -522,7 +531,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#toursitFour" aria-expanded="false" aria-controls="toursitFour" [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Proof Of Sufficient Funds</h2>
                                             </div>
                                         </ng-template>
@@ -541,190 +553,7 @@
                                     </ngb-tab>
                                 </ngb-tabset>
                             </div>
-
-                            <!-- <div class="row mt-4">
-                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                    <ngb-tab>
-                                        <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristFive" aria-expanded="true" aria-controls="touristFive" [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="apply azerbaijan visa online azerbaijan visa for indians" style="height: 45px; margin-bottom: 10px;" />
-                                                <h2 class="setFontSize">Proof Of Sufficient Funds</h2>
-                                            </div>
-                                        </ng-template>
-                                        <ng-template ngbTabContent>
-                                            <div id="touristFive" class="collapse" aria-labelledby="headingFive" data-parent="#touristAccodion">
-                                                <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body">
-                                                        <h1 class="requiredIconHeading">Proof Of Sufficient Funds
-                                                        </h1>
-                                                        <p>
-                                                            Sufficient funding is required to guarantee entry into Azerbaijan, and proof of the same must be displayed (in the form of hard cash, or bank statements). The recommended amount is calculated at 50 USD per day.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </ng-template>
-                                    </ngb-tab>
-                                    <ngb-tab>
-                                        <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristSix" aria-expanded="true" aria-controls="touristSix" [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png" alt="apply azerbaijan visa online azerbaijan visa for indians" style="height: 45px; margin-bottom: 10px;" />
-                                                <h2 class="setFontSize">Supporting Document</h2>
-                                            </div>
-
-                                        </ng-template>
-                                        <ng-template ngbTabContent>
-                                            <div id="touristSix" class="collapse" aria-labelledby="headingSix" data-parent="#touristAccodion">
-                                                <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body">
-                                                        <h1 class="requiredIconHeading">Supporting Document
-                                                        </h1>
-                                                        <p>
-                                                            A valid visa, travel permit, or residence permit from one of the Schengen countries, USA, UK or Ireland is required. Without the submission of this, your e-visa is considered invalid. E-visas from any of these countries is not accepted.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </ng-template>
-                                    </ngb-tab>
-                                    <ngb-tab>
-                                        <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristSeven" aria-expanded="true"
-                                                  aria-controls="touristSeven"  [class.showDiv]="selectedTourist === 7" (click)="setActiveTourist(7)">
-                                                  <img class="img-fluid"
-                                                      src="https://static.visa2fly.com/icon/Itinerary.png" alt="UK visa application"
-                                                      style="height: 45px; margin-bottom: 10px;" />
-                                                  <h2 class="setFontSize">Itinerary</h2>
-                                              </div>
-                                        </ng-template>
-                                        <ng-template ngbTabContent>
-                                            <div id="touristSeven" class="collapse" aria-labelledby="headingSeven"
-                                                  data-parent="#touristAccodion">
-                                                  <div class="card requiredIcon"
-                                                      style="background: rgba(0, 37, 131, 0.2);">
-                                                      <div class="card-body">
-                                                          <h1 class="requiredIconHeading">Itinerary
-                                                          </h1>
-                                                          <p>
-                                                              Your detailed travel itinerary which gives information of
-                                                              your
-                                                              travel
-                                                              plans in the UK
-                                                              along with tickets, places you are going to visit, your
-                                                              meeting
-                                                              agenda,
-                                                              tours booked
-                                                              in advance, your festival agenda, etc.
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                        </ng-template>
-                                    </ngb-tab>
-                                    <ngb-tab>
-                                        <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristEight" aria-expanded="true"
-                                                  aria-controls="touristEight"  [class.showDiv]="selectedTourist === 8" (click)="setActiveTourist(8)">
-                                                  <img class="img-fluid"
-                                                      src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                                                      alt="UK visa application"
-                                                      style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                                                  <h2 class="setFontSize">Employment / Student Proof</h2>
-                                              </div>
-                                        </ng-template>
-                                        <ng-template ngbTabContent>
-                                            <div id="touristEight" class="collapse" aria-labelledby="headingEight"
-                                                  data-parent="#touristAccodion">
-                                                  <div class="card requiredIcon"
-                                                      style="background: rgba(0, 37, 131, 0.2);">
-                                                      <div class="card-body">
-                                                          <h1 class="requiredIconHeading">Employment /
-                                                              Student Proof</h1>
-                                                          <p>
-                                                              For Employed Persons - A letter from your employer on
-                                                              company
-                                                              headed
-                                                              paper
-                                                              detailing your role, salary and length of employment,
-                                                              business
-                                                              card
-                                                              and
-                                                              6 month’s
-                                                              salary slips and Income Tax Returns (last 3 years)</p>
-                                                          <p>For Self-Employed Persons - business registration documents
-                                                              confirming
-                                                              the
-                                                              business owner’s name and the date the business started
-                                                              trading
-                                                              and
-                                                              three years tax
-                                                              returns of the business.</p>
-                                                          <p>For Students - a letter from your education provider, on
-                                                              headed
-                                                              paper,
-                                                              confirming
-                                                              your enrolment and leave of absence.
-
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                        </ng-template>
-                                    </ngb-tab>
-                                </ngb-tabset>
-                            </div> -->
-
-                            <!-- <div class="row mt-4">
-                                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
-                                      class="iconTabset" type="pills">
-                                      <ngb-tab>
-                                          <ng-template ngbTabTitle>
-                                              <div data-toggle="collapse" data-target="#touristNine" aria-expanded="true"
-                                                  aria-controls="touristNine"  [class.showDiv]="selectedTourist === 9" (click)="setActiveTourist(9)">
-                                                  <img class="img-fluid"
-                                                      src="https://static.visa2fly.com/icon/Other Documents.png"
-                                                      alt="UK visa application"
-                                                      style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                                                  <h2 class="setFontSize">Other Documents</h2>
-                                              </div>
-                                          </ng-template>
-                                          <ng-template ngbTabContent>
-                                              <div id="touristNine" class="collapse" aria-labelledby="headingNine"
-                                                  data-parent="#touristAccodion">
-                                                  <div class="card requiredIcon"
-                                                      style="background: rgba(0, 37, 131, 0.2);">
-                                                      <div class="card-body">
-                                                          <h1 class="requiredIconHeading">Other
-                                                              Documents</h1>
-                                                          <p>
-                                                              1. Tuberculosis test results, if you belong to a country
-                                                              listed
-                                                              amongst
-                                                              countries
-                                                              requiring a prior TB test before coming to the UK for a
-                                                              period
-                                                              over
-                                                              six
-                                                              months</p>
-                                                          <p>2. UK visa invitation letter should be submitted if it is
-                                                              applicable.
-                                                              It
-                                                              is a letter of
-                                                              invitation issued by a company, citizen or legal resident of
-                                                              the
-                                                              UK
-                                                              stating that they
-                                                              have invited you to stay with them.</p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </ng-template>
-                                      </ngb-tab>
-                                  </ngb-tabset>
-                              </div> -->
                         </div>
-
-
 
                         <!-- mobileContainer -->
                         <div class="mobileContainer accordion" id="touristAccodionMobile">
@@ -733,7 +562,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true" aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="azerbaijan tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-passport requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Passport</h2>
                                             </div>
                                         </ng-template>
@@ -753,7 +585,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true" aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijantourist visa for indian" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijantourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Photograph</h2>
                                             </div>
                                         </ng-template>
@@ -781,7 +616,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true" aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="azerbaijantourist visa for indian" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="azerbaijantourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Flight Tickets</h2>
                                             </div>
                                         </ng-template>
@@ -806,7 +644,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true" aria-controls="touristMobileFour" [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="azerbaijantourist visa for indian" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="azerbaijantourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Proof Of Sufficient Funds</h2>
                                             </div>
                                         </ng-template>
@@ -827,195 +668,6 @@
                                     </ngb-tab>
                                 </ngb-tabset>
                             </div>
-
-                            <!-- <div class="row mt-4">
-                                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
-                                    <ngb-tab>
-                                        <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true" aria-controls="touristMobileFive" [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Funds.png" alt="apply azerbaijan visa online azerbaijan visa for indians" style="height: 45px; margin-bottom: 10px;" />
-                                                <h2 class="setFontSize">Proof of Sufficient Funds</h2>
-                                            </div>
-                                        </ng-template>
-                                        <ng-template ngbTabContent>
-                                            <div id="touristMobileFive" class="collapse" aria-labelledby="headingMobileFive" data-parent="#touristAccodionMobile" [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6)">
-                                                <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body" style="padding: 10px">
-                                                        <h1 class="requiredIconHeading">Proof of Sufficient Funds
-                                                        </h1>
-                                                        <p>
-                                                            Sufficient funding is required to guarantee entry into Azerbaijan, and proof of the same must be displayed (in the form of hard cash, or bank statements). The recommended amount is calculated at 50 USD per day.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </ng-template>
-                                    </ngb-tab>
-                                    <ngb-tab>
-                                        <ng-template ngbTabTitle>
-                                            <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true" aria-controls="touristMobileSix" [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png" alt="apply azerbaijan visa online azerbaijan visa for indians" style="height: 45px; margin-bottom: 10px;" />
-                                                <h2 class="setFontSize">Supporting Documents</h2>
-                                            </div>
-                                        </ng-template>
-                                        <ng-template ngbTabContent>
-                                            <div id="touristMobileSix" class="collapse" aria-labelledby="headingMobileSix" data-parent="#touristAccodionMobile">
-                                                <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                                                    <div class="card-body">
-                                                        <h1 class="requiredIconHeading">Supporting Documents
-                                                        </h1>
-                                                        <p>
-                                                            A valid visa, travel permit, or residence permit from one of the Schengen countries, USA, UK or Ireland is required. Without the submission of this, your e-visa is considered invalid. E-visas from any of these countries is not accepted.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </ng-template>
-                                    </ngb-tab>
-                                </ngb-tabset>
-                            </div> -->
-
-                            <!-- <div class="row mt-4">
-                                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
-                                      class="iconTabset" type="pills">
-                                      <ngb-tab>
-                                          <ng-template ngbTabTitle>
-                                              <div data-toggle="collapse" data-target="#touristMobileSeven"
-                                                  aria-expanded="true" aria-controls="touristMobileSeven" [class.showDiv]="selectedTourist === 7" (click)="setActiveTourist(7)">
-                                                  <img class="img-fluid"
-                                                      src="https://static.visa2fly.com/icon/Itinerary.png" alt="UK visa application"
-                                                      style="height: 45px; margin-bottom: 10px;" />
-                                                  <h2 class="setFontSize">Itinerary</h2>
-                                              </div>
-                                          </ng-template>
-                                          <ng-template ngbTabContent>
-                                              <div id="touristMobileSeven" class="collapse"
-                                                  aria-labelledby="headingMobileSeven"
-                                                  data-parent="#touristAccodionMobile">
-                                                  <div class="card requiredIcon"
-                                                      style="background: rgba(0, 37, 131, 0.2);">
-                                                      <div class="card-body" style="padding: 10px">
-                                                          <h1 class="requiredIconHeading">Itinerary
-                                                          </h1>
-                                                          <p>
-                                                              Your detailed travel itinerary which gives information of
-                                                              your
-                                                              travel
-                                                              plans in the UK
-                                                              along with tickets, places you are going to visit, your
-                                                              meeting
-                                                              agenda,
-                                                              tours booked
-                                                              in advance, your festival agenda, etc.
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </ng-template>
-                                      </ngb-tab>
-                                      <ngb-tab>
-                                          <ng-template ngbTabTitle>
-                                              <div data-toggle="collapse" data-target="#touristMobileEight"
-                                                  aria-expanded="true" aria-controls="touristMobileEight" [class.showDiv]="selectedTourist === 8" (click)="setActiveTourist(8)">
-                                                  <img class="img-fluid"
-                                                      src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                                                      alt="UK visa application"
-                                                      style="height: 45px; margin-bottom: 10px;" />
-                                                  <h2 class="setFontSize">Employment / Student Proof</h2>
-                                              </div>
-                                          </ng-template>
-                                          <ng-template ngbTabContent>
-                                              <div id="touristMobileEight" class="collapse"
-                                                  aria-labelledby="headingMobileEight"
-                                                  data-parent="#touristAccodionMobile">
-                                                  <div class="card requiredIcon"
-                                                      style="background: rgba(0, 37, 131, 0.2);">
-                                                      <div class="card-body" style="padding: 10px">
-                                                          <h1 class="requiredIconHeading">Employment /
-                                                              Student Proof</h1>
-                                                          <p>
-                                                              For Employed Persons - A letter from your employer on
-                                                              company
-                                                              headed
-                                                              paper
-                                                              detailing your role, salary and length of employment,
-                                                              business
-                                                              card
-                                                              and
-                                                              6 month’s
-                                                              salary slips and Income Tax Returns (last 3 years)</p>
-                                                          <p>For Self-Employed Persons - business registration documents
-                                                              confirming
-                                                              the
-                                                              business owner’s name and the date the business started
-                                                              trading
-                                                              and
-                                                              three years tax
-                                                              returns of the business.</p>
-                                                          <p>For Students - a letter from your education provider, on
-                                                              headed
-                                                              paper,
-                                                              confirming
-                                                              your enrolment and leave of absence.
-
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </ng-template>
-                                      </ngb-tab>
-                                  </ngb-tabset>
-                              </div> -->
-
-                            <!-- <div class="row mt-4">
-                                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation"
-                                      class="iconTabset" type="pills">
-                                      <ngb-tab>
-                                          <ng-template ngbTabTitle>
-                                              <div data-toggle="collapse" data-target="#touristMobileNine"
-                                                  aria-expanded="true" aria-controls="touristMobileNine" [class.showDiv]="selectedTourist === 9" (click)="setActiveTourist(9)">
-                                                  <img class="img-fluid"
-                                                      src="https://static.visa2fly.com/icon/Other Documents.png"
-                                                      alt="UK visa application"
-                                                      style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
-                                                  <h2 class="setFontSize">Other Documents</h2>
-                                              </div>
-                                          </ng-template>
-                                          <ng-template ngbTabContent>
-                                              <div id="touristMobileNine" class="collapse"
-                                                  aria-labelledby="headingMobileNine"
-                                                  data-parent="#touristAccodionMobile">
-                                                  <div class="card requiredIcon"
-                                                      style="background: rgba(0, 37, 131, 0.2);">
-                                                      <div class="card-body" style="padding: 10px">
-                                                          <h1 class="requiredIconHeading">Other
-                                                              Documents</h1>
-                                                          <p>
-                                                              1. Tuberculosis test results, if you belong to a country
-                                                              listed
-                                                              amongst
-                                                              countries
-                                                              requiring a prior TB test before coming to the UK for a
-                                                              period
-                                                              over
-                                                              six
-                                                              months</p>
-                                                          <p>2. UK visa invitation letter should be submitted if it is
-                                                              applicable.
-                                                              It
-                                                              is a letter of
-                                                              invitation issued by a company, citizen or legal resident of
-                                                              the
-                                                              UK
-                                                              stating that they
-                                                              have invited you to stay with them.</p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </ng-template>
-                                      </ngb-tab>
-                                  </ngb-tabset>
-                              </div> -->
                         </div>
 
                     </div>
@@ -1216,7 +868,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne" aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1" (click)="setActiveBusiness(1)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="azerbaijan business visa for indian" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="azerbaijan business visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-passport requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Passport</h2>
                                             </div>
                                         </ng-template>
@@ -1236,7 +891,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse" data-target="#businessTwo" aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2" (click)="setActiveBusiness(2)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijan business visa for indian" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijan business visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Photograph</h2>
                                             </div>
 
@@ -1261,7 +919,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse" data-target="#businessThree" aria-expanded="false" aria-controls="businessThree" [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Flight Tickets</h2>
                                             </div>
                                         </ng-template>
@@ -1285,7 +946,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div class="collapsed" id="#businessHeadingFour" data-toggle="collapse" data-target="#businessFour" aria-expanded="false" aria-controls="businessFour" [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Proof Of Sufficient Funds</h2>
                                             </div>
                                         </ng-template>
@@ -1313,7 +977,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessFive" aria-expanded="true" aria-controls="businessFive" [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Invitation Letter</h2>
                                             </div>
                                         </ng-template>
@@ -1490,7 +1157,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessMobileOne" aria-expanded="true" aria-controls="businessMobileOne" [class.showDiv]="selectedBusiness === 1" (click)="setActiveBusiness(1)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for azerbaijan e visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-passport requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Passport</h2>
                                             </div>
                                         </ng-template>
@@ -1511,7 +1181,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessMobileTwo" aria-expanded="true" aria-controls="businessMobileTwo" [class.showDiv]="selectedBusiness === 2" (click)="setActiveBusiness(2)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Photograph</h2>
                                             </div>
                                         </ng-template>
@@ -1540,7 +1213,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessMobileThree" aria-expanded="true" aria-controls="businessMobileThree" [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Flight Ticket</h2>
                                             </div>
                                         </ng-template>
@@ -1566,7 +1242,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessMobileFour" aria-expanded="true" aria-controls="businessMobileFour" [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Proof Of Sufficient Funds</h2>
                                             </div>
                                         </ng-template>
@@ -1593,7 +1272,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#businessMobileFive" aria-expanded="true" aria-controls="businessMobileFive" [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png" alt="azerbaijan e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Invitation Letter</h2>
                                             </div>
                                         </ng-template>
@@ -1972,7 +1654,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitOne" aria-expanded="true" aria-controls="transitOne" [class.showDiv]="selectedTransit === 1" (click)="setActiveTransit(1)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-passport requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Passport</h2>
                                             </div>
                                         </ng-template>
@@ -1991,7 +1676,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitTwo" aria-expanded="true" aria-controls="transitTwo" [class.showDiv]="selectedTransit === 2" (click)="setActiveTransit(2)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Flight Ticket</h2>
                                             </div>
                                         </ng-template>
@@ -2011,7 +1699,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true" aria-controls="transitThree" [class.showDiv]="selectedTransit === 3" (click)="setActiveTransit(3)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Photograph</h2>
                                             </div>
                                         </ng-template>
@@ -2032,7 +1723,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitFour" aria-expanded="true" aria-controls="transitFour" [class.showDiv]="selectedTransit === 4" (click)="setActiveTransit(4)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-businessForm requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Application Form</h2>
                                             </div>
                                         </ng-template>
@@ -2064,7 +1758,10 @@
 
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileOne" aria-expanded="true" aria-controls="transitMobileOne" [class.showDiv]="selectedTransit === 1" (click)="setActiveTransit(1)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-passport requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Passport</h2>
                                             </div>
                                         </ng-template>
@@ -2084,7 +1781,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileTwo" aria-expanded="true" aria-controls="transitMobileTwo" [class.showDiv]="selectedTransit === 2" (click)="setActiveTransit(2)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Flight Ticket</h2>
                                             </div>
                                         </ng-template>
@@ -2109,7 +1809,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true" aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3" (click)="setActiveTransit(3)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Photograph</h2>
                                             </div>
                                         </ng-template>
@@ -2130,7 +1833,10 @@
                                     <ngb-tab>
                                         <ng-template ngbTabTitle>
                                             <div data-toggle="collapse" data-target="#transitMobileFour" aria-expanded="true" aria-controls="transitMobileFour" [class.showDiv]="selectedTransit === 4" (click)="setActiveTransit(4)">
-                                                <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" />
+                                                <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png" alt="apply for azerbaijan e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                                                <div class="makeIconCntr">
+                                                    <div class="vr-businessForm requiredIcons img-sprite"></div>
+                                                </div>
                                                 <h2 class="setFontSize">Application Form</h2>
                                             </div>
                                         </ng-template>
