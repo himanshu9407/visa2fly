@@ -68,7 +68,6 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     ChatboxComponent,
     InsuranceComponent,
     PreloaderComponent,
-    RemovewhitespacePipe,
     SomethingWrongComponent,
     B2bHeaderComponent,
     B2bFooterComponent,

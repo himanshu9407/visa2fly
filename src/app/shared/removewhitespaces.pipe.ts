@@ -10,7 +10,7 @@ export class RemovewhitespacesPipe implements PipeTransform {
   // }
 
   transform(value: string): string {
-    return value? value.replace(/ /g, "-") : value;
+    return value? value.replace(/ /g, "") : value;
   }
 
 }

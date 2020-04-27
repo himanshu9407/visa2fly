@@ -60,10 +60,16 @@
         <div class="btn-group">
           <button (click)="toogleDropdown()" ngbDropdownToggle role="button" class="btn btn-sm dropdown-toggle ml-3 user-dropdown user-name"
           id="profileDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img
+            <!-- <img
               data-src="https://static.visa2fly.com/assets/download.png"
-              alt="apply visa online" class="lazyload" style="width: 25px;  border-radius: 50px;">
-            {{  userDetails.firstName == null ||userDetails.firstName == undefined ?  userDetails.emailId : userDetails.firstName}}
+              alt="apply visa online" class="lazyload" style="width: 25px;  border-radius: 50px;"> -->
+              <div class="user-image img-sprite"></div>
+              <h6 style="font-size: 13px;
+              padding: 0px 3px;
+              display: inline-block;
+              margin-top: 4px;">
+                {{  userDetails.firstName == null ||userDetails.firstName == undefined ?  userDetails.emailId : userDetails.firstName}}
+              </h6>
           </button>
           <div  style="z-index: 1500" class="dropdown-menu" ngbDropdownMenu aria-labelledby="profileDropdown" [ngClass]="{'show':showDropDown}">
             <button [routerLink] = "['profile']" class="dropdown-item">My Profile</button>
