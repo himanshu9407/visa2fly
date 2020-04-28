@@ -118,7 +118,7 @@ export class B2bReqComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        // console.log(data);
+        console.log(data);
         if (data.code == "0") {
           this.requirementsData = data;
           // console.log(data.data);
