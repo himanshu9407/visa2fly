@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
-import { SimplansComponent } from '../simplans/simplans.component';
+import { SimcheckoutComponent } from './simcheckout.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", component: SimplansComponent, pathMatch: "full" },
-
+  { path: "", component: SimcheckoutComponent, pathMatch: "full" }
 ]
 
 @NgModule({
   declarations: [
-    SimplansComponent,
+    SimcheckoutComponent,
   ],
-  imports : [
+  imports: [
     CommonModule,
     ReactiveFormsModule,
     NgbModule,
@@ -23,4 +22,4 @@ const routes: Routes = [
   ]
 })
 
-export class SimplansModule {}
+export class SimCheckoutModule {}

@@ -26,6 +26,7 @@
   font-size: 22px;
   color: #000;
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 .worldTitle::after {
@@ -63,7 +64,9 @@
   height: 450px;
   background: url(https://static.visa2fly.com/globe/world.jpg);
   background-size: cover;
-  animation: animateEarth 30s linear infinite;
+  animation: animateEarth 30s infinite;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
   box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,
     0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
   -webkit-transform: translate(-50%, -50%) rotate(27deg);
@@ -76,6 +79,7 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  -webkit-animation: animateEarth 30s infinite;
 }
 
 .exploreTheWorld {
@@ -100,6 +104,7 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  -webkit-animation: ;
 }
 
 .finallyReach {
@@ -140,7 +145,7 @@
   margin: 30px;
   display: inline-block;
   position: relative;
-  width: 365px;
+  width: 380px;
   height: auto;
   background-color: #f0f8ff;
 }
@@ -153,8 +158,8 @@
 
 .btn-top-right {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 20px;
+  right: 20px;
 }
 
 .btn-bottom-left {
@@ -194,6 +199,7 @@
 .world-Img {
   width: 60px;
   height: 60px;
+  zoom: 0.95;
   display: inline-block;
   margin-top: -40px;
 }
@@ -226,7 +232,6 @@
 }
 
 @media screen and (max-width: 768px) {
-
   .destinationContent {
     line-height: 22px;
   }
@@ -246,11 +251,7 @@
   }
 
   .world-Img {
-    width: 60px;
-    height: 60px;
     zoom: 0.7;
-    display: inline-block;
-    margin-top: -40px;
   }
 
   .worldTitle {
@@ -269,14 +270,14 @@
   }
 }
 
-@media (min-width: 320px) and (max-width:359px) {
+@media (min-width: 320px) and (max-width: 359px) {
   .jugGhumia {
     height: 50vh;
   }
 
   .counrtyCourt {
     width: 246px !important;
-}
+  }
 
   .pin {
     height: 36px;
@@ -307,14 +308,14 @@
   }
 }
 
-@media (min-width: 360px) and (max-width:374px) {
+@media (min-width: 360px) and (max-width: 374px) {
   .jugGhumia {
-    height: 44vh;
+    height: 48vh;
   }
 
   .counrtyCourt {
     width: 246px !important;
-}
+  }
 
   .pulse {
     width: 240px;
@@ -407,7 +408,7 @@
 
   .counrtyCourt {
     width: 325px !important;
-}
+  }
 
   .pulse {
     width: 300px;
@@ -477,7 +478,7 @@
 
   .counrtyCourt {
     width: 423px;
-}
+  }
 
   .exploreTheWorld {
     width: 370px;
@@ -524,9 +525,9 @@
   .mobileView {
     display: block;
   }
-  
+
   .desktopView {
-    display: none; 
+    display: none;
   }
 }
 
@@ -538,8 +539,8 @@
   .mobileView {
     display: block;
   }
-  
+
   .desktopView {
-    display: none; 
+    display: none;
   }
 }

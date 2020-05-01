@@ -6,7 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { RequirementsComponent } from './requirements.component';
-import { RemovewhitespacePipe } from 'src/app/shared/removeWhiteSpace.pipe';
+import { RemovespacePipe } from './removespace.pipe';
 
 const routes: Routes = [
   { path: "", component: RequirementsComponent }
@@ -15,9 +15,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     RequirementsComponent,
-    RemovewhitespacePipe
+    RemovespacePipe,
   ],
-
+  
   imports: [
     FormsModule,
     CommonModule,

@@ -26,12 +26,11 @@ import { PreloaderComponent } from "./shared/preloader/preloader.component";
 import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { RemovewhitespacePipe } from './shared/removeWhiteSpace.pipe';
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { B2BModule } from './components/b2b/b2b.Module';
+import { B2BModule } from './components/b2b/b2b.module';
 import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component';
 import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.component';
 import { B2bMobileNavComponent } from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
@@ -42,11 +41,11 @@ import { LoginSignupModule } from './components/login-signup/login-signup.module
 import { MyBookingsModule } from './components/my-bookings/mybookings.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { RequirementsModule } from './components/requirements/requirements.module';
-import { FreeVisaModule } from './components/SimModule/free-visa.module';
-import { SimModule } from './components/SimModule/sim.module';
-import { SimCheckoutModule } from './components/SimModule/simCheckout.module';
-import { SimplansModule } from './components/SimModule/simplans.module';
-import { VisaArrivalModule } from './components/SimModule/visa-arrival.module';
+import { FreeVisaModule } from './components/free-visa/free-visa.module';
+import { SimModule } from './components/sim/sim.module';
+import { SimCheckoutModule } from './components/simcheckout/simcheckout.module';
+import { SimplansModule } from './components/simplans/simplans.module';
+import { VisaArrivalModule } from './components/visa-arrival/visa-arrival.module';
 import { AboutUsModule } from './components/static/about-us/about-us.module';
 import { CancellationsAndReturnModule } from './components/static/cancellations-and-return/cancellations-and-return.module';
 import { CookiePolicyModule } from './components/static/cookie-policy/cookie-policy.module';
@@ -71,9 +70,7 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     SomethingWrongComponent,
     B2bHeaderComponent,
     B2bFooterComponent,
-    B2bMobileNavComponent,
-
-
+    B2bMobileNavComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -107,26 +104,6 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     TermsandConditionsModule,
     VisaRequirementModule,
     BookingDetailsModule
-    // AustraliaModule,
-    // AzerbaijanModule,
-    // ChinaModule,
-    // MaldivesModule,
-    // CombodiaModule,
-    // DubaiModule,
-    // EthopianModule,
-    // FranceModule,
-    // MalaysiaModule,
-    // NetherlandsModule,
-    // SingaporeModule,
-    // SpainModule,
-    // SrilankaModule,
-    // SwitzerlandModule,
-    // ThailandModule,
-    // TurkeyModule,
-    // UnitedKingdomModule,
-    // USAModule,
-    // VietnamModule
-    // ServiceWorkerModule.registe,r('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

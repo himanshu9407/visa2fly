@@ -83,7 +83,7 @@ export class WorldComponent implements OnInit {
 
   worldChart: any;
 
-  index: number = 1;
+  index: number = 0;
 
   destinationQuery: Array<any> = [
     // Iceland
@@ -110,7 +110,7 @@ export class WorldComponent implements OnInit {
         },
         {
           title4: "Whale Watching",
-          image4: "Whale Watching",
+          image4: "Whale-Watching",
           content4:
             "Considering Iceland is so close to the North Pole, its waters are just cold enough to host a diverse population of impressive whales - among other mammals. During the summers, these coasts are feeding grounds for the majestic creatures, and you can witness them in their natural habitat while they’re at it! It’s cruelty-free, and a popular tourist activity that we reckon is worth it.",
         },
@@ -503,8 +503,9 @@ export class WorldComponent implements OnInit {
           title2: "Rich, Intense Culture",
           image2: "Rich-Intense-Culture",
           content2:
-            "Just like everything else about India, each part of the country boasts a different, unique set of traditions, language, ideals, and folklore - all unified by their vibrant festivals and close-knit community. India’s culture extends into its architecture, with more famous wonders such as the Taj Mahal, as well as other equally dazzling UNESCO World Heritage Sites across the country. The Mysore Palace, Sanchi Stupa, Qutub Minar, the Golden and Lotus Temples (among the few thousand other architectural wonders that are India’s religious monuments), Hawa Mahal and Victoria Terminus are some of the nation’s most famous historical masterpieces.",
+            "Just like everything else about India, each part of the country boasts a different, unique set of traditions, language, ideals, and folklore - all unified by their vibrant festivals and close-knit community. India’s culture extends into its architecture, with more famous wonders such as the Taj Mahal, as well as other equally dazzling UNESCO World Heritage Sites across the country.",
         },
+        // The Mysore Palace, Sanchi Stupa, Qutub Minar, the Golden and Lotus Temples (among the few thousand other architectural wonders that are India’s religious monuments), Hawa Mahal and Victoria Terminus are some of the nation’s most famous historical masterpieces.
         {
           title3: "Bollywood, Kollywood And Other Kinds Of Woods",
           image3: "Bollywood-Kollywood-And-Other-Kinds-Of-Woods",
@@ -897,6 +898,7 @@ export class WorldComponent implements OnInit {
   destinationImage2: any;
   destinationImage3: any;
   destinationImage4: any;
+  showHeading: boolean = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -906,15 +908,17 @@ export class WorldComponent implements OnInit {
     setTimeout(() => {
       this.exploreWorld = "reachYourDestination";
       this.flip = this.flip == "inactive" ? "active" : "inactive";
+      this.showHeading = true;
     }, 1000);
     this.exploreWorld = "findingDestination";
+    this.showHeading = false;
 
     if (this.index <= this.destinationQuery.length) {
       this.worldChart = this.destinationQuery[this.index];
       this.index = this.index + 1;
     }
     if (this.index >= this.destinationQuery.length) {
-      this.index = 1;
+      this.index = 0;
     }
 
     this.destinationTitle1 = this.worldChart.destinationInfo[0].title1;

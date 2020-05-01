@@ -2,12 +2,22 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 text-center">
-        <h5 class="worldTitle">
-          Like Exploring New Places {{destinationCountry}}
-        </h5>
-        <p class="worldSubTitle">
-          Click The Globe To Explore More
-        </p>
+        <ng-container *ngIf="!showHeading; else onClick">
+          <h5 class="worldTitle">
+            Like exploring new places
+          </h5>
+          <p class="worldSubTitle">
+            Click on globe below to know more
+          </p>
+        </ng-container>
+        <ng-template #onClick>
+          <h5 class="worldTitle">
+            {{ destinationCountry }}
+          </h5>
+          <p class="worldSubTitle">
+            Click on the map below to explore more places
+          </p>
+        </ng-template>
       </div>
     </div>
     <div class="talk-bubble tri-right round btn-top-left"
@@ -19,6 +29,7 @@
           <h5 class="destinationTitle">{{destinationTitle1}}</h5>
         </div>
         <p class="destinationContent">{{destinationContent1}}</p>
+        <p ng-text-truncate="longText" ng-tt-chars-threshold="40"></p>
       </div>
     </div>
 
@@ -78,12 +89,22 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h5 class="worldTitle">
-          Like Exploring New Places {{destinationCountry}}
-        </h5>
-        <p class="worldSubTitle">
-          Click The Globe To Explore More
-        </p>
+        <ng-container *ngIf="!showHeading; else onClick">
+          <h5 class="worldTitle">
+            Like exploring new places
+          </h5>
+          <p class="worldSubTitle">
+            Click on globe below to know more
+          </p>
+        </ng-container>
+        <ng-template #onClick>
+          <h5 class="worldTitle">
+            {{ destinationCountry }}
+          </h5>
+          <p class="worldSubTitle">
+            Click on the map below to explore more places
+          </p>
+        </ng-template>
       </div>
 
       <div class="col-12 p-0">
@@ -95,7 +116,7 @@
         }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
             usemap="shapes-map">
           </div>
-          <img src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
+          <img data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
             [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
             [@flipWorld]="flip" class="counrtyCourt img-fluid">
         </div>
@@ -155,5 +176,5 @@
       </div>
     </div>
   </div>
-  <img src="../../assets/world-heritage.png" class="img-fluid world-heritage" />
+  <img data-src="https://static.visa2fly.com/globe/world-heritage.png" class="img-fluid lazyload world-heritage" />
 </section>

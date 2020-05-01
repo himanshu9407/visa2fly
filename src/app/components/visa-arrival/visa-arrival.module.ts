@@ -1,27 +1,24 @@
 import { NgModule } from '@angular/core';
-import { SimComponent } from '../sim/sim.component';
+import { VisaArrivalComponent } from './visa-arrival.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", component: SimComponent, pathMatch: "full" },
-
+  { path: "", component: VisaArrivalComponent, pathMatch: "full"}
 ]
 
 @NgModule({
   declarations: [
-    SimComponent,
-
-
+    VisaArrivalComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NgbModule,
     FormsModule,
+    NgbModule,
     RouterModule.forChild(routes)
   ]
 })
-export class SimModule {}
+export class VisaArrivalModule {}

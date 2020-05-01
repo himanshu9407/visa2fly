@@ -330,7 +330,7 @@ const routes: Routes = [
   {
     path: "sim",
     loadChildren: () =>
-      import("./components/SimModule/sim.module").then((m) => m.SimModule),
+      import("./components/sim/sim.module").then((m) => m.SimModule),
     data: { preload: true },
   },
 
@@ -338,7 +338,7 @@ const routes: Routes = [
   {
     path: "sim/simplans",
     loadChildren: () =>
-      import("./components/SimModule/simplans.module").then(
+      import("./components/simplans/simplans.module").then(
         (m) => m.SimplansModule
       ),
     data: { preload: true },
@@ -348,7 +348,7 @@ const routes: Routes = [
   {
     path: "sim/checkout",
     loadChildren: () =>
-      import("./components/SimModule/simCheckout.module").then(
+      import("./components/simcheckout/simcheckout.module").then(
         (m) => m.SimCheckoutModule
       ),
     data: { preload: true },
@@ -358,7 +358,7 @@ const routes: Routes = [
   {
     path: "visOnArrival",
     loadChildren: () =>
-      import("./components/SimModule/visa-arrival.module").then(
+      import("./components/visa-arrival/visa-arrival.module").then(
         (m) => m.VisaArrivalModule
       ),
     data: { preload: true },
@@ -368,7 +368,7 @@ const routes: Routes = [
   {
     path: "freeVisa",
     loadChildren: () =>
-      import("./components/SimModule/free-visa.module").then(
+      import("./components/free-visa/free-visa.module").then(
         (m) => m.FreeVisaModule
       ),
     data: { preload: true },
@@ -378,7 +378,7 @@ const routes: Routes = [
   {
     path: "b2b",
     loadChildren: () =>
-      import("./components/b2b/b2b.Module").then((m) => m.B2BModule),
+      import("./components/b2b/b2b.module").then((m) => m.B2BModule),
     data: { preload: true },
   },
 

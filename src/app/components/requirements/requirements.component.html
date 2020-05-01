@@ -435,60 +435,6 @@
   </div>
 </div>
 
-<!-- <div class=" visaPriceContainer">
-    <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quote of MyQuotation;">
-            <div class="card planCard mt-0">
-                <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
-                    {{quote.purpose}} Visa
-                </div>
-                <div class="card-body planCardBody">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{
-                            quote.processingTime
-                          }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{
-                            quote.stayPeriod
-                          }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{
-                            quote.validity
-                          }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
-                        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{
-                            quote.entryType
-                          }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-6 planCardRow
-                        ">Fees:</div>
-                        <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
-                        planCardRow" style="color: #000080;">
-                            INR {{ quote.basePrice + quote.serviceTax }} /-</div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <button class="btn btn-primary btn-sm font-weight-bold submitBtn" (click)="navigate(quote.quoteId, quote.basePrice, quote.serviceTax,quote.stayPeriod)">Continue</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div> -->
-
 <div class="detailsContainer">
   <h2 class="headingOther text-center" style="display: flex; justify-content: center">
     <span class="headingInnerOther">REQUIREMENT FOR {{this.selectedCountrytype}} Visa</span>
@@ -503,10 +449,8 @@
             *ngFor="let item of items;let j = index " (click)="onClickRequrements(i,j,item)">
 
             <div class="parent ng-scope active">
-              <!-- <img class="img-fluid requiredIcon lazyload" src="https://static.visa2fly.com/icon/{{item.fieldName}}.png"
-                [alt]="item.fieldName" style="height: 45px; margin-bottom: 10px;" /> -->
                 <div class="makeIconCntr">
-                  <div class="vr-{{item.fieldName | removewhitespace }} requiredIcons img-sprite"></div>
+                  <div class="vr-{{item.fieldName | removespace }} requiredIcons img-sprite"></div>
               </div>
               <p>{{item.fieldName}}</p>
             </div>
@@ -532,7 +476,7 @@
                 data-src="https://static.visa2fly.com/icon/{{item.fieldName}}.png" [alt]="item.fieldName"
                 style="height: 45px; margin-bottom: 10px;" /> -->
                 <div class="makeIconCntr">
-                  <div class="vr-{{item.fieldName | removewhitespace }} requiredIcons img-sprite"></div>
+                  <div class="vr-{{item.fieldName | removespace }} requiredIcons img-sprite"></div>
               </div>
               <p>{{item.fieldName}}</p>
             </div>
