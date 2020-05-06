@@ -58,13 +58,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 450px;
   height: 450px;
   background: url(https://static.visa2fly.com/globe/world.jpg);
   background-size: cover;
-  animation: animateEarth 30s infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
   box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,
     0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
   -webkit-transform: translate(-50%, -50%);
@@ -77,7 +75,8 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  -webkit-animation: animateEarth 30s infinite;
+  -webkit-animation: animateEarth 30s linear infinite;
+  animation: animateEarth 30s linear infinite;
 }
 
 .exploreTheWorld {
@@ -87,11 +86,10 @@
   transform: translate(-50%, -50%);
   width: 450px;
   height: 450px;
-  background:
-  url(https://static.visa2fly.com/globe/world.jpg);
+  background: url(https://static.visa2fly.com/globe/world.jpg);
   background-size: cover;
-  animation: animateEarth 0.5s linear infinitez;
-  box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,    0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
+  box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,
+    0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -102,24 +100,25 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  -webkit-animation: animateEarth 0.5s linear infinitez;
+  -webkit-animation: animateEarth 0.5s linear infinite;
+  animation: animateEarth 0.5s linear infinite;
 }
 
 .finallyReach {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) ;
+  transform: translate(-50%, -50%);
   width: 450px;
   height: 450px;
-  background:
-  url(https://static.visa2fly.com/globe/world.jpg);
+  background: url(https://static.visa2fly.com/globe/world.jpg);
   background-size: cover;
-  box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,    0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
-  -webkit-transform: translate(-50%, -50%) ;
-  -moz-transform: translate(-50%, -50%) ;
-  -ms-transform: translate(-50%, -50%) ;
-  -o-transform: translate(-50%, -50%) ;
+  box-shadow: 0 0 70px #fff, 0 0 5px #f8fbfa, 0 0 20px #f8fbfa, 0 0 2px #f8fbfa,
+    0 0 5px #f8fbfa, 0 0 0px #f8fbfa;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -262,8 +261,8 @@
   }
 
   .worldSubTitle {
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: lighter;
     margin-bottom: 0px;
     margin-top: 10px;
     letter-spacing: 0.9px;
@@ -518,7 +517,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .counrtyCourt {
     width: 280px;
   }
@@ -535,13 +534,5 @@
 @media screen and (max-width: 320px) {
   .counrtyCourt {
     width: 280px;
-  }
-
-  .mobileView {
-    display: block;
-  }
-
-  .desktopView {
-    display: none;
   }
 }
