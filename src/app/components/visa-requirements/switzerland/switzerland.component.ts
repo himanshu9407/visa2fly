@@ -18,6 +18,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
+import { SeoService } from 'src/app/shared/seo.service';
 
 export interface Food {
   value: string;
@@ -90,7 +91,8 @@ export class SwitzerlandComponent implements OnInit {
     private reqService: RequirementsService,
     private toastr: ToastrService,
     private titleService: Title,
-    private meta: Meta
+    private meta: Meta,
+    private seoService: SeoService
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -171,6 +173,7 @@ export class SwitzerlandComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       {
@@ -184,6 +187,10 @@ export class SwitzerlandComponent implements OnInit {
           "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more.",
       },
     ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
   ngAfterViewInit() {

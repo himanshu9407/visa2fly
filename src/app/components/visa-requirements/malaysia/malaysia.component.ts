@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from 'src/app/shared/seo.service';
 
 @Component({
   selector: 'app-malaysia',
@@ -78,7 +79,8 @@ export class MalaysiaComponent implements OnInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private toastr: ToastrService,
-    private meta: Meta
+    private meta: Meta,
+    private seoService: SeoService
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -166,6 +168,7 @@ export class MalaysiaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for malaysia e-visa, malaysia tourist visa application, malaysia tourist visa for indian, apply for malaysia e visa, malaysia e-visa for indians" },
@@ -176,6 +179,10 @@ export class MalaysiaComponent implements OnInit {
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
   ngAfterViewInit() {

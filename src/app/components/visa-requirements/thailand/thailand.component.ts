@@ -20,6 +20,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { ToastrService } from 'ngx-toastr';
+import { SeoService } from 'src/app/shared/seo.service';
 
 export interface Food {
   value: string;
@@ -91,7 +92,8 @@ export class ThailandComponent implements OnInit, AfterViewInit {
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
     private titleService: Title,
-    private meta: Meta) {
+    private meta: Meta,
+    private seoService: SeoService) {
 
             this.userControlDetail = this.userFlow.getUserFlowDetails();
           this.preloaderService.showPreloader(true);
@@ -168,6 +170,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
 
     this.titleService.setTitle(this.title);
     this.meta.addTags([
@@ -177,6 +180,10 @@ export class ThailandComponent implements OnInit, AfterViewInit {
         content: "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More"
       }
     ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
   ngAfterViewInit() {

@@ -18,6 +18,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from 'src/app/shared/seo.service';
 
 export interface Food {
   value: string;
@@ -89,7 +90,8 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
     private titleService: Title,
-    private meta: Meta
+    private meta: Meta,
+    private seoService: SeoService
     ) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
@@ -167,6 +169,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for Sri Lanka e-visa, Sri Lanka tourist visa application, Sri Lanka tourist visa for Indian, apply for Sri Lanka e visa, Sri Lanka e-visa for Indians" },
@@ -175,6 +178,10 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
         content: "From now on, you can get your Srilanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us."
       }
     ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
    ngAfterViewInit() {

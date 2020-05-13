@@ -5,10 +5,10 @@ import {
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { HomeFormComponent } from "../../home-form/home-form.component";
@@ -17,7 +17,8 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta } from "@angular/platform-browser";
+import { SeoService } from 'src/app/shared/seo.service';
 
 export interface Food {
   value: string;
@@ -41,15 +42,15 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class AzerbaijanComponent implements OnInit, AfterViewInit {
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
-  title = 'Azerbaijan E Visa Apply Online- Visa2Fly';
+  title = "Azerbaijan E Visa Apply Online- Visa2Fly";
 
   selectedRequirement: boolean = false;
 
@@ -93,7 +94,8 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
     private titleService: Title,
-    private meta: Meta
+    private meta: Meta,
+    private seoService: SeoService
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -109,7 +111,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
     let tempPurpose = this.selectedVisaType;
     //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
+      purposeSelected: new FormControl(tempPurpose),
     });
 
     this.requireQuotation
@@ -139,7 +141,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
           );
 
           //console.log(this.MyQuotation);
-          this.MyQuotation.forEach(element => {
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
               // console.log(this.businessArr);
@@ -177,21 +179,30 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
             this.preloaderService.showPreloader(false);
             this.router.navigate(["/"]);
           }, 2000);
-          this.toastr.error(
-            "Country Not Found"
-          );
+          this.toastr.error("Country Not Found");
         }
       });
   }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      {name:"keywords", content:"apply for azerbaijan e-visa, azerbaijan tourist visa application, azerbaijan tourist visa for indian, apply for azerbaijan e visa, azerbaijan e-visa for indians"},
-      {name: 'description', content: 'Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.'},
-        // {name: 'author', content: 'rsgitech'},
-        // {name: 'robots', content: 'index, follow'}
-      ]);
+      {
+        name: "keywords",
+        content:
+          "apply for azerbaijan e-visa, azerbaijan tourist visa application, azerbaijan tourist visa for indian, apply for azerbaijan e visa, azerbaijan e-visa for indians",
+      },
+      {
+        name: "description",
+        content:
+          "Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.",
+      },
+    ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
   ngAfterViewInit() {
@@ -301,14 +312,19 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUploads", JSON.stringify(this.imagefield1));
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imagefield1)
+    );
 
     // console.log(this.userFlow.getUserFlowDetails(category));
-
 
     //console.log(quoteId);
 

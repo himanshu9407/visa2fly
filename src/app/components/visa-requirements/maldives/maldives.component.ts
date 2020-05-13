@@ -18,6 +18,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
+import { SeoService } from 'src/app/shared/seo.service';
 
 export interface Food {
   value: string;
@@ -91,6 +92,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     private titleService: Title,
     private meta: Meta,
     private reqService: RequirementsService,
+    private seoService: SeoService
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
 
@@ -140,6 +142,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for maldives e-visa, maldives tourist visa application, maldives tourist visa for indian, apply for maldives e visa, maldives e-visa for indians" },
@@ -150,6 +153,10 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
   ngAfterViewInit() {

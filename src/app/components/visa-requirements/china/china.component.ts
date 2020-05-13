@@ -5,10 +5,10 @@ import {
   state,
   transition,
   animate,
-  style
+  style,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
@@ -17,7 +17,8 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { timeout, min } from "rxjs/operators";
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta } from "@angular/platform-browser";
+import { SeoService } from 'src/app/shared/seo.service';
 
 @Component({
   selector: "app-china",
@@ -36,9 +37,9 @@ import { Title, Meta } from '@angular/platform-browser';
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class ChinaComponent implements OnInit, AfterViewInit {
   @ViewChild("t", { static: false }) t;
@@ -71,7 +72,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTemp: Array<any> = [];
 
   public selectedCountrytype = "China";
-  title: string = 'Apply For China Visa Online- Visa2Fly';
+  title: string = "Apply For China Visa Online- Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -85,7 +86,8 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
     private titleService: Title,
-    private meta: Meta
+    private meta: Meta,
+    private seoService: SeoService
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -101,7 +103,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     let tempPurpose = this.selectedVisaType;
     //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
+      purposeSelected: new FormControl(tempPurpose),
     });
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
@@ -124,7 +126,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
             JSON.stringify(res.data.onlineCategory)
           );
           //console.log(this.MyQuotation);
-          this.MyQuotation.forEach(element => {
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
               // console.log(this.businessArr);
@@ -139,20 +141,20 @@ export class ChinaComponent implements OnInit, AfterViewInit {
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-            if (purposeUrl == "Business") {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            }else if(purposeUrl == 'Tourist') {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            }else if(purposeUrl == 'Transit'){
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }else{
-              this.router.navigate(['visa/']);
-            }
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
 
-            this.imagefield1 = this.imageCatogoryTemp;
+          this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -168,16 +170,31 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name:"keywords", content: "apply for china e-visa, china tourist visa application, china tourist visa for indian, apply for china e visa, china e-visa for indians" },
+      {
+        name: "keywords",
+        content:
+          "apply for china e-visa, china tourist visa application, china tourist visa for indian, apply for china e visa, china e-visa for indians",
+      },
       {
         name: "description",
-        content: "Apply for China visa online at Visa2fly. Once you apply for a China visa online, get assured online visa services and maximum benefits entitled to it. Visa2fly offers travel insurance and travel sim cards inclusive with assured online visa services. Know more."
+        content:
+          "Apply for China visa online at Visa2fly. Once you apply for a China visa online, get assured online visa services and maximum benefits entitled to it. Visa2fly offers travel insurance and travel sim cards inclusive with assured online visa services. Know more.",
+      },
+      {
+        rel: "canonical",
+        href:
+          "https://visa2fly.com/visa-requirements/apply-for-China-visa-online/Tourist",
       },
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
   ngAfterViewInit() {
@@ -216,7 +233,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-   if (purposeString == "Tourist") {
+    if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
@@ -274,7 +291,10 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     this.userFlow.setUserFlowDetails("category", category);
     // console.log(quoteId);
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     // console.log(basePrice);
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));

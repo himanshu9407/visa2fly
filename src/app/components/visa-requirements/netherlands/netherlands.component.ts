@@ -18,6 +18,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from 'src/app/shared/seo.service';
 
 export interface Food {
   value: string;
@@ -90,7 +91,8 @@ export class NetherlandsComponent implements OnInit {
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
     private titleService: Title,
-    private meta: Meta) {
+    private meta: Meta,
+    private seoService: SeoService) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
       // console.log(this.userControlDetail.purpose);
@@ -175,6 +177,7 @@ export class NetherlandsComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for netherlands e-visa, netherlands tourist visa application, netherlands tourist visa for indian, apply for netherlands e visa, netherlands e-visa for indians" },
@@ -185,6 +188,10 @@ export class NetherlandsComponent implements OnInit {
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
+  }
+
+  createLinkForCanonicalURL() {
+    this.seoService.createLinkForCanonicalURL();
   }
 
   ngAfterViewInit() {
