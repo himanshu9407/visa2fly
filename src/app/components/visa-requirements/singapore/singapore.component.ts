@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -19,6 +19,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -92,7 +93,7 @@ export class SingaporeComponent implements OnInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService
+    @Inject(DOCUMENT) private doc
     ) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
@@ -173,7 +174,6 @@ export class SingaporeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for singapore e-visa, singapore tourist visa application, singapore tourist visa for indian, apply for singapore e visa, singapore e-visa for indians" },
@@ -181,13 +181,12 @@ export class SingaporeComponent implements OnInit {
         name: "description",
         content: "Visit Singapore with Visa2Fly online visa services offering Singapore e-visa for Indians. Visa2Fly offers the best online visa services for Indian passport holders that also includes maximum benefits like travel insurance and Travel sim cards. Apply here. "
       },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Singapore-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

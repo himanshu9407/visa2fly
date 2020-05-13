@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -19,6 +19,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -95,7 +96,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService
+    @Inject(DOCUMENT) private doc
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -185,7 +186,6 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       {
@@ -199,10 +199,11 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
           "Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.",
       },
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Azerbaijan-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

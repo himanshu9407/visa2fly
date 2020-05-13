@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -19,6 +19,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -92,7 +93,7 @@ export class NetherlandsComponent implements OnInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService) {
+    @Inject(DOCUMENT) private doc) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
       // console.log(this.userControlDetail.purpose);
@@ -177,7 +178,6 @@ export class NetherlandsComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for netherlands e-visa, netherlands tourist visa application, netherlands tourist visa for indian, apply for netherlands e visa, netherlands e-visa for indians" },
@@ -185,13 +185,12 @@ export class NetherlandsComponent implements OnInit {
         name: "description",
         content: "Apply for your Netherlands visa online at Visa2Fly to make it hassle-free and convenient. Visa2Fly gives additional advantages like journey insurance. Know more."
       },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Netherlands-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

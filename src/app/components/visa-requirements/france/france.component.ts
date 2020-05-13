@@ -1,5 +1,5 @@
 import { FormGroup, FormControl } from "@angular/forms";
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
 import {
   trigger,
   state,
@@ -19,6 +19,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -92,7 +93,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService
+    @Inject(DOCUMENT) private doc
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -177,7 +178,6 @@ export class FranceComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       {
@@ -190,13 +190,12 @@ export class FranceComponent implements OnInit, AfterViewInit {
         content:
           "Now you can Apply for France e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more."
       }
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-France-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

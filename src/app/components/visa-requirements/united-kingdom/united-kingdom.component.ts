@@ -1,7 +1,7 @@
 import { Data } from "./../../../interfaces/requirement";
 import { country } from "./../../../interfaces/home_formData";
 import { FormGroup, FormControl } from "@angular/forms";
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
 import {
   trigger,
   state,
@@ -21,6 +21,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -94,7 +95,7 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService
+    @Inject(DOCUMENT) private doc
   ) {
     // this.userControlDetail = this.userFlow.getUserFlowDetails();
     // // console.log(this.userControlDetail);
@@ -181,7 +182,6 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     
     this.titleService.setTitle(this.title);
     this.meta.addTags([
@@ -191,10 +191,11 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
         content: "Avail online visa services for your UK visa application at Visa2Fly. Get assured online visa services and immigration services that make your UK visa application process hassle-free and convenient. Fill your UK visa application online at Visa2fly now.  "
       },
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-UK-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

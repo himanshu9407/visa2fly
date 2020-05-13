@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -19,6 +19,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -90,7 +91,7 @@ export class DubaiComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService
+    @Inject(DOCUMENT) private doc
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -181,7 +182,6 @@ export class DubaiComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for dubai e-visa, dubai tourist visa application, dubai tourist visa for indian, apply for dubai e visa, dubai e-visa for indians" },
@@ -189,17 +189,15 @@ export class DubaiComponent implements OnInit, AfterViewInit {
         name: "description",
         content: "Visa2fly offers Dubai visa for Indians visiting UAE. Indian passport holders can easily apply for a Dubai visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Dubai visa online with Visa2Fly here. "
       },
-      {
-        rel: "canonical",
-        href:
-          "https://visa2fly.com/visa-requirements/apply-for-Dubai-visa-online/Tourist",
-      },
     ]);
+
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Dubai-visa-online/Tourist");
   }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
-  }
+ 
 
   ngAfterViewInit() {
     this.t.select(this.selectedVisaType);

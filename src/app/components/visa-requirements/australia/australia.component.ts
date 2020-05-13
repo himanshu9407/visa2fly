@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Inject} from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -19,6 +19,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -91,7 +92,8 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService) {
+    @Inject(DOCUMENT) private doc,
+    ) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -181,7 +183,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
+
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content:"apply for australia e-visa, australia tourist visa application, australia tourist visa for indian, apply for australia e visa, australia e-visa for indians" },
@@ -190,10 +192,11 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
         content: "Planning to visit Australia? Apply your Australia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
       }
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Australia-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

@@ -11,6 +11,9 @@ export class SeoService {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
+    console.log(((this.doc.URL).split("/")).slice(-1)[0]);
+    
     link.setAttribute("href", this.doc.URL);
   }
 }
+

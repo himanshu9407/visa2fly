@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-malaysia',
@@ -80,7 +81,7 @@ export class MalaysiaComponent implements OnInit {
     private titleService: Title,
     private toastr: ToastrService,
     private meta: Meta,
-    private seoService: SeoService
+    @Inject(DOCUMENT) private doc
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -168,7 +169,6 @@ export class MalaysiaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name:"keywords", content: "apply for malaysia e-visa, malaysia tourist visa application, malaysia tourist visa for indian, apply for malaysia e visa, malaysia e-visa for indians" },
@@ -176,13 +176,12 @@ export class MalaysiaComponent implements OnInit {
         name: "description",
         content: "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here."
       },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Malaysia-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
+import { Component, OnInit, ViewChild, AfterViewInit, Inject } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -19,6 +19,7 @@ import { RequirementsService } from "../../requirements/requirements.service";
 import { timeout, min } from "rxjs/operators";
 import { Title, Meta } from "@angular/platform-browser";
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: "app-china",
@@ -87,7 +88,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService
+    @Inject(DOCUMENT) private doc
   ) {
     this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
@@ -170,7 +171,6 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       {
@@ -183,18 +183,12 @@ export class ChinaComponent implements OnInit, AfterViewInit {
         content:
           "Apply for China visa online at Visa2fly. Once you apply for a China visa online, get assured online visa services and maximum benefits entitled to it. Visa2fly offers travel insurance and travel sim cards inclusive with assured online visa services. Know more.",
       },
-      {
-        rel: "canonical",
-        href:
-          "https://visa2fly.com/visa-requirements/apply-for-China-visa-online/Tourist",
-      },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-China-visa-online/Tourist");
   }
 
   ngAfterViewInit() {

@@ -1,7 +1,7 @@
 import { Data } from "./../../../interfaces/requirement";
 import { country } from "./../../../interfaces/home_formData";
 import { FormGroup, FormControl } from "@angular/forms";
-import { Component, OnInit, AfterViewInit, ViewChild } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
 import {
   trigger,
   state,
@@ -21,6 +21,7 @@ import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { ToastrService } from 'ngx-toastr';
 import { SeoService } from 'src/app/shared/seo.service';
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -93,7 +94,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    private seoService: SeoService) {
+    @Inject(DOCUMENT) private doc) {
 
             this.userControlDetail = this.userFlow.getUserFlowDetails();
           this.preloaderService.showPreloader(true);
@@ -170,7 +171,6 @@ export class ThailandComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
-    this.createLinkForCanonicalURL();
 
     this.titleService.setTitle(this.title);
     this.meta.addTags([
@@ -180,10 +180,11 @@ export class ThailandComponent implements OnInit, AfterViewInit {
         content: "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More"
       }
     ]);
-  }
 
-  createLinkForCanonicalURL() {
-    this.seoService.createLinkForCanonicalURL();
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Thailand-visa-online/Tourist");
   }
 
   ngAfterViewInit() {
