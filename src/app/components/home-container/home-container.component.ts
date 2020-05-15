@@ -27,9 +27,7 @@ export class HomeContainerComponent implements OnInit {
       {
         name: "description",
         content: "Apply Visa Online by filling your Online Visa Application at Visa2Fly. Experience hassle-free end to end visa assistance for Indian passport holders. Book Here"
-      },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
+      }
     ]);
 
     let link: HTMLLinkElement = this.doc.createElement("link");
