@@ -116,7 +116,7 @@
           </div>
           <img *ngIf="showHeading" data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
             [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
-            [@flipWorld]="flip" class="counrtyCourt img-fluid">
+            [@flipWorld]="flip" class="counrtyCourt img-fluid lazyload">
         </div>
       </div>
 

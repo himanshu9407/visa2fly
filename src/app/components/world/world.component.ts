@@ -915,7 +915,7 @@ export class WorldComponent implements OnInit {
     this.exploreWorld = "findingDestination";
     this.showHeading = false;
 
-    console.log(this.destinationQuery.length);
+    // console.log(this.destinationQuery.length);
     if (this.destinationQuery.length >= 0) {
       let random = Math.floor(Math.random() * this.destinationQuery.length);
       // console.log(random);
@@ -938,7 +938,7 @@ export class WorldComponent implements OnInit {
       if (this.destinationQuery.length == 0) {
         this.destinationQuery = this.storedArray
         this.storedArray = [];
-        console.log(this.destinationQuery.length);
+        // console.log(this.destinationQuery.length);
         
       }
     }
