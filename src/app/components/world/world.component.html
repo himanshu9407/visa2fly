@@ -26,7 +26,6 @@
       [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
       <div class="talktext">
         <div class="talktextHeader">
-          <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle1}}.png" class="img-fluid lazyload destinationImage" [alt]="destinationTitle1"> -->
           <div class="world-Img img-sprite" [ngClass]="destinationImage1"></div>
           <h5 class="destinationTitle">{{destinationTitle1}}</h5>
         </div>
@@ -39,7 +38,6 @@
       [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
       <div class="talktext">
         <div class="talktextHeader">
-          <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle2}}.png" class="img-fluid lazyload destinationImage" [alt]="destinationTitle2"> -->
           <div class="world-Img img-sprite" [ngClass]="destinationImage2"></div>
           <h5 class="destinationTitle">{{destinationTitle2}}</h5>
         </div>
@@ -48,14 +46,14 @@
     </div>
 
     <div class="jugGhumia">
-      <div class="glow" [ngClass]="{
+      <div class="glow" *ngIf="!showHeading" [ngClass]="{
     'pulse':exploreWorld === 'simpleRotate',
     'exploreTheWorld':exploreWorld === 'findingDestination',
     'finallyReach':exploreWorld === 'reachYourDestination'
     }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
         usemap="shapes-map">
       </div>
-      <img data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
+      <img *ngIf="showHeading" data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
         [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
         [@flipWorld]="flip" class="counrtyCourt img-fluid lazyload">
     </div>
@@ -64,7 +62,6 @@
       [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
       <div class="talktext">
         <div class="talktextHeader">
-          <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle3}}.png" class="img-fluid lazyload destinationImage" [alt]="destinationTitle3"> -->
           <div class="world-Img img-sprite" [ngClass]="destinationImage3"></div>
           <h5 class="destinationTitle">{{destinationTitle3}}</h5>
         </div>
@@ -76,7 +73,6 @@
       [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
       <div class="talktext">
         <div class="talktextHeader">
-          <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle4}}.png" class="img-fluid lazyload destinationImage" [alt]="destinationTitle4"> -->
           <div class="world-Img img-sprite" [ngClass]="destinationImage4"></div>
           <h5 class="destinationTitle">{{destinationTitle4}}</h5>
         </div>
@@ -111,14 +107,14 @@
 
       <div class="col-12 p-0">
         <div class="jugGhumia">
-          <div class="glow" [ngClass]="{
+          <div *ngIf="!showHeading" class="glow" [ngClass]="{
         'pulse':exploreWorld === 'simpleRotate',
         'exploreTheWorld':exploreWorld === 'findingDestination',
         'finallyReach':exploreWorld === 'reachYourDestination'
         }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
             usemap="shapes-map">
           </div>
-          <img data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
+          <img *ngIf="showHeading" data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
             [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
             [@flipWorld]="flip" class="counrtyCourt img-fluid">
         </div>
@@ -129,7 +125,6 @@
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle1}}.png" class="img-fluid lazyload destinationImage" [alt]="destinationTitle1"> -->
               <div class="world-Img img-sprite" [ngClass]="destinationImage1"></div>
               <h5 class="destinationTitle">{{destinationTitle1}}</h5>
             </div>
@@ -142,7 +137,6 @@
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle2}}.png" class="img-fluid lazyload destinationImage" [alt]="destinationTitle2"> -->
               <div class="world-Img img-sprite" [ngClass]="destinationImage2"></div>
               <h5 class="destinationTitle">{{destinationTitle2}}</h5>
             </div>
@@ -155,7 +149,6 @@
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle3}}.png" class="img-fluid lazyload destinationImage" [alt]="destinationTitle3"> -->
               <div class="world-Img img-sprite" [ngClass]="destinationImage3"></div>
               <h5 class="destinationTitle">{{destinationTitle3}}</h5>
             </div>
@@ -168,7 +161,6 @@
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <!-- <img data-src="https://static.visa2fly.com/globe/{{destinationTitle4}}.png" class="img-fluid destinationImage lazyload" [alt]="destinationTitle4"> -->
               <div class="world-Img img-sprite" [ngClass]="destinationImage4"></div>
               <h5 class="destinationTitle">{{destinationTitle4}}</h5>
             </div>

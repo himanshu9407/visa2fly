@@ -85,6 +85,14 @@ export class WorldComponent implements OnInit {
 
   index: number = 0;
 
+  destinationImage1: any;
+  destinationImage2: any;
+  destinationImage3: any;
+  destinationImage4: any;
+  showHeading: boolean = false;
+  storedArray: Array<any> = [];
+  ranNums: Array<any> = [];
+
   destinationQuery: Array<any> = [
     // Iceland
     {
@@ -894,12 +902,6 @@ export class WorldComponent implements OnInit {
     },
   ];
 
-  destinationImage1: any;
-  destinationImage2: any;
-  destinationImage3: any;
-  destinationImage4: any;
-  showHeading: boolean = false;
-
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {}
@@ -913,13 +915,42 @@ export class WorldComponent implements OnInit {
     this.exploreWorld = "findingDestination";
     this.showHeading = false;
 
-    if (this.index <= this.destinationQuery.length) {
-      this.worldChart = this.destinationQuery[this.index];
-      this.index = this.index + 1;
+    console.log(this.destinationQuery.length);
+    if (this.destinationQuery.length >= 0) {
+      let random = Math.floor(Math.random() * this.destinationQuery.length);
+      // console.log(random);
+
+      this.worldChart = this.destinationQuery[random];
+      // console.log(this.worldChart);
+
+      for (let index = 0; index < this.destinationQuery.length; index++) {
+        this.destinationQuery[index] == this.worldChart;
+        // console.log("true");
+        this.storedArray.push(this.worldChart);
+
+        this.destinationQuery.splice(random, 1);
+        // console.log(this.destinationQuery.length);
+        // console.log(this.storedArray.length);
+
+        break;
+      }
+
+      if (this.destinationQuery.length == 0) {
+        this.destinationQuery = this.storedArray
+        this.storedArray = [];
+        console.log(this.destinationQuery.length);
+        
+      }
     }
-    if (this.index >= this.destinationQuery.length) {
-      this.index = 0;
-    }
+
+    // if (this.index <= this.destinationQuery.length) {
+    //
+
+    //   this.index++;
+    // }
+    // if (this.index >= this.destinationQuery.length) {
+    //   this.index = 0;
+    // }
 
     this.destinationTitle1 = this.worldChart.destinationInfo[0].title1;
     this.destinationContent1 = this.worldChart.destinationInfo[0].content1;
