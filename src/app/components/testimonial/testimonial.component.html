@@ -1,108 +1,117 @@
 <div class="testimonial-bg" *ngIf="showTestimonialComponent">
   <div class="testimonialHeading text-white" style=""> What our customers say about us</div>
 
-<div  id="carouselBigTestimonialControls " class="carousel slide bigTestimonial" data-interval ="10000" data-ride="carousel" style="margin-left: 50px;margin-right: 50px;margin-top: 45px;">
-      <div class="carousel-inner">
-        <div class="carousel-item active" *ngIf = "firstTestimonialArrExists">
-          <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-              <div class="testimonialContainer bg-white rounded"*ngFor="let testimonial of firstTestimonialArr"  >
-                  <div class="col">
-                      <div class="testimonialName">
-                        {{testimonial.fullName}}
-                      </div>
-                      <div style="display: flex; justify-content: center; min-height: 70px;" class="font-weight-normal testimonialContent"><i class="fa fa-quote-left pr-2"></i>
-                        {{testimonial.review}}
-
-                      </div>
-                      <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                              <i class="fa fa-star" *ngFor="let stars of createStarArray(testimonial.stars)"> </i>
-
-                            </div>
-                  </div>
+  <div id="carouselBigTestimonialControls " class="carousel slide bigTestimonial" data-interval="10000"
+    data-ride="carousel" style="margin-left: 50px;margin-right: 50px;margin-top: 45px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active" *ngIf="firstTestimonialArrExists">
+        <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
+          <div class="testimonialContainer bg-white rounded" *ngFor="let testimonial of firstTestimonialArr">
+            <div class="col">
+              <div class="testimonialName">
+                {{testimonial.fullName}}
               </div>
+              <div style="display: flex; justify-content: center; min-height: 70px;"
+                class="font-weight-normal testimonialContent">
+                <svg id="Capa_1" enable-background="new 0 0 409.294 409.294"
+                  style="padding-right: .5rem; margin-top: -4px;" height="20" viewBox="0 0 409.294 409.294" width="20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z" />
+                  <path
+                    d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z" />
+                </svg>
+                {{testimonial.review}}
 
+              </div>
+              <div class="testimonialRating" style="display: flex; justify-content: center;">
+                <svg *ngFor="let stars of createStarArray(testimonial.stars)" height="15px"
+                  viewBox="0 -10 511.98685 511" width="15px" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                    fill="#ffc107" /></svg>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="carousel-item" *ngIf="secondTestimonialArrExists">
+        <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
+          <div class="testimonialContainer bg-white rounded" *ngFor="let testimonial of secondTestimonialArr; ">
+            <div class="col">
+              <div class="testimonialName">
+                {{testimonial.fullName}}
+              </div>
+              <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent">
+                <svg id="Capa_1" enable-background="new 0 0 409.294 409.294"
+                  style="padding-right: .5rem; margin-top: -4px;" height="20" viewBox="0 0 409.294 409.294" width="20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z" />
+                  <path
+                    d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z" />
+                </svg>
+                {{testimonial.review}}
+
+              </div>
+              <div class="testimonialRating" style="display: flex; justify-content: center;">
+                <svg *ngFor="let stars of createStarArray(testimonial.stars)" height="15px"
+                  viewBox="0 -10 511.98685 511" width="15px" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                    fill="#ffc107" /></svg>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="carouselSmallTestimonialControls " class="carousel slide smallTestimonial" data-interval="6000"
+    data-ride="carousel" style="margin-left: 50px;margin-right: 50px;">
+    <div class="carousel-inner">
+      <div class="carousel-item " *ngFor="let testimonial of testimonialData;let first=first; "
+        [ngClass]="{'active':first}">
+        <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
+          <div class="testimonialContainer bg-white rounded">
+            <div class="col">
+              <div class="testimonialName">
+                {{testimonial.fullName}}
+              </div>
+              <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent">
+                <svg id="Capa_1" enable-background="new 0 0 409.294 409.294"
+                  style="padding-right: .5rem; margin-top: -4px;" height="20" viewBox="0 0 409.294 409.294" width="20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z" />
+                  <path
+                    d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z" />
+                </svg>
+                {{testimonial.review}}
+              </div>
+              <div class="testimonialRating" style="display: flex; justify-content: center;">
+                <svg *ngFor="let stars of createStarArray(testimonial.stars)" height="15px"
+                  viewBox="0 -10 511.98685 511" width="15px" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                    fill="#ffc107" /></svg>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="carousel-item" *ngIf = "secondTestimonialArrExists">
-              <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-                      <div class="testimonialContainer bg-white rounded" *ngFor="let testimonial of secondTestimonialArr; ">
-                          <div class="col">
-                              <div class="testimonialName">
-                                  {{testimonial.fullName}}
-                              </div>
-                              <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fa fa-quote-left pr-2"></i>
-                                {{testimonial.review}}
-
-                              </div>
-                              <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                                      <i class="fa fa-star" *ngFor="let stars of createStarArray(testimonial.stars)"> </i>
-
-                                    </div>
-                          </div>
-                      </div>
-
-                  </div>
       </div>
 
-        <!-- <div class="carousel-item">
-              <div class="row">
-                      <div class="col">a</div>
-                      <div class="col">b</div>
-                      <div class="col">c</div>
-                  </div>
-        </div> -->
-        <!-- <div class="carousel-item">
-              <div class="row">
-                      <div class="col">4</div>
-                      <div class="col">5</div>
-                      <div class="col">6</div>
-                  </div>
-        </div> -->
-        <!-- <div class="carousel-item">
-              <div class="row">
-                      <div class="col">7</div>
-                      <div class="col">8</div>
-                      <div class="col">9</div>
-                  </div>
-        </div> -->
-      </div>
-      <!-- <a style="color: black;" class="carousel-control-prev" href="#carouselBigTestimonialControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon carouselprevious" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a style="color: black;" class="carousel-control-next" href="#carouselBigTestimonialControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon carouselnext" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a> -->
-</div >
 
 
-<div  id="carouselSmallTestimonialControls " class="carousel slide smallTestimonial" data-interval ="6000" data-ride="carousel" style="margin-left: 50px;margin-right: 50px;">
-      <div class="carousel-inner">
-        <div class="carousel-item " *ngFor="let testimonial of testimonialData;let first=first; " [ngClass]="{'active':first}">
-          <div class="row" style="margin-left: 10px;margin-right: 10px;justify-content: center;">
-              <div class="testimonialContainer bg-white rounded" >
-                  <div class="col">
-                      <div class="testimonialName">
-                          {{testimonial.fullName}}
-                      </div>
-                      <div style="display: flex; justify-content: center;" class="font-weight-normal testimonialContent"><i class="fa fa-quote-left pr-2"></i>
-                        {{testimonial.review}}
-                      </div>
-                      <div class="testimonialRating" style="display: flex; justify-content: center;color: gold">
-                          <i class="fa fa-star" *ngFor="let stars of createStarArray(testimonial.stars)"> </i>
 
-                            </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-        
-            
-                
-                    
 
-      </div>
-      
-</div>
+    </div>
+
+  </div>
 </div>

@@ -39,8 +39,12 @@
                         placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
                         #dot="ngbDatepicker">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button"><i
-                            class="fa fa-calendar"></i>
+                        <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
+                            height="18px">
+                            <path
+                              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            <path d="M0 0h24v24H0z" fill="none" /></svg>
                         </button>
                       </div>
                     </div>
@@ -63,8 +67,12 @@
                         name="doc" [minDate]="tomorrowDate" [maxDate]="minDateOfCollection" ngbDatepicker
                         #doc="ngbDatepicker">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button"><i
-                            class="fa fa-calendar"></i>
+                        <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
+                            height="18px">
+                            <path
+                              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            <path d="M0 0h24v24H0z" fill="none" /></svg>
                         </button>
                       </div>
                     </div>
@@ -125,7 +133,14 @@
                 <button style="margin-top: -10px;" class="btn btn-link travelerHeading" data-toggle="collapse"
                   attr.aria-controls="{{ dataSource[i].dataToggle }}"
                   attr.data-target="{{ dataSource[i].dataToggleHash }}" aria-expanded="false">
-                  <i class="fa fa-suitcase" aria-hidden="true"></i>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px; margin-top: -2px;"
+                    viewBox="0 0 24 24" fill="#000080" width="20px" height="20px">
+                    <path
+                      d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4zm11 15H4v-2h16v2zm0-5H4V8h3v2h2V8h6v2h2V8h3v6z" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                  </svg>
+
                   {{ dataSource[i].id.substring(0,10) }}
                 </button>
 
@@ -227,8 +242,12 @@
                           formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate"
                           placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i
-                              class="fa fa-calendar"></i>
+                          <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
+                              height="18px">
+                              <path
+                                d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                              <path d="M0 0h24v24H0z" fill="none" /></svg>
                           </button>
                         </div>
                       </div>
@@ -272,8 +291,12 @@
                           placeholder="Passport Expiry Date" name="dp" [minDate]="minDatePassportExpiry" id="#doe"
                           ngbDatepicker #doe="ngbDatepicker">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button"><i
-                              class="fa fa-calendar"></i>
+                          <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
+                              height="18px">
+                              <path
+                                d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                              <path d="M0 0h24v24H0z" fill="none" /></svg>
                           </button>
                         </div>
                       </div>
@@ -440,17 +463,33 @@
 
                     <button *ngIf="image.content === 'Passport front page'" type="button" class="btn"
                       data-toggle="modal" data-target="#samplePassportFront">
-                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+
+                      <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
+                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                          clip-rule="evenodd" />
+                      </svg>
                     </button>
 
                     <button *ngIf="image.content === 'Passport last page'" type="button" class="btn" data-toggle="modal"
                       data-target="#samplePassportBack">
-                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                      <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
+                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                          clip-rule="evenodd" />
+                      </svg>
                     </button>
 
                     <button *ngIf="image.content === 'Applicant passport size photograph'" type="button" class="btn"
                       data-toggle="modal" data-target="#samplePhotograph">
-                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                      <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
+                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                          clip-rule="evenodd" />
+                      </svg>
                     </button>
 
                     <div class="input-group">
@@ -490,7 +529,16 @@
       <div style="margin: 20px;">
         <button type="button" style="background-color: navy;color: white;" class="btn btn-info btn-circle btn-lg"
           (click)="addTraveller()">
-          <i class="fa fa-plus" aria-hidden="true"></i>
+
+          <svg xmlns="http://www.w3.org/2000/svg" height="14px" viewBox="0 0 512 512" width="14px"
+            style="margin-top: -1px;" class="hovered-paths">
+            <g>
+              <path
+                d="m304 512h-96c-17.679688 0-32-14.320312-32-32v-144h-144c-17.679688 0-32-14.320312-32-32v-96c0-17.679688 14.320312-32 32-32h144v-144c0-17.679688 14.320312-32 32-32h96c17.679688 0 32 14.320312 32 32v144h144c17.679688 0 32 14.320312 32 32v96c0 17.679688-14.320312 32-32 32h-144v144c0 17.679688-14.320312 32-32 32zm0 0"
+                fill="#FFFFFF" data-original="#48C8EF" class="hovered-path active-path" data-old_color="#48c8ef" />
+            </g>
+          </svg>
+
         </button>
         <span style="margin-left: 10px;">Add Traveller</span>
       </div>
@@ -516,7 +564,7 @@
                 <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
                   <!-- <img data-src=" https://static.visa2fly.com/assets/sim.png" alt="sim icon" class="img-fluid lazyload"
                     height="22" width="22" style="margin: 0 4px;"> -->
-                    <div class="callBack-sim img-sprite"></div>
+                  <div class="callBack-sim img-sprite"></div>
                   <input formControlName="sim" type="checkbox" class="custom-control-input" id="sim" />
                   <label class="custom-control-label" for="sim">Sim</label>
 
@@ -529,8 +577,8 @@
                 <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
                   <!-- <img data-src="https://static.visa2fly.com/assets/credit-card.png" alt="credit card icon"
                     class="img-fluid lazyload" height="22" width="22" style="margin: 0 4px;"> -->
-                    <div class="callBack-forex img-sprite"></div>
-                    <input formControlName="forex" type="checkbox" class="custom-control-input" id="forex" />
+                  <div class="callBack-forex img-sprite"></div>
+                  <input formControlName="forex" type="checkbox" class="custom-control-input" id="forex" />
                   <label class="custom-control-label" for="forex">Forex Card</label>
 
                 </div>
@@ -540,8 +588,9 @@
 
                   <!-- <img data-src="https://static.visa2fly.com/assets/travel-insurance.png" alt="travel insurance icon"
                     class="img-fluid lazyload" height="22" width="22" style="margin: 0 4px;"> -->
-                  
-                    <div class="callBack-insurance img-sprite"></div>  <input formControlName="insurance" type="checkbox" class="custom-control-input" id="insurance" />
+
+                  <div class="callBack-insurance img-sprite"></div> <input formControlName="insurance" type="checkbox"
+                    class="custom-control-input" id="insurance" />
 
                   <label class="custom-control-label" for="insurance">Insurance
                   </label>
@@ -647,7 +696,21 @@
         </div>
         <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;">
           <p *ngFor="let error of errorMessage">
-            <i class="fa fa-hand-o-right mr-2" aria-hidden="true"></i> {{ error}}
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+              x="0px" y="0px" viewBox="0 0 286.614 286.614" style="enable-background:new 0 0 286.614 286.614;"
+              xml:space="preserve" width="16px" height="16px">
+              <g>
+                <g>
+                  <path
+                    d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                    data-original="#000000" class="active-path" fill="#000000" />
+                  <path
+                    d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                    data-original="#000000" class="active-path" fill="#000000" />
+                </g>
+              </g>
+            </svg>
+            {{ error}}
           </p>
 
           <div class="form-group form-check" style="margin-bottom: 0px; margin-top: 20px;">
