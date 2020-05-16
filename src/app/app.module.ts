@@ -16,7 +16,6 @@ import { Ng2FlatpickrModule } from "ng2-flatpickr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // import { CarouselModule } from "ngx-owl-carousel-o";
 // import { ServiceWorkerModule } from '@angular/service-worker';
-import { DateComponent } from "./components/date/date.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RequestInterceptor } from "./shared/request.interceptor";
 import { ToastComponent } from "./shared/components/toast/toast.component";
@@ -62,7 +61,6 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     MobileNavComponent,
     MobileFooterComponent,
     AddPassengerDetailsComponent,
-    DateComponent,
     ToastComponent,
     ChatboxComponent,
     InsuranceComponent,

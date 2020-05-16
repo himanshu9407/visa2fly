@@ -348,13 +348,14 @@
                     formControlName="purposeSelected" checked="checked" />
                   <p class="select-box__input-text">Business</p>
                 </div>
-                <!-- <div class="select-box__value">
-                                                        <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected" formControlName="purposeSelected" checked="checked" />
-                                                        <p class="select-box__input-text">Transit</p>
-                                                      </div> -->
-                <img class="select-box__icon" src="https://static.visa2fly.com/assets/arrow.svg" alt="apply for france visa online"
-                  aria-hidden="true" />
-                <!-- <i class="fa fa-sort-desc select-box__icon" aria-hidden="true"></i> -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                  y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
+                  enable-background="new 0 0 1000 1000" xml:space="preserve">
+                  <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                  <g>
+                    <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                  </g>
+                </svg>
               </div>
               <ul class="select-box__list">
                 <li>
@@ -417,7 +418,7 @@
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Category:</div>
             <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right planCardRow">{{quotation.category}}
             </div>
-        </div>
+          </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
             <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
@@ -432,17 +433,35 @@
             <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
               {{quotation.entryType}}
 
-              <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
-                <i class="fa fa-question-circle"></i>
-            </button>
+              <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;"
+                class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
+                <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
+                  <path fill-rule="evenodd"
+                    d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
 
-            <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
-                <i class="fa fa-question-circle"></i>
-            </button>
+              <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;"
+                class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
+                <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
+                  <path fill-rule="evenodd"
+                    d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
 
-            <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;" class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
-                <i class="fa fa-question-circle"></i>
-            </button>
+              <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;"
+                class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
+                <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
+                  <path fill-rule="evenodd"
+                    d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
             </div>
           </div>
           <div class="row">
@@ -511,8 +530,8 @@
                         (click)="setActiveTourist(1)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="france tourist visa application"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-form requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Form</h2>
                       </div>
@@ -544,8 +563,8 @@
                         (click)="setActiveTourist(2)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Passport</h2>
                       </div>
@@ -577,8 +596,8 @@
                         (click)="setActiveTourist(3)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="france tourist visa application"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
@@ -608,10 +627,10 @@
                         (click)="setActiveTourist(4)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                         </div>
-                          <h2 class="setFontSize">Proof of Funds</h2>
+                        <h2 class="setFontSize">Proof of Funds</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -688,8 +707,8 @@
                         (click)="setActiveTourist(5)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
                           alt="france tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-accommodation requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Accommodation</h2>
                       </div>
@@ -720,10 +739,10 @@
                         (click)="setActiveTourist(6)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
-                          <h2 class="setFontSize">Flight Tickets</h2>
+                        <h2 class="setFontSize">Flight Tickets</h2>
                       </div>
 
                     </ng-template>
@@ -751,7 +770,7 @@
                         style="height: 45px; margin-bottom: 10px;" /> -->
                         <div class="makeIconCntr">
                           <div class="vr-itinerary requiredIcons img-sprite"></div>
-                      </div>
+                        </div>
                         <h2 class="setFontSize">Itinerary</h2>
                       </div>
                     </ng-template>
@@ -864,7 +883,8 @@
                         aria-controls="touristNine" [class.showDiv]="selectedTourist === 9"
                         (click)="setActiveTourist(9)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="france tourist visa application" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="france tourist visa application"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Other Documents</h2>
                       </div>
                     </ng-template>
@@ -896,7 +916,8 @@
                         aria-controls="touristTen" [class.showDiv]="selectedTourist === 10"
                         (click)="setActiveTourist(10)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
-                          alt="apply for france visa online" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="apply for france visa online"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Travel Insurance</h2>
                       </div>
                     </ng-template>
@@ -980,8 +1001,8 @@
                         (click)="setActiveTourist(1)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-form requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Form</h2>
                       </div>
@@ -1011,8 +1032,8 @@
                         (click)="setActiveTourist(2)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="france tourist visa for indian"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Passport</h2>
                       </div>
@@ -1051,8 +1072,8 @@
                         (click)="setActiveTourist(3)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="france tourist visa for indian"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
@@ -1083,8 +1104,8 @@
                         (click)="setActiveTourist(4)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
                           alt="france tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Proof of Funds</h2>
                       </div>
@@ -1164,8 +1185,8 @@
                         (click)="setActiveTourist(5)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
                           alt="france tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-accommodation requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Accommodation</h2>
                       </div>
@@ -1196,8 +1217,8 @@
                         (click)="setActiveTourist(6)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
                           alt="france tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Flight Tickets</h2>
                       </div>
@@ -1231,8 +1252,8 @@
                         (click)="setActiveTourist(7)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france e-visa"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-itinerary requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Itinerary</h2>
                       </div>
@@ -1263,8 +1284,8 @@
                         (click)="setActiveTourist(8)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-employStuProof requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-employStuProof requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Employment / Student Proof</h2>
                       </div>
@@ -1345,7 +1366,8 @@
                         aria-controls="touristMobileNine" [class.showDiv]="selectedTourist === 9"
                         (click)="setActiveTourist(9)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
-                          alt="apply for france e-visa" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="apply for france e-visa"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Travel Insurance</h2>
                       </div>
                     </ng-template>
@@ -1379,7 +1401,8 @@
                         aria-controls="touristMobileTen" [class.showDiv]="selectedTourist === 10"
                         (click)="setActiveTourist(10)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="apply for france visa online" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="apply for france visa online"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Other Documents</h2>
                       </div>
                     </ng-template>
@@ -1456,7 +1479,21 @@
                 <div class="card">
                   <div class="card-header text-center text-white text-uppercase"
                     style="background: #000080; font-weight: 600;">
-                    <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR France
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                      id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                      xml:space="preserve" width="15px" height="15px" class="hovered-paths mr-1"
+                      style="margin-top: -3px;">
+                      <g>
+                        <g>
+                          <g>
+                            <path
+                              d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M298.667,416    c0,5.896-4.771,10.667-10.667,10.667h-64c-5.896,0-10.667-4.771-10.667-10.667V256h-10.667c-5.896,0-10.667-4.771-10.667-10.667    v-42.667c0-5.896,4.771-10.667,10.667-10.667H288c5.896,0,10.667,4.771,10.667,10.667V416z M256,170.667    c-23.531,0-42.667-19.135-42.667-42.667S232.469,85.333,256,85.333s42.667,19.135,42.667,42.667S279.531,170.667,256,170.667z"
+                              data-original="#000000" class="hovered-path active-path" data-old_color="#000000"
+                              fill="#FFFFFF" />
+                          </g>
+                        </g>
+                      </g>
+                    </svg>IMPORTANT VISA INFORMATION FOR France
                   </div>
                   <div class="card-body">
                     <p>
@@ -1651,8 +1688,8 @@
                         (click)="setActiveBusiness(1)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for france e-visa"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-form requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Form</h2>
                       </div>
@@ -1685,8 +1722,8 @@
                         (click)="setActiveBusiness(2)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Passport</h2>
                       </div>
@@ -1718,8 +1755,8 @@
                         [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for france e-visa"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
@@ -1749,8 +1786,8 @@
                         [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Proof of Funds</h2>
                       </div>
@@ -1807,8 +1844,8 @@
                         (click)="setActiveBusiness(5)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
                           alt="apply for france e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-accommodation requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Accommodation</h2>
                       </div>
@@ -1839,8 +1876,8 @@
                         (click)="setActiveBusiness(6)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Flight Tickets</h2>
                       </div>
@@ -1868,8 +1905,8 @@
                         (click)="setActiveBusiness(7)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-itinerary requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Business Partner Invitation Letter</h2>
                       </div>
@@ -1939,7 +1976,8 @@
                         aria-controls="businessNine" [class.showDiv]="selectedBusiness === 9"
                         (click)="setActiveBusiness(9)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="apply for france visa online" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="apply for france visa online"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Other Documents</h2>
                       </div>
                     </ng-template>
@@ -1968,7 +2006,8 @@
                         aria-controls="businessNine" [class.showDiv]="selectedBusiness === 10"
                         (click)="setActiveBusiness(10)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
-                          alt="apply for france e-visa" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="apply for france e-visa"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Travel Insurance</h2>
                       </div>
                     </ng-template>
@@ -2030,8 +2069,8 @@
                         (click)="setActiveBusiness(1)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-form requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Form</h2>
                       </div>
@@ -2064,8 +2103,8 @@
                         (click)="setActiveBusiness(2)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Passport</h2>
                       </div>
@@ -2104,8 +2143,8 @@
                         (click)="setActiveBusiness(3)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Photograph</h2>
                       </div>
@@ -2137,8 +2176,8 @@
                         (click)="setActiveBusiness(4)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Proof of Funds</h2>
                       </div>
@@ -2195,10 +2234,10 @@
                         (click)="setActiveBusiness(5)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-accommodation requiredIcons img-sprite"></div>
                         </div>
-                          <h2 class="setFontSize">Accommodation</h2>
+                        <h2 class="setFontSize">Accommodation</h2>
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
@@ -2227,8 +2266,8 @@
                         (click)="setActiveBusiness(6)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Flight Tickets</h2>
                       </div>
@@ -2262,8 +2301,8 @@
                         (click)="setActiveBusiness(7)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france visa online"
                           style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-itinerary requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Business Partner Invitation Letter</h2>
                       </div>
@@ -2296,8 +2335,8 @@
                         (click)="setActiveBusiness(8)">
                         <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
                           alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-employStuProof requiredIcons img-sprite"></div>
+                        <div class="makeIconCntr">
+                          <div class="vr-employStuProof requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Employment Proof</h2>
                       </div>
@@ -2335,7 +2374,8 @@
                         aria-controls="touristMobileNine" [class.showDiv]="selectedBusiness === 9"
                         (click)="setActiveBusiness(9)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                          alt="apply for france visa online" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="apply for france visa online"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Other Documents</h2>
                       </div>
                     </ng-template>
@@ -2365,7 +2405,8 @@
                         aria-controls="touristMobileTen" [class.showDiv]="selectedBusiness === 10"
                         (click)="setActiveBusiness(10)">
                         <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
-                          alt="apply for france visa online" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          alt="apply for france visa online"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
                         <h2 class="setFontSize">Travel Insurance</h2>
                       </div>
                     </ng-template>
@@ -2408,7 +2449,21 @@
                 <div class="card">
                   <div class="card-header text-center text-white text-uppercase"
                     style="background: #000080; font-weight: 600;">
-                    <i class="fa fa-info-circle info mr-2"></i>IMPORTANT VISA INFORMATION FOR France
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                      id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                      xml:space="preserve" width="15px" height="15px" class="hovered-paths mr-1"
+                      style="margin-top: -3px;">
+                      <g>
+                        <g>
+                          <g>
+                            <path
+                              d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M298.667,416    c0,5.896-4.771,10.667-10.667,10.667h-64c-5.896,0-10.667-4.771-10.667-10.667V256h-10.667c-5.896,0-10.667-4.771-10.667-10.667    v-42.667c0-5.896,4.771-10.667,10.667-10.667H288c5.896,0,10.667,4.771,10.667,10.667V416z M256,170.667    c-23.531,0-42.667-19.135-42.667-42.667S232.469,85.333,256,85.333s42.667,19.135,42.667,42.667S279.531,170.667,256,170.667z"
+                              data-original="#000000" class="hovered-path active-path" data-old_color="#000000"
+                              fill="#FFFFFF" />
+                          </g>
+                        </g>
+                      </g>
+                    </svg>IMPORTANT VISA INFORMATION FOR France
                   </div>
                   <div class="card-body">
                     <p>
@@ -2458,8 +2513,8 @@
                       </h5>
                     </div>
 
-                    <div id="franceAccordionBusinessOne" class="collapse show"
-                      aria-labelledby="headingBusinessOne" data-parent="#franceAccordionBusiness">
+                    <div id="franceAccordionBusinessOne" class="collapse show" aria-labelledby="headingBusinessOne"
+                      data-parent="#franceAccordionBusiness">
                       <div class="card-body">
                         <p>As a general rule, a decision is taken
                           by the Consulate within 20 days. This period

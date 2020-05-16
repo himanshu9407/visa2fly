@@ -254,7 +254,11 @@
                       placeholder="Date of Birth" name="dob" ngbDatepicker #dob="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="btn btn-sm btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
+                        height="18px">
+                        <path
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                        <path d="M0 0h24v24H0z" fill="none" /></svg>
                       </button>
                     </div>
                   </div>
@@ -262,7 +266,6 @@
               </div>
             </div>
             <div class="col-md-6">
-              <!-- <i class="fa fa-linkedin"></i> -->
               <div class="row">
                 <div class="col-lg-4 activated">
                   <label for="" class="">SIM To Be Activated On:</label>
@@ -274,8 +277,12 @@
                       placeholder="Select Date" name="activated" [minDate]="minDate" [maxDate]="maxTravelDate"
                       ngbDatepicker #activated="ngbDatepicker">
                     <div class="input-group-append">
-                      <button class="btn btn-outline-secondary calendar" (click)="activated.toggle()" type="button"><i
-                          class="fa fa-calendar"></i>
+                      <button class="btn btn-outline-secondary calendar" (click)="activated.toggle()" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
+                        height="18px">
+                        <path
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                        <path d="M0 0h24v24H0z" fill="none" /></svg>
                       </button>
                     </div>
                   </div>

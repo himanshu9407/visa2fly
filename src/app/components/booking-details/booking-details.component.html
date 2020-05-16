@@ -1,229 +1,229 @@
 <div style="display: flex; justify-content: center">
 
 
-    <section id="insrSummary">
+  <section id="insrSummary">
 
-        <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Visa'">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
-                </div>
-
-                <div class="col-md-7 pdLeft">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>BOOKING ID:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.bookingId}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-6 pdLeft mgTop">
-                                    <div class="labelText ">
-                                        <b>TRANSACTION ID:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.paymentId}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>VISA FOR :</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.visaForCountry}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText ">
-                                        <b>VISA TYPE:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.visaType}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>ENTRY TYPE:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.entryType}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText ">
-                                        <b>TOTAL TRAVELLERS:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.totalTravellers}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5 pdLeft">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>BOOKING DATE:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.bookingDate}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText ">
-                                        <b>DATE OF JOURNEY:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.dateOfTravel}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>BOOKING STATUS:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.bookingStatus}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText ">
-                                        <b>PAYMENT STATUS:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.paymentStatus}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-            </div>
+    <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Visa'">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
         </div>
 
-        <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Sim'">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
-                </div>
-
-                <div class="col-md-12 pdLeft">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>BOOKING ID:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.bookingId}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-6 pdLeft mgTop">
-                                    <div class="labelText ">
-                                        <b>TRANSACTION ID:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.paymentId}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>{{selectedBooking.booking.bookingType == 'Visa' ? 'VISA' : 'SIM'}} FOR :</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.visaForCountry}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText ">
-                                        <b>TOTAL TRAVELLERS:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.totalTravellers}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>BOOKING DATE:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.bookingDate}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText ">
-                                        <b>PAYMENT STATUS:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.paymentStatus}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12 col-6 pdLeft">
-                                    <div class="labelText firstChild">
-                                        <b>BOOKING STATUS:</b>
-                                        <div class="viewDetail">
-                                            <li>{{selectedBooking.booking.bookingStatus}}</li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+        <div class="col-md-7 pdLeft">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-12 col-sm-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING ID:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingId}}</li>
                     </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-6 pdLeft mgTop">
+                  <div class="labelText ">
+                    <b>TRANSACTION ID:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.paymentId}}</li>
+                    </div>
+                  </div>
                 </div>
 
-
-
-
-
-
+              </div>
             </div>
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>VISA FOR :</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.visaForCountry}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>VISA TYPE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.visaType}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>ENTRY TYPE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.entryType}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>TOTAL TRAVELLERS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.totalTravellers}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+
+        <div class="col-md-5 pdLeft">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING DATE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingDate}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>DATE OF JOURNEY:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.dateOfTravel}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING STATUS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingStatus}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>PAYMENT STATUS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.paymentStatus}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+    <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Sim'">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
+        </div>
+
+        <div class="col-md-12 pdLeft">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12 col-sm-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING ID:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingId}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-6 pdLeft mgTop">
+                  <div class="labelText ">
+                    <b>TRANSACTION ID:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.paymentId}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>{{selectedBooking.booking.bookingType == 'Visa' ? 'VISA' : 'SIM'}} FOR :</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.visaForCountry}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>TOTAL TRAVELLERS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.totalTravellers}}</li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING DATE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingDate}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>PAYMENT STATUS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.paymentStatus}}</li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING STATUS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingStatus}}</li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+    </div>
+  </section>
 </div>
 <section class="bookingDetail" style="margin-bottom: 40px;">
   <div class="container">
@@ -312,7 +312,17 @@
                     <span (click)="downloadImage(traveller.passportFrontUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.passportFrontUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.passportFrontUrl != null">
@@ -320,7 +330,17 @@
                     <span (click)="downloadImage(traveller.passportBioImage,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.passportFrontUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.userImageUrl != null">
@@ -328,23 +348,55 @@
                     <span (click)="downloadImage(traveller.userImageUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.userImageUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.departureFlightTicketUrl != null">
+                  <li
+                    *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.departureFlightTicketUrl != null">
                     Department Flight Ticket :
                     <span (click)="downloadImage(traveller.departureFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.departureFlightTicketUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.arrivalFlightTicketUrl != null">
+                  <li
+                    *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.arrivalFlightTicketUrl != null">
                     Arrival Flight Ticket :
                     <span (click)="downloadImage(traveller.arrivalFlightTicketUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.arrivalFlightTicketUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.hotelAccommodationUrl != null">
@@ -352,15 +404,36 @@
                     <span (click)="downloadImage(traveller.hotelAccommodationUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.hotelAccommodationUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
-                  <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.sixMonthsBankStatementUrl != null">
+                  <li
+                    *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.sixMonthsBankStatementUrl != null">
                     Six Months Bank Statement :
                     <span (click)="downloadImage(traveller.sixMonthsBankStatementUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.sixMonthsBankStatementUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.insuranceUrl != null">
@@ -368,7 +441,17 @@
                     <span (click)="downloadImage(traveller.insuranceUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.insuranceUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.businessCardUrl != null">
@@ -376,15 +459,35 @@
                     <span (click)="downloadImage(traveller.businessCardUrl,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.businessCardUrl == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.noc != null">
                     NOC :
-                    <span (click)="downloadImage(traveller.noc,selectedBooking.booking.bookingId)"
-                      class="fieldData"><a class="pointer">
+                    <span (click)="downloadImage(traveller.noc,selectedBooking.booking.bookingId)" class="fieldData"><a
+                        class="pointer">
                         {{traveller.noc == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa' && traveller.panCard != null">
@@ -392,15 +495,35 @@
                     <span (click)="downloadImage(traveller.panCard,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.panCard == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.itr != null">
                     ITR :
-                    <span (click)="downloadImage(traveller.itr,selectedBooking.booking.bookingId)"
-                      class="fieldData"><a class="pointer">
+                    <span (click)="downloadImage(traveller.itr,selectedBooking.booking.bookingId)" class="fieldData"><a
+                        class="pointer">
                         {{traveller.itr == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                   <li *ngIf="selectedBooking.booking.bookingType == 'Visa'  && traveller.invitation != null">
@@ -408,7 +531,17 @@
                     <span (click)="downloadImage(traveller.invitation,selectedBooking.booking.bookingId)"
                       class="fieldData"><a class="pointer">
                         {{traveller.invitation == null ? "NA" : "Click Here"}}
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                            d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd"
+                            d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                            clip-rule="evenodd" />
+                          <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                            clip-rule="evenodd" />
+                        </svg>
                       </a></span>
                   </li>
                 </div>
@@ -420,64 +553,65 @@
                   Online Country :
                   <span class="fieldData">{{traveller.onlineCountry}}</span>
                 </li> -->
-                            </ul>
+              </ul>
 
 
-                        </div>
-
-                    </div>
-                </div>
             </div>
-            <div *ngFor=" let simItem of selectedBooking.simBookings " class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-                <div class="sim-card">
-                    <div class="card">
-                        <div class="card-header priceHeading text-white">
-                            Sim Booking Detail
-                        </div>
-                        <div class="card-body">
-                            <!-- <h5 class="card-title">Special title treatment</h5>
+
+          </div>
+        </div>
+      </div>
+      <div *ngFor=" let simItem of selectedBooking.simBookings " class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+        <div class="sim-card">
+          <div class="card">
+            <div class="card-header priceHeading text-white">
+              Sim Booking Detail
+            </div>
+            <div class="card-body">
+              <!-- <h5 class="card-title">Special title treatment</h5>
                                       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                       <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            <ul class="visa-type">
-                                <li>
-                                    Plan Name :
-                                    <span class="fieldData">{{simItem.simPlanName}}</span>
-                                </li>
-                                <li>
-                                    Qty :
-                                    <span class="fieldData">{{simItem.quantity}}</span>
-                                </li>
-                                <li>
-                                    Sim For :
-                                    <span class="fieldData">{{simItem.simPlanForCountry}}</span>
-                                </li>
-                                <li>
-                                    Status :
-                                    <span class="fieldData">{{simItem.status}}</span>
-                                </li>
-                                <li>
-                                    Activate Date :
-                                    <span class="fieldData">{{simItem.activationDate}}</span>
-                                </li>
+              <ul class="visa-type">
+                <li>
+                  Plan Name :
+                  <span class="fieldData">{{simItem.simPlanName}}</span>
+                </li>
+                <li>
+                  Qty :
+                  <span class="fieldData">{{simItem.quantity}}</span>
+                </li>
+                <li>
+                  Sim For :
+                  <span class="fieldData">{{simItem.simPlanForCountry}}</span>
+                </li>
+                <li>
+                  Status :
+                  <span class="fieldData">{{simItem.status}}</span>
+                </li>
+                <li>
+                  Activate Date :
+                  <span class="fieldData">{{simItem.activationDate}}</span>
+                </li>
 
-                                <li>
-                                    <div class="summaryContainer">
-                                        <h6 class="summaryHeading text-center" style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px;">
-                                            Summary
-                                        </h6>
-                                        <p>
-                                            {{simItem.summary}}
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
+                <li>
+                  <div class="summaryContainer">
+                    <h6 class="summaryHeading text-center"
+                      style=" border: 1px solid #d4d4d4; padding: 4px 0px; border-radius: 5px; margin: 10px 10px;">
+                      Summary
+                    </h6>
+                    <p>
+                      {{simItem.summary}}
+                    </p>
+                  </div>
+                </li>
+              </ul>
 
-                        </div>
-
-                    </div>
-                </div>
             </div>
-            <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
               <div class="insurance">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
@@ -533,6 +667,6 @@
                 </div>
               </div>
             </div> -->
-        </div>
     </div>
+  </div>
 </section>
