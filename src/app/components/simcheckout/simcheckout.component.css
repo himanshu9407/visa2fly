@@ -7,7 +7,15 @@ textarea:focus {
 }
 
 label {
-margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.calendarSvg {
+  fill: #6C757D;
+}
+
+.btn-outline-secondary.calendar:hover .calendarSvg {
+  fill: #fff;
 }
 
 .invalid-feedback {
@@ -18,30 +26,29 @@ margin-bottom: 0px !important;
   margin-top: 4px;
 }
 
-  /* !important is needed sometimes */
-  ::-webkit-scrollbar {
-    width: 1px !important;
-    height: 4px !important;
- }
+/* !important is needed sometimes */
+::-webkit-scrollbar {
+  width: 1px !important;
+  height: 4px !important;
+}
 
- /* Track */
+/* Track */
 ::-webkit-scrollbar-track {
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3) !important;
-   -webkit-border-radius: 10px !important;
-   border-radius: 10px !important;
- }
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+  -webkit-border-radius: 10px !important;
+  border-radius: 10px !important;
+}
 
- /* Handle */
- ::-webkit-scrollbar-thumb {
-   -webkit-border-radius: 10px !important;
-   border-radius: 10px !important;
-   background: #41617D !important; 
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important; 
-
- }
- ::-webkit-scrollbar-thumb:window-inactive {
-   background: #41617D !important; 
- }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px !important;
+  border-radius: 10px !important;
+  background: #41617d !important;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #41617d !important;
+}
 
 /* FIREFOX FIX OF UGLY SELECT BOXES */
 @supports (-moz-appearance: none) {
@@ -68,16 +75,17 @@ td {
   border-collapse: collapse;
   padding: 5px;
   background: #e2e2e2;
-font-size: 14px;
+  font-size: 14px;
 }
 
-.table{
+.table {
   display: block !important;
   overflow-x: auto !important;
   width: 100% !important;
 }
 
-input, textarea {
+input,
+textarea {
   font-size: 14px;
 }
 
@@ -90,11 +98,11 @@ input, textarea {
 }
 
 /* .summaryContainer { */
-  /* min-height: 200px; */
+/* min-height: 200px; */
 /* } */
 
 button.calendar {
-  padding-top: 2px;
+  padding: 2px 10px;
   height: 30px;
 }
 .grandLabel {
@@ -301,8 +309,7 @@ section {
   .mobile,
   .departure,
   .gender,
-  .country
-   {
+  .country {
     margin-left: 5px;
     margin-top: 10px;
   }
@@ -413,7 +420,8 @@ section {
 }
 
 @media screen and (max-width: 767px) {
-  .desktopView , .onlyMob{
+  .desktopView,
+  .onlyMob {
     display: none;
   }
 
@@ -421,19 +429,15 @@ section {
     display: block;
   }
 
-
-
-  .paddReq, .managePadd {
+  .paddReq,
+  .managePadd {
     padding: 0px;
   }
-
 
   .padTop {
     margin-top: 10px;
   }
 }
-
-
 
 @media screen and (max-width: 768px) {
   tr,
@@ -452,7 +456,7 @@ section {
 }
 
 @media screen and (width: 600px) {
-#insrSummary .container {
+  #insrSummary .container {
     border-radius: 10px;
-}
+  }
 }
