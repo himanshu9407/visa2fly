@@ -17,7 +17,7 @@ export class OtherCountryService {
 
         if(this.countryList == []  || this.countryList == undefined || this.countryList == null) {
 
-            this.homeFormService.getHomeFormDataFromServer().then(
+            this.homeFormService.getHomeFormDataFromServer().subscribe(
                 (data) => {
                     this.countryList = data.data.countries;
                 }
