@@ -54,7 +54,7 @@
     <strong> OTP Sent Successfully!</strong>
   </div>
 
-  <div class="cntr mb-1">
+  <div class="cntr mb-1" *ngIf="showOtpField">
     <input class="hidden-xs-up" id="cbx" type="checkbox" formControlName="rememberMe" style="display: none;" />
     <label class="cbx" for="cbx"></label>
     <label class="lbl" for="cbx">Remember Me</label>
