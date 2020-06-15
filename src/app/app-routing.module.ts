@@ -36,7 +36,7 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-  // Terms And condition  Page
+  // Privacy Policy
   {
     path: "privacyPolicy",
     loadChildren: () =>
@@ -356,7 +356,7 @@ const routes: Routes = [
 
   // Visa Arrival Page
   {
-    path: "visOnArrival",
+    path: "visaOnArrival",
     loadChildren: () =>
       import("./components/visa-arrival/visa-arrival.module").then(
         (m) => m.VisaArrivalModule
