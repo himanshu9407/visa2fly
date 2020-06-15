@@ -616,7 +616,7 @@
 </div>
 
 <div style="display: none">
-  <form name="paymentForm" ngNoForm action="{{redirect}}" method="POST">
+  <form name="paymentForm" ngNoForm [action]="redirect" method="POST">
     <input type="text" name="bookingId" id="bookingId" [(ngModel)]="bookingId">
     <input type="text" name="collectPayment" id="collectPayment" [(ngModel)]="collectPayment">
     <input type="text" name="amount" id="amount" [(ngModel)]="amount">

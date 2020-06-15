@@ -96,6 +96,7 @@ export class AddTravellerComponent implements OnInit {
   checkUploadedImages: boolean;
   category: string;
   minTravelDate: number;
+  redirect: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -951,6 +952,7 @@ export class AddTravellerComponent implements OnInit {
                 this.merchantIdentifier = data1.merchantIdentifier;
                 this.returnUrl = data1.returnUrl;
                 this.checksum = data1.checksum;
+                this.redirect = data1.paymentUrl;
                 this.succeedToPayment = true;
 
                 setTimeout(() => {
@@ -1143,6 +1145,8 @@ export class AddTravellerComponent implements OnInit {
         this.merchantIdentifier = data1.merchantIdentifier;
         this.returnUrl = data1.returnUrl;
         this.checksum = data1.checksum;
+        this.redirect = data1.paymentUrl;
+        
         setTimeout(() => {
           document.forms["paymentForm"].submit();
         }, 2000);

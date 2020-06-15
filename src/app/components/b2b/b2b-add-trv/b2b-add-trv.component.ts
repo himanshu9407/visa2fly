@@ -108,6 +108,7 @@ export class B2bAddTrvComponent implements OnInit {
   checkUploadedImages: boolean;
   category: string;
   minTravelDate: number;
+  paymentUrl: any;
 
   constructor(
     private formBuilder: FormBuilder,

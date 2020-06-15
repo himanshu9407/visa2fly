@@ -20,11 +20,11 @@ export class HomeFormService {
         this.homeFormData = data;
         // console.log("data set");
     }
-  getHomeFormDataFromServer () :Promise <any> {
+  getHomeFormDataFromServer () {
 
     const base_url = this.userFlow.getBaseURL();
         
-        return this.http.get<any>(base_url+"info/landing").toPromise();
+        return this.http.get<any>(base_url+"info/landing");
 
           
     }

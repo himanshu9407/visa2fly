@@ -109,7 +109,7 @@ export class HomeFormComponent {
 
     // console.log(this.homeFormData.data.countries);
 
-    this.homeFormService.getHomeFormDataFromServer().then(data => {
+    this.homeFormService.getHomeFormDataFromServer().subscribe(data => {
       if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
         //console.log(this.homeFormData);

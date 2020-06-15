@@ -80,7 +80,7 @@ export class B2bHomeComponent implements OnInit {
     this.purpose = this.b2bHomeForm.get("purpose");
     this.livesIn = this.b2bHomeForm.get("livingIn");
 
-    this.homeFormService.getHomeFormDataFromServer().then(data => {
+    this.homeFormService.getHomeFormDataFromServer().subscribe(data => {
       if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
         let activeCountry: string = localStorage.getItem("activeCountry");
