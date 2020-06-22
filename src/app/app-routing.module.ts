@@ -226,9 +226,9 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-  // Dubai Page
-  {
-    path: "visa-requirements/apply-for-Dubai-visa-online/:purpose",
+   // Dubai Page
+   {
+    path: "visa-requirements/apply-for-Dubai-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/dubai/dubai.module").then(
         (m) => m.DubaiModule

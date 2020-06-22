@@ -206,7 +206,6 @@ export class RequirementsComponent implements OnInit {
       }
     });
 
-    this.userFlowDetails = this.userFlow.getUserFlowDetails();
     this.activateRoute.params.subscribe((params: any) => {
     });
     let tempPurpose = this.selectedPurposeType;
@@ -287,7 +286,6 @@ export class RequirementsComponent implements OnInit {
               this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
             }
 
-            let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
             this.userFlow.setUserFlowDetails(
               "onlineCountry",
               JSON.stringify(data.data.onlineCategory)
@@ -405,7 +403,7 @@ export class RequirementsComponent implements OnInit {
         this.loginStatus.setUserStatus(false);
         this.loginStatus.setUserLoggedIn(false);
         this.preloaderService.showPreloader(false);
-        localStorage.setItem("profile", JSON.stringify({}));
+        this.userFlow.setCookie("profile", JSON.stringify({}));
         this.routerHistory.pushHistory("req-and-quote");
         this.router.navigate(["slcontainer/login"]);
         this.preloaderService.showPreloader(false);

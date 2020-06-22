@@ -336,7 +336,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
         this.loginStatus.setUserLoggedIn(false);
         // this.router.navigate(['visa']);
         this.preloaderService.showPreloader(false);
-        localStorage.setItem("profile", JSON.stringify({}));
+        this.userFlow.setCookie("profile", JSON.stringify({}));
         this.routerHistory.pushHistory("req-and-quote");
         this.router.navigate(["slcontainer/login"]);
         this.preloaderService.showPreloader(false);

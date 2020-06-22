@@ -17,7 +17,7 @@ export class LoginService {
 
              // Client only code.
              if (isPlatformBrowser(this.platformId)) {
-                this.AUTH_TOKEN = localStorage.getItem("AUTH_TOKEN") || null ; 
+                this.AUTH_TOKEN = this.userFlow.getCookie("AUTH_TOKEN") || null ; 
             }
         
     }
@@ -33,19 +33,15 @@ export class LoginService {
 
     getAuthToken () {
         if (isPlatformBrowser(this.platformId)) {
-            return localStorage.getItem("AUTH_TOKEN");
+            return this.userFlow.getCookie("AUTH_TOKEN");
         }
     }
 
 
     setAuthToken (authToken : string) {
-        localStorage.setItem("AUTH_TOKEN",authToken);
+        this.userFlow.setCookie("AUTH_TOKEN",authToken);
         this.AUTH_TOKEN = authToken;
     }
-
-    // setUserProfile (userProfile : object) {
-    //     localStorage.setItem("")
-    // }
 
     getAuthTokenFromServer () {
 

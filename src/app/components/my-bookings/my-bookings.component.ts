@@ -173,11 +173,11 @@ export class MyBookingsComponent implements OnInit {
       if (this.allBooking != null) {
         this.totalCount = this.allBooking.data.bookings.length;
 
-        localStorage.setItem(
+        this.userFlow.setCookie(
           "bookingStatus",
           JSON.stringify(this.allBooking.data.takeFeedback)
         );
-        let bookingOption = JSON.parse(localStorage.getItem("bookingStatus"));
+        let bookingOption = JSON.parse(this.userFlow.getCookie("bookingStatus"));
         this.bookingStatus = bookingOption;
 
         setTimeout(() => {
@@ -185,7 +185,7 @@ export class MyBookingsComponent implements OnInit {
         }, 1000);
 
         var bookingid = this.allBooking.data.feedbackToBeTakenFor;
-        //  bookingIdC= localStorage.getItem('bookingStatus');
+        //  bookingIdC= this.userFlow.getCookie('bookingStatus');
         // this.bookingStatus = bookingIdC;
         this.allBooking.data.bookings.forEach(element => {
           if (
@@ -283,7 +283,7 @@ export class MyBookingsComponent implements OnInit {
   setActiveBooking(booking: any) {
     this.bookingService.setActiveBooking(booking);
 
-    localStorage.setItem("activeBooking", JSON.stringify(booking));
+    this.userFlow.setCookie("activeBooking", JSON.stringify(booking));
 
     this.router.navigate(["bookingDetail"]);
   }

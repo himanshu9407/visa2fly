@@ -83,8 +83,8 @@ export class B2bHomeComponent implements OnInit {
     this.homeFormService.getHomeFormDataFromServer().subscribe(data => {
       if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
-        let activeCountry: string = localStorage.getItem("activeCountry");
-        let popularCountry: string = localStorage.getItem("popularCountry");
+        let activeCountry: string = this.userFlow.getCookie("activeCountry");
+        let popularCountry: string = this.userFlow.getCookie("popularCountry");
         if (
           activeCountry == "" ||
           activeCountry == undefined ||
@@ -96,7 +96,7 @@ export class B2bHomeComponent implements OnInit {
           // console.log("here 1");
         } else {
           this.country.setValue(activeCountry);
-          localStorage.setItem("activeCountry", "");
+          this.userFlow.setCookie("activeCountry", "");
           // console.log("here 2");
         }
         if (
@@ -110,11 +110,11 @@ export class B2bHomeComponent implements OnInit {
           // console.log("here 3");
         } else {
           this.country.setValue(popularCountry);
-          localStorage.setItem("popularCountry", "");
+          this.userFlow.setCookie("popularCountry", "");
           // console.log("here 4");
         }
 
-        // localStorage.setItem("countryList", JSON.stringify(data.data.countries));
+        // this.userFlow.setCookie("countryList", JSON.stringify(data.data.countries));
         // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
       }

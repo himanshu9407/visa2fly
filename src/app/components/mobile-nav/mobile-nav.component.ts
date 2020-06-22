@@ -27,7 +27,7 @@ export class MobileNavComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router,
     private preloaderService: PreloaderService,
-    private userFlowDetails: UserFlowDetails,
+    private userFlow: UserFlowDetails,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -36,7 +36,7 @@ export class MobileNavComponent implements OnInit {
 
     //  console.log(this.userLoggedIn);
     if (isPlatformBrowser(this.platformId)) {
-      this.userDetails = JSON.parse(localStorage.getItem("profile"));
+      this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
     }
     // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
@@ -66,14 +66,14 @@ export class MobileNavComponent implements OnInit {
             this.loginStatus.setUserLoggedIn(false);
             this.router.navigate(["visa"]);
             this.preloaderService.showPreloader(false);
-            localStorage.setItem("profile", JSON.stringify({}));
+            this.userFlow.setCookie("profile", JSON.stringify({}));
           } else if (data.code == "301") {
             this.loginService.setAuthToken("");
             this.loginStatus.setUserStatus(false);
             this.loginStatus.setUserLoggedIn(false);
             this.router.navigate(["visa"]);
             this.preloaderService.showPreloader(false);
-            localStorage.setItem("profile", JSON.stringify({}));
+            this.userFlow.setCookie("profile", JSON.stringify({}));
             this.toastr.error("" + data.message);
           } else {
             this.toastr.error(data.message.toString());

@@ -9,6 +9,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Title, Meta } from "@angular/platform-browser";
 import { ToastrService } from "ngx-toastr";
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
 @Component({
   selector: "app-simplans",
@@ -44,12 +45,13 @@ export class SimplansComponent implements OnInit {
     private loginStatus: LoginStatusService,
     private routerHistory: RouterHistory,
     private titleService: Title,
-    private meta: Meta
+    private meta: Meta,
+    private userFlow: UserFlowDetails
   ) {
-    // this.simCart = JSON.parse(localStorage.getItem('simCart')) || [];
+    // this.simCart = JSON.parse(this.userFlow.getCookie('simCart')) || [];
     this.preloaderService.showPreloader(true);
-    // this.simResp = JSON.parse(localStorage.getItem('simResp')) || [];
-    this.selectedCountry = localStorage.getItem("simSelectedCountry") || "";
+    // this.simResp = JSON.parse(this.userFlow.getCookie('simResp')) || [];
+    this.selectedCountry = this.userFlow.getCookie("simSelectedCountry") || "";
     this.revertCountry.push(this.selectedCountry);
     // console.log(this.selectedCountry)
   }
@@ -89,7 +91,7 @@ export class SimplansComponent implements OnInit {
         .subscribe((data: any) => {
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
-            localStorage.setItem("simResp", JSON.stringify(data.data));
+            this.userFlow.setCookie("simResp", JSON.stringify(data.data));
 
             this.selectedSimCountryData.forEach((element: any) => {
               element.quantity = 0;
@@ -117,7 +119,7 @@ export class SimplansComponent implements OnInit {
 
   onClickSelect() {
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
-    localStorage.setItem("simSelectedCountry", this.selectedSimCountry);
+    this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
     this.preloaderService.showPreloader(true);
     if (
       this.selectedCountry == "" ||
@@ -134,7 +136,7 @@ export class SimplansComponent implements OnInit {
         .subscribe((data: any) => {
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
-            localStorage.setItem("simResp", JSON.stringify(data.data));
+            this.userFlow.setCookie("simResp", JSON.stringify(data.data));
             // this.preloaderService.showPreloader(false);
             // setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -156,7 +158,7 @@ export class SimplansComponent implements OnInit {
               .getSimPlans(this.selectedRevertCountry)
               .subscribe((data: any) => {
                 this.selectedSimCountryData = data.data;
-                localStorage.setItem("simResp", JSON.stringify(data.data));
+                this.userFlow.setCookie("simResp", JSON.stringify(data.data));
                 // this.preloaderService.showPreloader(false);
                 // setTimeout(() => {
                 this.preloaderService.showPreloader(false);
@@ -170,7 +172,7 @@ export class SimplansComponent implements OnInit {
             this.selectedCountry = this.selectedRevertCountry;
           }
         });
-      // localStorage.setItem("simSelectedCountry",this.selectedCountry);
+      // this.userFlow.setCookie("simSelectedCountry",this.selectedCountry);
     }
   }
 
@@ -284,7 +286,7 @@ export class SimplansComponent implements OnInit {
 
   checkOut() {
     this.preloaderService.showPreloader(true);
-    localStorage.setItem("simCart", JSON.stringify(this.simCart));
+    this.userFlow.setCookie("simCart", JSON.stringify(this.simCart));
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
       token = "";

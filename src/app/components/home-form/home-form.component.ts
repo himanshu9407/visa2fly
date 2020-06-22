@@ -113,8 +113,8 @@ export class HomeFormComponent {
       if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
         //console.log(this.homeFormData);
-        let activeCountry: string = localStorage.getItem("activeCountry");
-        let popularCountry: string = localStorage.getItem("popularCountry");
+        let activeCountry: string = this.userFlow.getCookie("activeCountry");
+        let popularCountry: string = this.userFlow.getCookie("popularCountry");
         if (
           activeCountry == "" ||
           activeCountry == undefined ||
@@ -126,7 +126,7 @@ export class HomeFormComponent {
           // console.log("here 1");
         } else {
           this.country.setValue(activeCountry);
-          localStorage.setItem("activeCountry", "");
+          this.userFlow.setCookie("activeCountry", "");
           // console.log("here 2");
         }
         if (
@@ -140,11 +140,11 @@ export class HomeFormComponent {
           // console.log("here 3");
         } else {
           this.country.setValue(popularCountry);
-          localStorage.setItem("popularCountry", "");
+          this.userFlow.setCookie("popularCountry", "");
           // console.log("here 4");
         }
 
-        localStorage.setItem(
+        this.userFlow.setCookie(
           "countryList",
           JSON.stringify(data.data.countries)
         );
@@ -316,9 +316,9 @@ export class HomeFormComponent {
         }
         case "Dubai": {
           this.router.navigate([
-            "visa-requirements/apply-for-Dubai-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Dubai-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 

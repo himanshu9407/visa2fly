@@ -7,6 +7,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 // import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { ToastrService } from 'ngx-toastr';
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
 @Component({
   selector: "app-simcheckout",
@@ -45,12 +46,13 @@ export class SimcheckoutComponent implements OnInit {
     // private toastService: ToastService,
     private titleService: Title,
     private toastr: ToastrService,
-    private meta: Meta
+    private meta: Meta,
+    private userFlow: UserFlowDetails
   ) {
-    this.simCart = JSON.parse(localStorage.getItem("simCart"));
+    this.simCart = JSON.parse(this.userFlow.getCookie("simCart"));
     this.updateTotal();
     this.totalQuantity();
-    this.selectedCountry = localStorage.getItem("simSelectedCountry");
+    this.selectedCountry = this.userFlow.getCookie("simSelectedCountry");
   }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
-  { path: "", component: DubaiComponent, pathMatch: "full" },
+  { path: "", component: DubaiComponent },
 ]
 
 @NgModule({

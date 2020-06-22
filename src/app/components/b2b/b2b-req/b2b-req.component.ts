@@ -191,7 +191,7 @@ export class B2bReqComponent implements OnInit {
 
             // console.log(this.imageCatogoryTemp);
 
-            let temp1 = JSON.parse(localStorage.getItem("userFlowDetails"));
+            let temp1 = JSON.parse(this.userFlow.getCookie("userFlowDetails"));
             this.userFlow.setUserFlowDetails(
               "onlineCountry",
               JSON.stringify(data.data.onlineCategory)

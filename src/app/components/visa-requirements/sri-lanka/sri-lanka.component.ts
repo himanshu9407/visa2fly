@@ -305,7 +305,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
         this.loginStatus.setUserStatus(false);
         this.loginStatus.setUserLoggedIn(false);
         this.preloaderService.showPreloader(false);
-        localStorage.setItem("profile", JSON.stringify({}));
+        this.userFlow.setCookie("profile", JSON.stringify({}));
         this.routerHistory.pushHistory("req-and-quote");
         this.router.navigate(["slcontainer/login"]);
         this.preloaderService.showPreloader(false);

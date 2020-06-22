@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 import { PlatformLocation } from "@angular/common";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { Title, Meta } from "@angular/platform-browser";
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
 @Component({
   selector: "app-booking-details",
@@ -33,12 +34,12 @@ export class BookingDetailsComponent implements OnInit {
     private location: PlatformLocation,
     private titleService: Title,
     private meta: Meta,
-    // private activatedRoute = ActivateRoute,
+    private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService
   ) {
     this.preloaderService.showPreloader(true);
     let temp = this.myBookingService.getActiveBooking();
-    let localStorageBooking = JSON.parse(localStorage.getItem("activeBooking"));
+    let localStorageBooking = JSON.parse(this.userFlow.getCookie("activeBooking"));
     if (temp == null || temp == undefined) {
       temp = localStorageBooking;
     }

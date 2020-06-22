@@ -14,6 +14,7 @@ import { MobileFooterComponent } from "./components/mobile-footer/mobile-footer.
 import { AddPassengerDetailsComponent } from "./add-passenger-details/add-passenger-details.component";
 import { Ng2FlatpickrModule } from "ng2-flatpickr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
 // import { CarouselModule } from "ngx-owl-carousel-o";
 // import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -72,6 +73,7 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserCookiesModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

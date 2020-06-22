@@ -15,6 +15,7 @@ import { UserFlowDetails } from "./shared/user-flow-details.service";
 import { AuthGuard } from "./auth/auth.guard";
 import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
 import { Router, NavigationStart } from "@angular/router";
+import { CookiesService } from '@ngx-utils/cookies/src/cookies.service';
 
 @Component({
   selector: "app-root",
@@ -22,34 +23,6 @@ import { Router, NavigationStart } from "@angular/router";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  public dummyData = {
-    code: "0",
-    status: "SUCCESS",
-    message: "Data Fetched Successfully",
-    data: {
-      countries: ["Australia", "Dubai", "Russia"],
-      data: {
-        Australia: {
-          countryName: "Austrailia",
-          purpose: ["BUSINESS", "TOURIST"],
-          entryType: ["SINGLE ENTRY"],
-          residenceOf: ["Delhi", "Noida", "Gurgaon"]
-        },
-        Dubai: {
-          countryName: "Dubai",
-          purpose: ["BUSINESS", "TOURIST"],
-          entryType: ["SINGLE ENTRY", "MULTIPLE ENTRY"],
-          residenceOf: ["Delhi", "Noida", "Gurgaon"]
-        },
-        Russia: {
-          countryName: "Russia",
-          purpose: ["BUSINESS", "TOURIST"],
-          entryType: ["SINGLE ENTRY", "MULTIPLE ENTRY"],
-          residenceOf: ["Delhi", "Noida", "Gurgaon"]
-        }
-      }
-    }
-  };
   homeFormData: any;
   title = "visa-App";
   public showPreloader: boolean = false;
@@ -62,12 +35,14 @@ export class AppComponent implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private userFlow: UserFlowDetails,
-    private authService: AuthenticationGuard
+    private authService: AuthenticationGuard,
+    private cookies: CookiesService
   ) {
     // this.router.navigate(['/home']);
   }
 
   ngOnInit() {
+   
 
     this.preloaderService.getAlert().subscribe((showPreloader: boolean) => {
       this.showPreloader = showPreloader;
@@ -107,7 +82,7 @@ export class AppComponent implements OnInit {
             this.loginService.setAuthToken("");
             this.loginStatusService.setUserStatus(false);
             this.loginStatusService.setUserLoggedIn(false);
-            localStorage.setItem("profile", JSON.stringify({}));
+            this.userFlow.setCookie("profile", JSON.stringify({}));
           } else {
             this.userFlow.setUserProfile({});
             this.loginStatusService.setUserLoggedIn(false);

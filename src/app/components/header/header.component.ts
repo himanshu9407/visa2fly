@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private actRoute: ActivatedRoute,
     private preloaderService: PreloaderService,
-    private userFlowDetails: UserFlowDetails,
+    private userFlow: UserFlowDetails,
     private deactivate: CanDeactivateGuard,
     private routerHistory: RouterHistory,
     @Inject(PLATFORM_ID) private platformId: Object
@@ -69,7 +69,7 @@ export class HeaderComponent implements OnInit {
 
     //  console.log(this.userLoggedIn);
     if (isPlatformBrowser(this.platformId)) {
-    this.userDetails = JSON.parse(localStorage.getItem("profile"));
+    this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
     }
     // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit {
           this.loginStatus.setUserStatus(false);
           this.loginStatus.setUserLoggedIn(false);
           this.router.navigate(["visa"]);
-          localStorage.setItem("profile", JSON.stringify({}));
+          this.userFlow.setCookie("profile", JSON.stringify({}));
           this.preloaderService.showPreloader(false);
         } else if (data.code == "301") {
           this.loginService.setAuthToken("");
@@ -110,7 +110,7 @@ export class HeaderComponent implements OnInit {
           this.loginStatus.setUserLoggedIn(false);
           this.router.navigate(["visa"]);
           this.preloaderService.showPreloader(false);
-          localStorage.setItem("profile", JSON.stringify({}));
+          this.userFlow.setCookie("profile", JSON.stringify({}));
           this.toastr.error("" + data.message);
         } else {
           this.toastr.error(data.message.toString());
