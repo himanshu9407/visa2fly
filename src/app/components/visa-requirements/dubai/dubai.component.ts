@@ -99,8 +99,6 @@ export class DubaiComponent implements OnInit, AfterViewInit {
     private meta: Meta,
     @Inject(DOCUMENT) private doc
   ) {
-    this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
 
     this.preloaderService.showPreloader(true);
 
