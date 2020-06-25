@@ -100,11 +100,11 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
 
     this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
-    });
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
 
     let tempPurpose = this.selectedVisaType;
     //console.log(tempPurpose);
@@ -114,38 +114,27 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
       this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        //  console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
 
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          //console.log(this.imageCatogoryBusinessTemp);
-
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          //console.log(this.imageCatogoryTouristTemp);
-
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          //console.log(this.imageCatogoryTransitTemp);
-
           this.onlinestatus = res.data.onlineCategory;
 
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
-          //console.log(this.MyQuotation);
           this.MyQuotation.forEach(element => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              // console.log(this.businessArr);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              //console.log(this.touristArr);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              // console.log(this.transitArr);
             }
           });
           let purposeMain = this.selectedVisaType;
@@ -196,7 +185,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Australia-visa-online/Tourist");
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Australia-visa-online");
   }
 
   ngAfterViewInit() {
@@ -205,13 +194,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    // console.log(purpose);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Australia-visa-online/" + purpose
-    );
-    // console.log(this.businessArr);
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -229,15 +212,10 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     }
     this.imagefield1 = this.imageCatogoryTemp;
 
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {
-    // window.location
-    //let urlpurpose = this.MyQuotation1
-
     let purposeString: string = purpose.nextId;
-    // console.log(purposeString);
     let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
@@ -245,46 +223,33 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
-      //this.t.select("Tourist");
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
-      // console.log(this.MyQuotation1);
-      //this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
 
       this.selectedTransit = 1;
-      //this.t.select("Transit");
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    // console.log(this.MyQuotation1);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Australia-visa-online/" + purposeUrl
-    );
-    // console.log("url changed");
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
   setActiveTourist(index: number) {
     this.selectedTourist = index;
-    // console.log('business');
   }
 
   setActiveBusiness(index: number) {
     this.selectedBusiness = index;
-    //  console.log('business');
   }
 
   setActiveTransit(index: number) {
     this.selectedTransit = index;
-    // console.log('business');
   }
 
   navigate(

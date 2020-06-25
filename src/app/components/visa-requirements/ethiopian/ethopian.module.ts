@@ -8,7 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", component: EthiopianComponent, pathMatch: "full" },
+  { path: "", component: EthiopianComponent },
+  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ];
 
 @NgModule({

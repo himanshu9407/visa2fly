@@ -95,13 +95,13 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     @Inject(DOCUMENT) private doc
     ) {
 
-      this.userControlDetail = this.userFlow.getUserFlowDetails();
-
     this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-    });
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
 
     let tempPurpose = this.selectedVisaType;
     this.purposeChooseForm = new FormGroup({
@@ -182,7 +182,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Sri-Lanka-visa-online/Tourist");
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Sri-Lanka-visa-online");
   }
 
    ngAfterViewInit() {
@@ -191,11 +191,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purpose
-    );
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -239,11 +235,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Sri-Lanka-visa-online/" + purposeUrl
-    );
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
   }
 
   setActiveTourist(index: number) {

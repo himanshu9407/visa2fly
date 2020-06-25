@@ -1,13 +1,19 @@
 import { Data } from "./../../../interfaces/requirement";
 import { country } from "./../../../interfaces/home_formData";
 import { FormGroup, FormControl } from "@angular/forms";
-import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  Inject,
+} from "@angular/core";
 import {
   trigger,
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -19,9 +25,9 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { ToastrService } from 'ngx-toastr';
-import { SeoService } from 'src/app/shared/seo.service';
-import { DOCUMENT } from '@angular/common';
+import { ToastrService } from "ngx-toastr";
+import { SeoService } from "src/app/shared/seo.service";
+import { DOCUMENT } from "@angular/common";
 
 export interface Food {
   value: string;
@@ -29,9 +35,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-thailand',
-  templateUrl: './thailand.component.html',
-  styleUrls: ['./thailand.component.css'],
+  selector: "app-thailand",
+  templateUrl: "./thailand.component.html",
+  styleUrls: ["./thailand.component.css"],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -45,12 +51,11 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class ThailandComponent implements OnInit, AfterViewInit {
-
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
@@ -82,7 +87,8 @@ export class ThailandComponent implements OnInit, AfterViewInit {
   public PurposeUse: any;
   title: string = "Thailand E Visa Online| Thailand Tourist Visa - Visa2fly";
 
-  constructor(private activeRoute: ActivatedRoute,
+  constructor(
+    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
@@ -94,97 +100,104 @@ export class ThailandComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    @Inject(DOCUMENT) private doc) {
+    @Inject(DOCUMENT) private doc
+  ) {
+    this.preloaderService.showPreloader(true);
 
-            this.userControlDetail = this.userFlow.getUserFlowDetails();
-          this.preloaderService.showPreloader(true);
-          this.activeRoute.params.subscribe((params: any) => {
-            this.selectedVisaType = params.purpose;
-          });
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
 
-          let tempPurpose = this.selectedVisaType;
-          this.purposeChooseForm = new FormGroup({
-            purposeSelected: new FormControl(tempPurpose)
-          });
+    let tempPurpose = this.selectedVisaType;
+    this.purposeChooseForm = new FormGroup({
+      purposeSelected: new FormControl(tempPurpose),
+    });
 
-          this.requireQuotation
-          .getRequireQuotation(this.countryStatic)
-          .subscribe((res: any) => {
-            if (res.code == 0) {
-              this.MyQuotation = res.data.quotations;
+    this.requireQuotation
+      .getRequireQuotation(this.countryStatic)
+      .subscribe((res: any) => {
+        if (res.code == 0) {
+          this.MyQuotation = res.data.quotations;
 
-              this.imageCatogory.push(res.data.imageUploadInfo);
+          this.imageCatogory.push(res.data.imageUploadInfo);
 
-              this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-    
-              this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-    
-              this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
 
-              this.onlinestatus = res.data.onlineCategory;
-              this.userFlow.setUserFlowDetails(
-                "onlineCountry",
-                JSON.stringify(res.data.onlineCategory)
-              );
-              this.MyQuotation.forEach(element => {
-                if (element.purpose == "Business") {
-                  this.businessArr.push(element);
-                } else if (element.purpose == "Tourist") {
-                  this.touristArr.push(element);
-                } else if (element.purpose == "Transit") {
-                  this.transitArr.push(element);
-                }
-              });
-              let purposeMain = this.selectedVisaType;
-              let purposeUrl =
-                purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-              if (purposeUrl == "Business") {
-                this.MyQuotation1 = this.businessArr;
-                this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-              }else if(purposeUrl == 'Tourist') {
-                this.MyQuotation1 = this.touristArr;
-                this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-              }else if(purposeUrl == 'Transit'){
-                this.MyQuotation1 = this.transitArr;
-                this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-              }else{
-                this.router.navigate(['visa/']);
-              }
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
 
-              this.imagefield1 = this.imageCatogoryTemp;
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
 
-              setTimeout(() => {
-                this.preloaderService.showPreloader(false);
-              }, 500);
-            }  else {
-              setTimeout(() => {
-                this.preloaderService.showPreloader(false);
-                this.router.navigate(["/"]);
-              }, 2000);
-              this.toastr.error(
-                "Country Not Found"
-              );
+          this.onlinestatus = res.data.onlineCategory;
+          this.userFlow.setUserFlowDetails(
+            "onlineCountry",
+            JSON.stringify(res.data.onlineCategory)
+          );
+          this.MyQuotation.forEach((element) => {
+            if (element.purpose == "Business") {
+              this.businessArr.push(element);
+            } else if (element.purpose == "Tourist") {
+              this.touristArr.push(element);
+            } else if (element.purpose == "Transit") {
+              this.transitArr.push(element);
             }
           });
+          let purposeMain = this.selectedVisaType;
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
 
-        this.PurposeUse = this.purposeChooseForm.get("purposeSelected").value;
-     }
+          this.imagefield1 = this.imageCatogoryTemp;
+
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error("Country Not Found");
+        }
+      });
+
+    this.PurposeUse = this.purposeChooseForm.get("purposeSelected").value;
+  }
 
   ngOnInit() {
-
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name:"keywords", content: "apply for thailand e-visa, thailand tourist visa application, thailand tourist visa for indian, apply for thailand e visa, thailand e-visa for indians" },
+      {
+        name: "keywords",
+        content:
+          "apply for thailand e-visa, thailand tourist visa application, thailand tourist visa for indian, apply for thailand e visa, thailand e-visa for indians",
+      },
       {
         name: "description",
-        content: "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More"
-      }
+        content:
+          "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More",
+      },
     ]);
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Thailand-visa-online/Tourist");
+    link.setAttribute(
+      "href",
+      "https://visa2fly.com/visa-requirements/apply-for-Thailand-visa-online"
+    );
   }
 
   ngAfterViewInit() {
@@ -193,11 +206,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Thailand-visa-online/" + purpose
-    );
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -217,7 +226,6 @@ export class ThailandComponent implements OnInit, AfterViewInit {
   }
 
   navigateTo(purpose: any) {
-
     let purposeString: string = purpose.nextId;
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
@@ -241,11 +249,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Thailand-visa-online/" + purposeUrl
-    );
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
   setActiveTourist(index: number) {
@@ -322,5 +326,4 @@ export class ThailandComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 }

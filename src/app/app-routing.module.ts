@@ -118,7 +118,7 @@ const routes: Routes = [
 
   // Uk Page
   {
-    path: "visa-requirements/apply-for-UK-visa-online/:purpose",
+    path: "visa-requirements/apply-for-UK-visa-online",
     loadChildren: () =>
       import(
         "./components/visa-requirements/united-kingdom/united-kingdom.module"
@@ -128,7 +128,7 @@ const routes: Routes = [
 
   // USA Page
   {
-    path: "visa-requirements/apply-for-USA-visa-online/:purpose",
+    path: "visa-requirements/apply-for-USA-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/usa/usa.module").then(
         (m) => m.USAModule
@@ -138,7 +138,7 @@ const routes: Routes = [
 
   // Netherland Page
   {
-    path: "visa-requirements/apply-for-Netherlands-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Netherlands-visa-online",
     loadChildren: () =>
       import(
         "./components/visa-requirements/netherlands/netherlands.module"
@@ -148,7 +148,7 @@ const routes: Routes = [
 
   // Australia Page
   {
-    path: "visa-requirements/apply-for-Australia-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Australia-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/australia/australia.module").then(
         (m) => m.AustraliaModule
@@ -158,9 +158,9 @@ const routes: Routes = [
 
   // France Page
   {
-    path: "visa-requirements/apply-for-France-visa-online/:purpose",
+    path: "visa-requirements/apply-for-France-visa-online",
     loadChildren: () =>
-      import("./components/visa-requirements/france/France.module").then(
+      import("./components/visa-requirements/france/france.module").then(
         (m) => m.FranceModule
       ),
     data: { preload: true },
@@ -168,7 +168,7 @@ const routes: Routes = [
 
   // China Page
   {
-    path: "visa-requirements/apply-for-China-visa-online/:purpose",
+    path: "visa-requirements/apply-for-China-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/china/china.module").then(
         (m) => m.ChinaModule
@@ -178,7 +178,7 @@ const routes: Routes = [
 
   // Switzerland Page
   {
-    path: "visa-requirements/apply-for-Swiss-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Swiss-visa-online",
     loadChildren: () =>
       import(
         "./components/visa-requirements/switzerland/switzerland.module"
@@ -188,7 +188,7 @@ const routes: Routes = [
 
   // Ethopia Page
   {
-    path: "visa-requirements/apply-for-Ethiopia-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Ethiopia-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/ethiopian/ethopian.module").then(
         (m) => m.EthopianModule
@@ -198,7 +198,7 @@ const routes: Routes = [
 
   // Malaysia Page
   {
-    path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Malaysia-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/malaysia/malaysia.module").then(
         (m) => m.MalaysiaModule
@@ -208,7 +208,7 @@ const routes: Routes = [
 
   // Thailand Page
   {
-    path: "visa-requirements/apply-for-Thailand-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Thailand-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/thailand/thailand.module").then(
         (m) => m.ThailandModule
@@ -218,7 +218,7 @@ const routes: Routes = [
 
   // Vietnam Page
   {
-    path: "visa-requirements/apply-for-Vietnam-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Vietnam-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/vietnam/vietnam.module").then(
         (m) => m.VietnamModule
@@ -238,7 +238,7 @@ const routes: Routes = [
 
   // Maldives Page
   {
-    path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Maldives-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/maldives/maldives.module").then(
         (m) => m.MaldivesModule
@@ -248,7 +248,7 @@ const routes: Routes = [
 
   // Spain Page
   {
-    path: "visa-requirements/apply-for-Spain-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Spain-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/spain/spain.module").then(
         (m) => m.SpainModule
@@ -258,7 +258,7 @@ const routes: Routes = [
 
   // Singapore Page
   {
-    path: "visa-requirements/apply-for-Singapore-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Singapore-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/singapore/singapore.module").then(
         (m) => m.SingaporeModule
@@ -268,7 +268,7 @@ const routes: Routes = [
 
   // Sri-Lanka Page
   {
-    path: "visa-requirements/apply-for-Sri-Lanka-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Sri-Lanka-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/sri-lanka/sri-lanka.module").then(
         (m) => m.SrilankaModule
@@ -278,7 +278,7 @@ const routes: Routes = [
 
   // Camboida Page
   {
-    path: "visa-requirements/apply-for-Cambodia-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Cambodia-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/combodia/combodia.module").then(
         (m) => m.CombodiaModule
@@ -288,7 +288,7 @@ const routes: Routes = [
 
   // Turkey Page
   {
-    path: "visa-requirements/apply-for-Turkey-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Turkey-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/turkey/turkey.module").then(
         (m) => m.TurkeyModule
@@ -298,7 +298,7 @@ const routes: Routes = [
 
   // Azerbaijan Page
   {
-    path: "visa-requirements/apply-for-Azerbaijan-visa-online/:purpose",
+    path: "visa-requirements/apply-for-Azerbaijan-visa-online",
     loadChildren: () =>
       import(
         "./components/visa-requirements/azerbaijan/azerbaijan.module"

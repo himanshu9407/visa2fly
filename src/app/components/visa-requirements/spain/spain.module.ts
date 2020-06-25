@@ -8,7 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SpainComponent } from './spain.component';
 
 const routes: Routes = [
-  { path: "", component: SpainComponent, pathMatch: "full" },
+  { path: "", component: SpainComponent },
+  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ]
 
 @NgModule({

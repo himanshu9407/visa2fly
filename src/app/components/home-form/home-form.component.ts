@@ -5,7 +5,7 @@ import {
   Input,
   Injectable,
   PLATFORM_ID,
-  Inject
+  Inject,
 } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { Router } from "@angular/router";
@@ -16,10 +16,10 @@ import {
   NgForm,
   FormGroup,
   FormControl,
-  AbstractControl
+  AbstractControl,
 } from "@angular/forms";
 import { HomeFormService } from "./home-form.service";
-import { HomeFormModel } from "./HomeForm.model";
+import { HomeFormModel } from "./home-form.model";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { AuthenticationGuard } from "src/app/shared/AuthenticationGuard.service";
@@ -29,7 +29,7 @@ import { LoginService } from "../login-signup/login/login.service";
 @Component({
   selector: "app-home-form",
   templateUrl: "./home-form.component.html",
-  styleUrls: ["./home-form.component.css"]
+  styleUrls: ["./home-form.component.css"],
 })
 export class HomeFormComponent {
   homeForm: FormGroup;
@@ -47,7 +47,7 @@ export class HomeFormComponent {
           Business: ["Single Entry"],
           Transit: ["Single Entry"],
           Tourist: ["Single Entry"],
-          residenceOf: ["Delhi", "Noida", "Gurugram"]
+          residenceOf: ["Delhi", "Noida", "Gurugram"],
         },
         China: {
           countryName: "China",
@@ -56,7 +56,7 @@ export class HomeFormComponent {
           Business: ["Single Entry", "Double Entry", "Multiple Entry"],
           Transit: ["Single Entry"],
           Tourist: ["Single Entry", "Double Entry", "Multiple Entry"],
-          residenceOf: ["Delhi", "Noida", "Gurugram"]
+          residenceOf: ["Delhi", "Noida", "Gurugram"],
         },
         Australia: {
           countryName: "Australia",
@@ -66,10 +66,10 @@ export class HomeFormComponent {
           Business: ["Single Entry", "Multiple Entry"],
           Transit: ["Single Entry"],
           Tourist: ["Single Entry", "Multiple Entry"],
-          residenceOf: ["Delhi"]
-        }
-      }
-    }
+          residenceOf: ["Delhi"],
+        },
+      },
+    },
   };
 
   public selectedResidenceOf: string = "select";
@@ -100,7 +100,7 @@ export class HomeFormComponent {
     this.homeForm = new FormGroup({
       country: new FormControl("Sri Lanka"),
       purpose: new FormControl(""),
-      livingin: new FormControl("")
+      livingin: new FormControl(""),
     });
 
     this.country = this.homeForm.get("country");
@@ -109,7 +109,7 @@ export class HomeFormComponent {
 
     // console.log(this.homeFormData.data.countries);
 
-    this.homeFormService.getHomeFormDataFromServer().subscribe(data => {
+    this.homeFormService.getHomeFormDataFromServer().subscribe((data) => {
       if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
         //console.log(this.homeFormData);
@@ -227,7 +227,7 @@ export class HomeFormComponent {
   // }
 
   onSubmit() {
-    this.purpose.valueChanges.subscribe(value => {
+    this.purpose.valueChanges.subscribe((value) => {
       if (value == "select") {
         this.purposeNotSelected = true;
       } else {
@@ -245,7 +245,7 @@ export class HomeFormComponent {
     //     }
     //   }
     // );
-    this.livesIn.valueChanges.subscribe(value => {
+    this.livesIn.valueChanges.subscribe((value) => {
       if (value == "select") {
         this.livesInNotSelected = true;
       } else {
@@ -263,60 +263,55 @@ export class HomeFormComponent {
       let countryTemp1 = this.staticPagesArr.includes(this.selectedCountry);
       //  console.log(countryTemp1)
       switch (this.selectedCountry) {
-        // case "Canada" : {
-        //  this.setDetailsOnLocalStorage();
-        //  this.router.navigate(['reg']);
-        // break;
-        // }
         case "United Kingdom": {
           // this.setDetailsOnLocalStorage();
           this.router.navigate([
-            "visa-requirements/apply-for-UK-visa-online",
-            "" + purpose
+            "visa-requirements/apply-for-UK-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Switzerland": {
           // this.setDetailsOnLocalStorage();
           this.router.navigate([
-            "visa-requirements/apply-for-Swiss-visa-online",
-            "" + purpose
+            "visa-requirements/apply-for-Swiss-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "France": {
           //this.setDetailsOnLocalStorage();
           this.router.navigate([
-            "visa-requirements/apply-for-France-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-France-visa-online/"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "China": {
           this.router.navigate([
             "visa-requirements/apply-for-China-visa-online/",
-            "" + purpose
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Ethiopia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Ethiopia-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Ethiopia-visa-online",
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Malaysia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Malaysia-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Malaysia-visa-online",
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Dubai": {
           this.router.navigate([
-            "visa-requirements/apply-for-Dubai-visa-online"
+            "visa-requirements/apply-for-Dubai-visa-online",
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
@@ -324,100 +319,92 @@ export class HomeFormComponent {
 
         case "Maldives": {
           this.router.navigate([
-            "visa-requirements/apply-for-Maldives-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Maldives-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Sri Lanka": {
-          // this.setDetailsOnLocalStorage();
           this.router.navigate([
-            "visa-requirements/apply-for-Sri-Lanka-visa-online",
-            "" + purpose
+            "visa-requirements/apply-for-Sri-Lanka-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Spain": {
           this.router.navigate([
-            "visa-requirements/apply-for-Spain-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Spain-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Singapore": {
           this.router.navigate([
-            "visa-requirements/apply-for-Singapore-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Singapore-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Cambodia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Cambodia-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Cambodia-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Turkey": {
           this.router.navigate([
-            "visa-requirements/apply-for-Turkey-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Turkey-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Azerbaijan": {
           this.router.navigate([
-            "visa-requirements/apply-for-Azerbaijan-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Azerbaijan-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Thailand": {
           this.router.navigate([
-            "visa-requirements/apply-for-Thailand-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Thailand-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Vietnam": {
           this.router.navigate([
-            "visa-requirements/apply-for-Vietnam-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Vietnam-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Australia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Australia-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Australia-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "USA": {
           this.router.navigate([
-            "visa-requirements/apply-for-USA-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-USA-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Netherlands": {
           this.router.navigate([
-            "visa-requirements/apply-for-Netherlands-visa-online/",
-            "" + purpose
+            "visa-requirements/apply-for-Netherlands-visa-online"
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
-        // case "Japan" : {
-        //   this.setDetailsOnLocalStorage();
-        //   this.router.navigate(['']);
-        //   break;
-        // }
         default: {
-          //this.setDetailsOnLocalStorage();
-          //console.log(this.userFlow.getUserFlowDetails())
           this.router.navigate([
             "visa-requirements/",
             "" + country1,

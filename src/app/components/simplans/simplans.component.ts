@@ -30,7 +30,7 @@ export class SimplansComponent implements OnInit {
   simCartEmpty : boolean = true;
   totalPrice : number = 0;
   displayTotal : number = 0;
-  simResp : any ;
+  // simResp : any ;
   showMobileCart : boolean  = false;
   buttonLabel : string = "View Cart";
   title: string = "Visa2fly | Sim Plans";
@@ -89,9 +89,11 @@ export class SimplansComponent implements OnInit {
       this.simService
         .getSimPlans(this.selectedCountry)
         .subscribe((data: any) => {
+          console.log(data);
+          
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
-            this.userFlow.setCookie("simResp", JSON.stringify(data.data));
+            // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
 
             this.selectedSimCountryData.forEach((element: any) => {
               element.quantity = 0;
@@ -136,7 +138,7 @@ export class SimplansComponent implements OnInit {
         .subscribe((data: any) => {
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
-            this.userFlow.setCookie("simResp", JSON.stringify(data.data));
+            // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
             // this.preloaderService.showPreloader(false);
             // setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -158,7 +160,7 @@ export class SimplansComponent implements OnInit {
               .getSimPlans(this.selectedRevertCountry)
               .subscribe((data: any) => {
                 this.selectedSimCountryData = data.data;
-                this.userFlow.setCookie("simResp", JSON.stringify(data.data));
+                // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
                 // this.preloaderService.showPreloader(false);
                 // setTimeout(() => {
                 this.preloaderService.showPreloader(false);

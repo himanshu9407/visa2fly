@@ -8,13 +8,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: "", component: CombodiaComponent, pathMatch: "full" },
+  { path: "", component: CombodiaComponent },
+  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ]
 
 @NgModule({
   declarations: [
     CombodiaComponent,
-
   ],
   imports: [
     FormsModule,

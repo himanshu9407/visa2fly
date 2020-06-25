@@ -90,16 +90,14 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     private meta: Meta,
     @Inject(DOCUMENT) private doc
   ) {
-    this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
 
     this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
-    });
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
 
     let tempPurpose = this.selectedVisaType;
     //console.log(tempPurpose);
@@ -188,7 +186,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-China-visa-online/Tourist");
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-China-visa-online");
   }
 
   ngAfterViewInit() {
@@ -197,13 +195,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    // console.log(purpose);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-China-visa-online/" + purpose
-    );
-    // console.log(this.businessArr);
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -244,13 +236,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
 
       this.selectedTransit = 1;
     }
-    // console.log(this.MyQuotation1);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-China-visa-online/" + purposeUrl
-    );
-    // console.log("url changed");
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
   setActiveTourist(index: number) {

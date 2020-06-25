@@ -95,16 +95,14 @@ export class SwitzerlandComponent implements OnInit {
     private meta: Meta,
     @Inject(DOCUMENT) private doc
   ) {
-    this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
 
     this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-      // this.selectedCountryType = 'France';
-      //  console.log(this.selectedCountryType);
-    });
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
 
     let tempPurpose = this.selectedVisaType;
     //console.log(tempPurpose);
@@ -191,7 +189,7 @@ export class SwitzerlandComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Swiss-visa-online/Tourist");
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Swiss-visa-online");
   }
 
   ngAfterViewInit() {
@@ -200,11 +198,7 @@ export class SwitzerlandComponent implements OnInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Swiss-visa-online/" + purpose
-    );
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -240,11 +234,7 @@ export class SwitzerlandComponent implements OnInit {
 
       this.selectedTransit = 1;
     }
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Swiss-visa-online/" + purposeUrl
-    );
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
   setActiveTourist(index: number) {

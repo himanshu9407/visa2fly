@@ -8,7 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { ChinaComponent } from './china.component';
 
 const routes: Routes = [
-  { path: "", component: ChinaComponent, pathMatch: "full" },
+  { path: "", component: ChinaComponent },
+  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ]
 
 @NgModule({

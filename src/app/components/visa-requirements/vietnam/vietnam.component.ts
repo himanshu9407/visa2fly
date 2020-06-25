@@ -1,14 +1,20 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Inject} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  Inject,
+} from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { HomeFormComponent } from "../../home-form/home-form.component";
@@ -17,9 +23,9 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { Title, Meta } from '@angular/platform-browser';
-import { SeoService } from 'src/app/shared/seo.service';
-import { DOCUMENT } from '@angular/common';
+import { Title, Meta } from "@angular/platform-browser";
+import { SeoService } from "src/app/shared/seo.service";
+import { DOCUMENT } from "@angular/common";
 
 export interface Food {
   value: string;
@@ -27,9 +33,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-vietnam',
-  templateUrl: './vietnam.component.html',
-  styleUrls: ['./vietnam.component.css'],
+  selector: "app-vietnam",
+  templateUrl: "./vietnam.component.html",
+  styleUrls: ["./vietnam.component.css"],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -43,12 +49,11 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class VietnamComponent implements OnInit, AfterViewInit {
-
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
@@ -79,9 +84,10 @@ export class VietnamComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Vietnam E Visa Apply Online- Visa2Fly';
+  title: string = "Vietnam E Visa Apply Online- Visa2Fly";
 
-  constructor(private activeRoute: ActivatedRoute,
+  constructor(
+    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
@@ -93,25 +99,22 @@ export class VietnamComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    @Inject(DOCUMENT) private doc) {
+    @Inject(DOCUMENT) private doc
+  ) {
+    this.preloaderService.showPreloader(true);
 
-      this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
 
-          this.preloaderService.showPreloader(true);
-
-          this.activeRoute.params.subscribe((params: any) => {
-            this.selectedVisaType = params.purpose;
-            // this.selectedCountryType = 'France';
-            //  console.log(this.selectedCountryType);
-          });
-
-            let tempPurpose = this.selectedVisaType;
-            //console.log(tempPurpose);
-            this.purposeChooseForm = new FormGroup({
-              purposeSelected: new FormControl(tempPurpose)
-            });
-            this.requireQuotation
+    let tempPurpose = this.selectedVisaType;
+    //console.log(tempPurpose);
+    this.purposeChooseForm = new FormGroup({
+      purposeSelected: new FormControl(tempPurpose),
+    });
+    this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         //  console.log(res);
@@ -119,13 +122,13 @@ export class VietnamComponent implements OnInit, AfterViewInit {
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
-        
+
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           //console.log(this.imageCatogoryBusinessTemp);
-          
+
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           //console.log(this.imageCatogoryTouristTemp);
-          
+
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           //console.log(this.imageCatogoryTransitTemp);
 
@@ -136,7 +139,7 @@ export class VietnamComponent implements OnInit, AfterViewInit {
             JSON.stringify(res.data.onlineCategory)
           );
           //console.log(this.MyQuotation);
-          this.MyQuotation.forEach(element => {
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
               // console.log(this.businessArr);
@@ -149,22 +152,22 @@ export class VietnamComponent implements OnInit, AfterViewInit {
             }
           });
           let purposeMain = this.selectedVisaType;
-          let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if(purposeUrl == 'Business')
-            {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            }else if(purposeUrl == 'Tourist') {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            }else if(purposeUrl == 'Transit'){
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }else{
-              this.router.navigate(['visa/']);
-            }
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
 
-            this.imagefield1 = this.imageCatogoryTemp;
+          this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -174,28 +177,33 @@ export class VietnamComponent implements OnInit, AfterViewInit {
             this.preloaderService.showPreloader(false);
             this.router.navigate(["/"]);
           }, 2000);
-          this.toastr.error(
-            "Country Not Found"
-          );
+          this.toastr.error("Country Not Found");
         }
       });
-     }
+  }
 
   ngOnInit() {
-
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name: "keywords", content: "apply for Vietnam e-visa, Vietnam tourist visa application, Vietnam tourist visa for Indian, apply for Vietnam e visa, Vietnam e-visa for Indians" },
+      {
+        name: "keywords",
+        content:
+          "apply for Vietnam e-visa, Vietnam tourist visa application, Vietnam tourist visa for Indian, apply for Vietnam e visa, Vietnam e-visa for Indians",
+      },
       {
         name: "description",
-        content: "Apply online for Vietnam e-visa at Visa2fly. To Avail Vietnam e-visa apply online and fill the visa application process online at visa2fly. Visa2Fly offers world-class online visa services so that, you receive maximum benefits without any hassle. Know more about it here."
+        content:
+          "Apply online for Vietnam e-visa at Visa2fly. To Avail Vietnam e-visa apply online and fill the visa application process online at visa2fly. Visa2Fly offers world-class online visa services so that, you receive maximum benefits without any hassle. Know more about it here.",
       },
     ]);
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Vietnam-visa-online/Tourist");
+    link.setAttribute(
+      "href",
+      "https://visa2fly.com/visa-requirements/apply-for-Vietnam-visa-online"
+    );
   }
 
   ngAfterViewInit() {
@@ -204,13 +212,7 @@ export class VietnamComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    // console.log(purpose);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Vietnam-visa-online/" + purpose
-    );
-    // console.log(this.businessArr);
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -218,7 +220,7 @@ export class VietnamComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -237,7 +239,8 @@ export class VietnamComponent implements OnInit, AfterViewInit {
 
     let purposeString: string = purpose.nextId;
     // console.log(purposeString);
-    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let purposeUrl =
+      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -262,13 +265,7 @@ export class VietnamComponent implements OnInit, AfterViewInit {
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    // console.log(this.MyQuotation1);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Vietnam-visa-online/" + purposeUrl
-    );
-    // console.log("url changed");
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
   setActiveTourist(index: number) {
@@ -304,7 +301,10 @@ export class VietnamComponent implements OnInit, AfterViewInit {
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
@@ -354,5 +354,4 @@ export class VietnamComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 }

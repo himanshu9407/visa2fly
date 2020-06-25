@@ -535,7 +535,7 @@
 
 <div style="display: none">
   <form name="paymentForm" ngNoForm
-    action="http://zaakpaystaging.centralindia.cloudapp.azure.com:8080/api/paymentTransact/V8?" method="POST">
+    [action]="redirect" method="POST">
     <input type="text" name="buyerEmail" id="buyerEmail" [(ngModel)]="buyerEmail">
     <input type="text" name="orderId" id="orderId" [(ngModel)]="orderId">
     <input type="text" name="amount" id="amount" [(ngModel)]="amount">

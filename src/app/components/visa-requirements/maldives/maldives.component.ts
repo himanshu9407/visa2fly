@@ -95,13 +95,14 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     @Inject(DOCUMENT) private doc
   ) {
-    this.userControlDetail = this.userFlow.getUserFlowDetails();
 
     this.preloaderService.showPreloader(true);
 
-    this.activeRoute.params.subscribe((params: any) => {
-      this.selectedVisaType = params.purpose;
-    });
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
 
     let tempPurpose = this.selectedVisaType;
     this.purposeChooseForm = new FormGroup({
@@ -155,7 +156,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Maldives-visa-online/Tourist");
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Maldives-visa-online");
   }
 
   ngAfterViewInit() {
@@ -164,13 +165,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    // console.log(purpose);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Maldives-visa-online/" + purpose
-    );
-    // console.log(this.businessArr);
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -211,13 +206,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
       this.selectedTransit = 1;
       //this.t.select("Transit");
     }
-    // console.log(this.MyQuotation1);
-    window.history.replaceState(
-      "",
-      "",
-      "/visa-requirements/apply-for-Maldives-visa-online/" + purposeUrl
-    );
-    // console.log("url changed");
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
   setActiveTourist(index: number) {

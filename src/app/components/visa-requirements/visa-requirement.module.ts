@@ -7,7 +7,7 @@ import { ChinaModule } from './china/china.module';
 import { CombodiaModule } from './combodia/combodia.module';
 import { DubaiModule } from './dubai/dubai.module';
 import { EthopianModule } from './ethiopian/ethopian.module';
-import { FranceModule } from './france/France.module';
+import { FranceModule } from './france/france.module';
 import { MalaysiaModule } from './malaysia/malaysia.module';
 import { MaldivesModule } from './maldives/maldives.module';
 import { NetherlandsModule } from './netherlands/netherlands.module';
