@@ -176,7 +176,8 @@ export class LoginComponent implements OnInit {
     let otp = this.loginForm.get("otp").value;
     let rememberMe = this.loginForm.get("rememberMe").value;
     let temp = this.checkUserId();
-    // console.log(this.loginForm.value);
+    
+    this.userFlowService.setExpiry(rememberMe);
 
     this.getIP.getClientIP().subscribe(
       (data1: { ip: string }) => {

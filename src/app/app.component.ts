@@ -3,7 +3,7 @@ import {
   AfterViewInit,
   OnInit,
   AfterContentChecked,
-  AfterViewChecked
+  AfterViewChecked,
 } from "@angular/core";
 import { HomeServiceService } from "./home-service.service";
 import { HomeFormService } from "./components/home-form/home-form.service";
@@ -15,12 +15,12 @@ import { UserFlowDetails } from "./shared/user-flow-details.service";
 import { AuthGuard } from "./auth/auth.guard";
 import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
 import { Router, NavigationStart } from "@angular/router";
-import { CookiesService } from '@ngx-utils/cookies/src/cookies.service';
+import { CookiesService } from "@ngx-utils/cookies/src/cookies.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
   homeFormData: any;
@@ -38,17 +38,15 @@ export class AppComponent implements OnInit {
     private authService: AuthenticationGuard,
     private cookies: CookiesService
   ) {
-    // this.router.navigate(['/home']);
+
   }
 
   ngOnInit() {
-   
-
     this.preloaderService.getAlert().subscribe((showPreloader: boolean) => {
       this.showPreloader = showPreloader;
     });
 
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         // console.log(event.url);
         let url: string = event.url;
