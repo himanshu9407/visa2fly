@@ -93,7 +93,13 @@ export class USAComponent implements OnInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
+    private activatedRoute: ActivatedRoute,
     @Inject(DOCUMENT) private doc) {
+      this.activatedRoute.params.subscribe((params) => {
+        if (params["purpose"]) {
+          this.router.navigate(['visa','usa-visa-online']);
+        }
+      });
 
     this.preloaderService.showPreloader(true);
 

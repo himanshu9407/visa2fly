@@ -92,9 +92,15 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     private routerHistory: RouterHistory,
     private titleService: Title,
     private meta: Meta,
+    private activatedRoute: ActivatedRoute,
     private reqService: RequirementsService,
     @Inject(DOCUMENT) private doc
   ) {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(['visa','maldives-visa-online']);
+      }
+    });
 
     this.preloaderService.showPreloader(true);
 

@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  Inject,
+} from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -7,7 +13,7 @@ import {
   transition,
   animate,
 } from "@angular/animations";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
@@ -18,8 +24,8 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoService } from 'src/app/shared/seo.service';
-import { DOCUMENT } from '@angular/common';
+import { SeoService } from "src/app/shared/seo.service";
+import { DOCUMENT } from "@angular/common";
 
 export interface Food {
   value: string;
@@ -93,8 +99,14 @@ export class SwitzerlandComponent implements OnInit {
     private toastr: ToastrService,
     private titleService: Title,
     private meta: Meta,
+    private activatedRoute: ActivatedRoute,
     @Inject(DOCUMENT) private doc
   ) {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(["visa", "swiss-visa-online"]);
+      }
+    });
 
     this.preloaderService.showPreloader(true);
 
@@ -164,9 +176,7 @@ export class SwitzerlandComponent implements OnInit {
             this.preloaderService.showPreloader(false);
             this.router.navigate(["/"]);
           }, 2000);
-          this.toastr.error(
-            "Country Not Found"
-          );
+          this.toastr.error("Country Not Found");
         }
       });
   }
@@ -189,7 +199,10 @@ export class SwitzerlandComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Swiss-visa-online");
+    link.setAttribute(
+      "href",
+      "https://visa2fly.com/visa-requirements/apply-for-Swiss-visa-online"
+    );
   }
 
   ngAfterViewInit() {
@@ -212,7 +225,6 @@ export class SwitzerlandComponent implements OnInit {
     }
   }
   navigateTo(purpose: any) {
-
     let purposeString: string = purpose.nextId;
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
@@ -285,7 +297,6 @@ export class SwitzerlandComponent implements OnInit {
     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
       if (data.code == "0") {
         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-
           if (data.code == "0") {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);

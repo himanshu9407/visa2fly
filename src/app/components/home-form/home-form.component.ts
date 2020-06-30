@@ -266,7 +266,7 @@ export class HomeFormComponent {
         case "United Kingdom": {
           // this.setDetailsOnLocalStorage();
           this.router.navigate([
-            "visa-requirements/apply-for-UK-visa-online"
+            "visa/uk-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
@@ -274,7 +274,7 @@ export class HomeFormComponent {
         case "Switzerland": {
           // this.setDetailsOnLocalStorage();
           this.router.navigate([
-            "visa-requirements/apply-for-Swiss-visa-online"
+            "visa/swiss-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
@@ -282,14 +282,14 @@ export class HomeFormComponent {
         case "France": {
           //this.setDetailsOnLocalStorage();
           this.router.navigate([
-            "visa-requirements/apply-for-France-visa-online/"
+            "visa/france-visa-online/"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "China": {
           this.router.navigate([
-            "visa-requirements/apply-for-China-visa-online/",
+            "visa/china-visa-online/",
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
@@ -297,21 +297,21 @@ export class HomeFormComponent {
 
         case "Ethiopia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Ethiopia-visa-online",
+            "visa/ethiopia-visa-online",
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Malaysia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Malaysia-visa-online",
+            "visa/malaysia-visa-online",
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Dubai": {
           this.router.navigate([
-            "visa-requirements/apply-for-Dubai-visa-online",
+            "visa/dubai-visa-online",
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
@@ -319,21 +319,21 @@ export class HomeFormComponent {
 
         case "Maldives": {
           this.router.navigate([
-            "visa-requirements/apply-for-Maldives-visa-online"
+            "visa/maldives-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Sri Lanka": {
           this.router.navigate([
-            "visa-requirements/apply-for-Sri-Lanka-visa-online"
+            "visa/sri-lanka-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Spain": {
           this.router.navigate([
-            "visa-requirements/apply-for-Spain-visa-online"
+            "visa/spain-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
@@ -341,35 +341,35 @@ export class HomeFormComponent {
 
         case "Singapore": {
           this.router.navigate([
-            "visa-requirements/apply-for-Singapore-visa-online"
+            "visa/singapore-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Cambodia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Cambodia-visa-online"
+            "visa/cambodia-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Turkey": {
           this.router.navigate([
-            "visa-requirements/apply-for-Turkey-visa-online"
+            "visa/turkey-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Azerbaijan": {
           this.router.navigate([
-            "visa-requirements/apply-for-Azerbaijan-visa-online"
+            "visa/azerbaijan-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Thailand": {
           this.router.navigate([
-            "visa-requirements/apply-for-Thailand-visa-online"
+            "visa/thailand-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
@@ -377,28 +377,28 @@ export class HomeFormComponent {
 
         case "Vietnam": {
           this.router.navigate([
-            "visa-requirements/apply-for-Vietnam-visa-online"
+            "visa/vietnam-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Australia": {
           this.router.navigate([
-            "visa-requirements/apply-for-Australia-visa-online"
+            "visa/australia-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "USA": {
           this.router.navigate([
-            "visa-requirements/apply-for-USA-visa-online"
+            "visa/usa-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Netherlands": {
           this.router.navigate([
-            "visa-requirements/apply-for-Netherlands-visa-online"
+            "visa/netherlands-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;

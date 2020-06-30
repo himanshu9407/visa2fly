@@ -9,7 +9,6 @@ import { ChinaComponent } from './china.component';
 
 const routes: Routes = [
   { path: "", component: ChinaComponent },
-  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ]
 
 @NgModule({

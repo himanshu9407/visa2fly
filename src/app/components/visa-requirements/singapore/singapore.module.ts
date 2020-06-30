@@ -10,7 +10,6 @@ import { SingaporeComponent } from './singapore.component';
 
 const routes: Routes = [
   { path: "", component: SingaporeComponent },
-  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ]
 
 @NgModule({

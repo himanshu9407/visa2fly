@@ -9,7 +9,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: "", component: EthiopianComponent },
-  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ];
 
 @NgModule({

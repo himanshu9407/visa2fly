@@ -9,7 +9,6 @@ import { FranceComponent } from './france.component';
 
 const routes: Routes = [
   { path: "", component: FranceComponent },
-  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ];
 
 @NgModule({

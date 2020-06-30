@@ -8,7 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { AzerbaijanComponent } from './azerbaijan.component';
 
 const routes: Routes = [
-  { path: "", component: AzerbaijanComponent, pathMatch: "full" },
+  { path: "", component: AzerbaijanComponent },
 ]
 
 @NgModule({

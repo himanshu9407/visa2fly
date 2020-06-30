@@ -9,13 +9,13 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { CanDeactivateGuard } from "src/app/shared/can-deactivate.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
-import { isPlatformBrowser } from '@angular/common';
-import { ToastrService } from 'ngx-toastr';
+import { isPlatformBrowser } from "@angular/common";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.css"]
+  styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
   userLoggedIn: boolean = false;
@@ -41,21 +41,55 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     // console.log("header called again");
 
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         // console.log(event.url);
         let url: string = event.url;
         let arr = url.split("/");
 
         if (
-          arr[1] == "visa-requirement" || arr[1] == "freeVisa" || arr[1] == "visaOnArrival" || arr[1] == "profile" || arr[1] == "myBookings" || arr[1] == "bookingDetail" || arr[1] == "visa-requirements" || arr[1] == "addTraveller" || event.url == "/sim/checkout" || arr[1] == "slcontainer" || arr[1] == "tnc" || arr[1] == "privacyPolicy" || arr[1] == "cookiePolicy" || arr[1] == "cancellationPolicy" || arr[1] == "page-not-found" || arr[1] == "aboutUs") {
+          arr[1] == "visa-requirement" ||
+          arr[1] == "freeVisa" ||
+          arr[1] == "visaOnArrival" ||
+          arr[1] == "profile" ||
+          arr[1] == "myBookings" ||
+          arr[1] == "bookingDetail" ||
+          arr[1] == "visa-requirements" ||
+          arr[1] == "addTraveller" ||
+          event.url == "/sim/checkout" ||
+          arr[1] == "slcontainer" ||
+          arr[1] == "tnc" ||
+          arr[1] == "privacyPolicy" ||
+          arr[1] == "cookiePolicy" ||
+          arr[1] == "cancellationPolicy" ||
+          arr[1] == "page-not-found" ||
+          arr[1] == "aboutUs" ||
+          arr[2] == "australia-visa-online" ||
+          arr[2] == "azerbaijan-visa-online" ||
+          arr[2] == "china-visa-online" ||
+          arr[2] == "cambodia-visa-online" ||
+          arr[2] == "dubai-visa-online" ||
+          arr[2] == "ethiopia-visa-online" ||
+          arr[2] == "france-visa-online" ||
+          arr[2] == "malaysia-visa-online" ||
+          arr[2] == "maldives-visa-online" ||
+          arr[2] == "netherlands-visa-online" ||
+          arr[2] == "singapore-visa-online" ||
+          arr[2] == "spain-visa-online" ||
+          arr[2] == "sri-lanka-visa-online" ||
+          arr[2] == "swiss-visa-online" ||
+          arr[2] == "thailand-visa-online" ||
+          arr[2] == "turkey-visa-online" ||
+          arr[2] == "uk-visa-online" ||
+          arr[2] == "usa-visa-online" ||
+          arr[2] == "vietnam-visa-online"
+        ) {
           this.showTransparentNavbar = false;
           // console.log('checkout3');
         } else {
           this.showTransparentNavbar = true;
           // console.log("Kuldeep");
         }
-
       }
     });
     // if (this.router.url == "/") {
@@ -69,60 +103,57 @@ export class HeaderComponent implements OnInit {
 
     //  console.log(this.userLoggedIn);
     if (isPlatformBrowser(this.platformId)) {
-    this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
+      this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
     }
     // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 
-    this.loginStatus.getData().subscribe(userLoggedIn => {
+    this.loginStatus.getData().subscribe((userLoggedIn) => {
       this.userLoggedIn = userLoggedIn;
     });
 
-    this.loginStatus.getProfileData().subscribe(profile => {
+    this.loginStatus.getProfileData().subscribe((profile) => {
       this.userDetails = profile;
     });
-    
   }
 
   logoutUser() {
     if (isPlatformBrowser(this.platformId)) {
-    this.preloaderService.showPreloader(true);
-    // console.log("logout called");
-    this.toogleDropdown();
-    this.logoutService.logoutUser().subscribe(
-      (data: SignupResponseModel) => {
-        if (!data) {
-          this.toastr.error(
-            "Something went wrong! Please try again later"
-          );
-          this.router.navigate(["visa"]);
-          this.preloaderService.showPreloader(false);
-        } else if (data.code == "0") {
-          this.loginService.setAuthToken("");
-          this.loginStatus.setUserStatus(false);
-          this.loginStatus.setUserLoggedIn(false);
-          this.router.navigate(["visa"]);
-          this.userFlow.setCookie("profile", JSON.stringify({}));
-          this.preloaderService.showPreloader(false);
-        } else if (data.code == "301") {
-          this.loginService.setAuthToken("");
-          this.loginStatus.setUserStatus(false);
-          this.loginStatus.setUserLoggedIn(false);
-          this.router.navigate(["visa"]);
-          this.preloaderService.showPreloader(false);
-          this.userFlow.setCookie("profile", JSON.stringify({}));
-          this.toastr.error("" + data.message);
-        } else {
-          this.toastr.error(data.message.toString());
-          this.router.navigate(["visa"]);
-          this.preloaderService.showPreloader(false);
-        }
-      },
+      this.preloaderService.showPreloader(true);
+      // console.log("logout called");
+      this.toogleDropdown();
+      this.logoutService.logoutUser().subscribe(
+        (data: SignupResponseModel) => {
+          if (!data) {
+            this.toastr.error("Something went wrong! Please try again later");
+            this.router.navigate(["visa"]);
+            this.preloaderService.showPreloader(false);
+          } else if (data.code == "0") {
+            this.loginService.setAuthToken("");
+            this.loginStatus.setUserStatus(false);
+            this.loginStatus.setUserLoggedIn(false);
+            this.router.navigate(["visa"]);
+            this.userFlow.setCookie("profile", JSON.stringify({}));
+            this.preloaderService.showPreloader(false);
+          } else if (data.code == "301") {
+            this.loginService.setAuthToken("");
+            this.loginStatus.setUserStatus(false);
+            this.loginStatus.setUserLoggedIn(false);
+            this.router.navigate(["visa"]);
+            this.preloaderService.showPreloader(false);
+            this.userFlow.setCookie("profile", JSON.stringify({}));
+            this.toastr.error("" + data.message);
+          } else {
+            this.toastr.error(data.message.toString());
+            this.router.navigate(["visa"]);
+            this.preloaderService.showPreloader(false);
+          }
+        },
 
-      err => {}
-    );
+        (err) => {}
+      );
+    }
   }
-}
 
   toogleDropdown() {
     this.showDropDown = !this.showDropDown;

@@ -88,8 +88,15 @@ export class ChinaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
+    private activatedRoute: ActivatedRoute,
     @Inject(DOCUMENT) private doc
   ) {
+
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(['visa','china-visa-online']);
+      }
+    });
 
     this.preloaderService.showPreloader(true);
 

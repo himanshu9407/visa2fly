@@ -87,8 +87,14 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
     private toastr: ToastrService,
     private titleService: Title,
     private meta: Meta,
+    private activatedRoute: ActivatedRoute,
     @Inject(DOCUMENT) private doc
   ) {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(['visa','ethiopia-visa-online']);
+      }
+    });
 
     this.preloaderService.showPreloader(true);
 

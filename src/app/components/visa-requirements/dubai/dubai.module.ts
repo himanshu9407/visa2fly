@@ -9,7 +9,6 @@ import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
   { path: "", component: DubaiComponent },
-  { path: ":purpose", redirectTo: "", pathMatch: 'full' }
 ]
 
 @NgModule({
