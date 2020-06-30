@@ -185,7 +185,7 @@ export class MalaysiaComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Malaysia-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/visa/malaysia-visa-online");
   }
 
   ngAfterViewInit() {

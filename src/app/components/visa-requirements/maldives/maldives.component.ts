@@ -162,7 +162,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Maldives-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/visa/maldives-visa-online");
   }
 
   ngAfterViewInit() {

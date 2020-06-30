@@ -201,7 +201,7 @@ export class SwitzerlandComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa-requirements/apply-for-Swiss-visa-online"
+      "https://visa2fly.com/visa/swiss-visa-online"
     );
   }
 

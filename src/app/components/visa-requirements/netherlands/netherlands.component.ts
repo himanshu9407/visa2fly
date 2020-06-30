@@ -193,7 +193,7 @@ export class NetherlandsComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Netherlands-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/visa/netherlands-visa-online");
   }
 
   ngAfterViewInit() {

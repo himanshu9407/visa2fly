@@ -203,7 +203,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa-requirements/apply-for-Thailand-visa-online"
+      "https://visa2fly.com/visa/thailand-visa-online"
     );
   }
 
