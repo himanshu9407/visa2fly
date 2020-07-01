@@ -4,7 +4,7 @@ import {
   OnInit,
   ɵConsole,
   PLATFORM_ID,
-  Inject
+  Inject,
 } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { HomeServiceService } from "../../home-service.service";
@@ -19,7 +19,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
 import { isPlatformBrowser } from "@angular/common";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import * as $ from "jquery";
 import { Meta, Title } from "@angular/platform-browser";
 @Component({
@@ -30,14 +30,14 @@ import { Meta, Title } from "@angular/platform-browser";
     trigger("inOutAnimation", [
       transition(":enter", [
         style({ height: 0, opacity: 0 }),
-        animate("0.3s ease-out", style({ height: 300, opacity: 1 }))
+        animate("0.3s ease-out", style({ height: 300, opacity: 1 })),
       ]),
       transition(":leave", [
         style({ height: 300, opacity: 1 }),
-        animate("0.4s ease-in", style({ height: 0, opacity: 0 }))
-      ])
-    ])
-  ]
+        animate("0.4s ease-in", style({ height: 0, opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class RequirementsComponent implements OnInit {
   public regData: requirementData;
@@ -99,7 +99,6 @@ export class RequirementsComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-  
     this.preloaderService.showPreloader(true);
 
     this.activateRoute.params.subscribe((params: any) => {
@@ -109,108 +108,84 @@ export class RequirementsComponent implements OnInit {
 
       switch (this.selectedCountrytype) {
         case "Australia":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Australia-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/australia-visa-online/");
           break;
         case "Singapore":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Singapore-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/singapore-visa-online/");
           break;
         case "Cambodia":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Cambodia-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visaCambodia-visa-online/");
           break;
         case "USA":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-USA-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/usa-visa-online/");
           break;
         case "China":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-China-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/china-visa-online/");
           break;
         case "Dubai":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Dubai-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/dubai-visa-online/");
           break;
         case "Ethiopia":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Ethiopia-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/ethiopia-visa-online/");
           break;
         case "France":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-France-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/france-visa-online/");
           break;
         case "Maldives":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Maldives-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/maldives-visa-online/");
           break;
         case "Malaysia":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Malaysia-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/malaysia-visa-online/");
           break;
         case "Spain":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Spain-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/spain-visa-online/");
           break;
         case "Swiss":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Swiss-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/swiss-visa-online/");
           break;
         case "UK":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-UK-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/uk-visa-online/");
           break;
         case "Sri-Lanka":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Sri-Lanka-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/sri-lanka-visa-online/");
           break;
         case "Azerbaijan":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Azerbaijan-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/azerbaijan-visa-online/");
           break;
         case "Turkey":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Turkey-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/turkey-visa-online/");
           break;
         case "Thailand":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Thailand-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/thailand-visa-online/");
           break;
         case "Vietnam":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Vietnam-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/vietnam-visa-online/");
           break;
         case "Netherlands":
-          this.router.navigateByUrl(
-            "/visa-requirements/apply-for-Netherlands-visa-online/Tourist"
-          );
+          this.router.navigateByUrl("/visa/netherlands-visa-online/");
+          break;
+        case "Brazil":
+          this.router.navigateByUrl("/visa/brazil-visa-online/");
+          break;
+        case "Russia":
+          this.router.navigateByUrl("/visa/russia-visa-online/");
+          break;
+        case "Tajikistan":
+          this.router.navigateByUrl("/visa/tajikistan-visa-online/");
+          break;
+        case "Uzbakistan":
+          this.router.navigateByUrl("/visa/uzbakistan-visa-online/");
+          break;
+        case "Zambia":
+          this.router.navigateByUrl("/visa/zambia-visa-online/");
           break;
       }
     });
 
-    this.activateRoute.params.subscribe((params: any) => {
-    });
+    this.activateRoute.params.subscribe((params: any) => {});
     let tempPurpose = this.selectedPurposeType;
     this.purposeChooseForm1 = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
+      purposeSelected: new FormControl(tempPurpose),
     });
     //Api Call
     this.reqService
@@ -220,7 +195,7 @@ export class RequirementsComponent implements OnInit {
           if (data.code == "0") {
             this.requirementsData = data;
             this.Quotation = data.data.displayQuotes;
-            this.Quotation.forEach(element => {
+            this.Quotation.forEach((element) => {
               this.purposeApi.push(element.purpose);
               if (element.purpose == "Tourist") {
                 this.touristArr.push(element);
@@ -273,7 +248,7 @@ export class RequirementsComponent implements OnInit {
             });
 
             this.imageCatogory.push(data.data.imageUploadInfo);
-          
+
             this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
             this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
             this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
@@ -343,7 +318,6 @@ export class RequirementsComponent implements OnInit {
                 this.mobileShowRequirementsDetailArr.push(false);
               }
             }
-
           }
         }
       });
@@ -391,10 +365,9 @@ export class RequirementsComponent implements OnInit {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
-
             this.preloaderService.showPreloader(false);
           } else {
-            this.toastr.error("" + data.message,);
+            this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
           }
         });
@@ -416,7 +389,6 @@ export class RequirementsComponent implements OnInit {
   }
 
   onClickRequrements(i, j, item) {
-
     if (
       this.showRequirementsDetailArr[i] == true &&
       this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName
@@ -446,7 +418,6 @@ export class RequirementsComponent implements OnInit {
     if (purpose == "Tourist") {
       this.MyQuotation = this.touristArr;
       this.imageUpload1 = this.imageCatogoryTouristTemp;
-
     } else if (purpose == "Business") {
       this.MyQuotation = this.businessArr;
       this.imageUpload1 = this.imageCatogoryBusinessTemp;
@@ -476,13 +447,15 @@ export class RequirementsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("Apply For " + this.selectedCountrytype + " Visa Online");
+    this.titleService.setTitle(
+      "Apply For " + this.selectedCountrytype + " Visa Online"
+    );
     this.meta.addTags([
       { name: "keywords", content: "" },
       {
         name: "description",
-        content: ""
-      }
+        content: "",
+      },
     ]);
   }
 }

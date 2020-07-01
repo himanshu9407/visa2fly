@@ -82,31 +82,25 @@ export class HeaderComponent implements OnInit {
           arr[2] == "turkey-visa-online" ||
           arr[2] == "uk-visa-online" ||
           arr[2] == "usa-visa-online" ||
-          arr[2] == "vietnam-visa-online"
+          arr[2] == "vietnam-visa-online" ||
+          arr[2] == "brazil-visa-online" ||
+          arr[2] == "russia-visa-online" ||
+          arr[2] == "uzbekistan-visa-online" ||
+          arr[2] == "tajiskistan-visa-online" ||
+          arr[2] == "zambia-visa-online"
         ) {
           this.showTransparentNavbar = false;
-          // console.log('checkout3');
         } else {
           this.showTransparentNavbar = true;
-          // console.log("Kuldeep");
         }
       }
     });
-    // if (this.router.url == "/") {
-    //   showTransparent = true;
-    // }
-    // else {
-    //   false;
-    // }
 
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
 
-    //  console.log(this.userLoggedIn);
     if (isPlatformBrowser(this.platformId)) {
       this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
     }
-    // console.log(this.userDetails);
-    // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 
     this.loginStatus.getData().subscribe((userLoggedIn) => {
       this.userLoggedIn = userLoggedIn;
@@ -120,7 +114,6 @@ export class HeaderComponent implements OnInit {
   logoutUser() {
     if (isPlatformBrowser(this.platformId)) {
       this.preloaderService.showPreloader(true);
-      // console.log("logout called");
       this.toogleDropdown();
       this.logoutService.logoutUser().subscribe(
         (data: SignupResponseModel) => {

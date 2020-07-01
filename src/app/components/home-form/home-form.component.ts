@@ -254,25 +254,59 @@ export class HomeFormComponent {
     });
     if (this.validateForm()) {
       let purpose = this.homeForm.get("purpose").value;
-      //  console.log(purpose);
       let country1 = this.homeForm.get("country").value;
-      //  console.log(country1);
-      //  let countryTemp = this.homeForm.get('country').value;
       let variable = "apply-for-" + country1 + "-visa-online";
-      // console.log(countryTemp);
       let countryTemp1 = this.staticPagesArr.includes(this.selectedCountry);
-      //  console.log(countryTemp1)
+
       switch (this.selectedCountry) {
         case "United Kingdom": {
-          // this.setDetailsOnLocalStorage();
           this.router.navigate([
             "visa/uk-visa-online"
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
+
+        case "Zambia": {
+          this.router.navigate([
+            "visa/zambia-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Brazil": {
+          this.router.navigate([
+            "visa/brazil-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Tajikistan": {
+          this.router.navigate([
+            "visa/tajiskistan-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Russia": {
+          this.router.navigate([
+            "visa/russia-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Uzbekistan": {
+          this.router.navigate([
+            "visa/uzbekistan-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
         case "Switzerland": {
-          // this.setDetailsOnLocalStorage();
           this.router.navigate([
             "visa/swiss-visa-online"
           ]);
@@ -280,7 +314,6 @@ export class HomeFormComponent {
           break;
         }
         case "France": {
-          //this.setDetailsOnLocalStorage();
           this.router.navigate([
             "visa/france-visa-online/"
           ]);

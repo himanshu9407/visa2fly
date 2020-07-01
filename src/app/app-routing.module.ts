@@ -151,11 +151,10 @@ const routes: Routes = [
     import("./components/visa-requirements/usa/usa.module").then(
       (m) => m.USAModule
     ),
-    data: { preload: true },
   },
 
-  // Netherland Page
-  {
+   // Netherland Page
+   {
     path: "visa-requirements/apply-for-Netherlands-visa-online/:purpose",
     loadChildren: () =>
       import(
@@ -474,6 +473,56 @@ const routes: Routes = [
       import(
         "./components/visa-requirements/azerbaijan/azerbaijan.module"
       ).then((m) => m.AzerbaijanModule),
+    data: { preload: true },
+  },
+
+   // Zambia Page
+   {
+    path: "visa/zambia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/zambia/zambia.module").then(
+        (m) => m.ZambiaModule
+      ),
+    data: { preload: true },
+  },
+
+   // Brazil Page
+   {
+    path: "visa/brazil-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/brazil/brazil.module").then(
+        (m) => m.BrazilModule
+      ),
+    data: { preload: true },
+  },
+
+  // Uzbekistan Page
+  {
+    path: "visa/uzbekistan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/uzbekistan/uzbekistan.module").then(
+        (m) => m.UzbekistanModule
+      ),
+    data: { preload: true },
+  },
+
+  // Russia Page
+  {
+    path: "visa/russia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/russia/russia.module").then(
+        (m) => m.RussiaModule
+      ),
+    data: { preload: true },
+  },
+
+  // Tajikistan Page
+  {
+    path: "visa/tajikistan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/tajikistan/tajikistan.module").then(
+        (m) => m.TajikistanModule
+      ),
     data: { preload: true },
   },
 

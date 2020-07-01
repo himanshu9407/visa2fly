@@ -18,6 +18,9 @@ import { ThailandModule } from './thailand/thailand.module';
 import { TurkeyModule } from './turkey/turkey.module';
 import { UnitedKingdomModule } from './united-kingdom/united-kingdom.module';
 import { USAModule } from './usa/usa.module';
+import { ZambiaModule } from './zambia/zambia.module';
+import { UzbekistanModule } from './uzbekistan/uzbekistan.module';
+import { TajikistanModule } from './tajikistan/tajikistan.module';
 
 @NgModule({
   imports: [
@@ -41,7 +44,13 @@ import { USAModule } from './usa/usa.module';
     TurkeyModule,
     UnitedKingdomModule,
     USAModule,
-  ]
+    ZambiaModule,
+    UzbekistanModule,
+    TajikistanModule
+  ],
+  
+  
+  
 })
 
 export class VisaRequirementModule {}
