@@ -21,15 +21,16 @@ import { Title, Meta } from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/seo.service';
 import { DOCUMENT } from '@angular/common';
 
+
 export interface Food {
   value: string;
   viewValue: string;
 }
 
 @Component({
-  selector: "app-australia",
-  templateUrl: "./australia.component.html",
-  styleUrls: ["./australia.component.css"],
+  selector: 'app-zambia',
+  templateUrl: './zambia.component.html',
+  styleUrls: ['./zambia.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -47,7 +48,8 @@ export interface Food {
     ])
   ]
 })
-export class AustraliaComponent implements OnInit, AfterViewInit {
+export class ZambiaComponent implements OnInit, AfterViewInit {
+
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
@@ -71,16 +73,17 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Australia";
+  public selectedCountrytype = "Zambia";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Australia Visa Online- Visa2Fly';
+  title: string = 'Apply For Zambia Visa Online- Visa2Fly';
 
-  constructor(private activeRoute: ActivatedRoute,
+  constructor(
+    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
@@ -92,10 +95,10 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    @Inject(DOCUMENT) private doc,
-    ) {
+    @Inject(DOCUMENT) private doc
+  ) {
 
-      this.userControlDetail = this.userFlow.getUserFlowDetails();
+    this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
 
     this.preloaderService.showPreloader(true);
@@ -110,82 +113,84 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose)
+    });
+
+    this.requireQuotation
+    .getRequireQuotation(this.selectedCountrytype)
+    .subscribe((res: any) => {
+      if (res.code == 0) {
+        this.MyQuotation = res.data.quotations;
+
+        this.imageCatogory.push(res.data.imageUploadInfo);
+
+        this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+        this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+        this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+        this.onlinestatus = res.data.onlineCategory;
+
+        this.userFlow.setUserFlowDetails(
+          "onlineCountry",
+          JSON.stringify(res.data.onlineCategory)
+        );
+        this.MyQuotation.forEach(element => {
+          if (element.purpose == "Business") {
+            this.businessArr.push(element);
+          } else if (element.purpose == "Tourist") {
+            this.touristArr.push(element);
+          } else if (element.purpose == "Transit") {
+            this.transitArr.push(element);
+          }
         });
-      this.requireQuotation
-      .getRequireQuotation(this.selectedCountrytype)
-      .subscribe((res: any) => {
-        if (res.code == 0) {
-          this.MyQuotation = res.data.quotations;
+        let purposeMain = this.selectedVisaType;
+        let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+        if(purposeUrl == 'Business')
+          {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          }else if(purposeUrl == 'Tourist') {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          }else if(purposeUrl == 'Transit'){
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          }else{
+            this.router.navigate(['visa/']);
+          }
 
-          this.imageCatogory.push(res.data.imageUploadInfo);
+          this.imagefield1 = this.imageCatogoryTemp;
 
-          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          this.onlinestatus = res.data.onlineCategory;
+        setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+        }, 500);
+      } else {
+        setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+          this.router.navigate(["/"]);
+        }, 2000);
+        this.toastr.error(
+          "Country Not Found"
+        );
+      }
+    });
 
-          this.userFlow.setUserFlowDetails(
-            "onlineCountry",
-            JSON.stringify(res.data.onlineCategory)
-          );
-          this.MyQuotation.forEach(element => {
-            if (element.purpose == "Business") {
-              this.businessArr.push(element);
-            } else if (element.purpose == "Tourist") {
-              this.touristArr.push(element);
-            } else if (element.purpose == "Transit") {
-              this.transitArr.push(element);
-            }
-          });
-          let purposeMain = this.selectedVisaType;
-          let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if(purposeUrl == 'Business')
-            {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            }else if(purposeUrl == 'Tourist') {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            }else if(purposeUrl == 'Transit'){
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }else{
-              this.router.navigate(['visa/']);
-            }
 
-            this.imagefield1 = this.imageCatogoryTemp;
-
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-          }, 500);
-        } else {
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-            this.router.navigate(["/"]);
-          }, 2000);
-          this.toastr.error(
-            "Country Not Found"
-          );
-        }
-      });
-
-    }
+   }
 
   ngOnInit() {
-
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name:"keywords", content:"apply for australia e-visa, australia tourist visa application, australia tourist visa for indian, apply for australia e visa, australia e-visa for indians" },
+      { name:"keywords", content:"apply for zambia e-visa, zambia tourist visa application, Zambia tourist visa for indian, apply for zambia e visa, zambia e-visa for indians" },
       {
         name: "description",
-        content: "Planning to visit Australia? Apply your Australia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
+        content: "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
       }
     ]);
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Australia-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Zambia-visa-online");
+
   }
 
   ngAfterViewInit() {
@@ -317,6 +322,5 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 
 }

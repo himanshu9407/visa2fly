@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Inject} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -26,10 +26,11 @@ export interface Food {
   viewValue: string;
 }
 
+
 @Component({
-  selector: "app-australia",
-  templateUrl: "./australia.component.html",
-  styleUrls: ["./australia.component.css"],
+  selector: 'app-brazil',
+  templateUrl: './brazil.component.html',
+  styleUrls: ['./brazil.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -47,7 +48,8 @@ export interface Food {
     ])
   ]
 })
-export class AustraliaComponent implements OnInit, AfterViewInit {
+export class BrazilComponent implements OnInit, AfterViewInit {
+
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
@@ -71,14 +73,14 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Australia";
+  public selectedCountrytype = "Brazil";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Australia Visa Online- Visa2Fly';
+  title: string = 'Apply For Brazil Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -92,38 +94,38 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
-    @Inject(DOCUMENT) private doc,
-    ) {
+    @Inject(DOCUMENT) private doc) {
 
       this.userControlDetail = this.userFlow.getUserFlowDetails();
-    // console.log(this.userControlDetail.purpose);
-
-    this.preloaderService.showPreloader(true);
-
-    if (this.userFlow.getCookie("selectedVisaPurpose")) {
-      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
-    } else {
-      this.selectedVisaType = "Tourist";
-    }
-
-    let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
-    this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
-        });
+      // console.log(this.userControlDetail.purpose);
+  
+      this.preloaderService.showPreloader(true);
+  
+      if (this.userFlow.getCookie("selectedVisaPurpose")) {
+        this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+      } else {
+        this.selectedVisaType = "Tourist";
+      }
+  
+      let tempPurpose = this.selectedVisaType;
+      //console.log(tempPurpose);
+      this.purposeChooseForm = new FormGroup({
+        purposeSelected: new FormControl(tempPurpose)
+      });
+  
       this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
-
+  
           this.imageCatogory.push(res.data.imageUploadInfo);
-
+  
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
           this.onlinestatus = res.data.onlineCategory;
-
+  
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
@@ -152,9 +154,9 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
             }else{
               this.router.navigate(['visa/']);
             }
-
+  
             this.imagefield1 = this.imageCatogoryTemp;
-
+  
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
@@ -169,23 +171,24 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
         }
       });
 
-    }
+     }
 
   ngOnInit() {
 
     this.titleService.setTitle(this.title);
     this.meta.addTags([
-      { name:"keywords", content:"apply for australia e-visa, australia tourist visa application, australia tourist visa for indian, apply for australia e visa, australia e-visa for indians" },
+      { name:"keywords", content:"apply for brazil e-visa, brazil tourist visa application, brazil tourist visa for indian, apply for brazil e visa, brazil e-visa for indians" },
       {
         name: "description",
-        content: "Planning to visit Australia? Apply your Australia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
+        content: "Planning to visit Brazil? Apply your brazil e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
       }
     ]);
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Australia-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/visa-requirements/apply-for-Brazil-visa-online");
+
   }
 
   ngAfterViewInit() {
@@ -317,6 +320,5 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 
 }

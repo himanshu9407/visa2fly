@@ -136,6 +136,46 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // Zambia Page
+  {
+    path: "visa-requirements/apply-for-Zambia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/zambia/zambia.module").then(
+        (m) => m.ZambiaModule
+      ),
+    data: { preload: true },
+  },
+
+  // Zambia Page
+  {
+    path: "visa-requirements/apply-for-Uzbekistan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/uzbekistan/uzbekistan.module").then(
+        (m) => m.UzbekistanModule
+      ),
+    data: { preload: true },
+  },
+
+  // Russia Page
+  {
+    path: "visa-requirements/apply-for-Russia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/russia/russia.module").then(
+        (m) => m.RussiaModule
+      ),
+    data: { preload: true },
+  },
+
+  // Tajikistan Page
+  {
+    path: "visa-requirements/apply-for-Tajikistan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/tajikistan/tajikistan.module").then(
+        (m) => m.TajikistanModule
+      ),
+    data: { preload: true },
+  },
+
   // Netherland Page
   {
     path: "visa-requirements/apply-for-Netherlands-visa-online",

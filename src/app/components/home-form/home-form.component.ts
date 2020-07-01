@@ -271,6 +271,51 @@ export class HomeFormComponent {
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
+
+        case "Zambia": {
+          // this.setDetailsOnLocalStorage();
+          this.router.navigate([
+            "visa-requirements/apply-for-Zambia-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Brazil": {
+          // this.setDetailsOnLocalStorage();
+          this.router.navigate([
+            "visa-requirements/apply-for-Brazil-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Tajikistan": {
+          // this.setDetailsOnLocalStorage();
+          this.router.navigate([
+            "visa-requirements/apply-for-Zambia-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Russia": {
+          // this.setDetailsOnLocalStorage();
+          this.router.navigate([
+            "visa-requirements/apply-for-Russia-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Uzbekistan": {
+          // this.setDetailsOnLocalStorage();
+          this.router.navigate([
+            "visa-requirements/apply-for-Uzbekistan-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
         case "Switzerland": {
           // this.setDetailsOnLocalStorage();
           this.router.navigate([
