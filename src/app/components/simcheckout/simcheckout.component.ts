@@ -38,7 +38,7 @@ export class SimcheckoutComponent implements OnInit {
   maxTravelDate: any;
   totalQty: number = 0;
   title: string = "Visa2fly | Sim Checkout";
-  redirect: any = "";
+  paymentUrl: any = "";
 
   constructor(
     private simCheckoutService: SimCheckoutService,
@@ -202,7 +202,7 @@ export class SimcheckoutComponent implements OnInit {
             this.buyerEmail = data1.buyerEmail;
             this.orderId = data1.orderId;
             this.amount = data1.amount;
-            this.redirect = data1.redirect;
+            this.paymentUrl = data1.paymentUrl;
             this.currency = data1.currency;
             this.merchantIdentifier = data1.merchantIdentifier;
             this.returnUrl = data1.returnUrl;
