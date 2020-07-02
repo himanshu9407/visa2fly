@@ -78,7 +78,6 @@ export class UzbekistanComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Uzbekistan Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -172,7 +171,7 @@ export class UzbekistanComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Uzbekistan Visa | Apply For Uzbekistan Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content:"apply for uzbekistan e-visa, uzbekistan tourist visa application, uzbekistan tourist visa for indian, apply for uzbekistan e visa, uzbekistan e-visa for indians" },
       {

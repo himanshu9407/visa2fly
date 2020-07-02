@@ -73,7 +73,6 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTemp: Array<any> = [];
 
   public selectedCountrytype = "China";
-  title: string = "Apply For China Visa Online- Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -176,7 +175,7 @@ export class ChinaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("China Visa | Apply For China Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

@@ -84,7 +84,6 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = "Apply For Australia Visa Online- Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -179,7 +178,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Australia Visa | Apply For Australia Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

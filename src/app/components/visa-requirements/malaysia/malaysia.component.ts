@@ -66,7 +66,6 @@ export class MalaysiaComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For A Malaysia E Visa Online- Visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -173,7 +172,7 @@ export class MalaysiaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Malaysia Visa | Apply For Malaysia Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content: "apply for malaysia e-visa, malaysia tourist visa application, malaysia tourist visa for indian, apply for malaysia e visa, malaysia e-visa for indians" },
       {

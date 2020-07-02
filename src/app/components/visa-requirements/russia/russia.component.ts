@@ -79,7 +79,6 @@ export class RussiaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Russia Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -171,7 +170,7 @@ export class RussiaComponent implements OnInit, AfterViewInit {
     }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Russia Visa | Apply For Russia Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content:"apply for russia e-visa, russia tourist visa application, russia tourist visa for indian, apply for russia e visa, russia e-visa for indians" },
       {

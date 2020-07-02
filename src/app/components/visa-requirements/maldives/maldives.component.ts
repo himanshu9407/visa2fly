@@ -78,7 +78,6 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   public imageCatogoryTemp: Array<any> = [];
   
   public selectedCountrytype = "Maldives";
-  title: string = 'Get Maldives visa for Indians now – visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -150,7 +149,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Maldives Visa | Apply For Maldives Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content: "apply for maldives e-visa, maldives tourist visa application, maldives tourist visa for indian, apply for maldives e visa, maldives e-visa for indians" },
       {

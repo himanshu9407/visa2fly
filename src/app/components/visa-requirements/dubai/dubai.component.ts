@@ -82,7 +82,6 @@ export class DubaiComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = "Apply For Dubai Visa for Indians- Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -190,7 +189,7 @@ export class DubaiComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Dubai Visa | Apply For Dubai Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

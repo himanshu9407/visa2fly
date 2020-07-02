@@ -85,7 +85,6 @@ export class ThailandComponent implements OnInit, AfterViewInit {
   public imageCatogoryTemp: Array<any> = [];
   public countryStatic = "Thailand";
   public PurposeUse: any;
-  title: string = "Thailand E Visa Online| Thailand Tourist Visa - Visa2fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -184,7 +183,7 @@ export class ThailandComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Thailand Visa | Apply For Thailand Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

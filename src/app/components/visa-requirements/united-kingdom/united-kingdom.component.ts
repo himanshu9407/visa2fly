@@ -80,7 +80,6 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
 
   public countryStatic = "United Kingdom";
   public PurposeUse: any;
-  title: string = "UK Visa Application Apply Now - Visa2fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -187,7 +186,7 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("UK Visa | Apply For UK Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name: "keywords", content: "apply for UK e-visa, UK tourist visa application, UK tourist visa for Indian, apply for UK e visa, UK e-visa for Indians" },
       {

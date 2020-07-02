@@ -79,7 +79,6 @@ export class SpainComponent implements OnInit, AfterViewInit  {
   public imageCatogoryTemp: Array<any> = [];
 
   public selectedCountrytype = "Spain";
-  title: string = 'Apply Spain e visa online – Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -186,7 +185,7 @@ export class SpainComponent implements OnInit, AfterViewInit  {
      }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Spain Visa | Apply For Spain Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content: "apply for spain e-visa, spain tourist visa application, spain tourist visa for indian, apply for spain e visa, spain e-visa for indians" },
       {

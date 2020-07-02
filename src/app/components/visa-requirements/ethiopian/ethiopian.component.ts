@@ -72,7 +72,6 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = "Apply For Ethiopian E Visa Online- Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -178,7 +177,7 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

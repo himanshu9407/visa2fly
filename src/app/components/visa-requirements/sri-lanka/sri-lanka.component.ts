@@ -78,7 +78,6 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
-  title: string = 'Sri Lanka Tourist E Visa online | Sri Lanka E Visa- Visa2fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -176,7 +175,7 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
      }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Sri Lanka Visa | Apply For Sri Lanka Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content: "apply for Sri Lanka e-visa, Sri Lanka tourist visa application, Sri Lanka tourist visa for Indian, apply for Sri Lanka e visa, Sri Lanka e-visa for Indians" },
       {

@@ -80,7 +80,6 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Zambia Visa Online- Visa2Fly';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -174,7 +173,7 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Zambia Visa | Apply For Zambia Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content:"apply for zambia e-visa, zambia tourist visa application, Zambia tourist visa for indian, apply for zambia e visa, zambia e-visa for indians" },
       {

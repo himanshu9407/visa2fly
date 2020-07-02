@@ -447,9 +447,7 @@ export class RequirementsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(
-      "Apply For " + this.selectedCountrytype + " Visa Online"
-    );
+    this.titleService.setTitle(`${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`);
     this.meta.addTags([
       { name: "keywords", content: "" },
       {

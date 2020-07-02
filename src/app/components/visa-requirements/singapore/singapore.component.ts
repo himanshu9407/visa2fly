@@ -78,7 +78,6 @@ export class SingaporeComponent implements OnInit {
   public imageCatogoryTemp: Array<any> = [];
 
   public selectedCountrytype = "Singapore";
-  title: string = 'Apply Now For A Singapore E Visa For Indians- Visa2Fly';
   onlinestatus: any;
 
   constructor(private activeRoute: ActivatedRoute,
@@ -177,7 +176,7 @@ export class SingaporeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Singapore Visa | Apply For Singapore Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content: "apply for singapore e-visa, singapore tourist visa application, singapore tourist visa for indian, apply for singapore e visa, singapore e-visa for indians" },
       {

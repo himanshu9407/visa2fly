@@ -78,7 +78,6 @@ export class FranceComponent implements OnInit, AfterViewInit {
 
   public selectedCountrytype = "France";
   public onlinestatus: boolean = false;
-  title: string = "Apply for France E visa online";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -182,7 +181,7 @@ export class FranceComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("France Visa | Apply For France Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

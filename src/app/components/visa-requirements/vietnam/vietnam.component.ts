@@ -84,7 +84,6 @@ export class VietnamComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = "Vietnam E Visa Apply Online- Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -190,7 +189,7 @@ export class VietnamComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Vietnam Visa | Apply For Vietnam Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

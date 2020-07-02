@@ -84,7 +84,6 @@ export class SwitzerlandComponent implements OnInit {
 
   public selectedCountrytype = "Switzerland";
   onlineCountry: void;
-  title: string = "Apply for your Switzerland tourist e visa now – Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -182,7 +181,7 @@ export class SwitzerlandComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Switzerland Visa | Apply For Switerland Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

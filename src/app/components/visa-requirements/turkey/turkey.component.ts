@@ -78,7 +78,6 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = "Turkey E Visa Apply Online Now With- Visa2Fly";
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -188,7 +187,7 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Turkey Visa | Apply For Turkey Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name: "keywords", content: "Turkey e visa apply online" },
       {

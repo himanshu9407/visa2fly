@@ -80,7 +80,6 @@ export class BrazilComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Brazil Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -171,7 +170,7 @@ export class BrazilComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Brazil Visa | Apply For Brazil Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content:"apply for brazil e-visa, brazil tourist visa application, brazil tourist visa for indian, apply for brazil e visa, brazil e-visa for indians" },
       {

@@ -79,7 +79,6 @@ export class NetherlandsComponent implements OnInit {
 
   public selectedCountrytype = "Netherlands";
   onlineCountry: void;
-  title: string = 'Get your Netherlands visa online now – Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -181,7 +180,7 @@ export class NetherlandsComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Netherlands Visa | Apply For Netherlands Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content: "apply for netherlands e-visa, netherlands tourist visa application, netherlands tourist visa for indian, apply for netherlands e visa, netherlands e-visa for indians" },
       {

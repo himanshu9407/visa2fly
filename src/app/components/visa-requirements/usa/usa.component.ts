@@ -79,7 +79,6 @@ export class USAComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For USA Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -188,7 +187,7 @@ export class USAComponent implements OnInit {
 
   ngOnInit() {
 
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("USA Visa | Apply For USA Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name: "keywords", content: "apply for USA e-visa, USA tourist visa application, USA tourist visa for Indian, apply for USA e visa, USA e-visa for Indians" },
       {

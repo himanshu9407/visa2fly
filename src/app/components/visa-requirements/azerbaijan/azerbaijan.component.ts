@@ -51,8 +51,6 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
-  title = "Azerbaijan E Visa Apply Online- Visa2Fly";
-
   selectedRequirement: boolean = false;
 
   // public selectedCountryType = "France";
@@ -79,8 +77,6 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  // public title: string = 'Apply For Azerbaijan Visa Online- Visa2Fly';
-  // category: string;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -189,7 +185,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Azerbaijan Visa | Apply For Azerbaijan Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       {
         name: "keywords",

@@ -79,7 +79,6 @@ export class TajikistanComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Tajikistan Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -174,7 +173,7 @@ export class TajikistanComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle("Tajikistan Visa | Apply For Tajikistan Visa Online for Indians- Visa2Fly");
     this.meta.addTags([
       { name:"keywords", content:"apply for tajikistan e-visa, tajikistan tourist visa application, tajikistan tourist visa for indian, apply for tajikistan e visa, tajikistan e-visa for indians" },
       {
