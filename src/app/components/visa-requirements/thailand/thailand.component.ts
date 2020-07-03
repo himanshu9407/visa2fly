@@ -269,6 +269,10 @@ export class ThailandComponent implements OnInit, AfterViewInit {
   setActiveTransit(index: number) {
     this.selectedTransit = index;
   }
+  
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
+  }
 
   navigate(
     quoteId: string,

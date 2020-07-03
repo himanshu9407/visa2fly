@@ -249,6 +249,10 @@ setActiveTransit(index: number) {
   this.selectedTransit = index;
 }
 
+resetPage() {
+  this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
+}
+
 navigate(
   quoteId: string,
   purpose: string,

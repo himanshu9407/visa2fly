@@ -279,7 +279,10 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
 
   setActiveTransit(index: number) {
     this.selectedTransit = index;
-    // console.log('business');
+  }
+
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
   }
 
   navigate(

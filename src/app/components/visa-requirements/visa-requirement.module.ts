@@ -48,6 +48,7 @@ import { TajikistanModule } from './tajikistan/tajikistan.module';
     UzbekistanModule,
     TajikistanModule
   ],
+  declarations: [],
   
   
   

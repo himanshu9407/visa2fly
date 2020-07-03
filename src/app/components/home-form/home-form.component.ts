@@ -267,45 +267,46 @@ export class HomeFormComponent {
           break;
         }
 
-        case "Zambia": {
-          this.router.navigate([
-            "visa/zambia-visa-online"
-          ]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Zambia": {
+        //   this.router.navigate([
+        //     "visa/zambia-visa-online"
+        //   ]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Brazil": {
-          this.router.navigate([
-            "visa/brazil-visa-online"
-          ]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Brazil": {
+        //   this.router.navigate([
+        //     "visa/brazil-visa-online"
+        //   ]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Tajikistan": {
-          this.router.navigate([
-            "visa/tajiskistan-visa-online"
-          ]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Tajikistan": {
+        //   this.router.navigate([
+        //     "visa/tajiskistan-visa-online"
+        //   ]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Russia": {
-          this.router.navigate([
-            "visa/russia-visa-online"
-          ]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Russia": {
+        //   this.router.navigate([
+        //     "visa/russia-visa-online"
+        //   ]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Uzbekistan": {
-          this.router.navigate([
-            "visa/uzbekistan-visa-online"
-          ]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Uzbekistan": {
+        //   this.router.navigate([
+        //     "visa/uzbekistan-visa-online"
+        //   ]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
+        
         case "Switzerland": {
           this.router.navigate([
             "visa/swiss-visa-online"

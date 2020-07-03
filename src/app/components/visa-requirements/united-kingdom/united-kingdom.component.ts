@@ -269,6 +269,10 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     // console.log('business');
   }
 
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
+  }
+
   navigate(
     quoteId: string,
     purpose: string,

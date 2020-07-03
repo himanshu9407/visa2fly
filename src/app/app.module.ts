@@ -103,7 +103,7 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     PrivacyPolicyModule,
     TermsandConditionsModule,
     VisaRequirementModule,
-    BookingDetailsModule
+    BookingDetailsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

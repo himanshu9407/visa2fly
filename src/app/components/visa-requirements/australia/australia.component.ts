@@ -250,6 +250,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
+    console.log(purposeUrl);
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
@@ -263,6 +264,10 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
 
   setActiveTransit(index: number) {
     this.selectedTransit = index;
+  }
+
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
   }
 
   navigate(

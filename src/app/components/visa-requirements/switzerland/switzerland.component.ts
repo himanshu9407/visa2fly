@@ -260,6 +260,10 @@ export class SwitzerlandComponent implements OnInit {
     this.selectedTransit = index;
   }
 
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
+  }
+
   navigate(
     quoteId: string,
     purpose: string,

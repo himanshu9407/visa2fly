@@ -277,6 +277,10 @@ export class DubaiComponent implements OnInit, AfterViewInit {
     this.selectedTransit = index;
   }
 
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
+  }
+
   navigate(
     quoteId: string,
     purpose: string,

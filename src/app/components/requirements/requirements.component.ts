@@ -164,21 +164,21 @@ export class RequirementsComponent implements OnInit {
         case "Netherlands":
           this.router.navigateByUrl("/visa/netherlands-visa-online/");
           break;
-        case "Brazil":
-          this.router.navigateByUrl("/visa/brazil-visa-online/");
-          break;
-        case "Russia":
-          this.router.navigateByUrl("/visa/russia-visa-online/");
-          break;
-        case "Tajikistan":
-          this.router.navigateByUrl("/visa/tajikistan-visa-online/");
-          break;
-        case "Uzbakistan":
-          this.router.navigateByUrl("/visa/uzbakistan-visa-online/");
-          break;
-        case "Zambia":
-          this.router.navigateByUrl("/visa/zambia-visa-online/");
-          break;
+        // case "Brazil":
+        //   this.router.navigateByUrl("/visa/brazil-visa-online/");
+        //   break;
+        // case "Russia":
+        //   this.router.navigateByUrl("/visa/russia-visa-online/");
+        //   break;
+        // case "Tajikistan":
+        //   this.router.navigateByUrl("/visa/tajikistan-visa-online/");
+        //   break;
+        // case "Uzbakistan":
+        //   this.router.navigateByUrl("/visa/uzbakistan-visa-online/");
+        //   break;
+        // case "Zambia":
+        //   this.router.navigateByUrl("/visa/zambia-visa-online/");
+        //   break;
       }
     });
 
@@ -321,6 +321,10 @@ export class RequirementsComponent implements OnInit {
           }
         }
       });
+  }
+
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
   }
 
   navigate(
