@@ -190,18 +190,76 @@ export class VietnamComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.titleService.setTitle("Vietnam Visa | Apply For Vietnam Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      {
-        name: "keywords",
-        content:
-          "apply for Vietnam e-visa, Vietnam tourist visa application, Vietnam tourist visa for Indian, apply for Vietnam e visa, Vietnam e-visa for Indians",
-      },
-      {
-        name: "description",
-        content:
-          "Apply online for Vietnam e-visa at Visa2fly. To Avail Vietnam e-visa apply online and fill the visa application process online at visa2fly. Visa2Fly offers world-class online visa services so that, you receive maximum benefits without any hassle. Know more about it here.",
-      },
-    ]);
+     
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for Vietnam e-visa, Vietnam tourist visa application, Vietnam tourist visa for Indian, apply for Vietnam e visa, Vietnam e-visa for Indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Apply online for Vietnam e-visa at Visa2fly. To Avail Vietnam e-visa apply online and fill the visa application process online at visa2fly. Visa2Fly offers world-class online visa services so that, you receive maximum benefits without any hassle. Know more about it here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Vietnam Visa | Apply For Vietnam Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Vietnam.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/vietnam-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Vietnam Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Apply online for Vietnam e-visa at Visa2fly. To Avail Vietnam e-visa apply online and fill the visa application process online at visa2fly. Visa2Fly offers world-class online visa services so that, you receive maximum benefits without any hassle. Know more about it here.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Vietnam Visa | Apply For Vietnam Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Vietnam.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Vietnam Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Apply online for Vietnam e-visa at Visa2fly. To Avail Vietnam e-visa apply online and fill the visa application process online at visa2fly. Visa2Fly offers world-class online visa services so that, you receive maximum benefits without any hassle. Know more about it here.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

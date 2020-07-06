@@ -18,7 +18,7 @@ import { LoginService } from "../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { animate, style, transition, trigger } from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
-import { isPlatformBrowser } from "@angular/common";
+import { isPlatformBrowser, DOCUMENT } from "@angular/common";
 import { ToastrService } from "ngx-toastr";
 import * as $ from "jquery";
 import { Meta, Title } from "@angular/platform-browser";
@@ -97,7 +97,8 @@ export class RequirementsComponent implements OnInit {
     private loginService: LoginService,
     private preloaderService: PreloaderService,
     private activateRoute: ActivatedRoute,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private doc
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -452,12 +453,80 @@ export class RequirementsComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle(`${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`);
-    this.meta.addTags([
-      { name: "keywords", content: "" },
-      {
-        name: "description",
-        content: "",
-      },
-    ]);
+
+    this.titleService.setTitle(`${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`);
+    
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "Visa Online - Apply for tourist visa online to top international destinations like Dubai, UK, US, Singapore, Schengen, etc. hassle-free with Visa2fly. Click here to know more!",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Apply Visa Online by filling your Online Visa Application at Visa2Fly. Experience hassle-free end to end visa assistance for Indian passport holders. Book Here",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+      `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`,
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: `https://static.visa2fly.com/carousel/${this.selectedCountrytype}.jpg`,
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/Tourist`,
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content: `${this.selectedCountrytype} Visa - Visa2Fly`,
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Apply Visa Online by filling your Online Visa Application at Visa2Fly. Experience hassle-free end to end visa assistance for Indian passport holders. Book Here",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+      `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`,
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: `https://static.visa2fly.com/carousel/${this.selectedCountrytype}.jpg`,
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content: "Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Apply Visa Online by filling your Online Visa Application at Visa2Fly. Experience hassle-free end to end visa assistance for Indian passport holders. Book Here",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
+
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute("href", `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/Tourist`);
   }
 }

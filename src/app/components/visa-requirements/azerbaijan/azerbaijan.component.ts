@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  Inject,
+} from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -18,8 +24,8 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoService } from 'src/app/shared/seo.service';
-import { DOCUMENT } from '@angular/common';
+import { SeoService } from "src/app/shared/seo.service";
+import { DOCUMENT } from "@angular/common";
 
 export interface Food {
   value: string;
@@ -96,7 +102,7 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','azerbaijan-visa-online']);
+        this.router.navigate(["visa", "azerbaijan-visa-online"]);
       }
     });
 
@@ -185,24 +191,86 @@ export class AzerbaijanComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("Azerbaijan Visa | Apply For Azerbaijan Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      {
-        name: "keywords",
-        content:
-          "apply for azerbaijan e-visa, azerbaijan tourist visa application, azerbaijan tourist visa for indian, apply for azerbaijan e visa, azerbaijan e-visa for indians",
-      },
-      {
-        name: "description",
-        content:
-          "Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.",
-      },
-    ]);
+    this.titleService.setTitle(
+      "Azerbaijan Visa | Apply For Azerbaijan Visa Online for Indians- Visa2Fly"
+    );
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for azerbaijan e-visa, azerbaijan tourist visa application, azerbaijan tourist visa for indian, apply for azerbaijan e visa, azerbaijan e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Azerbaijan Visa | Apply For Azerbaijan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Azerbaijan.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/azerbaijan-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Azerbaijan Visa | Apply For Azerbaijan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Azerbaijan Visa | Apply For Azerbaijan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Australia.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Azerbaijan Visa | Apply For Azerbaijan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Apply online for Azerbaijan e-visa directly at the Visa2Fly web portal. For swifter processing of  Azerbaijan e-visa apply online to earn maximum benefits. Visa2Fly also provides travel insurance and travel sim cards to make you experience a hassle-free process.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/azerbaijan-visa-online");
+    link.setAttribute(
+      "href",
+      "https://visa2fly.com/visa/azerbaijan-visa-online"
+    );
   }
 
   ngAfterViewInit() {

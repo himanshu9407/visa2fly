@@ -188,13 +188,76 @@ export class USAComponent implements OnInit {
   ngOnInit() {
 
     this.titleService.setTitle("USA Visa | Apply For USA Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name: "keywords", content: "apply for USA e-visa, USA tourist visa application, USA tourist visa for Indian, apply for USA e visa, USA e-visa for Indians" },
-      {
-        name: "description",
-        content: "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here."
-      },
-    ]);
+    
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for USA e-visa, USA tourist visa application, USA tourist visa for Indian, apply for USA e visa, USA e-visa for Indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "USA Visa | Apply For USA Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/United State Of America.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/usa-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "USA Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "USA Visa | Apply For USA Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/United State Of America.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "USA Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

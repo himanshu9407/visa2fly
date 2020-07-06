@@ -406,7 +406,7 @@
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
                     <label>State <span class="astrisk">*</span></label>
-                    <select (change)="checkCity(i)" formControlName="state" id="" class="form-control">
+                    <select (change)="checkCity(i)" formControlName="state" class="form-control">
                       <option *ngFor="let state of list.states;let first=first" value="{{state}}">{{state}}</option>
                     </select>
                     <div *ngIf=" (travellerForm.controls.travellers.controls[i].controls.state.errors?.valueErr)"
@@ -418,7 +418,7 @@
                     *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
                     class="col-md-2 mb-3">
                     <label>City <span class="astrisk">*</span></label>
-                    <select formControlName="city" name="" id="" class="form-control">
+                    <select formControlName="city" class="form-control">
                       <option
                         *ngFor="let city of list.cities[travellerForm.controls.travellers.controls[i].controls.state.value];let first=first"
                         value="{{city}}">{{city}}</option>

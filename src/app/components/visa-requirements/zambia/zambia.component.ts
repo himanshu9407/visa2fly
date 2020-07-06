@@ -1,14 +1,20 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Inject} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  Inject,
+} from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { HomeFormComponent } from "../../home-form/home-form.component";
@@ -17,10 +23,9 @@ import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { Title, Meta } from '@angular/platform-browser';
-import { SeoService } from 'src/app/shared/seo.service';
-import { DOCUMENT } from '@angular/common';
-
+import { Title, Meta } from "@angular/platform-browser";
+import { SeoService } from "src/app/shared/seo.service";
+import { DOCUMENT } from "@angular/common";
 
 export interface Food {
   value: string;
@@ -28,9 +33,9 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-zambia',
-  templateUrl: './zambia.component.html',
-  styleUrls: ['./zambia.component.css'],
+  selector: "app-zambia",
+  templateUrl: "./zambia.component.html",
+  styleUrls: ["./zambia.component.css"],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -44,12 +49,11 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class ZambiaComponent implements OnInit, AfterViewInit {
-
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
@@ -96,7 +100,6 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     private meta: Meta,
     @Inject(DOCUMENT) private doc
   ) {
-
     this.preloaderService.showPreloader(true);
 
     if (this.userFlow.getCookie("selectedVisaPurpose")) {
@@ -108,85 +111,143 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     let tempPurpose = this.selectedVisaType;
     //console.log(tempPurpose);
     this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
+      purposeSelected: new FormControl(tempPurpose),
     });
 
     this.requireQuotation
-    .getRequireQuotation(this.selectedCountrytype)
-    .subscribe((res: any) => {
-      if (res.code == 0) {
-        this.MyQuotation = res.data.quotations;
+      .getRequireQuotation(this.selectedCountrytype)
+      .subscribe((res: any) => {
+        if (res.code == 0) {
+          this.MyQuotation = res.data.quotations;
 
-        this.imageCatogory.push(res.data.imageUploadInfo);
+          this.imageCatogory.push(res.data.imageUploadInfo);
 
-        this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-        this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-        this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-        this.onlinestatus = res.data.onlineCategory;
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          this.onlinestatus = res.data.onlineCategory;
 
-        this.userFlow.setUserFlowDetails(
-          "onlineCountry",
-          JSON.stringify(res.data.onlineCategory)
-        );
-        this.MyQuotation.forEach(element => {
-          if (element.purpose == "Business") {
-            this.businessArr.push(element);
-          } else if (element.purpose == "Tourist") {
-            this.touristArr.push(element);
-          } else if (element.purpose == "Transit") {
-            this.transitArr.push(element);
-          }
-        });
-        let purposeMain = this.selectedVisaType;
-        let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-        if(purposeUrl == 'Business')
-          {
+          this.userFlow.setUserFlowDetails(
+            "onlineCountry",
+            JSON.stringify(res.data.onlineCategory)
+          );
+          this.MyQuotation.forEach((element) => {
+            if (element.purpose == "Business") {
+              this.businessArr.push(element);
+            } else if (element.purpose == "Tourist") {
+              this.touristArr.push(element);
+            } else if (element.purpose == "Transit") {
+              this.transitArr.push(element);
+            }
+          });
+          let purposeMain = this.selectedVisaType;
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
             this.MyQuotation1 = this.businessArr;
             this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-          }else if(purposeUrl == 'Tourist') {
+          } else if (purposeUrl == "Tourist") {
             this.MyQuotation1 = this.touristArr;
             this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-          }else if(purposeUrl == 'Transit'){
+          } else if (purposeUrl == "Transit") {
             this.MyQuotation1 = this.transitArr;
             this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-          }else{
-            this.router.navigate(['visa/']);
+          } else {
+            this.router.navigate(["visa/"]);
           }
 
           this.imagefield1 = this.imageCatogoryTemp;
 
-        setTimeout(() => {
-          this.preloaderService.showPreloader(false);
-        }, 500);
-      } else {
-        setTimeout(() => {
-          this.preloaderService.showPreloader(false);
-          this.router.navigate(["/"]);
-        }, 2000);
-        this.toastr.error(
-          "Country Not Found"
-        );
-      }
-    });
-
-
-   }
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error("Country Not Found");
+        }
+      });
+  }
 
   ngOnInit() {
-    this.titleService.setTitle("Zambia Visa | Apply For Zambia Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name:"keywords", content:"apply for zambia e-visa, zambia tourist visa application, Zambia tourist visa for indian, apply for zambia e visa, zambia e-visa for indians" },
-      {
-        name: "description",
-        content: "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
-      }
-    ]);
+    this.titleService.setTitle(
+      "Zambia Visa | Apply For Zambia Visa Online for Indians- Visa2Fly"
+    );
+
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for zambia e-visa, zambia tourist visa application, Zambia tourist visa for indian, apply for zambia e visa, zambia e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Zambia Visa | Apply For Zambia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Zambia.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/zambia-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content: "Zambia Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Zambia Visa | Apply For Zambia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Zambia.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content: "Zambia Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
     link.setAttribute("href", "https://visa2fly.com/visa/zambia-visa-online");
-
   }
 
   ngAfterViewInit() {
@@ -212,12 +273,12 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
       this.t.select("Transit");
     }
     this.imagefield1 = this.imageCatogoryTemp;
-
   }
 
   navigateTo(purpose: any) {
     let purposeString: string = purpose.nextId;
-    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    let purposeUrl =
+      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
@@ -275,11 +336,17 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
 
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imagefield1)
+    );
 
     //console.log(quoteId);
 
@@ -322,5 +389,4 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
 }

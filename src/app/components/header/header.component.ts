@@ -99,7 +99,9 @@ export class HeaderComponent implements OnInit {
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
 
     if (isPlatformBrowser(this.platformId)) {
-      this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
+      if (this.userFlow.getCookie("profile")) {
+        this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
+      }
     }
 
     this.loginStatus.getData().subscribe((userLoggedIn) => {

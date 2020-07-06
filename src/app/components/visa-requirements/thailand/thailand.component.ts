@@ -184,18 +184,76 @@ export class ThailandComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.titleService.setTitle("Thailand Visa | Apply For Thailand Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      {
-        name: "keywords",
-        content:
-          "apply for thailand e-visa, thailand tourist visa application, thailand tourist visa for indian, apply for thailand e visa, thailand e-visa for indians",
-      },
-      {
-        name: "description",
-        content:
-          "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More",
-      },
-    ]);
+    
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for thailand e-visa, thailand tourist visa application, thailand tourist visa for indian, apply for thailand e visa, thailand e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Thailand Visa | Apply For Thailand Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Thailand.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/thailand-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Thailand Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Thailand Visa | Apply For Thailand Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Thailand.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Thailand Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Get your Thailand e visa online by Visa2fly today. Get to know the Thailand e-visa requirements and easily apply for Thailand tourist visa. Know More",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

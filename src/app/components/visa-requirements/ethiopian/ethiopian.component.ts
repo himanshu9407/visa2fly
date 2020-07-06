@@ -178,18 +178,77 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.titleService.setTitle("Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      {
-        name: "keywords",
-        content:
-          "apply for ethiopia e-visa, ethiopia tourist visa application, ethiopia tourist visa for indian, apply for ethiopia e visa, ethiopia e-visa for indians",
-      },
-      {
-        name: "description",
-        content:
-          "Apply for your Ethiopian e visa online at visa2fly. Find out what benefits are included after filing your Ethiopian e-visa online at visa2fly. Any Indian passport holder willing to visit Brussels can fill your Ethiopian e-visa application online here. Explore more about it here.",
-      }
-    ]);
+    
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for ethiopia e-visa, ethiopia tourist visa application, ethiopia tourist visa for indian, apply for ethiopia e visa, ethiopia e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Apply for your Ethiopian e visa online at visa2fly. Find out what benefits are included after filing your Ethiopian e-visa online at visa2fly. Any Indian passport holder willing to visit Brussels can fill your Ethiopian e-visa application online here. Explore more about it here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Ethiopia.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/ethiopia-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Apply for your Ethiopian e visa online at visa2fly. Find out what benefits are included after filing your Ethiopian e-visa online at visa2fly. Any Indian passport holder willing to visit Brussels can fill your Ethiopian e-visa application online here. Explore more about it here.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Ethiopia.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Apply for your Ethiopian e visa online at visa2fly. Find out what benefits are included after filing your Ethiopian e-visa online at visa2fly. Any Indian passport holder willing to visit Brussels can fill your Ethiopian e-visa application online here. Explore more about it here.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
+
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

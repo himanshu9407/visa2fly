@@ -172,13 +172,77 @@ export class UzbekistanComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Uzbekistan Visa | Apply For Uzbekistan Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name:"keywords", content:"apply for uzbekistan e-visa, uzbekistan tourist visa application, uzbekistan tourist visa for indian, apply for uzbekistan e visa, uzbekistan e-visa for indians" },
-      {
-        name: "description",
-        content: "Planning to visit uzbekistan? Apply your uzbekistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
-      }
-    ]);
+    
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for uzbekistan e-visa, uzbekistan tourist visa application, uzbekistan tourist visa for indian, apply for uzbekistan e visa, uzbekistan e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Planning to visit uzbekistan? Apply your uzbekistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Uzbekistan Visa | Apply For Uzbekistan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Uzbekistan.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/uzbekistan-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Uzbekistan Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Planning to visit uzbekistan? Apply your uzbekistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Uzbekistan Visa | Apply For Uzbekistan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Uzbekistan.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Uzbekistan Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Planning to visit uzbekistan? Apply your uzbekistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
+
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

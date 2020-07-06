@@ -65,8 +65,6 @@ export class LoginComponent implements OnInit {
         name: "description",
         content: ""
       }
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
 
     this.prevRoute = this.routerHistory.getPrevRoute();

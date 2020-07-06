@@ -181,13 +181,76 @@ export class NetherlandsComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Netherlands Visa | Apply For Netherlands Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name:"keywords", content: "apply for netherlands e-visa, netherlands tourist visa application, netherlands tourist visa for indian, apply for netherlands e visa, netherlands e-visa for indians" },
-      {
-        name: "description",
-        content: "Apply for your Netherlands visa online at Visa2Fly to make it hassle-free and convenient. Visa2Fly gives additional advantages like journey insurance. Know more."
-      },
-    ]);
+      
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for netherlands e-visa, netherlands tourist visa application, netherlands tourist visa for indian, apply for netherlands e visa, netherlands e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Apply for your Netherlands visa online at Visa2Fly to make it hassle-free and convenient. Visa2Fly gives additional advantages like journey insurance. Know more.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Netherlands Visa | Apply For Netherlands Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Netherlands.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/netherlands-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Netherlands Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Apply for your Netherlands visa online at Visa2Fly to make it hassle-free and convenient. Visa2Fly gives additional advantages like journey insurance. Know more.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Netherlands Visa | Apply For Netherlands Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Netherlands.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Netherlands Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Apply for your Netherlands visa online at Visa2Fly to make it hassle-free and convenient. Visa2Fly gives additional advantages like journey insurance. Know more.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

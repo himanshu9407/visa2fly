@@ -182,18 +182,76 @@ export class SwitzerlandComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Switzerland Visa | Apply For Switerland Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      {
-        name: "keywords",
-        content:
-          "apply for switzerland e-visa, switzerland tourist visa application, switzerland tourist visa for indian, apply for switzerland e visa, switzerland e-visa for indians",
-      },
-      {
-        name: "description",
-        content:
-          "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more.",
-      },
-    ]);
+     
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for switzerland e-visa, switzerland tourist visa application, switzerland tourist visa for indian, apply for switzerland e visa, switzerland e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Switzerland Visa | Apply For Switerland Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Switzerland.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/swiss-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Switzerland Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Switzerland Visa | Apply For Switerland Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Switerland.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Switerland Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Planning to visit Switzerland? Apply Switzrlande-visa online and get entitled to most blessings that still include travel coverage sim card etc. Know more.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

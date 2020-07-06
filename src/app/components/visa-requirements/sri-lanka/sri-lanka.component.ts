@@ -176,13 +176,76 @@ export class SriLankaComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.titleService.setTitle("Sri Lanka Visa | Apply For Sri Lanka Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name:"keywords", content: "apply for Sri Lanka e-visa, Sri Lanka tourist visa application, Sri Lanka tourist visa for Indian, apply for Sri Lanka e visa, Sri Lanka e-visa for Indians" },
-      {
-        name: "description",
-        content: "From now on, you can get your Srilanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us."
-      }
-    ]);
+    
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for Sri Lanka e-visa, Sri Lanka tourist visa application, Sri Lanka tourist visa for Indian, apply for Sri Lanka e visa, Sri Lanka e-visa for Indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "From now on, you can get your Sri Lanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Sri Lanka Visa | Apply For Sri Lanka Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Sri Lanka.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/sri-lanka-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Sri Lanka Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "From now on, you can get your Sri Lanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Sri Lanka Visa | Apply For Sri Lanka Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Sri Lanka.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Sri Lanka Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "From now on, you can get your Sri Lanka tourist visa online simply and quickly by Visa2fly. If you are planning for a short trip, either a holiday. Contact us.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

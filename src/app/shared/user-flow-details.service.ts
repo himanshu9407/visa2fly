@@ -45,7 +45,6 @@ export class UserFlowDetails {
     } else {
       this.expiry = this.expiryDate.month + "." + this.expiryDate.day + "." + this.expiryDate.year;
     }
-
   }
 
   setUserFlowDetails(name: string, value: string) {
@@ -56,8 +55,6 @@ export class UserFlowDetails {
         expires: this.expiry,
       });
     }
-
-    // console.log(this.userObject);
   }
 
   setB2BUserFlowDetails(name: string, value: string) {
@@ -68,8 +65,6 @@ export class UserFlowDetails {
         expires: this.expiry,
       });
     }
-
-    // console.log(this.userObject);
   }
 
   setUserFlowDetailsObject(name: string, value: object) {
@@ -82,7 +77,6 @@ export class UserFlowDetails {
   }
 
   setUserProfile(value: object) {
-    // console.log(value);
     if (isPlatformBrowser(this.platformId)) {
       this.cookies.put("profile", JSON.stringify(value), {
         expires: this.expiry,

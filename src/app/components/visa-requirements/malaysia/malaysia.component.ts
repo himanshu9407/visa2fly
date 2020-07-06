@@ -173,13 +173,76 @@ export class MalaysiaComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Malaysia Visa | Apply For Malaysia Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name:"keywords", content: "apply for malaysia e-visa, malaysia tourist visa application, malaysia tourist visa for indian, apply for malaysia e visa, malaysia e-visa for indians" },
-      {
-        name: "description",
-        content: "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here."
-      },
-    ]);
+
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for malaysia e-visa, malaysia tourist visa application, malaysia tourist visa for indian, apply for malaysia e visa, malaysia e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Malaysia Visa | Apply For Malaysia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Malaysia.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/malaysia-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Malaysia Visa | Apply For Malaysia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Malaysia Visa | Apply For Malaysia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Malaysia.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Malaysia Visa | Apply For Malaysia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Apply Malaysia e-visa online at Visa2Fly to get entitled to maximum benefits like Travel insurance and Travel Sim cards. Visa2Fly offers a hassle-free Malaysia e-visa online process and ensure you get your visa delivered at your doorstep. Apply your Malaysia e-visa here.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

@@ -46,7 +46,9 @@ export class LoginStatusService {
 
   getUserLoggedIn() {
     if (isPlatformBrowser(this.platformId)) {
-      return JSON.parse(this.userFlow.getCookie("userLoggedIn"));
+      if (this.userFlow.getCookie("userLoggedIn")) {
+        return JSON.parse(this.userFlow.getCookie("userLoggedIn"));
+      }
     }
   }
 

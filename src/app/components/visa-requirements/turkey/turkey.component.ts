@@ -188,14 +188,77 @@ export class TurkeyComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     
     this.titleService.setTitle("Turkey Visa | Apply For Turkey Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name: "keywords", content: "Turkey e visa apply online" },
-      {
-        name: "description",
-        content:
-          "Planning to visit Turkey? Try Visa2Fly for faster processing of Turkey e-visa apply online directly to get additional benefits like Travel insurance and Travel sim cards. At the Visa2Fly web portal, you get urgent visa processing at the best rates available. Apply here.",
-      },
-    ]);
+
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "Turkey e visa apply online",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Planning to visit Turkey? Try Visa2Fly for faster processing of Turkey e-visa apply online directly to get additional benefits like Travel insurance and Travel sim cards. At the Visa2Fly web portal, you get urgent visa processing at the best rates available. Apply here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Turkey Visa | Apply For Turkey Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Turkey.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/turkey-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Turkey Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Planning to visit Turkey? Try Visa2Fly for faster processing of Turkey e-visa apply online directly to get additional benefits like Travel insurance and Travel sim cards. At the Visa2Fly web portal, you get urgent visa processing at the best rates available. Apply here.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Turkey Visa | Apply For Turkey Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Turkey.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Turkey Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Planning to visit Turkey? Try Visa2Fly for faster processing of Turkey e-visa apply online directly to get additional benefits like Travel insurance and Travel sim cards. At the Visa2Fly web portal, you get urgent visa processing at the best rates available. Apply here.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
+
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

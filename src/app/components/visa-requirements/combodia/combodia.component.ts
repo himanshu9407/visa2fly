@@ -191,18 +191,75 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.titleService.setTitle("Cambodia Visa | Apply For Cambodia Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      {
-        name: "keywords",
-        content:
-          "apply for cambodia e-visa, cambodia tourist visa application, cambodia tourist visa for indian, apply for cambodia e visa, cambodia e-visa for indians",
-      },
-      {
-        name: "description",
-        content:
-          "Now you can apply for Cambodia e-visa online at Visa2Fly to make your visa process hassle-free and faster. Visa2Fly offers the best online visa solutions so that you get rid of visa processing worries. Apply your Cambodia e-visa online here. ",
-      },
-    ]);
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for cambodia e-visa, cambodia tourist visa application, cambodia tourist visa for indian, apply for cambodia e visa, cambodia e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Now you can apply for Cambodia e-visa online at Visa2Fly to make your visa process hassle-free and faster. Visa2Fly offers the best online visa solutions so that you get rid of visa processing worries. Apply your Cambodia e-visa online here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Cambodia Visa | Apply For Cambodia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Cambodia.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/cambodia-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Cambodia Visa | Apply For Cambodia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Now you can apply for Cambodia e-visa online at Visa2Fly to make your visa process hassle-free and faster. Visa2Fly offers the best online visa solutions so that you get rid of visa processing worries. Apply your Cambodia e-visa online here. ",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Cambodia Visa | Apply For Cambodia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Cambodia.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Cambodia Visa | Apply For Cambodia Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Now you can apply for Cambodia e-visa online at Visa2Fly to make your visa process hassle-free and faster. Visa2Fly offers the best online visa solutions so that you get rid of visa processing worries. Apply your Cambodia e-visa online here. ",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

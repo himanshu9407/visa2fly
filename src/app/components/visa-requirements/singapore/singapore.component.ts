@@ -177,13 +177,77 @@ export class SingaporeComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Singapore Visa | Apply For Singapore Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name:"keywords", content: "apply for singapore e-visa, singapore tourist visa application, singapore tourist visa for indian, apply for singapore e visa, singapore e-visa for indians" },
-      {
-        name: "description",
-        content: "Visit Singapore with Visa2Fly online visa services offering Singapore e-visa for Indians. Visa2Fly offers the best online visa services for Indian passport holders that also includes maximum benefits like travel insurance and Travel sim cards. Apply here. "
-      },
-    ]);
+       
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for singapore e-visa, singapore tourist visa application, singapore tourist visa for indian, apply for singapore e visa, singapore e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Visit Singapore with Visa2Fly online visa services offering Singapore e-visa for Indians. Visa2Fly offers the best online visa services for Indian passport holders that also includes maximum benefits like travel insurance and Travel sim cards. Apply here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Singapore Visa | Apply For Singapore Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Singapore.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/singapore-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Singapore Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Visit Singapore with Visa2Fly online visa services offering Singapore e-visa for Indians. Visa2Fly offers the best online visa services for Indian passport holders that also includes maximum benefits like travel insurance and Travel sim cards. Apply here.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Singapore Visa | Apply For Singapore Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Singapore.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Singapore Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Visit Singapore with Visa2Fly online visa services offering Singapore e-visa for Indians. Visa2Fly offers the best online visa services for Indian passport holders that also includes maximum benefits like travel insurance and Travel sim cards. Apply here.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
+
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");

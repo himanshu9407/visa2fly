@@ -174,13 +174,76 @@ export class TajikistanComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
     this.titleService.setTitle("Tajikistan Visa | Apply For Tajikistan Visa Online for Indians- Visa2Fly");
-    this.meta.addTags([
-      { name:"keywords", content:"apply for tajikistan e-visa, tajikistan tourist visa application, tajikistan tourist visa for indian, apply for tajikistan e visa, tajikistan e-visa for indians" },
-      {
-        name: "description",
-        content: "Planning to visit Tajikistan? Apply your tajikistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more."
-      }
-    ]);
+
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for tajikistan e-visa, tajikistan tourist visa application, tajikistan tourist visa for indian, apply for tajikistan e visa, tajikistan e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Planning to visit Tajikistan? Apply your tajikistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Tajikistan Visa | Apply For Tajikistan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Tajikistan.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/visa/tajikistan-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Tajikistan Visa - Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Planning to visit Tajikistan? Apply your tajikistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Tajikistan Visa | Apply For Tajikistan Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Tajikistan.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Tajikistan Visa - Visa2Fly"
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Planning to visit Tajikistan? Apply your tajikistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
 
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
