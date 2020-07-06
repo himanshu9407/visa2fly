@@ -281,6 +281,24 @@ export class HomeFormComponent {
           break;
         }
 
+        case "Rwanda": {
+          // this.setDetailsOnLocalStorage();
+          this.router.navigate([
+            "visa-requirements/apply-for-Rwanda-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Japan": {
+          // this.setDetailsOnLocalStorage();
+          this.router.navigate([
+            "visa-requirements/apply-for-Japan-visa-online"
+          ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         case "Brazil": {
           // this.setDetailsOnLocalStorage();
           this.router.navigate([

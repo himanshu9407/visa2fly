@@ -21,6 +21,8 @@ import { USAModule } from './usa/usa.module';
 import { ZambiaModule } from './zambia/zambia.module';
 import { UzbekistanModule } from './uzbekistan/uzbekistan.module';
 import { TajikistanModule } from './tajikistan/tajikistan.module';
+import { JapanModule } from './japan/japan.module';
+import { RwandaModule } from './rwanda/rwanda.module';
 
 @NgModule({
   imports: [
@@ -46,8 +48,11 @@ import { TajikistanModule } from './tajikistan/tajikistan.module';
     USAModule,
     ZambiaModule,
     UzbekistanModule,
-    TajikistanModule
+    TajikistanModule,
+    JapanModule,
+    RwandaModule
   ],
+  
   
   
   

@@ -166,6 +166,26 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // Japan Page
+  {
+    path: "visa-requirements/apply-for-Japan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/japan/japan.module").then(
+        (m) => m.JapanModule
+      ),
+    data: { preload: true },
+  },
+
+  // Rwanda Page
+  {
+    path: "visa-requirements/apply-for-Rwanda-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/rwanda/rwanda.module").then(
+        (m) => m.RwandaModule
+      ),
+    data: { preload: true },
+  },
+
   // Tajikistan Page
   {
     path: "visa-requirements/apply-for-Tajikistan-visa-online",
