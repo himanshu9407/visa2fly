@@ -20,6 +20,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { from } from "rxjs";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { Title, Meta } from '@angular/platform-browser';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: "app-add-traveller",
@@ -41,6 +42,7 @@ export class AddTravellerComponent implements OnInit {
   modalWarnings: Array<any> = [];
   originalImageArr = [];
   selectedTravellerForm: number = 0;
+  breadcrumRouting: string;
 
   list = {
     states: ["Delhi", "Haryana", "Uttar Pradesh"],
@@ -334,6 +336,49 @@ export class AddTravellerComponent implements OnInit {
     ]);
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
+
+    if (this.userFlowDetails.country === "Australia") {
+      this.breadcrumRouting = "/visa/australia-visa-online";
+    } else if (this.userFlowDetails.country === "Azerbaijan") {
+      this.breadcrumRouting = "/visa/azerbaijan-visa-online";
+    } else if (this.userFlowDetails.country === "China") {
+      this.breadcrumRouting = "/visa/china-visa-online";
+    } else if (this.userFlowDetails.country === "Cambodia") {
+      this.breadcrumRouting = "/visa/cambodia-visa-online";
+    } else if (this.userFlowDetails.country === "Dubai") {
+      this.breadcrumRouting = "/visa/dubai-visa-online";
+    } else if (this.userFlowDetails.country === "Ethiopia") {
+      this.breadcrumRouting = "/visa/ethiopia-visa-online";
+    } else if (this.userFlowDetails.country === "France") {
+      this.breadcrumRouting = "/visa/france-visa-online";
+    } else if (this.userFlowDetails.country === "Malaysia") {
+      this.breadcrumRouting = "/visa/malaysia-visa-online";
+    } else if (this.userFlowDetails.country === "Maldives") {
+      this.breadcrumRouting = "/visa/maldives-visa-online";
+    } else if (this.userFlowDetails.country === "Netherlands") {
+      this.breadcrumRouting = "/visa/netherlands-visa-online";
+    } else if (this.userFlowDetails.country === "Singapore") {
+      this.breadcrumRouting = "/visa/singapore-visa-online";
+    } else if (this.userFlowDetails.country === "Spain") {
+      this.breadcrumRouting = "/visa/spain-visa-online";
+    } else if (this.userFlowDetails.country === "Sri Lanka") {
+      this.breadcrumRouting = "/visa/sri-lanka-visa-online";
+    }else if (this.userFlowDetails.country === "Switzerland") {
+      this.breadcrumRouting = "/visa/swiss-visa-online";
+    } else if (this.userFlowDetails.country === "Thailand") {
+      this.breadcrumRouting = "/visa/thailand-visa-online";
+    } else if (this.userFlowDetails.country === "Turkey") {
+      this.breadcrumRouting = "/visa/turkey-visa-online";
+    } else if (this.userFlowDetails.country === "United Kingdom") {
+      this.breadcrumRouting = "/visa/uk-visa-online";
+    } else if (this.userFlowDetails.country === "USA") {
+      this.breadcrumRouting = "/visa/usa-visa-online";
+    } else if (this.userFlowDetails.country === "Vietnam") {
+      this.breadcrumRouting = "/visa/vietnam-visa-online";
+    } else {
+      this.breadcrumRouting = `/visa-requirements/${this.userFlowDetails.country}/apply-for-${this.userFlowDetails.country}-visa-online/${this.userFlowDetails.purpose}`;
+    }
+    
     
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);

@@ -234,8 +234,22 @@ select:focus {
 }
 
 .imageContainer {
-  padding: 80px 40px 10px;
+  padding: 0px 40px 10px;
 }
+
+.breadcrumSection {
+  padding: 70px 40px 0px;
+}
+
+.breadcrumSection .breadcrum{
+  font-size: 14px; margin-bottom: 10px;
+}
+
+.breadcrumSection .breadcrum a {
+  font-weight: 500;
+  color: #000080;
+}
+
 
 .visaStep {
   background: #f5f5f5;
@@ -274,8 +288,12 @@ select:focus {
 }
 
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-  .imageContainer {
-    padding: 90px 30px 10px;
+   .imageContainer {
+    padding: 0px 30px 10px;
+  }
+
+  .breadcrumSection {
+    padding: 70px 30px 0px;
   }
 
   .mgTop {
@@ -372,9 +390,7 @@ select:focus {
 }
 
 @media screen and (min-width: 481px) and (max-width: 500px) {
-  .imageContainer {
-    padding: 120px 10px 10px;
-  }
+  
 
 
   .outerRequirement {
@@ -468,9 +484,7 @@ select:focus {
 }
 
 @media screen and (min-width: 501px) and (max-width: 767px) {
-  .imageContainer {
-    padding: 120px 10px 10px;
-  }
+  
 
 
   .outerRequirement {
@@ -565,9 +579,7 @@ select:focus {
 
 
 @media screen and (min-width: 360px) and (max-width: 480px) {
-  .imageContainer {
-    padding: 120px 10px 10px;
-  }
+  
 
   .setPadding {
     font-weight: 600;  padding: 0px;
@@ -751,9 +763,7 @@ select:focus {
 }
 
 @media screen and (min-width: 320px) and (max-width: 359px) {
-  .imageContainer {
-    padding: 120px 10px 10px;
-  }
+  
 
   .setWidth {
     width: 148px !important;
@@ -1388,4 +1398,15 @@ select:focus {
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
   }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .imageContainer {
+    padding: 0px 10px 10px;
+  }
+
+  .breadcrumSection {
+    padding: 110px 10px 0px;
+  }
+
 }
