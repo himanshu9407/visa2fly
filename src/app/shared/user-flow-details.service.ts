@@ -36,13 +36,35 @@ export class UserFlowDetails {
     }
 
     if (this.expiryDate.month < 10 && this.expiryDate.day < 10) {
-      this.expiry = "0" + this.expiryDate.month + ".0" + this.expiryDate.day + "." + this.expiryDate.year;
+      this.expiry =
+        "0" +
+        this.expiryDate.month +
+        ".0" +
+        this.expiryDate.day +
+        "." +
+        this.expiryDate.year;
     } else if (this.expiryDate.day < 10) {
-      this.expiry = this.expiryDate.month + ".0" + this.expiryDate.day + "." + this.expiryDate.year;
+      this.expiry =
+        this.expiryDate.month +
+        ".0" +
+        this.expiryDate.day +
+        "." +
+        this.expiryDate.year;
     } else if (this.expiryDate.month < 10) {
-      this.expiry = "0" + this.expiryDate.month + "." + this.expiryDate.day + "." + this.expiryDate.year;
+      this.expiry =
+        "0" +
+        this.expiryDate.month +
+        "." +
+        this.expiryDate.day +
+        "." +
+        this.expiryDate.year;
     } else {
-      this.expiry = this.expiryDate.month + "." + this.expiryDate.day + "." + this.expiryDate.year;
+      this.expiry =
+        this.expiryDate.month +
+        "." +
+        this.expiryDate.day +
+        "." +
+        this.expiryDate.year;
     }
   }
 
@@ -50,7 +72,9 @@ export class UserFlowDetails {
     this.userObject[name] = value;
 
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject));
+      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject), {
+        expires: this.expiry,
+      });
     }
   }
 
@@ -65,13 +89,17 @@ export class UserFlowDetails {
   setUserFlowDetailsObject(name: string, value: object) {
     this.userObject[name] = value;
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject));
+      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject), {
+        expires: this.expiry,
+      });
     }
   }
 
   setUserProfile(value: object) {
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("profile", JSON.stringify(value));
+      this.cookies.put("profile", JSON.stringify(value), {
+        expires: this.expiry,
+      });
     }
   }
 
@@ -95,7 +123,9 @@ export class UserFlowDetails {
 
   setCookie(key: string, value: string) {
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put(key, value);
+      this.cookies.put(key, value, {
+        expires: this.expiry,
+      });
     }
   }
 
