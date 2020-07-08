@@ -8,13 +8,12 @@ import { CookiesService } from "@ngx-utils/cookies/src/cookies.service";
 export class UserFlowDetails {
   public userObject: object = {};
   expiry: string;
-  expiryDate: { year: number; month: number; day: number; };
+  expiryDate: { year: number; month: number; day: number };
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookies: CookiesService
-  ) {
-  }
+  ) {}
 
   setExpiry(rememberMe: boolean) {
     console.log(rememberMe);
@@ -24,7 +23,7 @@ export class UserFlowDetails {
       this.expiryDate = {
         year: current.getFullYear(),
         month: current.getMonth() + 1,
-        day: current.getDate()
+        day: current.getDate(),
       };
     } else {
       const current = new Date();
@@ -32,7 +31,7 @@ export class UserFlowDetails {
       this.expiryDate = {
         year: current.getFullYear(),
         month: current.getMonth() + 1,
-        day: current.getDate()
+        day: current.getDate(),
       };
     }
 
@@ -51,9 +50,7 @@ export class UserFlowDetails {
     this.userObject[name] = value;
 
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject), {
-        expires: this.expiry,
-      });
+      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject));
     }
   }
 
@@ -61,26 +58,20 @@ export class UserFlowDetails {
     this.userObject[name] = value;
 
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("b2bUserFlowDetails", JSON.stringify(this.userObject), {
-        expires: this.expiry,
-      });
+      this.cookies.put("b2bUserFlowDetails", JSON.stringify(this.userObject));
     }
   }
 
   setUserFlowDetailsObject(name: string, value: object) {
     this.userObject[name] = value;
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject),  {
-        expires: this.expiry,
-      });
+      this.cookies.put("userFlowDetails", JSON.stringify(this.userObject));
     }
   }
 
   setUserProfile(value: object) {
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("profile", JSON.stringify(value), {
-        expires: this.expiry,
-      });
+      this.cookies.put("profile", JSON.stringify(value));
     }
   }
 
@@ -104,9 +95,7 @@ export class UserFlowDetails {
 
   setCookie(key: string, value: string) {
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put(key, value, {
-        expires: this.expiry,
-      });
+      this.cookies.put(key, value);
     }
   }
 
