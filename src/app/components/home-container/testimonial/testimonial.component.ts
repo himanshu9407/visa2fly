@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeServiceService } from 'src/app/home-service.service';
-import{testimonialsData} from '../../interfaces/testimonials';
 import { TestimonialService } from './testimonial.service';
-import { TestimonialModel } from './testimonial.model';
 
 @Component({
   selector: 'app-testimonial',

@@ -16,9 +16,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { timeout, min } from "rxjs/operators";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoService } from 'src/app/shared/seo.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({

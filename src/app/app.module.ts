@@ -35,7 +35,6 @@ import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.compo
 import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.component';
 import { B2bMobileNavComponent } from './components/b2b/b2b-mobile-nav/b2b-mobile-nav.component';
 import { HomeContainerModule } from './components/home-container/home-container.module';
-import { MalaysiaModule } from './components/visa-requirements/malaysia/malaysia.module';
 import { AddTravellerModule } from './components/add-traveller/add-traveller.module';
 import { LoginSignupModule } from './components/login-signup/login-signup.module';
 import { MyBookingsModule } from './components/my-bookings/mybookings.module';
@@ -78,7 +77,10 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      preventDuplicates: true,
+    }), // ToastrModule added
     Ng2FlatpickrModule,
     FormsModule,
     MatSelectModule,

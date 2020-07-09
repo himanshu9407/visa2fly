@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from '../../requirements/requirements.service';
 import { Title, Meta } from '@angular/platform-browser';
-import { SeoService } from 'src/app/shared/seo.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({

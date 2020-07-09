@@ -2,7 +2,6 @@ import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
 import {
   FormGroup,
   FormControl,
-  FormControlName,
   AbstractControl
 } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -10,13 +9,9 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from "@angular/common/http";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
-import { HomeFormService } from "../../home-form/home-form.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { AuthenticationGuard } from "src/app/shared/AuthenticationGuard.service";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { LoginService } from "../../login-signup/login/login.service";
-import { stringify } from "querystring";
 import { isPlatformBrowser } from "@angular/common";
+import { HomeFormService } from '../../home-container/home-form/home-form.service';
 // import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
@@ -52,9 +47,6 @@ export class B2bHomeComponent implements OnInit {
     // private toastService: ToastService,
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
-    private authService: AuthenticationGuard,
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {

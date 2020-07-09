@@ -1,8 +1,8 @@
 import { Injectable, PLATFORM_ID, Inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserFlowDetails } from "./user-flow-details.service";
-import { HomeFormService } from "../components/home-form/home-form.service";
 import { isPlatformBrowser } from "@angular/common";
+import { HomeFormService } from '../components/home-container/home-form/home-form.service';
 
 @Injectable({
   providedIn: "root",

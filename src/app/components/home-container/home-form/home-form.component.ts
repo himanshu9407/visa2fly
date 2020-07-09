@@ -1,19 +1,11 @@
 import {
   Component,
-  OnInit,
-  ViewChild,
-  Input,
-  Injectable,
   PLATFORM_ID,
   Inject,
 } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
-import { HomeServiceService } from "../../home-service.service";
-import { home_formData } from "src/app/interfaces/home_formData";
 import {
-  NgForm,
   FormGroup,
   FormControl,
   AbstractControl,
@@ -22,9 +14,6 @@ import { HomeFormService } from "./home-form.service";
 import { HomeFormModel } from "./home-form.model";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { AuthenticationGuard } from "src/app/shared/AuthenticationGuard.service";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { LoginService } from "../login-signup/login/login.service";
 
 @Component({
   selector: "app-home-form",
@@ -86,13 +75,9 @@ export class HomeFormComponent {
 
   constructor(
     private router: Router,
-    private httpClient: HttpClient,
     private homeFormService: HomeFormService,
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
-    private authService: AuthenticationGuard,
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.preloaderService.showPreloader(true);
@@ -183,15 +168,6 @@ export class HomeFormComponent {
       return true;
     }
   }
-
-  // validatePurposeType() {
-  //   if (this.purpose.dirty && this.purpose.value == 'select' || !this.purpose.touched || this.purpose.pristine) {
-  //     this.purposeNotSelected = true;
-  //     return false;
-  //   } else {
-  //     return true
-  //   }
-  // }
 
   validateLivingIn() {
     if (

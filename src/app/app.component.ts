@@ -6,7 +6,6 @@ import {
   AfterViewChecked,
 } from "@angular/core";
 import { HomeServiceService } from "./home-service.service";
-import { HomeFormService } from "./components/home-form/home-form.service";
 import { PreloaderService } from "./shared/preloader.service";
 import { LoginStatusService } from "./shared/login-status.service";
 import { LoginService } from "./components/login-signup/login/login.service";
@@ -29,14 +28,11 @@ export class AppComponent implements OnInit {
   users: object;
   showB2BHeader: boolean;
   constructor(
-    private homeFormService: HomeFormService,
     private preloaderService: PreloaderService,
     private loginStatusService: LoginStatusService,
     private router: Router,
     private loginService: LoginService,
     private userFlow: UserFlowDetails,
-    private authService: AuthenticationGuard,
-    private cookies: CookiesService
   ) {
 
   }
