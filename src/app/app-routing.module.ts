@@ -172,6 +172,26 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // Japan Page
+  {
+    path: "visa/japan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/japan/japan.module").then(
+        (m) => m.JapanModule
+      ),
+    data: { preload: true },
+  },
+
+  // Rwanda Page
+  {
+    path: "visa/rwanda-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/rwanda/rwanda.module").then(
+        (m) => m.RwandaModule
+      ),
+    data: { preload: true },
+  },
+
   // Australia Page
   {
     path: "visa-requirements/apply-for-Australia-visa-online/:purpose",

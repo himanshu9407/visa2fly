@@ -111,17 +111,17 @@ export class RequirementsComponent implements OnInit {
         case "Australia":
           this.router.navigateByUrl("/visa/australia-visa-online/");
           break;
-        case "Singapore":
-          this.router.navigateByUrl("/visa/singapore-visa-online/");
+        case "Azerbaijan":
+          this.router.navigateByUrl("/visa/azerbaijan-visa-online/");
           break;
-        case "Cambodia":
-          this.router.navigateByUrl("/visaCambodia-visa-online/");
-          break;
-        case "USA":
-          this.router.navigateByUrl("/visa/usa-visa-online/");
+        case "Brazil":
+          this.router.navigateByUrl("/visa/brazil-visa-online/");
           break;
         case "China":
           this.router.navigateByUrl("/visa/china-visa-online/");
+          break;
+        case "Cambodia":
+          this.router.navigateByUrl("/visaCambodia-visa-online/");
           break;
         case "Dubai":
           this.router.navigateByUrl("/visa/dubai-visa-online/");
@@ -132,54 +132,60 @@ export class RequirementsComponent implements OnInit {
         case "France":
           this.router.navigateByUrl("/visa/france-visa-online/");
           break;
-        case "Maldives":
-          this.router.navigateByUrl("/visa/maldives-visa-online/");
+        case "Japan":
+          this.router.navigateByUrl("/visa/japan-visa-online/");
           break;
         case "Malaysia":
           this.router.navigateByUrl("/visa/malaysia-visa-online/");
           break;
-        case "Spain":
-          this.router.navigateByUrl("/visa/spain-visa-online/");
-          break;
-        case "Swiss":
-          this.router.navigateByUrl("/visa/swiss-visa-online/");
-          break;
-        case "UK":
-          this.router.navigateByUrl("/visa/uk-visa-online/");
-          break;
-        case "Sri-Lanka":
-          this.router.navigateByUrl("/visa/sri-lanka-visa-online/");
-          break;
-        case "Azerbaijan":
-          this.router.navigateByUrl("/visa/azerbaijan-visa-online/");
-          break;
-        case "Turkey":
-          this.router.navigateByUrl("/visa/turkey-visa-online/");
-          break;
-        case "Thailand":
-          this.router.navigateByUrl("/visa/thailand-visa-online/");
-          break;
-        case "Vietnam":
-          this.router.navigateByUrl("/visa/vietnam-visa-online/");
+        case "Maldives":
+          this.router.navigateByUrl("/visa/maldives-visa-online/");
           break;
         case "Netherlands":
           this.router.navigateByUrl("/visa/netherlands-visa-online/");
           break;
-        // case "Brazil":
-        //   this.router.navigateByUrl("/visa/brazil-visa-online/");
-        //   break;
-        // case "Russia":
-        //   this.router.navigateByUrl("/visa/russia-visa-online/");
-        //   break;
-        // case "Tajikistan":
-        //   this.router.navigateByUrl("/visa/tajikistan-visa-online/");
-        //   break;
-        // case "Uzbakistan":
-        //   this.router.navigateByUrl("/visa/uzbakistan-visa-online/");
-        //   break;
-        // case "Zambia":
-        //   this.router.navigateByUrl("/visa/zambia-visa-online/");
-        //   break;
+        case "Russia":
+          this.router.navigateByUrl("/visa/russia-visa-online/");
+          break;
+        case "Rwanda":
+          this.router.navigateByUrl("/visa/rwanda-visa-online/");
+          break;
+        case "Singapore":
+          this.router.navigateByUrl("/visa/singapore-visa-online/");
+          break;
+        case "Spain":
+          this.router.navigateByUrl("/visa/spain-visa-online/");
+          break;
+        case "Sri-Lanka":
+          this.router.navigateByUrl("/visa/sri-lanka-visa-online/");
+          break;
+        case "Swiss":
+          this.router.navigateByUrl("/visa/swiss-visa-online/");
+          break;
+        case "Tajikistan":
+          this.router.navigateByUrl("/visa/tajikistan-visa-online/");
+          break;
+        case "Thailand":
+          this.router.navigateByUrl("/visa/thailand-visa-online/");
+          break;
+        case "Turkey":
+          this.router.navigateByUrl("/visa/turkey-visa-online/");
+          break;
+        case "UK":
+          this.router.navigateByUrl("/visa/uk-visa-online/");
+          break;
+        case "USA":
+          this.router.navigateByUrl("/visa/usa-visa-online/");
+          break;
+        case "Uzbekistan":
+          this.router.navigateByUrl("/visa/uzbekistan-visa-online/");
+          break;
+        case "Vietnam":
+          this.router.navigateByUrl("/visa/vietnam-visa-online/");
+          break;
+        case "Zambia":
+          this.router.navigateByUrl("/visa/zambia-visa-online/");
+          break;
       }
     });
 
@@ -452,10 +458,14 @@ export class RequirementsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(`${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`);
+    this.titleService.setTitle(
+      `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`
+    );
 
-    this.titleService.setTitle(`${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`);
-    
+    this.titleService.setTitle(
+      `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`
+    );
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -470,8 +480,7 @@ export class RequirementsComponent implements OnInit {
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
-      content:
-      `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`,
+      content: `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`,
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
@@ -499,8 +508,7 @@ export class RequirementsComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "twitter:title",
-      content:
-      `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`,
+      content: `${this.selectedCountrytype} Visa | Apply For ${this.selectedCountrytype} Visa Online for Indians- Visa2Fly`,
     });
     this.meta.updateTag({
       property: "twitter:image",
@@ -527,6 +535,9 @@ export class RequirementsComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/Tourist`);
+    link.setAttribute(
+      "href",
+      `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/Tourist`
+    );
   }
 }

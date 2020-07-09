@@ -18,6 +18,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from 'src/app/shared/seo.service';
 import { DOCUMENT } from '@angular/common';
 
 export interface Food {
@@ -25,11 +26,10 @@ export interface Food {
   viewValue: string;
 }
 
-
 @Component({
-  selector: 'app-brazil',
-  templateUrl: './brazil.component.html',
-  styleUrls: ['./brazil.component.css'],
+  selector: 'app-rwanda',
+  templateUrl: './rwanda.component.html',
+  styleUrls: ['./rwanda.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -47,14 +47,13 @@ export interface Food {
     ])
   ]
 })
-export class BrazilComponent implements OnInit, AfterViewInit {
+export class RwandaComponent implements OnInit, AfterViewInit {
 
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
 
-  // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
@@ -72,13 +71,14 @@ export class BrazilComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Brazil";
+  public selectedCountrytype = "Rwanda";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  title: string = 'Apply For Rwanda Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -94,6 +94,9 @@ export class BrazilComponent implements OnInit, AfterViewInit {
     private meta: Meta,
     @Inject(DOCUMENT) private doc) {
 
+      this.userControlDetail = this.userFlow.getUserFlowDetails();
+      // console.log(this.userControlDetail.purpose);
+  
       this.preloaderService.showPreloader(true);
   
       if (this.userFlow.getCookie("selectedVisaPurpose")) {
@@ -103,6 +106,7 @@ export class BrazilComponent implements OnInit, AfterViewInit {
       }
   
       let tempPurpose = this.selectedVisaType;
+      //console.log(tempPurpose);
       this.purposeChooseForm = new FormGroup({
         purposeSelected: new FormControl(tempPurpose)
       });
@@ -164,47 +168,49 @@ export class BrazilComponent implements OnInit, AfterViewInit {
           );
         }
       });
-
-     }
+  
+    }
 
   ngOnInit() {
 
-    this.titleService.setTitle("Brazil Visa | Apply For Brazil Visa Online for Indians- Visa2Fly");
+    this.titleService.setTitle(
+      "Rwanda Visa | Apply For Rwanda Visa Online for Indians- Visa2Fly"
+    );
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for brazil e-visa, brazil tourist visa application, brazil tourist visa for indian, apply for brazil e visa, brazil e-visa for indians",
+        "apply for rwanda e-visa, rwanda tourist visa application, rwanda tourist visa for indian, apply for rwanda e visa, rwanda e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Brazil? Apply your brazil e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Planning to visit Rwanda? Apply your rwanda e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "Brazil Visa | Apply For Brazil Visa Online for Indians- Visa2Fly",
+        "Rwanda Visa | Apply For Rwanda Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
       property: "og:image",
-      content: "https://static.visa2fly.com/country/Brazil.jpg",
+      content: "https://static.visa2fly.com/country/Rwanda.jpg",
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/brazil-visa-online",
+      content: "https://visa2fly.com/visa/rwanda-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
       content:
-        "Brazil Visa | Apply For Brazil Visa Online for Indians- Visa2Fly",
+        "Rwanda Visa | Apply For Rwanda Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Brazil? Apply your brazil e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Planning to visit Rwanda? Apply your rwanda e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
     });
 
     // twitter
@@ -215,21 +221,21 @@ export class BrazilComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "Brazil Visa | Apply For Brazil Visa Online for Indians- Visa2Fly",
+        "Rwanda Visa | Apply For Rwanda Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:image",
-      content: "https://static.visa2fly.com/country/Brazil.jpg",
+      content: "https://static.visa2fly.com/country/Rwanda.jpg",
     });
     this.meta.updateTag({
       property: "twitter:image:alt",
       content:
-        "Brazil Visa | Apply For Brazil Visa Online for Indians- Visa2Fly",
+        "Rwanda Visa | Apply For Rwanda Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Brazil? Apply your brazil e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Planning to visit Rwanda? Apply your rwanda e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
     });
     this.meta.updateTag({
       property: "twitter:site",
@@ -243,8 +249,7 @@ export class BrazilComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/brazil-visa-online");
-
+    link.setAttribute("href", "https://visa2fly.com/visa/rwanda-visa-online");
   }
 
   ngAfterViewInit() {

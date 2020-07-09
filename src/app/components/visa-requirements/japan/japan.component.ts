@@ -18,6 +18,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from 'src/app/shared/seo.service';
 import { DOCUMENT } from '@angular/common';
 
 export interface Food {
@@ -25,10 +26,11 @@ export interface Food {
   viewValue: string;
 }
 
+
 @Component({
-  selector: 'app-russia',
-  templateUrl: './russia.component.html',
-  styleUrls: ['./russia.component.css'],
+  selector: 'app-japan',
+  templateUrl: './japan.component.html',
+  styleUrls: ['./japan.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -46,14 +48,13 @@ export interface Food {
     ])
   ]
 })
-export class RussiaComponent implements OnInit, AfterViewInit {
+export class JapanComponent implements OnInit, AfterViewInit {
 
   @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
 
-  // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
@@ -71,13 +72,14 @@ export class RussiaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Russia";
+  public selectedCountrytype = "Japan";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  title: string = 'Apply For Japan Visa Online- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -92,6 +94,9 @@ export class RussiaComponent implements OnInit, AfterViewInit {
     private titleService: Title,
     private meta: Meta,
     @Inject(DOCUMENT) private doc) {
+
+      this.userControlDetail = this.userFlow.getUserFlowDetails();
+    // console.log(this.userControlDetail.purpose);
 
     this.preloaderService.showPreloader(true);
 
@@ -165,47 +170,47 @@ export class RussiaComponent implements OnInit, AfterViewInit {
       }
     });
 
-
-    }
+  }
 
   ngOnInit() {
-    this.titleService.setTitle("Russia Visa | Apply For Russia Visa Online for Indians- Visa2Fly");
-      
+    this.titleService.setTitle(
+      "Japan Visa | Apply For Japan Visa Online for Indians- Visa2Fly"
+    );
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for russia e-visa, russia tourist visa application, russia tourist visa for indian, apply for russia e visa, russia e-visa for indians",
+        "apply for japan e-visa, japan tourist visa application, japan tourist visa for indian, apply for japan e visa, japan e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Russia? Apply your Russia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Planning to visit Japan? Apply your japan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "Russia Visa | Apply For Russia Visa Online for Indians- Visa2Fly",
+        "Japan Visa | Apply For Japan Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
       property: "og:image",
-      content: "https://static.visa2fly.com/country/Russia.jpg",
+      content: "https://static.visa2fly.com/country/Japan.jpg",
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/russia-visa-online",
+      content: "https://visa2fly.com/visa/japan-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
       content:
-        "Russia Visa - Visa2Fly",
+        "Japan Visa | Apply For Japan Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Russia? Apply your Russia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Planning to visit Japan? Apply your japan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
     });
 
     // twitter
@@ -216,21 +221,21 @@ export class RussiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "Russia Visa | Apply For Russia Visa Online for Indians- Visa2Fly",
+        "Japan Visa | Apply For Japan Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:image",
-      content: "https://static.visa2fly.com/country/Russia.jpg",
+      content: "https://static.visa2fly.com/country/Japan.jpg",
     });
     this.meta.updateTag({
       property: "twitter:image:alt",
       content:
-        "Russia Visa - Visa2Fly"
+        "Japan Visa | Apply For Japan Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Russia? Apply your Russia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Planning to visit Japan? Apply your japan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
     });
     this.meta.updateTag({
       property: "twitter:site",
@@ -244,142 +249,144 @@ export class RussiaComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/russia-visa-online");
-}
-
-ngAfterViewInit() {
-  this.t.select(this.selectedVisaType);
-}
-
-purposeChanged() {
-  var purpose = this.purposeChooseForm.get("purposeSelected").value;
-  this.userFlow.setCookie("selectedVisaPurpose", purpose);
-
-  if (purpose == "Tourist") {
-    this.MyQuotation1 = this.touristArr;
-    this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-    this.t.select("Tourist");
-  } else if (purpose == "Business") {
-    this.MyQuotation1 = this.businessArr;
-
-    this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-    this.t.select("Business");
-  } else {
-    this.MyQuotation1 = this.transitArr;
-    this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-    this.t.select("Transit");
-  }
-  this.imagefield1 = this.imageCatogoryTemp;
-
-}
-
-navigateTo(purpose: any) {
-  let purposeString: string = purpose.nextId;
-  let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-  this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-  if (purposeString == "Tourist") {
-    this.MyQuotation1 = this.touristArr;
-    this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-    this.selectedVisaType = "Tourist";
-    this.selectedTourist = 1;
-  } else if (purposeString == "Business") {
-    this.MyQuotation1 = this.businessArr;
-    this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-    this.selectedVisaType = "Business";
-    this.selectedBusiness = 1;
-  } else {
-    this.MyQuotation1 = this.transitArr;
-    this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-    this.selectedVisaType = "Transit";
-
-    this.selectedTransit = 1;
+    link.setAttribute(
+      "href",
+      "https://visa2fly.com/visa/japan-visa-online"
+    );
   }
 
-  this.imagefield1 = this.imageCatogoryTemp;
-  this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
-}
-
-setActiveTourist(index: number) {
-  this.selectedTourist = index;
-}
-
-setActiveBusiness(index: number) {
-  this.selectedBusiness = index;
-}
-
-setActiveTransit(index: number) {
-  this.selectedTransit = index;
-}
-
-resetPage() {
-  this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
-}
-
-navigate(
-  quoteId: string,
-  purpose: string,
-  category: string,
-  minTravelDate: number,
-  basePrice: number,
-  serviceTax: number,
-  stayPeriod: string,
-  imageUploads: string
-) {
-  this.preloaderService.showPreloader(true);
-
-  this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-  this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
-  this.userFlow.setUserFlowDetails("quoteId", quoteId);
-  //console.log(quoteId);
-  this.userFlow.setUserFlowDetails("category", category);
-
-  this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
-  this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-  this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
-  this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-  this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
-
-  //console.log(quoteId);
-
-  let token = this.loginService.getAuthToken();
-  if (token == null || token == undefined) {
-    token = "";
+  ngAfterViewInit() {
+    this.t.select(this.selectedVisaType);
   }
-  this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-    if (data.code == "0") {
-      this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-        // console.log(data);
 
-        if (data.code == "0") {
-          this.routerHistory.pushHistory("visa-requirement");
-          this.router.navigate(["addTraveller"]);
+  purposeChanged() {
+    var purpose = this.purposeChooseForm.get("purposeSelected").value;
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
-          // setTimeout(() => {
+    if (purpose == "Tourist") {
+      this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+      this.t.select("Tourist");
+    } else if (purpose == "Business") {
+      this.MyQuotation1 = this.businessArr;
 
-          this.preloaderService.showPreloader(false);
-          // }, 2000);
-        } else {
-          this.toastr.error("" + data.message);
-          this.preloaderService.showPreloader(false);
-        }
-      });
-    } else if (data.code == "301") {
-      this.loginService.setAuthToken("");
-      this.loginStatus.setUserStatus(false);
-      this.loginStatus.setUserLoggedIn(false);
-      // this.router.navigate(['visa']);
-      this.preloaderService.showPreloader(false);
-      this.userFlow.setCookie("profile", JSON.stringify({}));
-      this.routerHistory.pushHistory("req-and-quote");
-      this.router.navigate(["slcontainer/login"]);
-      this.preloaderService.showPreloader(false);
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+      this.t.select("Business");
     } else {
-      this.routerHistory.pushHistory("req-and-quote");
-      this.router.navigate(["slcontainer/login"]);
-      this.preloaderService.showPreloader(false);
+      this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+      this.t.select("Transit");
     }
-  });
-}
+    this.imagefield1 = this.imageCatogoryTemp;
 
+  }
+
+  navigateTo(purpose: any) {
+    let purposeString: string = purpose.nextId;
+    let purposeUrl = purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
+    if (purposeString == "Tourist") {
+      this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+      this.selectedVisaType = "Tourist";
+      this.selectedTourist = 1;
+    } else if (purposeString == "Business") {
+      this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+      this.selectedVisaType = "Business";
+      this.selectedBusiness = 1;
+    } else {
+      this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+      this.selectedVisaType = "Transit";
+
+      this.selectedTransit = 1;
+    }
+
+    this.imagefield1 = this.imageCatogoryTemp;
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
+  }
+
+  setActiveTourist(index: number) {
+    this.selectedTourist = index;
+  }
+
+  setActiveBusiness(index: number) {
+    this.selectedBusiness = index;
+  }
+
+  setActiveTransit(index: number) {
+    this.selectedTransit = index;
+  }
+
+  resetPage() {
+    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
+  }
+
+  navigate(
+    quoteId: string,
+    purpose: string,
+    category: string,
+    minTravelDate: number,
+    basePrice: number,
+    serviceTax: number,
+    stayPeriod: string,
+    imageUploads: string
+  ) {
+    this.preloaderService.showPreloader(true);
+
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+    this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+    this.userFlow.setUserFlowDetails("quoteId", quoteId);
+    //console.log(quoteId);
+    this.userFlow.setUserFlowDetails("category", category);
+
+    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
+    this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
+    this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
+    this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
+
+    //console.log(quoteId);
+
+    let token = this.loginService.getAuthToken();
+    if (token == null || token == undefined) {
+      token = "";
+    }
+    this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
+      if (data.code == "0") {
+        this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
+          // console.log(data);
+
+          if (data.code == "0") {
+            this.routerHistory.pushHistory("visa-requirement");
+            this.router.navigate(["addTraveller"]);
+
+            // setTimeout(() => {
+
+            this.preloaderService.showPreloader(false);
+            // }, 2000);
+          } else {
+            this.toastr.error("" + data.message);
+            this.preloaderService.showPreloader(false);
+          }
+        });
+      } else if (data.code == "301") {
+        this.loginService.setAuthToken("");
+        this.loginStatus.setUserStatus(false);
+        this.loginStatus.setUserLoggedIn(false);
+        // this.router.navigate(['visa']);
+        this.preloaderService.showPreloader(false);
+        this.userFlow.setCookie("profile", JSON.stringify({}));
+        this.routerHistory.pushHistory("req-and-quote");
+        this.router.navigate(["slcontainer/login"]);
+        this.preloaderService.showPreloader(false);
+      } else {
+        this.routerHistory.pushHistory("req-and-quote");
+        this.router.navigate(["slcontainer/login"]);
+        this.preloaderService.showPreloader(false);
+      }
+    });
+  }
 
 }
