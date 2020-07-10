@@ -1,19 +1,13 @@
 import {
   FormGroup,
   FormControl,
-  FormBuilder,
-  Validators,
 } from "@angular/forms";
 import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { LoginService } from "../login-signup/login/login.service";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { MyBookingsService } from "./mybookings.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
-// import { ToastService } from "src/app/shared/toast.service";
 import { ToastrService } from "ngx-toastr";
-import { feedbackModal } from "../../interfaces/home_formData";
 
 import {
   trigger,
@@ -23,6 +17,7 @@ import {
   animate,
 } from "@angular/animations";
 import { Title, Meta } from "@angular/platform-browser";
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 @Component({
   selector: "app-my-bookings",
   templateUrl: "./my-bookings.component.html",
@@ -45,7 +40,6 @@ import { Title, Meta } from "@angular/platform-browser";
   ],
 })
 export class MyBookingsComponent implements OnInit {
-  [x: string]: any;
   totalCount: number = 0;
   title: string = "Visa2fly | My Bookings";
 
@@ -81,18 +75,14 @@ export class MyBookingsComponent implements OnInit {
   currentPage2: number = 1;
 
   constructor(
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
     private router: Router,
     private preloaderService: PreloaderService,
     private bookingService: MyBookingsService,
     private downloadImageService: DownloadImageService,
-    // private toastService: ToastService,
-    private fb: FormBuilder,
     private toastr: ToastrService,
     private titleService: Title,
     private meta: Meta,
-    private activatedRoute: ActivatedRoute
+    private userflow: UserFlowDetails,
   ) {
     this.myBookings = [];
     //
@@ -168,8 +158,6 @@ export class MyBookingsComponent implements OnInit {
 
   getAllBookings(pageNo: number, pageSize: number) {
     this.bookingService.fetchBooking(pageNo, pageSize).subscribe((res) => {
-      console.log(res);
-
       if (res.code == 0) {
         this.allBooking = res;
         this.bookings = this.allBooking.data.bookings;
@@ -181,21 +169,24 @@ export class MyBookingsComponent implements OnInit {
 
         if (this.allBooking != null) {
           this.totalCount = this.allBooking.data.bookings.length;
+          console.log(res);
 
-          this.userFlow.setCookie(
-            "bookingStatus",
-            JSON.stringify(this.allBooking.data.takeFeedback)
-          );
-          let bookingOption = JSON.parse(
-            this.userFlow.getCookie("bookingStatus")
-          );
-          this.bookingStatus = bookingOption;
+          if (this.allBooking.data.takeFeedback) {
+            this.userflow.setCookie("bookingStatus", JSON.stringify("true"));
+
+            // this.allBooking.data.takeFeedback
+
+            this.bookingStatus = JSON.parse(
+              this.userflow.getCookie("bookingStatus")
+            );
+          }
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 1000);
 
           var bookingid = this.allBooking.data.feedbackToBeTakenFor;
+
           this.allBooking.data.bookings.forEach((element) => {
             if (
               element.booking.bookingStatus == "Sim order confirmed" ||
@@ -204,8 +195,9 @@ export class MyBookingsComponent implements OnInit {
             ) {
               element.booking.statusColor = "g";
             } else if (
-              element.booking.bookingStatus = "Payment failed" ||
-              element.booking.bookingStatus == "Visa application rejected"
+              (element.booking.bookingStatus =
+                "Payment failed" ||
+                element.booking.bookingStatus == "Visa application rejected")
             ) {
               element.booking.statusColor = "r";
             } else {
@@ -282,11 +274,13 @@ export class MyBookingsComponent implements OnInit {
   }
 
   setActiveBooking(booking: any) {
+    
+    this.userflow.setCookie("activeBooking", JSON.stringify(booking));
+    
     this.bookingService.setActiveBooking(booking);
 
-    this.userFlow.setCookie("activeBooking", JSON.stringify(booking));
+    this.router.navigate(["/bookingDetail"]);
 
-    this.router.navigate(["bookingDetail"]);
   }
 
   onSubmit() {
