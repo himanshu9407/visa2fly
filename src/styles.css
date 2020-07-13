@@ -1397,7 +1397,7 @@ button:hover {
   text-align: center;
 }
 
-@media (min-width: 480px) and (orientation: landscape) {
+@media (max-width: 896px) and (min-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
   .landscape_wrapper {
     display: flex;
     pointer-events: auto;
@@ -1407,7 +1407,6 @@ button:hover {
 a {
   text-decoration: none !important;
 }
-
 
 .linkAddress .linkAddressHeading {
   color: #343332;
@@ -1419,7 +1418,7 @@ a {
 }
 
 .linkAddress a {
-  color: #0D6CBF;
+  color: #0d6cbf;
   font-size: 13px;
   font-weight: 400;
 }
