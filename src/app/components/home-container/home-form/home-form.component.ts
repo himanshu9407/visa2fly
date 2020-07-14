@@ -247,6 +247,12 @@ export class HomeFormComponent {
           break;
         }
 
+        case "Armenia": {
+          this.router.navigate(["visa/armenia-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         case "Japan": {
           this.router.navigate(["visa/japan-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
@@ -312,6 +318,12 @@ export class HomeFormComponent {
         }
         case "Dubai": {
           this.router.navigate(["visa/dubai-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Egypt": {
+          this.router.navigate(["visa/egypt-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }

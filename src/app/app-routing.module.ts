@@ -182,6 +182,18 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+
+  // Armenia Page
+  {
+    path: "visa/armenia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/armenia/armenia.module").then(
+        (m) => m.ArmeniaModule
+      ),
+    data: { preload: true },
+  },
+
+
   // Rwanda Page
   {
     path: "visa/rwanda-visa-online",
@@ -265,6 +277,17 @@ const routes: Routes = [
       import(
         "./components/visa-requirements/switzerland/switzerland.module"
       ).then((m) => m.SwitzerlandModule),
+    data: { preload: true },
+  },
+
+
+  // Eygpt Page
+  {
+    path: "visa/egypt-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/egypt/egypt.module").then(
+        (m) => m.EgyptModule
+      ),
     data: { preload: true },
   },
 

@@ -65,6 +65,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "page-not-found" ||
           arr[1] == "aboutUs" ||
           arr[2] == "australia-visa-online" ||
+          arr[2] == "armenia-visa-online" ||
           arr[2] == "azerbaijan-visa-online" ||
           arr[2] == "brazil-visa-online" ||
           arr[2] == "china-visa-online" ||
@@ -72,6 +73,7 @@ export class HeaderComponent implements OnInit {
           arr[2] == "dubai-visa-online" ||
           arr[2] == "ethiopia-visa-online" ||
           arr[2] == "france-visa-online" ||
+          arr[2] == "egypt-visa-online" ||
           arr[2] == "japan-visa-online" ||
           arr[2] == "malaysia-visa-online" ||
           arr[2] == "maldives-visa-online" ||

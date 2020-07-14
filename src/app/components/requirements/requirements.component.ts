@@ -108,6 +108,9 @@ export class RequirementsComponent implements OnInit {
       this.selectedVariable = params.variable;
 
       switch (this.selectedCountrytype) {
+        case "Armenia":
+          this.router.navigateByUrl("/visa/armenia-visa-online/");
+          break;
         case "Australia":
           this.router.navigateByUrl("/visa/australia-visa-online/");
           break;
@@ -125,6 +128,9 @@ export class RequirementsComponent implements OnInit {
           break;
         case "Dubai":
           this.router.navigateByUrl("/visa/dubai-visa-online/");
+          break;
+        case "Egypt":
+          this.router.navigateByUrl("/visa/egypt-visa-online/");
           break;
         case "Ethiopia":
           this.router.navigateByUrl("/visa/ethiopia-visa-online/");

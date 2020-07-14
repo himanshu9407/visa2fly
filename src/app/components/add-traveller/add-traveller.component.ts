@@ -339,6 +339,8 @@ export class AddTravellerComponent implements OnInit {
 
     if (this.userFlowDetails.country === "Australia") {
       this.breadcrumRouting = "/visa/australia-visa-online";
+    } else if (this.userFlowDetails.country === "Armenia") {
+      this.breadcrumRouting = "/visa/armenia-visa-online";
     } else if (this.userFlowDetails.country === "Azerbaijan") {
       this.breadcrumRouting = "/visa/azerbaijan-visa-online";
     } else if (this.userFlowDetails.country === "Brazil") {
@@ -349,6 +351,8 @@ export class AddTravellerComponent implements OnInit {
       this.breadcrumRouting = "/visa/cambodia-visa-online";
     } else if (this.userFlowDetails.country === "Dubai") {
       this.breadcrumRouting = "/visa/dubai-visa-online";
+    } else if (this.userFlowDetails.country === "Egypt") {
+      this.breadcrumRouting = "/visa/egypt-visa-online";
     } else if (this.userFlowDetails.country === "Ethiopia") {
       this.breadcrumRouting = "/visa/ethiopia-visa-online";
     } else if (this.userFlowDetails.country === "France") {

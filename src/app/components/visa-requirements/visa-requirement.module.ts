@@ -23,6 +23,10 @@ import { UzbekistanModule } from './uzbekistan/uzbekistan.module';
 import { TajikistanModule } from './tajikistan/tajikistan.module';
 import { JapanModule } from './japan/japan.module';
 import { RwandaModule } from './rwanda/rwanda.module';
+import { EgyptModule } from './egypt/egypt.module';
+import { ArmeniaModule } from './armenia/armenia.module';
+
+
 
 @NgModule({
   imports: [
@@ -50,9 +54,12 @@ import { RwandaModule } from './rwanda/rwanda.module';
     UzbekistanModule,
     TajikistanModule,
     JapanModule,
-    RwandaModule
+    RwandaModule,
+    EgyptModule,
+    ArmeniaModule
   ],
-  declarations: [],
+
+  
   
   
   
