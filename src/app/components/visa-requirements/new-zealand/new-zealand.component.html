@@ -7,20 +7,19 @@
     </div>
   </div>
   
-  <!-- desktop Only -->
   <div class="container-fluid imageContainer desktopView">
     <div class="row">
       <div class="col-lg-8">
         <div class="countryImage">
-          <img class="bannerImage rounded img-fluid lazyload" data-src="https://static.visa2fly.com/country/Egypt.webp"
-            alt="apply for egypt visa online" />
+          <img class="bannerImage rounded img-fluid lazyload" data-src="https://static.visa2fly.com/country/New Zealand.jpg"
+            alt="new zealand e visa online" />
         </div>
       </div>
   
       <div class="col-lg-4 visaStepContainer" *ngIf="!onlinestatus">
         <div class="visaStep">
           <div class="visaStepHeader text-center">
-            <h1 class="visaStepHeading">APPLY FOR {{selectedCountrytype}} VISA ONLINE</h1>
+            <h1 class="visaStepHeading">APPLY FOR NEW ZEALAND VISA ONLINE</h1>
           </div>
           <div class="visaStepContent">
             <div class="row">
@@ -160,7 +159,6 @@
           </div>
         </div>
       </div>
-  
     </div>
   </div>
   
@@ -168,8 +166,8 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="countryImage">
-          <img class="bannerImage rounded img-fluid lazyload" data-src="https://static.visa2fly.com/country/Egypt.jpg"
-            alt="apply for egypt visa online" />
+          <img class="bannerImage rounded img-fluid lazyload" data-src="https://static.visa2fly.com/country/New Zealand.jpg"
+            alt="new zealand e visa online" />
         </div>
       </div>
   
@@ -268,6 +266,8 @@
                     <h5 style="font-size: 16px;">Step 1</h5>
                   </div>
                   <div class="col-lg-2 col-md-2 col-12">
+                    <!-- <img data-src="https://static.visa2fly.com/assets/file.png" alt="NEW ZEALAND e visa online"
+                                      class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" /> -->
                     <div class="makeIconCntr">
                       <div class="img-sprite vrStep-size vrStep-uploadDoc"></div>
                     </div>
@@ -284,6 +284,8 @@
                     <h5 style="font-size: 16px;">Step 2</h5>
                   </div>
                   <div class="col-lg-2 col-md-2 col-12 ">
+                    <!-- <img data-src="https://static.visa2fly.com/assets/credit.png" alt="NEW ZEALAND e visa online"
+                                      class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" /> -->
                     <div class="makeIconCntr">
                       <div class="img-sprite vrStep-size vrStep-payOnline"></div>
                     </div>
@@ -301,6 +303,8 @@
                     <h5 style="font-size: 16px;">Step 3</h5>
                   </div>
                   <div class="col-lg-3 col-md-3 col-12 ">
+                    <!-- <img data-src="https://static.visa2fly.com/assets/passport(1).png" alt="NEW ZEALAND e visa online"
+                                      class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" /> -->
                     <div class="makeIconCntr">
                       <div class="img-sprite vrStep-size vrStep-passport"></div>
                     </div>
@@ -316,7 +320,6 @@
           </div>
         </div>
       </div>
-  
     </div>
   </div>
   
@@ -329,16 +332,7 @@
           </div>
           <div class="col-lg-5 col-md-6 col-8">
             <form [formGroup]="purposeChooseForm">
-              <!-- <mat-form-field class="setWidth">
-                          <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
-                              <mat-option value="Tourist">
-                                  Tourist
-                              </mat-option>
-                              <mat-option value="Business">
-                                  Business
-                              </mat-option>
-                          </mat-select>
-                      </mat-form-field> -->
+  
               <div class="select-box">
                 <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
                   <div class="select-box__value">
@@ -350,6 +344,11 @@
                     <input class="select-box__input" type="radio" id="Business" value="Business" name="purposeSelected"
                       formControlName="purposeSelected" checked="checked" />
                     <p class="select-box__input-text">Business</p>
+                  </div>
+                  <div class="select-box__value">
+                    <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
+                      formControlName="purposeSelected" checked="checked" />
+                    <p class="select-box__input-text">Transit</p>
                   </div>
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                     y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
@@ -369,9 +368,10 @@
                     <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                       aria-hidden="aria-hidden">Business</label>
                   </li>
-                  <!-- <li>
-                                                          <label class="select-box__option" style="margin-bottom: 0px;" for="Transit" aria-hidden="aria-hidden">Transit</label>
-                                                        </li> -->
+                  <li>
+                    <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                      aria-hidden="aria-hidden">Transit</label>
+                  </li>
                 </ul>
               </div>
             </form>
@@ -380,26 +380,6 @@
       </div>
     </div>
   </div>
-  
-  <!-- <div class="container-fluid wrapContainer mobileView">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="row">
-                  <div class="col-lg-3 col-md-2 col-4">
-                      Visa Type
-                  </div>
-                  <div class="col-lg-6 col-md-3 col-5">
-                      <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                          <option value="tourist">Tourist</option>
-                          <option value="business">Business</option>
-                          <option value="transit">Transit</option>
-                      </select>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div> -->
-  
   
   <div class="container-fluid wrapContainer" style="overflow: hidden;">
     <div class="row">
@@ -465,25 +445,26 @@
                       clip-rule="evenodd" />
                   </svg>
                 </button>
+  
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-6 col-6 planCardRow
-                          ">Fees:</div>
+                      ">Fees:</div>
               <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
-                          planCardRow" style="color: #000080;">
+                      planCardRow" style="color: #000080;">
                 INR {{quotation.basePrice + quotation.serviceTax}}</div>
             </div>
             <!-- <div class="col-6">Processing time:</div>
-                      <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
-                      <div class="col-6">Stay period :</div>
-                      <div class="col-6">Lorem, ipsum se</div>
-                      <div class="col-6">Validity :</div>
-                      <div class="col-6">Lorem, ipsum se</div>
-                      <div class="col-6">Entry:</div>
-                      <div class="col-6">Lorem, ipsum se</div>
-                      <div class="col-6">Fees:</div>
-                      <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
+                  <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
+                  <div class="col-6">Stay period :</div>
+                  <div class="col-6">Lorem, ipsum se</div>
+                  <div class="col-6">Validity :</div>
+                  <div class="col-6">Lorem, ipsum se</div>
+                  <div class="col-6">Entry:</div>
+                  <div class="col-6">Lorem, ipsum se</div>
+                  <div class="col-6">Fees:</div>
+                  <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
             <div class="row mt-3">
               <div class="col-12 text-center">
                 <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
@@ -496,10 +477,6 @@
       </div>
   
     </div>
-  </div>
-  
-  <div class="container-fluid wrapContainer mt-2">
-  
   </div>
   
   <div class="container-fluid wrapContainer">
@@ -516,7 +493,7 @@
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                       VISA REQUIREMENT FOR
-                      EGYPT</span>
+                      NEW ZEALAND</span>
                   </h1>
                 </div>
               </div>
@@ -531,10 +508,11 @@
                         <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true"
                           aria-controls="touristOne" [class.showDiv]="selectedTourist === 1"
                           (click)="setActiveTourist(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="NEW ZEALAND tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
+                            <div class="vr-passport requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Form</h2>
+                          <h2 class="setFontSize">Passport</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -542,9 +520,14 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Form</h1>
+                              <h1 class="requiredIconHeading">Passport</h1>
                               <p>
-                                  You will also need to provide a photocopy of a completely filled visa application form. This must be signed as well.
+                                You will need a valid passport or travel document to 
+                                show proof of identity. This could either be a passport 
+                                copy (if digital) or the original (if manually). You will have 
+                                to show proof of any old passport pages as well. Please note, you 
+                                will need to show all your travel history, not just your biodata 
+                                pages. Any declined visa applications will also need to be shown.
                               </p>
                             </div>
                           </div>
@@ -556,21 +539,20 @@
                         <div data-toggle="collapse" data-target="#touristTwo" aria-expanded="false"
                           aria-controls="touristTwo" [class.showDiv]="selectedTourist === 2"
                           (click)="setActiveTourist(2)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="NEW ZEALAND tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Passport</h2>
+                          <h2 class="setFontSize">Photograph</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="touristTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#touristAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h1 class="requiredIconHeading">Photograph</h1>
                               <p>
-                                Your passport will need to have a validity of at least 6 months after your intended departure date from Egypt.
+                                You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
                             </div>
                           </div>
@@ -582,12 +564,11 @@
                         <div data-toggle="collapse" data-target="#touristThree" aria-expanded="false"
                           aria-controls="touristThree" [class.showDiv]="selectedTourist === 3"
                           (click)="setActiveTourist(3)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="france tourist visa application"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="NEW ZEALAND tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Photograph</h2>
+                          <h2 class="setFontSize">Flight Ticket</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -595,12 +576,13 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph
+                              <h1 class="requiredIconHeading">Flight Ticket
                               </h1>
                               <p>
-                                Two colour photographs are required. You must send them along 
-                                with your application form. They must be passport-sized, 
-                                and meet the standards for an international passport photo.
+                                This is a travel ticket to a country after your stay in 
+                                New Zealand. It could be your home country, or another third 
+                                country. The date of departure on this ticket must be before 
+                                the expected expiration date of your visa. 
                               </p>
                             </div>
                           </div>
@@ -612,12 +594,11 @@
                         <div data-toggle="collapse" data-target="#toursitFour" aria-expanded="false"
                           aria-controls="toursitFour" [class.showDiv]="selectedTourist === 4"
                           (click)="setActiveTourist(4)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Proof of Funds</h2>
+                          <h2 class="setFontSize">Sufficient Funding</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -625,13 +606,14 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof of
-                                Funds</h1>
+                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
                               <p>
-                                You will need to show that you have enough money to last 
-                                your stay in Egypt. This can be in the form of salary slips 
-                                for last 6 months (if employed), or bank statements 
-                                of the last 6 months.
+                                You must be able to show sufficient funding for your entire 
+                                stay in New Zealand. If not, you will be at risk of being 
+                                deported or held back. These could be in the form of bank 
+                                statements, the last 3 months’ salary slips, etc. In monetary 
+                                value, this amounts to NZ $1000 per month.  You must also agree 
+                                to pay all your healthcare costs.
                               </p>
                             </div>
                           </div>
@@ -649,12 +631,11 @@
                         <div data-toggle="collapse" data-target="#touristFive" aria-expanded="true"
                           aria-controls="touristFive" [class.showDiv]="selectedTourist === 5"
                           (click)="setActiveTourist(5)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
-                            alt="france tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-statement requiredIcons img-sprite"></div>
+                            <div class="vr-medicalInsurance requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Statement Of Purpose</h2>
+                          <h2 class="setFontSize">Medical Acceptance</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -662,13 +643,10 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Statement Of Purpose
+                              <h1 class="requiredIconHeading">Medical Acceptance
                               </h1>
                               <p>
-                                You will need to provide a covering letter from the applicant 
-                                that states the purpose and duration of the visit. This letter 
-                                must include the passport details of the applicant 
-                                (full name, passport number)
+                                You must show proof of a medical x ray/examination to show you are in good enough health to travel.
                               </p>
                             </div>
                           </div>
@@ -680,12 +658,11 @@
                         <div data-toggle="collapse" data-target="#touristSix" aria-expanded="true"
                           aria-controls="touristSix" [class.showDiv]="selectedTourist === 6"
                           (click)="setActiveTourist(6)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="NEW ZEALAND tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            <div class="vr-GovernmentIDcard requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Flight Tickets</h2>
+                          <h2 class="setFontSize">Proof Of Character</h2>
                         </div>
   
                       </ng-template>
@@ -693,13 +670,10 @@
                         <div id="touristSix" class="collapse" aria-labelledby="headingSix" data-parent="#touristAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight
-                                Tickets
+                              <h1 class="requiredIconHeading">Proof Of Character
                               </h1>
                               <p>
-                                You will need to submit proof of leaving Egypt after your 
-                                business is finished. This must be in the form of original 
-                                confirmed return/onward air tickets.
+                                You may need to provide proof that you are in good character. This may include any police records that you have.
                               </p>
                             </div>
                           </div>
@@ -711,12 +685,11 @@
                         <div data-toggle="collapse" data-target="#touristSeven" aria-expanded="true"
                           aria-controls="touristSeven" [class.showDiv]="selectedTourist === 7"
                           (click)="setActiveTourist(7)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="france tourist visa application"
-                          style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="NEW ZEALAND tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                            <div class="vr-noc requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Hotel Reservation</h2>
+                          <h2 class="setFontSize">NOC</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -724,106 +697,11 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Reservation
+                              <h1 class="requiredIconHeading">NOC
                               </h1>
                               <p>
-                                A copy of your hotel reservation details for your entire stay is also required.
+                                This stands for “No-Objection Certificate”. It may be from your employer (if you are working), or your school/college (if you are studying), or your guardians (if you are a minor). It should state that the institution has no problem with your leave.
                               </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristEight" aria-expanded="true"
-                          aria-controls="touristEight" [class.showDiv]="selectedTourist === 8"
-                          (click)="setActiveTourist(8)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                            alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-                            <div class="makeIconCntr">
-                                <div class="vr-incomeTaxReturn requiredIcons img-sprite"></div>
-                            </div>
-                          <h2 class="setFontSize">Income Tax Return, PanCard </h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristEight" class="collapse" aria-labelledby="headingEight"
-                          data-parent="#touristAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Income Tax Return, PanCard </h1>
-                              <p>
-                                  An original and photocopy of the applicant’s Income Tax Returns 
-                                  of the last 3 years is required. A photocopy of their 
-                                  pan card is also required.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset>
-                </div>
-  
-                <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristNine" aria-expanded="true"
-                          aria-controls="touristNine" [class.showDiv]="selectedTourist === 9"
-                          (click)="setActiveTourist(9)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                            alt="france tourist visa application"
-                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-                            <div class="makeIconCntr">
-                                <div class="vr-marriageCertificate requiredIcons img-sprite"></div>
-                            </div>
-                          <h2 class="setFontSize">Character Certificate</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristNine" class="collapse" aria-labelledby="headingNine"
-                          data-parent="#touristAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Character Certificate</h1>
-                              <p>
-                                You may be asked to submit a Character certificate. This is 
-                                to ensure you have no criminal record, and must be issued from 
-                                the local police of the home country (India). 
-                              </p>
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristTen" aria-expanded="true"
-                          aria-controls="touristTen" [class.showDiv]="selectedTourist === 10"
-                          (click)="setActiveTourist(10)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
-                            alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-                            <div class="makeIconCntr">
-                                <div class="vr-TravelInsurance requiredIcons img-sprite"></div>
-                            </div>
-                          <h2 class="setFontSize">Travel Insurance</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristTen" class="collapse" aria-labelledby="headingTen" data-parent="#touristAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Travel Insurance</h1>
-                              <p>
-                                You will need to show that you have sufficient travel insurance to cover any losses. 
-                              </p>
-                              
                             </div>
                           </div>
                         </div>
@@ -835,14 +713,6 @@
                       </ng-template>
                       <ng-template ngbTabContent>
                         
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-  
-                      </ng-template>
-                      <ng-template ngbTabContent>
-  
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
@@ -861,10 +731,11 @@
                         <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
                           aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1"
                           (click)="setActiveTourist(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="NEW ZEALAND tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
+                            <div class="vr-passport requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Form</h2>
+                          <h2 class="setFontSize">Passport</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -872,11 +743,10 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Form</h1>
-                              <p> 
-                                  You will also need to provide a photocopy of a completely filled visa application form. This must be signed as well.
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown. 
                               </p>
-            
                             </div>
                           </div>
                         </div>
@@ -887,10 +757,11 @@
                         <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
                           aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2"
                           (click)="setActiveTourist(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Passport</h2>
+                          <h2 class="setFontSize">Photograph</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -898,9 +769,9 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h1 class="requiredIconHeading">Photograph</h1>
                               <p>
-                                Your passport will need to have a validity of at least 6 months after your intended departure date from Egypt. 
+                                You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
                             </div>
                           </div>
@@ -918,10 +789,11 @@
                         <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
                           aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3"
                           (click)="setActiveTourist(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Photograph</h2>
+                          <h2 class="setFontSize">Flight Ticket</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -929,10 +801,10 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph
+                              <h1 class="requiredIconHeading">Flight Ticket
                               </h1>
                               <p>
-                                Two colour photographs are required. You must send them along with your application form. They must be passport-sized, and meet the standards for an international passport photo.
+                                This is a travel ticket to a country after your stay in New Zealand. It could be your home country, or another third country. The date of departure on this ticket must be before the expected expiration date of your visa. 
                               </p>
                             </div>
                           </div>
@@ -946,10 +818,11 @@
                         <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
                           aria-controls="touristMobileFour" [class.showDiv]="selectedTourist === 4"
                           (click)="setActiveTourist(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Proof of Funds</h2>
+                          <h2 class="setFontSize">Sufficient Funding</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -957,10 +830,9 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Proof of
-                                Funds</h1>
+                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
                               <p>
-                                You will need to show that you have enough money to last your stay in Egypt. This can be in the form of salary slips for last 6 months (if employed), or bank statements of the last 6 months. 
+                                You must be able to show sufficient funding for your entire stay in New Zealand. If not, you will be at risk of being deported or held back. These could be in the form of bank statements, the last 3 months’ salary slips, etc. In monetary value, this amounts to NZ $1000 per month.  You must also agree to pay all your healthcare costs.
                               </p>
                             </div>
                           </div>
@@ -978,10 +850,11 @@
                         <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true"
                           aria-controls="touristMobileFive" [class.showDiv]="selectedTourist === 5"
                           (click)="setActiveTourist(5)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-statement requiredIcons img-sprite"></div>
+                            <div class="vr-medicalInsurance requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Statement Of Purpose</h2>
+                          <h2 class="setFontSize">Medical Acceptance</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -990,10 +863,10 @@
                           (click)="setActiveTourist(6)">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Statement Of Purpose
+                              <h1 class="requiredIconHeading">Medical Acceptance
                               </h1>
                               <p>
-                                You will need to provide a covering letter from the applicant that states the purpose and duration of the visit. This letter must include the passport details of the applicant (full name, passport number)
+                                You must show proof of a medical x ray/examination to show you are in good enough health to travel.
                               </p>
                             </div>
                           </div>
@@ -1005,12 +878,11 @@
                         <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true"
                           aria-controls="touristMobileSix" [class.showDiv]="selectedTourist === 6"
                           (click)="setActiveTourist(6)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                            alt="france tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            <div class="vr-GovernmentIDcard requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Flight Tickets</h2>
+                          <h2 class="setFontSize">Proof Of Character</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -1018,11 +890,10 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight
-                                Tickets
+                              <h1 class="requiredIconHeading">Proof Of Character
                               </h1>
                               <p>
-                                You will need to submit proof of leaving Egypt after your business is finished. This must be in the form of original confirmed return/onward air tickets.
+                                You may need to provide proof that you are in good character. This may include any police records that you have. 
                               </p>
                             </div>
                           </div>
@@ -1031,7 +902,6 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1040,23 +910,23 @@
                         <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true"
                           aria-controls="touristMobileSeven" [class.showDiv]="selectedTourist === 7"
                           (click)="setActiveTourist(7)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france e-visa"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="NEW ZEALAND tourist visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                            <div class="vr-noc requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Hotel Reservation</h2>
+                          <h2 class="setFontSize">NOC</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="touristMobileSeven" class="collapse" aria-labelledby="headingMobileSeven"
-                          data-parent="#touristAccodionMobile">
+                          data-parent="#touristAccodionMobile" [class.showDiv]="selectedTourist === 7"
+                          (click)="setActiveTourist(7)">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Hotel Reservation
+                              <h1 class="requiredIconHeading">NOC
                               </h1>
                               <p>
-                                A copy of your hotel reservation details for your entire stay is also required.
+                                This stands for “No-Objection Certificate”. It may be from your employer (if you are working), or your school/college (if you are studying), or your guardians (if you are a minor). It should state that the institution has no problem with your leave.
                               </p>
                             </div>
                           </div>
@@ -1065,93 +935,16 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true"
-                          aria-controls="touristMobileEight" [class.showDiv]="selectedTourist === 8"
-                          (click)="setActiveTourist(8)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-incomeTaxReturn requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Income Tax Return, Pancard</h2>
-                        </div>
+                        
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobileEight" class="collapse" aria-labelledby="headingMobileEight"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Income Tax Return, Pancard</h1>
-  
-                              <p>
-                                  An original and photocopy of the applicant’s Income Tax Returns of the last 3 years is required. A photocopy of their pan card is also required.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+                        
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
   
-                <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileNine" aria-expanded="true"
-                          aria-controls="touristMobileNine" [class.showDiv]="selectedTourist === 9"
-                          (click)="setActiveTourist(9)">
-                          <div class="makeIconCntr">
-                            <div class="vr-travelInsurance requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Travel Insurance</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristMobileNine" class="collapse" aria-labelledby="headingMobileNine"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Travel Insurance</h1>
-                              <p>
-                                You will need to show that you have sufficient travel insurance to cover any losses.
-                             </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileTen" aria-expanded="true"
-                          aria-controls="touristMobileTen" [class.showDiv]="selectedTourist === 10"
-                          (click)="setActiveTourist(10)">
-                          <div class="makeIconCntr">
-                            <div class="vr-marriageCertificate requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Character Certificate</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristMobileTen" class="collapse" aria-labelledby="headingMobileTen"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Character Certificate</h1>
-                              <p>
-                                You may be asked to submit a Character certificate. This is to ensure you have no criminal record, and must be issued from the local police of the home country (India).
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
   
-                  </ngb-tabset>
-                </div>
-  
-               
               </div>
   
             </div>
@@ -1175,36 +968,36 @@
                             </g>
                           </g>
                         </g>
-                      </svg>IMPORTANT VISA INFORMATION FOR EGYPT
+                      </svg>
+                      IMPORTANT VISA INFORMATION FOR NEW ZEALAND
                     </div>
                     <div class="card-body">
                       <p>
-                        <li>All Indian passport holders require a valid visa to enter Egypt.</li>
+                        <li>All Indian passport holders require a valid visa to enter New Zealand.</li>
                       </p>
                       <p>
-                        <li>Each applicant must have all the mandatory documents as mentioned in
-                          requirement tabs below</li>
+                        <li>Applicant must have all the mandatory documents while applying for New Zealand Visa online as
+                          mentioned in requirement tabs below</li>
                       </p>
                       <p>
-                        <li>In addition to the documents mentioned, our visa experts or the
-                          concerned embassy may require
-                          you to furnish additional documents to process your visa.Your cooperation in furnishing any
-                          such
-                          additional documents is essential for a positive outcome.</li>
+                        <li>In addition to the documents mentioned, our visa experts or the concerned embassy may require
+                          you to furnish additional documents to process your visa. Your cooperation in furnishing any
+                          such additional documents
+                          is essential for a positive outcome.</li>
                       </p>
                       <p>
-                        <li>If all the documents are not ready at the time of agent visit then
-                          additional charges levied
+                        <li>If all the documents are not ready at the time of agent visit then additional charges levied
                           when agent visits your residence again</li>
                       </p>
                       <p>
-                        <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                        <li>The fee may vary for the country if the rate of the embassy fluctuates.</li>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+  
             <div class="container-fluid mt-2" [@simpleFadeAnimation]="'in'">
               <div class="row">
                 <div class="col-12 text-center">
@@ -1213,141 +1006,113 @@
   
                 <!-- tourist -->
                 <div class="col-12 p-0">
-                  <div class="accordion" id="egyptAccordionTourist">
+                  <div class="accordion" id="new-zealandAccordionTourist">
                     <div class="card faqQueryCard">
                       <div class="card-header faqQuery" id="headingTouristOne" data-toggle="collapse"
-                        data-target="#egyptAccordionTouristOne" aria-expanded="true"
-                        aria-controls="egyptAccordionTouristOne">
+                        data-target="#new-zealandAccordionTouristOne" aria-expanded="true"
+                        aria-controls="new-zealandAccordionTouristOne">
                         <h5 class="mb-0">
                           <button class="btn btn-link" type="button">
-                            Is there a tourist e-visa that I can get?
+                            Is there anything I would need to declare at Customs that I need to be aware of?
                           </button>
                         </h5>
                       </div>
   
-                      <div id="egyptAccordionTouristOne" class="collapse show" aria-labelledby="headingTouristOne"
-                        data-parent="#egyptAccordionTourist">
+                      <div id="new-zealandAccordionTouristOne" class="collapse show" aria-labelledby="headingTouristOne"
+                        data-parent="#new-zealandAccordionTourist">
                         <div class="card-body">
                           <p>
-                              No. Egyptian e-visa facility is currently not available for Indian nationals.
-                         </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card faqQueryCard">
-                      <div class="card-header faqQuery" id="headingTouristTwo" data-toggle="collapse"
-                        data-target="#egyptAccordionTouristTwo" aria-expanded="false"
-                        aria-controls="egyptAccordionTouristTwo">
-                        <h5 class="mb-0">
-                          <button class="btn btn-link collapsed" type="button">
-                            Will I need to go for an interview for this visa?
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="egyptAccordionTouristTwo" class="collapse" aria-labelledby="headingTouristTwo"
-                        data-parent="#egyptAccordionTourist">
-                        <div class="card-body">
-                          <p>
-                               Almost never - you will not be required to attend an interview 
-                               under most circumstances. Under rare circumstances the 
-                               embassy may ask for an interview. However, this is 
-                               the exception, not the rule.
+                              Carrying a large bulk of items (eg. food ingredients, sweets, cultural items, etc.) may attract a $400 fine. There is a certain amount of each that is allowed, please ensure you carry only that amount. Fresh or packaged food, fruit, eggs, meat, spices, pulses, plants, seeds, skins and feathers are not allowed. The full list of items is available at: https://www.newzealand.com/assets/cc0f74822b/MPB0132-Indian-DoD-1-pager-v8.pdf. 
                           </p>
                         </div>
                       </div>
                     </div>
                     <div class="card faqQueryCard">
-                        <div class="card-header faqQuery" id="headingTouristThree"
-                            data-toggle="collapse" data-target="#egyptAccordionTouristThree"
-                            aria-expanded="false" aria-controls="egyptAccordionTouristThree">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button">
-                                        Are these all the documents I require for getting a visa?
-                                    </button>
-                                </h5>
+                      <div class="card-header faqQuery" id="headingTouristTwo" data-toggle="collapse"
+                        data-target="#new-zealandAccordionTouristTwo" aria-expanded="false"
+                        aria-controls="new-zealandAccordionTouristTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            I want to extend my stay. Can I do so?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="new-zealandAccordionTouristTwo" class="collapse" aria-labelledby="headingTouristTwo"
+                        data-parent="#new-zealandAccordionTourist">
+                        <div class="card-body">
+                          <p>You can apply for another 3 months’ stay if you wish to extend.  
+                            You may be able to extend to 12 months (initial 9months + next 3 months) in a 24-month period, if:
+                         </p>
+                         <li>Your tourist itinerary needs more time to be completed</li>
+                         <li>you can’t leave the country for reasons beyond your control</li>
+                         <li>You have applied for residence for the first time</li>
+                         <p>You must have financially supported yourself completely throughout your stay of these months to apply for another 3 months’ stay. This includes having not worked, studied or been sponsored during the whole stay.</p>
                         </div>
-                        <div id="egyptAccordionTouristThree" class="collapse"
-                            aria-labelledby="headingTouristThree"
-                            data-parent="#egyptAccordionTourist">
-                               <div class="card-body">
-                                   <p>
-                                        In most cases, these are the only documents you will require. The embassy reserves the right to ask for extra documents depending on the individual applicant’s circumstance.
-                                    </p>
-                                </div>
-                        </div>
+                      </div>
                     </div>
                     <div class="card faqQueryCard">
-                       <div class="card-header faqQuery" id="headingTouristFour" data-toggle="collapse"
-                            data-target="#egyptAccordionTouristFour" aria-expanded="false"
-                            aria-controls="egyptAccordionTouristFour">
-                             <h5 class="mb-0">
-                               <button class="btn btn-link collapsed" type="button">
-                                  Is there a different visa rule for retired people/ minors?
-                               </button>
-                            </h5>
+                      <div class="card-header faqQuery" id="headingTouristThree" data-toggle="collapse"
+                        data-target="#new-zealandAccordionTouristThree" aria-expanded="false"
+                        aria-controls="new-zealandAccordionTouristThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            I wish to visit New Zealand again after my visa expires. Can I get a new one immediately after?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="new-zealandAccordionTouristThree" class="collapse" aria-labelledby="headingTouristThree"
+                        data-parent="#new-zealandAccordionTourist">
+                        <div class="card-body">
+                          <p>
+                              If you have visited New Zealand recently for a total of 12 months, you have to remain outside New Zealand for 12 months before you can apply for another Visitor Visa.
+                          </p>
                         </div>
-                        <div id="egyptAccordionTouristFour" class="collapse"
-                           aria-labelledby="headingTouristFour"
-                            data-parent="#egyptAccordionTourist">
-                             <div class="card-body">
-                                <p>
-                                   If you will be travelling with a retired or minor person, you must 
-                                   carry proof of their retirement (for retired persons) / 
-                                   birth certificate (for minors). If they are travelling alone, 
-                                   you will need the same documents. A minor travelling alone needs 
-                                   to have a letter by their legal guardians that states that the 
-                                   guardians are fine with the minors travelling alone. 
-                                </p>
-                            </div>
-                        </div>
+                      </div>
                     </div>
                     <div class="card faqQueryCard">
-                        <div class="card-header faqQuery" id="headingTouristFive" data-toggle="collapse"
-                             data-target="#egyptAccordionTouristFive" aria-expanded="false"
-                             aria-controls="egyptAccordionTouristFive">
-                              <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button">
-                                    How long can I stay in Egypt for?
-                                </button>
-                             </h5>
-                         </div>
-                         <div id="egyptAccordionTouristFive" class="collapse"
-                            aria-labelledby="headingTouristFive"
-                             data-parent="#egyptAccordionTourist">
-                              <div class="card-body">
-                                 <p>
-                                    Generally the validity of the visa is 90 days, however, you can only stay in Egypt for a maximum of 30 days at a time in one single visit.
-                                 </p>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="card faqQueryCard">
-                        <div class="card-header faqQuery" id="headingTouristSix" data-toggle="collapse"
-                             data-target="#egyptAccordionTouristSix" aria-expanded="false"
-                             aria-controls="egyptAccordionTouristSix">
-                              <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button">
-                                    Is there a minimum bank balance I need to have before travelling?
-                                </button>
-                             </h5>
-                         </div>
-                         <div id="egyptAccordionTouristSix" class="collapse"
-                            aria-labelledby="headingTouristSix"
-                             data-parent="#egyptAccordionTourist">
-                              <div class="card-body">
-                                 <p>
-                                    You must possess sufficient funds to be able to cover your stay and other expenses in Egypt. In addition you may be required to show your bank statements of the last 6 months. It is preferred to have a minimum balance of INR 50,000 consistently for this duration.
-                                 </p>
-                             </div>
-                         </div>
-                     </div>
+                      <div class="card-header faqQuery" id="headingTouristFour" data-toggle="collapse"
+                        data-target="#new-zealandAccordionTouristFour" aria-expanded="false"
+                        aria-controls="new-zealandAccordionTouristFour">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Can I search for a job/visit family with this visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="new-zealandAccordionTouristFour" class="collapse" aria-labelledby="headingTouristFour"
+                        data-parent="#new-zealandAccordionTourist">
+                        <div class="card-body">
+                          <p>
+                              You are not allowed to engage in any paid activity or work with this visa. If you are coming to New Zealand to take up an offer of employment, you will need a work visa. If you are visiting as a family member, you will need a Special Category Visitor Visa.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTouristFive" data-toggle="collapse"
+                        data-target="#new-zealandAccordionTouristFive" aria-expanded="false"
+                        aria-controls="new-zealandAccordionTouristFive">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Is there anything else I will need other than my visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="new-zealandAccordionTouristFive" class="collapse" aria-labelledby="headingTouristFive"
+                        data-parent="#new-zealandAccordionTourist">
+                        <div class="card-body">
+                          <p>
+                              You will need your visa, passport, copy of your flight and hotel reservations, as well as an entry permission. You will receive the application for this on your way to New Zealand.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
   
   
               </div>
             </div>
-  
   
           </ng-template>
         </ngb-tab>
@@ -1358,9 +1123,11 @@
               <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                  <h1 class="outerRequirement">
+                    <span class="requirementContainer text-uppercase">BUSINESS
                       VISA REQUIREMENT FOR
-                      EGYPT</span>
+                      NEW ZEALAND
+                    </span>
                   </h1>
                 </div>
               </div>
@@ -1374,12 +1141,11 @@
                         <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne"
                           aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1"
                           (click)="setActiveBusiness(1)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for france e-visa"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="NEW ZEALAND business visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
+                            <div class="vr-passport requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Form</h2>
+                          <h2 class="setFontSize">Passport</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -1387,9 +1153,9 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Form</h1>
+                              <h1 class="requiredIconHeading">Passport</h1>
                               <p>
-                                  You will also need to provide a photocopy of a completely filled visa application form. This must be signed as well.
+                                You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.
                               </p>
                             </div>
                           </div>
@@ -1401,12 +1167,11 @@
                         <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse" data-target="#businessTwo"
                           aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2"
                           (click)="setActiveBusiness(2)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Passport</h2>
+                          <h2 class="setFontSize">Photograph</h2>
                         </div>
   
                       </ng-template>
@@ -1415,9 +1180,9 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h1 class="requiredIconHeading">Photograph</h1>
                               <p>
-                                Your passport will need to have a validity of at least 6 months after your intended departure date from Egypt. 
+                                You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
                             </div>
                           </div>
@@ -1429,12 +1194,11 @@
                         <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
                           data-target="#businessThree" aria-expanded="false" aria-controls="businessThree"
                           [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for france e-visa"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Photograph</h2>
+                          <h2 class="setFontSize">Flight Ticket</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -1442,10 +1206,10 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph
+                              <h1 class="requiredIconHeading">Flight Ticket
                               </h1>
                               <p>
-                                Two colour photographs are required. You must send them along with your application form. They must be passport-sized, and meet the standards for an international passport photo.
+                                This is a travel ticket to a country after your stay in New Zealand. It could be your home country, or another third country. The date of departure on this ticket must be before the expected expiration date of your visa.
                               </p>
                             </div>
                           </div>
@@ -1457,12 +1221,11 @@
                         <div class="collapsed" id="#businessHeadingFour" data-toggle="collapse"
                           data-target="#businessFour" aria-expanded="false" aria-controls="businessFour"
                           [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Statement Of Purpose</h2>
+                          <h2 class="setFontSize">Sufficient Funding</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
@@ -1470,9 +1233,9 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Statement Of Purpose</h1>
+                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
                               <p>
-                                You will need to provide a covering letter from the applicant that states the purpose and duration of the visit. This letter must include the passport details of the applicant (full name, passport number)
+                                You must be able to show sufficient funding for your entire stay in New Zealand. If not, you will be at risk of being deported or held back. These could be in the form of bank statements, the last 3 months’ salary slips, etc. In monetary value, this amounts to NZ $1000 per month. You must also agree to pay all your healthcare costs.
                               </p>
                             </div>
                           </div>
@@ -1481,32 +1244,29 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessFive" aria-expanded="true"
-                          aria-controls="businessFive" [class.showDiv]="selectedBusiness === 5"
-                          (click)="setActiveBusiness(5)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
-                            alt="apply for france e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                        <div class="collapsed" data-toggle="collapse" id="#businessHeadingFive"
+                          data-target="#businessFive" aria-expanded="false" aria-controls="businessFive"
+                          [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="NEW ZEALAND business visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                            <div class="vr-medicalInsurance requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Flight Tickets</h2>
+                          <h2 class="setFontSize">Medical Acceptance</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="businessFive" class="collapse" aria-labelledby="businessFive"
+                        <div id="businessFive" class="collapse" aria-labelledby="businessHeadingFive"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Tickets
-                              </h1>
+                              <h1 class="requiredIconHeading">Medical Acceptance</h1>
                               <p>
-                                You will need to submit proof of leaving Egypt after your business is finished. This must be in the form of original confirmed return/onward air tickets.
+                                You must show proof of a medical x ray/examination to show you are in good enough health to travel.
                               </p>
                             </div>
                           </div>
@@ -1515,226 +1275,82 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessSix" aria-expanded="true"
-                          aria-controls="businessSix" [class.showDiv]="selectedBusiness === 6"
+                        <div class="collapsed" id="#businessHeadingSix" data-toggle="collapse" data-target="#businessSix"
+                          aria-expanded="false" aria-controls="businessSix" [class.showDiv]="selectedBusiness === 6"
                           (click)="setActiveBusiness(6)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                            <div class="vr-GovernmentIDcard requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Hotel Reservation</h2>
+                          <h2 class="setFontSize">Proof Of Character</h2>
                         </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="businessSix" class="collapse" aria-labelledby="businessSix"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Reservation
-                              </h1>
-                              <p>
-                                A copy of your hotel reservation details for your entire stay is also required.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessSeven" aria-expanded="true"
-                          aria-controls="businessSeven" [class.showDiv]="selectedBusiness === 7"
-                          (click)="setActiveBusiness(7)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-incomeTaxReturn requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Income Tax Return, Pancard</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="businessSeven" class="collapse" aria-labelledby="businessSeven"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Income Tax Return, Pancard
-                              </h1>
-                              <p>
-                                An original and photocopy of the applicant’s Income Tax Returns of the last 3 years is required. A photocopy of their pan card is also required.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessEight" aria-expanded="true"
-                          aria-controls="businessEight" [class.showDiv]="selectedBusiness === 8"
-                          (click)="setActiveBusiness(8)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                            alt="apply for france e-visa"
-                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-
-                            <div class="makeIconCntr">
-                                <div class="vr-businessRegistration requiredIcons img-sprite"></div>
-                              </div>
-                          <h2 class="setFontSize">Business Registration Proof</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="businessEight" class="collapse" aria-labelledby="businessEight"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Business Registration Proof</h1>
-                              <p>
-                                If you own a business, or if you are going as part of a company, you will need to show proof of the legitimacy of the business. This is in the form of the company’s business registration.
-                              </p>
   
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessSix" class="collapse" aria-labelledby="businessHeadingSix"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Character</h1>
+                              <p>
+                                You may need to provide proof that you are in good character. This may include any police records that you have.
+                              </p>
                             </div>
                           </div>
                         </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeadingSeven" data-toggle="collapse"
+                          data-target="#businessSeven" aria-expanded="false" aria-controls="businessSeven"
+                          [class.showDiv]="selectedBusiness === 7" (click)="setActiveBusiness(7)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-BusinessCard requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Business Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessSeven" class="collapse" aria-labelledby="businessHeadingSeven"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Business Letter</h1>
+                              <p>
+                                You must provide a letter from your employer, or your New Zealand company that states your employment and the business reasons for which you are visiting.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
+                
   
-                <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessNine" aria-expanded="true"
-                          aria-controls="businessNine" [class.showDiv]="selectedBusiness === 9"
-                          (click)="setActiveBusiness(9)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                            alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-                            <div class="makeIconCntr">
-                                <div class="vr-otherDocs requiredIcons img-sprite"></div>
-                              </div>
-                          <h2 class="setFontSize">Memorandum of Article (MOA)</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="businessNine" class="collapse" aria-labelledby="businessNine"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Memorandum of Article (MOA)</h1>
-                              <p>
-                                The MOA of the company must also be shown in some cases. This may be asked of you.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessTen" aria-expanded="true"
-                          aria-controls="businessNine" [class.showDiv]="selectedBusiness === 10"
-                          (click)="setActiveBusiness(10)">
-                          <div class="makeIconCntr">
-                            <div class="vr-invitationLetter requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Invitation Letter</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="businessTen" class="collapse" aria-labelledby="businessTen"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Invitation Letter</h1>
-                              <p>
-                                You will need a copy of the invitation from your company. This is the host company in Egypt. They will need to send it on a company letterhead, as well as have all of your passport and employment details.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessEleven" aria-expanded="true"
-                        aria-controls="businessEleven" [class.showDiv]="selectedBusiness === 11"
-                        (click)="setActiveBusiness(11)">
-                        <div class="makeIconCntr">
-                          <div class="vr-registration requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Registration Details</h2>
-                      </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="businessEleven" class="collapse" aria-labelledby="businessEleven"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Registration Details</h1>
-                            <p>
-                                If you are going to Egypt for a conference/event, you will need to show the registration details of the same.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-  
-                      </ng-template>
-                      <ng-template ngbTabContent>
-  
-                      </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset>
-                </div>
               </div>
   
               <!-- mobileContainer -->
-              <div class="mobileContainer accordion" id="touristAccodionMobile">
+              <div class="mobileContainer accordion" id="businessAccodionMobile">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
-                          aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1"
+                        <div data-toggle="collapse" data-target="#businessMobileOne" aria-expanded="true"
+                          aria-controls="businessMobileOne" [class.showDiv]="selectedBusiness === 1"
                           (click)="setActiveBusiness(1)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-form requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Form</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Form</h1>
-                              <p>
-                                  You will also need to provide a photocopy of a completely filled visa application form. This must be signed as well.
-                              </p>
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
-                          aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2"
-                          (click)="setActiveBusiness(2)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-passport requiredIcons img-sprite"></div>
                           </div>
@@ -1742,32 +1358,26 @@
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
-                          data-parent="#touristAccodionMobile">
+                        <div id="businessMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
+                          data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>
-                                Your passport will need to have a validity of at least 6 months after your intended departure date from Egypt. 
+                                You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.
                               </p>
+  
                             </div>
                           </div>
                         </div>
                       </ng-template>
                     </ngb-tab>
-                  </ngb-tabset>
-                </div>
-  
-                <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
-                          aria-controls="touristMobileThree" [class.showDiv]="selectedBusiness === 3"
-                          (click)="setActiveBusiness(3)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                        <div data-toggle="collapse" data-target="#businessMobileTwo" aria-expanded="true"
+                          aria-controls="businessMobileTwo" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-photograph requiredIcons img-sprite"></div>
                           </div>
@@ -1775,43 +1385,13 @@
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobileThree" class="collapse" aria-labelledby="headingMobileThree"
-                          data-parent="#touristAccodionMobile">
+                        <div id="businessMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
+                          data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph
-                              </h1>
+                              <h1 class="requiredIconHeading">Photograph</h1>
                               <p>
-                                Two colour photographs are required. You must send them along with your application form. They must be passport-sized, and meet the standards for an international passport photo.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-  
-  
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
-                          aria-controls="touristMobileFour" [class.showDiv]="selectedBusiness === 4"
-                          (click)="setActiveBusiness(4)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-statement requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Statement Of Purpose</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Statement Of Purpose</h1>
-                              <p>
-                                You will need to provide a covering letter from the applicant that states the purpose and duration of the visit. This letter must include the passport details of the applicant (full name, passport number)
+                                You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
                             </div>
                           </div>
@@ -1826,55 +1406,115 @@
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true"
-                          aria-controls="touristMobileFive" [class.showDiv]="selectedBusiness === 5"
-                          (click)="setActiveBusiness(5)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                        <div data-toggle="collapse" data-target="#businessMobileThree" aria-expanded="true"
+                          aria-controls="businessMobileThree" [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusiness(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-flightTicket requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Return Tickets</h2>
+                          <h2 class="setFontSize">Flight Ticket</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobileFive" class="collapse" aria-labelledby="headingMobileFive"
-                          data-parent="#touristAccodionMobile">
+                        <div id="businessMobileThree" class="collapse" aria-labelledby="headingMobileThree"
+                          data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Return Tickets
+                              <h1 class="requiredIconHeading">Flight Ticket
                               </h1>
                               <p>
-                                You will need to submit proof of leaving Egypt after your business is finished. This must be in the form of original confirmed return/onward air tickets.
+                                This is a travel ticket to a country after your stay in New Zealand. It could be your home country, or another third country. The date of departure on this ticket must be before the expected expiration date of your visa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobileFour" aria-expanded="true"
+                          aria-controls="businessMobileFour" [class.showDiv]="selectedBusiness === 4"
+                          (click)="setActiveBusiness(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Sufficient Funding</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
+                              <p>
+                                You must be able to show sufficient funding for your entire stay in New Zealand. If not, you will be at risk of being deported or held back. These could be in the form of bank statements, the last 3 months’ salary slips, etc. In monetary value, this amounts to NZ $1000 per month. You must also agree to pay all your healthcare costs.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
                     </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true"
-                          aria-controls="touristMobileSix" [class.showDiv]="selectedBusiness === 6"
+                        <div data-toggle="collapse" data-target="#businessMobileFive" aria-expanded="true"
+                          aria-controls="businessMobileFive" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-medicalInsurance requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Medical Acceptance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobileFive" class="collapse" aria-labelledby="headingMobileFive"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Medical Acceptance
+                              </h1>
+                              <p>
+                                You must show proof of a medical x ray/examination to show you are in good enough health to travel.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobileSix" aria-expanded="true"
+                          aria-controls="businessMobileSix" [class.showDiv]="selectedBusiness === 6"
                           (click)="setActiveBusiness(6)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                            <div class="vr-GovernmentIDcard requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Hotel Reservation</h2>
+                          <h2 class="setFontSize">Proof Of Character</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobileSix" class="collapse" aria-labelledby="headingMobileSix"
-                          data-parent="#touristAccodionMobile">
+                        <div id="businessMobileSix" class="collapse" aria-labelledby="headingMobileSix"
+                          data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Reservation
-                              </h1>
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof OF Character</h1>
                               <p>
-                                A copy of your hotel reservation details for your entire stay is also required.
+                                You may need to provide proof that you are in good character. This may include any police records that you have.
                               </p>
+  
                             </div>
                           </div>
                         </div>
@@ -1882,179 +1522,49 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true"
-                          aria-controls="touristMobileSeven" [class.showDiv]="selectedBusiness === 7"
+                        <div data-toggle="collapse" data-target="#businessMobileSeven" aria-expanded="true"
+                          aria-controls="businessMobileSeven" [class.showDiv]="selectedBusiness === 7"
                           (click)="setActiveBusiness(7)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
-                            <div class="vr-IncomeTaxReturns requiredIcons img-sprite"></div>
+                            <div class="vr-businessCard requiredIcons img-sprite"></div>
                           </div>
-                          <h2 class="setFontSize">Income Tax Return, Pancard</h2>
+                          <h2 class="setFontSize">Business Letter</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobileSeven" class="collapse" aria-labelledby="headingMobileSeven"
-                          data-parent="#touristAccodionMobile">
+                        <div id="businessMobileSeven" class="collapse" aria-labelledby="headingMobileSeven"
+                          data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Income Tax Return, Pancard
+                              <h1 class="requiredIconHeading">Business Letter
                               </h1>
                               <p>
-                                An original and photocopy of the applicant’s Income Tax Returns of the last 3 years is required. A photocopy of their pan card is also required.
+                                You must provide a letter from your employer, or your New Zealand company that states your employment and the business reasons for which you are visiting.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
+  
+  
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true"
-                          aria-controls="touristMobileEight" [class.showDiv]="selectedBusiness === 8"
-                          (click)="setActiveBusiness(8)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
-                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
-                          <div class="makeIconCntr">
-                            <div class="vr-businessRegistration requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Business Registration Proof</h2>
-                        </div>
+                        
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobileEight" class="collapse" aria-labelledby="headingMobileEight"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Business Registration Proof</h1>
-                              <p>
-                                If you own a business, or if you are going as part of a company, 
-                                you will need to show proof of the legitimacy of the business. 
-                                This is in the form of the company’s business registration.
-                              </p>
-  
-                            </div>
-                          </div>
-                        </div>
+                        
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
-                <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileNine" aria-expanded="true"
-                          aria-controls="touristMobileNine" [class.showDiv]="selectedBusiness === 9"
-                          (click)="setActiveBusiness(9)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                            alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-                            <div class="makeIconCntr">
-                                <div class="vr-otherDocs requiredIcons img-sprite"></div>
-                              </div>
-                          <h2 class="setFontSize">Memorandum of Article (MOA)</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristMobileNine" class="collapse" aria-labelledby="headingMobileNine"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Memorandum of Article (MOA)</h1>
-                              <p>
-                                The MOA of the company must also be shown in some cases. This may be asked of you. 
-                             </p>
-                             
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobileTen" aria-expanded="true"
-                          aria-controls="touristMobileTen" [class.showDiv]="selectedBusiness === 10"
-                          (click)="setActiveBusiness(10)">
-                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
-                            alt="apply for france visa online"
-                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-                            <div class="makeIconCntr">
-                                <div class="vr-invitationLetter requiredIcons img-sprite"></div>
-                              </div>
-                          <h2 class="setFontSize">Invitation Letter</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristMobileTen" class="collapse" aria-labelledby="headingMobileNine"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Invitation Letter</h1>
-                              <p>
-                                You will need a copy of the invitation from your company. 
-                                This is the host company in Egypt. They will need to send 
-                                it on a company letterhead, as well as have all of your 
-                                passport and employment details.
-                              </p>
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset>
-                </div>
-                <div class="row mt-4">
-                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                      type="pills">
-                      <ngb-tab>
-                        <ng-template ngbTabTitle>
-                          <div data-toggle="collapse" data-target="#touristMobileEleven" aria-expanded="true"
-                            aria-controls="touristMobileEleven" [class.showDiv]="selectedBusiness === 11"
-                            (click)="setActiveBusiness(11)">
-                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
-                              alt="apply for france visa online"
-                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
-                              <div class="makeIconCntr">
-                                  <div class="vr-registration requiredIcons img-sprite"></div>
-                                </div>
-                            <h2 class="setFontSize">Registration Details</h2>
-                          </div>
-                        </ng-template>
-                        <ng-template ngbTabContent>
-                          <div id="touristMobileEleven" class="collapse" aria-labelledby="headingMobileEleven"
-                            data-parent="#touristAccodionMobile">
-                            <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
-                              <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Registration Details</h1>
-                                <p>
-                                    If you are going to Egypt for a conference/event, you will need to show the registration details of the same. 
-                               </p>
-                               
-                              </div>
-                            </div>
-                          </div>
-                        </ng-template>
-                      </ngb-tab>
-                      <ngb-tab>
-                        <ng-template ngbTabTitle>
-                          
-                        </ng-template>
-                        <ng-template ngbTabContent>
-                          
-                        </ng-template>
-                      </ngb-tab>
-                    </ngb-tabset>
-                  </div>
+                
               </div>
   
   
@@ -2079,36 +1589,35 @@
                             </g>
                           </g>
                         </g>
-                      </svg>IMPORTANT VISA INFORMATION FOR EGYPT
+                      </svg>IMPORTANT VISA INFORMATION FOR NEW ZEALAND
                     </div>
                     <div class="card-body">
                       <p>
-                        <li>All Indian passport holders require a valid visa to enter Egypt.</li>
+                        <li>All Indian passport holders require a valid visa to enter New Zealand.</li>
                       </p>
                       <p>
-                        <li>Each applicant must have all the mandatory documents as mentioned in
-                          requirement tabs below</li>
+                        <li>Applicant must have all the mandatory documents while applying for New Zealand Visa online as
+                          mentioned in requirement tabs below</li>
                       </p>
                       <p>
-                        <li>In addition to the documents mentioned, our visa experts or the
-                          concerned embassy may require
-                          you to furnish additional documents to process your visa.Your cooperation in furnishing any
-                          such
-                          additional documents is essential for a positive outcome.</li>
+                        <li>In addition to the documents mentioned, our visa experts or the concerned embassy may require
+                          you to furnish additional documents to process your visa. Your cooperation in furnishing any
+                          such additional documents
+                          is essential for a positive outcome.</li>
                       </p>
                       <p>
-                        <li>If all the documents are not ready at the time of agent visit then
-                          additional charges levied
+                        <li>If all the documents are not ready at the time of agent visit then additional charges levied
                           when agent visits your residence again</li>
                       </p>
                       <p>
-                        <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                        <li>The fee may vary for the country if the rate of the embassy fluctuates.</li>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+  
             <div class="container-fluid mt-2" [@simpleFadeAnimation]="'in'">
               <div class="row">
                 <div class="col-12 text-center">
@@ -2117,109 +1626,499 @@
   
                 <!-- business -->
                 <div class="col-12 p-0">
-                  <div class="accordion" id="egyptAccordionBusiness">
+                  <div class="accordion" id="new-zealandAccordionbusiness">
                     <div class="card faqQueryCard">
-                      <div class="card-header faqQuery" id="headingBusinessOne" data-toggle="collapse"
-                        data-target="#egyptAccordionBusinessOne" aria-expanded="true"
-                        aria-controls="egyptAccordionBusinessOne">
+                      <div class="card-header faqQuery" id="headingbusinessOne" data-toggle="collapse"
+                        data-target="#new-zealandAccordionbusinessOne" aria-expanded="true"
+                        aria-controls="new-zealandAccordionbusinessOne">
                         <h5 class="mb-0">
                           <button class="btn btn-link" type="button">
-                            Is there a business e-visa that I can get?
+                            What all can I do with the business visa for New Zealand?
                           </button>
                         </h5>
                       </div>
   
-                      <div id="egyptAccordionBusinessOne" class="collapse show" aria-labelledby="headingBusinessOne"
-                        data-parent="#egyptAccordionBusiness">
+                      <div id="new-zealandAccordionbusinessOne" class="collapse show" aria-labelledby="headingbusinessOne"
+                        data-parent="#new-zealandAccordionbusiness">
                         <div class="card-body">
-                          <p>
-                              No. Egyptian e-visa facility is currently not available for Indian nationals
+                          <p>You can visit for business purposes (note: this does NOT include jobs/paid work), as well as study for 3 months using this visa. 
                           </p>
                         </div>
                       </div>
                     </div>
                     <div class="card faqQueryCard">
-                      <div class="card-header faqQuery" id="headingBusinessTwo" data-toggle="collapse"
-                        data-target="#egyptAccordionBusinessTwo" aria-expanded="false"
-                        aria-controls="egyptAccordionBusinessTwo">
+                      <div class="card-header faqQuery" id="headingbusinessTwo" data-toggle="collapse"
+                        data-target="#new-zealandAccordionbusinessTwo" aria-expanded="false"
+                        aria-controls="new-zealandAccordionbusinessTwo">
                         <h5 class="mb-0">
-                          <button class="btn btn-link collapsed" type="button">
-                            Will I need to go for an interview for this visa?
+                          <button class="btn btn-link" type="button">
+                            Is there anything else I will need other than my visa?
                           </button>
                         </h5>
                       </div>
-                      <div id="egyptAccordionBusinessTwo" class="collapse" aria-labelledby="headingBusinessTwo"
-                        data-parent="#egyptAccordionBusiness">
+  
+                      <div id="new-zealandAccordionbusinessTwo" class="collapse" aria-labelledby="headingbusinessTwo"
+                        data-parent="#new-zealandAccordionbusiness">
                         <div class="card-body">
-                          <p> 
-                              Almost never - you will not be required to attend an interview under most circumstances. Under rare circumstances the embassy may ask for an interview. However, this is the exception, not the rule.
+                          <p>You will need your visa, passport, copy of your flight and hotel reservations, as well as an entry permission. You will receive the application for this on your way to New Zealand.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingbusinessThree" data-toggle="collapse"
+                        data-target="#new-zealandAccordionbusinessThree" aria-expanded="false"
+                        aria-controls="new-zealandAccordionbusinessThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button">
+                            Is there anything I would need to declare at Customs that I need to be aware of?
+                          </button>
+                        </h5>
+                      </div>
+  
+                      <div id="new-zealandAccordionbusinessThree" class="collapse" aria-labelledby="headingbusinessThree"
+                        data-parent="#new-zealandAccordionbusiness">
+                        <div class="card-body">
+                          <p>
+                              Carrying a large bulk of items (eg. food ingredients, sweets, cultural 
+                              items, etc.) may attract a $400 fine. There is a certain amount of 
+                              each that is allowed, please ensure you carry only that amount. 
+                              Fresh or packaged food, fruit, eggs, meat, spices, pulses, plants, 
+                              seeds, skins and feathers are not allowed. The full list of 
+                              items is available at: https://www.newzealand.com/assets/cc0f74822b/MPB0132-Indian-DoD-1-pager-v8.pdf.
                           </p>
                           
                         </div>
                       </div>
                     </div>
                     <div class="card faqQueryCard">
-                        <div class="card-header faqQuery" id="headingBusinessThree"
-                        data-toggle="collapse" data-target="#egyptAccordionBusinessThree"
-                        aria-expanded="false" aria-controls="egyptAccordionBusinessThree">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button">
-                                    How long can I stay in Egypt for?
-                                </button>
-                            </h5>
+                      <div class="card-header faqQuery" id="headingbusinessFour" data-toggle="collapse"
+                        data-target="#new-zealandAccordionbusinessFour" aria-expanded="false"
+                        aria-controls="new-zealandAccordionbusinessFour">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button">
+                            I want to come for a sports tournament. Is this the visa for me?
+                          </button>
+                        </h5>
+                      </div>
+  
+                      <div id="new-zealandAccordionbusinessFour" class="collapse" aria-labelledby="headingbusinessFour"
+                        data-parent="#new-zealandAccordionbusiness">
+                        <div class="card-body">
+                          <p>
+                              There is a separate branch of visitor visas called the Sports Events Visitor Visa. This is the visa you will need. It is different from the Business visitor visa.
+                          </p>
+  
                         </div>
-                        <div id="egyptAccordionBusinessThree" class="collapse"
-                        aria-labelledby="headingBusinessThree"
-                        data-parent="#egyptAccordionBusiness">
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingbusinessFive" data-toggle="collapse"
+                        data-target="#new-zealandAccordionbusinessFive" aria-expanded="false"
+                        aria-controls="new-zealandAccordionbusinessFive">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button">
+                            I want to stay for more than 3 months for my business purpose. Can I extend this visa?
+                          </button>
+                        </h5>
+                      </div>
+  
+                      <div id="new-zealandAccordionbusinessFive" class="collapse" aria-labelledby="headingbusinessFive"
+                        data-parent="#new-zealandAccordionbusiness">
+                        <div class="card-body">
+                          <p>You will not be able to do that. If you want to stay for more than 3 months with your business in New Zealand, you will have to apply for a work visa. You can only apply once for a business visa in a year - stay only 3 months in any one year. 
+                          </p>
+  
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+  
+  
+              </div>
+            </div>
+  
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Transit" title="Transit">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+              <!-- transit -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement">
+                    <span class="requirementContainer text-uppercase">TRANSIT
+                      VISA REQUIREMENT FOR
+                      NEW ZEALAND
+                    </span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="transitAccodion">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitOne" aria-expanded="true"
+                          aria-controls="transitOne" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitOne" class="collapsed" aria-labelledby="transitOne"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
                             <div class="card-body">
-                                <p>
-                                    Generally the validity of the visa is 90 days, however, you can only stay in Egypt for a maximum of 30 days at a time in one single visit.
-                                </p>
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.</p>
                             </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitTwo" aria-expanded="true"
+                          aria-controls="transitTwo" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Onward Ticket</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitTwo" class="collapse" aria-labelledby="transitTwo" data-parent="#transitAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Onward Ticket</h1>
+                              <p>
+                                You will need to have onward tickets to your destination country when you apply for the transit visa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true"
+                          aria-controls="transitThree" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-OtherDocuments requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Destination Visa</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitThree" class="collapse" aria-labelledby="transitThree"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Destination Visa</h1>
+                              <p>You will need to have a visa for the country you will be finally visiting, i.e. the country you will be going to after transit. If this country does not require a visa, then this document is not necessary.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitFour" aria-expanded="true"
+                          aria-controls="transitFour" [class.showDiv]="selectedTransit === 4"
+                          (click)="setActiveTransit(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Travel Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitFour" class="collapse" aria-labelledby="transitFour"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Travel Itinerary</h1>
+                              <p>This travel itinerary must show your New Zealand arrival and departure times clearly.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+              </div>
+  
+  
+              <div class="mobileContainer accordion" id="transitAccodionMobile">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+  
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobileOne" aria-expanded="true"
+                          aria-controls="transitMobileOne" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobileOne" class="collapsed" aria-labelledby="transitMobileOne"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobileTwo" aria-expanded="true"
+                          aria-controls="transitMobileTwo" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png" alt="NEW ZEALAND transit visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Onward Ticket</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobileTwo" class="collapse" aria-labelledby="transitMobileTwo"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Onward Ticket</h1>
+                              <p>
+                                You will need to have onward tickets to your destination country when you apply for the transit visa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true"
+                          aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-OtherDocuments requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Destination Visa</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobileThree" class="collapse" aria-labelledby="transitMobileThree"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Destination Visa</h1>
+                              <p>You will need to have a visa for the country you will be finally visiting, i.e. the country you will be going to after transit. If this country does not require a visa, then this document is not necessary.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobileFour" aria-expanded="true"
+                          aria-controls="transitMobileFour" [class.showDiv]="selectedTransit === 4"
+                          (click)="setActiveTransit(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Travel Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobileFour" class="collapse" aria-labelledby="transitMobileFour"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Travel Itinerary</h1>
+                              <p>
+                                  This travel itinerary must show your New Zealand arrival and departure times clearly.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+              </div>
+  
+            </div>
+            <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-lg-12 p-0 impRequired">
+                  <div class="card">
+                    <div class="card-header text-center text-white text-uppercase"
+                      style="background: #000080; font-weight: 600;">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                        xml:space="preserve" width="15px" height="15px" class="hovered-paths mr-1"
+                        style="margin-top: -3px;">
+                        <g>
+                          <g>
+                            <g>
+                              <path
+                                d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M298.667,416    c0,5.896-4.771,10.667-10.667,10.667h-64c-5.896,0-10.667-4.771-10.667-10.667V256h-10.667c-5.896,0-10.667-4.771-10.667-10.667    v-42.667c0-5.896,4.771-10.667,10.667-10.667H288c5.896,0,10.667,4.771,10.667,10.667V416z M256,170.667    c-23.531,0-42.667-19.135-42.667-42.667S232.469,85.333,256,85.333s42.667,19.135,42.667,42.667S279.531,170.667,256,170.667z"
+                                data-original="#000000" class="hovered-path active-path" data-old_color="#000000"
+                                fill="#FFFFFF" />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>IMPORTANT VISA INFORMATION FOR NEW ZEALAND
                     </div>
-                    </div>
-                    <div class="card faqQueryCard">
-                        <div class="card-header faqQuery" id="headingBusinessFour"
-                            data-toggle="collapse" data-target="#egyptAccordionBusinessFour"
-                            aria-expanded="false" aria-controls="egyptAccordionBusinessFour">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button">
-                                        Is there a minimum bank balance I need to have before travelling?
-                                    </button>
-                                </h5>
-                        </div>
-                        <div id="egyptAccordionBusinessFour" class="collapse"
-                            aria-labelledby="headingBusinessFour"
-                            data-parent="#egyptAccordionBusiness">
-                                <div class="card-body">
-                                    <p>
-                                        You must possess sufficient funds to be able to cover your stay and other expenses in Egypt. In addition you may be required to show your bank statements of the last 6 months. It is preferred to have a minimum balance of INR 50,000 consistently for this duration.
-                                    </p>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="card faqQueryCard">
-                        <div class="card-header faqQuery" id="headingBusinessFive"
-                            data-toggle="collapse" data-target="#egyptAccordionBusinessFive"
-                            aria-expanded="false" aria-controls="egyptAccordionBusinessFive">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" type="button">
-                                        What can I do with a business visa in Egypt?
-                                    </button>
-                                </h5>
-                        </div>
-                        <div id="egyptAccordionBusinessFive" class="collapse"
-                            aria-labelledby="headingBusinessFive"
-                            data-parent="#egyptAccordionBusiness">
-                                <div class="card-body">
-                                    <p>
-                                        You will be able to attend conferences, events and even close a business deal. You cannot engage in any paid activity on a short-term business visa - you need a work visa for this.
-                                    </p>
-                                </div>
-                        </div>
+                    <div class="card-body">
+                      <p>
+                        <li>All Indian passport holders require a valid visa to enter New Zealand.</li>
+                      </p>
+                      <p>
+                        <li>Applicant must have all the mandatory documents while applying for New Zealand Visa online as
+                          mentioned in requirement tabs below</li>
+                      </p>
+                      <p>
+                        <li>In addition to the documents mentioned, our visa experts or the concerned embassy may require
+                          you to furnish additional documents to process your visa. Your cooperation in furnishing any
+                          such additional documents
+                          is essential for a positive outcome.</li>
+                      </p>
+                      <p>
+                        <li>If all the documents are not ready at the time of agent visit then additional charges levied
+                          when agent visits your residence again</li>
+                      </p>
+                      <p>
+                        <li>The fee may vary for the country if the rate of the embassy fluctuates.</li>
+                      </p>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+  
+            <div class="container-fluid mt-2" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-12 text-center">
+                  <h1><span class="faqContainer">FAQ's</span></h1>
+                </div>
+  
+                <!-- transit -->
+                <div class="col-12 p-0">
+                  <div class="accordion" id="new-zealandAccordiontransit">
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingtransitOne" data-toggle="collapse"
+                        data-target="#new-zealandAccordiontransitOne" aria-expanded="true"
+                        aria-controls="new-zealandAccordiontransitOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button">
+                            Can I transit through New Zealand without a visa?
+                          </button>
+                        </h5>
+                      </div>
+  
+                      <div id="new-zealandAccordiontransitOne" class="collapse show" aria-labelledby="headingtransitOne"
+                        data-parent="#new-zealandAccordiontransit">
+                        <div class="card-body">
+                          <p>
+                              Transiting through New Zealand requires a visa unless specifically exempted by immigration policy.  If you are transiting on your way to Australia, however, you do not need a visa. While you are in transit with the visa, you can only stay in its transit area.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingtransitTwo" data-toggle="collapse"
+                        data-target="#new-zealandAccordiontransitTwo" aria-expanded="false"
+                        aria-controls="new-zealandAccordiontransitTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Can I stay in any airport with this visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="new-zealandAccordiontransitTwo" class="collapse" aria-labelledby="headingtransitTwo"
+                        data-parent="#new-zealandAccordiontransit">
+                        <div class="card-body">
+                          <p>You can only stay in Auckland International Airport with this visa for 24 hours.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingtransitThree" data-toggle="collapse"
+                        data-target="#new-zealandAccordiontransitThree" aria-expanded="false"
+                        aria-controls="new-zealandAccordiontransitThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Are there any opening and closing dates to apply for this visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="new-zealandAccordiontransitThree" class="collapse" aria-labelledby="headingtransitThree"
+                        data-parent="#new-zealandAccordiontransit">
+                        <div class="card-body">
+                          <p>
+                              No, you can apply for this visa at any time. The New Zealand Immigration accepts offers continually. 
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingtransitFour" data-toggle="collapse"
+                        data-target="#new-zealandAccordiontransitFour" aria-expanded="false"
+                        aria-controls="new-zealandAccordiontransitFour">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            If I want to apply for a tourist visa while in transit, can I do so?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="new-zealandAccordiontransitFour" class="collapse" aria-labelledby="headingtransitFour"
+                        data-parent="#new-zealandAccordiontransit">
+                        <div class="card-body">
+                          <p>You cannot apply for any kind of entry permission or visa type whilst in transit. You must stay within the transit area of the airport at all times.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
   
               </div>
             </div>
@@ -2237,6 +2136,7 @@
         <p>
           <a (click)="resetPage()" [routerLink]="['/visa', 'armenia-visa-online']">Armenia Visa
             Online</a>&nbsp;|&nbsp;
+            
           <a (click)="resetPage()" [routerLink]="['/visa', 'australia-visa-online']">Australia Visa
             Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'azerbaijan-visa-online']">Azerbaijan Visa
@@ -2246,6 +2146,7 @@
           <a (click)="resetPage()" [routerLink]="['/visa', 'china-visa-online']">China Visa Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'cambodia-visa-online']">Cambodia Visa Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'dubai-visa-online']">Dubai Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'egypt-visa-online']">Egypt Visa Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'ethiopia-visa-online']">Ethiopia Visa Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'france-visa-online']">France Visa Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'japan-visa-online']">Japan Visa
@@ -2254,8 +2155,6 @@
           <a (click)="resetPage()" [routerLink]="['/visa', 'maldives-visa-online']">Maldives Visa Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'netherlands-visa-online']">Netherland Visa
             Online</a>&nbsp;|&nbsp;
-            <a (click)="resetPage()" [routerLink]="['/visa', 'new-zealand-visa-online']">New Zealand Visa
-              Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'russia-visa-online']">Russia Visa
               Online</a>&nbsp;|&nbsp;
           <a (click)="resetPage()" [routerLink]="['/visa', 'rwanda-visa-online']">Rwanda Visa

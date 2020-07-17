@@ -182,6 +182,16 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // New-Zealand Page
+  {
+    path: "visa/new-zealand-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/new-zealand/new-zealand.module").then(
+        (m) => m.NewZealandModule
+      ),
+    data: { preload: true },
+  },
+
 
   // Armenia Page
   {
@@ -189,6 +199,16 @@ const routes: Routes = [
     loadChildren: () =>
       import("./components/visa-requirements/armenia/armenia.module").then(
         (m) => m.ArmeniaModule
+      ),
+    data: { preload: true },
+  },
+
+  // South Africa Page
+  {
+    path: "visa/south-africa-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/south-africa/south-africa.module").then(
+        (m) => m.SouthAfricaModule
       ),
     data: { preload: true },
   },
@@ -287,6 +307,17 @@ const routes: Routes = [
     loadChildren: () =>
       import("./components/visa-requirements/egypt/egypt.module").then(
         (m) => m.EgyptModule
+      ),
+    data: { preload: true },
+  },
+
+
+  // Taiwan Page
+  {
+    path: "visa/taiwan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/taiwan/taiwan.module").then(
+        (m) => m.TaiwanModule
       ),
     data: { preload: true },
   },

@@ -363,6 +363,8 @@ export class AddTravellerComponent implements OnInit {
       this.breadcrumRouting = "/visa/malaysia-visa-online";
     } else if (this.userFlowDetails.country === "Maldives") {
       this.breadcrumRouting = "/visa/maldives-visa-online";
+    } else if (this.userFlowDetails.country === "New Zealand") {
+      this.breadcrumRouting = "/visa/new-zealand-visa-online";
     } else if (this.userFlowDetails.country === "Netherlands") {
       this.breadcrumRouting = "/visa/netherlands-visa-online";
     } else if (this.userFlowDetails.country === "Russia") {
@@ -371,12 +373,16 @@ export class AddTravellerComponent implements OnInit {
       this.breadcrumRouting = "/visa/rwanda-visa-online";
     } else if (this.userFlowDetails.country === "Singapore") {
       this.breadcrumRouting = "/visa/singapore-visa-online";
+    } else if (this.userFlowDetails.country === "South Africa") {
+      this.breadcrumRouting = "/visa/south-africa-visa-online";
     } else if (this.userFlowDetails.country === "Spain") {
       this.breadcrumRouting = "/visa/spain-visa-online";
     } else if (this.userFlowDetails.country === "Sri Lanka") {
       this.breadcrumRouting = "/visa/sri-lanka-visa-online";
     } else if (this.userFlowDetails.country === "Switzerland") {
       this.breadcrumRouting = "/visa/swiss-visa-online";
+    } else if (this.userFlowDetails.country === "Taiwan") {
+      this.breadcrumRouting = "/visa/taiwan-visa-online";
     } else if (this.userFlowDetails.country === "Tajikistan") {
       this.breadcrumRouting = "/visa/tajikistan-visa-online";
     } else if (this.userFlowDetails.country === "Thailand") {
