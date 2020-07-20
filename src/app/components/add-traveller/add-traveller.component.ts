@@ -5,9 +5,9 @@ import {
   FormGroup,
   FormControl,
   FormArray,
-  Validators
+  Validators,
 } from "@angular/forms";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { requiredFileType } from "../../shared/Custom-Image.validator";
@@ -19,13 +19,13 @@ import { Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { from } from "rxjs";
 import { RouterHistory } from "src/app/shared/router-history.service";
-import { Title, Meta } from '@angular/platform-browser';
-import { LowerCasePipe } from '@angular/common';
+import { Title, Meta } from "@angular/platform-browser";
+import { LowerCasePipe } from "@angular/common";
 
 @Component({
   selector: "app-add-traveller",
   templateUrl: "./add-traveller.component.html",
-  styleUrls: ["./add-traveller.component.css"]
+  styleUrls: ["./add-traveller.component.css"],
 })
 export class AddTravellerComponent implements OnInit {
   public paymentForm: any = {};
@@ -49,11 +49,11 @@ export class AddTravellerComponent implements OnInit {
     cities: {
       Delhi: ["Delhi"],
       Haryana: ["Gurgaon"],
-      "Uttar Pradesh": ["Noida"]
-    }
+      "Uttar Pradesh": ["Noida"],
+    },
   };
   dataSource = [
-    { id: "Primary", dataToggle: "toogle1", dataToggleHash: "#toogle1" }
+    { id: "Primary", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
   ];
 
   traveller_Id = [];
@@ -99,6 +99,8 @@ export class AddTravellerComponent implements OnInit {
   category: string;
   minTravelDate: number;
   redirect: any;
+  imageUpload: boolean;
+  disclaimerForDubai: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -119,7 +121,7 @@ export class AddTravellerComponent implements OnInit {
     this.tomorrowDate = {
       year: this.tomorrow.getFullYear(),
       month: this.tomorrow.getMonth() + 1,
-      day: this.tomorrow.getDate()
+      day: this.tomorrow.getDate(),
     };
   }
 
@@ -162,7 +164,7 @@ export class AddTravellerComponent implements OnInit {
         this.minDatePassportExpiry = {
           year: date.year,
           month: date.month + 1,
-          day: 1
+          day: 1,
         };
       }
     }
@@ -174,7 +176,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDatePassportExpiry = {
             year: date.year,
             month: date.month + 1,
-            day: 1
+            day: 1,
           };
         }
       } else {
@@ -182,7 +184,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDatePassportExpiry = {
             year: date.year,
             month: date.month + 1,
-            day: 1
+            day: 1,
           };
         }
       }
@@ -201,7 +203,7 @@ export class AddTravellerComponent implements OnInit {
         this.minDateOfTravel = {
           year: date.year,
           month: date.month + 1,
-          day: tempDay
+          day: tempDay,
         };
       }
     } else if (date.month == 2) {
@@ -211,7 +213,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfTravel = {
             year: date.year,
             month: date.month + 1,
-            day: tempDay
+            day: tempDay,
           };
         }
       } else {
@@ -220,7 +222,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfTravel = {
             year: date.year,
             month: date.month + 1,
-            day: tempDay
+            day: tempDay,
           };
         }
       }
@@ -230,7 +232,7 @@ export class AddTravellerComponent implements OnInit {
         this.minDateOfTravel = {
           year: date.year,
           month: date.month + 1,
-          day: tempDay
+          day: tempDay,
         };
       }
     }
@@ -249,7 +251,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfCollection = {
             year: date.year,
             month: prevMonth,
-            day: 30
+            day: 30,
           };
         }
         if (prevMonth == 2) {
@@ -261,20 +263,20 @@ export class AddTravellerComponent implements OnInit {
             this.minDateOfCollection = {
               year: date.year,
               month: prevMonth,
-              day: 29
+              day: 29,
             };
           } else {
             this.minDateOfCollection = {
               year: date.year,
               month: prevMonth,
-              day: 28
+              day: 28,
             };
           }
         } else {
           this.minDateOfCollection = {
             year: date.year,
             month: prevMonth,
-            day: 31
+            day: 31,
           };
         }
       } else {
@@ -287,7 +289,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfCollection = {
             year: date.year,
             month: prevMonth,
-            day: 30 + date.day
+            day: 30 + date.day,
           };
         }
         if (prevMonth == 2) {
@@ -299,20 +301,20 @@ export class AddTravellerComponent implements OnInit {
             this.minDateOfCollection = {
               year: date.year,
               month: prevMonth,
-              day: 29 + date.day
+              day: 29 + date.day,
             };
           } else {
             this.minDateOfCollection = {
               year: date.year,
               month: prevMonth,
-              day: 28 + date.day
+              day: 28 + date.day,
             };
           }
         } else {
           this.minDateOfCollection = {
             year: date.year,
             month: prevMonth,
-            day: 31 + date.day
+            day: 31 + date.day,
           };
         }
       }
@@ -331,8 +333,8 @@ export class AddTravellerComponent implements OnInit {
       { name: "keywords", content: "" },
       {
         name: "description",
-        content: ""
-      }
+        content: "",
+      },
     ]);
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
@@ -349,6 +351,7 @@ export class AddTravellerComponent implements OnInit {
       this.breadcrumRouting = "/visa/cambodia-visa-online";
     } else if (this.userFlowDetails.country === "Dubai") {
       this.breadcrumRouting = "/visa/dubai-visa-online";
+      this.disclaimerForDubai = true;
     } else if (this.userFlowDetails.country === "Ethiopia") {
       this.breadcrumRouting = "/visa/ethiopia-visa-online";
     } else if (this.userFlowDetails.country === "France") {
@@ -392,8 +395,6 @@ export class AddTravellerComponent implements OnInit {
     } else {
       this.breadcrumRouting = `/visa-requirements/${this.userFlowDetails.country}/apply-for-${this.userFlowDetails.country}-visa-online/${this.userFlowDetails.purpose}`;
     }
-    
-    
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
     if (this.imageUploads == "null") {
@@ -401,6 +402,8 @@ export class AddTravellerComponent implements OnInit {
     }
 
     this.category = this.userFlowDetails.category;
+    // this.imageUpload = this.userFlowDetails.imageUpload;
+    this.imageUpload = this.userFlowDetails.imageUpload;
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
 
@@ -415,7 +418,7 @@ export class AddTravellerComponent implements OnInit {
     this.minDate = {
       year: current.getFullYear(),
       month: current.getMonth() + 1,
-      day: current.getDate()
+      day: current.getDate(),
     };
 
     let yesterday = new Date();
@@ -424,21 +427,21 @@ export class AddTravellerComponent implements OnInit {
     this.maxDateDob = {
       year: yesterday.getFullYear(),
       month: yesterday.getMonth() + 1,
-      day: yesterday.getDate()
+      day: yesterday.getDate(),
     };
     // this.checkDateOfDob(this.maxDateDob) ;
 
     this.minDateOfTravel = {
       year: this.minDate.year,
       month: this.minDate.month,
-      day: this.minDate.day + this.minTravelDate + 2
+      day: this.minDate.day + this.minTravelDate + 2,
     };
     this.checkDateOfTravelOverflow(this.minDateOfTravel);
 
     this.minDateOfCollection = {
       year: this.minDateOfTravel.year,
       month: this.minDateOfTravel.month,
-      day: this.minDateOfTravel.day - this.minTravelDate
+      day: this.minDateOfTravel.day - this.minTravelDate,
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
@@ -448,13 +451,13 @@ export class AddTravellerComponent implements OnInit {
       this.minDatePassportExpiry = {
         year: current.getFullYear() + 1,
         month: 6 - x,
-        day: current.getDate()
+        day: current.getDate(),
       };
     } else {
       this.minDatePassportExpiry = {
         year: current.getFullYear(),
         month: current.getMonth() + 7,
-        day: current.getDate()
+        day: current.getDate(),
       };
     }
 
@@ -467,31 +470,32 @@ export class AddTravellerComponent implements OnInit {
 
     this.stayPeriod = data.stayPeriod;
 
-    if (this.category == "e-visa") {
+    // if (this.category == "e-visa") {
+    if (this.imageUpload) {
       this.travelDetails = new FormGroup({
         dateOfTravel: new FormControl("", [Validators.required]),
-        dateOfCollection: new FormControl("", [Validators.nullValidator])
+        dateOfCollection: new FormControl("", [Validators.nullValidator]),
       });
     } else {
       this.travelDetails = new FormGroup({
         dateOfTravel: new FormControl("", [Validators.required]),
-        dateOfCollection: new FormControl("", [Validators.required])
+        dateOfCollection: new FormControl("", [Validators.required]),
       });
     }
 
     this.termsAndConditions = new FormGroup({
-      tnc: new FormControl(false, [Validators.requiredTrue])
+      tnc: new FormControl(false, [Validators.requiredTrue]),
     });
 
     this.valueAddedService = new FormGroup({
       selectAll: new FormControl(false, []),
       sim: new FormControl(false, []),
       insurance: new FormControl(false, []),
-      forex: new FormControl(false, [])
+      forex: new FormControl(false, []),
     });
 
     this.travellerForm = this.formBuilder.group({
-      travellers: this.formBuilder.array([this.createTraveller()])
+      travellers: this.formBuilder.array([this.createTraveller()]),
     });
 
     let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
@@ -500,11 +504,11 @@ export class AddTravellerComponent implements OnInit {
       this.filedNameArr.push(this.imageUploads[i].fieldName);
     }
     arr.forEach((element: FormGroup) => {
-      this.filedNameArr.forEach(fieldName => {
+      this.filedNameArr.forEach((fieldName) => {
         if (element.controls[fieldName]) {
           element.controls[fieldName].setValidators([
             Validators.required,
-            requiredFileType("png")
+            requiredFileType("png"),
           ]);
           element.controls[fieldName].updateValueAndValidity();
         }
@@ -524,14 +528,14 @@ export class AddTravellerComponent implements OnInit {
         selectAll: true,
         sim: true,
         insurance: true,
-        forex: true
+        forex: true,
       });
     } else {
       this.valueAddedService.setValue({
         selectAll: false,
         sim: false,
         insurance: false,
-        forex: false
+        forex: false,
       });
     }
 
@@ -539,7 +543,8 @@ export class AddTravellerComponent implements OnInit {
   }
 
   createTraveller(): FormGroup {
-    if (this.category == "e-visa") {
+    // if (this.category == "e-visa") {
+    if (this.imageUpload) {
       return this.formBuilder.group({
         title: ["Mr", [Validators.required]],
         firstName: ["", [Validators.required]],
@@ -568,7 +573,7 @@ export class AddTravellerComponent implements OnInit {
         arrivalFlightTicket: [null],
         hotelAccommodation: [null],
         businessCard: [null],
-        insurance: [null]
+        insurance: [null],
       });
     } else {
       return this.formBuilder.group({
@@ -588,7 +593,7 @@ export class AddTravellerComponent implements OnInit {
         address: ["", [Validators.required]],
         state: ["Haryana", [Validators.required]],
         city: ["Gurgaon", [Validators.required]],
-        pinCode: ["", [Validators.required]]
+        pinCode: ["", [Validators.required]],
       });
     }
   }
@@ -600,19 +605,19 @@ export class AddTravellerComponent implements OnInit {
   checkDateOfTravel() {
     this.travelDetails.get("dateOfCollection").setValue("");
 
-
     let temp: any = this.travelDetails.get("dateOfTravel").value;
     this.minDateOfCollection = {
       year: temp.year,
       month: temp.month,
-      day: temp.day - this.minTravelDate
+      day: temp.day - this.minTravelDate,
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
   }
 
   checkDateOfCollection() {
-    if (this.category == "Sticker") {
+    // if (this.category == "Sticker") {
+    if (!this.imageUpload) {
       if (
         this.travelDetails.get("dateOfCollection").value == undefined ||
         this.travelDetails.get("dateOfCollection").value == null ||
@@ -622,7 +627,7 @@ export class AddTravellerComponent implements OnInit {
         window.scrollTo({
           top: 0,
           left: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       } else {
         this.collectionDateError = false;
@@ -640,7 +645,7 @@ export class AddTravellerComponent implements OnInit {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     } else {
       this.travelDateError = false;
@@ -818,9 +823,7 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  validateImage() {
-
-  }
+  validateImage() {}
 
   seeValues() {
     this.validateImage();
@@ -885,7 +888,7 @@ export class AddTravellerComponent implements OnInit {
 
         tempArr.forEach((form: FormGroup, index) => {
           if (this.category == "e-visa") {
-            this.filedNameArr.forEach(el => {
+            this.filedNameArr.forEach((el) => {
               this.formData1.append("images", form.get(el).value);
 
               this.tempImageArr.push(form.get(el).value);
@@ -927,7 +930,6 @@ export class AddTravellerComponent implements OnInit {
             }
           }
         });
-
 
         let ptdata: any = this.travellerForm.get("travellers").value || [];
         ptdata["id"] = this.dataSource[0].id;
@@ -1001,7 +1003,6 @@ export class AddTravellerComponent implements OnInit {
         this.travellerService
           .submitForm(this.formData1)
           .subscribe((data: any) => {
-
             if (data.code == "0") {
               this.travellerService.hitPaymentApi().subscribe((data1: any) => {
                 this.buyerEmail = data1.buyerEmail;
@@ -1060,10 +1061,8 @@ export class AddTravellerComponent implements OnInit {
                 });
               });
               this.preloaderService.showPreloader(false);
-              this.toastr.warning(
-                "Some Details Missing " + this.errorForm,
-              );
-              }else if (data.code == "500") {
+              this.toastr.warning("Some Details Missing " + this.errorForm);
+            } else if (data.code == "500") {
               let chunk = this.filedNameArr.length;
               let temparray = [];
 
@@ -1091,7 +1090,6 @@ export class AddTravellerComponent implements OnInit {
               this.preloaderService.showPreloader(false);
               this.toastr.error(data.message);
             } else if (data.code == "1001") {
-
               let chunk = this.filedNameArr.length;
               let temparray = [];
 
@@ -1127,9 +1125,7 @@ export class AddTravellerComponent implements OnInit {
             }
           });
       } else {
-        this.toastr.warning(
-          "Please accept out terms and conditions"
-        );
+        this.toastr.warning("Please accept out terms and conditions");
       }
     } else {
       this.toastr.warning("Some details missing !");
@@ -1139,11 +1135,10 @@ export class AddTravellerComponent implements OnInit {
         window.scrollTo({
           top: 350 + this.scrollBy,
           left: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     }
-
   }
 
   goToHome() {
@@ -1205,15 +1200,13 @@ export class AddTravellerComponent implements OnInit {
         this.returnUrl = data1.returnUrl;
         this.checksum = data1.checksum;
         this.redirect = data1.paymentUrl;
-        
+
         setTimeout(() => {
           document.forms["paymentForm"].submit();
         }, 2000);
       });
     } else {
-      this.toastr.warning(
-        "Please agree to the warning and then continue."
-      );
+      this.toastr.warning("Please agree to the warning and then continue.");
     }
   }
 
@@ -1230,8 +1223,7 @@ export class AddTravellerComponent implements OnInit {
   check() {
     let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-    arr.forEach((element: FormGroup) => {
-    });
+    arr.forEach((element: FormGroup) => {});
   }
 
   onFileSelected(event, index, controlName) {
@@ -1251,18 +1243,15 @@ export class AddTravellerComponent implements OnInit {
   }
 
   addTraveller(): void {
-
     this.validateTravellerForm();
     if (this.travellerForm.invalid) {
-      this.toastr.warning(
-        "Please fill in existing traveller details first"
-      );
+      this.toastr.warning("Please fill in existing traveller details first");
       window.scrollTo({
         top: 350,
         left: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
-     }else {
+    } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
         this.count = this.count + 1;
@@ -1270,7 +1259,7 @@ export class AddTravellerComponent implements OnInit {
         window.scrollTo({
           top: 350 + this.scrollBy,
           left: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
         let temp = { id: "", dataToggle: "", dataToggleHash: "" };
         temp.id = "Traveller " + this.count;
@@ -1288,11 +1277,11 @@ export class AddTravellerComponent implements OnInit {
         if (this.category == "e-visa") {
           arr.forEach((element: FormGroup, i) => {
             if (i == arr.length - 1) {
-              this.filedNameArr.forEach(fieldName => {
+              this.filedNameArr.forEach((fieldName) => {
                 if (element.controls[fieldName]) {
                   element.controls[fieldName].setValidators([
                     Validators.required,
-                    requiredFileType("png")
+                    requiredFileType("png"),
                   ]);
                   element.controls[fieldName].updateValueAndValidity();
                 }
@@ -1303,9 +1292,7 @@ export class AddTravellerComponent implements OnInit {
           });
         }
       } else {
-        this.toastr.error(
-          "Maximum Travellers Limit of 10 reached !"
-        );
+        this.toastr.error("Maximum Travellers Limit of 10 reached !");
       }
     }
   }

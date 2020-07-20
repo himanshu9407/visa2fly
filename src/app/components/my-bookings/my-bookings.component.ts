@@ -141,7 +141,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   desktopBooking(event) {
-    console.log(event);
+    // console.log(event);
     this.currentPage1 = event;
     let pageSize = 6;
 
@@ -149,7 +149,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   mobileBooking(event) {
-    console.log(event);
+    // console.log(event);
     this.currentPage2 = event;
     let pageSize = 4;
 
@@ -165,20 +165,20 @@ export class MyBookingsComponent implements OnInit {
         this.bookingService.allBookings = this.allBooking.data.bookings;
         this.filterdDateArr = this.allBooking.data.bookings;
         this.totalItems = res.data.totalNumberOfPage * pageSize;
-        console.log(this.totalItems);
+        // console.log(this.totalItems);
 
         if (this.allBooking != null) {
           this.totalCount = this.allBooking.data.bookings.length;
-          console.log(res);
+          // console.log(res);
 
           if (this.allBooking.data.takeFeedback) {
             this.userflow.setCookie("bookingStatus", JSON.stringify("true"));
 
-            // this.allBooking.data.takeFeedback
-
-            this.bookingStatus = JSON.parse(
-              this.userflow.getCookie("bookingStatus")
-            );
+            setTimeout(() => {
+              this.bookingStatus = JSON.parse(
+                this.userflow.getCookie("bookingStatus")
+              );
+            }, 15000);
           }
 
           setTimeout(() => {
@@ -357,18 +357,14 @@ export class MyBookingsComponent implements OnInit {
     } else {
       this.filteredBookingsEmpty = false;
     }
-
-    // console.log(this.bookingSearchForm.value);
   }
   searchBookingsByBookingId() {
     let bookingId = this.bookingSearchForm.get("bookingId").value;
-    // console.log(bookingId);
     let arr = [];
     let found = false;
 
     this.bookings.forEach((booking) => {
       if (booking.booking.bookingId == bookingId) {
-        // console.log("hello");
         arr.push(booking);
         this.bookingsForLoop = arr;
         found = true;
@@ -386,11 +382,6 @@ export class MyBookingsComponent implements OnInit {
 
   filterBookings() {
     let tempBookingArr = [];
-    // this.bookingSearchForm.get("bookingId").setValue("");
-    // this.bookingSearchForm.get("fromDate").setValue(null);
-    // this.bookingSearchForm.get("toDate").setValue(null);
-    // this.bookingFilterForm.reset();
-    //  console.log(this.bookingFilterForm.value);
     if (this.filterdDateArr.length !== 0) {
       this.filterdDateArr.forEach((booking) => {
         let bookingType = booking.booking.bookingType;

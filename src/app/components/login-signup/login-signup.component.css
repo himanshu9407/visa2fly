@@ -1,151 +1,245 @@
-.bgColor {
-  background-color: #ffffff;
-  background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.capsule {
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 0px;
+
+/* CSS which you need for blurred box */
+.auth_section {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(./../../../assets/leonard-cotte-R5scocnOOdM-unsplash.jpg);
+  width: 100%;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-.card-footer {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-.responsive-logo {
-  width: 150px;
-  height: 40%;
-  margin-top: 20px;
-}
-
-.homeform {
-  /* border-radius: 50px 50px 0px 0px; */
-  margin-top: 140px;
-  margin-bottom: 140px;
-  padding: 0px 10px;
-  background-color: white;
+.auth_container {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  background: inherit;
   border-radius: 10px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 
-/* On mouse-over, add a deeper shadow */
-.homeform {
-  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);; */
+.blurred-box {
+  position: relative;
+  width: 400px;
+  height: 100%;
+  background: inherit;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 25px;
 }
 
-.cardheader {
+.blurred-box:after {
+  content: "";
+  width: 105%;
+  height: 105%;
+  background: inherit;
+  position: absolute;
+  left: -12px;
+  right: 0;
+  top: 5px;
+  bottom: 0;
+  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.05);
+  filter: blur(10px);
+}
+
+.form-header {
+  position: relative;
+  z-index: 1;
+}
+
+.form-header .nav-btn {
+  background-color: #130654;
+  opacity: 30%;
+  z-index: 1;
+}
+
+.form-header .nav-btn a {
+  color: #fff;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.form-body {
+  position: relative;
+  margin-top: 10px;
+  text-align: left;
+  z-index: 1;
+}
+
+.form-body label,
+.form-body input {
+  display: block;
+}
+
+.form-body label {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-body .input-group {
+  margin-bottom: 15px;
+}
+
+.form-body .input-group input {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 2px solid #bce0fd;
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+}
+
+.form-body input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.form-body .button-group {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
-.signup-capsule {
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #404040;
-  color: white;
-  border-radius: 20px 0px 0px 20px;
-  height: 32px;
+.form-body .button-group .btn {
+  background-color: #130654;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 5px 10px;
+  font-size: 14px;
 }
-.signup-capsule:hover {
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-  background-color: #666666;
+.form-body .rememberMeBox {
+  text-align: left;
+}
+
+.form-body .rememberMeBox input,
+.form-body .rememberMeBox label {
+  display: inline-block;
+}
+
+.form-body .rememberMeBox input {
+  height: 15px;
+  width: 5px;
+}
+
+.form-body .rememberMeBox label {
+  margin-left: 10px;
+}
+
+.form-header .tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+.form-header .tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.form-header .tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  background: rgba(19, 6, 84, 0.3);
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  float: left;
+  width: 50%;
+  text-align: center;
   cursor: pointer;
+  font-weight: 500;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
-.login-capsule {
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #dfdfff;
-  border-radius: 0px 20px 20px 0px;
-  height: 32px;
+.form-header .tab-group li a:hover {
+  background: #d28218;
+  background: rgba(18, 67, 81, 0.8);
+  color: #ffffff;
 }
 
-@media only screen and (max-width: 576px) {
-  .login-capsule {
-    width: 92px;
-    font-size: 14px;
-  }
-  .signup-capsule {
-    width: 92px;
-    font-size: 14px;
-  }
-  .forgotpassword {
-    font-size: 15px;
-  }
-
-  .responsive-logo {
-    width: 120px;
-    height: 60%;
-    margin-top: 20px;
-  }
+.form-header .tab-group .active a {
+  background: rgba(19, 6, 84, 0.3);
+  border-bottom: 4px solid #fec007;
+  color: #ffffff;
 }
 
-.login-capsule:hover {
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-  background-color: #ebebff;
-  cursor: pointer;
+.form-header .tab-group .active a:hover {
+  background: rgba(19, 6, 84, 0.3);
+  color: #ffffff;
 }
 
-@media (max-width: 410px) {
-  .homeform {
-    padding: 0px;
+@media screen and (max-width: 600px) {
+  .auth_section {
+    height: 100vh;
   }
 
-  .login-capsule {
-    width: 92px;
-    font-size: 12px;
-  }
-  .signup-capsule {
-    width: 92px;
-    font-size: 12px;
-  }
-  .forgotpassword {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .homeform {
-    margin-top: 130px;
-  }
-
-  .capsule {
-    width: 100%;
-    margin-left: 0%;
+  .blurred-box {
+    position: relative;
+    width: 330px;
+    height: 100%;
+    overflow: hidden;
+    background: inherit;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 15px 10px;
     margin-top: 0px;
   }
 
-  .login-capsule {
-    height: 35px;
-  }
-
-  .signup-capsule {
-    height: 35px;
+  .auth_container {
+    top: 65%;
+    left: 50%;
   }
 }
 
-.card-body {
-  padding: 8px 10px 0px;
-}
 
-@media screen and (min-width: 360px) and (max-width: 480px) {
-  .homeform {
-    margin-top: 180px;
-    margin-bottom: 50px;
+@media screen and (max-width: 321px) {
+  .auth_section {
+    height: 120vh;
   }
+
+  .auth_container {
+    top: 65%;
+    left: 50%;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: 300px;
+    height: 100%;
+    overflow: hidden;
+    background: inherit;
+    padding: 15px 10px;
+    margin-top: 0px;
+  }
+
+  .form-header .tab-group li a {
+    padding: 8px;
+  }
+
 }

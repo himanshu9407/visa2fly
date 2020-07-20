@@ -138,15 +138,20 @@ export class ThailandComponent implements OnInit, AfterViewInit {
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
+        
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
+
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);

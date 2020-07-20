@@ -1,7 +1,8 @@
 <div class="container-fluid breadcrumSection">
   <div class="row">
     <div class="col-12">
-      <p class="breadcrum"><a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<a [routerLink]= "breadcrumRouting">{{ country }} Visa Details</a>&nbsp;/&nbsp;<b>Application Form</b>
+      <p class="breadcrum"><a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<a
+          [routerLink]="breadcrumRouting">{{ country }} Visa Details</a>&nbsp;/&nbsp;<b>Application Form</b>
       </p>
     </div>
   </div>
@@ -44,7 +45,7 @@
                 <div class="form-group">
                   <div class="input-group">
                     <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel"
-                      formControlName="dateOfTravel" id="#dot" class="form-control addTravelDate"
+                      formControlName="dateOfTravel" id="#dot" autocomplete="off" class="form-control addTravelDate"
                       placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
                       #dot="ngbDatepicker">
                     <div class="input-group-append">
@@ -66,15 +67,15 @@
               </div>
             </div>
             <div class="center">
-              <div *ngIf="category == 'Sticker'" class="dateOfTravelContainer visaDateHeading documents">
+              <div *ngIf="!imageUpload" class="dateOfTravelContainer visaDateHeading documents">
                 Date Of Collection <br /> of Documents
                 <div class="form-group">
                   <div class="input-group">
                     <input (ngModelChange)="checkDateOfCollection()"
                       [disabled]="travelDetails.get('dateOfTravel').invalid" formControlName="dateOfCollection"
                       id="#doc" class="form-control addTravelDate" placeholder="Date Of Collection of Documents"
-                      name="doc" [minDate]="tomorrowDate" [maxDate]="minDateOfCollection" ngbDatepicker
-                      #doc="ngbDatepicker">
+                      name="doc" autocomplete="off" [minDate]="tomorrowDate" [maxDate]="minDateOfCollection"
+                      ngbDatepicker #doc="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
@@ -198,7 +199,7 @@
                       'is-valid':
                         !(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) && !travellerForm.controls.travellers.controls[i].controls.firstName.pristine}"
                     pattern="[A-Za-z]{3,32}" formControlName="firstName" type="text" class="form-control"
-                    placeholder="First name" required />
+                    autocomplete="off" placeholder="First name" required />
 
                   <div
                     *ngIf="
@@ -214,8 +215,8 @@
                     [ngClass]="{
                       'is-invalid':travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
                       'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty) &&                    !travellerForm.controls.travellers.controls[i].controls.middleName.pristine}"
-                    pattern="[A-Za-z]{3,32}" type="text" formControlName="middleName" class="form-control"
-                    id="middlename" placeholder="Middle name" />
+                    pattern="[A-Za-z]{3,32}" type="text" formControlName="middleName" autocomplete="off"
+                    class="form-control" id="middlename" placeholder="Middle name" />
 
                   <div *ngIf="
                         (travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty) ||
@@ -231,7 +232,7 @@
                       'is-invalid':travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
                       'is-valid':!(travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty) &&                      !travellerForm.controls.travellers.controls[i].controls.lastName.pristine}"
                     pattern="[A-Za-z]{3,32}" type="text" formControlName="lastName" class="form-control"
-                    placeholder="Last name" required />
+                    autocomplete="off" placeholder="Last name" required />
 
                   <div
                     *ngIf="
@@ -249,7 +250,7 @@
                       <input hidden formControlName="dateOfBirth" type="text">
                       <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
                         formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate"
-                        placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
+                        autocomplete="off" placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
@@ -277,7 +278,8 @@
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
                     controls.passportNumber.pristine}" pattern="^[A-Za-z]{1}[0-9]{7}$" formControlName="passportNumber"
-                      type="text" class="form-control" id="PassportNumber" placeholder="Passport Number" required />
+                      type="text" class="form-control" id="PassportNumber" autocomplete="off"
+                      placeholder="Passport Number" required />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty) || (travellerForm.controls.travellers.controls[i].controls.passportNumber.errors?.valueErr) ||
                         (travellerForm.controls.travellers.controls[i].controls.passportNumber.passportError &&
@@ -296,8 +298,8 @@
                     <div class="input-group">
                       <input hidden formControlName="passportExpiryDate">
                       <input formControlName="passportExpiryDateCopy" class="form-control addTravelDate"
-                        placeholder="Passport Expiry Date" name="dp" [minDate]="minDatePassportExpiry" id="#doe"
-                        ngbDatepicker #doe="ngbDatepicker">
+                        placeholder="Passport Expiry Date" name="dp" autocomplete="off"
+                        [minDate]="minDatePassportExpiry" id="#doe" ngbDatepicker #doe="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
@@ -328,7 +330,7 @@
                       'is-valid':!(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
                       travellers.controls[i].controls.emailId.dirty) && !travellerForm.controls.travellers.controls[i].
                       controls.emailId.pristine}" formControlName="emailId" type="email" class="form-control"
-                      id="EmailId" placeholder="Email ID" required />
+                      id="EmailId" autocomplete="off" placeholder="Email ID" required />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid &&
                         travellerForm.controls.travellers.controls[i].controls.emailId.dirty) ||
@@ -347,7 +349,7 @@
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.gstNumber.dirty) && !travellerForm.controls.travellers.controls[i].
                     controls.gstNumber.pristine}" formControlName="gstNumber" type="text" class="form-control"
-                      id="GstNumber" placeholder="GSTIN No. (Optional)" />
+                      id="GstNumber" autocomplete="off" placeholder="GSTIN No. (Optional)" />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid &&
                         travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty) ||
@@ -364,7 +366,7 @@
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
                   travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
                   controls.cellNumber.pristine}" pattern="^[6-9][0-9]{9}$" type="tel" formControlName="cellNumber"
-                    class="form-control" placeholder="Mobile Number" required />
+                    class="form-control" autocomplete="off" placeholder="Mobile Number" required />
                   <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid &&
                       travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) ||
                       (travellerForm.controls.travellers.controls[i].controls.cellNumber.errors?.valueErr) ||
@@ -376,7 +378,7 @@
                 </div>
               </div>
 
-              <div *ngIf="category == 'Sticker'" class="form-row" style="margin-top: 20px;">
+              <div *ngIf="!imageUpload" class="form-row" style="margin-top: 20px;">
                 <div class="col-md-12 mb-3">
                   <label><b>Address for pickup of documents </b></label>
                   <br>
@@ -441,8 +443,8 @@
                   .pinCode.invalid && travellerForm.controls.travellers.controls[i].controls.pinCode.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
                   travellers.controls[i].controls.pinCode.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.pinCode.pristine}" pattern="^[1-9][0-9]{5}$" type="text" class="form-control" id="pincode"
-                    placeholder="Pin Code" />
+                  controls.pinCode.pristine}" pattern="^[1-9][0-9]{5}$" type="text" autocomplete="off"
+                    class="form-control" id="pincode" placeholder="Pin Code" />
 
                   <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid &&
                       travellerForm.controls.travellers.controls[i].controls.pinCode.dirty) ||
@@ -452,13 +454,10 @@
                     class="invalid-feedback" style="display: block">
                     Enter valid pincode
                   </div>
-                  <!-- <div *ngIf="travellerForm.controls.travellers.controls[i].controls.pinCode.errors.required && travellerForm.controls.
-                  travellers.controls[i].controls.pinCode.touched" class="invalid-feedback" style="display: block">
-                  Pin-Code is required
-                </div> -->
+                  
                 </div>
               </div>
-              <div *ngIf="category == 'e-visa'" class="form-row">
+              <div *ngIf="imageUpload" class="form-row">
                 <div class="col-md-12 mb-3">
                   <label><b> Upload required documents here </b></label>
                 </div>
@@ -624,9 +623,13 @@
             You must agree before submitting.
           </div>
         </div>
-
       </form>
-      <div style="display: flex; justify-content: center; margin-top: 30px;">
+
+      <div class="mt-3" style="font-size: 13px;" *ngIf="disclaimerForDubai">
+        <p><b>If you exceed the stay duration on the e-Visa,  you may be required to pay fines, be deported, or otherwise forbidden from future travel to UAE</b></p>
+      </div>
+
+      <div style="display: flex; justify-content: center;">
         <button (click)="seeValues()" class="btn btn-primary" style="margin-top: 20px; padding: 8px !important;"
           type="submit">
           Proceed to payment

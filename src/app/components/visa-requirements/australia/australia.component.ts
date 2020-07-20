@@ -114,7 +114,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     }
 
     let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
+  
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
     });
@@ -122,6 +122,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         if (res.code == 0) {
+
           this.MyQuotation = res.data.quotations;
 
           this.imageCatogory.push(res.data.imageUploadInfo);
@@ -135,15 +136,20 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
+
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
+          
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
@@ -307,7 +313,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     }
 
     this.imagefield1 = this.imageCatogoryTemp;
-    console.log(purposeUrl);
+  
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
@@ -335,29 +341,18 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUploads: string,
   ) {
     this.preloaderService.showPreloader(true);
-
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-
-    this.userFlow.setUserFlowDetails(
-      "minTravelDate",
-      JSON.stringify(minTravelDate)
-    );
+    this.userFlow.setUserFlowDetails("minTravelDate",JSON.stringify(minTravelDate));
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imagefield1)
-    );
-
-    //console.log(quoteId);
+    this.userFlow.setUserFlowDetails("imageUploads",JSON.stringify(this.imagefield1));
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
@@ -366,7 +361,6 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
       if (data.code == "0") {
         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-          // console.log(data);
 
           if (data.code == "0") {
             this.routerHistory.pushHistory("visa-requirement");

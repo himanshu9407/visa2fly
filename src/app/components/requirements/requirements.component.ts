@@ -206,10 +206,13 @@ export class RequirementsComponent implements OnInit {
               this.purposeApi.push(element.purpose);
               if (element.purpose == "Tourist") {
                 this.touristArr.push(element);
+                this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
               } else if (element.purpose == "Business") {
                 this.businessArr.push(element);
+                this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
               } else {
                 this.transitArr.push(element);
+                this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
               }
             });
 

@@ -129,10 +129,13 @@ export class B2bReqComponent implements OnInit {
             //console.log(this.purposeApi);
             if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else {
               this.transitArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
 

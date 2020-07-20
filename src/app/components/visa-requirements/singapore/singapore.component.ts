@@ -129,19 +129,19 @@ export class SingaporeComponent implements OnInit {
 
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
 
-          //console.log(this.MyQuotation);
-          this.MyQuotation.forEach(element => {
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              // console.log(this.businessArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              //console.log(this.touristArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              // console.log(this.transitArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
+          
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);

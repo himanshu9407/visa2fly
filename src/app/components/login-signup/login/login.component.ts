@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
@@ -47,14 +47,20 @@ export class LoginComponent implements OnInit {
     private titleService: Title,
     private meta: Meta,
     private reqService: RequirementsService
-  ) {}
-
-  onKeyPress(event: any) {
-    this.onSubmit();
+  ) {
+   
   }
 
-  onKeyPress1(event: any) {
-    this.sendOtp();
+  onUserPress(event: any) {
+    if (this.loginForm.get('userId').valid) {
+      this.sendOtp();
+    }
+  }
+
+  onOTPPress(event: any) {
+    if (this.loginForm.get('otp').valid) {
+      this.onSubmit();
+    }
   }
 
   ngOnInit() {
@@ -75,6 +81,12 @@ export class LoginComponent implements OnInit {
       otp: new FormControl(null, [Validators.required]),
       rememberMe: new FormControl(false)
     });
+
+    if (this.loginForm.get('userId').valid || this.loginForm.get('userId').value !== null) {
+      this.loginForm.get('otp').enable();
+    } else {
+      this.loginForm.get('otp').disable();
+    }
   }
 
   checkUserId() {
@@ -126,6 +138,7 @@ export class LoginComponent implements OnInit {
   sendOtp() {
     this.showLoader = true;
     this.showSendOtp = false;
+    this.loginForm.get('otp').enable();
     // this.showOtpField  =true;
     let userId = this.loginForm.get("userId").value;
     // console.log(userId);

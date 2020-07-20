@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="title-box">
-        <h2>Order History ({{totalCount}})</h2>
+        <h2>Order History ({{totalItems}})</h2>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
               <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
                 <label for="" class="filterLabel">From Date</label>
                 <div class="input-group">
-                  <input (ngModelChange)="fromDateChanged()" [(ngModel)]="fromDate" formControlName="fromDate"
+                  <input (ngModelChange)="fromDateChanged()" formControlName="fromDate"
                     class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
                     #d="ngbDatepicker" [maxDate]="maxDate" />
                   <div class="input-group-append">
@@ -50,7 +50,7 @@
               <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
                 <label for="" class="filterLabel">To Date</label>
                 <div class="input-group">
-                  <input [(ngModel)]="toDate" [disabled]="this.bookingSearchForm.get('fromDate').value == null"
+                  <input [disabled]="this.bookingSearchForm.get('fromDate').value == null"
                     formControlName="toDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd"
                     name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo" [maxDate]="maxDate" />
                   <div class="input-group-append">
