@@ -55,6 +55,7 @@ export class B2bAddTrvComponent implements OnInit {
   // firstCity = "Gurgaon"
   // firstState = "Haryana"
   selectedTravellerForm: number = 0;
+  disclaimerForDubai: boolean = false;
 
   list = {
     states: ["Delhi", "Haryana", "Uttar Pradesh"],
@@ -109,6 +110,7 @@ export class B2bAddTrvComponent implements OnInit {
   category: string;
   minTravelDate: number;
   paymentUrl: any;
+  imageUpload: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -360,6 +362,8 @@ export class B2bAddTrvComponent implements OnInit {
     }
 
     this.category = this.userFlowDetails.category;
+    this.imageUpload = this.userFlowDetails.imageUpload;
+
     // console.log(this.category);
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
@@ -432,6 +436,9 @@ export class B2bAddTrvComponent implements OnInit {
     this.quoteId = data.quoteId;
     // console.log(data);
     this.country = data.country;
+    if (this.country === "Dubai") {
+      this.disclaimerForDubai = true;
+    }
     this.basePrice = JSON.parse(data.basePrice);
     this.serviceTax = JSON.parse(data.serviceTax);
 
@@ -439,7 +446,7 @@ export class B2bAddTrvComponent implements OnInit {
     // console.log(this.serviceTax);
     this.stayPeriod = data.stayPeriod;
 
-    if (this.category == "e-visa") {
+    if (this.imageUpload) {
       this.travelDetails = new FormGroup({
         dateOfTravel: new FormControl("", [Validators.required]),
         dateOfCollection: new FormControl("", [Validators.nullValidator])
@@ -516,7 +523,7 @@ export class B2bAddTrvComponent implements OnInit {
   // }
 
   createTraveller(): FormGroup {
-    if (this.category == "e-visa") {
+    if (this.imageUpload) {
       return this.formBuilder.group({
         title: ["Mr", [Validators.required]],
         firstName: ["", [Validators.required]],
@@ -592,7 +599,7 @@ export class B2bAddTrvComponent implements OnInit {
   }
 
   checkDateOfCollection() {
-    if (this.category == "Sticker") {
+    if (!this.imageUpload) {
       if (
         this.travelDetails.get("dateOfCollection").value == undefined ||
         this.travelDetails.get("dateOfCollection").value == null ||
@@ -775,7 +782,7 @@ export class B2bAddTrvComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
-      if (this.category == "Sticker") {
+      if (!this.imageUpload) {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
           .controls.address.value;
         let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
@@ -881,7 +888,7 @@ export class B2bAddTrvComponent implements OnInit {
           (<FormArray>this.travellerForm.get("travellers")).controls || [];
 
         tempArr.forEach((form: FormGroup, index) => {
-          if (this.category == "e-visa") {
+          if (this.imageUpload) {
             this.filedNameArr.forEach(el => {
               this.formData1.append("images", form.get(el).value);
               this.tempImageArr.push(form.get(el).value);
@@ -980,7 +987,7 @@ export class B2bAddTrvComponent implements OnInit {
         fd["primaryTraveller"] = ptdata[0];
         fd["otherTravellers"] = other;
         fd["dateOfTravel"] = finalDot;
-        if (this.category == "Sticker") {
+        if (!this.imageUpload) {
           fd["dateOfDocumentCollection"] = finalDoc;
         }
         fd["quoteId"] = this.quoteId;
@@ -1054,7 +1061,7 @@ export class B2bAddTrvComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == "e-visa") {
+                if (this.imageUpload) {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                   });
@@ -1097,7 +1104,7 @@ export class B2bAddTrvComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == "e-visa") {
+                if (this.imageUpload) {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                   });
@@ -1124,7 +1131,7 @@ export class B2bAddTrvComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == "e-visa") {
+                if (this.imageUpload) {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                   });
@@ -1340,7 +1347,7 @@ export class B2bAddTrvComponent implements OnInit {
 
         let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-        if (this.category == "e-visa") {
+        if (this.imageUpload) {
           arr.forEach((element: FormGroup, i) => {
             if (i == arr.length - 1) {
               this.filedNameArr.forEach(fieldName => {

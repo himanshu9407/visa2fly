@@ -106,7 +106,7 @@
       <input minlength="6" id="username" class="form-control"
         pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$"
         (keydown.enter)="onUserPress($event)" formControlName="userId" placeholder="Email/Mobile" type="text"
-        autocomplete="off" [disabled]="true"
+        autocomplete="disabled" [disabled]="true"
         [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}">
 
       <div class="invalid-feedback" style="display: block;">

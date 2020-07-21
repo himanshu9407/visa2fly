@@ -199,7 +199,7 @@
                       'is-valid':
                         !(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) && !travellerForm.controls.travellers.controls[i].controls.firstName.pristine}"
                     pattern="[A-Za-z]{3,32}" formControlName="firstName" type="text" class="form-control"
-                    autocomplete="off" placeholder="First name" required />
+                    autocomplete="new-name" placeholder="First name" required />
 
                   <div
                     *ngIf="
@@ -215,7 +215,7 @@
                     [ngClass]="{
                       'is-invalid':travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
                       'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty) &&                    !travellerForm.controls.travellers.controls[i].controls.middleName.pristine}"
-                    pattern="[A-Za-z]{3,32}" type="text" formControlName="middleName" autocomplete="off"
+                    pattern="[A-Za-z]{3,32}" type="text" formControlName="middleName" autocomplete="new-name"
                     class="form-control" id="middlename" placeholder="Middle name" />
 
                   <div *ngIf="
@@ -232,7 +232,7 @@
                       'is-invalid':travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
                       'is-valid':!(travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty) &&                      !travellerForm.controls.travellers.controls[i].controls.lastName.pristine}"
                     pattern="[A-Za-z]{3,32}" type="text" formControlName="lastName" class="form-control"
-                    autocomplete="off" placeholder="Last name" required />
+                    autocomplete="new-name" placeholder="Last name" required />
 
                   <div
                     *ngIf="
@@ -250,7 +250,7 @@
                       <input hidden formControlName="dateOfBirth" type="text">
                       <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
                         formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate"
-                        autocomplete="off" placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
+                        autocomplete="new-name" placeholder="Date Of Birth" name="dp" ngbDatepicker #dob="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
@@ -278,7 +278,7 @@
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
                     controls.passportNumber.pristine}" pattern="^[A-Za-z]{1}[0-9]{7}$" formControlName="passportNumber"
-                      type="text" class="form-control" id="PassportNumber" autocomplete="off"
+                      type="text" class="form-control" id="PassportNumber" autocomplete="new-name"
                       placeholder="Passport Number" required />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty) || (travellerForm.controls.travellers.controls[i].controls.passportNumber.errors?.valueErr) ||
@@ -298,7 +298,7 @@
                     <div class="input-group">
                       <input hidden formControlName="passportExpiryDate">
                       <input formControlName="passportExpiryDateCopy" class="form-control addTravelDate"
-                        placeholder="Passport Expiry Date" name="dp" autocomplete="off"
+                        placeholder="Passport Expiry Date" name="dp" autocomplete="new-name"
                         [minDate]="minDatePassportExpiry" id="#doe" ngbDatepicker #doe="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button">
@@ -330,7 +330,7 @@
                       'is-valid':!(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
                       travellers.controls[i].controls.emailId.dirty) && !travellerForm.controls.travellers.controls[i].
                       controls.emailId.pristine}" formControlName="emailId" type="email" class="form-control"
-                      id="EmailId" autocomplete="off" placeholder="Email ID" required />
+                      id="EmailId" autocomplete="new-name" placeholder="Email ID" required />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid &&
                         travellerForm.controls.travellers.controls[i].controls.emailId.dirty) ||
@@ -349,7 +349,7 @@
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
                     travellers.controls[i].controls.gstNumber.dirty) && !travellerForm.controls.travellers.controls[i].
                     controls.gstNumber.pristine}" formControlName="gstNumber" type="text" class="form-control"
-                      id="GstNumber" autocomplete="off" placeholder="GSTIN No. (Optional)" />
+                      id="GstNumber" autocomplete="new-name" placeholder="GSTIN No. (Optional)" />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid &&
                         travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty) ||
@@ -366,7 +366,7 @@
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
                   travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
                   controls.cellNumber.pristine}" pattern="^[6-9][0-9]{9}$" type="tel" formControlName="cellNumber"
-                    class="form-control" autocomplete="off" placeholder="Mobile Number" required />
+                    class="form-control" autocomplete="new-name" placeholder="Mobile Number" required />
                   <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid &&
                       travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) ||
                       (travellerForm.controls.travellers.controls[i].controls.cellNumber.errors?.valueErr) ||
@@ -398,7 +398,7 @@
                     .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
                     travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].
-                    controls.address.pristine}" formControlName="address" class="form-control "
+                    controls.address.pristine}" autocomplete="new-name" formControlName="address" class="form-control "
                       placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.address.invalid &&
                         travellerForm.controls.travellers.controls[i].controls.address.dirty) ||
@@ -443,7 +443,7 @@
                   .pinCode.invalid && travellerForm.controls.travellers.controls[i].controls.pinCode.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
                   travellers.controls[i].controls.pinCode.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.pinCode.pristine}" pattern="^[1-9][0-9]{5}$" type="text" autocomplete="off"
+                  controls.pinCode.pristine}" pattern="^[1-9][0-9]{5}$" type="text" autocomplete="new-name"
                     class="form-control" id="pincode" placeholder="Pin Code" />
 
                   <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid &&
