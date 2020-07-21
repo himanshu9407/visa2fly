@@ -241,11 +241,35 @@ export class HomeFormComponent {
           break;
         }
 
-        case "Rwanda": {
-          this.router.navigate(["visa/rwanda-visa-online"]);
+        case "South Africa": {
+          this.router.navigate(["visa/south-africa-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
+
+        case "New Zealand": {
+          this.router.navigate(["visa/new-zealand-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Taiwan": {
+          this.router.navigate(["visa/taiwan-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        // case "Rwanda": {
+        //   this.router.navigate(["visa/rwanda-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
+
+        // case "Armenia": {
+        //   this.router.navigate(["visa/armenia-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
         case "Japan": {
           this.router.navigate(["visa/japan-visa-online"]);
@@ -253,30 +277,29 @@ export class HomeFormComponent {
           break;
         }
 
-        case "Brazil": {
-          this.router.navigate(["visa/brazil-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Brazil": {
+        //   this.router.navigate(["visa/brazil-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Tajikistan": {
-          // this.setDetailsOnLocalStorage();
-          this.router.navigate(["visa/uk-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Tajikistan": {
+        //   this.router.navigate(["visa/uk-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Zambia": {
-          this.router.navigate(["visa/zambia-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Zambia": {
+        //   this.router.navigate(["visa/zambia-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Russia": {
-          this.router.navigate(["visa/russia-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Russia": {
+        //   this.router.navigate(["visa/russia-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
         case "Uzbekistan": {
           this.router.navigate(["visa/uzbekistan-visa-online"]);
@@ -312,6 +335,12 @@ export class HomeFormComponent {
         }
         case "Dubai": {
           this.router.navigate(["visa/dubai-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Egypt": {
+          this.router.navigate(["visa/egypt-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }

@@ -1,0 +1,2921 @@
+<div class="container-fluid breadcrumSection">
+    <div class="row">
+      <div class="col-12">
+        <p class="breadcrum"><a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ countryStatic }} Visa Details</b>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- desktop Only -->
+  <div class="container-fluid imageContainer desktopView">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="countryImage">
+          <img class="bannerImage rounded img-fluid lazyload"
+            data-src="https://static.visa2fly.com/country/South Africa.jpg" alt="south africa e-visa for Indians" />
+        </div>
+      </div>
+  
+      <div class="col-lg-4 visaStepContainer" *ngIf="!onlinestatus">
+        <div class="visaStep">
+          <div class="visaStepHeader text-center">
+            <h1 class="visaStepHeading">Apply For {{countryStatic}} Visa Online</h1>
+          </div>
+          <div class="visaStepContent">
+            <div class="row">
+              <div class="col-md-6 col-lg-12 col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 14px;">Step 1</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="https://static.visa2fly.com/assets/text-document.png" alt="apply south africa e visa online"
+                      class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
+                  </div>
+                  <div class="col-10">
+                    <h5 style="font-size: 16px; margin-bottom: 5px;">Booking Online</h5>
+                    <p style="font-size: 12px; margin-bottom: 7px;">Select Your Visa And Pay Online</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-12 col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 14px;">Step 2</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="https://static.visa2fly.com/assets/checked-files.png" alt="apply south africa e visa online"
+                      class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
+                  </div>
+                  <div class="col-10">
+                    <h5 style="font-size: 16px; margin-bottom: 5px;">
+                      Document Validation</h5>
+                    <p style="font-size: 12px; margin-bottom: 7px;">Our visa expert will verify & collect your document.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-12 col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 14px;">Step 3</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="https://static.visa2fly.com/assets/time-left.png" alt="apply south africa e visa online"
+                      class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
+                  </div>
+                  <div class="col-10">
+                    <h5 style="font-size: 16px; margin-bottom: 5px;">
+                      Visa Processing</h5>
+                    <p style="font-size: 12px; margin-bottom: 7px;">We schedule documents submission, biometric /
+                      Interview.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-12 col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 14px;">Step 4</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="https://static.visa2fly.com/assets/passport(1).png" alt="apply south africa e visa online"
+                      class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
+                  </div>
+                  <div class="col-10">
+                    <h5 style="font-size: 16px; margin-bottom: 5px;">
+  
+                      Visa at doorstep</h5>
+                    <p style="font-size: 12px; margin-bottom: 7px;">Passport gets delivered at your doorstep.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-lg-4 visaStepContainer" *ngIf="onlinestatus">
+        <div class="visaStep">
+          <div class="visaStepHeader text-center">
+            <h1 class="visaStepHeading">Apply For {{countryStatic}} Visa Online</h1>
+          </div>
+          <div class="visaStepContent">
+            <div class="row">
+              <div class="col-md-6 col-lg-12 col-6 mt-2">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 16px;">Step 1</h5>
+                  </div>
+                  <div class="col-2">
+                    <img data-src="https://static.visa2fly.com/assets/file.png" alt="apply south africa e visa online"
+                      class="img-fluid lazyload" style="height: 30px; width: 30px; margin-top: 4px;" />
+                  </div>
+                  <div class="col-10">
+                    <h5 style="font-size: 16px; margin-bottom: 5px;">Upload Document</h5>
+                    <p style="font-size: 12px; margin-bottom: 7px;">Upload soft copy passport front
+                      and book your Visa</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-12 col-6 mt-2">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 16px;">Step 2</h5>
+                  </div>
+                  <div class="col-2">
+                    <img data-src="https://static.visa2fly.com/assets/credit.png" alt="apply south africa e visa online"
+                      class="img-fluid lazyload" style="height: 30px; width: 30px; margin-top: 4px;" />
+                  </div>
+                  <div class="col-10">
+                    <h5 style="font-size: 16px; margin-bottom: 5px;">
+  
+                      Pay online</h5>
+                    <p style="font-size: 12px; margin-bottom: 7px;">Pay online securely.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-12 col-6 mt-2">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 16px;">Step 3</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="https://static.visa2fly.com/assets/passport(1).png" alt="apply south africa e visa online"
+                      class="img-fluid" style="height: 30px; width: 30px; margin-top: 4px;" />
+                  </div>
+                  <div class="col-10">
+                    <h5 style="font-size: 16px; margin-bottom: 5px;">
+  
+                      Get your visa</h5>
+                    <p style="font-size: 12px; margin-bottom: 7px;">Receive your approved visa .</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="container-fluid imageContainer mobileView">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="countryImage">
+          <img class="bannerImage rounded img-fluid lazyload"
+            data-src="https://static.visa2fly.com/country/South Africa.jpg" alt="south africa e-visa for Indians" />
+        </div>
+      </div>
+  
+      <div class="col-lg-12 visaStepContainer" *ngIf="!onlinestatus">
+        <div class="visaStep">
+          <div class="visaStepHeader text-center">
+            <h1 class="visaStepHeading">Apply For {{countryStatic}} Visa Online</h1>
+          </div>
+          <div class="visaStepContent mt-3">
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-6 txtCenter">
+                <div class="row">
+                  <div class="col-12 ">
+                    <h5 style="font-size: 14px;">Step 1</h5>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-12">
+                    <div class="makeIconCntr">
+                      <div class="img-sprite vrStep-size vrStep-txtDoc"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                    <h5 class="visaStepMainPoint">Booking Online</h5>
+                    <p class="visaStepPoints">Select Your Visa And Pay Online</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-6 txtCenter">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 14px;">Step 2</h5>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-12 ">
+                    <div class="makeIconCntr">
+                      <div class="img-sprite vrStep-size vrStep-checkedDoc"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                    <h5 class="visaStepMainPoint">
+                      Document Validation</h5>
+                    <p class="visaStepPoints">Our visa expert will verify & collect your document.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-6 txtCenter diffMg">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 14px;">Step 3</h5>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-12 ">
+                    <div class="makeIconCntr">
+                      <div class="img-sprite vrStep-size vrStep-clock"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                    <h5 class="visaStepMainPoint">
+                      Visa Processing</h5>
+                    <p class="visaStepPoints">We schedule documents submission, biometric / Interview.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-6 txtCenter diffMg">
+                <div class="row">
+                  <div class="col-12 ">
+                    <h5 style="font-size: 14px;">Step 4</h5>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-12">
+                    <div class="makeIconCntr">
+                      <div class="img-sprite vrStep-size vrStep-passport"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                    <h5 class="visaStepMainPoint">
+  
+                      Visa at doorstep</h5>
+                    <p class="visaStepPoints">Passport gets delivered at your doorstep.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-lg-12 visaStepContainer" *ngIf="onlinestatus">
+        <div class="visaStep">
+          <div class="visaStepHeader text-center">
+            <h1 class="visaStepHeading">Apply For {{countryStatic}} Visa Online</h1>
+          </div>
+          <div class="visaStepContent mt-3">
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-6 txtCenter">
+                <div class="row">
+                  <div class="col-12 ">
+                    <h5 style="font-size: 16px;">Step 1</h5>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-12">
+                    <!-- <img data-src="https://static.visa2fly.com/assets/file.png" alt="australia e visa online"
+                                      class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" /> -->
+                    <div class="makeIconCntr">
+                      <div class="img-sprite vrStep-size vrStep-uploadDoc"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                    <h5 class="visaStepMainPoint">Upload Document</h5>
+                    <p class="visaStepPoints">Upload soft copy passport front and book your Visa</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-6 txtCenter">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 16px;">Step 2</h5>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-12 ">
+                    <!-- <img data-src="https://static.visa2fly.com/assets/credit.png" alt="australia e visa online"
+                                      class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" /> -->
+                    <div class="makeIconCntr">
+                      <div class="img-sprite vrStep-size vrStep-payOnline"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-10 col-md-10 col-12 diffMg2">
+                    <h5 class="visaStepMainPoint">
+                      Pay online</h5>
+                    <p class="visaStepPoints">Pay online securely.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 col-12 txtCenter diffMg" style="display: flex;justify-content: center;">
+                <div class="row">
+                  <div class="col-12">
+                    <h5 style="font-size: 16px;">Step 3</h5>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-12 ">
+                    <!-- <img data-src="https://static.visa2fly.com/assets/passport(1).png" alt="australia e visa online"
+                                      class="img-fluid mgTop lazyload" style="height: 30px; width: 30px;" /> -->
+                    <div class="makeIconCntr">
+                      <div class="img-sprite vrStep-size vrStep-passport"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-12 diffMg2">
+                    <h5 class="visaStepMainPoint">
+                      Get your visa</h5>
+                    <p class="visaStepPoints">Receive your approved visa.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="container-fluid wrapContainer">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-4 setPadding">
+            Visa Type :
+          </div>
+          <div class="col-lg-5 col-md-6 col-8">
+            <form [formGroup]="purposeChooseForm">
+              <!-- <mat-form-field class="setWidth">
+                          <mat-select (selectionChange)="purposeChanged()"  formControlName="purposeSelected">
+                              <mat-option value="Tourist">
+                                  Tourist
+                              </mat-option>
+                              <mat-option value="Business">
+                                  Business
+                              </mat-option>
+                              <mat-option value="Transit">
+                                  Transit
+                              </mat-option>
+                          </mat-select>
+                      </mat-form-field> -->
+              <div class="select-box">
+                <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div class="select-box__value">
+                    <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                      formControlName="purposeSelected" checked="checked" />
+                    <p class="select-box__input-text">Tourist</p>
+                  </div>
+                  <div class="select-box__value">
+                    <input class="select-box__input" type="radio" id="Business" value="Business" name="purposeSelected"
+                      formControlName="purposeSelected" checked="checked" />
+                    <p class="select-box__input-text">Business</p>
+                  </div>
+                  <div class="select-box__value">
+                    <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
+                      formControlName="purposeSelected" checked="checked" />
+                    <p class="select-box__input-text">Transit</p>
+                  </div>
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
+                    enable-background="new 0 0 1000 1000" xml:space="preserve">
+                    <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <g>
+                      <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                    </g>
+                  </svg>
+                </div>
+                <ul class="select-box__list">
+                  <li>
+                    <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                      aria-hidden="aria-hidden">Tourist</label>
+                  </li>
+                  <li>
+                    <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                      aria-hidden="aria-hidden">Business</label>
+                  </li>
+                  <li>
+                    <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                      aria-hidden="aria-hidden">Transit</label>
+                  </li>
+                </ul>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div class="container-fluid wrapContainer mobileView">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="row">
+                  <div class="col-lg-3 col-md-2 col-4">
+                      Visa Type
+                  </div>
+                  <div class="col-lg-6 col-md-3 col-5">
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                          <option value="tourist">Tourist</option>
+                          <option value="business">Business</option>
+                          <option value="transit">Transit</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+  
+  
+  <div class="container-fluid wrapContainer" style="overflow: hidden;">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
+  
+        <div class="card planCard">
+          <div class="card-header text-center font-weight-bold" style="background: #e2e2e2;">
+            {{quotation.purpose}} ({{quotation.processingType}})
+          </div>
+          <div class="card-body planCardBody">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
+              </div>
+              <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+                {{quotation.processingTime}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-6 planCardRow">Category:</div>
+              <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right planCardRow">{{quotation.category}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
+              <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
+              <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
+              <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+                {{quotation.entryType}}
+  
+                <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;"
+                  class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
+                  <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
+                    <path fill-rule="evenodd"
+                      d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
+  
+                <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;"
+                  class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
+                  <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
+                    <path fill-rule="evenodd"
+                      d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
+  
+                <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;"
+                  class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
+                  <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
+                    <path fill-rule="evenodd"
+                      d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-6 planCardRow
+                          ">Fees:</div>
+              <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
+                          planCardRow" style="color: #000080;">
+                INR {{quotation.basePrice + quotation.serviceTax}}</div>
+            </div>
+            <!-- <div class="col-6">Processing time:</div>
+                      <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
+                      <div class="col-6">Stay period :</div>
+                      <div class="col-6">Lorem, ipsum se</div>
+                      <div class="col-6">Validity :</div>
+                      <div class="col-6">Lorem, ipsum se</div>
+                      <div class="col-6">Entry:</div>
+                      <div class="col-6">Lorem, ipsum se</div>
+                      <div class="col-6">Fees:</div>
+                      <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
+                  (click)="navigate(quotation.quoteId, quotation.purpose, quotation.category, quotation.minTravelDate, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="container-fluid wrapContainer">
+    <div class="iconSection">
+      <ngb-tabset #t="ngbTabset" (tabChange)="navigateTo($event)" class="tabset" type="pills" [justify]="desktopJustify"
+        [orientation]="desktopOrientation">
+        <ngb-tab id="Tourist" title="Tourist">
+  
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+              <!-- tourist -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                      VISA REQUIREMENT FOR
+                      SOUTH AFRICA</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <!-- desktopContainer -->
+              <div class="desktopContainer accordion" id="touristAccodion">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristOne" aria-expanded="true"
+                          aria-controls="touristOne" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="UK tourist visa for Indian"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristOne" class="collapsed" aria-labelledby="headingOne"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                  The application form-11 (DHA-84) should be completed in full and 
+                                  submitted. Please make sure it is completed in black ink and 
+                                  block letters. It must also be signed by the applicant and 
+                                  this signature needs to match the one on the 
+                                  applicant’s passport.
+                              </p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristTwo" aria-expanded="false"
+                          aria-controls="touristTwo" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="UK tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Your passport should be valid for at least 30 days after your 
+                                intended departure date from South Africa. It must also have 
+                                at least 2 unused (blank) visa pages. You should also carry 
+                                copies of your passport biodata page. If you have any old passports, 
+                                you will need to provide those as well. It is mandatory if you are 
+                                applying in Mumbai,Pune,Ahmedabad,Goa and Bangalore.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristThree" aria-expanded="false"
+                          aria-controls="touristThree" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png"
+                            alt="UK tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristThree" class="collapse" aria-labelledby="headingThree"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                You will need 2 recent photos. These should be less than 1 month old and must have dimensions of the International Passport size.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#toursitFour" aria-expanded="false"
+                          aria-controls="toursitFour" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="UK tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="toursitFour" class="collapse" aria-labelledby="headingFour"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof of
+                                Funds</h1>
+                              <p>
+                                You will need to prove that there is enough funds for you 
+                                to be able to travel in South Africa. This may include the 
+                                last 3 month’s bank statements. These statements should be 
+                                signed and stamped by the respective bank. Passbooks, e-statements 
+                                and net banking copies are not accepted. Your bank statement must be 
+                                showing your account having a balance of South African Currency R 3000 
+                                (or equivalent in INR).
+                              </p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristFive" aria-expanded="true"
+                          aria-controls="touristFive" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTourist(5)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                            alt="UK tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Hotel Booking</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristFive" class="collapse" aria-labelledby="headingFive"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Hotel Booking
+                              </h1>
+                              <p>
+                                Before you travel and apply for a visa, you need to provide proof 
+                                of hotel booking, which should be verifiable. This means it should state 
+                                the name and passport number of the applicant(s). The duration of visit, 
+                                physical address, and contact details of the hotel should also be 
+                                mentioned in this proof. The proof must have an authorized signature 
+                                with their name and designation.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristSix" aria-expanded="true"
+                          aria-controls="touristSix" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTourist(6)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                            alt="UK tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristSix" class="collapse" aria-labelledby="headingSix" data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight
+                                Tickets
+                              </h1>
+                              <p>
+                                You will need to show proof of a valid flight ticket, or provide proof of a flight reservation. This must be for both onward and return trips.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristSeven" aria-expanded="true"
+                          aria-controls="touristSeven" [class.showDiv]="selectedTourist === 7"
+                          (click)="setActiveTourist(7)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png"
+                            alt="UK tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristSeven" class="collapse" aria-labelledby="headingSeven"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Itinerary
+                              </h1>
+                              <p>
+                                You will also need a day-to-day itinerary/travel plan for your whole stay in South Africa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristEight" aria-expanded="true"
+                          aria-controls="touristEight" [class.showDiv]="selectedTourist === 8"
+                          (click)="setActiveTourist(8)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="UK tourist visa for Indian"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                        <div class="makeIconCntr">
+                            <div class="vr-noc requiredIcons img-sprite"></div>
+                        </div>
+                          <h2 class="setFontSize">No Objection Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristEight" class="collapse" aria-labelledby="headingEight"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">No Objection Certificate</h1>
+                              <p>
+                                An NOC must be submitted from the applicant’s employer (if employed)/ 
+                                school/ university (if studying). It must clearly mention the name 
+                                and passport number of the applicant, as well as their duration of 
+                                visit. This letter must have the postal address of the institution, as 
+                                well as contact details of the authorized signature’s (i.e. employer or institutions’) 
+                                name and designation. If you are travelling with a minor/the minor is 
+                                travelling alone, you will need to show an NOC from their legal 
+                                guardians stating the same.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristNine" aria-expanded="true"
+                          aria-controls="touristNine" [class.showDiv]="selectedTourist === 9"
+                          (click)="setActiveTourist(9)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="UK tourist visa for Indian"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-yellowFever requiredIcons img-sprite"></div>
+                            </div>
+                          <h2 class="setFontSize">Yellow Fever Vaccination Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristNine" class="collapse" aria-labelledby="headingNine"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Yellow Fever Vaccination Certificate</h1>
+                              <p>
+                                This is necessary only if the applicant is travelling through/staying 
+                                in the yellow fever belt of South America/Africa before 
+                                coming to South Africa.
+                             </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristTen" aria-expanded="true"
+                            aria-controls="touristTen" [class.showDiv]="selectedTourist === 10"
+                            (click)="setActiveTourist(10)">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                              alt="UK tourist visa for Indian"
+                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                              <div class="makeIconCntr">
+                                  <div class="vr-marriageCertificate requiredIcons img-sprite"></div>
+                              </div>
+                            <h2 class="setFontSize">Marriage Certificate</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristTen" class="collapse" aria-labelledby="headingTen"
+                            data-parent="#touristAccodion">
+                            <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Marriage Certificate</h1>
+                                <p>
+                                    If married and wherever applicable, you will need to provide your original Marriage certificate for verification purposes.
+                               </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristEleven" aria-expanded="true"
+                            aria-controls="touristEleven" [class.showDiv]="selectedTourist === 11"
+                            (click)="setActiveTourist(11)">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                              alt="UK tourist visa for Indian"
+                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                              <div class="makeIconCntr">
+                                  <div class="vr-coverLetter requiredIcons img-sprite"></div>
+                              </div>
+                            <h2 class="setFontSize">Cover Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristEleven" class="collapse" aria-labelledby="headingEleven"
+                            data-parent="#touristAccodion">
+                            <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Cover Letter</h1>
+                                <p>
+                                    You must provide an original covering letter that is signed by 
+                                    the applicant. It should state the name and passport number of 
+                                    applicant(s), as well as their duration of visit. This letter should 
+                                    have the postal address, as well as contact details of the 
+                                    applicant - their name, designation and signature is also necessary. 
+                                    In the letter please clearly mention who will bear the 
+                                    expenses of the trip.
+                               </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          
+                        </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer accordion" id="touristAccodionMobile">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
+                          aria-controls="touristMobileOne" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="UK tourist visa for Indian"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                The application form-11 (DHA-84) should be completed in full 
+                                and submitted. Please make sure it is completed in black ink and 
+                                block letters. It must also be signed by the applicant and 
+                                this signature needs to match the one on 
+                                the applicant’s passport. 
+                              </p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
+                          aria-controls="touristMobileTwo" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="UK tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Your passport should be valid for at least 30 days after your 
+                                intended departure date from South Africa. It must also have at least 
+                                2 unused (blank) visa pages. You should also carry copies of your passport 
+                                biodata page. If you have any old passports, you will need to provide 
+                                those as well. It is mandatory if you are applying in Mumbai,Pune,
+                                Ahmedabad,Goa and Bangalore. 
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
+                          aria-controls="touristMobileThree" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3)">
+                          <!-- <img class="img-fluid"
+                            src="https://static.visa2fly.com/icon/Photograph.png" alt="UK tourist visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileThree" class="collapse" aria-labelledby="headingMobileThree"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                You will need 2 recent photos. These should be less than 1 month old and must have dimensions of the International Passport size.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
+                          aria-controls="touristMobileFour" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="Proof of Funds UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof of
+                                Funds</h1>
+                              <p>
+                                You will need to prove that there is enough funds for you to be 
+                                able to travel in South Africa. This may include the last 3 month’s 
+                                bank statements. These statements should be signed and stamped by 
+                                the respective bank. Passbooks, e-statements and net banking copies 
+                                are not accepted. Your bank statement must be showing your account 
+                                having a balance of South African Currency R 3000 (or equivalent in INR).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true"
+                          aria-controls="touristMobileFive" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTourist(5)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Hotel Booking</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileFive" class="collapse" aria-labelledby="headingMobileFive"
+                          data-parent="#touristAccodionMobile" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTourist(6)">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Hotel Booking
+                              </h1>
+                              <p>
+                                Before you travel and apply for a visa, you need to provide 
+                                proof of hotel booking, which should be verifiable. This means it 
+                                should state the name and passport number of the applicant(s). 
+                                The duration of visit, physical address, and contact details of the 
+                                hotel should also be mentioned in this proof. The proof must have an 
+                                authorized signature with their name and designation.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true"
+                          aria-controls="touristMobileSix" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTourist(6)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileSix" class="collapse" aria-labelledby="headingMobileSix"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight
+                                Tickets
+                              </h1>
+                              <p>
+                                You will need to show proof of a valid flight ticket, or provide proof 
+                                of a flight reservation. This must be for both onward and return trips.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true"
+                          aria-controls="touristMobileSeven" [class.showDiv]="selectedTourist === 7"
+                          (click)="setActiveTourist(7)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileSeven" class="collapse" aria-labelledby="headingMobileSeven"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Itinerary
+                              </h1>
+                              <p>
+                                You will also need a day-to-day itinerary/travel plan for your whole stay in South Africa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true"
+                          aria-controls="touristMobileEight" [class.showDiv]="selectedTourist === 8"
+                          (click)="setActiveTourist(8)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-noc requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">No Objection Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileEight" class="collapse" aria-labelledby="headingMobileEight"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">No Objection Certificate</h1>
+                              <p>
+                                An NOC must be submitted from the applicant’s employer (if employed)/ 
+                                school/ university (if studying). It must clearly mention the name and 
+                                passport number of the applicant, as well as their duration of visit. 
+                                This letter must have the postal address of the institution, as well 
+                                as contact details of the authorized signature’s (i.e. employer or institutions’) 
+                                name and designation. If you are travelling with a minor/the minor is 
+                                travelling alone, you will need to show an NOC from their legal 
+                                guardians stating the same.
+                              </p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileNine" aria-expanded="true"
+                          aria-controls="touristMobileNine" [class.showDiv]="selectedTourist === 9"
+                          (click)="setActiveTourist(9)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="UK tourist visa application"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-yellowFever requiredIcons img-sprite"></div>
+                            </div>
+                          <h2 class="setFontSize">Yellow Fever Vaccination Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileNine" class="collapse" aria-labelledby="headingMobileNine"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Yellow Fever Vaccination Certificate</h1>
+                              <p>
+                                This is necessary only if the applicant is travelling through/staying in the yellow fever belt of South America/Africa before coming to South Africa.
+                              </p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobileTen" aria-expanded="true"
+                            aria-controls="touristMobileTen" [class.showDiv]="selectedTourist === 10"
+                            (click)="setActiveTourist(10)">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                              alt="UK tourist visa application"
+                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                              <div class="makeIconCntr">
+                                  <div class="vr-marriageCertificate requiredIcons img-sprite"></div>
+                              </div>
+                            <h2 class="setFontSize">Marriage Certificate</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobileTen" class="collapse" aria-labelledby="headingMobileTen"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Marriage Certificate</h1>
+                                <p>
+                                    If married and wherever applicable, you will need to provide your original Marriage certificate for verification purposes.
+                                </p>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobileEleven" aria-expanded="true"
+                            aria-controls="touristMobileEleven" [class.showDiv]="selectedTourist === 11"
+                            (click)="setActiveTourist(11)">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                              alt="UK tourist visa application"
+                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                              <div class="makeIconCntr">
+                                  <div class="vr-coverLetter requiredIcons img-sprite"></div>
+                              </div>
+                            <h2 class="setFontSize">Cover Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobileEleven" class="collapse" aria-labelledby="headingMobileEleven"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Cover Letter</h1>
+                                <p>
+                                    You must provide an original covering letter that is signed by 
+                                    the applicant. It should state the name and passport number of 
+                                    applicant(s), as well as their duration of visit. This letter should 
+                                    have the postal address, as well as contact details of the applicant - 
+                                    their name, designation and signature is also necessary. In the 
+                                    letter please clearly mention who will bear the expenses of the trip.
+                                </p>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                          <ng-template ngbTabTitle>
+                            
+                          </ng-template>
+                          <ng-template ngbTabContent>
+                            
+                          </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+              </div>
+  
+            </div>
+            <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-lg-12 p-0 impRequired">
+                  <div class="card">
+                    <div class="card-header text-center text-white text-uppercase"
+                      style="background: #000080; font-weight: 600;">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                        xml:space="preserve" width="15px" height="15px" class="hovered-paths mr-1"
+                        style="margin-top: -3px;">
+                        <g>
+                          <g>
+                            <g>
+                              <path
+                                d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M298.667,416    c0,5.896-4.771,10.667-10.667,10.667h-64c-5.896,0-10.667-4.771-10.667-10.667V256h-10.667c-5.896,0-10.667-4.771-10.667-10.667    v-42.667c0-5.896,4.771-10.667,10.667-10.667H288c5.896,0,10.667,4.771,10.667,10.667V416z M256,170.667    c-23.531,0-42.667-19.135-42.667-42.667S232.469,85.333,256,85.333s42.667,19.135,42.667,42.667S279.531,170.667,256,170.667z"
+                                data-original="#000000" class="hovered-path active-path" data-old_color="#000000"
+                                fill="#FFFFFF" />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>IMPORTANT VISA INFORMATION FOR SOUTH AFRICA
+                    </div>
+                    <div class="card-body">
+                      <p>
+                        <li>All Indian passport holders require a valid visa to enter South Africa.</li>
+                      </p>
+                      <p>
+                        <li>Each applicant must have all the mandatory documents as mentioned in
+                          requirement tabs below</li>
+                      </p>
+                      <p>
+                        <li>In addition to the documents mentioned, our visa experts or the
+                          concerned embassy may require
+                          you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                          such
+                          additional documents is essential for a positive outcome.</li>
+                      </p>
+                      <p>
+                        <li>If all the documents are not ready at the time of agent visit then
+                          additional charges levied
+                          when agent visits your residence again</li>
+                      </p>
+                      <p>
+                        <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid mt-2" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-12 text-center">
+                  <h1><span class="faqContainer">FAQ's</span></h1>
+                </div>
+  
+                <!-- tourist -->
+                <div class="col-12 p-0">
+                  <div class="accordion" id="southafricaAccordionTourist">
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTouristOne" data-toggle="collapse"
+                        data-target="#southafricaAccordionTouristOne" aria-expanded="true"
+                        aria-controls="southafricaAccordionTouristOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button">
+                            What are the things I can do with a visitors visa?
+                          </button>
+                        </h5>
+                      </div>
+  
+                      <div id="southafricaAccordionTouristOne" class="collapse show" aria-labelledby="headingTouristOne"
+                        data-parent="#southafricaAccordionTourist">
+                        <div class="card-body">
+                          <p>
+                              You will be able to visit family or friends, as well as undertake tourism purposes. You can also attend sports events with this visa.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTouristTwo" data-toggle="collapse"
+                        data-target="#southafricaAccordionTouristTwo" aria-expanded="false"
+                        aria-controls="southafricaAccordionTouristTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Can I get my visa online?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionTouristTwo" class="collapse" aria-labelledby="headingTouristTwo"
+                        data-parent="#southafricaAccordionTourist">
+                        <div class="card-body">
+                          <p> 
+                              The South African government has announced that an e-visa system may start 
+                              in 2021. For now, you will have to apply in person at the nearest official 
+                              visa application centre. However, some cases may require your attendance 
+                              at the South African High Commission, Delhi or the Consulate General 
+                              of the Republic of South Africa, Mumbai. This would be prior to them 
+                              taking a decision on your visa.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTouristThree" data-toggle="collapse"
+                        data-target="#southafricaAccordionTouristThree" aria-expanded="false"
+                        aria-controls="southafricaAccordionTouristThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Is it guaranteed that I can enter South Africa with my visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionTouristThree" class="collapse" aria-labelledby="headingTouristThree"
+                        data-parent="#southafricaAccordionTourist">
+                        <div class="card-body">
+                          <p>
+                              Your visa is proof that your application has been reviewed at 
+                              a South African embassy, mission or consulate, and a consular 
+                              officer has deemed you eligible to enter the country for a set 
+                              purpose. The visa will allow you to exit your country and travel 
+                              to a South African port of entry. Here, an immigration official 
+                              will determine if you are allowed to enter or not, and for how 
+                              long you can stay for that particular visit.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTouristFour" data-toggle="collapse"
+                        data-target="#southafricaAccordionTouristFour" aria-expanded="false"
+                        aria-controls="southafricaAccordionTouristFour">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            What is the stay period of my visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionTouristFour" class="collapse" aria-labelledby="headingTouristFour"
+                        data-parent="#southafricaAccordionTourist">
+                        <div class="card-body">
+                          <p>
+                            Your visa’s period of validity is calculated from the date of entry into 
+                            South Africa. It will be set out under the heading "conditions" on the 
+                            visa label. This is why you need to make sure that you apply for 
+                            the correct visa/permit. You may be refused entry if your intentions do 
+                            not match those on the visa. The stay period depends on your 
+                            purpose and how long it will take to complete your itinerary - it varies 
+                            from person to person, but is stated clearly in your visa label.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingTouristFive" data-toggle="collapse"
+                          data-target="#southafricaAccordionTouristFive" aria-expanded="false"
+                          aria-controls="southafricaAccordionTouristFive">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                Do I need a yellow fever vaccination?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionTouristFive" class="collapse" aria-labelledby="headingTouristFive"
+                          data-parent="#southafricaAccordionTourist">
+                          <div class="card-body">
+                            <p>
+                                If you are on a direct flight to South Africa, you do not. If you 
+                                are transiting through the yellow-fever belt of Africa or South America, 
+                                you will need to get one before leaving India.
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingTouristSix" data-toggle="collapse"
+                          data-target="#southafricaAccordionTouristSix" aria-expanded="false"
+                          aria-controls="southafricaAccordionTouristSix">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                If I am travelling with a minor/the minor is travelling alone, are there any documents needed?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionTouristSix" class="collapse" aria-labelledby="headingTouristSix"
+                          data-parent="#southafricaAccordionTourist">
+                          <div class="card-body">
+                            <p>
+                                You will need an NOC from the legal guardians (which is outlined in 
+                                the “Documents Required” part of this webpage). Other than this, you 
+                                will need a Parental Consent Affidavit form (for which the link is 
+                                with us as well as VFS), a passport copy of the parents and the child, 
+                                and the unabridged Birth Certificate of child must be carried for Parental 
+                                Consent Affidavit procedure. In the case of death of either parent, 
+                                their death certificate has to be produced. If the parents are divorced, 
+                                the legal divorce documents have to be produced. If the original birth 
+                                certificate of the minor is in a language other than English, it must 
+                                be translated into English, with the original attached as well.
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingTouristSeven" data-toggle="collapse"
+                          data-target="#southafricaAccordionTouristSeven" aria-expanded="false"
+                          aria-controls="southafricaAccordionTouristSeven">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                If I am travelling to visit family/friends, do I need any additional documents?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionTouristSeven" class="collapse" aria-labelledby="headingTouristSeven"
+                          data-parent="#southafricaAccordionTourist">
+                          <div class="card-body">
+                            <p>
+                                You will need a letter of invitation from the South African hosts 
+                                whom you are going to visit. This should state the name and passport number 
+                                of the applicant, as well as the purpose and duration of visit to South Africa. 
+                                This letter should have the physical/postal address, as well as the contact 
+                                details of the host. It must be signed by the host, with their 
+                                name and designation written alongside. You must attach their ID 
+                                proof copy as well, and get the invitation Letter attested by a commissioner 
+                                of OATHS/South African Police.Another document needed is the attested residence 
+                                proof of the family/friends/host.
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingTouristEight" data-toggle="collapse"
+                          data-target="#southafricaAccordionTouristEight" aria-expanded="false"
+                          aria-controls="southafricaAccordionTouristEigth">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                What are the documents I can use to show my proof of financial means?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionTouristEight" class="collapse" aria-labelledby="headingTouristEight"
+                          data-parent="#southafricaAccordionTourist">
+                          <div class="card-body">
+                            <p>
+                                These are the usually accepted documents. you will need to show proof of one or more of:
+                            </p>
+                            <li>Bank statements</li>
+                            <li>Salary advances</li>
+                            <li>Undertakings by the host(s) in South Africa</li>
+                            <li>Bursary</li>
+                            <li>Medical cover or</li>
+                            <li>The cash available with you in person (including credit cards and travellers’ cheques)</li>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingTouristNine" data-toggle="collapse"
+                          data-target="#southafricaAccordionTouristNine" aria-expanded="false"
+                          aria-controls="southafricaAccordionTouristNine">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                If I am travelling in a tour/group, is there any other document I need?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionTouristNine" class="collapse" aria-labelledby="headingTouristNine"
+                          data-parent="#southafricaAccordionTourist">
+                          <div class="card-body">
+                            <p>
+                                For the proof of hotel booking, you need two more documents:
+                            </p>
+                            <li>A letter from South Africa is needed. This letter needs to contain 
+                                the name and details of the South Africa tour guide handling company, 
+                                as well as the travel agency in South Africa that it is partnering with. 
+                                This letter must list all the tourist names, as well as a signature.
+                            </li>
+                            <li>A copy of the tour's itinerary must also be signed by a South Africa host (tour handling company.)</li>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+  
+  
+              </div>
+            </div>
+  
+  
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Business" title="Business">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+              <!-- business -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                      VISA REQUIREMENT FOR
+                      SOUTH AFRICA</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="businessAccodion">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeadingOne" data-target="#businessOne"
+                          aria-expanded="true" aria-controls="businessOne" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="UK tourist visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessOne" class="collapsed" aria-labelledby="businessHeadingOne"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                  The application form-11 (DHA-84) should be completed in full 
+                                  and submitted. Please make sure it is completed in black 
+                                  ink and block letters. It must also be signed by the applicant 
+                                  and this signature needs to match the one on the 
+                                  applicant’s passport.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeadingTwo" data-toggle="collapse" data-target="#businessTwo"
+                          aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessTwo" class="collapse" aria-labelledby="businessHeadingTwo"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Your passport should be valid for at least 30 days after your 
+                                intended departure date from South Africa. It must also 
+                                have at least 2 unused (blank) visa pages. You should also 
+                                carry copies of your passport biodata page. If you have any old passports, 
+                                you will need to provide those as well. It is mandatory if 
+                                you are applying in Mumbai,Pune,Ahmedabad,Goa and Bangalore.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeadingThree" data-toggle="collapse"
+                          data-target="#businessThree" aria-expanded="false" aria-controls="businessThree"
+                          [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessThree" class="collapse" aria-labelledby="businessHeadingThree"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                You will need 2 recent photos. These should be less than 1 month 
+                                old and must have dimensions of the International 
+                                Passport size.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeadingFour" data-toggle="collapse"
+                          data-target="#businessFour" aria-expanded="false" aria-controls="businessFour"
+                          [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="UK e-visa for Indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessFour" class="collapse" aria-labelledby="businessHeadingFour"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof of
+                                Funds</h1>
+                              <p>
+                                You will need to prove that there is enough funds for you to 
+                                be able to travel in South Africa. This may include the last 
+                                3 month’s bank statements. These statements should be signed 
+                                and stamped by the respective bank. Passbooks, e-statements 
+                                and net banking copies are not accepted. Your bank statement 
+                                must be showing your account having a balance of South African 
+                                Currency R 3000 (or equivalent in INR).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessFive" aria-expanded="true"
+                          aria-controls="businessFive" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                            alt="UK e-visa for Indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessFive" class="collapse" aria-labelledby="businessFive"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Invitation Letter
+                              </h1>
+                              <p>
+                                A letter of invitation from the South African organizers/hosts/companies 
+                                must be submitted. This should state the applicant’s name and 
+                                passport number, as well as the purpose and duration 
+                                of visit. It must also have the company’s physical/postal 
+                                address, and the contact details of the host as well. Regarding 
+                                the host, it must have theirs (or another authorized party’s) name, 
+                                designation and signature. The host’s ID copy (attested by commissioner 
+                                of OATHS) should be submitted if required by SAHC.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessSix" aria-expanded="true"
+                          aria-controls="businessSix" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusiness(6)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                            alt="UK e-visa for Indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessSix" class="collapse" aria-labelledby="businessSix"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight
+                                Tickets
+                              </h1>
+                              <p>
+                                You will need to show proof of a valid flight ticket, or provide proof of a flight reservation. This must be for both onward and return trips.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessSeven" aria-expanded="true"
+                          aria-controls="businessSeven" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusiness(7)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png"
+                            alt="UK e-visa for Indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-interview requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Introduction Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessSeven" class="collapse" aria-labelledby="businessSeven"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Introduction Letter
+                              </h1>
+                              <p>
+                                There must include a reference/introduction letter from 
+                                the Indian employer that clearly states the name and passport 
+                                number of applicant, as well as their purpose and duration 
+                                of visit. This letter should contain the physical address, 
+                                as well as contact details of an authorized person (at company), 
+                                along with their designation and signature.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessEight" aria-expanded="true"
+                          aria-controls="businessEight" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusiness(8)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="UK e-visa for Indians" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                            </div>
+                          <h2 class="setFontSize">Hotel Booking</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessEight" class="collapse" aria-labelledby="businessEight"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Hotel Booking</h1>
+                              <p>
+                                Before you travel and apply for a visa, you need to 
+                                provide proof of hotel booking, which should be verifiable. 
+                                This means it should state the name and passport number 
+                                of the applicant(s). The duration of visit, physical address, and contact 
+                                details of the hotel should also be mentioned in this proof. The proof 
+                                must have an authorized signature with their name and designation.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessNine" aria-expanded="true"
+                          aria-controls="businessNine" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusiness(9)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for UK e visa" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-yellowFever requiredIcons img-sprite"></div>
+                            </div>
+                          <h2 class="setFontSize">Yellow Fever Vaccination Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessNine" class="collapse" aria-labelledby="businessNine"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Yellow Fever Vaccination Certificate</h1>
+                              <p>
+                                This is necessary only if the applicant is travelling through/staying 
+                                in the yellow fever belt of South America/Africa before coming 
+                                to South Africa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer accordion" id="touristAccodionMobile">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileOne" aria-expanded="true"
+                          aria-controls="touristMobileOne" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for UK e visa"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileOne" class="collapsed" aria-labelledby="headingMobileOne"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                  The application form-11 (DHA-84) should be completed in full 
+                                  and submitted. Please make sure it is completed in black 
+                                  ink and block letters. It must also be signed by the applicant 
+                                  and this signature needs to match the one on the 
+                                  applicant’s passport.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileTwo" aria-expanded="true"
+                          aria-controls="touristMobileTwo" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="apply for UK e visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileTwo" class="collapse" aria-labelledby="headingMobileTwo"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Your passport should be valid for at least 30 days after 
+                                your intended departure date from South Africa. It must also have 
+                                at least 2 unused (blank) visa pages. You should also carry 
+                                copies of your passport biodata page. If you have any old passports, 
+                                you will need to provide those as well. It is mandatory if you are 
+                                applying in Mumbai,Pune,Ahmedabad,Goa and Bangalore.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileThree" aria-expanded="true"
+                          aria-controls="touristMobileThree" [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusiness(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileThree" class="collapse" aria-labelledby="headingMobileThree"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                You will need 2 recent photos. These should be less than 1 month old and must have dimensions of the International Passport size.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
+                          aria-controls="touristMobileFour" [class.showDiv]="selectedBusiness === 4"
+                          (click)="setActiveBusiness(4)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof of
+                                Funds</h1>
+                              <p>
+                                You will need to prove that there is enough funds for you 
+                                to be able to travel in South Africa. This may include the 
+                                last 3 month’s bank statements. These statements should be signed 
+                                and stamped by the respective bank. Passbooks, e-statements and 
+                                net banking copies are not accepted. Your bank statement must be 
+                                showing your account having a balance of South African 
+                                Currency R 3000 (or equivalent in INR).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileFive" aria-expanded="true"
+                          aria-controls="touristMobileFive" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileFive" class="collapse" aria-labelledby="headingMobileFive"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Invitation Letter
+                              </h1>
+                              <p>
+                                A letter of invitation from the South African organizers/hosts/companies 
+                                must be submitted. This should state the applicant’s name and 
+                                passport number, as well as the purpose and duration of visit. 
+                                It must also have the company’s physical/postal address, and the 
+                                contact details of the host as well. Regarding the host, it 
+                                must have theirs (or another authorized party’s) name, designation 
+                                and signature. The host’s ID copy (attested by commissioner of OATHS) 
+                                should be submitted if required by SAHC.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileSix" aria-expanded="true"
+                          aria-controls="touristMobileSix" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusiness(6)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileSix" class="collapse" aria-labelledby="headingMobileSix"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight
+                                Tickets
+                              </h1>
+                              <p>
+                                You will need to show proof of a valid flight ticket, or 
+                                provide proof of a flight reservation. This must be for both 
+                                onward and return trips.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileSeven" aria-expanded="true"
+                          aria-controls="touristMobileSeven" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusiness(7)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png"
+                            alt="apply for UK e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-interview requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Introdution Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileSeven" class="collapse" aria-labelledby="headingMobileSeven"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Introdution Letter
+                              </h1>
+                              <p>
+                                There must include a reference/introduction letter from the 
+                                Indian employer that clearly states the name and passport number of 
+                                applicant, as well as their purpose and duration of visit. This 
+                                letter should contain the physical address, as well as contact 
+                                details of an authorized person (at company), along with 
+                                their designation and signature.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileEight" aria-expanded="true"
+                          aria-controls="touristMobileEight" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusiness(8)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="apply for UK e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Hotel Booking</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileEight" class="collapse" aria-labelledby="headingMobileEight"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Hotel Booking</h1>
+                              <p>
+                                Before you travel and apply for a visa, you need to provide 
+                                proof of hotel booking, which should be verifiable. This means it 
+                                should state the name and passport number of the applicant(s). The 
+                                duration of visit, physical address, and contact details of the hotel 
+                                should also be mentioned in this proof. The proof must have an authorized 
+                                signature with their name and designation.
+                             </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobileNine" aria-expanded="true"
+                          aria-controls="touristMobileNine" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusiness(9)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for UK e-visa" style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-yellowFever requiredIcons img-sprite"></div>
+                              </div>
+                          <h2 class="setFontSize">Yellow Fever Vaccination Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobileNine" class="collapse" aria-labelledby="headingMobileNine"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Yellow Fever Vaccination Certificate</h1>
+                              <p>
+                                This is necessary only if the applicant is travelling through/staying 
+                                in the yellow fever belt of South America/Africa before 
+                                coming to South Africa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+            </div>
+            <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-lg-12 p-0 impRequired">
+                  <div class="card">
+                    <div class="card-header text-center text-white text-uppercase"
+                      style="background: #000080; font-weight: 600;">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                        xml:space="preserve" width="15px" height="15px" class="hovered-paths mr-1"
+                        style="margin-top: -3px;">
+                        <g>
+                          <g>
+                            <g>
+                              <path
+                                d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M298.667,416    c0,5.896-4.771,10.667-10.667,10.667h-64c-5.896,0-10.667-4.771-10.667-10.667V256h-10.667c-5.896,0-10.667-4.771-10.667-10.667    v-42.667c0-5.896,4.771-10.667,10.667-10.667H288c5.896,0,10.667,4.771,10.667,10.667V416z M256,170.667    c-23.531,0-42.667-19.135-42.667-42.667S232.469,85.333,256,85.333s42.667,19.135,42.667,42.667S279.531,170.667,256,170.667z"
+                                data-original="#000000" class="hovered-path active-path" data-old_color="#000000"
+                                fill="#FFFFFF" />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>IMPORTANT VISA INFORMATION FOR SOUTH AFRICA
+                    </div>
+                    <div class="card-body">
+                      <p>
+                        <li>All Indian passport holders require a valid visa to enter South Africa.</li>
+                      </p>
+                      <p>
+                        <li>Each applicant must have all the mandatory documents as mentioned in
+                          requirement tabs below</li>
+                      </p>
+                      <p>
+                        <li>In addition to the documents mentioned, our visa experts or the
+                          concerned embassy may require
+                          you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                          such
+                          additional documents is essential for a positive outcome.</li>
+                      </p>
+                      <p>
+                        <li>If all the documents are not ready at the time of agent visit then
+                          additional charges levied
+                          when agent visits your residence again</li>
+                      </p>
+                      <p>
+                        <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid mt-2" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-12 text-center">
+                  <h1><span class="faqContainer">FAQ's</span></h1>
+                </div>
+  
+                <!-- business -->
+                <div class="col-12 p-0">
+                  <div class="accordion" id="southafricaAccordionBusiness">
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingBusinessOne" data-toggle="collapse"
+                        data-target="#southafricaAccordionBusinessOne" aria-expanded="true"
+                        aria-controls="southafricaAccordionBusinessOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button">
+                            Is it guaranteed that I can enter South Africa with my visa?
+                          </button>
+                        </h5>
+                      </div>
+  
+                      <div id="southafricaAccordionBusinessOne" class="collapse show"
+                        aria-labelledby="headingBusinessOne" data-parent="#southafricaAccordionBusiness">
+                        <div class="card-body">
+                          <p>
+                            Your visa is proof that your application has been reviewed at 
+                            a South African embassy, mission or consulate, and a consular 
+                            officer has deemed you eligible to enter the country for 
+                            a set purpose. The visa will allow you to exit your country and 
+                            travel to a South African port of entry. Here, an immigration official 
+                            will determine if you are allowed to enter or not, and for how long 
+                            you can stay for that particular visit.
+                         </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingBusinessTwo" data-toggle="collapse"
+                        data-target="#southafricaAccordionBusinessTwo" aria-expanded="false"
+                        aria-controls="southafricaAccordionBusinessTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            If I want to work in South Africa, can I do so with this business visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionBusinessTwo" class="collapse" aria-labelledby="headingBusinessTwo"
+                        data-parent="#southafricaAccordionBusiness">
+                        <div class="card-body">
+                          <p>
+                              If you wish to work (and be allowed to engage in  paid work) in South Africa, you will need to obtain a short term work visitor’s visa, also known as section 11(2) visitor’s visa. This has a slightly different set of documents required, however, these are outlined in the official application form itself.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingBusinessThree" data-toggle="collapse"
+                        data-target="#southafricaAccordionBusinessThree" aria-expanded="false"
+                        aria-controls="southafricaAccordionBusinessThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            What is the stay period of my visa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionBusinessThree" class="collapse"
+                        aria-labelledby="headingBusinessThree" data-parent="#southafricaAccordionBusiness">
+                        <div class="card-body">
+                          <p>
+                              Your visa’s period of validity is calculated from the date of 
+                              entry into South Africa. It will be set out under the heading 
+                              "conditions" on the visa label. This is why you need to make 
+                              sure that you apply for the correct visa/permit. You may be 
+                              refused entry if your intentions do not match those on the visa. 
+                              The stay period depends on your purpose and how long it will 
+                              take to complete your itinerary - it varies from person to 
+                              person, but is stated clearly in your visa label.
+
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingBusinessFour" data-toggle="collapse"
+                        data-target="#southafricaAccordionBusinessFour" aria-expanded="false"
+                        aria-controls="southafricaAccordionBusinessFour">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Do I need a yellow fever vaccination?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionBusinessFour" class="collapse" aria-labelledby="headingBusinessFour"
+                        data-parent="#southafricaAccordionBusiness">
+                        <div class="card-body">
+  
+                          <p>
+                              If you are on a direct flight to South Africa, you do not. If you are transiting through the yellow-fever belt of Africa or South America, you will need to get one before leaving India.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingBusinessFive" data-toggle="collapse"
+                          data-target="#southafricaAccordionBusinessFive" aria-expanded="false"
+                          aria-controls="southafricaAccordionBusinessFive">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                What are the documents I can use to show my proof of financial means?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionBusinessFive" class="collapse" aria-labelledby="headingBusinessFive"
+                          data-parent="#southafricaAccordionBusiness">
+                          <div class="card-body">
+    
+                            <p>
+                                These are the usually accepted documents. you will need to show proof of one or more of:
+                            </p>
+                            <li>Bank statements</li>
+                            <li>Salary advances</li>
+                            <li>Undertakings by the host(s) in South Africa</li>
+                            <li>Bursary</li>
+                            <li>Medical cover or</li>
+                            <li>The cash available with you in person (including credit cards and travellers’ cheques).</li>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingBusinessSix" data-toggle="collapse"
+                          data-target="#southafricaAccordionBusinessSix" aria-expanded="false"
+                          aria-controls="southafricaAccordionBusinessSix">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                If my visa fee is denied, will I be able to obtain a refund?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionBusinessSix" class="collapse" aria-labelledby="headingBusinessSix"
+                          data-parent="#southafricaAccordionBusiness">
+                          <div class="card-body">
+    
+                            <p>
+                                It is not possible for Indians to obtain a fee refund for the South African visa, as VFS does not process fee refunds.
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingBusinessSeven" data-toggle="collapse"
+                          data-target="#southafricaAccordionBusinessSeven" aria-expanded="false"
+                          aria-controls="southafricaAccordionBusinessSeven">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                Can I apply for my visa 6 days in advance since that is the visa processing time?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionBusinessSeven" class="collapse" aria-labelledby="headingBusinessSeven"
+                          data-parent="#southafricaAccordionBusiness">
+                          <div class="card-body">
+    
+                            <p>
+                                This processing time is an indicative figure only. Although 
+                                it is based on the majority of real processing times, the 
+                                duration may vary at the discretion of the South African High 
+                                Commission, New Delhi and South African Consulate General, 
+                                Mumbai. It is advised to apply for your visa at least 2 weeks 
+                                (and not more than 3 months) in advance.
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingBusinessEight" data-toggle="collapse"
+                          data-target="#southafricaAccordionBusinessEight" aria-expanded="false"
+                          aria-controls="southafricaAccordionBusinessEight">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                Can I pay my visa fees by card?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionBusinessEight" class="collapse" aria-labelledby="headingBusinessEight"
+                          data-parent="#southafricaAccordionBusiness">
+                          <div class="card-body">
+    
+                            <p>
+                                If you are applying with us, then yes, you can. Otherwise, 
+                                your visa fees are accepted by the VFS (including the logistics 
+                                charges as well) in cash only.
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                        <div class="card-header faqQuery" id="headingBusinessNine" data-toggle="collapse"
+                          data-target="#southafricaAccordionBusinessNine" aria-expanded="false"
+                          aria-controls="southafricaAccordionBusinessNine">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button">
+                                All my documents are in another language. What do I do?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="southafricaAccordionBusinessNine" class="collapse" aria-labelledby="headingBusinessNine"
+                          data-parent="#southafricaAccordionBusiness">
+                          <div class="card-body">
+    
+                            <p>
+                                Documents that are issued in a regional language must be officially translated to English before submission. This is mandatory.
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Transit" title="Transit">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+              <!-- transit -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
+                      VISA REQUIREMENT FOR
+                      SOUTH AFRICA</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="transitAccodion">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitOne" aria-expanded="true"
+                          aria-controls="transitOne" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for UK e-visa"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitOne" class="collapsed" aria-labelledby="transitOne"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                  You must have a valid passport that stays valid for 6 months after your designated travel to the destination country
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitTwo" aria-expanded="true"
+                          aria-controls="transitTwo" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Onward Ticket</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitTwo" class="collapse" aria-labelledby="transitTwo" data-parent="#transitAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Onward Ticket</h1>
+                              <p>
+                                You must be able to produce onward tickets to your destination country.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitThree" aria-expanded="true"
+                          aria-controls="transitThree" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Booking.png"
+                            alt="UK tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-visa requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Visa Requirement</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitThree" class="collapse" aria-labelledby="transitThree"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Visa Requirement</h1>
+                              <p>If the destination country requires a visa, you must be able to produce this if asked.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+              <div class="mobileContainer accordion" id="transitAccodionMobile">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+  
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobileOne" aria-expanded="true"
+                          aria-controls="transitMobileOne" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="UK visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobileOne" class="collapsed" aria-labelledby="transitMobileOne"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                  You must have a valid passport that stays valid for 6 months after your designated travel to the destination country
+                             </p> 
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobileTwo" aria-expanded="true"
+                          aria-controls="transitMobileTwo" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="UK visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Onward Ticket</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobileTwo" class="collapse" aria-labelledby="transitMobileTwo"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Onward Ticket</h1>
+                              <p>
+                                You must be able to produce onward tickets to your destination country.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobileThree" aria-expanded="true"
+                          aria-controls="transitMobileThree" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3)">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Booking.png"
+                            alt="UK visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-visa requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Visa Requirement</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobileThree" class="collapse" aria-labelledby="transitMobileThree"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" style="background: rgba(0, 37, 131, 0.2);">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Visa Requirement</h1>
+                              <p>
+                                  If the destination country requires a visa, you must be able to produce this if asked.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+            </div>
+            <div class="container-fluid mt-4" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-lg-12 p-0 impRequired">
+                  <div class="card">
+                    <div class="card-header text-center text-white text-uppercase"
+                      style="background: #000080; font-weight: 600;">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                        xml:space="preserve" width="15px" height="15px" class="hovered-paths mr-1"
+                        style="margin-top: -3px;">
+                        <g>
+                          <g>
+                            <g>
+                              <path
+                                d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M298.667,416    c0,5.896-4.771,10.667-10.667,10.667h-64c-5.896,0-10.667-4.771-10.667-10.667V256h-10.667c-5.896,0-10.667-4.771-10.667-10.667    v-42.667c0-5.896,4.771-10.667,10.667-10.667H288c5.896,0,10.667,4.771,10.667,10.667V416z M256,170.667    c-23.531,0-42.667-19.135-42.667-42.667S232.469,85.333,256,85.333s42.667,19.135,42.667,42.667S279.531,170.667,256,170.667z"
+                                data-original="#000000" class="hovered-path active-path" data-old_color="#000000"
+                                fill="#FFFFFF" />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>IMPORTANT VISA INFORMATION FOR SOUTH AFRICA
+                    </div>
+                    <div class="card-body">
+                      <p>
+                        <li>All Indian passport holders require a valid visa to enter South Africa.</li>
+                      </p>
+                      <p>
+                        <li>Each applicant must have all the mandatory documents as mentioned in
+                          requirement tabs below</li>
+                      </p>
+                      <p>
+                        <li>In addition to the documents mentioned, our visa experts or the
+                          concerned embassy may require
+                          you to furnish additional documents to process your visa.Your cooperation in furnishing any
+                          such
+                          additional documents is essential for a positive outcome.</li>
+                      </p>
+                      <p>
+                        <li>If all the documents are not ready at the time of agent visit then
+                          additional charges levied
+                          when agent visits your residence again</li>
+                      </p>
+                      <p>
+                        <li>Fee may vary for country if rate of the embassy fluctuate.</li>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid mt-2" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-12 text-center">
+                  <h1><span class="faqContainer">FAQ's</span></h1>
+                </div>
+  
+                <!-- transit -->
+                <div class="col-12 p-0">
+                  <div class="accordion" id="southafricaAccordionTransit">
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTransitOne" data-toggle="collapse"
+                        data-target="#southafricaAccordionTransitOne" aria-expanded="true"
+                        aria-controls="southafricaAccordionTransitOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button">
+                            Do I need a transit visa if my nationality is Indian and I am an ordinary Indian passport holder?
+                          </button>
+                        </h5>
+                      </div>
+  
+                      <div id="southafricaAccordionTransitOne" class="collapse show" aria-labelledby="headingTransitOne"
+                        data-parent="#southafricaAccordionTransit">
+                        <div class="card-body">
+                          <p>
+                              Yes, you do. If your citizenship is not Indian, but you reside in India, there may be chances that you do not require a transit visa.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTransitTwo" data-toggle="collapse"
+                        data-target="#southafricaAccordionTransitTwo" aria-expanded="false"
+                        aria-controls="southafricaAccordionTransitTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Can I leave the airport during transit in South Africa?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionTransitTwo" class="collapse" aria-labelledby="headingTransitTwo"
+                        data-parent="#southafricaAccordionTransit">
+                        <div class="card-body">
+                          <p>
+                              You cannot leave the airport. During transit, you must stay in the international transit area of the airport.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTransitThree" data-toggle="collapse"
+                        data-target="#southafricaAccordionTransitThree" aria-expanded="false"
+                        aria-controls="southafricaAccordionTransitThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            Can I use other travel documents instead of my passport?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionTransitThree" class="collapse" aria-labelledby="headingTransitThree"
+                        data-parent="#southafricaAccordionTransit">
+                        <div class="card-body">
+                          <p>
+                              No, you will not be able to use any other documents - especially temporary 
+                              identification proofs. Your passport is the most secure way 
+                              of guaranteeing transit rights.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card faqQueryCard">
+                      <div class="card-header faqQuery" id="headingTransitFour" data-toggle="collapse"
+                        data-target="#southafricaAccordionTransitFour" aria-expanded="false"
+                        aria-controls="southafricaAccordionTransitFour">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button">
+                            My baggage got lost in transit. Who can I contact?
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="southafricaAccordionTransitFour" class="collapse" aria-labelledby="headingTransitFour"
+                        data-parent="#southafricaAccordionTransit">
+                        <div class="card-body">
+                          <p>
+                              You will need to contact the airline you came through. This must be done 
+                              immediately, on realising that your baggage is missing. Airlines will help you 
+                              with further procedures for obtaining your baggage. We recommend that you 
+                              take travel insurance whenever travelling abroad. Travel insurance covers 
+                              circumstances such as baggage loss, flight delays, 
+                              medical expenses etc.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+  
+  <div class="container-fluid wrapContainer linkAddress">
+    <div class="row">
+      <div class="col-12">
+        <h5 class="linkAddressHeading">You can also apply for these visa online</h5>
+        <p>
+          <a (click)="resetPage()" [routerLink]="['/visa', 'armenia-visa-online']">Armenia Visa
+            Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'australia-visa-online']">Australia Visa
+            Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'azerbaijan-visa-online']">Azerbaijan Visa
+            Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'brazil-visa-online']">Brazil Visa Online</a> 
+      &nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'china-visa-online']">China Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'cambodia-visa-online']">Cambodia Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'dubai-visa-online']">Dubai Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'egypt-visa-online']">Egypt Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'ethiopia-visa-online']">Ethiopia Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'france-visa-online']">France Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'japan-visa-online']">Japan Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'malaysia-visa-online']">Malaysia Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'maldives-visa-online']">Maldives Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'netherlands-visa-online']">Netherland Visa
+            Online</a>&nbsp;|&nbsp;
+            <a (click)="resetPage()" [routerLink]="['/visa', 'new-zealand-visa-online']">New Zealand Visa
+              Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'russia-visa-online']">Russia Visa
+              Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'rwanda-visa-online']">Rwanda Visa
+                Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'singapore-visa-online']">Singapore Visa
+            Online</a>&nbsp;|&nbsp;
+          
+          <a (click)="resetPage()" [routerLink]="['/visa', 'sri-lanka-visa-online']">Sri Lanka Visa
+            Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'swiss-visa-online']">Switzerland Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'tajikistan-visa-online']">Tajikistan Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'taiwan-visa-online']">Taiwan Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'thailand-visa-online']">Thailand Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'turkey-visa-online']">Turkey Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'usa-visa-online']">USA Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'uk-visa-online']">UK Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'uzbekistan-visa-online']">Uzbekistan Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'vietnam-visa-online']">Vietnam Visa Online</a>&nbsp;|&nbsp;
+          <a (click)="resetPage()" [routerLink]="['/visa', 'zambia-visa-online']">Zambia Visa Online</a>
+        </p>
+      </div>
+  
+    </div>
+  </div>
+  

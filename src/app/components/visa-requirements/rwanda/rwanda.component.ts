@@ -76,7 +76,7 @@ export class RwandaComponent implements OnInit, AfterViewInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
-  title: string = 'Apply For Rwanda Visa Online- Visa2Fly';
+  title: string = 'Apply For Rwanda Visa Online for Indians- Visa2Fly';
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -182,12 +182,12 @@ export class RwandaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for rwanda e-visa, rwanda tourist visa application, rwanda tourist visa for indian, apply for rwanda e visa, rwanda e-visa for indians",
+        "apply for rwanda e-visa, rwanda tourist visa application, Rwanda Visa, rwanda tourist visa for indian, apply for rwanda e visa, rwanda e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Rwanda? Apply your rwanda e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Rwanda visa for Indians. Indian passport holders can easily apply for a Rwanda visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Rwanda visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -213,7 +213,7 @@ export class RwandaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Rwanda? Apply your rwanda e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Rwanda visa for Indians. Indian passport holders can easily apply for a Rwanda visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Rwanda visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -238,7 +238,7 @@ export class RwandaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Rwanda? Apply your rwanda e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Rwanda visa for Indians. Indian passport holders can easily apply for a Rwanda visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Rwanda visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

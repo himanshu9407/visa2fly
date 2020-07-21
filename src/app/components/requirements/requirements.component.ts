@@ -108,6 +108,9 @@ export class RequirementsComponent implements OnInit {
       this.selectedVariable = params.variable;
 
       switch (this.selectedCountrytype) {
+        case "Armenia":
+          this.router.navigateByUrl("/visa/armenia-visa-online/");
+          break;
         case "Australia":
           this.router.navigateByUrl("/visa/australia-visa-online/");
           break;
@@ -126,6 +129,9 @@ export class RequirementsComponent implements OnInit {
         case "Dubai":
           this.router.navigateByUrl("/visa/dubai-visa-online/");
           break;
+        case "Egypt":
+          this.router.navigateByUrl("/visa/egypt-visa-online/");
+          break;
         case "Ethiopia":
           this.router.navigateByUrl("/visa/ethiopia-visa-online/");
           break;
@@ -141,6 +147,12 @@ export class RequirementsComponent implements OnInit {
         case "Maldives":
           this.router.navigateByUrl("/visa/maldives-visa-online/");
           break;
+        case "New Zealand":
+          this.router.navigateByUrl("/visa/new-zealand-visa-online/");
+          break;
+        case "South Africa":
+            this.router.navigateByUrl("/visa/south-africa-visa-online/");
+            break;
         case "Netherlands":
           this.router.navigateByUrl("/visa/netherlands-visa-online/");
           break;
@@ -161,6 +173,9 @@ export class RequirementsComponent implements OnInit {
           break;
         case "Swiss":
           this.router.navigateByUrl("/visa/swiss-visa-online/");
+          break;
+        case "Taiwan":
+          this.router.navigateByUrl("/visa/taiwan-visa-online/");
           break;
         case "Tajikistan":
           this.router.navigateByUrl("/visa/tajikistan-visa-online/");
