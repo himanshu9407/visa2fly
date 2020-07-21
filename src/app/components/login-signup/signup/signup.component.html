@@ -204,7 +204,7 @@
   <div class="row">
     <div class="col-6 input-group pr-1">
       <label for="firstName">First Name</label>
-      <input pattern="[A-Za-z]{3,32}" formControlName="firstName" autocomplete="disabled" class="form-control" type="text"
+      <input pattern="[A-Za-z]{3,32}" formControlName="firstName" autocomplete="off" class="form-control" type="text"
         name="firstName" id="firstName"
         [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}"
         placeholder="First Name" />
@@ -216,7 +216,7 @@
 
     <div class="col-6 input-group pl-1">
       <label for="lastName">Last Name</label>
-      <input pattern="[A-Za-z]{3,32}" formControlName="lastName" autocomplete="disabled" type="text" name="lastName"
+      <input pattern="[A-Za-z]{3,32}" formControlName="lastName" autocomplete="off" type="text" name="lastName"
         id="lastName" class="form-control"
         [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}"
         placeholder="Last Name" />
@@ -243,7 +243,7 @@
       <label for="email">Email</label>
       <input
         pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
-        autocomplete="disabled" formControlName="email" class="form-control" type="email" name="email" id="email"
+        autocomplete="off" formControlName="email" class="form-control" type="email" name="email" id="email"
         [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}"
         placeholder="Email" />
       <div class="invalid-feedback" style="display: block;">
@@ -256,7 +256,7 @@
       <label for="cellNo">Cell Number</label>
       <input
         [ngClass]="{'is-invalid':signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,'is-valid':!(signupForm.get('mobile').invalid && signupForm.get('mobile').dirty) && !signupForm.get('mobile').pristine}"
-        formControlName="mobile" pattern="^[4-9][0-9]{9}$" type="tel" autocomplete="disabled" name="cellNo" id="cellNo"
+        formControlName="mobile" pattern="^[4-9][0-9]{9}$" type="tel" autocomplete="off" name="cellNo" id="cellNo"
         class="form-control" placeholder="Mobile" />
       <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty" class="invalid-feedback"
         style="display: block;">
@@ -269,7 +269,7 @@
       <input
         [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}"
         (keydown.enter)="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="number"
-        class="form-control" id="otp" name="otp" autocomplete="disabled" placeholder="OTP" />
+        class="form-control" id="otp" name="otp" autocomplete="off" placeholder="OTP" />
       <div *ngIf="signupForm.get('otp').invalid && signupForm.get('otp').dirty" class="invalid-feedback"
         style="display: block;">
         <div>Invalid OTP</div>
