@@ -182,7 +182,7 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Zambia visa for Indians. Indian passport holders can easily apply for a Zambia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Zambia visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -207,7 +207,7 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Zambia visa for Indians. Indian passport holders can easily apply for a Zambia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Zambia visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -231,7 +231,7 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Zambia visa for Indians. Indian passport holders can easily apply for a Zambia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Zambia visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

@@ -176,12 +176,12 @@ export class TajikistanComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for tajikistan e-visa, tajikistan tourist visa application, tajikistan tourist visa for indian, apply for tajikistan e visa, tajikistan e-visa for indians",
+        "apply for tajikistan e-visa, tajikistan tourist visa application, Tajikistan Visa, tajikistan tourist visa for indian, apply for tajikistan e visa, tajikistan e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Tajikistan? Apply your tajikistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Tajikistan visa for Indians. Indian passport holders can easily apply for a Tajikistan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Tajikistan visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -207,7 +207,7 @@ export class TajikistanComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Tajikistan? Apply your tajikistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Tajikistan visa for Indians. Indian passport holders can easily apply for a Tajikistan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Tajikistan visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -232,7 +232,7 @@ export class TajikistanComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Tajikistan? Apply your tajikistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Tajikistan visa for Indians. Indian passport holders can easily apply for a Tajikistan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Tajikistan visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

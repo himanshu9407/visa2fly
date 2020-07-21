@@ -174,12 +174,12 @@ export class UzbekistanComponent implements OnInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for uzbekistan e-visa, uzbekistan tourist visa application, uzbekistan tourist visa for indian, apply for uzbekistan e visa, uzbekistan e-visa for indians",
+        "apply for uzbekistan e-visa, uzbekistan tourist visa application, Uzbekistan Visa, uzbekistan tourist visa for indian, apply for uzbekistan e visa, uzbekistan e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit uzbekistan? Apply your uzbekistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Uzbekistan visa for Indians. Indian passport holders can easily apply for a Uzbekistan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Uzbekistan visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -205,7 +205,7 @@ export class UzbekistanComponent implements OnInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit uzbekistan? Apply your uzbekistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Uzbekistan visa for Indians. Indian passport holders can easily apply for a Uzbekistan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Uzbekistan visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -230,7 +230,7 @@ export class UzbekistanComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit uzbekistan? Apply your uzbekistan e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Uzbekistan visa for Indians. Indian passport holders can easily apply for a Uzbekistan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Uzbekistan visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

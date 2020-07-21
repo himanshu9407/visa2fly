@@ -187,12 +187,12 @@ export class EgyptComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for egypt e-visa, egypt tourist visa application, egypt tourist visa for indian, apply for egypt e visa, egypt e-visa for indians",
+        "apply for egypt e-visa, egypt tourist visa application, egypt tourist visa for indian, Egypt Visa, apply for egypt e visa, egypt e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Now you can Apply for Egypt e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more.",
+        "Visa2fly offers Egypt Visa for Indians. Indian passport holders can easily apply for a Egypt visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Egypt visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -218,7 +218,7 @@ export class EgyptComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Now you can Apply for Egypt e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more.",
+        "Visa2fly offers Egypt Visa for Indians. Indian passport holders can easily apply for a Egypt visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Egypt visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -243,7 +243,7 @@ export class EgyptComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Now you can Apply for Egypt e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more.",
+        "Visa2fly offers Egypt Visa for Indians. Indian passport holders can easily apply for a Egypt visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Egypt visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

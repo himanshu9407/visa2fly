@@ -185,12 +185,12 @@ export class TaiwanComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for taiwan e-visa, taiwan tourist visa application, taiwan tourist visa for indian, apply for taiwan e visa, taiwan e-visa for indians",
+        "apply for taiwan e-visa, taiwan tourist visa application, Taiwan Visa, taiwan tourist visa for indian, apply for taiwan e visa, taiwan e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Now you can Apply for Taiwan e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more.",
+        "Visa2fly offers Taiwan Visa for Indians. Indian passport holders can easily apply for a Taiwan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Taiwan visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -216,7 +216,7 @@ export class TaiwanComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Now you can Apply for Taiwan e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more.",
+        "Visa2fly offers Taiwan Visa for Indians. Indian passport holders can easily apply for a Taiwan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Taiwan visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -241,7 +241,7 @@ export class TaiwanComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Now you can Apply for Taiwan e-visa online at Visa2fly. Visa2fly gives tour coverage and tour sim cards with assured online visa offerings. Know more.",
+        "Visa2fly offers Taiwan Visa for Indians. Indian passport holders can easily apply for a Taiwan visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Taiwan visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

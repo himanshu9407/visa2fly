@@ -173,12 +173,12 @@ export class RussiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for russia e-visa, russia tourist visa application, russia tourist visa for indian, apply for russia e visa, russia e-visa for indians",
+        "apply for russia e-visa, russia tourist visa application,  Russia Visa, russia tourist visa for indian, apply for russia e visa, russia e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Russia? Apply your Russia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Russia visa for Indians. Indian passport holders can easily apply for a Russia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Russia visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -204,7 +204,7 @@ export class RussiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Russia? Apply your Russia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Russia visa for Indians. Indian passport holders can easily apply for a Russia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Russia visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -229,7 +229,7 @@ export class RussiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Russia? Apply your Russia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Russia visa for Indians. Indian passport holders can easily apply for a Russia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Russia visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

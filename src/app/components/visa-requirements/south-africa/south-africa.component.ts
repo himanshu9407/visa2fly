@@ -189,12 +189,12 @@ export class SouthAfricaComponent implements OnInit, AfterViewInit {
       this.meta.updateTag({
         name: "keywords",
         content:
-          "apply for South Africa e-visa, South Africa tourist visa application, south africa tourist visa for Indian, apply for south africa e visa, south africa e-visa for Indians",
+          "apply for South Africa e-visa, South Africa tourist visa application,South Africa Visa, south africa tourist visa for Indian, apply for south africa e visa, south africa e-visa for Indians",
       });
       this.meta.updateTag({
         name: "description",
         content:
-          "Avail online visa services for your UK visa application at Visa2Fly. Get assured online visa services and immigration services that make your UK visa application process hassle-free and convenient. Fill your UK visa application online at Visa2fly now.",
+          "Visa2fly offers South Africa visa for Indians. Indian passport holders can easily apply for a South Africa visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their South africa visa online with Visa2Fly here.",
       });
   
       // facebook and linkedin
@@ -220,7 +220,7 @@ export class SouthAfricaComponent implements OnInit, AfterViewInit {
       this.meta.updateTag({
         property: "og:description",
         content:
-          "Avail online visa services for your South Africa visa application at Visa2Fly. Get assured online visa services and immigration services that make your UK visa application process hassle-free and convenient. Fill your South Africa visa application online at Visa2fly now.",
+          "Visa2fly offers South Africa visa for Indians. Indian passport holders can easily apply for a South Africa visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their South africa visa online with Visa2Fly here.",
       });
   
       // twitter
@@ -245,7 +245,7 @@ export class SouthAfricaComponent implements OnInit, AfterViewInit {
       this.meta.updateTag({
         property: "twitter:description",
         content:
-          "Avail online visa services for your South Africa visa application at Visa2Fly. Get assured online visa services and immigration services that make your UK visa application process hassle-free and convenient. Fill your South Africa visa application online at Visa2fly now.",
+          "Visa2fly offers South Africa visa for Indians. Indian passport holders can easily apply for a South Africa visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their South africa visa online with Visa2Fly here.",
       });
       this.meta.updateTag({
         property: "twitter:site",

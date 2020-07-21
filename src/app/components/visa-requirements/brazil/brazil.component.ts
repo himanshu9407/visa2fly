@@ -172,12 +172,12 @@ export class BrazilComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for brazil e-visa, brazil tourist visa application, brazil tourist visa for indian, apply for brazil e visa, brazil e-visa for indians",
+        "apply for brazil e-visa, brazil tourist visa application, Brazil Visa, brazil tourist visa for indian, apply for brazil e visa, brazil e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Brazil? Apply your brazil e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Brazil visa for Indians. Indian passport holders can easily apply for a Brazil visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Brazil visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -203,7 +203,7 @@ export class BrazilComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Brazil? Apply your brazil e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Brazil visa for Indians. Indian passport holders can easily apply for a Brazil visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Brazil visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -228,7 +228,7 @@ export class BrazilComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Brazil? Apply your brazil e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Brazil visa for Indians. Indian passport holders can easily apply for a Brazil visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Brazil visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",
