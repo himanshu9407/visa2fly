@@ -108,18 +108,18 @@ export class RequirementsComponent implements OnInit {
       this.selectedVariable = params.variable;
 
       switch (this.selectedCountrytype) {
-        case "Armenia":
-          this.router.navigateByUrl("/visa/armenia-visa-online/");
-          break;
+        // case "Armenia":
+        //   this.router.navigateByUrl("/visa/armenia-visa-online/");
+        //   break;
         case "Australia":
           this.router.navigateByUrl("/visa/australia-visa-online/");
           break;
         case "Azerbaijan":
           this.router.navigateByUrl("/visa/azerbaijan-visa-online/");
           break;
-        case "Brazil":
-          this.router.navigateByUrl("/visa/brazil-visa-online/");
-          break;
+        // case "Brazil":
+        //   this.router.navigateByUrl("/visa/brazil-visa-online/");
+        //   break;
         case "China":
           this.router.navigateByUrl("/visa/china-visa-online/");
           break;
@@ -156,12 +156,12 @@ export class RequirementsComponent implements OnInit {
         case "Netherlands":
           this.router.navigateByUrl("/visa/netherlands-visa-online/");
           break;
-        case "Russia":
-          this.router.navigateByUrl("/visa/russia-visa-online/");
-          break;
-        case "Rwanda":
-          this.router.navigateByUrl("/visa/rwanda-visa-online/");
-          break;
+        // case "Russia":
+        //   this.router.navigateByUrl("/visa/russia-visa-online/");
+        //   break;
+        // case "Rwanda":
+        //   this.router.navigateByUrl("/visa/rwanda-visa-online/");
+        //   break;
         case "Singapore":
           this.router.navigateByUrl("/visa/singapore-visa-online/");
           break;
@@ -177,15 +177,18 @@ export class RequirementsComponent implements OnInit {
         case "Taiwan":
           this.router.navigateByUrl("/visa/taiwan-visa-online/");
           break;
-        case "Tajikistan":
-          this.router.navigateByUrl("/visa/tajikistan-visa-online/");
-          break;
+        // case "Tajikistan":
+        //   this.router.navigateByUrl("/visa/tajikistan-visa-online/");
+        //   break;
         case "Thailand":
           this.router.navigateByUrl("/visa/thailand-visa-online/");
           break;
         case "Turkey":
           this.router.navigateByUrl("/visa/turkey-visa-online/");
           break;
+        case "UAE":
+            this.router.navigateByUrl("/visa/uae-visa-online/");
+            break;
         case "UK":
           this.router.navigateByUrl("/visa/uk-visa-online/");
           break;
@@ -198,9 +201,9 @@ export class RequirementsComponent implements OnInit {
         case "Vietnam":
           this.router.navigateByUrl("/visa/vietnam-visa-online/");
           break;
-        case "Zambia":
-          this.router.navigateByUrl("/visa/zambia-visa-online/");
-          break;
+        // case "Zambia":
+        //   this.router.navigateByUrl("/visa/zambia-visa-online/");
+        //   break;
       }
     });
 
@@ -343,6 +346,12 @@ export class RequirementsComponent implements OnInit {
                 this.mobileShowRequirementsDetailArr.push(false);
               }
             }
+          } else {
+            setTimeout(() => {
+              this.preloaderService.showPreloader(false);
+              this.router.navigate(["/"]);
+            }, 2000);
+            this.toastr.error("Country Not Found");
           }
         }
       });

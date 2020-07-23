@@ -43,7 +43,7 @@ export class HomeContainerComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com",
+      content: "https://visa2fly.com/",
     });
     this.meta.updateTag({
       property: "og:image:alt",

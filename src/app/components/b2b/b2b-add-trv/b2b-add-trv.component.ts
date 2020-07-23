@@ -364,10 +364,7 @@ export class B2bAddTrvComponent implements OnInit {
     this.category = this.userFlowDetails.category;
     this.imageUpload = this.userFlowDetails.imageUpload;
 
-    // console.log(this.category);
-
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
-    // console.log(this.minTravelDate);
 
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
@@ -1024,7 +1021,7 @@ export class B2bAddTrvComponent implements OnInit {
         this.travellerService
           .submitForm(this.formData1)
           .subscribe((data: any) => {
-            // console.log(data);
+            console.log(data);
 
             if (data.code == "0") {
 

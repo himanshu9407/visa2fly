@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { DubaiComponent } from './dubai.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UAEComponent } from './uae.component';
+import { Routes, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
+import { MatSelectModule } from '@angular/material/select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
-  { path: "", component: DubaiComponent },
+  { path: "", component: UAEComponent },
 ]
 
 @NgModule({
-  declarations: [
-    DubaiComponent
-  ],
-
+  declarations: [UAEComponent],
   imports: [
     FormsModule,
     CommonModule,
@@ -28,4 +25,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class DubaiModule {}
+export class UAEModule { }

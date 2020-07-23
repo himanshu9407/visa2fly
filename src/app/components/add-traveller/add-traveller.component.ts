@@ -360,7 +360,6 @@ export class AddTravellerComponent implements OnInit {
         break;
       case "Dubai":
         this.breadcrumRouting = "/visa/dubai-visa-online";
-        this.disclaimerForDubai = true;
         break;
       case "Egypt":
         this.breadcrumRouting = "/visa/egypt-visa-online";
@@ -438,6 +437,10 @@ export class AddTravellerComponent implements OnInit {
       default:
         this.breadcrumRouting = `/visa-requirements/${this.userFlowDetails.country}/apply-for-${this.userFlowDetails.country}-visa-online/${this.userFlowDetails.purpose}`;
         break;
+    }
+
+    if (this.userFlowDetails.country === 'UAE' || this.userFlowDetails.country === 'Dubai') {
+      this.disclaimerForDubai = true;
     }
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);

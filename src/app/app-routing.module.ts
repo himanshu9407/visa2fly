@@ -417,6 +417,17 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  
+   // UAE Page
+   {
+    path: "visa/uae-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/UAE/UAE.module").then(
+        (m) => m.UAEModule
+      ),
+    data: { preload: true },
+  },
+
   // Maldives Page
   {
     path: "visa-requirements/apply-for-Maldives-visa-online/:purpose",

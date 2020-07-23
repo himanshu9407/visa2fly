@@ -28,6 +28,7 @@ import { ArmeniaModule } from './armenia/armenia.module';
 import { NewZealandModule } from './new-zealand/new-zealand.module';
 import { SouthAfricaModule } from './south-africa/south-africa.module';
 import { TaiwanModule } from './taiwan/taiwan.module';
+import { UAEModule } from './UAE/UAE.module';
 
 @NgModule({
   imports: [
@@ -60,7 +61,8 @@ import { TaiwanModule } from './taiwan/taiwan.module';
     ArmeniaModule,
     NewZealandModule,
     SouthAfricaModule,
-    TaiwanModule
+    TaiwanModule,
+    UAEModule
   ],
   
 })

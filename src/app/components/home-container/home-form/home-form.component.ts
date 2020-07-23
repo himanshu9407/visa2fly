@@ -312,6 +312,13 @@ export class HomeFormComponent {
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
+
+        case "UAE": {
+          this.router.navigate(["visa/uae-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         case "France": {
           this.router.navigate(["visa/france-visa-online/"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
