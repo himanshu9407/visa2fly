@@ -195,13 +195,6 @@ export class HomeFormComponent {
     }
   }
 
-  // setDetailsOnLocalStorage () {
-  // this.userFlow.setUserFlowDetails("country", this.selectedCountry);
-  // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-  // this.userFlow.setUserFlowDetails("purpose", this.selectedPurpose);
-  // this.userFlow.setUserFlowDetails("livesIn", this.selectedResidenceOf);
-  // }
-
   onSubmit() {
     this.purpose.valueChanges.subscribe((value) => {
       if (value == "select") {
@@ -209,18 +202,8 @@ export class HomeFormComponent {
       } else {
         this.purposeNotSelected = false;
       }
-      // console.log(this.purpose);
     });
 
-    // this.purpose.valueChanges.subscribe(
-    //   (value) => {
-    //     if (value == 'select') {
-    //       this.purposeNotSelected = true;
-    //     } else {
-    //       this.purposeNotSelected = false;
-    //     }
-    //   }
-    // );
     this.livesIn.valueChanges.subscribe((value) => {
       if (value == "select") {
         this.livesInNotSelected = true;
@@ -419,9 +402,9 @@ export class HomeFormComponent {
           this.router.navigate([
             "visa-requirements/",
             "" + country1,
-            variable,
-            purpose,
+            variable
           ]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
         }
       }
     }

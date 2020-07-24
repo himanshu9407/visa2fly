@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { RequirementsComponent } from './requirements.component';
 import { RemovespacePipe } from './removespace.pipe';
+import { SharedVisaModuleModule } from '../shared-visa-module/shared-visa-module.module';
 
 const routes: Routes = [
   { path: "", component: RequirementsComponent }
@@ -21,6 +22,7 @@ const routes: Routes = [
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
+    SharedVisaModuleModule,
     NgbModule,
     MatSelectModule,
     RouterModule.forChild(routes)

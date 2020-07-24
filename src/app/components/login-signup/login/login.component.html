@@ -38,9 +38,7 @@
     </div>
 
     <div class="col-12 button-group" *ngIf="showSendOtp">
-      <button class="btn" type="button" (click)="sendOtp()"
-        [disabled]="loginForm.get('userId').invalid && loginForm.get('userId').dirty || loginForm.get('userId').pristine">Get
-        OTP</button>
+      <button class="btn" type="button" (click)="sendOtp()">Get OTP</button>
     </div>
 
     <div class="col-12 text-center mb-2" *ngIf="showLoader">

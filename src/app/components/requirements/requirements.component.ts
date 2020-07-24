@@ -81,7 +81,7 @@ export class RequirementsComponent implements OnInit {
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
 
-  purposeChooseForm1: FormGroup;
+  purposeChooseForm: FormGroup;
   country: any;
   selectedVariable: any;
   constructor(
@@ -205,11 +205,21 @@ export class RequirementsComponent implements OnInit {
         //   this.router.navigateByUrl("/visa/zambia-visa-online/");
         //   break;
       }
+      
+      if (params["purpose"]) {
+        this.router.navigate(["visa-requirements/", this.selectedCountrytype, this.selectedVariable]);
+      }
+
+      if (this.userFlow.getCookie("selectedVisaPurpose")) {
+        this.selectedPurposeType = this.userFlow.getCookie("selectedVisaPurpose");
+      } else {
+        this.selectedPurposeType = "Tourist";
+      }
     });
 
     this.activateRoute.params.subscribe((params: any) => {});
     let tempPurpose = this.selectedPurposeType;
-    this.purposeChooseForm1 = new FormGroup({
+    this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
     });
     //Api Call
@@ -357,10 +367,6 @@ export class RequirementsComponent implements OnInit {
       });
   }
 
-  resetPage() {
-    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
-  }
-
   navigate(
     quoteId: string,
     category: string,
@@ -375,7 +381,7 @@ export class RequirementsComponent implements OnInit {
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails(
       "purpose",
-      this.purposeChooseForm1.get("purposeSelected").value
+      this.purposeChooseForm.get("purposeSelected").value
     );
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     this.userFlow.setUserFlowDetails("category", category);
@@ -444,15 +450,11 @@ export class RequirementsComponent implements OnInit {
     this.selectedDataArr[i] = this.mainArr[i][j];
   }
   purposeChanged() {
-    var purpose = this.purposeChooseForm1.get("purposeSelected").value;
+    var purpose = this.purposeChooseForm.get("purposeSelected").value;
     //console.log(purpose);
     var country = this.selectedCountrytype;
     var variable = this.selectedVariable;
-    window.history.replaceState(
-      "",
-      "",
-      "visa-requirements/" + country + "/" + variable + "/" + purpose
-    );
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
     if (purpose == "Tourist") {
       this.MyQuotation = this.touristArr;
       this.imageUpload1 = this.imageCatogoryTouristTemp;
@@ -516,7 +518,7 @@ export class RequirementsComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/Tourist`,
+      content: `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online`,
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -564,7 +566,7 @@ export class RequirementsComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/Tourist`
+      `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/`
     );
   }
 }

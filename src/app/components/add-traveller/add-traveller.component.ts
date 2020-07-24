@@ -435,7 +435,7 @@ export class AddTravellerComponent implements OnInit {
       //   break;
 
       default:
-        this.breadcrumRouting = `/visa-requirements/${this.userFlowDetails.country}/apply-for-${this.userFlowDetails.country}-visa-online/${this.userFlowDetails.purpose}`;
+        this.breadcrumRouting = `/visa-requirements/${this.userFlowDetails.country}/apply-for-${this.userFlowDetails.country}-visa-online`;
         break;
     }
 

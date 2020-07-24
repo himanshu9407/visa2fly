@@ -14,7 +14,7 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [
-        ArmeniaComponent
+        ArmeniaComponent,
     ],
     imports: [
         FormsModule,

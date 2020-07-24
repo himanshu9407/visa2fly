@@ -106,6 +106,15 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  {
+    path: "visa-requirements/:country/:variable",
+    loadChildren: () =>
+      import("./components/requirements/requirements.module").then(
+        (m) => m.RequirementsModule
+      ),
+    data: { preload: true },
+  },
+
   // Requirement Page
   {
     path: "visa-requirements/:country/:variable/:purpose",

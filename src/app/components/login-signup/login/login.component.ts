@@ -136,6 +136,9 @@ export class LoginComponent implements OnInit {
   // }
 
   sendOtp() {
+    if (this.loginForm.get('userId').invalid && this.loginForm.get('userId').dirty || this.loginForm.get('userId').pristine) {
+      this.toastr.error("Kindly Enter Your Email/Mobile Number")
+    } else {
     this.showLoader = true;
     this.showSendOtp = false;
     this.loginForm.get('otp').enable();
@@ -163,6 +166,7 @@ export class LoginComponent implements OnInit {
         this.showSendOtp = true;
       }
     });
+  }
   }
 
   changeUserNumber() {
