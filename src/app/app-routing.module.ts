@@ -431,7 +431,7 @@ const routes: Routes = [
    {
     path: "visa/uae-visa-online",
     loadChildren: () =>
-      import("./components/visa-requirements/UAE/UAE.module").then(
+      import("./components/visa-requirements/uae/uae.module").then(
         (m) => m.UAEModule
       ),
     data: { preload: true },
