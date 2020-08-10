@@ -208,10 +208,6 @@
         name="firstName" id="firstName"
         [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}"
         placeholder="First Name" />
-      <!-- <div class="invalid-feedback" style="display: block;">
-          <div *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').dirty ">Enter a valid First
-            Name</div>
-        </div> -->
     </div>
 
     <div class="col-6 input-group pl-1">
@@ -220,10 +216,6 @@
         id="lastName" class="form-control"
         [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}"
         placeholder="Last Name" />
-      <!-- <div class="invalid-feedback" style="display: block;">
-        <div *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').dirty ">Enter a valid Last Name
-        </div>
-      </div> -->
     </div>
 
     <div class="col-6">
@@ -242,7 +234,7 @@
     <div class="col-12 input-group">
       <label for="email">Email</label>
       <input
-        pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
+        pattern="^([0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
         autocomplete="off" formControlName="email" class="form-control" type="email" name="email" id="email"
         [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}"
         placeholder="Email" />

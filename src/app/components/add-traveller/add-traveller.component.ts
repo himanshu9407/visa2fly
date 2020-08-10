@@ -833,7 +833,8 @@ export class AddTravellerComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
-      if (this.category == "Sticker") {
+      // if (this.category == "sticker") {
+      if (!this.imageUpload) {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
           .controls.address.value;
         let pinCodeValue = this.travellerForm.controls.travellers.controls[i]
@@ -934,8 +935,9 @@ export class AddTravellerComponent implements OnInit {
           (<FormArray>this.travellerForm.get("travellers")).controls || [];
 
         tempArr.forEach((form: FormGroup, index) => {
-          if (this.category == "e-visa") {
-            this.filedNameArr.forEach((el) => {
+          // if (this.category == "e-visa") {
+            if (this.imageUpload) {
+              this.filedNameArr.forEach((el) => {
               this.formData1.append("images", form.get(el).value);
 
               this.tempImageArr.push(form.get(el).value);
@@ -1023,8 +1025,9 @@ export class AddTravellerComponent implements OnInit {
         fd["primaryTraveller"] = ptdata[0];
         fd["otherTravellers"] = other;
         fd["dateOfTravel"] = finalDot;
-        if (this.category == "Sticker") {
-          fd["dateOfDocumentCollection"] = finalDoc;
+        // if (this.category == "Sticker") {
+          if (!this.imageUpload) {
+            fd["dateOfDocumentCollection"] = finalDoc;
         }
         fd["quoteId"] = this.quoteId;
         fd["countryName"] = this.country;
@@ -1084,7 +1087,7 @@ export class AddTravellerComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == "e-visa") {
+                if (this.imageUpload) {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                   });
@@ -1125,7 +1128,8 @@ export class AddTravellerComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == "e-visa") {
+                // if (this.category == "e-visa") {
+                if (this.imageUpload) {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                   });
@@ -1152,7 +1156,8 @@ export class AddTravellerComponent implements OnInit {
                 [];
 
               tempArr.forEach((form: FormGroup, i) => {
-                if (this.category == "e-visa") {
+                // if (this.category == "e-visa") {
+                if (this.imageUpload) {
                   this.filedNameArr.forEach((el, j) => {
                     form.get(el).setValue(this.originalImageArr[i][j]);
                   });
@@ -1321,8 +1326,9 @@ export class AddTravellerComponent implements OnInit {
 
         let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-        if (this.category == "e-visa") {
-          arr.forEach((element: FormGroup, i) => {
+        // if (this.category == "e-visa") {
+          if (this.imageUpload) {
+            arr.forEach((element: FormGroup, i) => {
             if (i == arr.length - 1) {
               this.filedNameArr.forEach((fieldName) => {
                 if (element.controls[fieldName]) {

@@ -3,7 +3,7 @@
     <div class="col-12 input-group">
       <label for="username">Email/Cell Number</label>
       <input minlength="6" id="username" class="form-control"
-        pattern="^([4-9][0-9]{9}|[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?)$"
+        pattern="^([0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
         (keydown.enter)="onUserPress($event)" formControlName="userId" placeholder="Email/Mobile" type="text"
         autocomplete="off" name="userId"
         [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}">
@@ -14,18 +14,11 @@
       </div>
     </div>
 
-    <!-- *ngIf="showAlert" -->
-    <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="showAlert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-          aria-hidden="true">&times;</span></button>
-      <strong> OTP Sent Successfully!</strong>
-    </div> -->
-
     <div class="col-12 input-group">
       <label for="otp">OTP</label>
       <input class="form-control" [disabled]="!showOtpField"
         [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}"
-        (keydown.enter)="onOTPPress($event)" pattern="^[0,1-9][0-9]{5}$" autocomplete="off" name="otp"  formControlName="otp" type="number"
+        (keydown.enter)="onOTPPress($event)" pattern="^[0,1-9][0-9]{5}$" autocomplete="off" name="otp"  formControlName="otp" type="text"
         placeholder="OTP" />
       <div class="invalid-feedback" style="display: block;">
         <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp </div>
