@@ -248,11 +248,11 @@ export class HomeFormComponent {
         //   break;
         // }
 
-        // case "Armenia": {
-        //   this.router.navigate(["visa/armenia-visa-online"]);
-        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
-        //   break;
-        // }
+        case "Armenia": {
+          this.router.navigate(["visa/armenia-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
 
         case "Japan": {
           this.router.navigate(["visa/japan-visa-online"]);
@@ -272,11 +272,11 @@ export class HomeFormComponent {
         //   break;
         // }
 
-        // case "Zambia": {
-        //   this.router.navigate(["visa/zambia-visa-online"]);
-        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
-        //   break;
-        // }
+        case "Zambia": {
+          this.router.navigate(["visa/zambia-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
 
         // case "Russia": {
         //   this.router.navigate(["visa/russia-visa-online"]);

@@ -343,9 +343,9 @@ export class AddTravellerComponent implements OnInit {
       case "Australia":
         this.breadcrumRouting = "/visa/australia-visa-online";
         break;
-      // case "Armenia":
-      //   this.breadcrumRouting = "/visa/armenia-visa-online";
-      //   break;
+      case "Armenia":
+        this.breadcrumRouting = "/visa/armenia-visa-online";
+        break;
       case "Azerbaijan":
         this.breadcrumRouting = "/visa/azerbaijan-visa-online";
         break;
@@ -430,9 +430,9 @@ export class AddTravellerComponent implements OnInit {
       case "Vietnam":
         this.breadcrumRouting = "/visa/vietnam-visa-online";
         break;
-      // case "Zambia":
-      //   this.breadcrumRouting = "/visa/zambia-visa-online";
-      //   break;
+      case "Zambia":
+        this.breadcrumRouting = "/visa/zambia-visa-online";
+        break;
 
       default:
         this.breadcrumRouting = `/visa-requirements/${this.userFlowDetails.country}/apply-for-${this.userFlowDetails.country}-visa-online`;

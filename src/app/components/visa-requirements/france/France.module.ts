@@ -7,6 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 import { FranceComponent } from './france.component';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   { path: "", component: FranceComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    FranceComponent
+    FranceComponent,
+    FaqComponent
   ],
 
   imports: [

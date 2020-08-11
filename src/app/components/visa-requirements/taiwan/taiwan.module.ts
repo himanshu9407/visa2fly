@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
     { path: "", component: TaiwanComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [
-        TaiwanComponent
+        TaiwanComponent,
+        FaqComponent
     ],
     imports: [
         FormsModule,

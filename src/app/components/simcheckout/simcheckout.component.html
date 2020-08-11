@@ -291,7 +291,7 @@
 
                 <div class="col-md-6">
                   <input formControlName="emailId" autocomplete="new-name"
-                    pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
+                    pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
                     type="text"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('emailId').invalid && simCheckoutForm.get('emailId').dirty,'is-valid':!(simCheckoutForm.get('emailId').invalid && simCheckoutForm.get('emailId').dirty) && !simCheckoutForm.get('emailId').pristine}"
                     class="form-control form-control-sm" placeholder="Email" />

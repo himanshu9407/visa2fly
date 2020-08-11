@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   { path: "", component: TurkeyComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    TurkeyComponent
+    TurkeyComponent,
+    FaqComponent
   ],
   imports: [
     FormsModule,

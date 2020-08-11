@@ -1,0 +1,190 @@
+<div class="container-fluid wrapContainer mt-2">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1><span class="faqContainer">FAQ's</span></h1>
+    </div>
+
+    <div class="col-12 p-0">
+      <div class="accordion" id="srilankaAccordion">
+
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading1" data-toggle="collapse"
+            data-target="#srilankaAccordion1" aria-expanded="true" aria-controls="srilankaAccordion1">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button">
+                What is an ETA?
+              </button>
+            </h5>
+          </div>
+
+          <div id="srilankaAccordion1" class="collapse show" aria-labelledby="heading1"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+              <p>An ETA is an electronic approval note that
+                allows for short-term stays in the Republic
+                of Sri Lanka.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading2" data-toggle="collapse"
+            data-target="#srilankaAccordion2" aria-expanded="false"
+            aria-controls="srilankaAccordion2">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                Is the ETA process an online one?
+              </button>
+            </h5>
+          </div>
+          <div id="srilankaAccordion2" class="collapse" aria-labelledby="heading2"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+              <p> Yes, you will have to submit an online
+                application, and the visa will be issued
+                to you on the same platform as well.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading3" data-toggle="collapse"
+            data-target="#srilankaAccordion3" aria-expanded="false"
+            aria-controls="srilankaAccordion3">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                I have a child. Do I require an ETA for them as well?
+              </button>
+            </h5>
+          </div>
+          <div id="srilankaAccordion3" class="collapse" aria-labelledby="heading3"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+              <p>Everyone who travels to Sri Lanka, regardless
+                of their age, require an ETA. If your children hold
+                a separate passport, then their application would
+                be separate from yours, but either way, the applicant
+                must fill in their details as they appear on
+                the passport.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading4" data-toggle="collapse"
+            data-target="#srilankaAccordion4" aria-expanded="false"
+            aria-controls="srilankaAccordion4">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                I am transiting through Sri Lanka. Do I require an ETA?
+              </button>
+            </h5>
+          </div>
+          <div id="srilankaAccordion4" class="collapse" aria-labelledby="heading4"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+              <p>This depends. If your flight has a stopover
+                in Sri Lanka, and you do not plan to exit the
+                transit area of the airport, a transit ETA is
+                not required. However, if you are transiting on
+                your way to a third country by a different mode
+                of transport (eg. arrive by flight and depart
+                by boat) or through a different airport (eg. changing
+                airports whilst still in Sri Lanka), you would
+                need an ETA.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading5" data-toggle="collapse"
+            data-target="#srilankaAccordion5" aria-expanded="false"
+            aria-controls="srilankaAccordion5">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                I wish to extend my visa. Is this possible?
+              </button>
+            </h5>
+          </div>
+          <div id="srilankaAccordion5" class="collapse" aria-labelledby="heading5"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+              <p>Yes, you can apply for an extension
+                of a visa whilst in Sri Lanka itself. This
+                will be valid for 90 days and can be extended
+                a second time for 90 more.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <ng-container *ngIf="showFaqs" [@simpleFadeAnimation]="'in'">
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading6" data-toggle="collapse"
+            data-target="#srilankaAccordion6" aria-expanded="false"
+            aria-controls="srilankaAccordion6">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                What if I plan to leave the airport during transit? Do I apply for a transit visa?
+              </button>
+            </h5>
+          </div>
+          <div id="srilankaAccordion6" class="collapse" aria-labelledby="heading6"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+              <p>You can apply for an ETA if you are
+                planning on leaving the airport
+                during your time in transit.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading7" data-toggle="collapse"
+            data-target="#srilankaAccordion7" aria-expanded="false"
+            aria-controls="srilankaAccordion7">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                Do I need a flight ticket/ hotel accomodation to apply for an ETA?
+              </button>
+            </h5>
+          </div>
+          <div id="srilankaAccordion7" class="collapse" aria-labelledby="heading7"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+              <p>No, you do not - however, you will need to
+                show both of these to the Immigration
+                Officer upon arrival into Sri Lanka.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading8" data-toggle="collapse"
+            data-target="#srilankaAccordion8" aria-expanded="false"
+            aria-controls="srilankaAccordion8">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                Do I need a flight ticket/ hotel accommodation to apply for an ETA?
+              </button>
+            </h5>
+          </div>
+          <div id="srilankaAccordion8" class="collapse" aria-labelledby="headingBusiness8"
+            data-parent="#srilankaAccordion">
+            <div class="card-body">
+
+              <p>No, you do not - however, you will need
+                to show both of these to the Immigration
+                Officer upon arrival into Sri Lanka.
+              </p>
+            </div>
+          </div>
+        </div>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <div class="col-12 text-center loadMore mt-3">
+      <button class="loadMoreBtn btn" (click)="loadData()">{{loadText}}</button>
+    </div>
+    
+  </div>
+</div>
