@@ -236,11 +236,11 @@ export class HomeFormComponent {
           break;
         }
 
-        case "Taiwan": {
-          this.router.navigate(["visa/taiwan-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Taiwan": {
+        //   this.router.navigate(["visa/taiwan-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
         // case "Rwanda": {
         //   this.router.navigate(["visa/rwanda-visa-online"]);
