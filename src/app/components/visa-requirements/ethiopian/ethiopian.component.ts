@@ -264,19 +264,17 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
-      this.t.select("Tourist");
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+      this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      this.t.select("Business");
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+      this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
-      this.t.select("Transit");
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+      this.t.select("Transit");
     }
-    // console.log(this.MyQuotation1);
-    this.imagefield1 = this.imageCatogoryTemp;
   }
 
   navigateTo(purpose: any) {

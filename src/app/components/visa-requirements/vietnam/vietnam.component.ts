@@ -278,7 +278,6 @@ export class VietnamComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -286,9 +285,6 @@ export class VietnamComponent implements OnInit, AfterViewInit {
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    this.imagefield1 = this.imageCatogoryTemp;
-
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {

@@ -275,23 +275,19 @@ export class UAEComponent implements OnInit, AfterViewInit {
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
-      this.imageUpload1 = this.imageCatogoryTouristTemp;
-      this.t.select("Tourist");
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+      this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      this.imageUpload1 = this.imageCatogoryBusinessTemp;
-      this.t.select("Business");
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+      this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
-      this.t.select("Transit");
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+      this.t.select("Transit");
     }
-
-    this.imagefield1 = this.imageCatogoryTemp;
   }
-
   navigateTo(purpose: any) {
     let purposeString: string = purpose.nextId;
     let purposeUrl =

@@ -252,26 +252,19 @@ export class MalaysiaComponent implements OnInit {
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
-
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-      this.t.select("Business");
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-
+      this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
-      this.t.select("Transit");
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-
+      this.t.select("Transit");
     }
-
-    this.imagefield1 = this.imageCatogoryTemp;
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {

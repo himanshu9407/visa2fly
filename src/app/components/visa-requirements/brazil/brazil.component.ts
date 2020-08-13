@@ -267,8 +267,6 @@ export class BrazilComponent implements OnInit, AfterViewInit {
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    this.imagefield1 = this.imageCatogoryTemp;
-
   }
 
   navigateTo(purpose: any) {

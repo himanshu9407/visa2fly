@@ -268,15 +268,18 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
+
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {

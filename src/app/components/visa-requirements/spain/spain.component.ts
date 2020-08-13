@@ -278,8 +278,6 @@ export class SpainComponent implements OnInit, AfterViewInit  {
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    this.imagefield1 = this.imageCatogoryTemp;
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {

@@ -27,7 +27,23 @@ export interface Food {
 @Component({
   selector: 'app-behrain',
   templateUrl: './behrain.component.html',
-  styleUrls: ['./behrain.component.css']
+  styleUrls: ['./behrain.component.css'],
+  animations: [
+    // the fade-in/fade-out animation.
+    trigger("simpleFadeAnimation", [
+      // the "in" style determines the "resting" state of the element when it is visible.
+      state("in", style({ opacity: 1 })),
+
+      // fade in when created. this could also be written as transition('void => *')
+      transition(":enter", [style({ opacity: 0 }), animate(800)]),
+
+      // fade out when destroyed. this could also be written as transition('void => *')
+      transition(
+        ":leave",
+        animate(800, style({ opacity: 0, background: "green" }))
+      )
+    ])
+  ]
 })
 export class BehrainComponent implements OnInit, AfterViewInit {
 
@@ -98,7 +114,7 @@ export class BehrainComponent implements OnInit, AfterViewInit {
       this.requireQuotation
         .getRequireQuotation(this.selectedCountrytype)
         .subscribe((res: any) => {
-          // console.log(res);
+          console.log(res);
           if (res.code == 0) {
             this.MyQuotation = res.data.quotations;
   
@@ -145,7 +161,6 @@ export class BehrainComponent implements OnInit, AfterViewInit {
                 this.router.navigate(['visa/']);
               }
   
-              this.imagefield1 = this.imageCatogoryTemp;
             setTimeout(() => {
               this.preloaderService.showPreloader(false);
             }, 500);
@@ -251,15 +266,18 @@ export class BehrainComponent implements OnInit, AfterViewInit {
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
+
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {
@@ -314,16 +332,14 @@ export class BehrainComponent implements OnInit, AfterViewInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUpload: boolean,
   ) {
     this.preloaderService.showPreloader(true);
 
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-    this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+    this.userFlow.setUserFlowDetails("purpose", purpose);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-
     this.userFlow.setUserFlowDetails(
       "minTravelDate",
       JSON.stringify(minTravelDate)
@@ -331,12 +347,11 @@ export class BehrainComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
-      JSON.stringify(this.imagefield1)
+      JSON.stringify(this.imageCatogoryTemp)
     );
-
-    //console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {

@@ -277,9 +277,6 @@ export class USAComponent implements OnInit {
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    this.imagefield1 = this.imageCatogoryTemp;
-
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {
