@@ -114,7 +114,7 @@ export class BehrainComponent implements OnInit, AfterViewInit {
       this.requireQuotation
         .getRequireQuotation(this.selectedCountrytype)
         .subscribe((res: any) => {
-          console.log(res);
+          // console.log(res);
           if (res.code == 0) {
             this.MyQuotation = res.data.quotations;
   
