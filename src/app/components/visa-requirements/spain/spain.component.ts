@@ -11,14 +11,12 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
-import { HomeFormComponent } from "../../home-form/home-form.component";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from '@angular/platform-browser';
-import { SeoService } from 'src/app/shared/seo.service';
 import { DOCUMENT } from '@angular/common';
 
 export interface Food {
@@ -137,19 +135,20 @@ export class SpainComponent implements OnInit, AfterViewInit  {
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
-          //console.log(this.MyQuotation);
-          this.MyQuotation.forEach(element => {
+          
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              // console.log(this.businessArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              //console.log(this.touristArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              // console.log(this.transitArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
+
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);

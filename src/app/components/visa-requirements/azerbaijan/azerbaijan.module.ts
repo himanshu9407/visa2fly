@@ -6,6 +6,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { AzerbaijanComponent } from './azerbaijan.component';
+import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   { path: "", component: AzerbaijanComponent },
@@ -13,7 +15,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AzerbaijanComponent
+    AzerbaijanComponent,
+    FaqComponent
   ],
 
   imports: [
@@ -21,6 +24,7 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    SharedVisaModuleModule,
     NgbModule,
     MatSelectModule,
     RouterModule.forChild(routes)

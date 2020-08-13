@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 import { SwitzerlandComponent } from './switzerland.component';
+import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   { path: "", component: SwitzerlandComponent },
@@ -13,7 +15,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    SwitzerlandComponent
+    SwitzerlandComponent,
+    FaqComponent
   ],
   imports: [
     FormsModule,
@@ -21,6 +24,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule,
+    SharedVisaModuleModule,
     MatSelectModule,
     RouterModule.forChild(routes)
   ]

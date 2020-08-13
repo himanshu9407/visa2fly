@@ -1,4 +1,4 @@
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+<!-- <form>
 
   <div class="row">
     <div class="col-md-6 small-no-padding">
@@ -21,7 +21,6 @@
           [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}"
           placeholder="First Name" />
         <div class="invalid-feedback" style="display: block;margin-left: 8%;">
-          <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
           <div *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').dirty ">Enter a valid First
             Name</div>
         </div>
@@ -48,7 +47,6 @@
           [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}"
           placeholder="Last Name" />
         <div class="invalid-feedback" style="display: block;margin-left: 8%;">
-          <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
           <div *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').dirty ">Enter a valid Last Name
           </div>
         </div>
@@ -85,7 +83,6 @@
       [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}"
       placeholder="Email" />
     <div class="invalid-feedback" style="display: block;margin-left: 8%;">
-      <!-- <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid ">Email is required</div> -->
       <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').dirty ">Enter a valid email address
       </div>
     </div>
@@ -107,7 +104,6 @@
       placeholder="Mobile" />
     <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty" class="invalid-feedback"
       style="display: block;margin-left: 8%;">
-      <!-- <div>Mobile No. is required</div> -->
       <div>Invalid Mobile Number</div>
     </div>
   </div>
@@ -150,11 +146,6 @@
         aria-hidden="true">&times;</span></button>
     <strong> OTP Sent Successfully!</strong>
   </div>
-
-
-  <!-- <div *ngIf="showOtpFields" class="row align-items-center remember">
-    <input formControlName="tnc" form type="checkbox" checked   aria-selected="true"> <span class="agree">I Agree to Terms and Conditions</span>
-  </div> -->
 
   <div class="cntr" *ngIf="showOtpFields">
     <input class="hidden-xs-up" formControlName="tnc" (keydown.enter)="onKeyPress1($event)" form id="cbx"
@@ -206,5 +197,92 @@
             Change Details</span></a>
       </div>
     </div>
+  </div>
+</form> -->
+
+<form class="form-body" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-6 input-group pr-1">
+      <label for="firstName">First Name</label>
+      <input pattern="[A-Za-z]{3,32}" formControlName="firstName" autocomplete="off" class="form-control" type="text"
+        name="firstName" id="firstName"
+        [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}"
+        placeholder="First Name" />
+    </div>
+
+    <div class="col-6 input-group pl-1">
+      <label for="lastName">Last Name</label>
+      <input pattern="[A-Za-z]{3,32}" formControlName="lastName" autocomplete="off" type="text" name="lastName"
+        id="lastName" class="form-control"
+        [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}"
+        placeholder="Last Name" />
+    </div>
+
+    <div class="col-6">
+      <div class="invalid-feedback pr-1" style="display: block;">
+        <div *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').dirty ">Enter a valid First
+          Name</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="invalid-feedback pl-1" style="display: block;">
+        <div *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').dirty ">Enter a valid Last Name
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 input-group">
+      <label for="email">Email</label>
+      <input
+        pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
+        autocomplete="off" formControlName="email" class="form-control" type="email" name="email" id="email"
+        [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}"
+        placeholder="Email" />
+      <div class="invalid-feedback" style="display: block;">
+        <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').dirty ">Enter a valid email address
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 input-group">
+      <label for="cellNo">Cell Number</label>
+      <input
+        [ngClass]="{'is-invalid':signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,'is-valid':!(signupForm.get('mobile').invalid && signupForm.get('mobile').dirty) && !signupForm.get('mobile').pristine}"
+        formControlName="mobile" pattern="^[4-9][0-9]{9}$" type="tel" autocomplete="off" name="cellNo" id="cellNo"
+        class="form-control" placeholder="Mobile" />
+      <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty" class="invalid-feedback"
+        style="display: block;">
+        <div>Invalid Mobile Number</div>
+      </div>
+    </div>
+
+    <div class="col-12 input-group" *ngIf="showOtpFields">
+      <label for="otp">Enter OTP</label>
+      <input
+        [ngClass]="{'is-invalid':signupForm.get('otp').invalid && signupForm.get('otp').dirty,'is-valid':!(signupForm.get('otp').invalid && signupForm.get('otp').dirty) && !signupForm.get('otp').pristine}"
+        (keydown.enter)="onKeyPress($event)" pattern="^[0,1-9][0-9]{5}$" formControlName="otp" type="text"
+        class="form-control" id="otp" name="otp" autocomplete="off" placeholder="OTP" />
+      <div *ngIf="signupForm.get('otp').invalid && signupForm.get('otp').dirty" class="invalid-feedback"
+        style="display: block;">
+        <div>Invalid OTP</div>
+      </div>
+    </div>
+
+    <!-- *ngIf="showSendOtpButton" -->
+    <div class="col-12 button-group" *ngIf="showSendOtpButton">
+      <button [ngClass]="{'scale-out':showOtpFields}"
+        [disabled]="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty || signupForm.get('email').invalid && signupForm.get('email').dirty || signupForm.get('email').pristine || signupForm.get('mobile').pristine"
+        type="submit" value="VerifyOTP" class="scale-transition btn float-right login_btn">
+        Send OTP</button>
+    </div>
+
+    <!-- *ngIf="showSignUpButton" -->
+    <div class="col-12 button-group" *ngIf="showSignUpButton">
+      <button
+        [disabled]="signupForm.get('otp').invalid && signupForm.get('otp').dirty  || signupForm.get('otp').pristine ||  signupForm.get('tnc').value == false "
+        (click)="createUser()" type="button" value="Signup"
+        class="btn float-right login_btn scale-transition">Signup</button>
+    </div>
+
   </div>
 </form>

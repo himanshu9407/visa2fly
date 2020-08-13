@@ -6,7 +6,6 @@ import {
   AfterViewChecked,
 } from "@angular/core";
 import { HomeServiceService } from "./home-service.service";
-import { HomeFormService } from "./components/home-form/home-form.service";
 import { PreloaderService } from "./shared/preloader.service";
 import { LoginStatusService } from "./shared/login-status.service";
 import { LoginService } from "./components/login-signup/login/login.service";
@@ -28,17 +27,15 @@ export class AppComponent implements OnInit {
   public showPreloader: boolean = false;
   users: object;
   showB2BHeader: boolean;
+  hideFooter: boolean;
+  activeRoute: string;
   constructor(
-    private homeFormService: HomeFormService,
     private preloaderService: PreloaderService,
     private loginStatusService: LoginStatusService,
     private router: Router,
     private loginService: LoginService,
     private userFlow: UserFlowDetails,
-    private authService: AuthenticationGuard,
-    private cookies: CookiesService
   ) {
-
   }
 
   ngOnInit() {
@@ -48,17 +45,17 @@ export class AppComponent implements OnInit {
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        // console.log(event.url);
         let url: string = event.url;
         let arr = url.split("/");
 
+        this.activeRoute = arr[1];
+
         if (arr[1] == "b2b") {
           this.showB2BHeader = true;
-          // console.log('checkout3');
         } else {
           this.showB2BHeader = false;
-          // console.log("Kuldeep");
         }
+
       }
     });
 

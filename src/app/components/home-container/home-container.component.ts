@@ -1,6 +1,4 @@
 import { Component, OnInit, Inject } from "@angular/core";
-import { HomeFormService } from "../home-form/home-form.service";
-import { ActivatedRoute } from "@angular/router";
 import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -11,8 +9,6 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class HomeContainerComponent implements OnInit {
   constructor(
-    private homeFormService: HomeFormService,
-    private route: ActivatedRoute,
     @Inject(DOCUMENT) private doc,
     private titleService: Title,
     private meta: Meta
@@ -47,7 +43,7 @@ export class HomeContainerComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com",
+      content: "https://visa2fly.com/",
     });
     this.meta.updateTag({
       property: "og:image:alt",

@@ -21,6 +21,14 @@ import { USAModule } from './usa/usa.module';
 import { ZambiaModule } from './zambia/zambia.module';
 import { UzbekistanModule } from './uzbekistan/uzbekistan.module';
 import { TajikistanModule } from './tajikistan/tajikistan.module';
+import { JapanModule } from './japan/japan.module';
+import { RwandaModule } from './rwanda/rwanda.module';
+import { EgyptModule } from './egypt/egypt.module';
+import { ArmeniaModule } from './armenia/armenia.module';
+import { NewZealandModule } from './new-zealand/new-zealand.module';
+import { SouthAfricaModule } from './south-africa/south-africa.module';
+import { TaiwanModule } from './taiwan/taiwan.module';
+import { UAEModule } from './uae/uae.module';
 
 @NgModule({
   imports: [
@@ -46,11 +54,16 @@ import { TajikistanModule } from './tajikistan/tajikistan.module';
     USAModule,
     ZambiaModule,
     UzbekistanModule,
-    TajikistanModule
+    TajikistanModule,
+    JapanModule,
+    RwandaModule,
+    EgyptModule,
+    ArmeniaModule,
+    NewZealandModule,
+    SouthAfricaModule,
+    TaiwanModule,
+    UAEModule
   ],
-  declarations: [],
-  
-  
   
 })
 

@@ -102,9 +102,6 @@ export class B2bReqComponent implements OnInit {
     private activateRoute: ActivatedRoute
   ) {
     this.preloaderService.showPreloader(true);
-    this.userFlowDetails = this.userFlow.getUserFlowDetails();
-
-    // console.log(this.userFlowDetails);
     this.activateRoute.params.subscribe((params: any) => {
       this.selectedPurposeType = params.purpose;
       this.selectedCountrytype = params.country;
@@ -118,7 +115,6 @@ export class B2bReqComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        console.log(data);
         if (data.code == "0") {
           this.requirementsData = data;
           // console.log(data.data);
@@ -129,10 +125,13 @@ export class B2bReqComponent implements OnInit {
             //console.log(this.purposeApi);
             if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else {
               this.transitArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
 

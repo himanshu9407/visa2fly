@@ -1397,7 +1397,7 @@ button:hover {
   text-align: center;
 }
 
-@media (min-width: 320px) and (max-width: 896px) and (orientation: landscape) {
+@media (max-width: 896px) and (min-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
   .landscape_wrapper {
     display: flex;
     pointer-events: auto;
@@ -1407,7 +1407,6 @@ button:hover {
 a {
   text-decoration: none !important;
 }
-
 
 .linkAddress .linkAddressHeading {
   color: #343332;
@@ -1419,7 +1418,21 @@ a {
 }
 
 .linkAddress a {
-  color: #0D6CBF;
+  color: #0d6cbf;
   font-size: 13px;
   font-weight: 400;
+}
+
+.loadMore .loadMoreBtn {
+  padding: 5px 20px !important;
+  background-color: #000080 !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  border-radius: 50px !important;
+  -webkit-border-radius: 50px !important;
+  -moz-border-radius: 50px !important;
+  -ms-border-radius: 50px !important;
+  -o-border-radius: 50px !important;
+  margin-bottom: 10px;
 }

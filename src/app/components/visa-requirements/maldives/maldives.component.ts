@@ -1,25 +1,29 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  Inject,
+} from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
   state,
   style,
   transition,
-  animate
+  animate,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { VisaRequirementService } from "../visa-requirement.service";
-import { HomeFormComponent } from "../../home-form/home-form.component";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoService } from 'src/app/shared/seo.service';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT } from "@angular/common";
 
 export interface Food {
   value: string;
@@ -43,12 +47,11 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class MaldivesComponent implements OnInit, AfterViewInit {
-
   @ViewChild("t") t;
   ngbTabTitleClass;
   public onlinestatus: boolean = false;
@@ -76,7 +79,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
-  
+
   public selectedCountrytype = "Maldives";
 
   constructor(
@@ -97,7 +100,7 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','maldives-visa-online']);
+        this.router.navigate(["visa", "maldives-visa-online"]);
       }
     });
 
@@ -111,23 +114,27 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
 
     let tempPurpose = this.selectedVisaType;
     this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
+      purposeSelected: new FormControl(tempPurpose),
     });
     // this.requireQuotation.getRequireQuotation(this.selectedCountrytype).subscribe((res : any) => {
     //   if(res.code == 0){
     //     this.MyQuotation = res.data.quotations;
     //     this.onlinestatus = res.data.onlineCategory;
     //     this.userFlow.setUserFlowDetails("onlineCountry", JSON.stringify(res.data.onlineCategory));
-    //     this.MyQuotation.forEach((element) => {
+    //
+    // this.MyQuotation.forEach((element) => {
+    //   if (element.purpose == "Business") {
+    //     this.businessArr.push(element);
+    //     this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
+    //   } else if (element.purpose == "Tourist") {
+    //     this.touristArr.push(element);
+    //     this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
+    //   } else if (element.purpose == "Transit") {
+    //     this.transitArr.push(element);
+    //     this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
+    //   }
+    // });
 
-    //       if(element.purpose == 'Business'){
-    //       this.businessArr.push(element);
-    //     }else if(element.purpose == 'Tourist'){
-    //       this.touristArr.push(element);
-    //     }else if(element.purpose == 'Transit'){
-    //       this.transitArr.push(element);
-    //     }
-    //     });
     //     let purposeMain = this.selectedVisaType;
     //     let purposeUrl = purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
     //     if(purposeUrl == 'Business')
@@ -149,8 +156,10 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("Maldives Visa | Apply For Maldives Visa Online for Indians- Visa2Fly");
-    
+    this.titleService.setTitle(
+      "Maldives Visa | Apply For Maldives Visa Online for Indians- Visa2Fly"
+    );
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -296,75 +305,75 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
   }
 
-//   navigate(
-//     quoteId: string,
-//     purpose: string,
-//     category: string,
-//     minTravelDate: number,
-//     basePrice: number,
-//     serviceTax: number,
-//     stayPeriod: string,
-//     imageUploads: string
-//   ) {
-//     this.preloaderService.showPreloader(true);
+  //   navigate(
+  //     quoteId: string,
+  //     purpose: string,
+  //     category: string,
+  //     minTravelDate: number,
+  //     basePrice: number,
+  //     serviceTax: number,
+  //     stayPeriod: string,
+  //     imageUploads: string
+  //   ) {
+  //     this.preloaderService.showPreloader(true);
 
-//     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-//     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
-//     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-//     //console.log(quoteId);
-//     this.userFlow.setUserFlowDetails("category", category);
+  //     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+  //     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+  //     this.userFlow.setUserFlowDetails("quoteId", quoteId);
+  //     //console.log(quoteId);
+  //     this.userFlow.setUserFlowDetails("category", category);
 
-//     this.userFlow.setUserFlowDetails(
-//       "minTravelDate",
-//       JSON.stringify(minTravelDate)
-//     );
-//     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-//     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
-//     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-//     this.userFlow.setUserFlowDetails(
-//       "imageUploads",
-//       JSON.stringify(this.imagefield1)
-//     );
+  //     this.userFlow.setUserFlowDetails(
+  //       "minTravelDate",
+  //       JSON.stringify(minTravelDate)
+  //     );
+  //     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
+  //     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
+  //     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+  //     this.userFlow.setUserFlowDetails(
+  //       "imageUploads",
+  //       JSON.stringify(this.imagefield1)
+  //     );
 
-//     //console.log(quoteId);
+  //     //console.log(quoteId);
 
-//     let token = this.loginService.getAuthToken();
-//     if (token == null || token == undefined) {
-//       token = "";
-//     }
-//     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-//       if (data.code == "0") {
-//         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-//           // console.log(data);
+  //     let token = this.loginService.getAuthToken();
+  //     if (token == null || token == undefined) {
+  //       token = "";
+  //     }
+  //     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
+  //       if (data.code == "0") {
+  //         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
+  //           // console.log(data);
 
-//           if (data.code == "0") {
-//             this.routerHistory.pushHistory("visa-requirement");
-//             this.router.navigate(["addTraveller"]);
+  //           if (data.code == "0") {
+  //             this.routerHistory.pushHistory("visa-requirement");
+  //             this.router.navigate(["addTraveller"]);
 
-//             // setTimeout(() => {
+  //             // setTimeout(() => {
 
-//             this.preloaderService.showPreloader(false);
-//             // }, 2000);
-//           } else {
-//             this.toastService.showNotification("" + data.message, 4000);
-//             this.preloaderService.showPreloader(false);
-//           }
-//         });
-//       } else if (data.code == "301") {
-//         this.loginService.setAuthToken("");
-//         this.loginStatus.setUserStatus(false);
-//         this.loginStatus.setUserLoggedIn(false);
-//         // this.router.navigate(['visa']);
-//         this.preloaderService.showPreloader(false);
-//         this.userFlow.setCookie("profile", JSON.stringify({}));
-//         this.routerHistory.pushHistory("req-and-quote");
-//         this.router.navigate(["slcontainer/login"]);
-//         this.preloaderService.showPreloader(false);
-//       } else {
-//         this.routerHistory.pushHistory("req-and-quote");
-//         this.router.navigate(["slcontainer/login"]);
-//         this.preloaderService.showPreloader(false);
-//       }
-//     });
-//   }
+  //             this.preloaderService.showPreloader(false);
+  //             // }, 2000);
+  //           } else {
+  //             this.toastService.showNotification("" + data.message, 4000);
+  //             this.preloaderService.showPreloader(false);
+  //           }
+  //         });
+  //       } else if (data.code == "301") {
+  //         this.loginService.setAuthToken("");
+  //         this.loginStatus.setUserStatus(false);
+  //         this.loginStatus.setUserLoggedIn(false);
+  //         // this.router.navigate(['visa']);
+  //         this.preloaderService.showPreloader(false);
+  //         this.userFlow.setCookie("profile", JSON.stringify({}));
+  //         this.routerHistory.pushHistory("req-and-quote");
+  //         this.router.navigate(["slcontainer/login"]);
+  //         this.preloaderService.showPreloader(false);
+  //       } else {
+  //         this.routerHistory.pushHistory("req-and-quote");
+  //         this.router.navigate(["slcontainer/login"]);
+  //         this.preloaderService.showPreloader(false);
+  //       }
+  //     });
+  //   }
 }

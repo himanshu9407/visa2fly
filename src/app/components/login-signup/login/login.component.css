@@ -1,162 +1,117 @@
-  .input-group>.form-control:not(:last-child) {
-      border-top-right-radius: 20px !important;
-      border-bottom-right-radius: 20px !important;
-  }
-  
-  .changeBtn {
-      margin-right: 10px;
-  }
+.form-body {
+  position: relative;
+  margin-top: 25px;
+  text-align: left;
+  z-index: 1;
+}
 
-  .mgBottom {
-      margin-bottom: 10px;
-  }
-  
-  .resendBtn {
-      margin-left: 0px;
-      margin-bottom: 10px;
-      width: 130px;
-      border: 1px solid #e6e6e6;
-      border-bottom-width: 3px;
-      display: initial;
-      border-radius: 6px;
-      padding: 2px 6px;
-  }
+.form-body label,
+.form-body input {
+  display: block;
+}
 
-  .gapping{
-      margin-top : -25px;
-      padding: 15px;
-  }
-  
-  .cbx {
-      position: relative;
-      top: 1px;
-      width: 17px;
-      height: 17px;
-      border: 1px solid #c8ccd4;
-      border-radius: 3px;
-      vertical-align: middle;
-      transition: background 0.1s ease;
-      cursor: pointer;
-  }
-  
-  .cbx:after {
-      content: '';
-      position: absolute;
-      top: 1px;
-      left: 5px;
-      width: 5px;
-      height: 11px;
-      opacity: 0;
-      transform: rotate(45deg) scale(0);
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      transition: all 0.3s ease;
-      transition-delay: 0.15s;
-  }
-  
-  .lbl {
-      margin-left: 5px;
-      vertical-align: middle;
-      cursor: pointer;
-  }
-  
-  #cbx:checked~.cbx {
-      border-color: transparent;
-      background: #6871f1;
-      animation: jelly 0.6s ease;
-  }
-  
-  #cbx:checked~.cbx:after {
-      opacity: 1;
-      transform: rotate(45deg) scale(1);
-  }
-  
-  @keyframes jelly {
-      from {
-          transform: scale(1, 1);
-      }
-      30% {
-          transform: scale(1.25, 0.75);
-      }
-      40% {
-          transform: scale(0.75, 1.25);
-      }
-      50% {
-          transform: scale(1.15, 0.85);
-      }
-      65% {
-          transform: scale(0.95, 1.05);
-      }
-      75% {
-          transform: scale(1.05, 0.95);
-      }
-      to {
-          transform: scale(1, 1);
-      }
-  }
-  /* On mouse-over, add a deeper shadow */
-  
-  .agree {
-      -ms-transform: rotate(360deg);
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-      font-size: 14px;
-  }
-  
-  .roundedinput {
-      border-radius: 20px;
-  }
-  
-  .remember {
-      margin-top: 10px;
-  }
-  
-  label {
-      margin-bottom: 0px !important;
-  }
-  /* On mouse-over, add a deeper shadow */
-  
-  input {
-      border: 1px solid #e6e6e6;
-      border-bottom-width: 3px;
-  }
-  
-  .input-group-prepend span {
-      border-radius: 20px 0px 0px 20px;
-      width: 50px;
-      background-color: navy;
-      padding-left: 20px;
-      color: white;
-      border: 0 !important;
-  }
-  
-  input:focus {
-      outline: none !important;
-      box-shadow: none !important;
-  }
-  
-  .remember {
-      color: navy;
-  }
-  
-  .remember input {
-      width: 20px;
-      height: 20px;
-      margin-left: 15px;
-      margin-right: 5px;
-  }
-  
-  .login_btn {
-      border-radius: 20px;
-      margin-top: 10px;
-      border-bottom-width: 3px;
-      color: white;
-      background-color: navy;
-      width: 100px;
-  }
-  
-  .login_btn:hover {
-      border-color: #2A2A72;
-      color: navy;
-      background-color: white;
-  }
+.form-body label {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-body .input-group {
+  margin-bottom: 15px;
+}
+
+.form-body .input-group input {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 2px solid #bce0fd;
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+}
+
+.form-body .input-group .form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  /* background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=http://www.w3.org/2000/svg width=12 height=12 fill=none stroke=%23dc3545%3E%3Ccircle cx=6 cy=6 r=4.5/%3E%3Cpath stroke-linejoin=round d=M5.8 3.6h.4L6 6.5z/%3E%3Ccircle cx=6 cy=8.2 r=.6 fill=%23dc3545 stroke=none/%3E%3C/svg%3E"); */
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.form-body input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.form-body .button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.form-body .button-group .btn,
+.form-body .button-group .btn:disabled {
+  background-color: #130654;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+  opacity: 1;
+}
+
+.form-body .rememberMeBox {
+  text-align: left;
+}
+
+.form-body .rememberMeBox input,
+.form-body .rememberMeBox label {
+  display: inline-block;
+}
+
+.form-body .rememberMeBox input {
+  border: 2px solid #bce0fd;
+}
+
+.form-body .rememberMeBox label {
+  margin-left: 10px;
+}
+
+.spinner-border {
+  border: 0.25em solid #fff;
+  border-right-color: transparent;
+}
+
+.change-group {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.change-group .resendBtn {
+  background: #fff;
+  padding: 2px 5px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.alert {
+  position: relative;
+  padding: .5rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  -ms-border-radius: .25rem;
+  -o-border-radius: .25rem;
+  margin: 0px 15px;
+  width: 100%;
+}
+
+.invalid-feedback {
+  color: #fff;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
+import { Component, OnInit, PLATFORM_ID, Inject, Output } from "@angular/core";
 import * as $ from "jquery";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { isPlatformBrowser } from "@angular/common";
@@ -37,12 +37,9 @@ export class LoginSignupComponent implements OnInit {
     }
     this.show_login = false;
     if (isPlatformBrowser(this.platformId)) {
-      $("#Login").css("border-radius", "0px 20px 20px 0px");
-      $("#Login").removeClass("signup-capsule");
-      $("#Login").addClass("login-capsule");
-      $("#SignUp").removeClass("login-capsule");
-      $("#SignUp").addClass("signup-capsule");
-      $("#SignUp").css("border-radius", "20px 0px 0px 20px");
+      $("#signUp").addClass("active");
+      $("#signIn").removeClass("active");
+      // $(".blurred-box").css("height", "520px");
     }
   }
 
@@ -52,13 +49,10 @@ export class LoginSignupComponent implements OnInit {
     }
     this.show_signup = false;
     if (isPlatformBrowser(this.platformId)) {
-      $("#SignUp").css("border-radius", "20px 0px 0px 20px");
-
-      $("#SignUp").removeClass("signup-capsule");
-      $("#SignUp").addClass("login-capsule");
-      $("#Login").removeClass("login-capsule");
-      $("#Login").addClass("signup-capsule");
-      $("#Login").css("border-radius", "0px 20px 20px 0px");
+      $("#signIn").addClass("active");
+      $("#signUp").removeClass("active");
+      // $(".blurred-box").css("height", "426px");
+      // 426px
     }
   }
 
@@ -68,4 +62,5 @@ export class LoginSignupComponent implements OnInit {
   navigateToSignup() {
     this.router.navigate(["slcontainer", "signup"]);
   }
+
 }

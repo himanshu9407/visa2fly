@@ -1,0 +1,164 @@
+<div class="container-fluid wrapContainer mt-2">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1><span class="faqContainer">FAQ's</span></h1>
+    </div>
+
+    <div class="col-12 p-0">
+      <div class="accordion" id="singaporeAccordion">
+
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading1" data-toggle="collapse"
+            data-target="#singaporeAccordion1" aria-expanded="true"
+            aria-controls="singaporeAccordion1">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button">
+                What is the validity of my visa?
+              </button>
+            </h5>
+          </div>
+
+          <div id="singaporeAccordion1" class="collapse show" aria-labelledby="heading1"
+            data-parent="#singaporeAccordion">
+            <div class="card-body">
+              <p>Every application for a singapore e visa online (which includes the duration of the visa
+                granted) will be considered on its own merits and subject to approval. The validity of the
+                visa will be printed on your
+                passport.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading2Two" data-toggle="collapse"
+            data-target="#singaporeAccordion2" aria-expanded="false"
+            aria-controls="singaporeAccordion2">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                I am an Indian citizen. Am I eligible for a Visa on Arrival?
+              </button>
+            </h5>
+          </div>
+          <div id="singaporeAccordion2" class="collapse" aria-labelledby="heading2"
+            data-parent="#singaporeAccordion">
+            <div class="card-body">
+              <p>Currently, Singapore does not facilitate Visas on Arrival for Indians.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading3" data-toggle="collapse"
+            data-target="#singaporeAccordion3" aria-expanded="false"
+            aria-controls="singaporeAccordion3">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                My visa application was rejected. I want to know why, and what to do next?
+              </button>
+            </h5>
+          </div>
+          <div id="singaporeAccordion3" class="collapse" aria-labelledby="heading3"
+            data-parent="#singaporeAccordion">
+            <div class="card-body">
+              <p>ICA (Immigration and Checkpoints Authority) does not disclose reasons for rejecting visas.
+                However, you could apply for an appeal against your visa rejection. This must be done a
+                maximum of 1 month of visa
+                rejection and may take around 14 days to process.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading4" data-toggle="collapse"
+            data-target="#singaporeAccordion4" aria-expanded="true"
+            aria-controls="singaporeAccordion4">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button">
+                How can I check the validity of my issued visa?
+              </button>
+            </h5>
+          </div>
+
+          <div id="singaporeAccordion4" class="collapse" aria-labelledby="heading4"
+            data-parent="#singaporeAccordion">
+            <div class="card-body">
+              <p>If you have already received your visa in PDF format, you can check its validity on the
+                Singaporean Immigration & Checkpoint Authority website.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading5" data-toggle="collapse"
+            data-target="#singaporeAccordion5" aria-expanded="true"
+            aria-controls="singaporeAccordion5">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button">
+                Will I need to produce a return ticket if I am exempted from a visa?
+              </button>
+            </h5>
+          </div>
+
+          <div id="singaporeAccordion5" class="collapse show" aria-labelledby="heading5"
+            data-parent="#singaporeAccordion">
+            <div class="card-body">
+              <p>
+                You do not need to show a return ticket to the Singapore authorities, however,
+                many airlines do not let you board until they have seen proof of return
+                tickets - checking with your respective airline on this matter is advised.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <ng-container *ngIf="showFaqs" [@simpleFadeAnimation]="'in'">
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading6" data-toggle="collapse"
+            data-target="#singaporeAccordion6" aria-expanded="false"
+            aria-controls="singaporeAccordion6">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                The visa of the country I am travelling to has not yet arrived - will this affect my transit?
+              </button>
+            </h5>
+          </div>
+          <div id="singaporeAccordion6" class="collapse" aria-labelledby="heading6"
+            data-parent="#singaporeAccordion">
+            <div class="card-body">
+              <p>
+                Yes, you will be denied transit if you are not able to show
+                that you hold a valid visa to the country you are going to next.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card faqQueryCard">
+          <div class="card-header faqQuery" id="heading7" data-toggle="collapse"
+            data-target="#singaporeAccordion7" aria-expanded="false"
+            aria-controls="singaporeAccordion7">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button">
+                How many times in a month can a VTFT be exercised?
+              </button>
+            </h5>
+          </div>
+          <div id="singaporeAccordion7" class="collapse" aria-labelledby="heading7"
+            data-parent="#singaporeAccordion">
+            <div class="card-body">
+              <p>
+                Officially, there is no limit on this. You may need to keep
+                in mind that an officer from the Immigration & Checkpoints
+                Authority may inquire into your frequent short-stay visits.
+              </p>
+            </div>
+          </div>
+        </div>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <div class="col-12 text-center loadMore mt-3">
+      <button class="loadMoreBtn btn" (click)="loadData()">{{loadText}}</button>
+    </div>
+  </div>
+</div>

@@ -16,9 +16,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { timeout, min } from "rxjs/operators";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoService } from 'src/app/shared/seo.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -130,19 +128,20 @@ export class ChinaComponent implements OnInit, AfterViewInit {
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
-          //console.log(this.MyQuotation);
+
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              // console.log(this.businessArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              //console.log(this.touristArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              // console.log(this.transitArr);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
+
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);

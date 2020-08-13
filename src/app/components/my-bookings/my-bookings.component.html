@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="title-box">
-        <h2>Order History ({{totalCount}})</h2>
+        <h2>Order History ({{totalItems}})</h2>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
               <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
                 <label for="" class="filterLabel">From Date</label>
                 <div class="input-group">
-                  <input (ngModelChange)="fromDateChanged()" [(ngModel)]="fromDate" formControlName="fromDate"
+                  <input (ngModelChange)="fromDateChanged()" formControlName="fromDate"
                     class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
                     #d="ngbDatepicker" [maxDate]="maxDate" />
                   <div class="input-group-append">
@@ -50,7 +50,7 @@
               <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
                 <label for="" class="filterLabel">To Date</label>
                 <div class="input-group">
-                  <input [(ngModel)]="toDate" [disabled]="this.bookingSearchForm.get('fromDate').value == null"
+                  <input [disabled]="this.bookingSearchForm.get('fromDate').value == null"
                     formControlName="toDate" class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd"
                     name="tp" ngbDatepicker #tp="ngbDatepicker" [minDate]="minDateOfTo" [maxDate]="maxDate" />
                   <div class="input-group-append">
@@ -205,7 +205,7 @@
   <div *ngIf="totalCount > 0" class="container myBooking" [@simpleFadeAnimation]="'in'">
     <div class="row">
       <div
-        *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first' }"
+        *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first', totalItems: totalItems }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -259,8 +259,6 @@
                 </li>
                 <li>
                   Payment status:
-                  <!-- <span class="fieldData"></span> -->
-                  <!-- <span class="fieldData badge badge-danger">Failed</span> -->
                   <span class="fieldData badge "
                     [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
                 </li>
@@ -289,7 +287,7 @@
 
     <div class="row" *ngIf="!filteredBookingsEmpty">
       <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="currentPage1 = $event" maxSize="6" id="first"
+        <pagination-controls (pageChange)="desktopBooking($event)" maxSize="6" id="first"
           class="my-pagination text-center" responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
           screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
           screenReaderCurrentLabel="You're on page">
@@ -338,7 +336,7 @@
   <div *ngIf="totalCount > 0" class="container myBooking">
     <div class="row mt-4">
       <div
-        *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second' }"
+        *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second', totalItems: totalItems }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
           <div class="card">
@@ -425,7 +423,7 @@
 
     <div class="row" *ngIf="!filteredBookingsEmpty">
       <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="currentPage2 = $event;" id="second" maxSize="3"
+        <pagination-controls (pageChange)="mobileBooking($event);" id="second" maxSize="3"
           class="my-pagination text-center" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
           screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
           screenReaderCurrentLabel="You're on page">

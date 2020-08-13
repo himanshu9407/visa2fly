@@ -38,6 +38,23 @@ export class MyBookingsService {
     //  console.log(AUTH_TOKEN);
   }
 
+  fetchBooking(pageNo: number, pageSize: number): Observable<any> {
+    let AUTH_TOKEN = this.loginService.getAuthToken();
+    if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
+      this.router.navigateByUrl["/visa"];
+    } else {
+      const base_url = this.userFlow.getBaseURL();
+      const headers = new HttpHeaders({
+        token: AUTH_TOKEN,
+        "visa-client": "0",
+      });
+
+      return this.http.get(base_url + "fetchBookings/v2?pageNo=" + pageNo + "&pageSize=" + pageSize, { headers: headers });
+    }
+  }
+
+
+
   postFeedback(
     bookingid: string,
     rateOne: string,
@@ -70,10 +87,7 @@ export class MyBookingsService {
   }
 
   setActiveBooking(booking: any) {
-    // console.log(booking);
     this.activeBooking = booking;
-    // console.log(booking);
-    this.router.navigate(["bookingDetails"]);
   }
 
   getActiveBooking() {

@@ -17,14 +17,12 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
-import { HomeFormComponent } from "../../home-form/home-form.component";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoService } from "src/app/shared/seo.service";
 import { DOCUMENT } from "@angular/common";
 
 export interface Food {
@@ -131,15 +129,20 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
+        
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
+
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
@@ -184,7 +187,7 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Zambia visa for Indians. Indian passport holders can easily apply for a Zambia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Zambia visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
@@ -209,7 +212,7 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Zambia visa for Indians. Indian passport holders can easily apply for a Zambia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Zambia visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -233,7 +236,7 @@ export class ZambiaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Zambia? Apply your Zambia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Zambia visa for Indians. Indian passport holders can easily apply for a Zambia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Zambia visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

@@ -184,9 +184,8 @@
                 <div class="col-md-3">
                   <label for="" class="">First Name:</label>
                 </div>
-
                 <div class="col-md-6">
-                  <input formControlName="firstName" pattern="[A-Za-z]{3,32}" type="text"
+                  <input formControlName="firstName" pattern="[A-Za-z]{3,32}" type="text" autocomplete="new-name"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('firstName').invalid && simCheckoutForm.get('firstName').dirty,'is-valid':!(simCheckoutForm.get('firstName').invalid && simCheckoutForm.get('firstName').dirty) && !simCheckoutForm.get('firstName').pristine}"
                     class="form-control form-control-sm trvName" placeholder="First name" />
                   <div *ngIf="simCheckoutForm.get('firstName').invalid && simCheckoutForm.get('firstName').dirty"
@@ -206,7 +205,7 @@
                   <label for="" class="">Last Name:</label>
                 </div>
                 <div class="col-md-6">
-                  <input formControlName="lastName" pattern="[A-Za-z]{3,32}" type="text"
+                  <input formControlName="lastName" pattern="[A-Za-z]{3,32}" type="text" autocomplete="new-name"
                     class="form-control form-control-sm trvName" placeholder="Last name"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty,'is-valid':!(simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty) && !simCheckoutForm.get('lastName').pristine}" />
                   <div *ngIf="simCheckoutForm.get('lastName').invalid && simCheckoutForm.get('lastName').dirty"
@@ -245,7 +244,7 @@
                 </div>
 
                 <div class="col-md-6">
-                  <input formControlName="passport" pattern="^[A-Za-z]{1}[0-9]{7}$" type="text"
+                  <input formControlName="passport" pattern="^[A-Za-z]{1}[0-9]{7}$" type="text" autocomplete="new-name"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty,'is-valid':!(simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty) && !simCheckoutForm.get('passport').pristine}"
                     class="form-control form-control-sm" placeholder="Passport Number" />
                   <div *ngIf="simCheckoutForm.get('passport').invalid && simCheckoutForm.get('passport').dirty"
@@ -269,7 +268,7 @@
                 </div>
 
                 <div class="col-md-6">
-                  <input formControlName="cell" pattern="^[4-9][0-9]{9}$"
+                  <input formControlName="cell" pattern="^[4-9][0-9]{9}$" autocomplete="new-name"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty,'is-valid':!(simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty) && !simCheckoutForm.get('cell').pristine}"
                     type="tel" class="form-control form-control-sm" placeholder="Mobile Number" />
                   <div *ngIf="simCheckoutForm.get('cell').invalid && simCheckoutForm.get('cell').dirty"
@@ -291,8 +290,8 @@
                 </div>
 
                 <div class="col-md-6">
-                  <input formControlName="emailId"
-                    pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
+                  <input formControlName="emailId" autocomplete="new-name"
+                    pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
                     type="text"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('emailId').invalid && simCheckoutForm.get('emailId').dirty,'is-valid':!(simCheckoutForm.get('emailId').invalid && simCheckoutForm.get('emailId').dirty) && !simCheckoutForm.get('emailId').pristine}"
                     class="form-control form-control-sm" placeholder="Email" />
@@ -315,7 +314,7 @@
                 <div class="col-md-6">
                   <div class="input-group">
                     <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
-                      formControlName="dateOfBirth" id="#dob" class="form-control form-control-sm addTravelDate"
+                      formControlName="dateOfBirth" autocomplete="new-name" id="#dob" class="form-control form-control-sm addTravelDate"
                       placeholder="Date of Birth" name="dob" ngbDatepicker #dob="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="btn btn-sm btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
@@ -339,7 +338,7 @@
                 <div class="col-md-6">
                   <div class="input-group">
                     <input formControlName="simActivationDate" id="#activated" class="form-control form-control-sm"
-                      placeholder="Select Date" name="activated" [minDate]="minDate" [maxDate]="maxTravelDate"
+                      placeholder="Select Date" autocomplete="new-name" name="activated" [minDate]="minDate" [maxDate]="maxTravelDate"
                       ngbDatepicker #activated="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary calendar" (click)="activated.toggle()" type="button">
@@ -372,7 +371,7 @@
                 </p>
                 <div class="form-check form-check-inline">
                   <input formControlName="needInsurance" class="form-check-input" type="checkbox"
-                    name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                    name="inlineRadioOptions" autocomplete="new-name" id="inlineRadio1" value="option1" />
                   <label class="form-check-label" for="inlineRadio1" style="font-size: 13px;">Yes, I am Interested in
                     buying Travel Insurance (check
                     the box)</label>
@@ -402,7 +401,7 @@
                       <div class="row">
                         <div class="col-md-6 managePadd">
                           <label for="" class="">City:</label>
-                          <input formControlName="city" pattern="^[ a-zA-Z]*$" type="text" minlength="3"
+                          <input formControlName="city" autocomplete="new-name" pattern="^[ a-zA-Z]*$" type="text" minlength="3"
                             [ngClass]="{'is-invalid':simCheckoutForm.get('city').invalid && simCheckoutForm.get('city').dirty,'is-valid':!(simCheckoutForm.get('city').invalid && simCheckoutForm.get('city').dirty) && !simCheckoutForm.get('city').pristine}"
                             class="form-control form-control-sm trvName" placeholder="City" />
                           <div *ngIf="simCheckoutForm.get('city').invalid && simCheckoutForm.get('city').dirty"
@@ -459,7 +458,7 @@
                       <div class="row">
                         <div class="col-md-6 managePadd">
                           <label for="exampleInputPassword1">Pin Code:</label>
-                          <input type="text" pattern="^[1-9][0-9]{5}$" formControlName="pinCode"
+                          <input type="text" autocomplete="new-name" pattern="^[1-9][0-9]{5}$" formControlName="pinCode"
                             class="form-control form-control-sm col mb-2" id="exampleInputPassword1"
                             placeholder="Pin Code"
                             [ngClass]="{'is-invalid':simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty,'is-valid':!(simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty) && !simCheckoutForm.get('pinCode').pristine}" />
@@ -471,7 +470,7 @@
                         </div>
                         <div class="col-md-6 managePadd">
                           <label for="" class="">Country:</label>
-                          <input disabled formControlName="country" type="text" style="font-weight: 700;"
+                          <input disabled autocomplete="new-name" formControlName="country" type="text" style="font-weight: 700;"
                             class="form-control form-control-sm trvName" placeholder="Country" />
                           <div *ngIf="simCheckoutForm.get('country').invalid && simCheckoutForm.get('country').dirty"
                             class="invalid-feedback" style="display: block;">
@@ -494,7 +493,7 @@
                   <label for="" class="">GST Number:</label>
                 </div>
                 <div class="col-md-6">
-                  <input formControlName="gstNumber" type="text" pattern="^[A-Za-z0-9]*$"
+                  <input formControlName="gstNumber" autocomplete="new-name" type="text" pattern="^[A-Za-z0-9]*$"
                     [ngClass]="{'is-invalid':simCheckoutForm.get('gstNumber').invalid && simCheckoutForm.get('gstNumber').dirty,'is-valid':!(simCheckoutForm.get('gstNumber').invalid && simCheckoutForm.get('gstNumber').dirty) && !simCheckoutForm.get('gstNumber').pristine}"
                     class="form-control form-control-sm trvName" placeholder="GST Number (optional)" />
                   <div *ngIf="simCheckoutForm.get('gstNumber').invalid && simCheckoutForm.get('gstNumber').dirty"
