@@ -242,22 +242,10 @@ export class RequirementsComponent implements OnInit {
               this.purposeApi.push(element.purpose);
               if (element.purpose == "Tourist") {
                 this.touristArr.push(element);
-                this.userFlow.setUserFlowDetails(
-                  "imageUpload",
-                  element.imageUpload
-                );
               } else if (element.purpose == "Business") {
                 this.businessArr.push(element);
-                this.userFlow.setUserFlowDetails(
-                  "imageUpload",
-                  element.imageUpload
-                );
               } else {
                 this.transitArr.push(element);
-                this.userFlow.setUserFlowDetails(
-                  "imageUpload",
-                  element.imageUpload
-                );
               }
             });
 
@@ -391,6 +379,7 @@ export class RequirementsComponent implements OnInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
+    imageUpload: boolean,
     imageUploads: string
   ) {
     this.preloaderService.showPreloader(true);
@@ -410,6 +399,7 @@ export class RequirementsComponent implements OnInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageUpload1)

@@ -390,26 +390,6 @@
   </div>
 </div>
 
-<!-- <div class="container-fluid wrapContainer mobileView">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="row">
-                  <div class="col-lg-3 col-md-2 col-4">
-                      Visa Type
-                  </div>
-                  <div class="col-lg-6 col-md-3 col-5">
-                      <select class="form-control form-control-sm" id="exampleFormControlSelect1">
-                          <option value="tourist">Tourist</option>
-                          <option value="business">Business</option>
-                          <option value="transit">Transit</option>
-                      </select>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div> -->
-
-
 <div class="container-fluid wrapContainer" style="overflow: hidden;">
   <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1">
@@ -483,20 +463,10 @@
                           planCardRow" style="color: #000080;">
               INR {{quotation.basePrice + quotation.serviceTax}}</div>
           </div>
-          <!-- <div class="col-6">Processing time:</div>
-                      <div class="col-6">Lorem ipsum dolor sit amet consectetur.</div>
-                      <div class="col-6">Stay period :</div>
-                      <div class="col-6">Lorem, ipsum se</div>
-                      <div class="col-6">Validity :</div>
-                      <div class="col-6">Lorem, ipsum se</div>
-                      <div class="col-6">Entry:</div>
-                      <div class="col-6">Lorem, ipsum se</div>
-                      <div class="col-6">Fees:</div>
-                      <div class="col-6 font-weight-bold" style="color: #000080;">Lorem, ipsum se</div> -->
           <div class="row mt-3">
             <div class="col-12 text-center">
               <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
-                (click)="navigate(quotation.quoteId, quotation.purpose, quotation.category, quotation.minTravelDate, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod)">Continue</button>
+                (click)="navigate(quotation.quoteId, quotation.purpose, quotation.category, quotation.minTravelDate, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod, quotation.imageUpload)">Continue</button>
             </div>
           </div>
         </div>

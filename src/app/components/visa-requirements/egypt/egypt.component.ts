@@ -139,13 +139,10 @@ export class EgyptComponent implements OnInit, AfterViewInit {
           this.MyQuotation.forEach(element => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              // console.log(this.businessArr);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              //console.log(this.touristArr);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              // console.log(this.transitArr);
             }
           });
           let purposeMain = this.selectedVisaType;
@@ -164,7 +161,6 @@ export class EgyptComponent implements OnInit, AfterViewInit {
               this.router.navigate(['visa/']);
             }
 
-            this.imagefield1 = this.imageCatogoryTemp;
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 500);
@@ -334,16 +330,14 @@ export class EgyptComponent implements OnInit, AfterViewInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUpload: boolean,
   ) {
     this.preloaderService.showPreloader(true);
 
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-    this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+    this.userFlow.setUserFlowDetails("purpose", purpose);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-
     this.userFlow.setUserFlowDetails(
       "minTravelDate",
       JSON.stringify(minTravelDate)
@@ -351,12 +345,11 @@ export class EgyptComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
-      JSON.stringify(this.imagefield1)
+      JSON.stringify(this.imageCatogoryTemp)
     );
-
-    //console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {

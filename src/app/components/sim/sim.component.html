@@ -21,6 +21,7 @@
                 >
               </select>
               <button
+              [disabled]="!simHomeForm.valid"
                 (click)="onSimCountrySelected()"
                 type="button"
                 class="btn btn-outline-primary btn-sm"
