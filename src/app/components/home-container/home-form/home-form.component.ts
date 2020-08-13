@@ -236,6 +236,12 @@ export class HomeFormComponent {
           break;
         }
 
+        case "Bahrain": {
+          this.router.navigate(["visa/bahrain-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         // case "Taiwan": {
         //   this.router.navigate(["visa/taiwan-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);

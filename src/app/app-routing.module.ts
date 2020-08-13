@@ -456,6 +456,26 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // Bahrain Page
+  {
+    path: "visa-requirements/apply-for-Bahrain-visa-online/:purpose",
+    loadChildren: () =>
+      import("./components/visa-requirements/behrain/behrain.module").then(
+        (m) => m.BehrainModule
+      ),
+    data: { preload: true },
+  },
+
+  {
+    path: "visa/bahrain-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/behrain/behrain.module").then(
+        (m) => m.BehrainModule
+      ),
+    data: { preload: true },
+  },
+
+
   // Spain Page
   {
     path: "visa-requirements/apply-for-Spain-visa-online/:purpose",
