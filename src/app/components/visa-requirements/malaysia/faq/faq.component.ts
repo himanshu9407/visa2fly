@@ -26,7 +26,8 @@ export class FaqComponent implements OnInit {
   loadText: string = "Load More";
   showFaqs: boolean = false;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
