@@ -352,6 +352,9 @@ export class AddTravellerComponent implements OnInit {
       // case "Brazil":
       //   this.breadcrumRouting = "/visa/brazil-visa-online";
       //   break;
+      case "Bahrain":
+        this.breadcrumRouting = "/visa/bahrain-visa-online";
+        break;
       case "China":
         this.breadcrumRouting = "/visa/china-visa-online";
         break;
