@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Meta, Title } from "@angular/platform-browser";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-sim",
@@ -24,7 +25,8 @@ export class SimComponent implements OnInit {
     private titleService: Title,
     private userFlow: UserFlowDetails,
     private meta: Meta,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.preloaderService.showPreloader(true);
   }
@@ -60,8 +62,12 @@ export class SimComponent implements OnInit {
 
   onSimCountrySelected() {
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
-    this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
-    this.router.navigate(["sim/simplans"]);
+    if (this.selectedSimCountry === "") {
+      this.toastr.error("Please select a country.");
+    } else {
+      this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
+      this.router.navigate(["sim/simplans"]);
+    }
   }
 
   proceedToPlans(country: string) {

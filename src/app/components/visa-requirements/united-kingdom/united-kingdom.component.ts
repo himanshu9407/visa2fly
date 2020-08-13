@@ -138,13 +138,10 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
 
@@ -163,8 +160,6 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
             }else{
               this.router.navigate(['visa/']);
             }
-
-            this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -267,24 +262,24 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     this.t.select(this.selectedVisaType);
   }
 
-  // ngAfterViewInit() {
-  //   this.t.select(this.selectedVisaType);
-  // }
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
+
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {
@@ -343,16 +338,14 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUpload: boolean,
   ) {
     this.preloaderService.showPreloader(true);
 
-    this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
     this.userFlow.setUserFlowDetails("country", this.countryStatic);
+    this.userFlow.setUserFlowDetails("purpose", purpose);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-
     this.userFlow.setUserFlowDetails(
       "minTravelDate",
       JSON.stringify(minTravelDate)
@@ -360,12 +353,11 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
-      JSON.stringify(this.imagefield1)
+      JSON.stringify(this.imageCatogoryTemp)
     );
-
-    //console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
@@ -374,10 +366,13 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
       if (data.code == "0") {
         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
+          // console.log(data);
+
           if (data.code == "0") {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
+            // setTimeout(() => {
 
             this.preloaderService.showPreloader(false);
             // }, 2000);

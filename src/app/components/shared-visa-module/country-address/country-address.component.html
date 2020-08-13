@@ -13,6 +13,10 @@
       [routerLink]="['/visa', 'azerbaijan-visa-online']">Azerbaijan Visa
       online&nbsp;|&nbsp;</a>
 
+      <a *ngIf="activeRoute !== 'bahrain-visa-online'" (click)="resetPage()"
+      [routerLink]="['/visa', 'bahrain-visa-online']">Bahrain Visa
+      online&nbsp;|&nbsp;</a>
+
     <!-- <a *ngIf="activeRoute !== 'brazil-visa-online'" (click)="resetPage()"
       [routerLink]="['/visa', 'brazil-visa-online']">Brazil Visa online&nbsp;|&nbsp;</a> -->
 

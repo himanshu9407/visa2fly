@@ -35,15 +35,11 @@ export interface Food {
   templateUrl: "./combodia.component.html",
   styleUrls: ["./combodia.component.css"],
   animations: [
-    // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
-      // the "in" style determines the "resting" state of the element when it is visible.
       state("in", style({ opacity: 1 })),
 
-      // fade in when created. this could also be written as transition('void => *')
       transition(":enter", [style({ opacity: 0 }), animate(800)]),
 
-      // fade out when destroyed. this could also be written as transition('void => *')
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
@@ -57,7 +53,6 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
 
   selectedRequirement: boolean = false;
 
-  // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
@@ -147,13 +142,10 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
 
@@ -172,8 +164,6 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
           } else {
             this.router.navigate(["visa/"]);
           }
-
-          this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -280,7 +270,6 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -288,9 +277,6 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    this.imagefield1 = this.imageCatogoryTemp;
-
-    // console.log(this.MyQuotation1);
   }
 
   navigateTo(purpose: any) {
@@ -355,16 +341,14 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUpload: boolean,
   ) {
     this.preloaderService.showPreloader(true);
 
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-    this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+    this.userFlow.setUserFlowDetails("purpose", purpose);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    //console.log(quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-
     this.userFlow.setUserFlowDetails(
       "minTravelDate",
       JSON.stringify(minTravelDate)
@@ -372,12 +356,11 @@ export class CombodiaComponent implements OnInit, AfterViewInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
-      JSON.stringify(this.imagefield1)
+      JSON.stringify(this.imageCatogoryTemp)
     );
-
-    //console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {

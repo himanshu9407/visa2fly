@@ -1,20 +1,14 @@
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  ViewChild,
-  Inject,
-} from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
   state,
   style,
   transition,
-  animate,
+  animate
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
+import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
@@ -23,7 +17,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { DOCUMENT } from "@angular/common";
+import { DOCUMENT } from '@angular/common';
 
 export interface Food {
   value: string;
@@ -31,9 +25,9 @@ export interface Food {
 }
 
 @Component({
-  selector: "app-australia",
-  templateUrl: "./australia.component.html",
-  styleUrls: ["./australia.component.css"],
+  selector: 'app-behrain',
+  templateUrl: './behrain.component.html',
+  styleUrls: ['./behrain.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -47,17 +41,17 @@ export interface Food {
       transition(
         ":leave",
         animate(800, style({ opacity: 0, background: "green" }))
-      ),
-    ]),
-  ],
+      )
+    ])
+  ]
 })
-export class AustraliaComponent implements OnInit, AfterViewInit {
-  @ViewChild("t", { static: false }) t;
+export class BehrainComponent implements OnInit, AfterViewInit {
+
+  @ViewChild("t") t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
 
-  // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
@@ -66,8 +60,6 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
   public MyQuotation1: Array<any> = [];
   public imagefield1: Array<any> = [];
   public purposeChooseForm: FormGroup;
-  public onlinestatus: boolean = false;
-
   // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
@@ -75,16 +67,17 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
-  public selectedCountrytype = "Australia";
+
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
-  public imageUpload1: Array<any> = [];
 
-  constructor(
-    private activeRoute: ActivatedRoute,
+  public selectedCountrytype = "Bahrain";
+  public onlinestatus: boolean = false;
+
+  constructor(private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
@@ -97,124 +90,131 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
-    @Inject(DOCUMENT) private doc
-  ) {
-    this.activatedRoute.params.subscribe((params) => {
-      if (params["purpose"]) {
-        this.router.navigate(["visa", "australia-visa-online"]);
-      }
-    });
+    @Inject(DOCUMENT) private doc) {
 
-    this.preloaderService.showPreloader(true);
-
-    if (this.userFlow.getCookie("selectedVisaPurpose")) {
-      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
-    } else {
-      this.selectedVisaType = "Tourist";
-    }
-
-    let tempPurpose = this.selectedVisaType;
-  
-    this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose),
-    });
-    this.requireQuotation
-      .getRequireQuotation(this.selectedCountrytype)
-      .subscribe((res: any) => {
-        if (res.code == 0) {
-
-          this.MyQuotation = res.data.quotations;
-
-          this.imageCatogory.push(res.data.imageUploadInfo);
-
-          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          this.onlinestatus = res.data.onlineCategory;
-
-          this.userFlow.setUserFlowDetails(
-            "onlineCountry",
-            JSON.stringify(res.data.onlineCategory)
-          );
-
-          this.MyQuotation.forEach((element) => {
-            if (element.purpose == "Business") {
-              this.businessArr.push(element);
-            } else if (element.purpose == "Tourist") {
-              this.touristArr.push(element);
-            } else if (element.purpose == "Transit") {
-              this.transitArr.push(element);
-            }
-          });
-          
-          let purposeMain = this.selectedVisaType;
-          let purposeUrl =
-            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-          if (purposeUrl == "Business") {
-            this.MyQuotation1 = this.businessArr;
-            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-          } else if (purposeUrl == "Tourist") {
-            this.MyQuotation1 = this.touristArr;
-            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-          } else if (purposeUrl == "Transit") {
-            this.MyQuotation1 = this.transitArr;
-            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-          } else {
-            this.router.navigate(["visa/"]);
-          }
-
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-          }, 500);
-        } else {
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-            this.router.navigate(["/"]);
-          }, 2000);
-          this.toastr.error("Country Not Found");
+      this.activatedRoute.params.subscribe((params) => {
+        if (params["purpose"]) {
+          this.router.navigate(['visa','bahrain-visa-online']);
         }
       });
+  
+      this.preloaderService.showPreloader(true);
+  
+      if (this.userFlow.getCookie("selectedVisaPurpose")) {
+        this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+      } else {
+        this.selectedVisaType = "Tourist";
+      }
+  
+      let tempPurpose = this.selectedVisaType;
+      //console.log(tempPurpose);
+      this.purposeChooseForm = new FormGroup({
+        purposeSelected: new FormControl(tempPurpose)
+      });
+      this.requireQuotation
+        .getRequireQuotation(this.selectedCountrytype)
+        .subscribe((res: any) => {
+          // console.log(res);
+          if (res.code == 0) {
+            this.MyQuotation = res.data.quotations;
+  
+            this.imageCatogory.push(res.data.imageUploadInfo);
+  
+            this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+  
+            this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+  
+            this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+  
+            this.onlinestatus = res.data.onlineCategory;
+  
+            this.userFlow.setUserFlowDetails(
+              "onlineCountry",
+              JSON.stringify(res.data.onlineCategory)
+            );
+            //console.log(this.MyQuotation);
+            this.MyQuotation.forEach(element => {
+              if (element.purpose == "Business") {
+                this.businessArr.push(element);
+                // console.log(this.businessArr);
+              } else if (element.purpose == "Tourist") {
+                this.touristArr.push(element);
+                //console.log(this.touristArr);
+              } else if (element.purpose == "Transit") {
+                this.transitArr.push(element);
+                // console.log(this.transitArr);
+              }
+            });
+            let purposeMain = this.selectedVisaType;
+            let purposeUrl =
+              purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+              if (purposeUrl == "Business") {
+                this.MyQuotation1 = this.businessArr;
+                this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+              }else if(purposeUrl == 'Tourist') {
+                this.MyQuotation1 = this.touristArr;
+                this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+              }else if(purposeUrl == 'Transit'){
+                this.MyQuotation1 = this.transitArr;
+                this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+              }else{
+                this.router.navigate(['visa/']);
+              }
+  
+            setTimeout(() => {
+              this.preloaderService.showPreloader(false);
+            }, 500);
+          } else {
+            setTimeout(() => {
+              this.preloaderService.showPreloader(false);
+              this.router.navigate(["/"]);
+            }, 2000);
+            this.toastr.error(
+              "Country Not Found"
+            );
+          }
+        });
   }
 
   ngOnInit() {
-    this.titleService.setTitle(
-      "Australia Visa | Apply For Australia Visa Online for Indians- Visa2Fly"
-    );
+
+    this.titleService.setTitle("Bahrain Visa | Apply For Bahrain Visa Online for Indians- Visa2Fly");
+      
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for australia e-visa, australia tourist visa application, australia tourist visa for indian, apply for australia e visa, australia e-visa for indians",
+        "apply for Bahrain e-visa, bahrain tourist visa application, bahrain tourist visa for indian, bahrain Visa, apply for bahrain e visa, bahrain e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Planning to visit Australia? Apply your Australia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Bahrain Visa for Indians. Indian passport holders can easily apply for a Bahrain visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Bahrain visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "Australia Visa | Apply For Australia Visa Online for Indians- Visa2Fly",
+        "Bahrain Visa | Apply For Bahrain Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
       property: "og:image",
-      content: "https://static.visa2fly.com/country/Australia.jpg",
+      content: "https://static.visa2fly.com/country/Bahrain.jpg",
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/australia-visa-online",
+      content: "https://visa2fly.com/visa/bahrain-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
       content:
-        "Australia Visa | Apply For Australia Visa Online for Indians- Visa2Fly",
+        "Bahrain Visa | Apply For Bahrain Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Planning to visit Australia? Apply your Australia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Bahrain Visa for Indians. Indian passport holders can easily apply for a Bahrain visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Bahrain visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -225,21 +225,21 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "Australia Visa | Apply For Australia Visa Online for Indians- Visa2Fly",
+        "Bahrain Visa | Apply For Bahrain Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:image",
-      content: "https://static.visa2fly.com/country/Australia.jpg",
+      content: "https://static.visa2fly.com/country/Bahrain.jpg",
     });
     this.meta.updateTag({
       property: "twitter:image:alt",
       content:
-        "Australia Visa | Apply For Australia Visa Online for Indians- Visa2Fly",
+        "Bahrain Visa | Apply For Bahrain Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Planning to visit Australia? Apply your Australia e-visa online at Visa2Fly to make experience a hassle-free and convenient experience. Visa2Fly offers a swifter visa process with additional benefits like travel insurance and travel sim cards. Know more.",
+        "Visa2fly offers Bahrain Visa for Indians. Indian passport holders can easily apply for a Bahrain visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Bahrain visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",
@@ -253,10 +253,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute(
-      "href",
-      "https://visa2fly.com/visa/australia-visa-online"
-    );
+    link.setAttribute("href", "https://visa2fly.com/visa/bahrain-visa-online");
   }
 
   ngAfterViewInit() {
@@ -273,6 +270,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
       this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
+
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.t.select("Business");
     } else {
@@ -283,7 +281,11 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
   }
 
   navigateTo(purpose: any) {
+    // window.location
+    //let urlpurpose = this.MyQuotation1
+
     let purposeString: string = purpose.nextId;
+    // console.log(purposeString);
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
@@ -304,23 +306,19 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
 
       this.selectedTransit = 1;
     }
-
-    this.imagefield1 = this.imageCatogoryTemp;
-  
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
   }
 
   setActiveTourist(index: number) {
     this.selectedTourist = index;
+    // console.log('business');
   }
 
   setActiveBusiness(index: number) {
     this.selectedBusiness = index;
+    //  console.log('business');
   }
 
-  setActiveTransit(index: number) {
-    this.selectedTransit = index;
-  }
 
   resetPage() {
     this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
@@ -362,11 +360,16 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
       if (data.code == "0") {
         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
+          // console.log(data);
+
           if (data.code == "0") {
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
 
+            // setTimeout(() => {
+
             this.preloaderService.showPreloader(false);
+            // }, 2000);
           } else {
             this.toastr.error("" + data.message);
             this.preloaderService.showPreloader(false);
@@ -376,6 +379,7 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
         this.loginService.setAuthToken("");
         this.loginStatus.setUserStatus(false);
         this.loginStatus.setUserLoggedIn(false);
+        // this.router.navigate(['visa']);
         this.preloaderService.showPreloader(false);
         this.userFlow.setCookie("profile", JSON.stringify({}));
         this.routerHistory.pushHistory("req-and-quote");
@@ -388,4 +392,5 @@ export class AustraliaComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
 }

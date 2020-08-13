@@ -352,6 +352,9 @@ export class AddTravellerComponent implements OnInit {
       // case "Brazil":
       //   this.breadcrumRouting = "/visa/brazil-visa-online";
       //   break;
+      case "Bahrain":
+        this.breadcrumRouting = "/visa/bahrain-visa-online";
+        break;
       case "China":
         this.breadcrumRouting = "/visa/china-visa-online";
         break;
@@ -450,7 +453,8 @@ export class AddTravellerComponent implements OnInit {
 
     this.category = this.userFlowDetails.category;
     // this.imageUpload = this.userFlowDetails.imageUpload;
-    this.imageUpload = this.userFlowDetails.imageUpload;
+    this.imageUpload = JSON.parse(this.userFlowDetails.imageUpload);
+    
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
 

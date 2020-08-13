@@ -15,7 +15,7 @@ export class VisaRequirementService {
 
     getRequireQuotation(country : String){
       const base_url = this.userFlow.getBaseURL();
-      return this.http.get(base_url + '/info/' + country + '/quotation');
+      return this.http.get(base_url + 'info/' + country + '/quotation');
     }
 
 }

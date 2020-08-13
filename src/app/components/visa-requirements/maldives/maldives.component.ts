@@ -125,13 +125,10 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     // this.MyQuotation.forEach((element) => {
     //   if (element.purpose == "Business") {
     //     this.businessArr.push(element);
-    //     this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
     //   } else if (element.purpose == "Tourist") {
     //     this.touristArr.push(element);
-    //     this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
     //   } else if (element.purpose == "Transit") {
     //     this.transitArr.push(element);
-    //     this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
     //   }
     // });
 
@@ -305,75 +302,72 @@ export class MaldivesComponent implements OnInit, AfterViewInit {
     this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
   }
 
-  //   navigate(
-  //     quoteId: string,
-  //     purpose: string,
-  //     category: string,
-  //     minTravelDate: number,
-  //     basePrice: number,
-  //     serviceTax: number,
-  //     stayPeriod: string,
-  //     imageUploads: string
-  //   ) {
-  //     this.preloaderService.showPreloader(true);
+  // navigate(
+  //   quoteId: string,
+  //   purpose: string,
+  //   category: string,
+  //   minTravelDate: number,
+  //   basePrice: number,
+  //   serviceTax: number,
+  //   stayPeriod: string,
+  //   imageUpload: boolean,
+  // ) {
+  //   this.preloaderService.showPreloader(true);
 
-  //     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-  //     this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
-  //     this.userFlow.setUserFlowDetails("quoteId", quoteId);
-  //     //console.log(quoteId);
-  //     this.userFlow.setUserFlowDetails("category", category);
+  //   this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+  //   this.userFlow.setUserFlowDetails("purpose", purpose);
+  //   this.userFlow.setUserFlowDetails("quoteId", quoteId);
+  //   this.userFlow.setUserFlowDetails("category", category);
+  //   this.userFlow.setUserFlowDetails(
+  //     "minTravelDate",
+  //     JSON.stringify(minTravelDate)
+  //   );
+  //   this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
+  //   this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
+  //   this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+  //   this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
+  //   this.userFlow.setUserFlowDetails(
+  //     "imageUploads",
+  //     JSON.stringify(this.imageCatogoryTemp)
+  //   );
 
-  //     this.userFlow.setUserFlowDetails(
-  //       "minTravelDate",
-  //       JSON.stringify(minTravelDate)
-  //     );
-  //     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-  //     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
-  //     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-  //     this.userFlow.setUserFlowDetails(
-  //       "imageUploads",
-  //       JSON.stringify(this.imagefield1)
-  //     );
-
-  //     //console.log(quoteId);
-
-  //     let token = this.loginService.getAuthToken();
-  //     if (token == null || token == undefined) {
-  //       token = "";
-  //     }
-  //     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-  //       if (data.code == "0") {
-  //         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-  //           // console.log(data);
-
-  //           if (data.code == "0") {
-  //             this.routerHistory.pushHistory("visa-requirement");
-  //             this.router.navigate(["addTraveller"]);
-
-  //             // setTimeout(() => {
-
-  //             this.preloaderService.showPreloader(false);
-  //             // }, 2000);
-  //           } else {
-  //             this.toastService.showNotification("" + data.message, 4000);
-  //             this.preloaderService.showPreloader(false);
-  //           }
-  //         });
-  //       } else if (data.code == "301") {
-  //         this.loginService.setAuthToken("");
-  //         this.loginStatus.setUserStatus(false);
-  //         this.loginStatus.setUserLoggedIn(false);
-  //         // this.router.navigate(['visa']);
-  //         this.preloaderService.showPreloader(false);
-  //         this.userFlow.setCookie("profile", JSON.stringify({}));
-  //         this.routerHistory.pushHistory("req-and-quote");
-  //         this.router.navigate(["slcontainer/login"]);
-  //         this.preloaderService.showPreloader(false);
-  //       } else {
-  //         this.routerHistory.pushHistory("req-and-quote");
-  //         this.router.navigate(["slcontainer/login"]);
-  //         this.preloaderService.showPreloader(false);
-  //       }
-  //     });
+  //   let token = this.loginService.getAuthToken();
+  //   if (token == null || token == undefined) {
+  //     token = "";
   //   }
+  //   this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
+  //     if (data.code == "0") {
+  //       this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
+  //         // console.log(data);
+
+  //         if (data.code == "0") {
+  //           this.routerHistory.pushHistory("visa-requirement");
+  //           this.router.navigate(["addTraveller"]);
+
+  //           // setTimeout(() => {
+
+  //           this.preloaderService.showPreloader(false);
+  //           // }, 2000);
+  //         } else {
+  //           this.toastr.error("" + data.message);
+  //           this.preloaderService.showPreloader(false);
+  //         }
+  //       });
+  //     } else if (data.code == "301") {
+  //       this.loginService.setAuthToken("");
+  //       this.loginStatus.setUserStatus(false);
+  //       this.loginStatus.setUserLoggedIn(false);
+  //       // this.router.navigate(['visa']);
+  //       this.preloaderService.showPreloader(false);
+  //       this.userFlow.setCookie("profile", JSON.stringify({}));
+  //       this.routerHistory.pushHistory("req-and-quote");
+  //       this.router.navigate(["slcontainer/login"]);
+  //       this.preloaderService.showPreloader(false);
+  //     } else {
+  //       this.routerHistory.pushHistory("req-and-quote");
+  //       this.router.navigate(["slcontainer/login"]);
+  //       this.preloaderService.showPreloader(false);
+  //     }
+  //   });
+  // }
 }

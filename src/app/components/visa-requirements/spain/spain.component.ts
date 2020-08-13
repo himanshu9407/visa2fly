@@ -118,7 +118,6 @@ export class SpainComponent implements OnInit, AfterViewInit  {
       .subscribe((res: any) => {
         // console.log(res);
         if (res.code == 0) {
-          // console.log(res);
 
           this.MyQuotation = res.data.quotations;
           this.onlinestatus = res.data.onlineCategory;
@@ -139,13 +138,10 @@ export class SpainComponent implements OnInit, AfterViewInit  {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
-              this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
             }
           });
 
@@ -165,8 +161,6 @@ export class SpainComponent implements OnInit, AfterViewInit  {
             }else{
               this.router.navigate(['visa/']);
             }
-
-            this.imagefield1 = this.imageCatogoryTemp;
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -284,9 +278,8 @@ export class SpainComponent implements OnInit, AfterViewInit  {
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.t.select("Transit");
     }
-    this.imagefield1 = this.imageCatogoryTemp;
-    // console.log(this.MyQuotation1);
   }
+
   navigateTo(purpose: any) {
     // window.location
     //let urlpurpose = this.MyQuotation1
@@ -344,26 +337,28 @@ export class SpainComponent implements OnInit, AfterViewInit  {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUpload: boolean,
   ) {
     this.preloaderService.showPreloader(true);
+    console.log(imageUpload);
+    
 
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-    this.userFlow.setUserFlowDetails("purpose", this.selectedVisaType);
+    this.userFlow.setUserFlowDetails("purpose", purpose);
     this.userFlow.setUserFlowDetails("quoteId", quoteId);
     this.userFlow.setUserFlowDetails("category", category);
-
-    this.userFlow.setUserFlowDetails("minTravelDate", JSON.stringify(minTravelDate));
-    //console.log(quoteId);
+    this.userFlow.setUserFlowDetails(
+      "minTravelDate",
+      JSON.stringify(minTravelDate)
+    );
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
-      JSON.stringify(this.imagefield1)
+      JSON.stringify(this.imageCatogoryTemp)
     );
-
-    //console.log(quoteId);
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
