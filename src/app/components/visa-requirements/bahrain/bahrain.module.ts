@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BehrainComponent } from './behrain.component';
+import { BahrainComponent } from './bahrain.component';
 import { FaqComponent } from './faq/faq.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,12 +9,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 
 const routes: Routes = [
-    { path: "", component: BehrainComponent },
+    { path: "", component: BahrainComponent },
   ]
 
 @NgModule({
     declarations: [
-        BehrainComponent,
+        BahrainComponent,
         FaqComponent,
     ],
     imports: [
@@ -27,4 +27,4 @@ const routes: Routes = [
         RouterModule.forChild(routes)
       ]
 })
-export class BehrainModule {}
+export class BahrainModule {}

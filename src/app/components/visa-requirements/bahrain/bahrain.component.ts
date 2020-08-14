@@ -26,8 +26,8 @@ export interface Food {
 
 @Component({
   selector: 'app-behrain',
-  templateUrl: './behrain.component.html',
-  styleUrls: ['./behrain.component.css'],
+  templateUrl: './bahrain.component.html',
+  styleUrls: ['./bahrain.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -45,7 +45,7 @@ export interface Food {
     ])
   ]
 })
-export class BehrainComponent implements OnInit, AfterViewInit {
+export class BahrainComponent implements OnInit, AfterViewInit {
 
   @ViewChild("t") t;
   ngbTabTitleClass;

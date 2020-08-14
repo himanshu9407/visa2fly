@@ -460,8 +460,8 @@ const routes: Routes = [
   {
     path: "visa-requirements/apply-for-Bahrain-visa-online/:purpose",
     loadChildren: () =>
-      import("./components/visa-requirements/behrain/behrain.module").then(
-        (m) => m.BehrainModule
+      import("./components/visa-requirements/bahrain/bahrain.module").then(
+        (m) => m.BahrainModule
       ),
     data: { preload: true },
   },
@@ -469,8 +469,8 @@ const routes: Routes = [
   {
     path: "visa/bahrain-visa-online",
     loadChildren: () =>
-      import("./components/visa-requirements/behrain/behrain.module").then(
-        (m) => m.BehrainModule
+      import("./components/visa-requirements/bahrain/bahrain.module").then(
+        (m) => m.BahrainModule
       ),
     data: { preload: true },
   },
