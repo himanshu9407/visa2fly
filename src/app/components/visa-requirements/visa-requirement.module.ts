@@ -30,6 +30,9 @@ import { SouthAfricaModule } from './south-africa/south-africa.module';
 import { TaiwanModule } from './taiwan/taiwan.module';
 import { UAEModule } from './uae/uae.module';
 import { BahrainModule } from './bahrain/bahrain.module';
+import { UkraineModule } from './ukraine/ukraine.module';
+import { AntiguaModule } from './antigua/antigua.module';
+
 
 @NgModule({
   imports: [
@@ -64,7 +67,9 @@ import { BahrainModule } from './bahrain/bahrain.module';
     SouthAfricaModule,
     TaiwanModule,
     UAEModule,
-    BahrainModule
+    BahrainModule,
+    UkraineModule,
+    AntiguaModule
   ],
  
 })

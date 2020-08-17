@@ -320,6 +320,26 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // Antigua & Barbuda Page
+  {
+    path: "visa/antigua & barbuda-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/antigua/antigua.module").then(
+        (m) => m.AntiguaModule
+      ),
+    data: { preload: true },
+  },
+
+  // Ukraine Page
+  {
+    path: "visa/egypt-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/ukraine/ukraine.module").then(
+        (m) => m.UkraineModule
+      ),
+    data: { preload: true },
+  },
+
 
   // Taiwan Page
   {
