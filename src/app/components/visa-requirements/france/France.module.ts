@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FranceComponent } from './france.component';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { QuotationComponent } from './quotation/quotation.component';
+import { ImportantPointsComponent } from './important-points/important-points.component';
 
 const routes: Routes = [
   { path: "", component: FranceComponent },
@@ -16,7 +18,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     FranceComponent,
-    FaqComponent
+    FaqComponent,
+    QuotationComponent,
+    ImportantPointsComponent,
   ],
 
   imports: [

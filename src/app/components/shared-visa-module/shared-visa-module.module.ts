@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CountryAddressComponent } from './country-address/country-address.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ProcessStepsComponent } from './process-steps/process-steps.component';
 
 @NgModule({
   declarations: [
     CountryAddressComponent,
-    
+    ProcessStepsComponent,
   ],
   
   imports: [
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
   ],
 
   exports: [
-    CountryAddressComponent
+    CountryAddressComponent,
+    ProcessStepsComponent
   ]
 })
 export class SharedVisaModuleModule { }
