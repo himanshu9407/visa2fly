@@ -1,374 +1,169 @@
-<div class="container-fluid breadcrumSection">
+<div class="imageContainer desktopView">
   <div class="row">
-    <div class="col-12">
-      <p class="breadcrum"><a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
-          Details</b>
+    <div class="col-12 text-right">
+      <p class="breadcrum">
+        <span>
+          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
+            Details</b>
+        </span>
       </p>
     </div>
   </div>
-</div>
 
-<div class="contaisner-fluid imageContainer desktopView">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="countryImage">
-        <img class="bannerImage rounded img-fluid lazyload" data-src="https://static.visa2fly.com/country/France.webp"
-          alt="apply for france visa online" />
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="country-img__box">
+          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
+            alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
+
+          <div class="country-info">
+            <h2 class="country-heading">{{selectedCountrytype}}</h2>
+            <p class="country-desc">France, in Western Europe, encompasses medieval cities, alpine villages and
+              Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums
+              including the Louvre and monuments like the Eiffel Tower. The country is also renowned for its wines and
+              sophisticated cuisine.</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="col-lg-4 visaStepContainer" *ngIf="!onlinestatus">
-      <div class="visaStep">
-        <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">APPLY FOR {{selectedCountrytype}} VISA ONLINE</h1>
-        </div>
-        <div class="visaStepContent">
+    <div class="row mt-2">
+      <div class="col-md-5">
+        <div class="changingPurpose">
           <div class="row">
-            <div class="col-md-6 col-lg-12 col-6">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 14px;">Step 1</h5>
-                </div>
-                <div class="col-2">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-txtDoc"></div>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 style="font-size: 16px; margin-bottom: 5px;">Booking Online</h5>
-                  <p style="font-size: 12px; margin-bottom: 7px;">Select Your Visa And Pay Online</p>
-                </div>
-              </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding">
+              Visa Type :
             </div>
-            <div class="col-md-6 col-lg-12 col-6">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 14px;">Step 2</h5>
-                </div>
-                <div class="col-2">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-checkedDoc"></div>
+            <div class="col-lg-9 col-md-6 col-8">
+              <form [formGroup]="purposeChooseForm">
+                <div class="select-box">
+                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                    <div class="select-box__value">
+                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                        formControlName="purposeSelected" checked="checked" />
+                      <p class="select-box__input-text">Tourist</p>
+                    </div>
+                    <div class="select-box__value">
+                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <p class="select-box__input-text">Business</p>
+                    </div>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000" xml:space="preserve">
+                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                      <g>
+                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                      </g>
+                    </svg>
                   </div>
+                  <ul class="select-box__list">
+                    <li>
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                        aria-hidden="aria-hidden">Tourist</label>
+                    </li>
+                    <li>
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                        aria-hidden="aria-hidden">Business</label>
+                    </li>
+                  </ul>
                 </div>
-                <div class="col-10">
-                  <h5 style="font-size: 16px; margin-bottom: 5px;">
-                    Document Validation</h5>
-                  <p style="font-size: 12px; margin-bottom: 7px;">Our visa expert will verify & collect your document.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-12 col-6">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 14px;">Step 3</h5>
-                </div>
-                <div class="col-2">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-clock"></div>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 style="font-size: 16px; margin-bottom: 5px;">
-                    Visa Processing</h5>
-                  <p style="font-size: 12px; margin-bottom: 7px;">We schedule documents submission, biometric /
-                    Interview.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-12 col-6">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 14px;">Step 4</h5>
-                </div>
-                <div class="col-2">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-passport"></div>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 style="font-size: 16px; margin-bottom: 5px;">
-                    Visa at doorstep</h5>
-                  <p style="font-size: 12px; margin-bottom: 7px;">Passport gets delivered at your doorstep.
-                  </p>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 visaStepContainer" *ngIf="onlinestatus">
-      <div class="visaStep">
-        <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
-        </div>
-        <div class="visaStepContent">
-          <div class="row">
-            <div class="col-md-6 col-lg-12 col-6 mt-2">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 16px;">Step 1</h5>
-                </div>
-                <div class="col-2">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-uploadDoc"></div>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 style="font-size: 16px; margin-bottom: 5px;">Upload Document</h5>
-                  <p style="font-size: 12px; margin-bottom: 7px;">Upload soft copy passport front
-                    and book your Visa</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-12 col-6 mt-2">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 16px;">Step 2</h5>
-                </div>
-                <div class="col-2">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-payOnline"></div>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 style="font-size: 16px; margin-bottom: 5px;">
-                    Pay online</h5>
-                  <p style="font-size: 12px; margin-bottom: 7px;">Pay online securely.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-12 col-6 mt-2">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 16px;">Step 3</h5>
-                </div>
-                <div class="col-2">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-passport"></div>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 style="font-size: 16px; margin-bottom: 5px;">
-                    Get your visa</h5>
-                  <p style="font-size: 12px; margin-bottom: 7px;">Receive your approved visa .</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<div class="container-fluid imageContainer mobileView">
+<div class="imageContainer mobileView">
   <div class="row">
-    <div class="col-lg-12">
-      <div class="countryImage">
-        <img class="bannerImage rounded img-fluid lazyload" data-src="https://static.visa2fly.com/country/France.jpg"
-          alt="apply for france visa online" />
+    <div class="col-12 text-right p-0">
+      <p class="breadcrum">
+        <span>
+          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
+            Details</b>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="country-img__box">
+          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
+            alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
+
+          <div class="country-info">
+            <h2 class="country-heading">{{selectedCountrytype}}</h2>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="col-lg-12 visaStepContainer" *ngIf="!onlinestatus">
-      <div class="visaStep">
-        <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
-        </div>
-        <div class="visaStepContent mt-3">
+    <div class="row mt-2">
+      <div class="col-md-5">
+        <div class="changingPurpose">
           <div class="row">
-            <div class="col-md-6 col-lg-6 col-6 txtCenter">
-              <div class="row">
-                <div class="col-12 ">
-                  <h5 style="font-size: 14px;">Step 1</h5>
-                </div>
-                <div class="col-lg-2 col-md-2 col-12">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-txtDoc"></div>
-                  </div>
-                </div>
-                <div class="col-lg-10 col-md-10 col-12 diffMg2">
-                  <h5 class="visaStepMainPoint">Booking Online</h5>
-                  <p class="visaStepPoints">Select Your Visa And Pay Online</p>
-                </div>
-              </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding" style="display: flex; align-items: center;">
+              Visa Type :
             </div>
-            <div class="col-md-6 col-lg-6 col-6 txtCenter">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 14px;">Step 2</h5>
-                </div>
-                <div class="col-lg-2 col-md-2 col-12 ">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-checkedDoc"></div>
+            <div class="col-lg-9 col-md-6 col-8">
+              <form [formGroup]="purposeChooseForm">
+                <div class="select-box">
+                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                    <div class="select-box__value">
+                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                        formControlName="purposeSelected" checked="checked" />
+                      <p class="select-box__input-text">Tourist</p>
+                    </div>
+                    <div class="select-box__value">
+                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <p class="select-box__input-text">Business</p>
+                    </div>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000" xml:space="preserve">
+                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                      <g>
+                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                      </g>
+                    </svg>
                   </div>
+                  <ul class="select-box__list">
+                    <li>
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                        aria-hidden="aria-hidden">Tourist</label>
+                    </li>
+                    <li>
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                        aria-hidden="aria-hidden">Business</label>
+                    </li>
+                  </ul>
                 </div>
-                <div class="col-lg-10 col-md-10 col-12 diffMg2">
-                  <h5 class="visaStepMainPoint">
-                    Document Validation</h5>
-                  <p class="visaStepPoints">Our visa expert will verify & collect your document.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-6 txtCenter diffMg">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 14px;">Step 3</h5>
-                </div>
-                <div class="col-lg-2 col-md-2 col-12 ">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-clock"></div>
-                  </div>
-                </div>
-                <div class="col-lg-10 col-md-10 col-12 diffMg2">
-                  <h5 class="visaStepMainPoint">
-                    Visa Processing</h5>
-                  <p class="visaStepPoints">We schedule documents submission, biometric / Interview.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-6 txtCenter diffMg">
-              <div class="row">
-                <div class="col-12 ">
-                  <h5 style="font-size: 14px;">Step 4</h5>
-                </div>
-                <div class="col-lg-2 col-md-2 col-12">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-passport"></div>
-                  </div>
-                </div>
-                <div class="col-lg-10 col-md-10 col-12 diffMg2">
-                  <h5 class="visaStepMainPoint">
-
-                    Visa at doorstep</h5>
-                  <p class="visaStepPoints">Passport gets delivered at your doorstep.
-                  </p>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-lg-12 visaStepContainer" *ngIf="onlinestatus">
-      <div class="visaStep">
-        <div class="visaStepHeader text-center">
-          <h1 class="visaStepHeading">Apply For {{selectedCountrytype}} Visa Online</h1>
-        </div>
-        <div class="visaStepContent mt-3">
-          <div class="row">
-            <div class="col-md-6 col-lg-6 col-6 txtCenter">
-              <div class="row">
-                <div class="col-12 ">
-                  <h5 style="font-size: 16px;">Step 1</h5>
-                </div>
-                <div class="col-lg-2 col-md-2 col-12">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-uploadDoc"></div>
-                  </div>
-                </div>
-                <div class="col-lg-10 col-md-10 col-12 diffMg2">
-                  <h5 class="visaStepMainPoint">Upload Document</h5>
-                  <p class="visaStepPoints">Upload soft copy passport front and book your Visa</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-6 txtCenter">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 16px;">Step 2</h5>
-                </div>
-                <div class="col-lg-2 col-md-2 col-12 ">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-payOnline"></div>
-                  </div>
-                </div>
-                <div class="col-lg-10 col-md-10 col-12 diffMg2">
-                  <h5 class="visaStepMainPoint">
-                    Pay online</h5>
-                  <p class="visaStepPoints">Pay online securely.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 col-lg-12 col-12 txtCenter diffMg" style="display: flex;justify-content: center;">
-              <div class="row">
-                <div class="col-12">
-                  <h5 style="font-size: 16px;">Step 3</h5>
-                </div>
-                <div class="col-lg-3 col-md-3 col-12 ">
-                  <div class="makeIconCntr">
-                    <div class="img-sprite vrStep-size vrStep-passport"></div>
-                  </div>
-                </div>
-                <div class="col-lg-9 col-md-9 col-12 diffMg2">
-                  <h5 class="visaStepMainPoint">
-                    Get your visa</h5>
-                  <p class="visaStepPoints">Receive your approved visa.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="container-fluid mt-4 mobileView">
+  <div class="row">
+    <div class="col-12">
+      <p class="country-desc">France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean
+        beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and
+        monuments like the Eiffel Tower. The country is also renowned for its wines and sophisticated cuisine.</p>
     </div>
-
   </div>
 </div>
 
 <div class="container-fluid wrapContainer">
-  <div class="row">
-    <div class="col-md-5">
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-4 setPadding">
-          Visa Type :
-        </div>
-        <div class="col-lg-5 col-md-6 col-8">
-          <form [formGroup]="purposeChooseForm">
-            <div class="select-box">
-              <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                <div class="select-box__value">
-                  <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
-                    formControlName="purposeSelected" checked="checked" />
-                  <p class="select-box__input-text">Tourist</p>
-                </div>
-                <div class="select-box__value">
-                  <input class="select-box__input" type="radio" id="Business" value="Business" name="purposeSelected"
-                    formControlName="purposeSelected" checked="checked" />
-                  <p class="select-box__input-text">Business</p>
-                </div>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                  y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                  enable-background="new 0 0 1000 1000" xml:space="preserve">
-                  <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
-                  <g>
-                    <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
-                  </g>
-                </svg>
-              </div>
-              <ul class="select-box__list">
-                <li>
-                  <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
-                    aria-hidden="aria-hidden">Tourist</label>
-                </li>
-                <li>
-                  <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
-                    aria-hidden="aria-hidden">Business</label>
-                </li>
-                <!-- <li>
-                                                        <label class="select-box__option" style="margin-bottom: 0px;" for="Transit" aria-hidden="aria-hidden">Transit</label>
-                                                      </li> -->
-              </ul>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 <div class="container-fluid wrapContainer" style="overflow: hidden;">

@@ -56,7 +56,7 @@
 }
 
 :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted::before {
-  content: url(https://static.visa2fly.com/assets/down-arrow.png);
+  content: url(../../../../assets/arrow-down.svg);
   position: absolute;
   top: 0;
   right: 0;
@@ -70,7 +70,7 @@
 }
 
 :host ::ng-deep .iconTabset a.nav-link .showDiv.ng-star-inserted::before {
-  content: url(https://static.visa2fly.com/assets/down-arrow.png);
+  content: url(../../../../assets/arrow-up.svg);
   position: absolute;
   top: 0;
   right: 0;
@@ -280,22 +280,48 @@ select:focus {
 }
 
 .imageContainer {
-  padding: 0px 40px 10px;
+  margin-top: 60px;
+  padding: 0px 0px 10px 40px;
+  background-image: url(../../../../assets/france-landing.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+  overflow: hidden;
 }
 
-.breadcrumSection {
-  padding: 70px 40px 0px;
-}
-
-.breadcrumSection .breadcrum{
+.imageContainer .breadcrum{
   font-size: 14px; margin-bottom: 10px;
+  color: #fff;
 }
 
-.breadcrumSection .breadcrum a {
+.imageContainer .breadcrum span {
+  background-color: rgba(19, 6, 84, .4);
+  padding: 5px 20px;
+}
+
+.imageContainer .breadcrum a {
   font-weight: 500;
-  color: #0000bb;
+  color: #fff;
 }
 
+.imageContainer .countryFlag {
+  height: 100px;
+}
+
+.imageContainer .country-info {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.imageContainer .country-info .country-heading {
+  font-size: 20px;
+}
+
+.imageContainer .country-info .country-desc {
+  font-size: 15px;
+  width: 650px;
+}
 
 .visaStep {
   background: #f5f5f5;
@@ -312,7 +338,6 @@ select:focus {
 
 .requirementContainer {
   color: #000;
-  border-bottom: 2px solid navy;
   font-weight: 700;
   font-size: 20px;
 }
@@ -326,16 +351,13 @@ select:focus {
 }
 
 .iconSection {
-  padding: 35px 0px 20px;
+  padding: 0px 0px 20px;
 }
 
 @media screen and (min-width: 801px) and (max-width: 1024px) {
    .imageContainer {
+     margin-top: 60px;
     padding: 0px 30px 10px;
-  }
-
-  .breadcrumSection {
-    padding: 70px 30px 0px;
   }
 
   .mgTop {
@@ -348,7 +370,6 @@ select:focus {
 
 .requirementContainer {
   color: #000;
-  border-bottom: 2px solid navy;
   font-weight: 700;
   font-size: 20px;
 }
@@ -380,7 +401,7 @@ select:focus {
   }
 
   .setFontSize {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .visaStepContainer {
@@ -399,9 +420,6 @@ select:focus {
   }
 
   :host ::ng-deep .tabset a.nav-link {
-    background: #fff;
-    color: #000;
-    border: 1px solid #0000bb;
     margin-left: 2px;
     margin-right: 2px;
     font-size: 14px !important;
@@ -468,9 +486,6 @@ select:focus {
   }
 
   :host ::ng-deep .tabset a.nav-link {
-    background: #fff;
-    color: #000;
-    border: 1px solid #0000bb;
     margin-left: 2px;
     margin-right: 2px;
     font-size: 14px !important;
@@ -536,7 +551,7 @@ select:focus {
   } 
 
   .setFontSize {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .impRequired {
@@ -544,14 +559,11 @@ select:focus {
   }
 
   .iconSection {
-     padding: 20px 0px !important;
+     padding: 0px 0px !important;
   }
   
 
   :host ::ng-deep .tabset a.nav-link {
-    background: #fff;
-    color: #000;
-    border: 1px solid #0000bb;
     margin-left: 2px !important;
     margin-right: 2px !important;
     border-radius: 20px;
@@ -602,7 +614,6 @@ select:focus {
 
   .requirementContainer {
     color: #000;
-    border-bottom: 2px solid navy;
     font-weight: 700;
     font-size: 16px;
   }
@@ -706,11 +717,11 @@ select:focus {
   } 
 
   .setFontSize {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .iconSection {
-     padding: 20px 0px !important;
+     padding: 0px 0px !important;
   }
   
 
@@ -719,9 +730,6 @@ select:focus {
   }
 
   :host ::ng-deep .tabset a.nav-link {
-    background: #fff;
-    color: #000;
-    border: 1px solid #0000bb;
     margin-left: 2px;
     margin-right: 2px;
     font-size: 14px !important;
@@ -764,7 +772,6 @@ select:focus {
 
   .requirementContainer {
     color: #000;
-    border-bottom: 2px solid navy;
     font-weight: 700;
     font-size: 14px;
   }
@@ -989,10 +996,11 @@ select:focus {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
   }
+
+  .changingPurpose {
+    width: 250px !important;
+  }
 }
-
-
-
 
 @media screen and (max-width: 600px) {
   .mobileView, .mobileContainer {
@@ -1013,9 +1021,8 @@ select:focus {
 
   .requirementContainer {
     color: #000;
-    border-bottom: 2px solid navy;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
   }
   
   .faqContainer {
@@ -1151,6 +1158,12 @@ select:focus {
   }
 }
 
+.changingPurpose {
+  width: 450px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
 
 .select-box {
   position: relative;
@@ -1205,9 +1218,14 @@ select:focus {
   width: 100%;
   font-weight: 600;
   margin: 0;
-  color: #000;
+  color: #fff;
   padding: 5px 10px;
-  background-color: #e1e1e1;
+  background-color: #000080;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 .select-box__list {
   position: absolute;
@@ -1226,16 +1244,22 @@ select:focus {
           animation-fill-mode: forwards;
   -webkit-animation-timing-function: step-start;
           animation-timing-function: step-start;
-  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .select-box__option {
   display: block;
   padding: 10px;
   background-color: #fff;
 }
+
 .select-box__option:hover, .select-box__option:focus {
   color: #546c84;
   background-color: #fbfbfb;
+}
+
+.select-box svg {
+  fill: #fff;
 }
 
 @-webkit-keyframes HideList {
@@ -1263,11 +1287,8 @@ select:focus {
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .imageContainer {
-    padding: 0px 10px 10px;
-  }
-
-  .breadcrumSection {
-    padding: 110px 10px 0px;
+    padding: 0px 0px 10px 10px;
+    margin-top: 107px;
   }
 
 }
@@ -1296,6 +1317,23 @@ select:focus {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+  }
+
+  .changingPurpose {
+    width: 300px;
+    padding: 10px 0px 10px 10px;
+    margin-top: 10px;
+  }
+  
+  .country-desc {
+    font-size: 14px;
+    border-left: 2px solid dodgerblue;
+    padding-left: 5px;
+    margin-bottom: 0px;
+  }
+
+  .imageContainer {
+    height: 350px;
   }
 
 }
