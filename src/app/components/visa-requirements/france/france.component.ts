@@ -5,6 +5,7 @@ import {
   AfterViewInit,
   ViewChild,
   Inject,
+  PLATFORM_ID,
 } from "@angular/core";
 import {
   trigger,
@@ -23,7 +24,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { DOCUMENT } from "@angular/common";
+import { DOCUMENT, isPlatformBrowser } from "@angular/common";
 
 export interface Food {
   value: string;
@@ -52,8 +53,8 @@ export class FranceComponent implements OnInit, AfterViewInit {
   selectedRequirement: boolean = false;
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
-  mobileOrientation = "vertical"
-  
+  mobileOrientation = "vertical";
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -66,6 +67,8 @@ export class FranceComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+  selectedMobileTourist: number = 1;
+  selectedMobileBusiness: number = 1;
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -75,22 +78,19 @@ export class FranceComponent implements OnInit, AfterViewInit {
 
   public selectedCountrytype = "France";
   public onlinestatus: boolean = false;
+  activeTouristArr: Array<any> = [];
 
   constructor(
-    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
     private toastr: ToastrService,
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
     private preloaderService: PreloaderService,
-    private routerHistory: RouterHistory,
-    private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
-    @Inject(DOCUMENT) private doc
+    @Inject(DOCUMENT) private doc,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
@@ -116,8 +116,6 @@ export class FranceComponent implements OnInit, AfterViewInit {
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
         if (res.code == 0) {
-          console.log(res);
-          
           this.MyQuotation = res.data.quotations;
           this.imageCatogory.push(res.data.imageUploadInfo);
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
@@ -154,8 +152,6 @@ export class FranceComponent implements OnInit, AfterViewInit {
           } else {
             this.router.navigate(["visa/"]);
           }
-
-          console.log(this.imageCatogoryTemp);
 
           this.userFlow.setUserFlowDetails(
             "imageUploads",
@@ -278,20 +274,50 @@ export class FranceComponent implements OnInit, AfterViewInit {
       this.t.select("Transit");
     }
 
-    console.log(this.imageCatogoryTemp);
-
     this.userFlow.setUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
   }
 
-  setActiveTourist(index: number) {
+  setActiveTourist(index: number, id: string) {
     this.selectedTourist = index;
+
+    if ($("#tourist" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
 
-  setActiveBusiness(index: number) {
+  setActiveTouristMobile(index: number, id: string) {
+    this.selectedMobileTourist = index;
+
+    if ($("#touristMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
+  }
+
+  setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;
+
+    if ($("#business" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
+  }
+
+  setActiveBusinessMobile(index: number, id: string) {
+    this.selectedMobileBusiness = index;
+
+    if ($("#businessMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
 
   setActiveTransit(index: number) {
@@ -322,8 +348,6 @@ export class FranceComponent implements OnInit, AfterViewInit {
     }
 
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
-
-    console.log(this.imageCatogoryTemp);
 
     this.userFlow.setUserFlowDetails(
       "imageUploads",
