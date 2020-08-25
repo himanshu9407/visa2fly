@@ -25,6 +25,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT, isPlatformBrowser } from "@angular/common";
+import { Subject } from 'rxjs';
 
 export interface Food {
   value: string;
@@ -46,14 +47,12 @@ export interface Food {
     ]),
   ],
 })
-export class FranceComponent implements OnInit, AfterViewInit {
-  @ViewChild("t") t;
+export class FranceComponent implements OnInit {
+  // @ViewChild("t") t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
-  desktopJustify = "justified";
-  desktopOrientation = "horizontal";
-  mobileOrientation = "vertical";
+  selectedPurpose: Subject<any> = new Subject();
 
   public selectedVisaType = "Tourist";
   userControlDetail: any;
@@ -69,7 +68,8 @@ export class FranceComponent implements OnInit, AfterViewInit {
   selectedTourist: number = 1;
   selectedMobileTourist: number = 1;
   selectedMobileBusiness: number = 1;
-
+  selectedMobileTransit: number = 1;
+ 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
@@ -252,10 +252,6 @@ export class FranceComponent implements OnInit, AfterViewInit {
     link.setAttribute("href", "https://visa2fly.com/visa/france-visa-online");
   }
 
-  ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
-  }
-
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
@@ -263,65 +259,21 @@ export class FranceComponent implements OnInit, AfterViewInit {
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.t.select("Tourist");
+      this.selectedPurpose.next(purpose);
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.t.select("Business");
+      this.selectedPurpose.next(purpose);
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.t.select("Transit");
+      this.selectedPurpose.next(purpose);
     }
 
     this.userFlow.setUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
-  }
-
-  setActiveTourist(index: number, id: string) {
-    this.selectedTourist = index;
-
-    if ($("#tourist" + index).hasClass("show")) {
-      $("#" + id).removeClass("showDiv");
-    } else {
-      $("#" + id).addClass("showDiv");
-    }
-  }
-
-  setActiveTouristMobile(index: number, id: string) {
-    this.selectedMobileTourist = index;
-
-    if ($("#touristMobile" + index).hasClass("show")) {
-      $("#" + id).removeClass("showDiv");
-    } else {
-      $("#" + id).addClass("showDiv");
-    }
-  }
-
-  setActiveBusiness(index: number, id: string) {
-    this.selectedBusiness = index;
-
-    if ($("#business" + index).hasClass("show")) {
-      $("#" + id).removeClass("showDiv");
-    } else {
-      $("#" + id).addClass("showDiv");
-    }
-  }
-
-  setActiveBusinessMobile(index: number, id: string) {
-    this.selectedMobileBusiness = index;
-
-    if ($("#businessMobile" + index).hasClass("show")) {
-      $("#" + id).removeClass("showDiv");
-    } else {
-      $("#" + id).addClass("showDiv");
-    }
-  }
-
-  setActiveTransit(index: number) {
-    this.selectedTransit = index;
   }
 
   navigateTo(purpose: any) {
@@ -334,17 +286,19 @@ export class FranceComponent implements OnInit, AfterViewInit {
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
+      this.selectedMobileTourist = 1;
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
+      this.selectedMobileBusiness = 1;
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
-
       this.selectedTransit = 1;
+      this.selectedMobileTransit = 1;
     }
 
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);

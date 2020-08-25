@@ -10,6 +10,7 @@ import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-mod
 import { FaqComponent } from './faq/faq.component';
 import { QuotationComponent } from './quotation/quotation.component';
 import { ImportantPointsComponent } from './important-points/important-points.component';
+import { RequirementsComponent } from './requirements/requirements.component';
 
 const routes: Routes = [
   { path: "", component: FranceComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
     FaqComponent,
     QuotationComponent,
     ImportantPointsComponent,
+    RequirementsComponent,
   ],
 
   imports: [
