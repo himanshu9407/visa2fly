@@ -15,6 +15,7 @@ import { RequirementsService } from 'src/app/components/requirements/requirement
   styleUrls: ['./quotation.component.css']
 })
 export class QuotationComponent implements OnInit {
+
   @Input() quotation;
 
   constructor(

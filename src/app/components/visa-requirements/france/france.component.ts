@@ -48,7 +48,6 @@ export interface Food {
   ],
 })
 export class FranceComponent implements OnInit {
-  // @ViewChild("t") t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;

@@ -24,6 +24,7 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
+import { Subject } from 'rxjs';
 
 export interface Food {
   value: string;
@@ -51,11 +52,11 @@ export interface Food {
     ]),
   ],
 })
-export class ArmeniaComponent implements OnInit, AfterViewInit {
-  @ViewChild("t") t;
+export class ArmeniaComponent implements OnInit {
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
+  selectedPurpose: Subject<any> = new Subject();
 
   // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
@@ -73,6 +74,9 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+  selectedMobileTourist: number = 1;
+  selectedMobileBusiness: number = 1;
+  selectedMobileTransit: number = 1;
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -101,7 +105,7 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(["visa", "armenia-visa-online"]);
+        this.router.navigate(["visa", "france-visa-online"]);
       }
     });
 
@@ -114,7 +118,8 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
     }
 
     let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
     });
@@ -123,21 +128,16 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
       .subscribe((res: any) => {
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
-
           this.imageCatogory.push(res.data.imageUploadInfo);
-
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-
           this.onlinestatus = res.data.onlineCategory;
-
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
+
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
@@ -147,6 +147,7 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
               this.transitArr.push(element);
             }
           });
+
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
@@ -162,6 +163,11 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
           } else {
             this.router.navigate(["visa/"]);
           }
+
+          this.userFlow.setUserFlowDetails(
+            "imageUploads",
+            JSON.stringify(this.imageCatogoryTemp)
+          );
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -257,10 +263,6 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
     link.setAttribute("href", "https://visa2fly.com/visa/armenia-visa-online");
   }
 
-  ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
-  }
-
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
@@ -268,17 +270,21 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.t.select("Tourist");
+      this.selectedPurpose.next(purpose);
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.t.select("Business");
+      this.selectedPurpose.next(purpose);
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.t.select("Transit");
+      this.selectedPurpose.next(purpose);
     }
+
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imageCatogoryTemp)
+    );
   }
 
   navigateTo(purpose: any) {
@@ -291,35 +297,27 @@ export class ArmeniaComponent implements OnInit, AfterViewInit {
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
+      this.selectedMobileTourist = 1;
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
+      this.selectedMobileBusiness = 1;
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
-
       this.selectedTransit = 1;
+      this.selectedMobileTransit = 1;
     }
+
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
-  }
 
-  setActiveTourist(index: number) {
-    this.selectedTourist = index;
-  }
-
-  setActiveTransit(index: number) {
-    this.selectedTransit = index;
-  }
-
-  setActiveBusiness(index: number) {
-    this.selectedBusiness = index;
-  }
-
-  resetPage() {
-    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imageCatogoryTemp)
+    );
   }
 
   navigate(

@@ -54,7 +54,7 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.selectedPurpose.subscribe((res) => {
       this.t.select(res);
-    })
+    });
   }
 
   ngAfterViewInit() {
@@ -103,6 +103,16 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
 
   setActiveTransit(index: number) {
     this.selectedTransit = index;
+  }
+
+  setActiveMobileTransit(index: number, id: string) {
+    this.selectedMobileTransit = index;
+
+    if ($("#transitMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
 
   changePurpose(event) {

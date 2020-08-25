@@ -1,25 +1,11 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChild,
-  AfterViewInit,
-} from "@angular/core";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
-  selector: "app-requirements",
-  templateUrl: "./requirements.component.html",
-  styleUrls: ["./requirements.component.css"],
+  selector: 'app-requirments',
+  templateUrl: './requirments.component.html',
+  styleUrls: ['./requirments.component.css'],
   animations: [
     trigger("simpleFadeAnimation", [
       state("in", style({ opacity: 1 })),
@@ -31,10 +17,9 @@ import { Subject } from 'rxjs';
     ]),
   ],
 })
-export class RequirementsComponent implements OnInit, AfterViewInit {
+export class RequirmentsComponent implements OnInit, AfterViewInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
-  mobileOrientation = "vertical";
 
   @ViewChild("t") t;
 
@@ -49,7 +34,7 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
 
   @Output() changedPurpose = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.selectedPurpose.subscribe((res) => {
@@ -101,11 +86,28 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setActiveTransit(index: number) {
+  setActiveTransit(index: number, id: string) {
     this.selectedTransit = index;
+
+    if ($("#transit" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
+  }
+
+  setActiveTransitMobile(index: number, id: string) {
+    this.selectedMobileBusiness = index;
+
+    if ($("#transitMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
 
   changePurpose(event) {
     this.changedPurpose.emit(event);
   }
+
 }
