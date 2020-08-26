@@ -6,8 +6,6 @@ import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { RouterHistory } from "src/app/shared/router-history.service";
-import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
 import { Subject } from 'rxjs';
@@ -104,6 +102,7 @@ export class VietnamComponent implements OnInit {
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
     });
+    
     this.requireQuotation
         .getRequireQuotation(this.selectedCountrytype)
         .subscribe((res: any) => {

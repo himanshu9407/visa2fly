@@ -8,6 +8,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { ImportantPointsZambiaComponent } from './important-points-zambia/important-points-zambia.component';
+import { QuotationZambiaComponent } from './quotation-zambia/quotation-zambia.component';
+import { RequirementsZambiaComponent } from './requirements-zambia/requirements-zambia.component';
 
 const routes: Routes = [
     { path: "", component: ZambiaComponent },
@@ -17,6 +20,9 @@ const routes: Routes = [
     declarations:[
         ZambiaComponent,
         FaqComponent,
+        ImportantPointsZambiaComponent,
+        QuotationZambiaComponent,
+        RequirementsZambiaComponent,
     ],
     imports: [
         FormsModule,

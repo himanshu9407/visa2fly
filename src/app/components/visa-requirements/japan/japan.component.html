@@ -1,10 +1,15 @@
 <div class="imageContainer desktopView">
   <div class="row">
-    <div class="col-12">
-      <p class="breadcrum"><a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa Details</b>
+    <div class="col-12 text-right">
+      <p class="breadcrum">
+        <span>
+          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
+            Details</b>
+        </span>
       </p>
     </div>
   </div>
+
   <div class="container-fluid mt-4">
     <div class="row">
       <div class="col-12">
@@ -14,7 +19,7 @@
 
           <div class="country-info">
             <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">Japan, in Western Europe, encompasses medieval cities, alpine villages and
+            <p class="country-desc">France, in Western Europe, encompasses medieval cities, alpine villages and
               Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums
               including the Louvre and monuments like the Eiffel Tower. The country is also renowned for its wines and
               sophisticated cuisine.</p>
@@ -43,11 +48,6 @@
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
-                      <p class="select-box__input-text">Transit</p>
-                    </div>
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                       x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
                       enable-background="new 0 0 1000 1000" xml:space="preserve">
@@ -65,10 +65,6 @@
                     <li>
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                         aria-hidden="aria-hidden">Business</label>
-                    </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
-                        aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
                 </div>
