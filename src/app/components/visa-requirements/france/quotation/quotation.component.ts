@@ -8,7 +8,6 @@ import { LoginService } from 'src/app/components/login-signup/login/login.servic
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from 'src/app/components/requirements/requirements.service';
-import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-quotation',

@@ -170,7 +170,8 @@
   </div>
 </div>
 
-<app-process-steps [country]="selectedCountrytype"></app-process-steps>
+<app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
+<app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
 
 <app-requirements (changedPurpose)="navigateTo($event)" [selectedBusiness]="selectedBusiness"
   [selectedTransit]="selectedTransit" [selectedTourist]="selectedTourist"

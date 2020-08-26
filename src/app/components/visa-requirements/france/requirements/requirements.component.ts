@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter,
   ViewChild,
+  AfterViewInit,
 } from "@angular/core";
 import {
   trigger,
@@ -30,14 +31,13 @@ import { Subject } from 'rxjs';
     ]),
   ],
 })
-export class RequirementsComponent implements OnInit {
+export class RequirementsComponent implements OnInit, AfterViewInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
   mobileOrientation = "vertical";
 
   @ViewChild("t") t;
 
-  // @Input() t;
   @Input() selectedBusiness: number;
   @Input() selectedTransit: number;
   @Input() selectedTourist: number;

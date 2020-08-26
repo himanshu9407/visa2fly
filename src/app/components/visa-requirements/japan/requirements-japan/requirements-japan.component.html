@@ -19,12 +19,12 @@
   
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
-                <div class="row mt-4">
+                <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
+                        <div data-toggle="collapse show" data-target="#tourist1" aria-expanded="true"
                           aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
                           (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="australia tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
@@ -96,7 +96,7 @@
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="tourist1" class="collapse show" aria-labelledby="heading1"
+                        <div id="tourist1" class="collapsed" aria-labelledby="heading1"
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
@@ -1024,12 +1024,12 @@
   
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
-                <div class="row mt-4">
+                <div class="row">
                   <ngb-tabset [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                        <div data-toggle="collapse show" data-target="#touristMobile1" aria-expanded="true"
                           aria-controls="touristMobile1" [class.showDiv]="selectedTourist === 1"
                           (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="australia tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
@@ -2082,12 +2082,12 @@
               </div>
   
               <div class="desktopContainer accordion" id="businessAccodion">
-                <div class="row mt-4">
+                <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                        <div data-toggle="collapse show" id="#businessHeading1" data-target="#business1"
                           aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
                           (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="australia business visa online" style="height: 45px; margin-bottom: 10px;" /> -->
@@ -2247,7 +2247,7 @@
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="business1" class="collapse show" aria-labelledby="businessHeading1"
+                        <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
@@ -3259,12 +3259,12 @@
   
               <!-- mobileContainer -->
               <div class="mobileContainer accordion wrapContainer" id="businessAccodionMobile">
-                <div class="row mt-4">
+                <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
+                        <div data-toggle="collapse show" data-target="#businessMobile1" aria-expanded="true"
                           aria-controls="businessMobile1" [class.showDiv]="selectedBusiness === 1"
                           (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="australia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
@@ -4505,12 +4505,12 @@
               </div>
   
               <div class="desktopContainer accordion" id="transitAccodion">
-                <div class="row mt-4">
+                <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#transit1" aria-expanded="true"
+                        <div data-toggle="collapse show" data-target="#transit1" aria-expanded="true"
                           aria-controls="transit1" [class.showDiv]="selectedTransit === 1"
                           (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="australia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
@@ -5007,7 +5007,7 @@
   
   
               <div class="mobileContainer accordion wrapContainer" id="transitAccodionMobile">
-                <div class="row mt-4">
+                <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
@@ -5197,7 +5197,7 @@
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
+                        <div data-toggle="collapse show" data-target="#transitMobile2" aria-expanded="true"
                           aria-controls="transitMobile2" [class.showDiv]="selectedTransit === 2"
                           (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png" alt="Australia transit visa" style="height: 45px; margin-bottom: 10px;" /> -->

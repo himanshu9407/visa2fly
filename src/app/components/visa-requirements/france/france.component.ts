@@ -48,7 +48,6 @@ export interface Food {
   ],
 })
 export class FranceComponent implements OnInit {
-  // @ViewChild("t") t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
@@ -89,8 +88,7 @@ export class FranceComponent implements OnInit {
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
-    @Inject(DOCUMENT) private doc,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(DOCUMENT) private doc
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
