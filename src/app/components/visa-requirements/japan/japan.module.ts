@@ -8,6 +8,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { QuotationJapanComponent } from './quotation-japan/quotation-japan.component';
+import { ImportantPointsJapanComponent } from './important-points-japan/important-points-japan.component';
+import { RequirementsJapanComponent } from './requirements-japan/requirements-japan.component';
 
 const routes: Routes = [
     { path: "", component: JapanComponent },
@@ -17,7 +20,10 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         JapanComponent,
-        FaqComponent
+        FaqComponent,
+        QuotationJapanComponent,
+        ImportantPointsJapanComponent,
+        RequirementsJapanComponent
     ],
     imports: [
         FormsModule,

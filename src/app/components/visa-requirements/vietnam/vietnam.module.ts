@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { ImportantPointsVietnamComponent } from './important-points-vietnam/important-points-vietnam.component';
+import { QuotationVietnamComponent } from './quotation-vietnam/quotation-vietnam.component';
+import { RequirementVietnamComponent } from './requirement-vietnam/requirement-vietnam.component';
 
 const routes: Routes = [
   { path: "", component: VietnamComponent },
@@ -16,7 +19,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     VietnamComponent,
-    FaqComponent
+    FaqComponent,
+    ImportantPointsVietnamComponent,
+    QuotationVietnamComponent,
+    RequirementVietnamComponent
   ],
 
   imports: [
