@@ -33,7 +33,7 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="tourist1" class="collapse show" aria-labelledby="heading1"
+                      <div id="tourist1" class="collapsed" aria-labelledby="heading1"
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -116,9 +116,9 @@
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false" aria-controls="toursit4"
-                        [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
-                        id="setActiveTourist4">
+                      <div data-toggle="collapse" data-target="#tourist4" aria-expanded="true" aria-controls="tourist4"
+                      [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
+                      id="setActiveTourist4">
                         <div class="makeIconCntr">
                           <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
@@ -126,7 +126,7 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="toursit4" class="collapse" aria-labelledby="heading4" data-parent="#touristAccodion">
+                      <div id="tourist4" class="collapse" aria-labelledby="heading4" data-parent="#touristAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Passport</h1>
@@ -360,7 +360,7 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobile1" class="collapse show" aria-labelledby="headingMobile1"
+                      <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
@@ -423,8 +423,8 @@
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
-                        aria-controls="touristMobile3" [class.showDiv]="selectedMobileTourist === 3"
-                        (click)="setActiveTourist(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                      aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
+                      (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
                         <div class="makeIconCntr">
                           <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
@@ -433,7 +433,7 @@
                     </ng-template>
                     <ng-template ngbTabContent>
                       <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
-                        data-parent="#touristAccodionMobile">
+                      data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
                             <h1 class="requiredIconHeading">Flight Tickets
@@ -458,7 +458,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
                         aria-controls="touristMobile4" [class.showDiv]="selectedMobileTourist === 4"
-                        (click)="setActiveTourist(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                        (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
                         <div class="makeIconCntr">
                           <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
@@ -493,7 +493,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
                         aria-controls="touristMobile5" [class.showDiv]="selectedMobileTourist === 5"
-                        (click)="setActiveTourist(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                        (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
                         <div class="makeIconCntr">
                           <div class="vr-hotelReservation requiredIcons img-sprite"></div>
                         </div>
@@ -528,7 +528,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
                         aria-controls="touristMobile6" [class.showDiv]="selectedMobileTourist === 6"
-                        (click)="setActiveTourist(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                        (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
                         <div class="makeIconCntr">
                           <div class="vr-residencePermit requiredIcons img-sprite"></div>
                         </div>
@@ -561,7 +561,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
                         aria-controls="touristMobile7" [class.showDiv]="selectedMobileTourist === 7"
-                        (click)="setActiveTourist(7, 'setActiveTouristMobile7')" id="setActiveTouristMobile7">
+                        (click)="setActiveTouristMobile(7, 'setActiveTouristMobile7')" id="setActiveTouristMobile7">
                         <div class="makeIconCntr">
                           <div class="vr-InvitationLetter requiredIcons img-sprite"></div>
                         </div>
@@ -596,7 +596,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile8" aria-expanded="true"
                         aria-controls="touristMobile8" [class.showDiv]="selectedMobileTourist === 8"
-                        (click)="setActiveTourist(8, 'setActiveTouristMobile8')" id="setActiveTouristMobile8">
+                        (click)="setActiveTouristMobile(8, 'setActiveTouristMobile8')" id="setActiveTouristMobile8">
                         <div class="makeIconCntr">
                           <div class="vr-invitationLetter requiredIcons img-sprite"></div>
                         </div>
@@ -633,7 +633,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile9" aria-expanded="true"
                         aria-controls="touristMobile9" [class.showDiv]="selectedMobileTourist === 9"
-                        (click)="setActiveTourist(9, 'setActiveTouristMobile9')" id="setActiveTouristMobile9">
+                        (click)="setActiveTouristMobile(9, 'setActiveTouristMobile9')" id="setActiveTouristMobile9">
                         <div class="makeIconCntr">
                           <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                         </div>
@@ -669,7 +669,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile10" aria-expanded="true"
                         aria-controls="touristMobile10" [class.showDiv]="selectedMobileTourist === 10"
-                        (click)="setActiveTourist(10, 'setActiveTouristMobile10')" id="setActiveTouristMobile10">
+                        (click)="setActiveTouristMobile(10, 'setActiveTouristMobile10')" id="setActiveTouristMobile10">
                         <div class="makeIconCntr">
                           <div class="vr-travelInsurance requiredIcons img-sprite"></div>
                         </div>
@@ -731,7 +731,7 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="business1" class="collapse show" aria-labelledby="businessHeading1"
+                      <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -1052,7 +1052,7 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="businessMobile1" class="collapse show" aria-labelledby="headingMobile1"
+                      <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
                         data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">

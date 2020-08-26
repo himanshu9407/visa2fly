@@ -14,7 +14,7 @@ import {
   transition,
   animate,
 } from "@angular/animations";
-import { Subject } from 'rxjs';
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-requirements",
@@ -31,7 +31,7 @@ import { Subject } from 'rxjs';
     ]),
   ],
 })
-export class RequirementsComponent implements OnInit, AfterViewInit {
+export class RequirementsComponent implements OnInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
 
@@ -109,7 +109,6 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
       $("#" + id).addClass("showDiv");
     }
   }
-
 
   setActiveMobileTransit(index: number, id: string) {
     this.selectedMobileTransit = index;

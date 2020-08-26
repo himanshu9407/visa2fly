@@ -88,16 +88,11 @@ export class ArmeniaComponent implements OnInit {
   public onlinestatus: boolean = false;
 
   constructor(
-    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
     private toastr: ToastrService,
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
     private preloaderService: PreloaderService,
-    private routerHistory: RouterHistory,
-    private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
@@ -105,7 +100,7 @@ export class ArmeniaComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(["visa", "france-visa-online"]);
+        this.router.navigate(["visa", "armenia-visa-online"]);
       }
     });
 
@@ -318,74 +313,5 @@ export class ArmeniaComponent implements OnInit {
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
-  }
-
-  navigate(
-    quoteId: string,
-    purpose: string,
-    category: string,
-    minTravelDate: number,
-    basePrice: number,
-    serviceTax: number,
-    stayPeriod: string,
-    imageUpload: boolean,
-  ) {
-    this.preloaderService.showPreloader(true);
-
-    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-    this.userFlow.setUserFlowDetails("purpose", purpose);
-    this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    this.userFlow.setUserFlowDetails("category", category);
-    this.userFlow.setUserFlowDetails(
-      "minTravelDate",
-      JSON.stringify(minTravelDate)
-    );
-    this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-    this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
-    this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imageCatogoryTemp)
-    );
-
-    let token = this.loginService.getAuthToken();
-    if (token == null || token == undefined) {
-      token = "";
-    }
-    this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-      if (data.code == "0") {
-        this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-          // console.log(data);
-
-          if (data.code == "0") {
-            this.routerHistory.pushHistory("visa-requirement");
-            this.router.navigate(["addTraveller"]);
-
-            // setTimeout(() => {
-
-            this.preloaderService.showPreloader(false);
-            // }, 2000);
-          } else {
-            this.toastr.error("" + data.message);
-            this.preloaderService.showPreloader(false);
-          }
-        });
-      } else if (data.code == "301") {
-        this.loginService.setAuthToken("");
-        this.loginStatus.setUserStatus(false);
-        this.loginStatus.setUserLoggedIn(false);
-        // this.router.navigate(['visa']);
-        this.preloaderService.showPreloader(false);
-        this.userFlow.setCookie("profile", JSON.stringify({}));
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      } else {
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      }
-    });
   }
 }

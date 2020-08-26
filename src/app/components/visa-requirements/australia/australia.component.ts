@@ -87,16 +87,11 @@ export class AustraliaComponent implements OnInit {
   public imageUpload1: Array<any> = [];
 
   constructor(
-    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
     private toastr: ToastrService,
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
     private preloaderService: PreloaderService,
-    private routerHistory: RouterHistory,
-    private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
@@ -104,7 +99,7 @@ export class AustraliaComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(["visa", "france-visa-online"]);
+        this.router.navigate(["visa", "australia-visa-online"]);
       }
     });
 
