@@ -1,0 +1,1063 @@
+<div class="container-fluid p-0">
+    <div class="iconSection">
+      <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
+        [orientation]="desktopOrientation">
+        <ngb-tab id="Tourist" title="Tourist">
+  
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- tourist -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                      VISA REQUIREMENT FOR
+                      UAE</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <!-- desktopContainer -->
+              <div class="desktopContainer accordion" id="touristAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
+                          aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="UAE tourist visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist1" class="collapsed" aria-labelledby="heading1"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>Passport details are mandatory when you apply for a UAE e-visa online. A passport or a
+                                travel document, with at least 6 months validity beyond the date of departure from the
+                                country must be submitted.
+                                It should also contain 2 blank pages.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
+                          aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="UAE tourist visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo should not be
+                                cropped from the passport; black and white photographs will not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
+                          aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Residence.png"
+                            alt="UAE tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Residence</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist3" class="collapse" aria-labelledby="heading3"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Residence
+                              </h1>
+                              <p>
+                                In case of a UAE visa for Indians, if the client’s current nationality and current
+                                country of permanent residency are not the same, proof of residence must be submitted in
+                                the form of a residency visa in the passport.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false"
+                          aria-controls="toursit4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa.png" alt="UAE tourist visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-visa requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Visa</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="toursit4" class="collapse" aria-labelledby="heading4"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Visa
+                              </h1>
+                              <p>
+                                A valid visa for (or evidence of travel too) UAE, UK, USA, Australia, Canada, New Zealand,
+                                or a Schengen country may be shown.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true"
+                          aria-controls="tourist5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTourist(5, 'setActiveTourist5')" id="setActiveTourist5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Financial Documents.png"
+                            alt="UAE tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-financialDocs requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Financial Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist5" class="collapse" aria-labelledby="heading5"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Financial Documents
+                              </h1>
+                              <p>
+                                If a visa to any of the aforementioned
+                                countries is not procurable, documents
+                                that show that you have investments
+                                (or local income tax papers showing an
+                                annual income of) USD 8000 or more
+                                must be produced.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist6" aria-expanded="true"
+                        aria-controls="tourist6" [class.showDiv]="selectedTourist === 6"
+                        (click)="setActiveTourist(6, 'setActiveTourist6')" id="setActiveTourist6">
+                        <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Non-Mandatory Documents.png"
+                          alt="UAE tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                        <div class="makeIconCntr">
+                          <div class="vr-nonMandatoryDocs requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Non-Mandatory Documents</h2>
+                      </div>   
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Non-Mandatory Documents
+                              </h1>
+                              <p>
+                                These include an observation page in the
+                                passport (if any), or a child endorsed
+                                page (if any), to support your case.
+                                This must be attached in the Non-Mandatory
+                                Documents field.
+                              </p>
+                            </div>
+                          </div>
+                        </div>                     
+                      </ng-template>
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="UAE tourist visa for indian"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>Passport details are mandatory when you
+                                apply for a UAE e-visa online. A passport
+                                or a travel document, with at least 6 months
+                                validity beyond the date of departure from
+                                the country must be submitted. It should
+                                also contain 2 blank pages.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                          aria-controls="touristMobile2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="UAE tourist visa for indian"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white
+                                background - Preferably the photo should
+                                not be cropped from the passport; black and
+                                white photographs will not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Residence.png"
+                            alt="UAE tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Residence</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof Of Residence
+                              </h1>
+                              <p>
+                                In case of a UAE visa for Indians, if the
+                                client’s current nationality and current
+                                country of permanent residency are not
+                                the same, proof of residence must be
+                                submitted in the form of a residency
+                                visa in the passport.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                          aria-controls="touristMobile4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa.png" alt="UAE tourist visa for indian"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-visa requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Visa</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Visa
+                              </h1>
+                              <p>
+                                A valid visa for (or evidence of travel too) UAE, UK, USA, Australia, Canada, New Zealand,
+                                or a Schengen country may be shown.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                          aria-controls="touristMobile5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Financial Documents.png"
+                            alt="UAE visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-financialDocs requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Financial Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#touristAccodionMobile" [class.showDiv]="selectedTourist === 6"
+                        >
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Financial Documents
+                              </h1>
+                              <p>
+                                If a visa to any of the aforementioned
+                                countries is not procurable, documents
+                                that show that you have investments (or
+                                local income tax papers showing an annual
+                                income of) USD 8000 or more must be
+                                produced.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                          aria-controls="touristMobile6" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Non-Mandatory Documents.png"
+                            alt="UAE tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-nonMandatoryDocs requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Non-Mandatory</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Non-Mandatory Documents
+                              </h1>
+                              <p>
+                                These include an observation page in the
+                                passport (if any), or a child endorsed page
+                                (if any), to support your case. This must
+                                be attached in the Non-Mandatory Documents
+                                field.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                
+              </div>
+  
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Business" title="Business">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- business -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                      VISA REQUIREMENT FOR
+                      UAE</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="businessAccodion">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                          aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusuiness1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>Passport details are mandatory when you apply
+                                for a UAE e-visa online. A passport or
+                                a travel document, with at least 6 months
+                                validity beyond the date of departure from
+                                the country must be submitted. It should
+                                also contain 2 blank pages.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                          aria-expanded="false" aria-controls="businessTwo" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusuiness2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo should not be
+                                cropped from the passport; black and white photographs will not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                          data-target="#business3" aria-expanded="false" aria-controls="business3"
+                          [class.showDiv]="selectedBusiness === 3" 
+                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusuiness3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Letter From Event Organizer.png"
+                            alt="UAE visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-letterFromEventOrganizer requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Letter From Event Organizer</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Letter From Event Organizer
+                              </h1>
+                              <p>
+                                If going for any specific professional purpose, eg. Conference, exhibition, festival, a
+                                letter from the organizer is mandatory.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                          data-target="#business4" aria-expanded="false" aria-controls="business4"
+                          [class.showDiv]="selectedBusiness === 4" 
+                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusuiness4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/House Rental Contract.png"
+                            alt="UAE visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-houseRentalContract requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">House Rental Contract</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">House Rental Contract
+                              </h1>
+                              <p>
+                                Proof of residence outside the UAE must be submitted.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                       
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
+                          aria-controls="businessMobile1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>Passport details are mandatory when you apply for a UAE e-visa online. A passport or a
+                                travel document, with at least 6 months validity beyond the date of departure from the
+                                country must be submitted. It should also contain 2 blank pages.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
+                          aria-controls="businessMobile2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo should not be
+                                cropped from the passport; black and white photographs will not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
+                          aria-controls="businessMobile3" [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Letter From Event Organizer.png"
+                            alt="UAE visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-letterFromEventOrganizer requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Letter From Event Organizer</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Letter From Event Organizer
+                              </h1>
+                              <p>
+                                If going for any specific professional purpose, eg. Conference, exhibition, festival, a
+                                letter from the organizer is mandatory.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobileFour" aria-expanded="true"
+                          aria-controls="businessMobileFour" [class.showDiv]="selectedBusiness === 4"
+                          (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/House Rental Contract.png"
+                            alt="UAE visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-houseRentalContract requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">House Rental Contract</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">House Rental Contract
+                              </h1>
+                              <p>
+                                Proof of residence outside the UAE must be submitted.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Transit" title="Transit">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid" [@simpleFadeAnimation]="'in'">
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
+                      VISA REQUIREMENT FOR
+                      UAE</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer wrapContainer accordion" id="transitAccodion">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit1" aria-expanded="true"
+                          aria-controls="transit1" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1, 'setActiveTranist1')" id="setActiveTransit1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit1" class="collapsed" aria-labelledby="transit1"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>Passport details are mandatory when you
+                                apply for a UAE e-visa online. A passport
+                                or a travel document, with at least 6 months
+                                validity beyond the date of departure from
+                                the country must be submitted. It should also
+                                contain 2 blank pages.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit2" aria-expanded="true"
+                          aria-controls="transit2" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2, 'setActiveTranist2')" id="setActiveTransit2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo should not be
+                                cropped from the passport; black and white photographs will not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit3" aria-expanded="true"
+                          aria-controls="transit3" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3, 'setActiveTranist3')" id="setActiveTransit3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit3" class="collapse" aria-labelledby="transit3"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight
+                              </h1>
+                              <p>Applicant must provide both departure and arrival flight tickets.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit4" aria-expanded="true"
+                          aria-controls="transit4" [class.showDiv]="selectedTransit === 4"
+                          (click)="setActiveTransit(4, 'setActiveTranist4')" id="setActiveTransit4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="UAE visa for indians"
+                          style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-panCard requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">PAN Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit4" class="collapse" aria-labelledby="transit4"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">PAN Card
+                              </h1>
+                              <p>Applicant have to provide Pan card if applicant is employed / self employed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                       
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+              <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+  
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
+                          aria-controls="transitMobile1" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile1" class="collapsed" aria-labelledby="transitMobile1"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>Passport details are mandatory when you
+                                apply for a UAE e-visa online. A passport
+                                or a travel document, with at least 6
+                                months validity beyond the date of
+                                departure from the country must be
+                                submitted. It should also contain 2
+                                blank pages.</p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
+                          aria-controls="transitMobile2" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile2" class="collapse" aria-labelledby="transitMobile2"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo should not be
+                                cropped from the passport; black and white photographs will not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
+                          aria-controls="transitMobile3" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="UAE visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile3" class="collapse" aria-labelledby="transitMobile3"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon" >
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Flight
+                              </h1>
+                              <p>Applicant must provide both departure and arrival flight tickets.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile4" aria-expanded="true"
+                          aria-controls="transitMobile4" [class.showDiv]="selectedTransit === 4"
+                          (click)="setActiveTransit(4, 'setActiveTransit4')" id="setActiveTransit4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="UAE visa for indians"
+                          style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-panCard requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">PAN Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile4" class="collapse" aria-labelledby="transitMobile4"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon" >
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">PAN Card
+                              </h1>
+                              <p>Applicant have to provide Pan card if applicant is employed / self employed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
