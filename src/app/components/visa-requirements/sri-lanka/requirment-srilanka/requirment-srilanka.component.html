@@ -1,0 +1,1104 @@
+<div class="container-fluid p-0">
+    <div class="iconSection">
+      <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
+        [orientation]="desktopOrientation">
+        <ngb-tab id="Tourist" title="Tourist">
+  
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- tourist -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                      VISA REQUIREMENT FOR
+                      Sri Lanka</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <!-- desktopContainer -->
+              <div class="desktopContainer accordion" id="touristAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
+                          aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                                                      alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist1" class="collapsed" aria-labelledby="heading1"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>When you apply for a sri lanka e visa online,
+                                you must be in possession of a passport with
+                                at least 6 months’ validity. This date is
+                                calculated as 6 months from the intended
+                                arrival date into Sri Lanka.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
+                          aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
+                          <!-- <img class="img-fluid"
+                                                      src="https://static.visa2fly.com/icon/email.png" alt="sri lanka tourist visa for indian"
+                                                      style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-email requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Email Address</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Email Address</h1>
+                              <p>
+                                A valid current email address is required, to which the ETA will be sent.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
+                          aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Credit and Debit Card.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Debit/Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist3" class="collapse" aria-labelledby="heading3"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Debit/Credit Card
+                              </h1>
+                              <p>
+                                Along with your Sri Lanka E-Visa Application, you
+                                will require a valid debit or credit card is
+                                required to pay the ETA fees with.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false"
+                            aria-controls="toursit4" [class.showDiv]="selectedTourist === 4"
+                            (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png"
+                              alt="sri lanka tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-businessForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Completed ETA Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="toursit4" class="collapse" aria-labelledby="heading4"
+                            data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Completed ETA Form</h1>
+                                <p>
+                                  This form requires personal and passport
+                                  information. This includes contact details,
+                                  full name, passport number, issue, and expiry
+                                  date, as well as the country of birth and citizenship.
+                                </p>
+                                <p>These documents are enough to obtain an ETA.
+                                  However, upon arrival, the below documents must
+                                  be shown to guarantee entry into Sri Lanka:</p>
+    
+                                <p class="font-weight-bold">Printed Copy of ETA</p>
+                                <p>Regarding your Sri Lanka E-visa online, a printed
+                                  copy of the approved ETA must be shown at
+                                  the Immigration checkpoint.</p>
+    
+                                <p class="font-weight-bold">Proof of Sufficient Funding</p>
+                                <p>You must be able to guarantee that you are
+                                  financially independent. This may be in the
+                                  form of bank account statements, or any
+                                  other acceptable form of proof.
+                                </p>
+    
+                                <p class="font-weight-bold">Flight Tickets</p>
+                                <p>Flight tickets, especially return tickets, must
+                                  be displayed upon asking. This could be a return
+                                  ticket to your resident country or an onward
+                                  ticket to a third country.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          
+                        </ng-template>
+                        <ng-template ngbTabContent>
+
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          
+                        </ng-template>
+                        <ng-template ngbTabContent>
+
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+              </div>
+  
+  
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>When you apply for a sri lanka e visa online,
+                                you must be in possession of a passport with at
+                                least 6 months’ validity. This date is calculated
+                                as 6 months from the intended arrival date
+                                into Sri Lanka.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                            aria-controls="touristMobile2" [class.showDiv]="selectedTourist === 2"
+                            (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/email.png"
+                              alt="sri lanka tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-email requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Email Address</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Email Address</h1>
+                                <p>
+                                  A valid current email address is required, to which the ETA will be sent.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Credit and Debit Card.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Debit/Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Debit/Credit Card
+                              </h1>
+                              <p>
+                                Along with your Sri Lanka E-Visa Application,
+                                you will require a valid debit or credit card
+                                is required to pay the ETA fees with.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                            aria-controls="touristMobile4" [class.showDiv]="selectedTourist === 4"
+                            (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png"
+                              alt="sri lanka tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-businessForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Completed ETA Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Completed ETA Form</h1>
+                                <p>
+                                  This form requires personal and passport
+                                  information. This includes contact details,
+                                  full name, passport number, issue, and expiry
+                                  date, as well as the country of birth and citizenship.
+                                </p>
+                                <p>These documents are enough to obtain an ETA.
+                                  However, upon arrival, the below documents must
+                                  be shown to guarantee entry into Sri Lanka:</p>
+    
+                                <p class="font-weight-bold">Printed Copy of ETA</p>
+                                <p>Regarding your Sri Lanka E-visa online, a printed
+                                  copy of the approved ETA must be shown at
+                                  the Immigration checkpoint.</p>
+    
+                                <p class="font-weight-bold">Proof of Sufficient Funding</p>
+                                <p>You must be able to guarantee that you are
+                                  financially independent. This may be in the
+                                  form of bank account statements, or any
+                                  other acceptable form of proof.
+                                </p>
+    
+                                <p class="font-weight-bold">Flight Tickets</p>
+                                <p>Flight tickets, especially return tickets, must
+                                  be displayed upon asking. This could be a return
+                                  ticket to your resident country or an onward
+                                  ticket to a third country.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+              </div>
+  
+            </div>
+  
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Business" title="Business">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- business -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                      VISA REQUIREMENT FOR
+                      Sri Lanka</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="businessAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                          aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>When you apply for sri lanka e visa online,
+                                you must be in possession of a passport with
+                                at least 6 months’ validity. This date is
+                                calculated as 6 months from the intended arrival
+                                date into Sri Lanka.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                          aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/email.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-email requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Email Address</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Email Address</h1>
+                              <p>
+                                A valid, current email address is required,
+                                to which the ETA will be sent.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                          data-target="#business3" aria-expanded="false" aria-controls="business3"
+                          [class.showDiv]="selectedBusiness === 3" 
+                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Credit and Debit Card.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Debit/Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Debit/Credit Card
+                              </h1>
+                              <p>
+                                A valid debit or credit card is required to pay the ETA fees.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                            data-target="#business4" aria-expanded="false" aria-controls="business4"
+                            [class.showDiv]="selectedBusiness === 4" 
+                            (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png"
+                              alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-businessForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Completed ETA Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Completed ETA Form</h1>
+                                <p>
+                                  This form requires personal and passport
+                                  information. This includes contact details,
+                                  full name, passport number, issue, and expiry
+                                  date, as well as the country of birth and citizenship.
+                                </p>
+                                <p>These documents are enough to obtain an ETA.
+                                  However, upon arrival, the below documents must
+                                  be shown to guarantee entry into Sri Lanka:</p>
+    
+                                <p class="font-weight-bold">Printed Copy of ETA</p>
+                                <p>Regarding your Sri Lanka E-visa online, a printed
+                                  copy of the approved ETA must be shown at
+                                  the Immigration checkpoint.</p>
+    
+                                <p class="font-weight-bold">Proof of Sufficient Funding</p>
+                                <p>You must be able to guarantee that you are
+                                  financially independent when you apply for
+                                  Sri Lanka E-visa online. This may be in the
+                                  form of bank account statements, or any other
+                                  acceptable form of proof.
+                                </p>
+    
+                                <p class="font-weight-bold">Flight Tickets</p>
+                                <p>Flight tickets, especially return tickets, must
+                                  be displayed upon asking. This could be a return
+                                  ticket to your resident country or an onward
+                                  ticket to a third country.
+                                </p>
+    
+                                <p class="font-weight-bold">Supporting Documentation</p>
+                                <p>Supporting documentation that proves the
+                                  intent of your visit to Sri Lanka. This is exclusively
+                                  for those applying for a Sri Lanka business visa.
+                                </p>
+    
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>When you apply for sri lanka e visa online,
+                                you must be in possession of a passport with
+                                at least 6 months’ validity. This date is
+                                calculated as 6 months from the intended
+                                arrival date into Sri Lanka.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                            aria-controls="touristMobile2" [class.showDiv]="selectedBusiness === 2"
+                            (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/email.png"
+                              alt="sri lanka e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-email requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Email Address</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Email Address</h1>
+                                <p>
+                                  A valid, current email address is required, to which the ETA will be sent.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Credit and Debit Card.png"
+                            alt="UK visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Debit/Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Debit/Credit Card
+                              </h1>
+                              <p>
+                                A valid debit or credit card is required to pay the ETA fees.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                            aria-controls="touristMobile4" [class.showDiv]="selectedBusiness === 4"
+                            (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png"
+                              alt="sri lanka e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-businessForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Completed ETA Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Completed ETA Form</h1>
+                                <p>
+                                  This form requires personal and passport
+                                  information. This includes contact details,
+                                  full name, passport number, issue, and expiry
+                                  date, as well as the country of birth and citizenship.
+                                </p>
+                                <p>These documents are enough to obtain an ETA.
+                                  However, upon arrival, the below documents must
+                                  be shown to guarantee entry into Sri Lanka:</p>
+    
+                                <p class="font-weight-bold">Printed Copy of ETA</p>
+                                <p>Regarding your Sri Lanka E-visa online, a printed
+                                  copy of the approved ETA must be shown at
+                                  the Immigration checkpoint.</p>
+    
+                                <p class="font-weight-bold">Proof of Sufficient Funding</p>
+                                <p>You must be able to guarantee that you are
+                                  financially independent when you apply for
+                                  Sri Lanka E-visa online. This may be in the
+                                  form of bank account statements, or any other
+                                  acceptable form of proof.
+                                </p>
+    
+                                <p class="font-weight-bold">Flight Tickets</p>
+                                <p>Flight tickets, especially return tickets, must
+                                  be displayed upon asking. This could be a return
+                                  ticket to your resident country or an onward
+                                  ticket to a third country.
+                                </p>
+    
+                                <p class="font-weight-bold">Supporting Documentation</p>
+                                <p>Supporting documentation that proves the
+                                  intent of your visit to Sri Lanka. This is exclusively
+                                  for those applying for a Sri Lanka business visa.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+              </div>
+  
+  
+            </div>
+           
+  
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Transit" title="Transit">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- transit -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
+                      VISA REQUIREMENT FOR
+                      Sri Lanka</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="transitAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit1" aria-expanded="true"
+                          aria-controls="transit1" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="sri lanka e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit1" class="collapsed" aria-labelledby="transit1"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>When you apply for a sri lanka e visa online,
+                                you must be in possession of a passport with
+                                at least 6 months’ validity. This date is
+                                calculated as 6 months from the intended
+                                arrival date into Sri Lanka.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit2" aria-expanded="true"
+                          aria-controls="transit2" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/email.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-email requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Email Address</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Email Address</h1>
+                              <p>
+                                A valid, current email address is required
+                                with your sri lanka e visa online, to which
+                                the ETA will be sent.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit3" aria-expanded="true"
+                          aria-controls="transit3" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Credit and Debit Card.png"
+                            alt="sri lanka e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Debit/Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit3" class="collapse" aria-labelledby="transit3"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Debit/Credit Card</h1>
+                              <p>A valid debit or credit card is required to pay the ETA fees.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transit4" aria-expanded="true"
+                            aria-controls="transit4" [class.showDiv]="selectedTransit === 4"
+                            (click)="setActiveTransit(4, 'setActiveTransit4')" id="setActiveTransit4">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png"
+                              alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-businessForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Completed ETA Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transit4" class="collapse" aria-labelledby="transit4"
+                            data-parent="#transitAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Completed ETA Form</h1>
+                                <p>
+                                  This form requires personal and passport
+                                  information. This includes contact details,
+                                  full name, passport number, issue, and expiry
+                                  date, as well as the country of birth and citizenship.
+                                </p>
+                                <p>These documents are enough to obtain an ETA.
+                                  However, upon arrival, the below documents must
+                                  be shown to guarantee entry into Sri Lanka:</p>
+    
+                                <p class="font-weight-bold">Printed Copy of ETA</p>
+                                <p>Regarding your Sri Lanka E-visa online, a printed
+                                  copy of the approved ETA must be shown at
+                                  the Immigration checkpoint.</p>
+    
+                                <p class="font-weight-bold">Proof of Sufficient Funding</p>
+                                <p>You must be able to guarantee that you are
+                                  financially independent when you apply for
+                                  Sri Lanka E-visa online. This may be in the
+                                  form of bank account statements, or any other
+                                  acceptable form of proof.
+                                </p>
+    
+                                <p class="font-weight-bold">Flight Tickets</p>
+                                <p>Flight tickets, especially return tickets, must
+                                  be displayed upon asking. This could be a return
+                                  ticket to your resident country or an onward
+                                  ticket to a third country.
+                                </p>
+    
+                                <p class="font-weight-bold">Supporting Documentation</p>
+                                <p>Supporting documentation that proves the
+                                  intent of your visit to Sri Lanka. This is exclusively
+                                  for those applying for a Sri Lanka business visa.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+    
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+    
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+              </div>
+  
+  
+              <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+  
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
+                          aria-controls="transitMobile1" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile1" class="collapsed" aria-labelledby="transitMobile1"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>When you apply for a sri lanka e visa online,
+                                you must be in possession of a passport with at
+                                least 6 months’ validity. This date is calculated
+                                as 6 months from the intended arrival date
+                                into Sri Lanka.</p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
+                            aria-controls="transitMobile2" [class.showDiv]="selectedTransit === 2"
+                            (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/email.png"
+                              alt="sri lanka e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-email requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Email Address</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transitMobile2" class="collapse" aria-labelledby="transitMobile2"
+                            data-parent="#transitAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Email Address</h1>
+                                <p>
+                                  When you apply for a sri lanka e visa online,
+                                  you must be in possession of a passport with
+                                  at least 6 months’ validity. This date is calculated
+                                  as 6 months from the intended arrival date
+                                  into Sri Lanka.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
+                          aria-controls="transitMobile3" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Credit and Debit Card.png"
+                            alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Debit/Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile3" class="collapse" aria-labelledby="transitMobile3"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Debit/Credit Card</h1>
+                              <p>A valid debit or credit card is required to pay the ETA fees.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transitMobile4" aria-expanded="true"
+                            aria-controls="transitMobile4" [class.showDiv]="selectedTransit === 4"
+                            (click)="setActiveTransit(4, 'setActiveTransit4')" id="setActiveTransit4">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Business Form.png"
+                              alt="sri lanka e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                            <div class="makeIconCntr">
+                              <div class="vr-businessForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Completed ETA Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transitMobile4" class="collapse" aria-labelledby="transitMobile4"
+                            data-parent="#transitAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Completed ETA Form</h1>
+                                <p>
+                                  This form requires personal and passport
+                                  information. This includes contact details,
+                                  full name, passport number, issue, and expiry
+                                  date, as well as the country of birth and citizenship.
+                                </p>
+                                <p>These documents are enough to obtain an ETA.
+                                  However, upon arrival, the below documents must
+                                  be shown to guarantee entry into Sri Lanka:</p>
+    
+                                <p class="font-weight-bold">Printed Copy of ETA</p>
+                                <p>Regarding your Sri Lanka E-visa online, a printed
+                                  copy of the approved ETA must be shown at
+                                  the Immigration checkpoint.</p>
+    
+                                <p class="font-weight-bold">Proof of Sufficient Funding</p>
+                                <p>You must be able to guarantee that you are
+                                  financially independent when you apply for
+                                  Sri Lanka E-visa online. This may be in the
+                                  form of bank account statements, or any other
+                                  acceptable form of proof.
+                                </p>
+    
+                                <p class="font-weight-bold">Flight Tickets</p>
+                                <p>Flight tickets, especially return tickets, must
+                                  be displayed upon asking. This could be a return
+                                  ticket to your resident country or an onward
+                                  ticket to a third country.
+                                </p>
+    
+                                <p class="font-weight-bold">Supporting Documentation</p>
+                                <p>Supporting documentation that proves the
+                                  intent of your visit to Sri Lanka. This is exclusively
+                                  for those applying for a Sri Lanka business visa.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+              </div>
+  
+            </div>
+  
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
