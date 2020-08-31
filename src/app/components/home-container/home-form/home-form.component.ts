@@ -236,6 +236,12 @@ export class HomeFormComponent {
           break;
         }
 
+        case "Ukraine": {
+          this.router.navigate(["visa/ukraine-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         case "Bahrain": {
           this.router.navigate(["visa/bahrain-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
@@ -400,6 +406,12 @@ export class HomeFormComponent {
         }
         case "Netherlands": {
           this.router.navigate(["visa/netherlands-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Antigua & Barbuda": {
+          this.router.navigate(["visa/antigua & barbuda-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }

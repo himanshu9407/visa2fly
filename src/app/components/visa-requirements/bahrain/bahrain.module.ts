@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
+import { ImportantPointsComponent } from './important-points/important-points.component';
+import { QuotationComponent } from './quotation/quotation.component';
+import { RequirementsComponent } from './requirements/requirements.component';
 
 const routes: Routes = [
     { path: "", component: BahrainComponent },
@@ -16,6 +19,9 @@ const routes: Routes = [
     declarations: [
         BahrainComponent,
         FaqComponent,
+        ImportantPointsComponent,
+        QuotationComponent,
+        RequirementsComponent,
     ],
     imports: [
         FormsModule,

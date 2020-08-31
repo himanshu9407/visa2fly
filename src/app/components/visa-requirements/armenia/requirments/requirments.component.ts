@@ -97,7 +97,7 @@ export class RequirmentsComponent implements OnInit, AfterViewInit {
   }
 
   setActiveTransitMobile(index: number, id: string) {
-    this.selectedMobileBusiness = index;
+    this.selectedMobileTransit = index;
 
     if ($("#transitMobile" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");

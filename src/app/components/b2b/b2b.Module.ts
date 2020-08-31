@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SomethingWrongComponent } from 'src/app/shared/components/something-wrong/something-wrong.component';
 import { B2bRemovespacePipe } from './b2b-removespace.pipe';
+import { SharedVisaModuleModule } from '../shared-visa-module/shared-visa-module.module';
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: "full" } ,
@@ -43,6 +44,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule,
+    SharedVisaModuleModule,
     MatSelectModule,
     RouterModule.forChild(routes)
   ]

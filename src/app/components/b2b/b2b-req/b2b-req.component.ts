@@ -25,17 +25,15 @@ import { Meta, Title } from '@angular/platform-browser';
   templateUrl: "./b2b-req.component.html",
   styleUrls: ["./b2b-req.component.css"],
   animations: [
-    trigger("inOutAnimation", [
-      transition(":enter", [
-        style({ height: 0, opacity: 0 }),
-        animate("0.3s ease-out", style({ height: 300, opacity: 1 }))
-      ]),
-      transition(":leave", [
-        style({ height: 300, opacity: 1 }),
-        animate("0.4s ease-in", style({ height: 0, opacity: 0 }))
-      ])
-    ])
-  ]
+    trigger("simpleFadeAnimation", [
+      state("in", style({ opacity: 1 })),
+      transition(":enter", [style({ opacity: 0 }), animate(800)]),
+      transition(
+        ":leave",
+        animate(800, style({ opacity: 0, background: "green" }))
+      ),
+    ]),
+  ],
 })
 export class B2bReqComponent implements OnInit {
   userControlDetail: any;
@@ -62,7 +60,6 @@ export class B2bReqComponent implements OnInit {
   public purposeApi: Array<any> = [];
   public purposeApiNew: Array<any> = [];
 
-  // selectedCountry: any;
   MyQuotation1: any;
   importantInfo: any;
 
@@ -85,7 +82,12 @@ export class B2bReqComponent implements OnInit {
   public showRequirementsDetailArr = [true];
   public mobileShowRequirementsDetailArr = [true];
 
-  purposeChooseForm1: FormGroup;
+  purposeChooseForm: FormGroup;
+
+  desktopJustify = "justified";
+  desktopOrientation = "horizontal";
+  selectedItem: string;
+  id: any;
 
   constructor(
     private router: Router,
@@ -107,22 +109,18 @@ export class B2bReqComponent implements OnInit {
       this.selectedCountrytype = params.country;
     });
     let tempPurpose = this.selectedPurposeType;
-    //console.log(tempPurpose);
-    this.purposeChooseForm1 = new FormGroup({
+    this.id = this.userFlow.getB2BUserFlowDetails().id;
+    this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose)
     });
-    //Api Call
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
         if (data.code == "0") {
           this.requirementsData = data;
-          // console.log(data.data);
           this.Quotation = data.data.displayQuotes;
-          //console.log(this.Quotation);
           this.Quotation.forEach(element => {
             this.purposeApi.push(element.purpose);
-            //console.log(this.purposeApi);
             if (element.purpose == "Tourist") {
               this.touristArr.push(element);
               this.userFlow.setUserFlowDetails("imageUpload", element.imageUpload);
@@ -135,7 +133,6 @@ export class B2bReqComponent implements OnInit {
             }
           });
 
-          //Fetch Value From quotation and remove dublicate
           for (var value of this.purposeApi) {
             if (this.purposeApiNew.indexOf(value) === -1) {
               this.purposeApiNew.push(value);
@@ -174,7 +171,6 @@ export class B2bReqComponent implements OnInit {
 
           if (this.onlinestatus) {
             this.imageCatogory.push(data.data.imageUploadInfo);
-            // console.log(data.data.imageUploadInfo);
 
             this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
             this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
@@ -188,15 +184,12 @@ export class B2bReqComponent implements OnInit {
               this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
             }
 
-            // console.log(this.imageCatogoryTemp);
 
             let temp1 = JSON.parse(this.userFlow.getCookie("userFlowDetails"));
             this.userFlow.setUserFlowDetails(
               "onlineCountry",
               JSON.stringify(data.data.onlineCategory)
             );
-            // this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-            // this.userFlow.setUserFlowDetails("purpose", this.selectedPurposeType);
             this.imageUpload1 = this.imageCatogoryTemp;
           }
 
@@ -204,20 +197,19 @@ export class B2bReqComponent implements OnInit {
           let i,
             j,
             temparray,
-            chunk = 4;
+            chunk = 3;
 
           this.mainArr = [];
 
           for (i = 0, j = data.data.fieldDetails.length; i < j; i += chunk) {
             temparray = data.data.fieldDetails.slice(i, i + chunk);
             this.mainArr.push(temparray);
-            // console.log(this.mainArr);
           }
 
           let i1,
             j1,
             temparray1,
-            chunk1 = 2;
+            chunk1 = 1;
 
           this.mobileMainArr = [];
 
@@ -233,12 +225,9 @@ export class B2bReqComponent implements OnInit {
           this.showRequirementsDetailArr = [];
           this.selectedDataArr = [];
           for (let k = 0; k < this.mainArr.length; k++) {
-            //console.log(this.mainArr[k][0]);
             this.selectedDataArr.push(this.mainArr[k][0]);
-            // console.log(this.selectedDataArr);
             if (k == 0) {
               this.showRequirementsDetailArr.push(true);
-              // console.log(this.showRequirementsDetailArr);
             } else {
               this.showRequirementsDetailArr.push(false);
             }
@@ -256,37 +245,13 @@ export class B2bReqComponent implements OnInit {
             }
           }
 
-          // console.log(this.selectedDataArr);
         }
 
         setTimeout(() => {
           this.preloaderService.showPreloader(false);
         }, 1000);
       });
-
-    //console.log(this.imageUpload1);
   }
-
-  // navigate(
-  //   quoteId: string,
-  //   basePrice: number,
-  //   serviceTax: number,
-  //   stayPeriod: string,
-  //   imageUploads: string
-  // ) {
-  //   this.preloaderService.showPreloader(true);
-
-  //   this.userFlow.setUserFlowDetails("quoteId", quoteId);
-  //   // this.userFlow.setUserFlowDetails("", );
-  //   this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-  //   this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(basePrice));
-  //   this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-  //   this.userFlow.setUserFlowDetails(
-  //     "imageUploads",
-  //     JSON.stringify(this.imageUpload1)
-  //   );
-
-  // }
 
   navigate(
     quoteId: string,
@@ -302,7 +267,7 @@ export class B2bReqComponent implements OnInit {
     this.userFlow.setB2BUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setB2BUserFlowDetails(
       "purpose",
-      this.purposeChooseForm1.get("purposeSelected").value
+      this.purposeChooseForm.get("purposeSelected").value
     );
     this.userFlow.setB2BUserFlowDetails("quoteId", quoteId);
     this.userFlow.setB2BUserFlowDetails("category", category);
@@ -322,14 +287,11 @@ export class B2bReqComponent implements OnInit {
       JSON.stringify(this.imageUpload1)
     );
 
-    // this.preloaderService.showPreloader(true);
 
     this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
       if (data.code == "0") {
-        // console.log(data);
         
         this.router.navigate(["b2b/b2b-add-traveller"]);
-        // this.preloaderService.showPreloader(false);
       } else {
         this.preloaderService.showPreloader(false);
         this.toastr.error("" + data.message);
@@ -338,7 +300,6 @@ export class B2bReqComponent implements OnInit {
   }
 
   onClickRequrements(i, j, item) {
-    // console.log(item);
 
     if (
       this.showRequirementsDetailArr[i] == true &&
@@ -351,42 +312,30 @@ export class B2bReqComponent implements OnInit {
     ) {
       this.showRequirementsDetailArr[i] = true;
     } else {
-      // console.log("else");
       this.showRequirementsDetailArr[i] = true;
     }
 
     this.selectedDataArr[i] = this.mainArr[i][j];
-    // console.log(this.selectedDataArr[i]);
   }
+
   purposeChanged() {
-    var purpose = this.purposeChooseForm1.get("purposeSelected").value;
-    //console.log(purpose);
+    var purpose = this.purposeChooseForm.get("purposeSelected").value;
     var country = this.selectedCountrytype;
-    // console.log(country);
     window.history.replaceState(
       "",
       "",
       "visa-requirement/" + country + "/" + purpose
     );
-    // console.log(this.businessArr);
-    // let tempPurpose = this.selectedPurposeType;
-    // this.purposeChooseForm1.get('purposeSelected').setValue(tempPurpose);
     if (purpose == "Tourist") {
       this.MyQuotation = this.touristArr;
       this.imageUpload1 = this.imageCatogoryTouristTemp;
-
-      //this.t.select("Tourist");
     } else if (purpose == "Business") {
       this.MyQuotation = this.businessArr;
       this.imageUpload1 = this.imageCatogoryBusinessTemp;
-      //this.t.select("Business");
     } else {
       this.MyQuotation = this.transitArr;
       this.imageUpload1 = this.imageCatogoryTransitTemp;
-      //this.t.select("Transit");
     }
-    //console.log(this.imageCatogoryTemp);
-    // console.log(this.MyQuotation);
   }
 
   onClickRequrementsMobile(i, j, item) {
@@ -416,8 +365,26 @@ export class B2bReqComponent implements OnInit {
         name: "description",
         content: ""
       },
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
+  }
+
+  setActiveItem(index: string, id: string) {
+    this.selectedItem = index;
+
+    if ($("#requiredSource" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
+  }
+
+  setActiveItemMobile(index: string, id: string) {
+    this.selectedItem = index;
+
+    if ($("#requiredSourceMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
 }

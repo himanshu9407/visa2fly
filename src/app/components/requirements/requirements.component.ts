@@ -16,7 +16,13 @@ import { RouterHistory } from "src/app/shared/router-history.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LoginService } from "../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { animate, style, transition, trigger } from "@angular/animations";
+import {
+  animate,
+  style,
+  transition,
+  trigger,
+  state,
+} from "@angular/animations";
 import { FormGroup, FormControl } from "@angular/forms";
 import { isPlatformBrowser, DOCUMENT } from "@angular/common";
 import { ToastrService } from "ngx-toastr";
@@ -27,15 +33,13 @@ import { Meta, Title } from "@angular/platform-browser";
   templateUrl: "./requirements.component.html",
   styleUrls: ["./requirements.component.css"],
   animations: [
-    trigger("inOutAnimation", [
-      transition(":enter", [
-        style({ height: 0, opacity: 0 }),
-        animate("0.3s ease-out", style({ height: 300, opacity: 1 })),
-      ]),
-      transition(":leave", [
-        style({ height: 300, opacity: 1 }),
-        animate("0.4s ease-in", style({ height: 0, opacity: 0 })),
-      ]),
+    trigger("simpleFadeAnimation", [
+      state("in", style({ opacity: 1 })),
+      transition(":enter", [style({ opacity: 0 }), animate(800)]),
+      transition(
+        ":leave",
+        animate(800, style({ opacity: 0, background: "green" }))
+      ),
     ]),
   ],
 })
@@ -48,12 +52,17 @@ export class RequirementsComponent implements OnInit {
   public requirementsData: any;
   public userFlowDetails: any;
 
+  desktopJustify = "justified";
+  desktopOrientation = "horizontal";
+
   public faqs: Array<any> = [];
   public dataSource: Array<{
     id: string;
     dataToggle: string;
     dataToggleHash: string;
   }> = [];
+
+  public requiredSource: Array<{ id: string }> = [];
 
   public mainArr: Array<any> = [[]];
   public mobileMainArr: Array<any> = [[]];
@@ -69,11 +78,13 @@ export class RequirementsComponent implements OnInit {
   public selectedPurposeType: any;
   public selectedCountrytype: any;
   public importantInfo: Array<any> = [];
+
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
   transitArr: Array<any> = [];
   MyQuotation: Array<any> = [];
   Quotation: Array<any> = [];
+
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
@@ -84,6 +95,8 @@ export class RequirementsComponent implements OnInit {
   purposeChooseForm: FormGroup;
   country: any;
   selectedVariable: any;
+  selectedItem: string;
+
   constructor(
     private router: Router,
     private titleService: Title,
@@ -107,14 +120,15 @@ export class RequirementsComponent implements OnInit {
       this.selectedCountrytype = params.country;
       this.selectedVariable = params.variable;
 
-      // console.log(params);
-
       switch (this.selectedCountrytype) {
         case "Armenia":
           this.router.navigate(["/visa", "armenia-visa-online"]);
           break;
         case "Australia":
           this.router.navigate(["/visa", "australia-visa-online"]);
+          break;
+        case "Antigua & Barbuda":
+          this.router.navigate(["/visa", "antigua & barbuda-visa-online"]);
           break;
         case "Azerbaijan":
           this.router.navigate(["/visa", "azerbaijan-visa-online"]);
@@ -191,6 +205,9 @@ export class RequirementsComponent implements OnInit {
         case "Turkey":
           this.router.navigate(["/visa", "turkey-visa-online"]);
           break;
+        case "Ukraine":
+          this.router.navigate(["/visa", "ukraine-visa-online"]);
+          break;
         case "UAE":
           this.router.navigate(["/visa", "uae-visa-online"]);
           break;
@@ -226,6 +243,8 @@ export class RequirementsComponent implements OnInit {
       } else {
         this.selectedPurposeType = "Tourist";
       }
+
+      // document.querySelector("#requiredSource00").classList.add("showDiv");
     });
 
     this.activateRoute.params.subscribe((params: any) => {});
@@ -237,6 +256,8 @@ export class RequirementsComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
+        console.log(data);
+        
         if (isPlatformBrowser(this.platformId)) {
           if (data.code == "0") {
             this.requirementsData = data;
@@ -317,7 +338,7 @@ export class RequirementsComponent implements OnInit {
             let i,
               j,
               temparray,
-              chunk = 4;
+              chunk = 3;
 
             this.mainArr = [];
 
@@ -329,7 +350,7 @@ export class RequirementsComponent implements OnInit {
             let i1,
               j1,
               temparray1,
-              chunk1 = 2;
+              chunk1 = 1;
 
             this.mobileMainArr = [];
 
@@ -382,10 +403,12 @@ export class RequirementsComponent implements OnInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUpload: boolean,
-    imageUploads: string
+    imageUpload: boolean
   ) {
+    console.log(imageUpload);
+
     this.preloaderService.showPreloader(true);
+    
 
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails(
@@ -442,26 +465,45 @@ export class RequirementsComponent implements OnInit {
     });
   }
 
-  onClickRequrements(i, j, item) {
-    if (
-      this.showRequirementsDetailArr[i] == true &&
-      this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName
-    ) {
-      this.showRequirementsDetailArr[i] = false;
-    } else if (
-      this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName &&
-      this.showRequirementsDetailArr[i] == false
-    ) {
-      this.showRequirementsDetailArr[i] = true;
-    } else {
-      this.showRequirementsDetailArr[i] = true;
-    }
+  // onClickRequrements(i, j, item) {
+  //   if (
+  //     this.showRequirementsDetailArr[i] == true &&
+  //     this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName
+  //   ) {
+  //     this.showRequirementsDetailArr[i] = false;
+  //   } else if (
+  //     this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName &&
+  //     this.showRequirementsDetailArr[i] == false
+  //   ) {
+  //     this.showRequirementsDetailArr[i] = true;
+  //   } else {
+  //     this.showRequirementsDetailArr[i] = true;
+  //   }
 
-    this.selectedDataArr[i] = this.mainArr[i][j];
-  }
+  //   this.selectedDataArr[i] = this.mainArr[i][j];
+  // }
+
+  // onClickRequrementsMobile(i, j, item) {
+  //   if (
+  //     this.mobileShowRequirementsDetailArr[i] == true &&
+  //     this.mobileSelectedDataArr[i].fieldName ==
+  //       this.mobileMainArr[i][j].fieldName
+  //   ) {
+  //     this.mobileShowRequirementsDetailArr[i] = false;
+  //   } else if (
+  //     this.mobileSelectedDataArr[i].fieldName ==
+  //     this.mobileMainArr[i][j].fieldName
+  //   ) {
+  //     this.mobileShowRequirementsDetailArr[i] = true;
+  //   } else {
+  //     this.mobileShowRequirementsDetailArr[i] = true;
+  //   }
+
+  //   this.mobileSelectedDataArr[i] = this.mobileMainArr[i][j];
+  // }
+
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    //console.log(purpose);
     var country = this.selectedCountrytype;
     var variable = this.selectedVariable;
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
@@ -475,25 +517,6 @@ export class RequirementsComponent implements OnInit {
       this.MyQuotation = this.transitArr;
       this.imageUpload1 = this.imageCatogoryTransitTemp;
     }
-  }
-
-  onClickRequrementsMobile(i, j, item) {
-    if (
-      this.mobileShowRequirementsDetailArr[i] == true &&
-      this.mobileSelectedDataArr[i].fieldName ==
-        this.mobileMainArr[i][j].fieldName
-    ) {
-      this.mobileShowRequirementsDetailArr[i] = false;
-    } else if (
-      this.mobileSelectedDataArr[i].fieldName ==
-      this.mobileMainArr[i][j].fieldName
-    ) {
-      this.mobileShowRequirementsDetailArr[i] = true;
-    } else {
-      this.mobileShowRequirementsDetailArr[i] = true;
-    }
-
-    this.mobileSelectedDataArr[i] = this.mobileMainArr[i][j];
   }
 
   ngOnInit() {
@@ -578,5 +601,25 @@ export class RequirementsComponent implements OnInit {
       "href",
       `https://visa2fly.com/visa-requirements/${this.selectedCountrytype}/apply-for-${this.selectedCountrytype}-visa-online/`
     );
+  }
+
+  setActiveItem(index: string, id: string) {
+    this.selectedItem = index;
+
+    if ($("#requiredSource" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
+  }
+
+  setActiveItemMobile(index: string, id: string) {
+    this.selectedItem = index;
+
+    if ($("#requiredSourceMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
 }
