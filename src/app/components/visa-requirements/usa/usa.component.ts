@@ -96,21 +96,21 @@ export class USAComponent implements OnInit {
         }
       });
 
-    this.preloaderService.showPreloader(true);
+      this.preloaderService.showPreloader(true);
 
-    if (this.userFlow.getCookie("selectedVisaPurpose")) {
-      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
-    } else {
-      this.selectedVisaType = "Tourist";
-    }
-
-    let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
-    this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
-    });
-
-    this.requireQuotation
+      if (this.userFlow.getCookie("selectedVisaPurpose")) {
+        this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+      } else {
+        this.selectedVisaType = "Tourist";
+      }
+  
+      let tempPurpose = this.selectedVisaType;
+      this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+  
+      this.purposeChooseForm = new FormGroup({
+        purposeSelected: new FormControl(tempPurpose),
+      });
+      this.requireQuotation
         .getRequireQuotation(this.selectedCountrytype)
         .subscribe((res: any) => {
           if (res.code == 0) {
