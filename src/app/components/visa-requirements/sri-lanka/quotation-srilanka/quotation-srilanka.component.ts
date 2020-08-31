@@ -60,7 +60,7 @@ export class QuotationSrilankaComponent implements OnInit {
       if (data.code == "0") {
         this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
           if (data.code == "0") {
-            console.log(this.userFlow);
+            // console.log(this.userFlow);
             this.routerHistory.pushHistory("visa-requirement");
             this.router.navigate(["addTraveller"]);
             this.preloaderService.showPreloader(false);

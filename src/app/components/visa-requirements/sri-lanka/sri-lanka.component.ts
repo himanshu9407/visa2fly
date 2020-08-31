@@ -117,7 +117,7 @@ export class SriLankaComponent implements OnInit {
         .getRequireQuotation(this.selectedCountrytype)
         .subscribe((res: any) => {
           if (res.code == 0) {
-            console.log(res);
+            // console.log(res);
             this.MyQuotation = res.data.quotations;
             this.imageCatogory.push(res.data.imageUploadInfo);
             this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
