@@ -1,0 +1,1684 @@
+<div class="container-fluid p-0">
+    <div class="iconSection">
+      <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
+        [orientation]="desktopOrientation">
+        <ngb-tab id="Tourist" title="Tourist">
+  
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- tourist -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                      VISA REQUIREMENT FOR
+                      Switzerland</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <!-- desktopContainer -->
+              <div class="desktopContainer accordion" id="touristAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
+                          aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" />
+                                                  <h2 class="setFontSize">Form</h2> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist1" class="collapsed" aria-labelledby="heading1"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>When you apply for a Swiss visa online, the applicant needs to fill up an online form
+                                that will require details such as Personal, Travel, Passport, Dependant, Parents,
+                                Employment, Income and expenditure,
+                                Accommodation, Travel history (Schengen and other areas) and other histories.</p>
+                              <p>Don’t worry! V2F agent will come to your doorstep and assist you in filling up the
+                                complete form as per the information provided by you.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
+                          aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory. The passport must be issued within the last 10 (ten) years
+                                and with a minimum of 3 months' validity after the scheduled return, with a minimum of two
+                                blank pages. Previous Passports (if any) should be bound alongside an
+                                elastic band (not stapled) and sent alongside the appliance.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
+                          aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist3" class="collapse" aria-labelledby="heading3"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                Two (2) passport size photographs are required. Specifications - White background, not
+                                older than 6 months (size 35 – 40 mm in breadth, not copied or scanned picture).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false"
+                          aria-controls="toursit4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="switzerland tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="toursit4" class="collapse" aria-labelledby="heading4"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof of Funds
+                              </h1>
+                              <p>
+                                Note - All documents have to be originals, in format A4, with stamp and signature of Bank.
+                              </p>
+  
+                              <p class="font-weight-bold">If employed : </p>
+                              <p>Proof of employment: employment agreement & last 3 months salary slips & last 3 months
+                                salary checking account statements.
+                              </p>
+                              <p>Personal ITR (only ITR-V, Indian tax Return Verification Form or Acknowledgement is
+                                accepted) for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If self-employed and/or company owner:</p>
+                              <p>Enterprise registration certificate / Partnership Deed / Proof of proprietorship, or
+                                other proof of ownership.
+                              </p>
+                              <p>Last 3 months personal & business checking account statements.
+                              </p>
+                              <p>Company’s & personal ITR (only ITR-V, Indian tax Return Verification Form or
+                                Acknowledgement is accepted) for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If retired :</p>
+                              <p>Personal pension statement for the last 3 months.</p>
+                              <p>Persons who apply for a Swiss e-visa online must remain in Switzerland at their own
+                                expense must be ready to demonstrate their financial resources amounting to a minimum of
+                                CHF 100 per day / Rs.
+                                7500 per day of their stay.
+                              </p>
+                              <p>
+                                Eg - 2 people traveling together for 10 days are advised to demonstrate a minimum of 2 x
+                                10 x 7500 = Rs. 1,50,000/- in available funds.
+                              </p>
+                              <p class="font-weight-bold">If Student or unemployed :</p>
+                              <p>
+                                A student who applies for a Swiss e-visa online, Their parents or statutory supervisors
+                                must present their personal bank statements for the latest 3 months.
+                              </p>
+                              <p>
+                                Individual ITR (only ITR-V, Indian tax Return Confirmation Form or Acknowledgement is
+                                admitted) for the latest 2 assessment years along with a confirmation letter of financial
+                                support and a duplicate of their passports.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true"
+                          aria-controls="tourist5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTourist(5, 'setActiveTourist5')" id="setActiveTourist5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Accommodation</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist5" class="collapse" aria-labelledby="heading5"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Accommodation
+                              </h1>
+                              <p>
+                                Proof of accommodation mentioning where you'll be staying during your entire stay within
+                                the UK, which might be at a lover or relative’s place or at a hotel or a hostel.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist6" aria-expanded="true"
+                          aria-controls="tourist6" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTourist(6, 'setActiveTourist6')" id="setActiveTourist6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png" alt="switzerland tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Factual roundtrip flight program for visa application or confirmed flight reservation.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist7" aria-expanded="true"
+                          aria-controls="tourist7" [class.showDiv]="selectedTourist === 7"
+                          (click)="setActiveTourist(7, 'setActiveTourist7')" id="setActiveTourist7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist7" class="collapse" aria-labelledby="heading7"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Itinerary
+                              </h1>
+                              <p>
+                                Your detailed travel itinerary which provides information about your travel plans in
+                                Switzerland/Schengen Area alongside tickets, places you're getting to visit, your meeting
+                                agenda, tours booked beforehand, your festival agenda, etc.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist8" aria-expanded="true"
+                          aria-controls="tourist8" [class.showDiv]="selectedTourist === 8"
+                          (click)="setActiveTourist(8, 'setActiveTourist8')" id="setActiveTourist8">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="switzerland tourist visa for indian"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Employment / Student Proof </h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist8" class="collapse" aria-labelledby="heading8"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Employment / Student Proof </h1>
+                              <p class="font-weight-bold">For Employed Persons:</p>
+                              <p>
+                                For Employed Persons - An introduction letter from the employer is required on the
+                                company/business letterhead. the first letter must be signed & stamped by HR or
+                                directorate mentioning your position, duration of your service, the date and purpose of
+                                the trip.
+                              </p>
+                              <p class="font-weight-bold">For Self-Employed Persons – </p>
+                              <p>
+                                Business registration documents confirming the business owner’s name and therefore the
+                                date the business started trading and three years of tax returns of the business.
+                              </p>
+                              <p class="font-weight-bold">For Students –</p>
+                              <p>
+                                A letter from your institution head, on headed paper, with your enrolment confirmation and
+                                leave of absence.
+                              </p>
+                              <p class="font-weight-bold">Families - </p>
+                              <p>
+                                When you apply for a Swiss visa online, The visa form needs to be submitted together, only
+                                the top member of the family must attach bank statements, personal ITR (only ITR-V, Indian
+                                tax Return Verification Form or Acknowledgement is accepted), travel
+                                insurance (mentioning all the names of the insured), flight booking (mentioning all the
+                                names of the traveling family members), all the hotel confirmations (if all the rooms are
+                                under an equivalent
+                                booking and under the name of the top of the family).
+                              </p>
+                              <p class="font-weight-bold">Minors - </p>
+                              <p class="font-weight-bold">Students above 16 years:</p>
+                              <p>
+                                Copy of the scholar college ID card and introduction letter of the
+                                School/College/University.
+                              </p>
+                              <p class="font-weight-bold">• Children under 18 years old, traveling alone : </p>
+                              <p>
+                                written consent letter of both parents or trustees, certified by a public notary.
+                              </p>
+                              <p class="font-weight-bold">• Children under 18 years old, not traveling with both parents :
+                              </p>
+                              <p>
+                                written consent letter of the opposite, non-traveling parent or trustee, certified by a
+                                public notary.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist9" aria-expanded="true"
+                          aria-controls="tourist9" [class.showDiv]="selectedTourist === 9"
+                          (click)="setActiveTourist(9, 'setActiveTourist9')" id="setActiveTourist9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for your switzerland e visa "
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Other Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist9" class="collapse" aria-labelledby="heading9"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Other Document Requirements when you apply for a Swiss Visa
+                                Online:</h1>
+                              <p>
+                                1. If the applicant continues to visit a 3rd country (i.e. UK, USA, Canada etc…) after
+                                leaving the Schengen Area, the visa of the subsequent country has got to be obtained
+                                first.
+                              </p>
+                              <p> 2. Clear photocopies of valid UK, USA, or CAN visas (if any).</p>
+                              <p> 3. If you've got been refused a visa by an Embassy or High Commission within the last 2
+                                years, please provide the Refusal Notice or a written explanation about the explanations
+                                for refusal.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist10" aria-expanded="true"
+                          aria-controls="tourist10" [class.showDiv]="selectedTourist === 10"
+                          (click)="setActiveTourist(10, 'setActiveTourist10')" id="setActiveTourist10">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
+                            alt="switzerland tourist visa for indian"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Travel Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist10" class="collapse" aria-labelledby="heading10" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Travel Insurance</h1>
+                              <p>
+                                Travel insurance is mandatory. The minimal coverage of 30,000 Euro / 50,000 USD / 50,000
+                                CHF per individual. Coverage of all expenses which could arise in reference to
+                                repatriation for medical reasons, urgent medical attention and/or emergency hospital
+                                treatment. The insurance must cover the whole stay within the Schengen territory.
+                                Applicants who wish to use for 6 months or one-year multiple entry visas aren't obliged to
+                                supply a 180 (365)
+                                days coverage. it's sufficient to submit a policy covering the primary journey.
+                              </p>
+                              <p>Applicants applying for a period of 6 months or one-year multiple-entry visas are not
+                                entitled to provide 180/365 day coverage. Submitting an insurance policy that covers the
+                                first journey is sufficient.</p>
+                              <p>
+                                Visit our travel insurance section (link) to book your travel insurance instantly.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist11" aria-expanded="true"
+                          aria-controls="tourist11" [class.showDiv]="selectedTourist === 11"
+                          (click)="setActiveTourist(11, 'setActiveTourist11')" id="setActiveTourist11">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Personal Covering Letter.png"
+                            alt="apply for your switzerland e visa "
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Personal Covering Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist11" class="collapse" aria-labelledby="heading1"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Personal Covering Letter</h1>
+                              <p>
+                                Original letter with an itinerary. If the applicant is submitting the applications of
+                                his/her family, then all applications must include a replica of the duvet letter.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="switzerland tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>When you apply for a Swiss visa online, the applicant needs to fill up an online form
+                                that will require details such as Personal, Travel, Passport, Dependant, Parents,
+                                Employment, Income and expenditure,
+                                Accommodation, Travel history (Schengen and other areas) and other histories.
+                              </p>
+                              <p>Don’t worry! V2F agent will come to your doorstep and assist you in filling up the
+                                complete form as per the information provided by you.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                          aria-controls="touristMobile2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory. The passport must be issued within the last 10 (ten) years
+                                and with a minimum of 3 months' validity after the scheduled return, with a minimum of two
+                                blank pages. Previous Passports (if any) should be bound alongside an
+                                elastic band (not stapled) and sent alongside the appliance.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="switzerland tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                Two (2) passport size photographs are required. Specifications - White background, not
+                                older than 6 months (size 35 – 40 mm in breadth, not copied or scanned picture).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                          aria-controls="touristMobile4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof of Funds
+                              </h1>
+                              <p>
+                                Note - All documents need to be originals, in format A4, with stamp and signature of Bank.
+                              </p>
+  
+                              <p class="font-weight-bold">If employed : </p>
+                              <p>Proof of employment: employment agreement & last 3 months salary slips & last 3 months
+                                salary checking account statements.
+                              </p>
+                              <p>Personal ITR (only ITR-V, Indian tax Return Verification Form or Acknowledgement is
+                                accepted) for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If self-employed and/or company owner:</p>
+                              <p>Enterprise registration certificate / Partnership Deed / Proof of proprietorship, or
+                                other proof of ownership.
+                              </p>
+                              <p>Last 3 months personal & business checking account statements.
+                              </p>
+                              <p>Company’s & personal ITR (only ITR-V, Indian tax Return Verification Form or
+                                Acknowledgement is accepted) for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If retired :</p>
+                              <p>Personal pension statement for the last 3 months.</p>
+                              <p>
+                                Persons who apply for a Swiss e-visa online must remain in Switzerland at their own
+                                expense must be ready to demonstrate their financial resources amounting to a minimum of
+                                CHF 100 per day / Rs. 7500 per day of their stay.
+                              </p>
+                              <p>
+                                Eg - 2 people traveling together for 10 days are advised to demonstrate a minimum of 2 x
+                                10 x 7500 = Rs. 1,50,000/- in available funds.
+                              </p>
+                              <p class="font-weight-bold">If Student or unemployed :</p>
+                              <p>A student who applies for a Swiss e-visa online, Their parents or statutory supervisors
+                                must present their personal bank statements for the latest 3 months.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                          aria-controls="touristMobile5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png" alt="switzerland tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Accommodation</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#touristAccodionMobile" [class.showDiv]="selectedTourist === 5">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Accommodation
+                              </h1>
+                              <p>
+                                (Please ask Ritu - no mention on Embassy/VFS) Proof of accommodation mentioning where
+                                you'll be staying during your entire stay within the UK, which might be at a lover or
+                                relative’s place or at a hotel or a hostel.
+  
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                          aria-controls="touristMobile6" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Factual roundtrip flight program for visa application or confirmed flight reservation.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
+                          aria-controls="touristMobile7" [class.showDiv]="selectedTourist === 7"
+                          (click)="setActiveTouristMobile(7, 'setActiveTouristMobile7')" id="setActiveTouristMobile7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="switzerland tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile7" class="collapse" aria-labelledby="headingMobile7"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Itinerary
+                              </h1>
+                              <p>
+                                Your detailed travel itinerary which provides information about your travel plans in
+                                Switzerland/Schengen Area alongside tickets, places you're getting to visit, your meeting
+                                agenda, tours booked beforehand, your festival agenda, etc.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile8" aria-expanded="true"
+                          aria-controls="touristMobile8" [class.showDiv]="selectedTourist === 8"
+                          (click)="setActiveTouristMobile(8, 'setActiveTouristMobile8')" id="setActiveTouristMobile8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png" alt="switzerland e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-employStuProof requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Employment / Student Proof</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile8" class="collapse" aria-labelledby="headingMobile8"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Employment / Student Proof</h1>
+  
+                              <p class="font-weight-bold">For Employed Persons:</p>
+                              <p>
+                                For Employed Persons - An introduction letter from the employer is required on the
+                                company/business letterhead. the first letter must be signed & stamped by HR or
+                                directorate mentioning your position, duration of your service, the date and purpose of
+                                the trip.
+                              </p>
+                              <p class="font-weight-bold">For Self-Employed Persons:</p>
+                              <p>
+                                Business registration documents confirming the business owner’s name and therefore the
+                                date the business started trading and three years of tax returns of the business.
+                              </p>
+                              <p class="font-weight-bold">For Students : </p>
+                              <p>
+                                A letter from your institution head, on headed paper, with your enrolment confirmation and
+                                leave of absence.
+                              </p>
+                              <p class="font-weight-bold">For Families: </p>
+                              <p>
+                                When you apply for a Swiss visa online, The visa form needs to be submitted together, only
+                                the top member of the family must attach bank statements, personal ITR (only ITR-V, Indian
+                                tax Return Verification Form or Acknowledgement is accepted), travel
+                                insurance (mentioning all the names of the insured), flight booking (mentioning all the
+                                names of the traveling family members), all the hotel confirmations (if all the rooms are
+                                under an equivalent
+                                booking and under the name of the top of the family).
+                              </p>
+  
+                              <p class="font-weight-bold">For Minors: </p>
+                              <p class="font-weight-bold">Students above 16 years: </p>
+                              <p>
+                                Copy of the scholar college ID card and introduction letter of the
+                                School/College/University.
+                              </p>
+                              <p class="font-weight-bold">For children under 18 years of age who are traveling alone:</p>
+                              <p>
+                                written consent letter of both parents or trustees, certified by a public notary.
+                              </p>
+                              <p class="font-weight-bold">• Children under 18 years old, not traveling with both parents :
+                              </p>
+                              <p>
+                                written consent letter of the opposite, non-traveling parent or trustee, certified by a
+                                public notary.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile9" aria-expanded="true"
+                          aria-controls="touristMobile9" [class.showDiv]="selectedTourist === 9"
+                          (click)="setActiveTouristMobile(9, 'setActiveTouristMobile9')" id="setActiveTouristMobile9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
+                            alt="switzerland e-visa for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Travel Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile9" class="collapse" aria-labelledby="headingMobile9"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Travel Insurance</h1>
+                              <p>
+                                Travel insurance is mandatory. The minimal coverage of 30,000 Euro / 50,000 USD / 50,000
+                                CHF per individual. Coverage of all expenses which could arise in reference to
+                                repatriation for medical reasons, urgent medical attention and/or emergency hospital
+                                treatment. The insurance must cover the whole stay within the Schengen territory.
+                                Applicants who wish to use for 6 months or one-year multiple entry visas aren't obliged to
+                                supply a 180 (365)
+                                days coverage. it's sufficient to submit a policy covering the primary journey.
+                              </p>
+                              <p>Visit our travel insurance section (link) to book your travel insurance instantly.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile10" aria-expanded="true"
+                          aria-controls="touristMobile10" [class.showDiv]="selectedTourist === 10"
+                          (click)="setActiveTouristMobile(10, 'setActiveTouristMobile10')" id="setActiveTouristMobile10">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for your switzerland e visa "
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Other Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile10" class="collapse" aria-labelledby="headingMobile10"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Other Document Requirements when you apply for a Swiss Visa
+                                Online:</h1>
+                              <p>
+                                1. If the applicant continues to visit a 3rd country (i.e. UK, USA, Canada etc…) after
+                                leaving the Schengen Area, the visa of the subsequent country has got to be obtained
+                                first.
+                              </p>
+                              <p>2. Clear photocopies of valid UK, USA, or CAN visas (if any).</p>
+                              <p>3. If you've got been refused a visa by an Embassy or High Commission within the last 2
+                                years, please provide the Refusal Notice or a written explanation about the explanations
+                                for refusal.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+  
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile11" aria-expanded="true"
+                          aria-controls="touristMobile11" [class.showDiv]="selectedTourist === 11"
+                          (click)="setActiveTouristMobile(11, 'setActiveTouristMobile11')" id="setActiveTouristMobile11">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Personal Covering Letter.png"
+                            alt="switzerland e-visa for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Personal Covering Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile11" class="collapse" aria-labelledby="headingMobile11"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Personal Covering Letter</h1>
+                              <p>
+                                Original letter with an itinerary. If the applicant is submitting the applications of
+                                his/her family, then all applications must include a replica of the duvet letter.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Business" title="Business">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- business -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                      VISA REQUIREMENT FOR
+                      Switzerland</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="businessAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                          aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>The applicant needs to fill up a swiss e-visa online form that will require details such
+                                as Personal, Travel, Passport, Dependant, Parents, Employment, Income and expenditure,
+                                Accommodation, Travel
+                                history (Schengen and other areas) and other histories.
+                              </p>
+                              <p>Don’t worry! Our V2F representative will come at your doorstep and assist you with the
+                                form filling as per the information provided by you.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                          aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory when you apply for a swiss visa online. The passport must
+                                be issued within the last 10 (ten) years and with at least 3 months' validity after the
+                                scheduled return, with at least two blank pages. Previous Passports (if any)
+                                should be bound together with a rubber band (not stapled) and sent along with the
+                                application.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                          data-target="#business3" aria-expanded="false" aria-controls="business3"
+                          [class.showDiv]="selectedBusiness === 3" 
+                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                Two (2) passport size photographs are required. Specifications - White background, not
+                                older than 6 months (size 35 – 40 mm in width, not copied or scanned picture).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                          data-target="#business4" aria-expanded="false" aria-controls="business4"
+                          [class.showDiv]="selectedBusiness === 4" 
+                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof of Funds
+                              </h1>
+                              <p>
+                                Note - All documents have to be in the original form. The format should be A4, with stamp
+                                and signature of Bank.
+                              </p>
+                              <p class="font-weight-bold">If employed : </p>
+                              <p>Proof of employment
+                              </p>
+                              <p>employment agreement & last 3 months salary slips & last 3 months salary checking account
+                                statements.
+                              </p>
+                              <p>Personal ITR (only ITR-V, Indian tax Return Verification Form or Acknowledgement is
+                                accepted) for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If the Applicant is Self-Employed or a Business Owner: </p>
+                              <p>Company registration certificate / Partnership Deed / Proof of proprietorship, or other
+                                proof of purchase.
+                              </p>
+                              <p>Last 3 months personal & business checking account statements.
+                              </p>
+                              <p>Company’s & personal ITR (only ITR-V, Indian tax Return Verification Form or
+                                Acknowledgement is accepted for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If Retired :</p>
+                              <p>Personal pension statement for the last 3 months.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business5" aria-expanded="true"
+                          aria-controls="business5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png" alt="switzerland e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Accommodation</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business5" class="collapse" aria-labelledby="business5"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Accommodation
+                              </h1>
+                              <p>
+                                (Please check with Ritu - no mention on Embassy/VFS) Proof of accommodation mentioning
+                                where you'll be staying during your entire stay within the UK, which might be at a lover
+                                or relative’s place or at a hotel or a hostel.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business6" aria-expanded="true"
+                          aria-controls="business6" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusiness(6, 'setActiveBusiness6')" id="setActiveBusiness6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business6" class="collapse" aria-labelledby="business6"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Confirmed roundtrip flight program for visa application or sanctioned flight reservation.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business7" aria-expanded="true"
+                          aria-controls="business7" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="switzerland e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Business Partner Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business7" class="collapse" aria-labelledby="business7"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Business Partner Invitation Letter
+                              </h1>
+                              <p>
+                                For a Swiss e-visa online, the business partner in Switzerland must provide a letter with
+                                full details of the inviter: full name, address, Email-ID, and telephone number. It should
+                                also mention the invitee details, dates and purpose of the trip with a
+                                detailed schedule of the business meetings or training (day to day schedule).
+  
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business8" aria-expanded="true"
+                          aria-controls="business8" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusiness(8, 'setActiveBusiness8')" id="setActiveBusiness8">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="apply for your switzerland e visa "
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Employment Proof</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business8" class="collapse" aria-labelledby="business8"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Employment Proof</h1>
+                              <p>
+                                An introduction letter from the employer is required on the company/business letterhead.
+                                The original letter must be signed & stamped by HR or directorate mentioning your
+                                position, duration of your service, the dates, and purpose of the journey along
+                                with the expenses ( if they are getting covered by the employer/company).
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business9" aria-expanded="true"
+                          aria-controls="business9" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusiness(9, 'setActiveBusiness9')" id="setActiveBusiness9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for your switzerland e visa "
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Other Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business9" class="collapse" aria-labelledby="business9"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Other Documents
+                              </h1>
+                              <p>
+                                1. If the applicant continues to travel to a third country (i.e. UK, USA, Canada etc…)
+                                after leaving the Schengen Area, the visa of the subsequent country has got to be obtained
+                                first.
+                              </p>
+                              <p>2. Clear photocopies of valid UK, USA, or CAN visas (if any).</p>
+                              <p>3. If you have been refused a visa by an Embassy or High Commission in the last 2 years,
+                                please provide the Refusal Notice or a written explanation about the reasons for refusal.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business10" aria-expanded="true"
+                          aria-controls="business10" [class.showDiv]="selectedBusiness === 10"
+                          (click)="setActiveBusiness(10, 'setActiveBusiness10')" id="setActiveBusiness10">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
+                            alt="switzerland e-visa for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Travel Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business10" class="collapse" aria-labelledby="business10"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Travel Insurance</h1>
+                              <p>
+                                Travel insurance is mandatory. The minimum coverage is 30,000 Euro / 50,000 USD / 50,000
+                                CHF per individual. It should cover all expenses that could arise in reference to
+                                repatriation for medical reasons, urgent medical attention and/or emergency hospital
+                                treatment. The insurance has to cover the whole stay within the Schengen territory.
+                                Applicants who wish to apply for a Swiss visa online for a duration of six months or
+                                one-year multiple entry
+                                visas are not obliged to provide a 180 (365) days coverage. It is sufficient to submit a
+                                policy covering the primary journey.
+                              </p>
+                              <p>Visit our travel insurance section (link) to book your travel insurance instantly.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+  
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+  
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>The applicant needs to fill up a swiss e-visa online form that will require details such
+                                as Personal, Travel, Passport, Dependant, Parents, Employment, Income and expenditure,
+                                Accommodation, Travel
+                                history (Schengen and other areas) and other histories.
+                              </p>
+                              <p>Don’t worry! Our V2F representative will come at your doorstep and assist you with the
+                                form filling as per the information provided by you.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                          aria-controls="touristMobile2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="switzerland e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory when you apply for a swiss visa online. The passport must
+                                be issued within the last 10 (ten) years and with at least 3 months' validity after the
+                                scheduled return, with at least two blank pages. Previous Passports (if any)
+                                should be bound together with a rubber band (not stapled) and sent along with the
+                                application.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                Two (2) passport size photographs are required. Specifications - White background, not
+                                older than 6 months (size 35 – 40 mm in width, not copied or scanned picture).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                          aria-controls="touristMobile4" [class.showDiv]="selectedBusiness === 4"
+                          (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="apply for switzerland e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof of Funds
+                              </h1>
+                              <p>
+                                Note - All documents have to be in the original form. The format should be A4, with stamp
+                                and signature of Bank.
+                              </p>
+                              <p class="font-weight-bold">If employed : </p>
+                              <p>Proof of employment
+                              </p>
+                              <p>employment agreement & last 3 months salary slips & last 3 months salary checking account
+                                statements.
+                              </p>
+                              <p>Personal ITR (only ITR-V, Indian tax Return Verification Form or Acknowledgement is
+                                accepted) for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If self-employed and/or company owner:</p>
+                              <p>Company registration certificate / Partnership Deed / Proof of proprietorship, or other
+                                proof of purchase.
+                              </p>
+                              <p>Last 3 months personal & business checking account statements.
+                              </p>
+                              <p>Company’s & personal ITR (only ITR-V, Indian tax Return Verification Form or
+                                Acknowledgement is accepted for the last 2 assessment years.
+                              </p>
+                              <p class="font-weight-bold">If Retired :</p>
+                              <p>Personal pension statement for the last 3 months.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                          aria-controls="touristMobile5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusinessMobile(5, 'setActiveBusinessMobile5')" id="setActiveBusinessMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-accommodation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Accommodation</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Accommodation
+                              </h1>
+                              <p>
+                                (Please check with Ritu - no mention on Embassy/VFS) Proof of accommodation mentioning
+                                where you'll be staying during your entire stay within the UK, which might be at a lover
+                                or relative’s place or at a hotel or a hostel.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                          aria-controls="touristMobile6" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusinessMobile(6, 'setActiveBusinessMobile6')" id="setActiveBusinessMobile6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png" alt="apply for switzerland e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Confirmed roundtrip flight program for visa application or sanctioned flight reservation.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
+                          aria-controls="touristMobile7" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusinessMobile(7, 'setActiveBusinessMobile7')" id="setActiveBusinessMobile7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Business Partner Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile7" class="collapse" aria-labelledby="headingMobile7"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Business Partner Invitation Letter
+                              </h1>
+                              <p>
+                                For a Swiss e-visa online, the business partner in Switzerland must provide a letter with
+                                full details of the inviter: full name, address, Email-ID, and telephone number. It should
+                                also mention the invitee details, dates and purpose of the trip with a
+                                detailed schedule of the business meetings or training (day to day schedule).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile8" aria-expanded="true"
+                          aria-controls="touristMobile8" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusinessMobile(8, 'setActiveBusinessMobile8')" id="setActiveBusinessMobile8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png" alt="apply for your switzerland e visa " style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-employStuProof requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Employment Proof</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile8" class="collapse" aria-labelledby="headingMobile8"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Employment Proof</h1>
+                              <p>
+                                An introduction letter from the employer is required on the company/business letterhead.
+                                The original letter must be signed & stamped by HR or directorate mentioning your
+                                position, duration of your service, the dates, and purpose of the journey along
+                                with the expenses ( if they are getting covered by the employer/company).
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile9" aria-expanded="true"
+                          aria-controls="touristMobile9" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusinessMobile(9, 'setActiveBusinessMobile9')" id="setActiveBusinessMobile9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for switzerland e-visa"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Other Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile9" class="collapse" aria-labelledby="headingMobile9"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Other Documents
+                              </h1>
+                              <p>
+                                1. If the applicant continues to travel to a third country (i.e. UK, USA, Canada etc…)
+                                after leaving the Schengen Area, the visa of the subsequent country has got to be obtained
+                                first.
+                              </p>
+                              <p>2. Clear photocopies of valid UK, USA, or CAN visas (if any).
+                              </p>
+                              <p>3. If you have been refused a visa by an Embassy or High Commission in the last 2 years,
+                                please provide the Refusal Notice or a written explanation about the reasons for refusal.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile10" aria-expanded="true"
+                          aria-controls="touristMobile10" [class.showDiv]="selectedBusiness === 10"
+                          (click)="setActiveBusinessMobile(10, 'setActiveBusinessMobile10')" id="setActiveBusinessMobile10">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
+                            alt="apply for your switzerland e visa "
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Travel Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile10" class="collapse" aria-labelledby="headingMobile10"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Travel Insurance</h1>
+                              <p>
+                                Travel insurance is mandatory. The minimum coverage is 30,000 Euro / 50,000 USD / 50,000
+                                CHF per individual. It should cover all expenses that could arise in reference to
+                                repatriation for medical reasons, urgent medical attention and/or emergency hospital
+                                treatment. The insurance has to cover the whole stay within the Schengen territory.
+                                Applicants who wish to apply for a Swiss visa online for a duration of six months or
+                                one-year multiple entry
+                                visas are not obliged to provide a 180 (365) days coverage. It is sufficient to submit a
+                                policy covering the primary journey.
+                              </p>
+                              <p>Visit our travel insurance section (link) to book your travel insurance instantly.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
