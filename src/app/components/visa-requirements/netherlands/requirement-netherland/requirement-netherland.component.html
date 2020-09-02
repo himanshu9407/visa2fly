@@ -1,0 +1,1339 @@
+<div class="container-fluid p-0">
+    <div class="iconSection">
+      <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
+        [orientation]="desktopOrientation">
+        <ngb-tab id="Tourist" title="Tourist">
+  
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- tourist -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement">
+                    <span class="requirementContainer text-uppercase">TOURIST
+                      VISA REQUIREMENT FOR
+                      NETHERLANDS
+                    </span>
+                  </h1>
+                </div>
+              </div>
+  
+              <!-- desktopContainer -->
+              <div class="desktopContainer accordion" id="touristAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
+                          aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="netherlands tourist visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist1" class="collapsed" aria-labelledby="heading1"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                You will need to complete a netherlands visa online for indians form.Don’t worry! A V2F
+                                expert will do that on your behalf and guide you every step of the way.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
+                          aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="netherlands tourist visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                A passport valid for at least 3 months after your departure date (from the Netherlands) is
+                                required for your visa. It must have at least 2 empty visa pages, and cannot have been
+                                issued more than 10 years ago. You require a copy of all the pages of your passport as
+                                well.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
+                          aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Residence.png" alt="netherlands tourist visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Evidence of Legal Residence</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist3" class="collapse" aria-labelledby="heading3"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Evidence of Legal Residence
+                              </h1>
+                              <p>
+                                You must provide evidence of legal residency in the country you are applying from (in this
+                                case, India). This could be in the form of a visa or residence permit and a copy of a work
+                                permit (if applicable). In the case of submitting residence permits, please make sure they
+                                are valid for at least 3 months after departure from any of the Schengen countries.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false"
+                          aria-controls="toursit4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="netherlands tourist visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="toursit4" class="collapse" aria-labelledby="heading4"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                A photo of the applicant (not taken more than 6 months ago) must be along with your
+                                netherlands visa online for indians. Please see the FAQs at the bottom of the page for
+                                photo guidelines to be followed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true"
+                          aria-controls="tourist5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTourist(5, 'setActiveTourist5')" id="setActiveTourist5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="netherlands tourist visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist5" class="collapse" aria-labelledby="heading5"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Round tickets (both onward and return) for your trip are required. Please make sure these
+                                are refundable, in case your visa request is refused.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist6" aria-expanded="true"
+                          aria-controls="tourist6" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTourist(6, 'setActiveTourist6')" id="setActiveTourist6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="netherlands e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Lodging</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Lodging
+                              </h1>
+                              <p>
+                                Hotel bookings (or other arrangements for lodging, such as hostel reservations) for your
+                                entire stay in the Netherlands must be shown.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist7" aria-expanded="true"
+                          aria-controls="tourist7" [class.showDiv]="selectedTourist === 7"
+                          (click)="setActiveTourist(7, 'setActiveTourist7')" id="setActiveTourist7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="netherlands e-visa for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist7" class="collapse" aria-labelledby="heading7"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Itinerary
+                              </h1>
+                              <p>
+                                A certificate of the travel agency that confirms the booking (of an organized trip, if you
+                                are traveling in a group) or any other appropriate document that indicates the travel
+                                plans must be submitted along with netherlands visa online for indians.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist8" aria-expanded="true"
+                          aria-controls="tourist8" [class.showDiv]="selectedTourist === 8"
+                          (click)="setActiveTourist(8, 'setActiveTourist8')" id="setActiveTourist8">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/marriage-certificate.png"
+                            alt="netherlands e-visa for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Marriage Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist8" class="collapse" aria-labelledby="heading8"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Marriage Certificate</h1>
+                              <p>
+                                If you are married and do not have proof of the same on your passport, then you must
+                                display a marriage certificate, or a copy of your ration card if applicable.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist9" aria-expanded="true"
+                          aria-controls="tourist9" [class.showDiv]="selectedTourist === 9"
+                          (click)="setActiveTourist(9, 'setActiveTourist9')" id="setActiveTourist9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="apply for netherlands e-visa"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Proof Of Financial</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist9" class="collapse" aria-labelledby="heading9"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Financial</h1>
+                              <p>
+                                An original private bank statement showing all movements of funds for the past 3 months
+                                must be submitted. Income tax return acknowledgments for the last two years must also be
+                                submitted.
+                              </p>
+                              <p> Depending on your employment category, you must submit additional documents: If
+                                employed, payslips for the last 3 months, an employment contract, and an employer's
+                                statement for approval to travel must be submitted. If you own a business, a certificate
+                                of registration of your company must be shown. If you are sponsored, a separate Proof of
+                                Sponsorship form must be submitted along with the netherlands visa online for indians. If
+                                you are retired, pension statements for the last 3 months or proof of property/business
+                                ownership (generation of regular income) must be shown.</p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist10" aria-expanded="true"
+                          aria-controls="tourist10" [class.showDiv]="selectedTourist === 10"
+                          (click)="setActiveTourist(10, 'setActiveTourist10')" id="setActiveTourist10">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Insurance.png"
+                            alt="apply for netherlands e-visa"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Health Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist10" class="collapse" aria-labelledby="heading10" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Health Insurance</h1>
+                              <p>
+                                Health insurance that has been taken in your name, and which is valid throughout the
+                                Schengen area and for the entire time of your stay must be submitted. At least € 30,000 of
+                                medical costs should be able to be reimbursed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+  
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+  
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                You will need to complete a netherlands visa online for indians form.Don’t worry! A V2F
+                                expert will do that on your behalf and guide you every step of the way.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                          aria-controls="touristMobile2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for netherlands e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                A passport valid for at least 3 months after your departure date (from the Netherlands) is
+                                required for your visa. It must have at least 2 empty visa pages, and cannot have been
+                                issued more than 10 years ago. You require a copy of all the pages of your passport as
+                                well.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Residence.png" alt="apply for netherlands e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Evidence Of Legal Residence</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Evidence Of Legal Residence
+                              </h1>
+                              <p>
+                                You must provide evidence of legal residency in the country you are applying from (in this
+                                case, India). This could be in the form of a visa or residence permit and a copy of a work
+                                permit (if applicable). In the case of submitting residence permits, please make sure they
+                                are valid for at least 3 months after departure from any of the Schengen countries.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                          aria-controls="touristMobile4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                A photo of the applicant (not taken more than 6 months ago) must be along with your
+                                netherlands visa online for indians. Please see the FAQs at the bottom of the page for
+                                photo guidelines to be followed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                          aria-controls="touristMobile5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#touristAccodionMobile" >
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Round tickets (both onward and return) for your trip are required. Please make sure these
+                                are refundable, in case your visa request is refused.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                          aria-controls="touristMobile6" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Lodging</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Lodging
+                              </h1>
+                              <p>
+                                Hotel bookings (or other arrangements for lodging, such as hostel reservations) for your
+                                entire stay in the Netherlands must be shown.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
+                          aria-controls="touristMobile7" [class.showDiv]="selectedTourist === 7"
+                          (click)="setActiveTouristMobile(7, 'setActiveTouristMobile7')" id="setActiveTouristMobile7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Itinerary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile7" class="collapse" aria-labelledby="headingMobile7"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Itinerary
+                              </h1>
+                              <p>
+                                A certificate of the travel agency that confirms the booking (of an organized trip, if you
+                                are traveling in a group) or any other appropriate document that indicates the travel
+                                plans must be submitted along with netherlands visa online for indians.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile8" aria-expanded="true"
+                          aria-controls="touristMobile8" [class.showDiv]="selectedTourist === 8"
+                          (click)="setActiveTouristMobile(8, 'setActiveTouristMobile8')" id="setActiveTouristMobile8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/marriage-certificate.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-marriageCertificate requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Marraige Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile8" class="collapse" aria-labelledby="headingMobile8"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Marriage Certificate</h1>
+                              <p>
+                                If you are married and do not have proof of the same on your passport, then you must
+                                display a marriage certificate, or a copy of your ration card if applicable.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile9" aria-expanded="true"
+                          aria-controls="touristMobile9" [class.showDiv]="selectedTourist === 9"
+                          (click)="setActiveTouristMobile(9, 'setActiveTouristMobile9')" id="setActiveTouristMobile9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="netherlands visa online for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Proof Of Financial</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile9" class="collapse" aria-labelledby="headingMobile9"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof Of Financial</h1>
+                              <p>
+                                An original private bank statement showing all movements of funds for the past 3 months
+                                must be submitted. Income tax return acknowledgments for the last two years must also be
+                                submitted.
+                              </p>
+                              <p>Depending on your employment category, you must submit additional documents: If employed,
+                                payslips for the last 3 months, an employment contract, and an employer's statement for
+                                approval to travel must be submitted. If you own a business, a certificate of registration
+                                of your company must be shown. If you are sponsored, a separate Proof of Sponsorship form
+                                must be submitted along with the netherlands visa online for indians. If you are retired,
+                                pension statements for the last 3 months or proof of property/business ownership
+                                (generation of regular income) must be shown.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+  
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile10" aria-expanded="true"
+                          aria-controls="touristMobile10" [class.showDiv]="selectedTourist === 10"
+                          (click)="setActiveTouristMobile(10, 'setActiveTouristMobile10')" id="setActiveTouristMobile10">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Insurance.png"
+                            alt="netherlands visa online for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Health Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile10" class="collapse" aria-labelledby="headingMobile10"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Health Insurance</h1>
+                              <p>
+                                Health insurance that has been taken in your name, and which is valid throughout the
+                                Schengen area and for the entire time of your stay must be submitted. At least € 30,000 of
+                                medical costs should be able to be reimbursed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+  
+                  </ngb-tabset>
+                </div>
+  
+              </div>
+  
+            </div>
+  
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Business" title="Business">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- business -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                      VISA REQUIREMENT FOR
+                      NETHERLAND</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="businessAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                          aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                You will need to complete a netherlands visa online for indians form.Don’t worry! A V2F
+                                expert will do that on your behalf and guide you every step of the way.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                          aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for netherlands e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                A passport valid for at least 3 months after your departure date (from the Netherlands) is
+                                required for your visa. It must have at least 2 empty visa pages, and cannot have been
+                                issued more than 10 years ago. You require a copy of all the pages of your passport as
+                                well.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                          data-target="#business3" aria-expanded="false" aria-controls="businessThree"
+                          [class.showDiv]="selectedBusiness === 3" 
+                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Residence.png" alt="apply for netherlands e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Evidence of Legal Residence</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Evidence of Legal Residence
+                              </h1>
+                              <p>
+                                You must provide evidence of legal residency in the country
+                                you are applying from (in this case, India). This could be in
+                                the form of a visa or residence permit and a copy of the work
+                                permit (if applicable). In the case of submitting residence
+                                permits, please make sure they are valid for at least 3 months after
+                                departure from any of the Schengen countries.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                   
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                          data-target="#business4" aria-expanded="false" aria-controls="business4"
+                          [class.showDiv]="selectedBusiness === 4" 
+                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                A photo of the applicant (not taken more than 6 months ago) must be submitted along with
+                                the netherlands visa online for indians. Please see the FAQs at the bottom of the page for
+                                photo guidelines to be followed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business5" aria-expanded="true"
+                          aria-controls="business5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for netherlands e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business5" class="collapse" aria-labelledby="business5"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Round tickets (both onward and return) for your trip are required. Please make sure these
+                                are refundable, in case your visa request is refused.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business6" aria-expanded="true"
+                          aria-controls="business6" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusiness(6, 'setActiveBusiness6')" id="setActiveBusiness6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Lodging</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business6" class="collapse" aria-labelledby="business6"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Lodging
+                              </h1>
+                              <p>
+                                Hotel bookings (or other arrangements for lodging, such as hostel reservations) for your
+                                entire stay in the Netherlands must be shown.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business7" aria-expanded="true"
+                          aria-controls="business7" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/marriage-certificate.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-marriageCertificate requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Marriage Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business7" class="collapse" aria-labelledby="business7"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Marriage Certificate
+                              </h1>
+                              <p>
+                                If you are married and do not have proof of the same on your passport, then you must
+                                display a marriage certificate, or a copy of your ration card if applicable.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business8" aria-expanded="true"
+                          aria-controls="business8" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusiness(8, 'setActiveBusiness8')" id="setActiveBusiness8">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="netherlands visa online for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Proof Of Financial</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business8" class="collapse" aria-labelledby="business8"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Financial</h1>
+                              <p>
+                                An original private bank statement showing all movements of
+                                funds for the past 3 months must be submitted. Income tax return
+                                acknowledgments for the last two years must also be submitted in
+                                terms of Netherland visa for Indians.Depending on your employment
+                                category, you must submit additional documents, which are outlined
+                                in the FAQ's (see below).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business9" aria-expanded="true"
+                          aria-controls="business9" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusiness(9, 'setActiveBusiness9')" id="setActiveBusiness9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Insurance.png"
+                            alt="netherlands visa online for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Health Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business9" class="collapse" aria-labelledby="business9"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Health Insurance
+                              </h1>
+                              <p>
+                                Health insurance that has been taken in your name, and which is valid throughout the
+                                Schengen area and for the entire time of your stay must be submitted. At least € 30,000 of
+                                medical costs should be able to be reimbursed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
+                          aria-controls="businessMobile1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Form</h1>
+                              <p>
+                                You will need to complete a netherlands visa online for indians form.Don’t worry! A V2F
+                                expert will do that on your behalf and guide you every step of the way.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
+                          aria-controls="businessMobile2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                A passport valid for at least 3 months after your departure date
+                                (from the Netherlands) is required for your visa. It must have at
+                                least 2 empty visa pages, and cannot have been issued more
+                                than 10 years ago. You require a copy of all the pages of your
+                                passport as well.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
+                          aria-controls="businessMobile3" [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof Of Residence.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Evidence of Legal Residence</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Evidence of Legal Residence
+                              </h1>
+                              <p>
+                                You must provide evidence of legal residency in the country
+                                you are applying from (in this case, India). This could be in
+                                the form of a visa or residence permit and a copy of the work
+                                permit (if applicable). In the case of submitting residence
+                                permits, please make sure they are valid for at least 3 months
+                                after departure from any of the Schengen countries.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
+                          aria-controls="businessMobile4" [class.showDiv]="selectedBusiness === 4"
+                          (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                A photo of the applicant (not taken more than 6 months ago) must be submitted along with
+                                the netherlands visa online for indians. Please see the FAQs at the bottom of the page for
+                                photo guidelines to be followed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile5" aria-expanded="true"
+                          aria-controls="businessMobile5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusinessMobile(5, 'setActiveBusinessMobile5')" id="setActiveBusinessMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Round tickets (both onward and return) for your trip are required. Please make sure these
+                                are refundable, in case your visa request is refused.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile6" aria-expanded="true"
+                          aria-controls="businessMobile6" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusinessMobile(6, 'setActiveBusinessMobile6')" id="setActiveBusinessMobile6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Reservation.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Lodging</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile6" class="collapse" aria-labelledby="headingMobile6"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Lodging
+                              </h1>
+                              <p>
+                                Hotel bookings (or other arrangements for lodging, such as hostel reservations) for your
+                                entire stay in the Netherlands must be shown.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile7" aria-expanded="true"
+                          aria-controls="businessMobile7" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusinessMobile(7, 'setActiveBusinessMobile7')" id="setActiveBusinessMobile7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/marriage-certificate.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-marriageCertificate requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Marriage Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile7" class="collapse" aria-labelledby="headingMobile7"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Marriage Certificate
+                              </h1>
+                              <p>
+                                If you are married and do not have proof of the same on your passport, then you must
+                                display a marriage certificate, or a copy of your ration card if applicable.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile8" aria-expanded="true"
+                          aria-controls="businessMobile8" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusinessMobile(8, 'setActiveBusinessMobile8')" id="setActiveBusinessMobile8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png" alt="netherlands visa online for indians" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Financial</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile8" class="collapse" aria-labelledby="headingMobile8"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof Of Financial</h1>
+                              <p>
+                                An original private bank statement showing all movements of funds for
+                                the past 3 months must be submitted. Income tax return acknowledgments
+                                for the last two years must also be submitted in terms of Netherland visa
+                                for Indians.Depending on your employment category, you must submit additional
+                                documents, which are outlined in the FAQ's (see below).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile9" aria-expanded="true"
+                          aria-controls="businessMobile9" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusinessMobile(9, 'setActiveBusinessMobile9')" id="setActiveBusinessMobile9">
+                          <img class="img-fluid" src="https://static.visa2fly.com/icon/Insurance.png"
+                            alt="netherlands visa online for indians"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                          <h2 class="setFontSize">Health Insurance</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile9" class="collapse" aria-labelledby="headingMobile9"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Health Insurance
+                              </h1>
+                              <p>
+                                Health insurance that has been taken in your name, and which is valid
+                                throughout the Schengen area and for the entire time of your stay
+                                must be submitted. At least € 30,000 of medical costs should be
+                                able to be reimbursed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+            </div>
+  
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+</div>

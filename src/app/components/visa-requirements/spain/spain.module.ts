@@ -8,6 +8,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { SpainComponent } from './spain.component';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { ImportantPointsSpainComponent } from './important-points-spain/important-points-spain.component';
+import { QuotationSpainComponent } from './quotation-spain/quotation-spain.component';
+import { RequirementsSpainComponent } from './requirements-spain/requirements-spain.component';
 
 const routes: Routes = [
   { path: "", component: SpainComponent },
@@ -16,7 +19,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     SpainComponent,
-    FaqComponent
+    FaqComponent,
+    ImportantPointsSpainComponent,
+    QuotationSpainComponent,
+    RequirementsSpainComponent
   ],
   imports: [
     FormsModule,

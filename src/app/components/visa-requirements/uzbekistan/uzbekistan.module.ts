@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { RequirementsUzbekistanComponent } from './requirements-uzbekistan/requirements-uzbekistan.component';
+import { ImportantPointsUzbekistanComponent } from './important-points-uzbekistan/important-points-uzbekistan.component';
+import { QuotationUzbekistanComponent } from './quotation-uzbekistan/quotation-uzbekistan.component';
 
 const routes: Routes = [
     { path: "", component: UzbekistanComponent },
@@ -16,7 +19,10 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         UzbekistanComponent,
-        FaqComponent
+        FaqComponent,
+        RequirementsUzbekistanComponent,
+        ImportantPointsUzbekistanComponent,
+        QuotationUzbekistanComponent
     ],
     imports : [
         FormsModule,

@@ -7,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { ImportantPointsNewzealandComponent } from './important-points-newzealand/important-points-newzealand.component';
+import { QuotationNewzealandComponent } from './quotation-newzealand/quotation-newzealand.component';
+import { RequirementNewzealandComponent } from './requirement-newzealand/requirement-newzealand.component';
 
 
 const routes: Routes = [
@@ -16,7 +19,10 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         NewZealandComponent,
-        FaqComponent
+        FaqComponent,
+        ImportantPointsNewzealandComponent,
+        QuotationNewzealandComponent,
+        RequirementNewzealandComponent
     ],
     imports: [
         FormsModule,

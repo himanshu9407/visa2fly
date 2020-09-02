@@ -8,13 +8,16 @@ import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-mod
 import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FaqComponent } from './faq/faq.component';
+import { RequirementsUaeComponent } from './requirements-uae/requirements-uae.component';
+import { QuotationUaeComponent } from './quotation-uae/quotation-uae.component';
+import { ImportantPointsUaeComponent } from './important-points-uae/important-points-uae.component';
 
 const routes: Routes = [
   { path: "", component: UAEComponent },
 ]
 
 @NgModule({
-  declarations: [UAEComponent, FaqComponent],
+  declarations: [UAEComponent, FaqComponent, RequirementsUaeComponent, QuotationUaeComponent, ImportantPointsUaeComponent],
   imports: [
     FormsModule,
     CommonModule,

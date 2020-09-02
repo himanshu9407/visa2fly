@@ -1,7 +1,5 @@
-import { Data } from "./../../../interfaces/requirement";
-import { country } from "./../../../interfaces/home_formData";
 import { FormGroup, FormControl } from "@angular/forms";
-import { Component, OnInit, AfterViewInit, ViewChild, Inject } from "@angular/core";
+import { Component, OnInit, Inject, PLATFORM_ID } from "@angular/core";
 import {
   trigger,
   state,
@@ -13,13 +11,10 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { RouterHistory } from "src/app/shared/router-history.service";
-import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from '@angular/common';
+import { Subject } from 'rxjs';
 
 export interface Food {
   value: string;
@@ -47,53 +42,52 @@ export interface Food {
     ])
   ]
 })
-export class UnitedKingdomComponent implements OnInit, AfterViewInit {
-  @ViewChild("t", { static: false }) t;
+export class UnitedKingdomComponent implements OnInit {
   ngbTabTitleClass;
-  public onlinestatus: boolean = false;
 
   selectedRequirement: boolean = false;
-
+  // selectedRequirement: boolean = false;
+  selectedPurpose: Subject<any> = new Subject();
+  
   public selectedVisaType = "Tourist";
-  desktopJustify = "justified";
-  desktopOrientation = "horizontal";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
   public MyQuotation1: Array<any> = [];
-  public purposeChooseForm: FormGroup;
-  public selectedPurpose = "Tourist";
   public imagefield1: Array<any> = [];
+  public purposeChooseForm: FormGroup;
+  public onlinestatus: boolean = false;
+  // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
   transitArr: Array<any> = [];
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
   selectedTourist: number = 1;
+  selectedMobileTourist: number = 1;
+  selectedMobileBusiness: number = 1;
+  selectedMobileTransit: number = 1;
+
+  public selectedCountrytype = "United Kingdom";
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
-
-  public countryStatic = "United Kingdom";
-  public PurposeUse: any;
+  activeTouristArr: Array<any> = [];
+  // public imageUpload1: Array<any> = []
 
   constructor(
-    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
     private toastr: ToastrService,
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
     private preloaderService: PreloaderService,
-    private routerHistory: RouterHistory,
-    private reqService: RequirementsService,
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
-    @Inject(DOCUMENT) private doc
+    @Inject(DOCUMENT) private doc,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
@@ -110,31 +104,26 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     }
 
     let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+
     this.purposeChooseForm = new FormGroup({
-      purposeSelected: new FormControl(tempPurpose)
+      purposeSelected: new FormControl(tempPurpose),
     });
     this.requireQuotation
-      .getRequireQuotation(this.countryStatic)
+      .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        //console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
-
           this.imageCatogory.push(res.data.imageUploadInfo);
-
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-
           this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
-          
+
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
@@ -148,18 +137,23 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
           let purposeMain = this.selectedVisaType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-            if (purposeUrl == "Business") {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            }else if(purposeUrl == 'Tourist') {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            }else if(purposeUrl == 'Transit'){
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }else{
-              this.router.navigate(['visa/']);
-            }
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
+
+          this.userFlow.setUserFlowDetails(
+            "imageUploads",
+            JSON.stringify(this.imageCatogoryTemp)
+          );
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -169,15 +163,10 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
             this.preloaderService.showPreloader(false);
             this.router.navigate(["/"]);
           }, 2000);
-          this.toastr.error(
-            "Country Not Found"
-          );
+          this.toastr.error("Country Not Found");
         }
       });
-
-    this.PurposeUse = this.purposeChooseForm.get("purposeSelected").value;
-  }
-
+    }
   ngOnInit() {
     
     this.titleService.setTitle("UK Visa | Apply For UK Visa Online for Indians- Visa2Fly");
@@ -258,10 +247,6 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     link.setAttribute("href", "https://visa2fly.com/visa/uk-visa-online");
   }
 
-  ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
-  }
-
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
@@ -269,133 +254,53 @@ export class UnitedKingdomComponent implements OnInit, AfterViewInit {
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.t.select("Tourist");
+      this.selectedPurpose.next(purpose);
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
-
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.t.select("Business");
+      this.selectedPurpose.next(purpose);
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.t.select("Transit");
+      this.selectedPurpose.next(purpose);
     }
+
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imageCatogoryTemp)
+    );
   }
 
   navigateTo(purpose: any) {
-    // window.location
-    //let urlpurpose = this.MyQuotation1
-
     let purposeString: string = purpose.nextId;
-    // console.log(purposeString);
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-  if (purposeString == "Tourist") {
+    if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
+      this.selectedMobileTourist = 1;
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
+      this.selectedMobileBusiness = 1;
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
-
       this.selectedTransit = 1;
+      this.selectedMobileTransit = 1;
     }
+
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
-  }
 
-  setActiveTourist(index: number) {
-    this.selectedTourist = index;
-    // console.log('business');
-  }
-
-  setActiveBusiness(index: number) {
-    this.selectedBusiness = index;
-    //  console.log('business');
-  }
-
-  setActiveTransit(index: number) {
-    this.selectedTransit = index;
-    // console.log('business');
-  }
-
-  resetPage() {
-    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
-  }
-
-  navigate(
-    quoteId: string,
-    purpose: string,
-    category: string,
-    minTravelDate: number,
-    basePrice: number,
-    serviceTax: number,
-    stayPeriod: string,
-    imageUpload: boolean,
-  ) {
-    this.preloaderService.showPreloader(true);
-
-    this.userFlow.setUserFlowDetails("country", this.countryStatic);
-    this.userFlow.setUserFlowDetails("purpose", purpose);
-    this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    this.userFlow.setUserFlowDetails("category", category);
-    this.userFlow.setUserFlowDetails(
-      "minTravelDate",
-      JSON.stringify(minTravelDate)
-    );
-    this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-    this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
-    this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
-
-    let token = this.loginService.getAuthToken();
-    if (token == null || token == undefined) {
-      token = "";
-    }
-    this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-      if (data.code == "0") {
-        this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-          // console.log(data);
-
-          if (data.code == "0") {
-            this.routerHistory.pushHistory("visa-requirement");
-            this.router.navigate(["addTraveller"]);
-
-            // setTimeout(() => {
-
-            this.preloaderService.showPreloader(false);
-            // }, 2000);
-          } else {
-            this.toastr.error("" + data.message);
-            this.preloaderService.showPreloader(false);
-          }
-        });
-      } else if (data.code == "301") {
-        this.loginService.setAuthToken("");
-        this.loginStatus.setUserStatus(false);
-        this.loginStatus.setUserLoggedIn(false);
-        // this.router.navigate(['visa']);
-        this.preloaderService.showPreloader(false);
-        this.userFlow.setCookie("profile", JSON.stringify({}));
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      } else {
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      }
-    });
   }
 }

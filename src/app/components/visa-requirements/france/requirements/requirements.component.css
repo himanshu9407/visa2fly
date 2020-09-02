@@ -157,10 +157,6 @@ li {
 }
 
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-  :host ::ng-deep .iconTabset a.nav-link {
-    max-width: 220px !important;
-  }
-
   .requirementContainer {
     color: #000;
     font-weight: 700;
@@ -169,11 +165,11 @@ li {
 }
 
 @media screen and (min-width: 768px) and (max-width: 800px) {
-  :host ::ng-deep .iconTabset a.nav-link {
-    max-width: 720px !important;
+  :host ::ng-deep .iconTabset .tab-pane {
+    width: 712px !important;
   }
 
-  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
+  :host ::ng-deep .iconTabset a.nav-link {
     max-width: 230px !important;
   }
 
@@ -609,19 +605,13 @@ li {
   }
 }
 
-@media screen and (width: 800px) {
-  :host ::ng-deep .iconTabset .tab-pane {
-    width: 667px !important;
-  }
-}
-
 @media screen and (width: 1024px) {
   :host ::ng-deep .iconTabset .tab-pane {
     width: 970px !important;
   }
 
-  :host ::ng-deep .iconTabset a.nav-link .ng-star-inserted {
-    max-width: 315px !important;
+  :host ::ng-deep .iconTabset a.nav-link {
+    max-width: 310px !important;
   }
 }
 

@@ -6,8 +6,6 @@ import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { RouterHistory } from "src/app/shared/router-history.service";
-import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
 import { Subject } from 'rxjs';
@@ -100,67 +98,68 @@ export class VietnamComponent implements OnInit {
     }
 
     let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
     });
     this.requireQuotation
-        .getRequireQuotation(this.selectedCountrytype)
-        .subscribe((res: any) => {
-          if (res.code == 0) {
-            this.MyQuotation = res.data.quotations;
-            this.imageCatogory.push(res.data.imageUploadInfo);
-            this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-            this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-            this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-            this.onlinestatus = res.data.onlineCategory;
-            this.userFlow.setUserFlowDetails(
-              "onlineCountry",
-              JSON.stringify(res.data.onlineCategory)
-            );
-  
-            this.MyQuotation.forEach((element) => {
-              if (element.purpose == "Business") {
-                this.businessArr.push(element);
-              } else if (element.purpose == "Tourist") {
-                this.touristArr.push(element);
-              } else if (element.purpose == "Transit") {
-                this.transitArr.push(element);
-              }
-            });
-  
-            let purposeMain = this.selectedVisaType;
-            let purposeUrl =
-              purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-            if (purposeUrl == "Business") {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            } else if (purposeUrl == "Tourist") {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            } else if (purposeUrl == "Transit") {
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            } else {
-              this.router.navigate(["visa/"]);
+      .getRequireQuotation(this.selectedCountrytype)
+      .subscribe((res: any) => {
+        if (res.code == 0) {
+          this.MyQuotation = res.data.quotations;
+          this.imageCatogory.push(res.data.imageUploadInfo);
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          this.onlinestatus = res.data.onlineCategory;
+          this.userFlow.setUserFlowDetails(
+            "onlineCountry",
+            JSON.stringify(res.data.onlineCategory)
+          );
+
+          this.MyQuotation.forEach((element) => {
+            if (element.purpose == "Business") {
+              this.businessArr.push(element);
+            } else if (element.purpose == "Tourist") {
+              this.touristArr.push(element);
+            } else if (element.purpose == "Transit") {
+              this.transitArr.push(element);
             }
-  
-            this.userFlow.setUserFlowDetails(
-              "imageUploads",
-              JSON.stringify(this.imageCatogoryTemp)
-            );
-  
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-            }, 500);
+          });
+
+          let purposeMain = this.selectedVisaType;
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
           } else {
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-              this.router.navigate(["/"]);
-            }, 2000);
-            this.toastr.error("Country Not Found");
+            this.router.navigate(["visa/"]);
           }
-        });
+
+          this.userFlow.setUserFlowDetails(
+            "imageUploads",
+            JSON.stringify(this.imageCatogoryTemp)
+          );
+
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error("Country Not Found");
+        }
+      });
   }
 
   ngOnInit() {
