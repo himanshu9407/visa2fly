@@ -256,8 +256,6 @@ export class RequirementsComponent implements OnInit {
     this.reqService
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
-        console.log(data);
-        
         if (isPlatformBrowser(this.platformId)) {
           if (data.code == "0") {
             this.requirementsData = data;
@@ -405,10 +403,7 @@ export class RequirementsComponent implements OnInit {
     stayPeriod: string,
     imageUpload: boolean
   ) {
-    console.log(imageUpload);
-
     this.preloaderService.showPreloader(true);
-    
 
     this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
     this.userFlow.setUserFlowDetails(
@@ -425,7 +420,10 @@ export class RequirementsComponent implements OnInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
+    this.userFlow.setUserFlowDetails(
+      "imageUpload",
+      JSON.stringify(imageUpload)
+    );
     this.userFlow.setUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageUpload1)

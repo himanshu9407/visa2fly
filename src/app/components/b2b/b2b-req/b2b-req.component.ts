@@ -260,7 +260,7 @@ export class B2bReqComponent implements OnInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUploads: string
+    imageUpload: Boolean
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -282,6 +282,7 @@ export class B2bReqComponent implements OnInit {
       JSON.stringify(serviceTax)
     );
     this.userFlow.setB2BUserFlowDetails("stayPeriod", stayPeriod);
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setB2BUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageUpload1)
@@ -300,7 +301,6 @@ export class B2bReqComponent implements OnInit {
   }
 
   onClickRequrements(i, j, item) {
-
     if (
       this.showRequirementsDetailArr[i] == true &&
       this.selectedDataArr[i].fieldName == this.mainArr[i][j].fieldName

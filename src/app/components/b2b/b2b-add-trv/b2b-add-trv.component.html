@@ -1,21 +1,31 @@
-<div class="summaryContainer" style="background-color: #e5e5e5;padding: 30px 20px 20px ; border-radius: 10px;">
-  <div class="row">
-    <div class="col-sm-12 col-half col-md-6">
-      <div class="row noMargin">
-        <div class="col-sm-6">
-          <div class="row placeContainer text-center">
-            <div class="col-lg-12">
-              <img data-src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}}"
-                class="img-fluid countryFlag rounded lazyload">
-              <div class="col-lg-12">
-                <div class="selectedCountry">
-                  {{userFlowDetails.country}}
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="imageContainer" style="background-image: url(../../../assets/france-landing.jpg);">
+  <div class="breadcrumLinker">
+    <p class="breadcrum">
+      <span>
+        <a [routerLink]="['/b2b', 'home']" [queryParams]="{ id:  uniqueId}">Home</a>&nbsp;/&nbsp;<a
+          [routerLink]="['/b2b', 'visa-requirement', country, userFlowDetails.purpose]">{{ country }} Visa
+          Details</a>&nbsp;/&nbsp;<b>Application Form</b>
+      </span>
+    </p>
+  </div>
+
+  <div class="container mobileView">
+    <div class="row">
+      <div class="col-12 mt-5">
+        <div class="country-img">
+          <img data-src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}} flag image"
+            class="img-fluid countryFlag rounded lazyload" />
+          <h6 class="mt-2">{{ country }}</h6>
         </div>
-        <div class="col-sm-6 visaInfo">
+      </div>
+    </div>
+  </div>
+
+  <div class="blurry-bg">
+
+    <div class="complex-boxing mobileView">
+      <div class="box">
+        <div class="wrapper-info">
           <div class="visaTypeContainer">
             <div class="visaTypeHeading ">Visa Type</div>
           </div>
@@ -24,147 +34,161 @@
           </div>
         </div>
       </div>
+      <div class="box">
+        <div class="wrapper-info">
+          <div class="visaPriceContainer">
+            <div class="visaPriceHeading ">
+              Visa Price
+            </div>
+          </div>
+          <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}
+            <span class="d-block">(including taxes)</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-12 col-half col-md-6">
-      <div class="row noMargin">
-        <div class="col-sm-6 dateContainer">
-          <form [formGroup]="travelDetails">
-            <div class="center">
-              <div class="dateOfTravelContainer visaDateHeading">
-                Date Of Travel
-                <div class="form-group">
-                  <div class="input-group">
-                    <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel"
-                      formControlName="dateOfTravel" id="#dot" autocomplete="off" class="form-control addTravelDate"
-                      placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
-                      #dot="ngbDatepicker">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
-                          height="18px">
-                          <path
-                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-                          <path d="M0 0h24v24H0z" fill="none" /></svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div *ngIf="travelDateError && travelDetails.get('dateOfTravel').pristine" class="invalid-feedback"
-                    style="display: block">
-                    Please select Date of Travel .
 
+    <div class="complex-boxing">
+      <div class="box tabletView">
+        <div class="wrapper-info">
+          <img data-src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}} flag image"
+            class="img-fluid countryFlag rounded lazyload" />
+          <h6 class="mt-2">{{ country }}</h6>
+        </div>
+      </div>
+      <div class="box desktopView">
+        <div class="wrapper-info">
+          <div class="visaTypeContainer">
+            <div class="visaTypeHeading ">Visa Type</div>
+          </div>
+          <div class="visaType" style="text-align: center;">
+            {{userFlowDetails.purpose}} / {{stayPeriod}} <br />{{userFlowDetails.entryType}}
+          </div>
+        </div>
+      </div>
+      <div class="box desktopView">
+        <div class="wrapper-info">
+          <div class="visaPriceContainer">
+            <div class="visaPriceHeading ">
+              Visa Price
+            </div>
+          </div>
+          <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}
+            <span class="d-block">(including taxes)</span>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="wrapper-info">
+          <form [formGroup]="travelDetails">
+            <div class="dateOfTravelContainer visaDateHeading">
+              <label for="">Date Of Travel</label>
+              <div class="form-group">
+                <div class="input-group">
+                  <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel"
+                    formControlName="dateOfTravel" id="#dot" autocomplete="off" class="form-control addTravelDate"
+                    placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
+                    #dot="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px"
+                        class="calendarSvg">
+                        <path
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                        <path d="M0 0h24v24H0z" fill="none" /></svg>
+                    </button>
                   </div>
+                </div>
+                <div *ngIf="travelDateError && travelDetails.get('dateOfTravel').pristine" class="invalid-feedback"
+                  style="display: block">
+                  Please select Date of Travel .
                 </div>
               </div>
             </div>
-            <div class="center">
-              <div *ngIf="!imageUpload" class="dateOfTravelContainer visaDateHeading documents">
-                Date Of Collection <br /> of Documents
-                <div class="form-group">
-                  <div class="input-group">
-                    <input (ngModelChange)="checkDateOfCollection()"
-                      [disabled]="travelDetails.get('dateOfTravel').invalid" formControlName="dateOfCollection"
-                      id="#doc" autocomplete="off" class="form-control addTravelDate" placeholder="Date Of Collection of Documents"
-                      name="doc" [minDate]="tomorrowDate" [maxDate]="minDateOfCollection" ngbDatepicker
-                      #doc="ngbDatepicker">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button"> <svg
-                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6C757D" width="18px"
-                          height="18px">
-                          <path
-                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-                          <path d="M0 0h24v24H0z" fill="none" /></svg>
-                      </button>
-                    </div>
+            <div *ngIf="!imageUpload" class="dateOfTravelContainer visaDateHeading documents mt-2">
+              <label for="">Date Of Collection <br /> of Documents</label>
+              <div class="form-group">
+                <div class="input-group">
+                  <input (ngModelChange)="checkDateOfCollection()"
+                    [disabled]="travelDetails.get('dateOfTravel').invalid" formControlName="dateOfCollection" id="#doc"
+                    class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc"
+                    autocomplete="off" [minDate]="tomorrowDate" [maxDate]="minDateOfCollection" ngbDatepicker
+                    #doc="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
+                        height="18px">
+                        <path
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                        <path d="M0 0h24v24H0z" fill="none" /></svg>
+                    </button>
                   </div>
-
-                  <div *ngIf="travelDetails.get('dateOfTravel').invalid" class="invalid-feedback"
-                    style="display: block">
-                    Please select Date of Travel first.
-
-                  </div>
-                  <div *ngIf="collectionDateError" class="invalid-feedback" style="display: block;font-size: 80%">
-                    Please select Date of Collection <br> of Documents .
-
-                  </div>
+                </div>
+                <div *ngIf="travelDetails.get('dateOfTravel').invalid" class="invalid-feedback" style="display: block">
+                  Please select Date of Travel first.
+                </div>
+                <div *ngIf="collectionDateError" class="invalid-feedback" style="display: block;font-size: 80%">
+                  Please select Date of Collection <br> of Documents .
                 </div>
               </div>
             </div>
           </form>
-        </div>
-        <div class="col-sm-6 visaPriceInfo">
-          <div class="visaPriceContainer">
-            <div class="visaPriceHeading ">
-              Visa Price <br /> (including taxes)
-            </div>
-          </div>
-          <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="addPassengerContainer" style="margin-bottom: 40px;">
-  <div class="addPassengerHeading" style="margin-bottom: 0px;">Passenger Details</div>
+<div class="addPassengerContainer">
   <div class="addPassengerHeading">
-    <div>
-      <span>
-        <img data-src="https://static.visa2fly.com/assets/success.png" class="lazyload" style="height: 20px;"
-          alt="success icon">
-      </span>
-      <span style="font-size: 12px">
-        Corresponding Traveller Details are complete.
-      </span>
-    </div>
+    <h5>Passenger Details</h5>
+    <ul>
+      <li>
+        <div class="success-Icon img-sprite"></div>
+        <p class="messageLead">
+          Corresponding Traveller Details are complete.
+        </p>
+      </li>
 
-    <div>
-      <span>
-        <img data-src="https://static.visa2fly.com/assets/error.png" class="lazyload" style="height: 20px;"
-          alt="error icon">
-      </span>
-      <span style="font-size: 12px">
-        Corresponding Traveller Details are missing.
-      </span>
-    </div>
+      <li>
+        <div class="error-Icon img-sprite"></div>
+        <p class="messageLead">
+          Corresponding Traveller Details are missing.
+        </p>
+      </li>
+    </ul>
   </div>
+</div>
 
+<div class="addPassengerForm">
   <div id="accordion">
     <form [formGroup]="travellerForm">
       <div formArrayName="travellers"
         *ngFor="let traveller of travellerForm.get('travellers').controls; let first=first; let i = index ;"
         class="card">
         <form [formGroupName]="i">
-          <div class="card-header" id="dataSource[i].id">
-            <h5 class="mb-0">
-              <button class="btn btn-link travelerHeading" data-toggle="collapse"
-                attr.aria-controls="{{ dataSource[i].dataToggle }}"
-                attr.data-target="{{ dataSource[i].dataToggleHash }}" aria-expanded="false">
+          <div class="card-header travelerHeading" id="dataSource[i].id">
+            <button class="btn" data-toggle="collapse" attr.aria-controls="{{ dataSource[i].dataToggle }}"
+              attr.data-target="{{ dataSource[i].dataToggleHash }}" aria-expanded="false">
+              {{ dataSource[i].id.substring(0,10) }}
+            </button>
 
-                <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px; margin-top: -2px;" viewBox="0 0 24 24"
-                  fill="#000080" width="20px" height="20px">
-                  <path
-                    d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4zm11 15H4v-2h16v2zm0-5H4V8h3v2h2V8h6v2h2V8h3v6z" />
-                  <path d="M0 0h24v24H0z" fill="none" />
-                </svg>
+            <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
+              <img data-src="https://static.visa2fly.com/assets/error.png" class="lazyload" alt="error icon"
+                style="height: 20px;">
+            </span>
 
-                {{ dataSource[i].id.substring(0,10) }}
-              </button>
+            <span *ngIf="travellerForm.controls.travellers.controls[i].valid">
+              <img data-src="https://static.visa2fly.com/assets/success.png" class="lazyload" style="height: 20px;"
+                alt="success icon">
+            </span>
 
-              <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
-                <img data-src="https://static.visa2fly.com/assets/error.png" class="lazyload" alt="error icon"
-                  style="height: 20px;">
-              </span>
-
-              <span *ngIf="travellerForm.controls.travellers.controls[i].valid">
-                <img data-src="https://static.visa2fly.com/assets/success.png" class="lazyload" style="height: 20px;"
-                  alt="success icon">
-              </span>
-              <button *ngIf="!first" (click)="removeTraveller(i)" type="button" class="close float-right"
-                data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </h5>
+            <button *ngIf="!first" (click)="removeTraveller(i)" type="button" class="close float-right"
+              data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+
           <div id="{{ dataSource[i].dataToggle }}" class="collapse"
             [class.show]="selectedTravellerForm === i || travellerForm.controls.travellers.controls[i].invalid"
             attr.aria-labelledby="{{ dataSource[i].id }}" data-parent="#accordion">
@@ -173,7 +197,6 @@
                 <div class="col-md-2 mb-3">
                   <label>Title <span class="asterisk">*</span></label>
                   <select formControlName="title" id="inputState" class="form-control">
-                    <!-- <option selected>Title</option> -->
                     <option selected>Mr</option>
                     <option>Mrs</option>
                     <option>Master</option>
@@ -192,8 +215,8 @@
                       travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty,
                     'is-valid':
                       !(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) && !travellerForm.controls.travellers.controls[i].controls.firstName.pristine}"
-                    pattern="[A-Za-z]{3,32}" autocomplete="new-name" formControlName="firstName" type="text" class="form-control"
-                    placeholder="First name" required />
+                    pattern="[A-Za-z]{3,32}" autocomplete="new-name" formControlName="firstName" type="text"
+                    class="form-control" placeholder="First name" required />
 
                   <div
                     *ngIf="
@@ -209,8 +232,8 @@
                     [ngClass]="{
                     'is-invalid':travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty) &&                    !travellerForm.controls.travellers.controls[i].controls.middleName.pristine}"
-                    pattern="[A-Za-z]{3,32}" autocomplete="new-name" type="text" formControlName="middleName" class="form-control"
-                    id="middlename" placeholder="Middle name" />
+                    pattern="[A-Za-z]{3,32}" autocomplete="new-name" type="text" formControlName="middleName"
+                    class="form-control" id="middlename" placeholder="Middle name" />
 
                   <div *ngIf="
                       (travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty) || 
@@ -225,8 +248,8 @@
                     [ngClass]="{
                     'is-invalid':travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty) &&                      !travellerForm.controls.travellers.controls[i].controls.lastName.pristine}"
-                    pattern="[A-Za-z]{3,32}" autocomplete="new-name" type="text" formControlName="lastName" class="form-control"
-                    placeholder="Last name" required />
+                    pattern="[A-Za-z]{3,32}" autocomplete="new-name" type="text" formControlName="lastName"
+                    class="form-control" placeholder="Last name" required />
 
                   <div
                     *ngIf="
@@ -244,7 +267,8 @@
                       <input hidden formControlName="dateOfBirth" type="text">
                       <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
                         formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate"
-                        placeholder="Date Of Birth" autocomplete="new-name" name="dp" ngbDatepicker #dob="ngbDatepicker">
+                        placeholder="Date Of Birth" autocomplete="new-name" name="dp" ngbDatepicker
+                        #dob="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
 
@@ -273,8 +297,9 @@
                   .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
                   travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.passportNumber.pristine}" autocomplete="new-name" pattern="^[A-Za-z]{1}[0-9]{7}$" formControlName="passportNumber"
-                      type="text" class="form-control" id="PassportNumber" placeholder="Passport Number" required />
+                  controls.passportNumber.pristine}" autocomplete="new-name" pattern="^[A-Za-z]{1}[0-9]{7}$"
+                      formControlName="passportNumber" type="text" class="form-control" id="PassportNumber"
+                      placeholder="Passport Number" required />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty) || (travellerForm.controls.travellers.controls[i].controls.passportNumber.errors?.valueErr) ||
                       (travellerForm.controls.travellers.controls[i].controls.passportNumber.passportError &&
@@ -293,8 +318,8 @@
                     <div class="input-group">
                       <input hidden formControlName="passportExpiryDate">
                       <input formControlName="passportExpiryDateCopy" class="form-control addTravelDate"
-                        placeholder="Passport Expiry Date" autocomplete="new-name" name="dp" [minDate]="minDatePassportExpiry" id="#doe"
-                        ngbDatepicker #doe="ngbDatepicker">
+                        placeholder="Passport Expiry Date" autocomplete="new-name" name="dp"
+                        [minDate]="minDatePassportExpiry" id="#doe" ngbDatepicker #doe="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button">
 
@@ -326,8 +351,8 @@
                     .emailId.invalid && travellerForm.controls.travellers.controls[i].controls.emailId.dirty,
                     'is-valid':!(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
                     travellers.controls[i].controls.emailId.dirty) && !travellerForm.controls.travellers.controls[i].
-                    controls.emailId.pristine}" autocomplete="new-name" formControlName="emailId" type="email" class="form-control"
-                      id="EmailId" placeholder="Email ID" required />
+                    controls.emailId.pristine}" autocomplete="new-name" formControlName="emailId" type="email"
+                      class="form-control" id="EmailId" placeholder="Email ID" required />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && 
                       travellerForm.controls.travellers.controls[i].controls.emailId.dirty) || 
@@ -345,8 +370,8 @@
                   .gstNumber.invalid && travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty,
                   'is-valid':!(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
                   travellers.controls[i].controls.gstNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                  controls.gstNumber.pristine}" autocomplete="new-name" formControlName="gstNumber" type="text" class="form-control"
-                      id="GstNumber" placeholder="GSTIN No. (Optional)" />
+                  controls.gstNumber.pristine}" autocomplete="new-name" formControlName="gstNumber" type="text"
+                      class="form-control" id="GstNumber" placeholder="GSTIN No. (Optional)" />
 
                     <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && 
                       travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty) || 
@@ -362,8 +387,8 @@
                 .cellNumber.invalid && travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty,
                 'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
                 travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
-                controls.cellNumber.pristine}" autocomplete="new-name" pattern="^[6-9][0-9]{9}$" type="tel" formControlName="cellNumber"
-                    class="form-control" placeholder="Mobile Number" required />
+                controls.cellNumber.pristine}" autocomplete="new-name" pattern="^[6-9][0-9]{9}$" type="tel"
+                    formControlName="cellNumber" class="form-control" placeholder="Mobile Number" required />
                   <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && 
                     travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) || 
                     (travellerForm.controls.travellers.controls[i].controls.cellNumber.errors?.valueErr) ||
@@ -374,9 +399,8 @@
                   </div>
                 </div>
               </div>
-
-              <div *ngIf="!imageUpload" class="form-row" style="margin-top: 20px;">
-                <div class="col-md-12 mb-3">
+              <div *ngIf="!imageUpload" class="form-row mt-2">
+                <div class="col-md-12">
                   <label><b> Address for pickup of documents </b></label>
                   <br>
                   <div *ngIf="!first" class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
@@ -440,8 +464,8 @@
                 .pinCode.invalid && travellerForm.controls.travellers.controls[i].controls.pinCode.dirty,
                 'is-valid':!(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
                 travellers.controls[i].controls.pinCode.dirty) && !travellerForm.controls.travellers.controls[i].
-                controls.pinCode.pristine}" autocomplete="new-name" pattern="^[1-9][0-9]{5}$" type="text" class="form-control" id="pincode"
-                    placeholder="Pin Code" />
+                controls.pinCode.pristine}" autocomplete="new-name" pattern="^[1-9][0-9]{5}$" type="text"
+                    class="form-control" id="pincode" placeholder="Pin Code" />
 
                   <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && 
                     travellerForm.controls.travellers.controls[i].controls.pinCode.dirty) || 
@@ -453,16 +477,15 @@
                   </div>
                 </div>
               </div>
-              <div *ngIf="imageUpload" class="form-row">
-                <div class="col-md-12 mb-3">
+              <div *ngIf="imageUpload" class="form-row mt-2">
+                <div class="col-md-12">
                   <label><b> Upload required documents here </b></label>
                 </div>
                 <div *ngFor="let image of imageUploads;let j = index" class="col-md-3 mb-3">
                   <label>{{image.content}}<span class="asterisk">*</span></label>
 
-                  <button *ngIf="image.content === 'Passport front page'" type="button" class="btn" data-toggle="modal"
+                  <button *ngIf="image.content === 'Passport front page'" type="button" class="btn toggleHelperBtn" data-toggle="modal"
                     data-target="#samplePassportFront">
-
                     <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
                       fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd"
@@ -472,7 +495,7 @@
 
                   </button>
 
-                  <button *ngIf="image.content === 'Passport last page'" type="button" class="btn" data-toggle="modal"
+                  <button *ngIf="image.content === 'Passport last page'" type="button" class="btn toggleHelperBtn" data-toggle="modal"
                     data-target="#samplePassportBack">
 
                     <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
@@ -484,7 +507,7 @@
 
                   </button>
 
-                  <button *ngIf="image.content === 'Applicant passport size photograph'" type="button" class="btn"
+                  <button *ngIf="image.content === 'Applicant passport size photograph'" type="button" class="btn toggleHelperBtn"
                     data-toggle="modal" data-target="#samplePhotograph">
 
                     <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
@@ -500,11 +523,11 @@
                     <div class="custom-file">
                       <input id="{{image.fieldName}}" (change)="onFileSelected($event,i,image.fieldName)" type="file"
                         class="custom-file-input" />
-                      <!-- <input formControlName="{{image.fieldName}}" type="file" hidden> -->
                       <label class="custom-file-label"
                         for="{{image.fieldName}}">{{this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].value == null ? "" : this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].value.name}}</label>
                     </div>
                   </div>
+                  
                   <div
                     *ngIf="((this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.type  && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty)) "
                     class="invalid-feedback" style="display: block">
@@ -530,10 +553,8 @@
       </div>
     </form>
 
-    <div style="margin: 20px;">
-      <button type="button" style="background-color: navy;color: white;" class="btn btn-info btn-circle btn-lg"
-        (click)="addTraveller()">
-
+    <div class="addTrallerBtn">
+      <button type="button" class="btn btn-info btn-circle btn-lg" (click)="addTraveller()">
         <svg xmlns="http://www.w3.org/2000/svg" height="14px" viewBox="0 0 512 512" width="14px"
           style="margin-top: -1px;" class="hovered-paths">
           <g>
@@ -544,47 +565,46 @@
         </svg>
 
       </button>
-      <span style="margin-left: 10px;">Add Traveller</span>
+      <span>Add Traveller</span>
     </div>
   </div>
+</div>
 
-  <div class="acknowledgementContainer" style="margin-top: 30px;">
-    <div style="margin-bottom: 20px; border-radius: 5px; padding: 0px; ">
-      <form [formGroup]="termsAndConditions">
-        <div class="form-check">
-          <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
-            <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
-            <label class="custom-control-label tnc" for="checkAll" style="cursor: pointer;">I agree with the <a
-                [routerLink]="['/tnc']" target="_blank" routerLinkActive="router-link-active">Terms &amp;
-                Conditions</a> and <a [routerLink]="['/cancellationPolicy']" target="_blank"
-                routerLinkActive="router-link-active">Cancellation Policy</a> of Visa2fly.
-            </label>
-          </div>
-          <div class="invalid-feedback">
-            You must agree before submitting.
-          </div>
-        </div>
-
-      </form>
-
-      <div class="mt-3" style="font-size: 13px;" *ngIf="disclaimerForDubai">
-        <p><b>If you exceed the stay duration on the e-Visa,  you may be required to pay fines, be deported, or otherwise forbidden from future travel to UAE</b></p>
+<div class="acknowledgementContainer">
+  <form [formGroup]="termsAndConditions">
+    <div class="form-check">
+      <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+        <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
+        <label class="custom-control-label tnc" for="checkAll" style="cursor: pointer;">I agree with the <a
+            [routerLink]="['/tnc']" target="_blank" routerLinkActive="router-link-active">Terms &amp;
+            Conditions</a> and <a [routerLink]="['/cancellationPolicy']" target="_blank"
+            routerLinkActive="router-link-active">Cancellation Policy</a> of Visa2fly.
+        </label>
       </div>
-      
-      <div style="display: flex; justify-content: center; margin-top: 30px;">
-        <button (click)="seeValues()" class="btn btn-primary" style="margin-top: 20px; padding: 8px !important;"
-          type="submit">
-          Proceed to payment
-        </button>
-
-        <!-- <button (click)="check()">chek</button> -->
+      <div class="invalid-feedback">
+        You must agree before submitting.
       </div>
+    </div>
+  </form>
+
+  <div class="mt-3" style="font-size: 13px;" *ngIf="disclaimerForDubai">
+    <p><b><span class="astrisk"></span>If you exceed the stay duration on the e-Visa, you may be required to pay
+        fines, be deported, or otherwise
+        forbidden from future travel to UAE</b></p>
+  </div>
+</div>
+
+<div class="proceedToPayment">
+  <div class="row">
+    <div class="col-12 text-center">
+      <button (click)="seeValues()" class="btn btn-primary" type="submit">
+        Proceed to payment
+      </button>
     </div>
   </div>
 </div>
 
 <div class="photo-spec">
-
   <div class="modal fade" id="samplePassportFront" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -633,7 +653,662 @@
   </form>
 </div>
 
-<div class="image-sample">
+<div class="modal  fade" id="exampleModal1" style="top: 200px" data-backdrop="static" data-keyboard="false"
+  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  style="display: none; background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center" style="padding: 4px 1rem; background: #FF3333;">
+        <h5 class="modal-title w-100 text-white" id="exampleModalLabel">
+          Warning
+        </h5>
+      </div>
+      <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;">
+        <p *ngFor="let error of errorMessage">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+            x="0px" y="0px" viewBox="0 0 286.614 286.614" style="enable-background:new 0 0 286.614 286.614;"
+            xml:space="preserve" width="16px" height="16px">
+            <g>
+              <g>
+                <path
+                  d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                  data-original="#000000" class="active-path" fill="#000080" />
+                <path
+                  d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                  data-original="#000000" class="active-path" fill="#000080" />
+              </g>
+            </g>
+          </svg>
+          {{ error}}
+        </p>
+
+        <div class="form-group form-check" style="margin-bottom: 0px; margin-top: 20px;">
+          <input type="checkbox" class="form-check-input" id="modalWarning" />
+          <label class="form-check-label" for="modalWarning">Yes, I undertand the warning and still want to proceed
+            further.</label>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 0px 10px 10px; border-top: none;">
+        <button (click)="goToHome()" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+          Cancel
+        </button>
+
+        <button (click)="goToPayment()" type="button" class="btn btn-primary btn-sm">Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 
+<div class="imageContainer" style="background-image: url(../../../assets/france-landing.jpg);">
+  <div class="breadcrumLinker">
+    <p class="breadcrum">
+      <span>
+        <a [routerLink]="['/b2b', 'home']" [queryParams]="{ id:  uniqueId}">Home</a>&nbsp;/&nbsp;<a
+          [routerLink]="['/b2b', 'visa-requirement', country, userFlowDetails.purpose]">{{ country }} Visa
+          Details</a>&nbsp;/&nbsp;<b>Application Form</b>
+      </span>
+    </p>
+  </div>
+
+  <div class="container mobileView">
+    <div class="row">
+      <div class="col-12 mt-5">
+        <div class="country-img">
+          <img data-src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}} flag image"
+            class="img-fluid countryFlag rounded lazyload" />
+          <h6 class="mt-2">{{ country }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blurry-bg">
+
+    <div class="complex-boxing mobileView">
+      <div class="box">
+        <div class="wrapper-info">
+          <div class="visaTypeContainer">
+            <div class="visaTypeHeading ">Visa Type</div>
+          </div>
+          <div class="visaType" style="text-align: center;">
+            {{userFlowDetails.purpose}} / {{stayPeriod}} <br />{{userFlowDetails.entryType}}
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="wrapper-info">
+          <div class="visaPriceContainer">
+            <div class="visaPriceHeading ">
+              Visa Price
+            </div>
+          </div>
+          <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}
+            <span class="d-block">(including taxes)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="complex-boxing">
+      <div class="box tabletView">
+        <div class="wrapper-info">
+          <img data-src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}} flag image"
+            class="img-fluid countryFlag rounded lazyload" />
+          <h6 class="mt-2">{{ country }}</h6>
+        </div>
+      </div>
+      <div class="box desktopView">
+        <div class="wrapper-info">
+          <div class="visaTypeContainer">
+            <div class="visaTypeHeading ">Visa Type</div>
+          </div>
+          <div class="visaType" style="text-align: center;">
+            {{userFlowDetails.purpose}} / {{stayPeriod}} <br />{{userFlowDetails.entryType}}
+          </div>
+        </div>
+      </div>
+      <div class="box desktopView">
+        <div class="wrapper-info">
+          <div class="visaPriceContainer">
+            <div class="visaPriceHeading ">
+              Visa Price
+            </div>
+          </div>
+          <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}
+            <span class="d-block">(including taxes)</span>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="wrapper-info">
+          <form [formGroup]="travelDetails">
+            <div class="dateOfTravelContainer visaDateHeading">
+              <label for="">Date Of Travel</label>
+              <div class="form-group">
+                <div class="input-group">
+                  <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel"
+                    formControlName="dateOfTravel" id="#dot" autocomplete="off" class="form-control addTravelDate"
+                    placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
+                    #dot="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dot.toggle()" type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px"
+                        class="calendarSvg">
+                        <path
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                        <path d="M0 0h24v24H0z" fill="none" /></svg>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="travelDateError && travelDetails.get('dateOfTravel').pristine" class="invalid-feedback"
+                  style="display: block">
+                  Please select Date of Travel .
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!imageUpload" class="dateOfTravelContainer visaDateHeading documents mt-2">
+              <label for="">Date Of Collection <br /> of Documents</label>
+              <div class="form-group">
+                <div class="input-group">
+                  <input (ngModelChange)="checkDateOfCollection()"
+                    [disabled]="travelDetails.get('dateOfTravel').invalid" formControlName="dateOfCollection" id="#doc"
+                    class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc"
+                    autocomplete="off" [minDate]="tomorrowDate" [maxDate]="minDateOfCollection" ngbDatepicker
+                    #doc="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="doc.toggle()" type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
+                        height="18px">
+                        <path
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                        <path d="M0 0h24v24H0z" fill="none" /></svg>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="travelDetails.get('dateOfTravel').invalid" class="invalid-feedback" style="display: block">
+                  Please select Date of Travel first.
+                </div>
+                <div *ngIf="collectionDateError" class="invalid-feedback" style="display: block;font-size: 80%">
+                  Please select Date of Collection <br> of Documents .
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="addPassengerContainer">
+  <div class="addPassengerHeading">
+    <h5>Passenger Details</h5>
+    <ul>
+      <li>
+        <div class="success-Icon img-sprite"></div>
+        <p class="messageLead">
+          Corresponding Traveller Details are complete.
+        </p>
+      </li>
+
+      <li>
+        <div class="error-Icon img-sprite"></div>
+        <p class="messageLead">
+          Corresponding Traveller Details are missing.
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="addPassengerForm">
+  <div id="accordion">
+    <form [formGroup]="travellerForm">
+      <div formArrayName="travellers"
+        *ngFor="let traveller of travellerForm.get('travellers').controls; let first=first; let i = index ;"
+        class="card">
+        <form [formGroupName]="i">
+          <div class="card-header travelerHeading" id="dataSource[i].id">
+            <button class="btn" data-toggle="collapse" attr.aria-controls="{{ dataSource[i].dataToggle }}"
+              attr.data-target="{{ dataSource[i].dataToggleHash }}" aria-expanded="false">
+              {{ dataSource[i].id.substring(0,10) }}
+            </button>
+
+            <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
+              <div class="error-formIcon img-sprite"></div>
+            </span>
+
+            <span *ngIf="travellerForm.controls.travellers.controls[i].valid">
+              <div class="success-formIcon img-sprite"></div>
+            </span>
+            <button *ngIf="!first" (click)="removeTraveller(i)" type="button" class="close float-right"
+              data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div id="{{ dataSource[i].dataToggle }}" class="collapse"
+            [class.show]="selectedTravellerForm === i || travellerForm.controls.travellers.controls[i].invalid"
+            attr.aria-labelledby="{{ dataSource[i].id }}" data-parent="#accordion">
+            <div class="card-body">
+              <div class="form-row">
+                <div class="col-md-2 mb-3">
+                  <label>Title <span class="astrisk"><span class="astrisk">*</span></span></label>
+                  <select formControlName="title" id="inputState" class="form-control">
+                    <option selected>Mr</option>
+                    <option>Mrs</option>
+                    <option>Master</option>
+                    <option>Ms</option>
+                  </select>
+                  <div *ngIf="travellerForm.controls.travellers.controls[i].controls.title.errors?.valueErr"
+                    class="invalid-feedback" style="display: block">
+                    Select a valid title
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label>First Name <span class="astrisk">*</span></label>
+                  <input
+                    [ngClass]="{
+                      'is-invalid':
+                        travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty,
+                      'is-valid':
+                        !(travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) && !travellerForm.controls.travellers.controls[i].controls.firstName.pristine}"
+                    pattern="[A-Za-z]{3,32}" formControlName="firstName" type="text" class="form-control"
+                    autocomplete="new-name" placeholder="First name" required />
+
+                  <div
+                    *ngIf="
+                        (travellerForm.controls.travellers.controls[i].controls.firstName.invalid && travellerForm.controls.travellers.controls[i].controls.firstName.dirty) || (travellerForm.controls.travellers.controls[i].controls.firstName.errors?.valueErr) ||
+                        (travellerForm.controls.travellers.controls[i].controls.firstName.pristine && travellerForm.controls.travellers.controls[i].controls.firstName.firstNameError)"
+                    class="invalid-feedback" style="display: block">
+                    Enter a valid first name
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label>Middle Name</label>
+                  <input
+                    [ngClass]="{
+                      'is-invalid':travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty,
+                      'is-valid':!(travellerForm.controls.travellers.controls[i].controls.middleName.invalid &&         travellerForm.controls.travellers.controls[i].controls.middleName.dirty) &&                    !travellerForm.controls.travellers.controls[i].controls.middleName.pristine}"
+                    pattern="[A-Za-z]{3,32}" type="text" formControlName="middleName" autocomplete="new-name"
+                    class="form-control" id="middlename" placeholder="Middle name" />
+
+                  <div *ngIf="
+                        (travellerForm.controls.travellers.controls[i].controls.middleName.invalid && travellerForm.controls.travellers.controls[i].controls.middleName.dirty) ||
+                        (travellerForm.controls.travellers.controls[i].controls.middleName.errors?.valueErr) "
+                    class="invalid-feedback" style="display: block">
+                    Enter a valid middle name
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label>Last Name <span class="astrisk">*</span></label>
+                  <input
+                    [ngClass]="{
+                      'is-invalid':travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty,
+                      'is-valid':!(travellerForm.controls.travellers.controls[i].controls.lastName.invalid &&           travellerForm.controls.travellers.controls[i].controls.lastName.dirty) &&                      !travellerForm.controls.travellers.controls[i].controls.lastName.pristine}"
+                    pattern="[A-Za-z]{3,32}" type="text" formControlName="lastName" class="form-control"
+                    autocomplete="new-name" placeholder="Last name" required />
+
+                  <div
+                    *ngIf="
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.invalid && travellerForm.controls.travellers.controls[i].controls.lastName.dirty) ||
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.errors?.valueErr) ||
+                        (travellerForm.controls.travellers.controls[i].controls.lastName.pristine && travellerForm.controls.travellers.controls[i].controls.lastName.lastNameError)"
+                    class="invalid-feedback" style="display: block">
+                    Enter a valid last name
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label>Date Of Birth <span class="astrisk">*</span></label>
+                  <div class="form-group mb-0">
+                    <div class="input-group">
+                      <input hidden formControlName="dateOfBirth" type="text">
+                      <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
+                        formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate"
+                        autocomplete="new-name" placeholder="Date Of Birth" name="dp" ngbDatepicker
+                        #dob="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
+                            height="18px">
+                            <path
+                              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            <path d="M0 0h24v24H0z" fill="none" /></svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="
+                    travellerForm.controls.travellers.controls[i].controls.dateOfBirth.errors?.valueErr ||
+                    (travellerForm.controls.travellers.controls[i].controls.dateOfBirth.dateOfBirthError &&
+                        travellerForm.controls.travellers.controls[i].controls.dateOfBirthCopy.pristine)"
+                    class="invalid-feedback" style="display: block">
+                    Invalid Date of Birth
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label>Passport Number <span class="astrisk">*</span></label>
+                  <div class="input-group">
+                    <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                    .passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty,
+                    'is-valid':!(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.
+                    travellers.controls[i].controls.passportNumber.dirty) && !travellerForm.controls.travellers.controls[i].
+                    controls.passportNumber.pristine}" pattern="^[A-Za-z]{1}[0-9]{7}$" formControlName="passportNumber"
+                      type="text" class="form-control" id="PassportNumber" autocomplete="new-name"
+                      placeholder="Passport Number" required />
+
+                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.passportNumber.invalid && travellerForm.controls.travellers.controls[i].controls.passportNumber.dirty) || (travellerForm.controls.travellers.controls[i].controls.passportNumber.errors?.valueErr) ||
+                        (travellerForm.controls.travellers.controls[i].controls.passportNumber.passportError &&
+                        travellerForm.controls.travellers.controls[i].controls.passportNumber.pristine)"
+                      class="invalid-feedback" style="display: block">
+                      Enter a valid passport number
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-row">
+                <div class="col-md-2 mb-3">
+                  <label>Passport Expiry Date <span class="astrisk">*</span></label>
+                  <div class="form-group mb-0">
+                    <div class="input-group">
+                      <input hidden formControlName="passportExpiryDate">
+                      <input formControlName="passportExpiryDateCopy" class="form-control addTravelDate"
+                        placeholder="Passport Expiry Date" name="dp" autocomplete="new-name"
+                        [minDate]="minDatePassportExpiry" id="#doe" ngbDatepicker #doe="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="doe.toggle()" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
+                            height="18px">
+                            <path
+                              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            <path d="M0 0h24v24H0z" fill="none" /></svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div *ngIf="
+                         travellerForm.controls.travellers.controls[i].controls.passportExpiryDate.errors?.valueErr ||
+                    (travellerForm.controls.travellers.controls[i].controls.passportExpiryDateCopy.passportExpiryCopyError &&
+                        travellerForm.controls.travellers.controls[i].controls.passportExpiryDateCopy.pristine)"
+                      class="invalid-feedback" style="display: block">
+                      Invalid Date of Passport Expiry
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label>Email <span class="astrisk">*</span></label>
+                  <div class="input-group">
+                    <input pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                      .emailId.invalid && travellerForm.controls.travellers.controls[i].controls.emailId.dirty,
+                      'is-valid':!(travellerForm.controls.travellers.controls[i].controls.emailId.invalid && travellerForm.controls.
+                      travellers.controls[i].controls.emailId.dirty) && !travellerForm.controls.travellers.controls[i].
+                      controls.emailId.pristine}" formControlName="emailId" type="email" class="form-control"
+                      id="EmailId" autocomplete="new-name" placeholder="Email ID" required />
+
+                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.emailId.invalid &&
+                        travellerForm.controls.travellers.controls[i].controls.emailId.dirty) ||
+                        (travellerForm.controls.travellers.controls[i].controls.emailId.errors?.valueErr) || (travellerForm.controls.travellers.controls[i].controls.emailId.emailError &&
+                        travellerForm.controls.travellers.controls[i].controls.emailId.pristine)"
+                      class="invalid-feedback" style="display: block">
+                      Enter a valid Email ID
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="first" class="col-md-4 mb-3">
+                  <label>GST Number</label>
+                  <div class="input-group">
+                    <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                    .gstNumber.invalid && travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty,
+                    'is-valid':!(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid && travellerForm.controls.
+                    travellers.controls[i].controls.gstNumber.dirty) && !travellerForm.controls.travellers.controls[i].
+                    controls.gstNumber.pristine}" formControlName="gstNumber" type="text" class="form-control"
+                      id="GstNumber" autocomplete="new-name" placeholder="GSTIN No. (Optional)" />
+
+                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.gstNumber.invalid &&
+                        travellerForm.controls.travellers.controls[i].controls.gstNumber.dirty) ||
+                        (travellerForm.controls.travellers.controls[i].controls.gstNumber.errors?.valueErr)"
+                      class="invalid-feedback" style="display: block">
+                      Enter a valid GST number
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                  <label>Mobile Number <span class="astrisk">*</span></label>
+                  <input [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .cellNumber.invalid && travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.cellNumber.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.cellNumber.pristine}" pattern="^[6-9][0-9]{9}$" type="tel" formControlName="cellNumber"
+                    class="form-control" autocomplete="new-name" placeholder="Mobile Number" required />
+                  <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.cellNumber.invalid &&
+                      travellerForm.controls.travellers.controls[i].controls.cellNumber.dirty) ||
+                      (travellerForm.controls.travellers.controls[i].controls.cellNumber.errors?.valueErr) ||
+                      (travellerForm.controls.travellers.controls[i].controls.cellNumber.cellError &&
+                      travellerForm.controls.travellers.controls[i].controls.cellNumber.pristine)"
+                    class="invalid-feedback" style="display: block">
+                    Enter a valid mobile number
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!imageUpload" class="form-row mt-2">
+                <div class="col-md-12">
+                  <label><b>Address for pickup of documents </b></label>
+                  <br>
+                  <div *ngIf="!first" class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3">
+                    <input (click)="setAddressSame(i)" formControlName="addressForPickupSame" class="form-check-input"
+                      type="checkbox" [id]="i">
+                    <label class="form-check-label" [for]="i" style="font-size: 13px">
+                      Same as Primary Traveller
+                    </label>
+                  </div>
+                </div>
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                  class="col-md-4 mb-2">
+                  <label>Address <span class="astrisk">*</span></label>
+                  <div class="input-group">
+                    <textarea minlength="10" pattern="^[ A-Za-z0-9-:./\n,]*$" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                    .address.invalid && travellerForm.controls.travellers.controls[i].controls.address.dirty,
+                    'is-valid':!(travellerForm.controls.travellers.controls[i].controls.address.invalid && travellerForm.controls.
+                    travellers.controls[i].controls.address.dirty) && !travellerForm.controls.travellers.controls[i].
+                    controls.address.pristine}" autocomplete="new-name" formControlName="address" class="form-control "
+                      placeholder="Address for Pickup Of Documents" id="address" rows="4"></textarea>
+                    <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.address.invalid &&
+                        travellerForm.controls.travellers.controls[i].controls.address.dirty) ||
+                        (travellerForm.controls.travellers.controls[i].controls.address.errors?.valueErr) ||
+                        (travellerForm.controls.travellers.controls[i].controls.address.addressError &&
+                        travellerForm.controls.travellers.controls[i].controls.address.pristine)"
+                      class="invalid-feedback" style="display: block">
+                      Enter a valid address
+                    </div>
+                  </div>
+                </div>
+
+
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                  class="col-md-2 mb-3">
+                  <label>State <span class="astrisk">*</span></label>
+                  <select (change)="checkCity(i)" formControlName="state" class="form-control">
+                    <option *ngFor="let state of list.states;let first=first" value="{{state}}">{{state}}</option>
+                  </select>
+                  <div *ngIf=" (travellerForm.controls.travellers.controls[i].controls.state.errors?.valueErr)"
+                    class="invalid-feedback" style="display: block">
+                    Select a valid state
+                  </div>
+                </div>
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                  class="col-md-2 mb-3">
+                  <label>City <span class="astrisk">*</span></label>
+                  <select formControlName="city" class="form-control">
+                    <option
+                      *ngFor="let city of list.cities[travellerForm.controls.travellers.controls[i].controls.state.value];let first=first"
+                      value="{{city}}">{{city}}</option>
+                  </select>
+                  <div *ngIf=" (travellerForm.controls.travellers.controls[i].controls.city.errors?.valueErr)"
+                    class="invalid-feedback" style="display: block">
+                    Select a valid city
+                  </div>
+                </div>
+                <div *ngIf="travellerForm.controls.travellers.controls[i].controls.addressForPickupSame.value == false"
+                  class="col-md-2 mb-3">
+                  <label>PinCode <span class="astrisk">*</span></label>
+                  <input formControlName="pinCode" [ngClass]="{'is-invalid':travellerForm.controls.travellers.controls[i].controls
+                  .pinCode.invalid && travellerForm.controls.travellers.controls[i].controls.pinCode.dirty,
+                  'is-valid':!(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid && travellerForm.controls.
+                  travellers.controls[i].controls.pinCode.dirty) && !travellerForm.controls.travellers.controls[i].
+                  controls.pinCode.pristine}" pattern="^[1-9][0-9]{5}$" type="text" autocomplete="new-name"
+                    class="form-control" id="pincode" placeholder="Pin Code" />
+
+                  <div *ngIf="(travellerForm.controls.travellers.controls[i].controls.pinCode.invalid &&
+                      travellerForm.controls.travellers.controls[i].controls.pinCode.dirty) ||
+                      (travellerForm.controls.travellers.controls[i].controls.pinCode.errors?.valueErr) ||
+                      (this.travellerForm.controls.travellers.controls[i].controls.pinCode.zipCodeError &&
+                      travellerForm.controls.travellers.controls[i].controls.pinCode.pristine)"
+                    class="invalid-feedback" style="display: block">
+                    Enter valid pincode
+                  </div>
+
+                </div>
+              </div>
+              <div *ngIf="imageUpload" class="form-row mt-2">
+                <div class="col-md-12">
+                  <label><b> Upload required documents here </b></label>
+                </div>
+                <div *ngFor="let image of imageUploads;let j = index" class="col-md-3 mb-3">
+                  <label>{{image.content}}<span class="astrisk">*</span></label>
+
+                  <button *ngIf="image.content === 'Passport front page'" type="button" class="btn toggleHelperBtn"
+                    data-toggle="modal" data-target="#samplePassportFront">
+
+                    <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
+                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </button>
+
+                  <button *ngIf="image.content === 'Passport last page'" type="button" class="btn toggleHelperBtn"
+                    data-toggle="modal" data-target="#samplePassportBack">
+                    <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
+                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </button>
+
+                  <button *ngIf="image.content === 'Applicant passport size photograph'" type="button"
+                    class="btn toggleHelperBtn" data-toggle="modal" data-target="#samplePhotograph">
+                    <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16"
+                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </button>
+
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input id="{{image.fieldName}}" (change)="onFileSelected($event,i,image.fieldName)" type="file"
+                        class="custom-file-input" />
+                      <label class="custom-file-label"
+                        for="{{image.fieldName}}">{{this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].value == null ? "" : this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].value.name}}</label>
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="((this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.type  && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty))"
+                    class="invalid-feedback" style="display: block">
+                    Select a file of type png, pdf, jpg or jpeg only !
+                  </div>
+
+                  <div
+                    *ngIf="(this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].pristine && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].checkUploadedImages)"
+                    class="invalid-feedback" style="display: block">
+                    Please Upload the document
+                  </div>
+
+                  <div
+                    *ngIf=" this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors != null && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].errors.size && this.travellerForm.get('travellers').controls[i].controls[this.filedNameArr[j]].dirty"
+                    class="invalid-feedback" style="display: block">
+                    File size must be less than 1 MB
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </form>
+
+    <div class="addTrallerBtn">
+      <button type="button" class="btn btn-info btn-circle btn-lg" (click)="addTraveller()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="14px" viewBox="0 0 512 512" width="14px"
+          style="margin-top: -1px;" class="hovered-paths">
+          <g>
+            <path
+              d="m304 512h-96c-17.679688 0-32-14.320312-32-32v-144h-144c-17.679688 0-32-14.320312-32-32v-96c0-17.679688 14.320312-32 32-32h144v-144c0-17.679688 14.320312-32 32-32h96c17.679688 0 32 14.320312 32 32v144h144c17.679688 0 32 14.320312 32 32v96c0 17.679688-14.320312 32-32 32h-144v144c0 17.679688-14.320312 32-32 32zm0 0"
+              fill="#FFFFFF" data-original="#48C8EF" class="hovered-path active-path" data-old_color="#48c8ef" />
+          </g>
+        </svg>
+
+      </button>
+      <span>Add Traveller</span>
+    </div>
+  </div>
+</div>
+
+<div class="acknowledgementContainer">
+  <form [formGroup]="termsAndConditions">
+    <div class="form-check">
+      <div class="custom-control custom-checkbox" style="padding-left: 0px !important;">
+        <input formControlName="tnc" type="checkbox" class="custom-control-input" id="checkAll" />
+        <label class="custom-control-label tnc" for="checkAll" style="cursor: pointer;">I agree with the <a
+            [routerLink]="['/tnc']" target="_blank" routerLinkActive="router-link-active">Terms &amp;
+            Conditions</a> and <a [routerLink]="['/cancellationPolicy']" target="_blank"
+            routerLinkActive="router-link-active">Cancellation Policy</a> of Visa2fly.
+        </label>
+      </div>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </form>
+
+  <div class="mt-3" style="font-size: 13px;" *ngIf="disclaimerForDubai">
+    <p><b><span class="astrisk"></span>If you exceed the stay duration on the e-Visa, you may be required to pay
+        fines, be deported, or otherwise
+        forbidden from future travel to UAE</b></p>
+  </div>
+</div>
+
+<div class="proceedToPayment">
+  <div class="row">
+    <div class="col-12 text-center">
+      <button (click)="seeValues()" class="btn btn-primary" type="submit">
+        Proceed to payment
+      </button>
+    </div>
+  </div>
+</div>
+
+<div style="display: none">
+  <form name="paymentForm" ngNoForm [action]="redirect" method="POST">
+    <input type="text" name="bookingId" id="bookingId" [(ngModel)]="bookingId">
+    <input type="text" name="collectPayment" id="collectPayment" [(ngModel)]="collectPayment">
+    <input type="text" name="amount" id="amount" [(ngModel)]="amount">
+    <input type="text" name="hash" id="hash" [(ngModel)]="hash">
+    <input type="text" name="code" id="code" [(ngModel)]="code">
+    <input type="text" name="status" id="status" [(ngModel)]="status">
+    <input type="text" name="message" id="message" [(ngModel)]="message">
+    <input type="text" name="extraParams" id="extraParams" [(ngModel)]="extraParams">
+  </form>
+</div>
+
+<div class="photo-spec">
   <div class="modal fade" id="samplePassportFront" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -662,12 +1337,10 @@
       <div class="modal-content">
         <div class="modal-body">
           <img src="https://static.visa2fly.com/sample/photograph/{{country}}.jpg" alt="" class="img-fluid feedImage">
-
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="modal  fade" id="exampleModal1" style="top: 200px" data-backdrop="static" data-keyboard="false"
@@ -714,4 +1387,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
