@@ -390,8 +390,8 @@
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false"
-                          aria-controls="toursit4" [class.showDiv]="selectedTourist === 4"
+                        <div data-toggle="collapse" data-target="#tourist4" aria-expanded="false"
+                          aria-controls="tourist4" [class.showDiv]="selectedTourist === 4"
                           (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/authorization.png" alt="apply for Vietnam e visa" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -401,7 +401,7 @@
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="toursit4" class="collapse" aria-labelledby="heading4"
+                        <div id="tourist4" class="collapse" aria-labelledby="heading4"
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
@@ -413,6 +413,22 @@
                             </div>
                           </div>
                         </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
@@ -1260,6 +1276,22 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
                   </ngb-tabset>
                 </div>
               </div>
@@ -1272,8 +1304,8 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
-                          aria-controls="businessMobile1" [class.showDiv]="selectedBusiness === 1"
-                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                          aria-controls="businessMobile1" [class.showDiv]="selectedMobileBusiness === 1"
+                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Vietnam tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -1454,8 +1486,8 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
-                          aria-controls="businessMobile2" [class.showDiv]="selectedBusiness === 2"
-                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                          aria-controls="businessMobile2" [class.showDiv]="selectedMobileBusiness === 2"
+                          (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Application form.png" alt="Vietnam tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512"
@@ -1549,8 +1581,8 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
-                          aria-controls="businessMobile3" [class.showDiv]="selectedBusiness === 3"
-                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                          aria-controls="businessMobile3" [class.showDiv]="selectedMobileBusiness === 3"
+                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="Vietnam tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512"
@@ -1655,8 +1687,8 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
-                          aria-controls="businessMobile4" [class.showDiv]="selectedBusiness === 4"
-                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                          aria-controls="businessMobile4" [class.showDiv]="selectedMobileBusiness === 4"
+                          (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/authorization.png" alt="Vietnam tourist visa for Indian" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-authorization requiredIcons img-sprite"></div>
@@ -1944,8 +1976,8 @@
   
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
-                          aria-controls="transitMobile1" [class.showDiv]="selectedTransit === 1"
-                          (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
+                          aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
+                          (click)="setActiveMobileTransit(1, 'setActiveMobileTransit1')" id="setActiveMobileTransit1">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="Vietnam tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -2125,8 +2157,8 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
-                          aria-controls="transitMobile2" [class.showDiv]="selectedTransit === 2"
-                          (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
+                          aria-controls="transitMobile2" [class.showDiv]="selectedMobileTransit === 2"
+                          (click)="setActiveMobileTransit(2, 'setActiveMobileTransit2')" id="setActiveMobileTransit2">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight ticket.png" alt="apply for Vietnam e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-flightTicket requiredIcons img-sprite"></div>
@@ -2158,8 +2190,8 @@
                     <ngb-tab>
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
-                          aria-controls="transitMobile3" [class.showDiv]="selectedTransit === 3"
-                          (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
+                          aria-controls="transitMobile3" [class.showDiv]="selectedMobileTransit === 3"
+                          (click)="setActiveMobileTransit(3, 'setActiveMobileTransit3')" id="setActiveMobileTransit3">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Visa of Visiting Country.png" alt="apply for Vietnam e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
                             <div class="vr-visa requiredIcons img-sprite"></div>

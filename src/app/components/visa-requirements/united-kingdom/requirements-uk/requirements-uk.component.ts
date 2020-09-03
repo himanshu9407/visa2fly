@@ -95,8 +95,25 @@ export class RequirementsUkComponent implements OnInit {
     }
   }
 
-  setActiveTransit(index: number) {
+  setActiveTransit(index: number, id: string) {
     this.selectedTransit = index;
+
+    if ($("#transit" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
+  }
+
+
+  setActiveMobileTransit(index: number, id: string) {
+    this.selectedMobileTransit = index;
+
+    if ($("#transitMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
 
   changePurpose(event) {
