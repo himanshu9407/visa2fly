@@ -2,10 +2,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ViewChild,
   Inject,
-  PLATFORM_ID,
 } from "@angular/core";
 import {
   trigger,
@@ -18,13 +15,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { RouterHistory } from "src/app/shared/router-history.service";
-import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { DOCUMENT, isPlatformBrowser } from "@angular/common";
+import { DOCUMENT } from "@angular/common";
 import { Subject } from 'rxjs';
 
 export interface Food {

@@ -53,7 +53,6 @@ export interface Food {
   ],
 })
 export class AzerbaijanComponent implements OnInit {
-  @ViewChild("t", { static: false }) t;
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;

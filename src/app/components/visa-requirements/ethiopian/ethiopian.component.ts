@@ -1,24 +1,20 @@
-import { Component, OnInit, ViewChild, AfterViewInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
   state,
+  style,
   transition,
   animate,
-  style,
 } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
-import { VisaRequirementService } from "../visa-requirement.service";
-import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { PreloaderService } from "src/app/shared/preloader.service";
-import { LoginService } from "../../login-signup/login/login.service";
 import { ToastrService } from "ngx-toastr";
-import { RouterHistory } from "src/app/shared/router-history.service";
-import { RequirementsService } from "../../requirements/requirements.service";
+import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
+import { VisaRequirementService } from "../visa-requirement.service";
+import { PreloaderService } from "src/app/shared/preloader.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { SeoService } from "src/app/shared/seo.service";
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT } from "@angular/common";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-ethiopian",
@@ -41,14 +37,14 @@ import { DOCUMENT } from '@angular/common';
     ]),
   ],
 })
-export class EthiopianComponent implements OnInit, AfterViewInit {
-  @ViewChild("t") t;
+export class EthiopianComponent implements OnInit {
   ngbTabTitleClass;
+
+  selectedPurpose: Subject<any> = new Subject();
   public onlinestatus: boolean = false;
 
   selectedRequirement: boolean = false;
 
-  // public selectedCountryType = "France";
   public selectedVisaType = "Tourist";
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
@@ -57,7 +53,6 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
   public MyQuotation1: Array<any> = [];
   public imagefield1: Array<any> = [];
   public purposeChooseForm: FormGroup;
-  // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
   transitArr: Array<any> = [];
@@ -65,6 +60,10 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
   selectedTransit: number = 1;
   selectedVisaBusiness: number = 1;
   selectedTourist: number = 1;
+  selectedMobileTourist: number = 1;
+  selectedMobileBusiness: number = 1;
+  selectedMobileTransit: number = 1;
+
   public selectedCountrytype = "Ethiopia";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -74,16 +73,11 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
   public imageUpload1: Array<any> = [];
 
   constructor(
-    private activeRoute: ActivatedRoute,
     private router: Router,
     private requireQuotation: VisaRequirementService,
     private userFlow: UserFlowDetails,
-    private loginStatus: LoginStatusService,
-    private loginService: LoginService,
-    private preloaderService: PreloaderService,
-    private routerHistory: RouterHistory,
-    private reqService: RequirementsService,
     private toastr: ToastrService,
+    private preloaderService: PreloaderService,
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
@@ -91,7 +85,7 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','ethiopia-visa-online']);
+        this.router.navigate(["visa", "ethiopia-visa-online"]);
       }
     });
 
@@ -104,36 +98,27 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
     }
 
     let tempPurpose = this.selectedVisaType;
-    //console.log(tempPurpose);
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
     });
-
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
-        // console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
-
           this.imageCatogory.push(res.data.imageUploadInfo);
-
           this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-          // console.log(this.imageCatogoryBusinessTemp);
-
           this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-          // console.log(this.imageCatogoryTouristTemp);
-
           this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-          // console.log(this.imageCatogoryTransitTemp);
-
           this.onlinestatus = res.data.onlineCategory;
           this.userFlow.setUserFlowDetails(
             "onlineCountry",
             JSON.stringify(res.data.onlineCategory)
           );
 
-           this.MyQuotation.forEach((element) => {
+          this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
             } else if (element.purpose == "Tourist") {
@@ -159,7 +144,10 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
             this.router.navigate(["visa/"]);
           }
 
-          this.imagefield1 = this.imageCatogoryTemp;
+          this.userFlow.setUserFlowDetails(
+            "imageUploads",
+            JSON.stringify(this.imageCatogoryTemp)
+          );
 
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
@@ -175,8 +163,10 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly");
-    
+    this.titleService.setTitle(
+      "Ethiopia Visa | Apply For Ethiopia Visa Online for Indians- Visa2Fly"
+    );
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -247,15 +237,10 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
       content: "@visa2fly",
     });
 
-
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
     link.setAttribute("href", "https://visa2fly.com/visa/ethiopia-visa-online");
-  }
-
-  ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
   }
 
   purposeChanged() {
@@ -265,146 +250,54 @@ export class EthiopianComponent implements OnInit, AfterViewInit {
     if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.t.select("Tourist");
+      this.selectedPurpose.next(purpose);
     } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.t.select("Business");
+      this.selectedPurpose.next(purpose);
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.t.select("Transit");
+      this.selectedPurpose.next(purpose);
     }
+
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imageCatogoryTemp)
+    );
   }
 
   navigateTo(purpose: any) {
-    // window.location
-    //let urlpurpose = this.MyQuotation1
-
     let purposeString: string = purpose.nextId;
-    // console.log(purposeString);
     let purposeUrl =
       purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
     this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
     if (purposeString == "Tourist") {
       this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
       this.selectedTourist = 1;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-
-      //this.t.select("Tourist");
+      this.selectedMobileTourist = 1;
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
       this.selectedBusiness = 1;
-      this.selectedVisaBusiness = 1;
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-
-      // console.log(this.MyQuotation1);
-      //this.t.select("Business");
+      this.selectedMobileBusiness = 1;
     } else {
       this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
       this.selectedTransit = 1;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-
-      //this.t.select("Transit");
+      this.selectedMobileTransit = 1;
     }
-    // console.log(this.MyQuotation1);
-    this.imagefield1 = this.imageCatogoryTemp;
+
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
-  }
 
-  setActiveTourist(index: number) {
-    this.selectedTourist = index;
-    // console.log('business');
-  }
-
-  setActiveBusiness(index: number) {
-    this.selectedBusiness = index;
-    //  console.log('business');
-  }
-
-  setBusinessVisa(index: number) {
-    this.selectedVisaBusiness = index;
-    //  console.log('business');
-  }
-
-  setActiveTransit(index: number) {
-    this.selectedTransit = index;
-    // console.log('business');
-  }
-
-  resetPage() {
-    this.userFlow.setCookie("selectedVisaPurpose", "Tourist");
-  }
-
-  navigate(
-    quoteId: string,
-    purpose: string,
-    category: string,
-    minTravelDate: number,
-    basePrice: number,
-    serviceTax: number,
-    stayPeriod: string,
-    imageUpload: boolean,
-  ) {
-    this.preloaderService.showPreloader(true);
-
-    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-    this.userFlow.setUserFlowDetails("purpose", purpose);
-    this.userFlow.setUserFlowDetails("quoteId", quoteId);
-    this.userFlow.setUserFlowDetails("category", category);
-    this.userFlow.setUserFlowDetails(
-      "minTravelDate",
-      JSON.stringify(minTravelDate)
-    );
-    this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
-    this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
-    this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
     this.userFlow.setUserFlowDetails(
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
-
-    let token = this.loginService.getAuthToken();
-    if (token == null || token == undefined) {
-      token = "";
-    }
-    this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-      if (data.code == "0") {
-        this.reqService.verifyQuotation(quoteId).subscribe((data: any) => {
-          // console.log(data);
-
-          if (data.code == "0") {
-            this.routerHistory.pushHistory("visa-requirement");
-            this.router.navigate(["addTraveller"]);
-
-            // setTimeout(() => {
-
-            this.preloaderService.showPreloader(false);
-            // }, 2000);
-          } else {
-            this.toastr.error("" + data.message);
-            this.preloaderService.showPreloader(false);
-          }
-        });
-      } else if (data.code == "301") {
-        this.loginService.setAuthToken("");
-        this.loginStatus.setUserStatus(false);
-        this.loginStatus.setUserLoggedIn(false);
-        // this.router.navigate(['visa']);
-        this.preloaderService.showPreloader(false);
-        this.userFlow.setCookie("profile", JSON.stringify({}));
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      } else {
-        this.routerHistory.pushHistory("req-and-quote");
-        this.router.navigate(["slcontainer/login"]);
-        this.preloaderService.showPreloader(false);
-      }
-    });
   }
+
 }

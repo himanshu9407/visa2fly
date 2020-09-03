@@ -1,0 +1,1317 @@
+<div class="container-fluid p-0">
+  <div class="iconSection">
+    <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
+      [justify]="desktopJustify" [orientation]="desktopOrientation">
+      <ngb-tab id="Tourist" title="Tourist">
+
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <!-- tourist -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                    VISA REQUIREMENT FOR
+                    China</span>
+                </h1>
+              </div>
+            </div>
+
+            <!-- desktopContainer -->
+            <div class="desktopContainer accordion" id="touristAccodion">
+              <div class="row mt-2">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true" aria-controls="tourist1"
+                        [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1, 'setActiveTourist1')"
+                        id="setActiveTourist1">
+                        <div class="makeIconCntr">
+                          <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Application form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist1" class="collapsed" aria-labelledby="heading1" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Application form</h1>
+                            <p>The applicant will require to fill up a China visa online form that will
+                              require details such as personal information, travel information, and other extra
+                              information.</p>
+                            <p>
+                              Don’t worry! When you apply for China visa online, an agent from Visa2Fly will
+                              come to your doorstep and assist you in understanding the entire process.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false" aria-controls="tourist2"
+                        [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2, 'setActiveTourist2')"
+                        id="setActiveTourist2">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>
+                              Passport details are mandatory. The applicant passport must have at least 6
+                              months remaining validity, available blank pages and a photocopy of the passport's
+                              data
+                              page.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false" aria-controls="tourist3"
+                        [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3, 'setActiveTourist3')"
+                        id="setActiveTourist3">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist3" class="collapse" aria-labelledby="heading3" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Photograph
+                            </h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a white
+                              background. (48mm X 33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist4" aria-expanded="true" aria-controls="tourist4"
+                      [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
+                      id="setActiveTourist4">
+                        <div class="makeIconCntr">
+                          <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Hotel Reservation</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist4" class="collapse" aria-labelledby="heading4" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Hotel Reservation</h1>
+                            <p>
+                              Proof of hotel reservation
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true" aria-controls="tourist5"
+                        [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5, 'setActiveTourist5')"
+                        id="setActiveTourist5">
+                        <div class="makeIconCntr">
+                          <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Flight ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist5" class="collapse" aria-labelledby="heading5" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Flight ticket
+                            </h1>
+                            <p>
+                              Proof of your Flight Ticket booking
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist6" aria-expanded="true" aria-controls="tourist6"
+                        [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6, 'setActiveTourist6')"
+                        id="setActiveTourist6">
+                        <div class="makeIconCntr">
+                          <div class="vr-itinerary requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Itinerary</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Itinerary
+                            </h1>
+                            <p>
+                              When you apply for China visa online, your detailed travel itinerary gives
+                              information about your travel plans in China along with tickets, Places you are
+                              going to visit, Your meeting agenda, Tours booked in advance, Your festival
+                              agenda, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist7" aria-expanded="true" aria-controls="tourist7"
+                        [class.showDiv]="selectedTourist === 7" (click)="setActiveTourist(7, 'setActiveTourist7')"
+                        id="setActiveTourist7">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter from China.png"
+                          alt="china tourist visa for indian"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                        <h2 class="setFontSize">Invitation Letter from China</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist7" class="collapse" aria-labelledby="heading7" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Invitation Letter from China</h1>
+                            <p>
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or
+                              any individual) with the following details</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Applicant’s full name, Date of
+                              birth, Passport number etc.</p>
+
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited</p>
+
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist8" aria-expanded="true" aria-controls="tourist8"
+                        [class.showDiv]="selectedTourist === 8" (click)="setActiveTourist(8, 'setActiveTourist8')"
+                        id="setActiveTourist8">
+                        <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Supporting Documents.png"
+                          alt="china tourist visa application"
+                          style="height: 45px; margin-bottom: 10px; padding-right: 10px;" />
+                        <h2 class="setFontSize">Other Supporting Documents</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist8" class="collapse" aria-labelledby="heading8" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Other Supporting Documents</h1>
+                            <p>
+                              If you are not applying in your country of citizenship, proof of legal stay or residence
+                              status will be required when you apply for China visa online.</p>
+                            <p>
+                              In some cases, the applicant might have to submit a certification letter from the
+                              employer with the following details :
+                            </p>
+                            <p>
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Name and Contact number of
+                              the Employer
+                            </p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>The Income Statement of the
+                              Applicant, or</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Original copy of the 6-month
+                              Bank Statement of the Applicant.</p>
+
+                            <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the
+                              Tourism Bureau of Tibet Autonomous Region.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+
+            <!-- mobileContainer -->
+            <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+              <div class="row">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                        aria-controls="touristMobile1" [class.showDiv]="selectedMobileTourist === 1"
+                        (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                        <div class="makeIconCntr">
+                          <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Application Form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Application Form</h1>
+                            <p>The applicant will require to fill up a China visa online form that will
+                              require details such as personal information, travel information, and other extra
+                              information.</p>
+                            <p>
+                              Don’t worry! When you apply for China visa online, an agent from Visa2Fly will
+                              come to your doorstep and assist you in understanding the entire process.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                        aria-controls="touristMobile2" [class.showDiv]="selectedMobileTourist === 2"
+                        (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>
+                              Passport details are mandatory. The applicant passport must have at least 6
+                              months remaining validity, available blank pages and a photocopy of the passport&#39;s
+                              data
+                              page.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                        aria-controls="touristMobile3" [class.showDiv]="selectedMobileTourist === 3"
+                        (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Photograph
+                            </h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a white
+                              background. (48mm X 33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                        aria-controls="touristMobile4" [class.showDiv]="selectedMobileTourist === 4"
+                        (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                        <div class="makeIconCntr">
+                          <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Hotel Reservation</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Hotel Reservation</h1>
+                            <p>
+                              Proof of hotel reservation
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                        aria-controls="touristMobile5" [class.showDiv]="selectedMobileTourist === 5"
+                        (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                        <div class="makeIconCntr">
+                          <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Flight ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Flight Ticket
+                            </h1>
+                            <p>
+                              Proof of your Flight Ticket booking.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                        aria-controls="touristMobile6" [class.showDiv]="selectedMobileTourist === 6"
+                        (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                        <div class="makeIconCntr">
+                          <div class="vr-itinerary requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Itinerary</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Itinerary
+                            </h1>
+                            <p>
+                              When you apply for China visa online, your detailed travel itinerary gives
+                              information about your travel plans in China along with tickets, Places you are
+                              going to visit, Your meeting agenda, Tours booked in advance, Your festival
+                              agenda, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
+                        aria-controls="touristMobile7" [class.showDiv]="selectedMobileTourist === 7"
+                        (click)="setActiveTouristMobile(7, 'setActiveTouristMobile7')" id="setActiveTouristMobile7">
+                        <div class="makeIconCntr">
+                          <div class="vr-invitationLetterChina requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Invitation Letter from China</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile7" class="collapse" aria-labelledby="headingMobile7"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Invitation Letter from China</h1>
+                            <p>
+                              Submit the invitation letter that was issued by the inviter (whether it’s an entity or
+                              any individual) with the following details</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Applicant’s full name, Date of
+                              birth, Passport number etc.</p>
+
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited</p>
+
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile8" aria-expanded="true"
+                        aria-controls="touristMobile8" [class.showDiv]="selectedMobileTourist === 8"
+                        (click)="setActiveTouristMobile(8, 'setActiveTouristMobile8')" id="setActiveTouristMobile8">
+                        <div class="makeIconCntr">
+                          <div class="vr-otherSupportDocs requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Other Supporting Documents</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile8" class="collapse" aria-labelledby="headingMobile8"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Other Supporting Documents</h1>
+                            <p>
+                              If you are not applying in your country of citizenship, proof of legal stay or residence
+                              status will be required when you apply for China visa online.</p>
+                            <p>
+                              In some cases, the applicant might have to submit a certification letter from the
+                              employer with the following details :
+                            </p>
+                            <p>
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Name and Contact number of
+                              the Employer
+                            </p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>The Income Statement of the
+                              Applicant, or</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Original copy of the 6-month
+                              Bank Statement of the Applicant.</p>
+
+                            <p>Applicants intending to travel to Tibet can obtain a Tibet Travel Permit from the
+                              Tourism Bureau of Tibet Autonomous Region.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab id="Business" title="Business">
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <!-- business -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                    VISA REQUIREMENT FOR
+                    China</span>
+                </h1>
+              </div>
+            </div>
+
+            <div class="desktopContainer accordion" id="businessAccodion">
+              <div class="row mt-2">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" id="#businessHeading1" data-target="#business1" aria-expanded="true"
+                        aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                        (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                        <div class="makeIconCntr">
+                          <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Application form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Application form</h1>
+                            <p>
+                              The applicant will require to fill up a China visa online form
+                              that will require details such as personal information, travel information, and other
+                              extra information about the purpose of the visit.</p>
+                            <p>Don’t worry! Once you apply for China visa online, An agent from Visa2Fly will
+                              come to your doorstep and assist you in
+                              understanding the entire process.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                        aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                        (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>
+                              Passport details are mandatory. the applicant passport must have at
+                              least 6 months remaining validity, available blank pages and a photocopy of the
+                              passport's data page.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeading3" data-toggle="collapse" data-target="#business3"
+                        aria-expanded="false" aria-controls="business3" [class.showDiv]="selectedBusiness === 3"
+                        (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Photograph
+                            </h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a
+                              white background. (48mm X 33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeading4" data-toggle="collapse" data-target="#business4"
+                        aria-expanded="false" aria-controls="business4" [class.showDiv]="selectedBusiness === 4"
+                        (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                        <div class="makeIconCntr">
+                          <div class="vr-businessInvitation requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Business Invitation Letter</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Business Invitation Letter</h1>
+                            <p>
+                              The Invitation letter should cover the following details:</p>
+
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Applicant’s full name, Date of
+                              birth, Passport number, etc.</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+            </div>
+
+            <!-- mobileContainer -->
+            <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
+              <div class="row">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
+                        aria-controls="businessMobile1" [class.showDiv]="selectedMobileBusiness === 1"
+                        (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                        <div class="makeIconCntr">
+                          <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Application form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Application form</h1>
+                            <p>
+                              The applicant will require to fill up a China visa online form
+                              that will require details such as personal information, travel information, and other
+                              extra information about the purpose of the visit.</p>
+                            <p>Don’t worry! Once you apply for China visa online, An agent from Visa2Fly will
+                              come to your doorstep and assist you in
+                              understanding the entire process.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
+                        aria-controls="businessMobile2" [class.showDiv]="selectedMobileBusiness === 2"
+                        (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>
+                              Passport details are mandatory. the applicant passport must have at
+                              least 6 months remaining validity, available blank pages and a photocopy of the
+                              passport's data page.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
+                        aria-controls="businessMobile3" [class.showDiv]="selectedMobileBusiness === 3"
+                        (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile3"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Photograph
+                            </h1>
+                            <p>
+                              Chinese visa requires a recent passport-size color photo with a
+                              white background. (48mm X 33mm)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
+                        aria-controls="businessMobile4" [class.showDiv]="selectedMobileBusiness === 4"
+                        (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                        <div class="makeIconCntr">
+                          <div class="vr-businessInvitation requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Business Invitation Letter</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile4" class="collapse" aria-labelledby="headingMobile4"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Business Invitation Letter</h1>
+                            <p>
+                              The Invitation letter should cover the following details:</p>
+
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Applicant’s full name, Date of
+                              birth, Passport number, etc.</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Intended business visit, Date
+                              of arrival, Date of departure, Purpose, Place(s) to be visited.</p>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
+                                style="enable-background:new 0 0 286.614 286.614;" xml:space="preserve" class="mr-2"
+                                width="16px" height="16px">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                    <path
+                                      d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
+                                      data-original="#000000" class="active-path" fill="#000" />
+                                  </g>
+                                </g>
+                              </svg>Inviter’s name, Contact number,
+                              Address, Official stamp, Signature, etc.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab id="Transit" title="Transit">
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <!-- transit -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
+                    VISA REQUIREMENT FOR
+                    China</span>
+                </h1>
+              </div>
+            </div>
+
+            <div class="desktopContainer accordion" id="transitAccodion">
+              <div class="row mt-2">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transit1" aria-expanded="true" aria-controls="transit1"
+                        [class.showDiv]="selectedTransit === 1" (click)="setActiveTransit(1, 'setActiveTransit1')"
+                        id="setActiveTransit1">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transit1" class="collapsed" aria-labelledby="transit1" data-parent="#transitAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>A valid passport for 3 months from the date of entry.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transit2" aria-expanded="true" aria-controls="transit2"
+                        [class.showDiv]="selectedTransit === 2" (click)="setActiveTransit(2, 'setActiveTransit2')"
+                        id="setActiveTransit2">
+                        <div class="makeIconCntr">
+                          <div class="vr-visa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Visa</h1>
+                            <p>
+                              A visa for the third country
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transit3" aria-expanded="true" aria-controls="transit3"
+                        [class.showDiv]="selectedTransit === 3" (click)="setActiveTransit(3, 'setActiveTransit3')"
+                        id="setActiveTransit3">
+                        <div class="makeIconCntr">
+                          <div class="vr-ticket requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transit3" class="collapse" aria-labelledby="transit3" data-parent="#transitAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Ticket</h1>
+                            <p>An onward train, cruise or air ticket with a confirmed date and seat number.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+
+
+            <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
+              <div class="row">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
+                        aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
+                        (click)="setActiveTransitMobile(1, 'setActiveTransitMobile')" id="setActiveTransitMobile">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitMobile1" class="collapsed" aria-labelledby="transitMobile1"
+                        data-parent="#transitAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>A valid passport for 3 months from the date of entry.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
+                        aria-controls="transitMobile2" [class.showDiv]="selectedMobileTransit === 2"
+                        (click)="setActiveTransitMobile(2, 'setActiveTransitMobile2')" id="setActiveTransitMobile2">
+                        <div class="makeIconCntr">
+                          <div class="vr-visa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitMobile2" class="collapse" aria-labelledby="transitMobile2"
+                        data-parent="#transitAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Visa</h1>
+                            <p>
+                              A visa for the third country
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
+                        aria-controls="transitMobile3" [class.showDiv]="selectedMobileTransit === 3"
+                        (click)="setActiveTransitMobile(3, 'setActiveTransitMobile3')" id="setActiveTransitMobile3">
+                        <div class="makeIconCntr">
+                          <div class="vr-ticket requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Ticket</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="transitMobile3" class="collapse" aria-labelledby="transitMobile3"
+                        data-parent="#transitAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Ticket</h1>
+                            <p>An onward train, cruise or air ticket with a confirmed date and seat number.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>

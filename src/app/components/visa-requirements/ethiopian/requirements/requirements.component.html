@@ -1,0 +1,1399 @@
+<div class="container-fluid p-0">
+  <div class="iconSection">
+    <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
+      [justify]="desktopJustify" [orientation]="desktopOrientation">
+      <ngb-tab id="Tourist" title="Tourist">
+
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <!-- tourist -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                    VISA REQUIREMENT FOR
+                    Ethiopia</span>
+                </h1>
+              </div>
+            </div>
+
+            <!-- desktopContainer -->
+            <div class="desktopContainer accordion" id="touristAccodion">
+              <div class="row mt-2">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true" aria-controls="tourist1"
+                        [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1, 'setActiveTourist1')"
+                        id="setActiveTourist1">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist1" class="collapsed" aria-labelledby="heading1" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>When you apply for an Ethiopian visa online, you should know that Passport details are
+                              mandatory. A passport or a travel document, with at least 6 months validity beyond the
+                              date of departure from
+                              the country must be submitted. The bio-data page must be scanned and shown. It should also
+                              contain 2 blank pages.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false" aria-controls="tourist2"
+                        [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2, 'setActiveTourist2')"
+                        id="setActiveTourist2">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Recent digital color photographs with a white background are required when you apply for
+                              an Ethiopian visa online - Preferably the photo should not be cropped from the passport;
+                              black and white photographs will not be entertained.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false" aria-controls="tourist3"
+                        [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3, 'setActiveTourist3')"
+                        id="setActiveTourist3">
+                        <div class="makeIconCntr">
+                          <div class="vr-form requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Application Form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist3" class="collapse" aria-labelledby="heading3" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Application Form
+                            </h1>
+                            <p>
+                              Must have all the details correctly filled. These include full name (as it appears on
+                              passport), email address, other passport details, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false" aria-controls="toursit4"
+                        [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
+                        id="setActiveTourist4">
+                        <div class="makeIconCntr">
+                          <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Credit/Debit Card</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="toursit4" class="collapse" aria-labelledby="heading4" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Credit/Debit Card</h1>
+                            <p>
+                              A valid credit/debit card is required for making visa payments, as well as to display
+                              proof of financial independence.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true" aria-controls="tourist5"
+                        [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5, 'setActiveTourist5')"
+                        id="setActiveTourist5">
+                        <div class="makeIconCntr">
+                          <div class="vr-residencePermit requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Residence Permit</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist5" class="collapse" aria-labelledby="heading5" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Residence Permit
+                            </h1>
+                            <p>
+                              Residents of India must also provide valid residence permit in India.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist6" aria-expanded="true" aria-controls="tourist6"
+                        [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6, 'setActiveTourist6')"
+                        id="setActiveTourist6">
+                        <div class="makeIconCntr">
+                          <div class="vr-yellowFever requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Yellow-Fever Vaccination Card</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Yellow-Fever Vaccination Card
+                            </h1>
+                            <p>
+                              A yellow fever vaccination card is required for entry into Ethiopia.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#tourist7" aria-expanded="true" aria-controls="tourist7"
+                        [class.showDiv]="selectedTourist === 7" (click)="setActiveTourist(7, 'setActiveTourist7')"
+                        id="setActiveTourist7">
+                        <div class="makeIconCntr">
+                          <div class="vr-otherDocs requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Other Documents</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="tourist7" class="collapse" aria-labelledby="heading7" data-parent="#touristAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Other Documents
+                            </h1>
+                            <p>Indian ETD’s (Emergency Travel Documents) are also accepted.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+
+            <!-- mobileContainer -->
+            <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                        aria-controls="touristMobile1" [class.showDiv]="selectedMobileTourist === 1"
+                        (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>When you apply for an Ethiopian visa online, you should know that Passport details are
+                              mandatory. A passport or a travel document, with at least 6 months validity beyond the
+                              date of departure from
+                              the country must be submitted. The bio-data page must be scanned and shown. It should also
+                              contain 2 blank pages.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                        aria-controls="touristMobile2" [class.showDiv]="selectedMobileTourist === 2"
+                        (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Recent digital color photographs with a white background are required when you apply for
+                              an Ethiopian visa online - Preferably the photo should not be cropped from the passport;
+                              black and white photographs will not be entertained.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                        aria-controls="touristMobile3" [class.showDiv]="selectedMobileTourist === 3"
+                        (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                        <div class="makeIconCntr">
+                          <div class="vr-form requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Application Form</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Application Form
+                            </h1>
+                            <p>
+                              Must have all the details correctly filled. These include full name (as it appears on
+                              passport), email address, other passport details, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                        aria-controls="touristMobile4" [class.showDiv]="selectedMobileTourist === 4"
+                        (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                        <div class="makeIconCntr">
+                          <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Credit/Debit Card</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Credit/Debit Card</h1>
+                            <p>
+                              A valid credit/debit card is required for making visa payments, as well as to display
+                              proof of financial independence.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                        aria-controls="touristMobile5" [class.showDiv]="selectedMobileTourist === 5"
+                        (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                        <div class="makeIconCntr">
+                          <div class="vr-residencePermit requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Residence Permit</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Residence Permit
+                            </h1>
+                            <p>
+                              Residents of India must also provide valid residence permit in India.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                        aria-controls="touristMobile6" [class.showDiv]="selectedMobileTourist === 6"
+                        (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                        <div class="makeIconCntr">
+                          <div class="vr-yellowFever requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Yellow-Fever Vaccination Card</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Yellow-Fever Vaccination card
+                            </h1>
+                            <p>
+                              A yellow fever vaccination card is required for entry into Ethiopia.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
+                        aria-controls="touristMobile7" [class.showDiv]="selectedMobileTourist === 7"
+                        (click)="setActiveTouristMobile(7, 'setActiveTouristMobile7')" id="setActiveTouristMobile7">
+                        <div class="makeIconCntr">
+                          <div class="vr-otherDocs requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Other Documents</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobile7" class="collapse" aria-labelledby="headingMobile7"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Other Documents
+                            </h1>
+                            <p>
+                              Indian ETD’s (Emergency Travel Documents) are also accepted.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab id="Business" title="Business">
+        <ng-template ngbTabContent>
+
+          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">There are 9 different
+                    types of Business visas:</span>
+                </h1>
+              </div>
+            </div>
+
+            <div class="desktopContainer accordion" id="businessVisaAccodion">
+              <div class="row mt-2">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" id="#businessVisa1" data-target="#businessVisa1" aria-expanded="true"
+                        aria-controls="businessVisa1" [class.showDiv]="selectedVisaBusiness === 1"
+                        (click)="setBusinessVisa(1, 'setBusinessVisa1')" id="setBusinessVisa1">
+                        <div class="makeIconCntr">
+                          <div class="vr-conferenceVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Conference Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa1" class="collapsed" aria-labelledby="businessVisa1"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Conference Visa</h1>
+                            <li>Duration and Validity: 30 days, validity starts from the intended date of entry to
+                              Ethiopia. Conference Visa cannot be
+                              extended.</li>
+                            <li>Entry: Single entry</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisa2" data-toggle="collapse" data-target="#businessVisa2"
+                        aria-expanded="false" aria-controls="businessVisa2" [class.showDiv]="selectedVisaBusiness === 2"
+                        (click)="setBusinessVisa(2, 'setBusinessVisa2')" id="setBusinessVisa2">
+                        <div class="makeIconCntr">
+                          <div class="vr-investmentVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Investment Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa2" class="collapse" aria-labelledby="businessVisa2"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Investment Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry Single (30 days) and Multiple entries ( 90 days, 6 months, 12 months) available
+                            </li>
+                            <li>Fees: 32, 42, 62 and 122 USD respectively.</li>
+                            <li>Extensions are available.</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" id="#businessVisa3" data-target="#businessVisa3" aria-expanded="true"
+                        aria-controls="businessVisa3" [class.showDiv]="selectedVisaBusiness === 3"
+                        (click)="setBusinessVisa(3, 'setBusinessVisa3')" id="setBusinessVisa3">
+                        <div class="makeIconCntr">
+                          <div class="vr-euro requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Foreign Business Firm Employment Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa3" class="collapsed" aria-labelledby="businessVisa3"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Foreign Business Firm Employment Visa</h1>
+                            <li>Processing Time: 3 days
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days, can apply for an extension before the visa expires.</li>
+                            <li>Fees: 42 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisa4" data-toggle="collapse" data-target="#businessVisa4"
+                        aria-expanded="false" aria-controls="businessVisa4" [class.showDiv]="selectedVisaBusiness === 4"
+                        (click)="setBusinessVisa(4, 'setBusinessVisa4')" id="setBusinessVisa4">
+                        <div class="makeIconCntr">
+                          <div class="vr-ethiopianGovt requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Ethiopian Government Employment visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa4" class="collapse" aria-labelledby="businessVisa4"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Ethiopian Government Employment visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days. An extension can be requested, before the expiry of the
+                              current visa.</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisa5" data-toggle="collapse" data-target="#businessVisa5"
+                        aria-expanded="false" aria-controls="businessVisa5" [class.showDiv]="selectedVisaBusiness === 5"
+                        (click)="setBusinessVisa(5, 'setBusinessVisa5')" id="setBusinessVisa5">
+                        <div class="makeIconCntr">
+                          <div class="vr-journalistVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Journalist Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa5" class="collapse" aria-labelledby="businessVisa5"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Journalist Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of stay: 30 days, no extension available.</li>
+                            <li>Fees: 42 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisa6" data-toggle="collapse" data-target="#businessVisa6"
+                        aria-expanded="false" aria-controls="businessVisa6" [class.showDiv]="selectedVisaBusiness === 6"
+                        (click)="setBusinessVisa(6, 'setBusinessVisa6')" id="setBusinessVisa6">
+                        <div class="makeIconCntr">
+                          <div class="vr-ethiopiaPrtBiz requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Ethiopian Private Business Firm Work Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa6" class="collapse" aria-labelledby="businessVisa6"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Ethiopian Private Business Firm Work Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days, can apply for an extension before the visa expires.</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisa7" data-toggle="collapse" data-target="#businessVisa7"
+                        aria-expanded="false" aria-controls="businessVisa7" [class.showDiv]="selectedVisaBusiness === 7"
+                        (click)="setBusinessVisa(7, 'setBusinessVisa7')" id="setBusinessVisa7">
+                        <div class="makeIconCntr">
+                          <div class="vr-internationalOrgVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">International Organizations-Embassies Work Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa7" class="collapse" aria-labelledby="businessVisa7"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">International Organizations/Embassies Work Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days. An extension can be requested, before the expiry of the
+                              current visa.</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisa8" data-toggle="collapse" data-target="#businessVisa8"
+                        aria-expanded="false" aria-controls="businessVisa8" [class.showDiv]="selectedVisaBusiness === 8"
+                        (click)="setBusinessVisa(8, 'setBusinessVisa8')" id="setBusinessVisa8">
+                        <div class="makeIconCntr">
+                          <div class="vr-govtInstitutions requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Government Institutions Short Task Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa8" class="collapse" aria-labelledby="businessVisa8"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Government Institutions Short Task Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single (30 days) and Multiple (90 days, 6 months) entry visas available</li>
+                            <li>Fees: 22, 82 and 122 USD respectively.</li>
+                            <li>Extensions are available.</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisa9" data-toggle="collapse" data-target="#businessVisa9"
+                        aria-expanded="false" aria-controls="businessVisa9" [class.showDiv]="selectedVisaBusiness === 9"
+                        (click)="setBusinessVisa(9, 'setBusinessVisa9')" id="setBusinessVisa9">
+                        <div class="makeIconCntr">
+                          <div class="vr-ngoWorkVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">NGO Work Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisa9" class="collapse" aria-labelledby="businessVisa9"
+                        data-parent="#businessVisaAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">NGO Work Visa</h1>
+                            Processing Time: 3 days
+                             Entry: Single entry
+                             Duration: 30 days, no extension available
+                             Fees: 62 USD
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+
+            <div class="mobileContainer wrapContainer accordion" id="businessVisaAccodionMobile">
+              <div class="row">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" id="#businessVisaMobile1" data-target="#businessVisaMobile1"
+                        aria-expanded="true" aria-controls="businessVisaMobile1"
+                        [class.showDiv]="selectedVisaMobileBusiness === 1"
+                        (click)="setBusinessVisaMobile(1, 'setBusinessVisaMobile1')" id="setBusinessVisaMobile1">
+                        <div class="makeIconCntr">
+                          <div class="vr-conferenceVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Conference Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile1" class="collapsed" aria-labelledby="businessVisaMobile1"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Conference Visa</h1>
+                            <li>Duration and Validity: 30 days, validity starts from the intended date of entry to
+                              Ethiopia. Conference Visa cannot be
+                              extended.</li>
+                            <li>Entry: Single entry</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisaMobile2" data-toggle="collapse" data-target="#businessVisaMobile2"
+                        aria-expanded="false" aria-controls="businessVisaMobile2"
+                        [class.showDiv]="selectedVisaMobileBusiness === 2"
+                        (click)="setBusinessVisaMobile(2, 'setBusinessVisaMobile2')" id="setBusinessVisaMobile2">
+                        <div class="makeIconCntr">
+                          <div class="vr-investmentVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Investment Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile2" class="collapse" aria-labelledby="businessVisaMobile2"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Investment Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry Single (30 days) and Multiple entries ( 90 days, 6 months, 12 months) available
+                            </li>
+                            <li>Fees: 32, 42, 62 and 122 USD respectively.</li>
+                            <li>Extensions are available.</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" id="#businessVisaMobile3" data-target="#businessVisaMobile3"
+                        aria-expanded="true" aria-controls="businessVisaMobile3"
+                        [class.showDiv]="selectedVisaMobileBusiness === 3"
+                        (click)="setBusinessVisaMobile(3, 'setBusinessVisaMobile3')" id="setBusinessVisaMobile3">
+                        <div class="makeIconCntr">
+                          <div class="vr-euro requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Foreign Business Firm Employment Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile3" class="collapse" aria-labelledby="businessVisaMobile3"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Foreign Business Firm Employment Visa</h1>
+                            <li>Processing Time: 3 days
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days, can apply for an extension before the visa expires.</li>
+                            <li>Fees: 42 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisaMobile4" data-toggle="collapse"
+                        data-target="#businessVisaMobile4" aria-expanded="false" aria-controls="businessVisaMobile4"
+                        [class.showDiv]="selectedVisaMobileBusiness === 4"
+                        (click)="setBusinessVisaMobile(4, 'setBusinessVisaMobile4')" id="setBusinessVisaMobile4">
+                        <div class="makeIconCntr">
+                          <div class="vr-ethiopianGovt requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Ethiopian Government Employment visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile4" class="collapse" aria-labelledby="businessVisaMobile4"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Ethiopian Government Employment visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days. An extension can be requested, before the expiry of the
+                              current visa.</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisaMobile5" data-toggle="collapse"
+                        data-target="#businessVisaMobile5" aria-expanded="false" aria-controls="businessVisaMobile5"
+                        [class.showDiv]="selectedVisaMobileBusiness === 5"
+                        (click)="setBusinessVisaMobile(5, 'setBusinessVisaMobile5')" id="setBusinessVisaMobile5">
+                        <div class="makeIconCntr">
+                          <div class="vr-journalistVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Journalist Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile5" class="collapse" aria-labelledby="businessVisaMobile5"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Journalist Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of stay: 30 days, no extension available.</li>
+                            <li>Fees: 42 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisaMobile6" data-toggle="collapse" data-target="#businessVisaMobile6"
+                        aria-expanded="false" aria-controls="businessVisaMobile6"
+                        [class.showDiv]="selectedVisaMobileBusiness === 6"
+                        (click)="setBusinessVisaMobile(6, 'setBusinessVisaMobile6')" id="setBusinessVisaMobile6">
+                        <div class="makeIconCntr">
+                          <div class="vr-ethiopiaPrtBiz requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Ethiopian Private Business Firm Work Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile6" class="collapse" aria-labelledby="businessVisaMobile6"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Ethiopian Private Business Firm Work Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days, can apply for an extension before the visa expires.</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisaMobile7" data-toggle="collapse"
+                        data-target="#businessVisaMobile7" aria-expanded="false" aria-controls="businessVisaMobile7"
+                        [class.showDiv]="selectedVisaMobileBusiness === 7"
+                        (click)="setBusinessVisaMobile(7, 'setBusinessVisaMobile7')" id="setBusinessVisaMobile7">
+                        <div class="makeIconCntr">
+                          <div class="vr-internationalOrgVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">International Organizations-Embassies Work Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile7" class="collapse" aria-labelledby="businessVisaMobile7"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">International Organizations/Embassies Work Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single entry</li>
+                            <li>Duration of Stay: 30 days. An extension can be requested, before the expiry of the
+                              current visa.</li>
+                            <li>Fees: 32 USD</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisaMobile8" data-toggle="collapse"
+                        data-target="#businessVisaMobile8" aria-expanded="false" aria-controls="businessVisaMobile8"
+                        [class.showDiv]="selectedVisaMobileBusiness === 8"
+                        (click)="setBusinessVisaMobile(8, 'setBusinessVisaMobile8')" id="setBusinessVisaMobile8">
+                        <div class="makeIconCntr">
+                          <div class="vr-govtInstitutions requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Government Institutions Short Task Visa</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile8" class="collapse" aria-labelledby="businessVisaMobile8"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Government Institutions Short Task Visa</h1>
+                            <li>Processing Time: 3 days</li>
+                            <li>Entry: Single (30 days) and Multiple (90 days, 6 months) entry visas available</li>
+                            <li>Fees: 22, 82 and 122 USD respectively.</li>
+                            <li>Extensions are available.</li>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessVisaMobile9" data-toggle="collapse"
+                        data-target="#businessVisaMobile9" aria-expanded="false" aria-controls="businessVisaMobile9"
+                        [class.showDiv]="selectedVisaMobileBusiness === 9"
+                        (click)="setBusinessVisaMobile(9, 'setBusinessVisaMobile9')" id="setBusinessVisaMobile9">
+                        <div class="makeIconCntr">
+                          <div class="vr-ngoWorkVisa requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">NGO Work Visa</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessVisaMobile9" class="collapse" aria-labelledby="businessVisaMobile9"
+                        data-parent="#businessVisaAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">NGO Work Visa</h1>
+                            Processing Time: 3 days
+                             Entry: Single entry
+                             Duration: 30 days, no extension available
+                             Fees: 62 USD
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <!-- business -->
+            <div class="row">
+              <div class="col-12 text-center mgxTop">
+                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                    VISA REQUIREMENT FOR
+                    Ethiopia</span>
+                </h1>
+              </div>
+            </div>
+
+            <div class="desktopContainer accordion" id="businessAccodion">
+              <div class="row mt-2">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                        aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                        (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>Passport details are mandatory when you apply Ethiopian E-visa online. A passport or a
+                              travel document, with at least 6 months validity beyond the date of departure from the
+                              country must be submitted.
+                              The bio-data page must be scanned and shown. It should also contain 2 blank pages.</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                        aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                        (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Recent digital color photographs with a white background - Preferably the photo should not
+                              be cropped from the passport; black and white photographs will not be entertained.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                        data-target="#business3" aria-expanded="false" aria-controls="business3"
+                        [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                        <div class="makeIconCntr">
+                          <div class="vr-supportLetter requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Support Letter</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Support Letter
+                            </h1>
+                            <p>
+                              A support letter/ completion of the application form by the inviting company or nearest
+                              Embassy of Ethiopia (depending on visa) must be submitted.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                        data-target="#business4" aria-expanded="false" aria-controls="business4"
+                        [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                        <div class="makeIconCntr">
+                          <div class="vr-govtConfirm requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Government Confirmation</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Government Confirmation</h1>
+                            <p>
+                              A support letter from relevant institution that is part of the Government of Ethiopia
+                              (different departments for different visa, e.g. letter from Ministry of Foreign Affairs of
+                              Ethiopia for a Conference Visa, letter from Investment Commission of Ethiopia
+                              for Investment Visa.) must be shown, along with the previous support letter from the
+                              inviting company.
+                            </p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#business5" aria-expanded="true"
+                        aria-controls="business5" [class.showDiv]="selectedBusiness === 5"
+                        (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
+                        <div class="makeIconCntr">
+                          <div class="vr-businessRegistration requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Business/Registration License</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="business5" class="collapse" aria-labelledby="business5"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Business/Registration License
+                            </h1>
+                            <p>
+                              A Business/ Registration License of the inviting company must be submitted when you apply
+                              Ethiopian E-visa online. This is in cases of NGO Work Visa, Ethiopian Private Business
+                              Firm Work Visa, Foreign Business Firm Employment Visa, Conference Visa, and
+                              Investment Visa.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+            </div>
+
+            <!-- mobileContainer -->
+            <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
+              <div class="row">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
+                        aria-controls="businessMobile1" [class.showDiv]="selectedMobileBusiness === 1"
+                        (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                        <div class="makeIconCntr">
+                          <div class="vr-passport requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Passport</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Passport</h1>
+                            <p>Passport details are mandatory when you apply Ethiopian E-visa online. A passport or a
+                              travel document, with at least 6 months validity beyond the date of departure from the
+                              country must be submitted.
+                              The bio-data page must be scanned and shown. It should also contain 2 blank pages.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
+                        aria-controls="businessMobile2" [class.showDiv]="selectedMobileBusiness === 2"
+                        (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                        <div class="makeIconCntr">
+                          <div class="vr-photograph requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Photograph</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Photograph</h1>
+                            <p>
+                              Recent digital color photographs with a white background - Preferably the photo should not
+                              be cropped from the passport; black and white photographs will not be entertained.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
+                        aria-controls="businessMobile3" [class.showDiv]="selectedMobileBusiness === 3"
+                        (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                        <div class="makeIconCntr">
+                          <div class="vr-supportLetter requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Support Letter</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile3"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Support Letter
+                            </h1>
+                            <p>
+                              A support letter/ completion of the application form by the inviting company or nearest
+                              Embassy of Ethiopia (depending on visa) must be submitted.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
+                        aria-controls="businessMobile4" [class.showDiv]="selectedMobileBusiness === 4"
+                        (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                        <div class="makeIconCntr">
+                          <div class="vr-govtConfirm requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Government Confirmation</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile4" class="collapse" aria-labelledby="headingMobile4"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Government Confirmation</h1>
+                            <p>
+                              A support letter from relevant institution that is part of the Government of Ethiopia
+                              (different departments for different visa, e.g. letter from Ministry of Foreign Affairs of
+                              Ethiopia for a Conference Visa, letter from Investment Commission of Ethiopia
+                              for Investment Visa.) must be shown, along with the previous support letter from the
+                              inviting company.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#businessMobile5" aria-expanded="true"
+                        aria-controls="businessMobileFive" [class.showDiv]="selectedMobileBusiness === 5"
+                        (click)="setActiveBusinessMobile(5, 'setActiveBusinessMobile5')" id="setActiveBusinessMobile5">
+                        <div class="makeIconCntr">
+                          <div class="vr-businessRegistration requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Business/Registration License</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="businessMobile5" class="collapse" aria-labelledby="headingMobile5"
+                        data-parent="#businessAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Business/Registration
+                            </h1>
+                            <p>
+                              A Business/ Registration License of the inviting company must be submitted when you apply
+                              Ethiopian E-visa online. This is in cases of NGO Work Visa, Ethiopian Private Business
+                              Firm Work Visa, Foreign Business Firm Employment Visa, Conference Visa, and
+                              Investment Visa.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>

@@ -14,7 +14,7 @@ import * as $ from "jquery";
 @Component({
   selector: "app-mobile-nav",
   templateUrl: "./mobile-nav.component.html",
-  styleUrls: ["./mobile-nav.component.css"]
+  styleUrls: ["./mobile-nav.component.css"],
 })
 export class MobileNavComponent implements OnInit {
   userLoggedIn: boolean = false;
@@ -35,17 +35,19 @@ export class MobileNavComponent implements OnInit {
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
 
     //  console.log(this.userLoggedIn);
-    if (isPlatformBrowser(this.platformId)) {
-      this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
-    }
+    // if (this.userFlow.getCookie("profile")) {
+      if (isPlatformBrowser(this.platformId)) {
+        this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
+      }
+    // }
     // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 
-    this.loginStatus.getData().subscribe(userLoggedIn => {
+    this.loginStatus.getData().subscribe((userLoggedIn) => {
       this.userLoggedIn = userLoggedIn;
     });
 
-    this.loginStatus.getProfileData().subscribe(profile => {
+    this.loginStatus.getProfileData().subscribe((profile) => {
       this.userDetails = profile;
     });
   }
@@ -82,7 +84,7 @@ export class MobileNavComponent implements OnInit {
           }
         },
 
-        err => {}
+        (err) => {}
       );
     }
   }

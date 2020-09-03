@@ -106,7 +106,7 @@
 
 @media screen and (max-width: 600px) {
   .step_container {
-    height: 600px;
+    height: 550px;
   }
 
   .desktopView {
@@ -313,5 +313,19 @@
   .process-info .process-desc {
     font-size: 13px;
     width: 140px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .desktopView .first-child::after,
+  .desktopView .second-child::after,
+  .third-child::after {
+    width: 80px;
+  }
+
+  .desktopView .second-child::before,
+  .desktopView .third-child::before,
+  .forth-child::before {
+    width: 80px;
   }
 }

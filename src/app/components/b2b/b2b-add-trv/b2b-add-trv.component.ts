@@ -112,6 +112,27 @@ export class B2bAddTrvComponent implements OnInit {
   paymentUrl: any;
   imageUpload: boolean;
 
+  uniqueId: string;
+
+  travellerForm: any;
+  travellers: FormArray;
+  filedNameArr = [];
+  travelDetails: FormGroup;
+  // valueAddedService: FormGroup;
+  quoteId = "";
+  basePrice: number = 0;
+  serviceTax: number = 0;
+  termsAndConditions: FormGroup;
+  stayPeriod: string = "";
+  minDate: any = "";
+  maxDateDob: any = "";
+  minDatePassportExpiry: any = "";
+  minDateOfTravel: any = "";
+  minDateOfCollection: any = "";
+  country: string = "";
+  collectionDateError = false;
+  public errorMessage: Array<any> = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private travellerService: B2bAddTrvService,
@@ -137,26 +158,9 @@ export class B2bAddTrvComponent implements OnInit {
       month: this.tomorrow.getMonth() + 1,
       day: this.tomorrow.getDate()
     };
-  }
 
-  travellerForm: any;
-  travellers: FormArray;
-  filedNameArr = [];
-  travelDetails: FormGroup;
-  // valueAddedService: FormGroup;
-  quoteId = "";
-  basePrice: number = 0;
-  serviceTax: number = 0;
-  termsAndConditions: FormGroup;
-  stayPeriod: string = "";
-  minDate: any = "";
-  maxDateDob: any = "";
-  minDatePassportExpiry: any = "";
-  minDateOfTravel: any = "";
-  minDateOfCollection: any = "";
-  country: string = "";
-  collectionDateError = false;
-  public errorMessage: Array<any> = [];
+    this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
+  }
 
   checkCity(i) {
     let tempState = this.travellerForm.controls.travellers.controls[i].controls
@@ -362,7 +366,7 @@ export class B2bAddTrvComponent implements OnInit {
     }
 
     this.category = this.userFlowDetails.category;
-    this.imageUpload = this.userFlowDetails.imageUpload;
+    this.imageUpload = JSON.parse(this.userFlowDetails.imageUpload);
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
 
@@ -1021,8 +1025,6 @@ export class B2bAddTrvComponent implements OnInit {
         this.travellerService
           .submitForm(this.formData1)
           .subscribe((data: any) => {
-            console.log(data);
-
             if (data.code == "0") {
 
               this.bookingId = data.data.bookingId;
@@ -1235,11 +1237,6 @@ export class B2bAddTrvComponent implements OnInit {
           this.extraParams.forEach((element: any) => {
             this.extraParams.push(element);
           });
-
-          console.log(this.extraParamsObject);
-          
-
-
 
           setTimeout(() => {
             document.forms["paymentForm"].submit();

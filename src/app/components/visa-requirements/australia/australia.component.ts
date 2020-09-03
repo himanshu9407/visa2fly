@@ -1,8 +1,6 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ViewChild,
   Inject,
 } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
@@ -17,11 +15,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
-import { LoginStatusService } from "src/app/shared/login-status.service";
-import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { RouterHistory } from "src/app/shared/router-history.service";
-import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
 import { Subject } from 'rxjs';
@@ -34,23 +28,7 @@ export interface Food {
 @Component({
   selector: "app-australia",
   templateUrl: "./australia.component.html",
-  styleUrls: ["./australia.component.css"],
-  animations: [
-    // the fade-in/fade-out animation.
-    trigger("simpleFadeAnimation", [
-      // the "in" style determines the "resting" state of the element when it is visible.
-      state("in", style({ opacity: 1 })),
-
-      // fade in when created. this could also be written as transition('void => *')
-      transition(":enter", [style({ opacity: 0 }), animate(800)]),
-
-      // fade out when destroyed. this could also be written as transition('void => *')
-      transition(
-        ":leave",
-        animate(800, style({ opacity: 0, background: "green" }))
-      ),
-    ]),
-  ],
+  styleUrls: ["./australia.component.css"]
 })
 export class AustraliaComponent implements OnInit {
   ngbTabTitleClass;
