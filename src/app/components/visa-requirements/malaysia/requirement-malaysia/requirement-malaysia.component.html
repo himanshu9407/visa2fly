@@ -1,1 +1,1263 @@
-<p>requirement-malaysia works!</p>
+<div class="container-fluid p-0">
+    <div class="iconSection">
+      <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
+        [orientation]="desktopOrientation">
+        <ngb-tab id="Tourist" title="Tourist">
+  
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- tourist -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                      VISA REQUIREMENT FOR
+                      Malaysia</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <!-- desktopContainer -->
+              <div class="desktopContainer accordion" id="touristAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
+                          aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist1" class="collapsed" aria-labelledby="heading1"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>Passport details are mandatory when you apply for Malaysia E-visa
+                                Online. A passport or a travel document, with at least 6 months validity
+                                beyond the date of departure from the country must be submitted. It should
+                                also contain 2 blank pages.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
+                          aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo
+                                should not be cropped from the passport; black and white photographs will
+                                not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
+                          aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Travel Itenary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist3" class="collapse" aria-labelledby="heading3"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Travel Itenary
+                              </h1>
+                              <p>
+                                This involves flight details (a confirmed return flight ticket). A printed copy is
+                                accepted, merely the PNR no. / any other proof is not taken.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false"
+                          aria-controls="toursit4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Booking-Accommodation Proof.png"
+                            alt="malaysia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelBookingProof requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Hotel Booking-Accommodation Proof</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="toursit4" class="collapse" aria-labelledby="heading4"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Hotel Booking/Accommodation Proof</h1>
+                              <p>
+                                A pre-paid hotel booking/accommodation must be shown and indicated on
+                                the Disembarkation Card.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true"
+                          aria-controls="tourist5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTourist(5, 'setActiveTourist5')" id="setActiveTourist5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/birth.png"
+                            alt="malaysia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-birth requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Birth Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist5" class="collapse" aria-labelledby="heading5"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Birth Certificate
+                              </h1>
+                              <p>
+                                Parents of those who are underage (below 14 years) must carry a birth
+                                certificate for proof of identity.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist6" aria-expanded="true"
+                          aria-controls="tourist6" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTourist(6, 'setActiveTourist6')" id="setActiveTourist6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Additional Documents.png"
+                            alt="malaysia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-additional-docs requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Additional Documents</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Additional Documents
+                              </h1>
+                              <p>
+                                The Malaysian government may require additional documents in case of
+                                Malaysia e-visa online – however, this is based on the individual
+                                application and case-dependent.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <p>Passport details are mandatory when you apply for Malaysia E-visa
+                                Online. A passport or a travel document, with at least 6 months validity
+                                beyond the date of departure from the country must be submitted. It should
+                                also contain 2 blank pages.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                          aria-controls="touristMobile2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo
+                                should not be cropped from the passport; black and white photographs will
+                                not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Travel Itenary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Travel Itenary
+                              </h1>
+                              <p>
+                                This involves flight details (a confirmed return flight ticket). A printed copy is
+                                accepted, merely the PNR no. / any other proof is not taken.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                          aria-controls="touristMobile4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Hotel Booking-Accommodation Proof.png"
+                            alt="malaysia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelBookingProof requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Hotel Booking-Accommodation Proof</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Hotel Booking/Accommodation Proof</h1>
+                              <p>
+                                A pre-paid hotel booking/accommodation must be shown and indicated on
+                                the Disembarkation Card.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                          aria-controls="touristMobile5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/birth.png"
+                            alt="malaysia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-birth requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Birth Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Birth Certificate
+                              </h1>
+                              <p>
+                                Parents of those who are underage (below 14 years) must carry a birth
+                                certificate for proof of identity.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                          aria-controls="touristMobile6" [class.showDiv]="selectedTourist === 6"
+                          (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Additional Documents.png"
+                            alt="malaysia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-additional-docs requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Additional Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Additional Documents
+                              </h1>
+                              <p>
+                                The Malaysian government may require additional documents in case of
+                                Malaysia e-visa online – however, this is based on the individual
+                                application and case-dependent.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+              </div>
+  
+            </div>
+           
+  
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Business" title="Business">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- business -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                      VISA REQUIREMENT FOR
+                      MALAYSIA</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="businessAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                          aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="malaysia tourist visa for indian"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory when you apply for Malaysia e-visa online.
+                                A passport or a travel document, with at least 6 months validity beyond the
+                                date of departure from the country must be submitted. It should also contain
+                                2 blank pages.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                          aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photographs</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photographs</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo
+                                should not be cropped from the passport; black and white photographs will
+                                not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                          data-target="#business3" aria-expanded="false" aria-controls="business3"
+                          [class.showDiv]="selectedBusiness === 3" 
+                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Government ID card.png"
+                            alt="malaysia tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-govtID requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Government ID card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Government ID card
+                              </h1>
+                              <p>
+                                Any proof of identification is accepted, e.g. Pan card, Aadhar, etc.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                          data-target="#business4" aria-expanded="false" aria-controls="business4"
+                          [class.showDiv]="selectedBusiness === 4" 
+                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
+                            alt="malaysia tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Visa Application Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Visa Application Form</h1>
+                              <p>
+                                This must be duly filled and signed, and reflect your current setting.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading5" data-target="#business5"
+                          aria-expanded="true" aria-controls="business5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-bankStatement requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Bank Statement</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business5" class="collapse" aria-labelledby="businessHeading5"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Bank Statement</h1>
+                              <p>
+                                A bank statement with adequate funds to show you are financially supported
+                                is necessary.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading6" data-toggle="collapse" data-target="#business6"
+                          aria-expanded="false" aria-controls="business6" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusiness(6, 'setActiveBusiness6')" id="setActiveBusiness6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Cover Letter.png"
+                            alt="malaysia tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-coverLetter requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Cover Letter</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business6" class="collapse" aria-labelledby="businessHeading6"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Cover Letter</h1>
+                              <p>
+                                This is a cover letter from the organization on letterhead stating the purpose
+                                of visit and duration of stay.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading7" data-toggle="collapse"
+                          data-target="#business7" aria-expanded="false" aria-controls="business7"
+                          [class.showDiv]="selectedBusiness === 7" 
+                          (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business7" class="collapse" aria-labelledby="businessHeading7"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Invitation Letter
+                              </h1>
+                              <p>
+                                An invitation letter from business partners in Malaysia must also be
+                                submitted.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading8" data-toggle="collapse"
+                          data-target="#business8" aria-expanded="false" aria-controls="business8"
+                          [class.showDiv]="selectedBusiness === 8" 
+                          (click)="setActiveBusiness(8, 'setActiveBusiness8')" id="setActiveBusiness8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Stay.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfStay requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Stay</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business8" class="collapse" aria-labelledby="businessHeading8"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof of Stay</h1>
+                              <p>
+                                This can be in the form of any hotel bookings/ staying address etc.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading9" data-target="#business9"
+                          aria-expanded="true" aria-controls="business9" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusiness(9, 'setActiveBusiness9')" id="setActiveBusiness9">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="malaysia tourist e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-additional-docs requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Additional Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business9" class="collapse" aria-labelledby="businessHeading9"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Additional Documents</h1>
+                              <p>
+                                The Consulate may require additional documents, which must be produced
+                                upon demand.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
+                          aria-controls="businessMobile1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="malaysia tourist visa for indian"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory when you apply for Malaysia e-visa online.
+                                A passport or a travel document, with at least 6 months validity beyond the
+                                date of departure from the country must be submitted. It should also contain
+                                2 blank pages.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
+                          aria-controls="businessMobile2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="malaysia tourist visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photographs</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photographs</h1>
+                              <p>
+                                Recent color photographs with a white background - Preferably the photo
+                                should not be cropped from the passport; black and white photographs will
+                                not be entertained.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
+                          aria-controls="businessMobile3" [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Government ID card.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-govtID requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Government ID card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Government ID card
+                              </h1>
+                              <p>
+                                Any proof of identification is accepted, e.g. Pan card, Aadhar, etc.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
+                          aria-controls="businessMobile4" [class.showDiv]="selectedBusiness === 4"
+                          (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png"
+                            alt="malaysia tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Visa Application Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Visa Application Form</h1>
+                              <p>
+                                This must be duly filled and signed, and reflect your current setting.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile5" aria-expanded="true"
+                          aria-controls="businessMobile5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusinessMobile(5, 'setActiveBusinessMobile5')" id="setActiveBusinessMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-bankStatement requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Bank Statement</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Bank Statement</h1>
+                              <p>
+                                A bank statement with adequate funds to show you are financially supported
+                                is necessary.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile5" aria-expanded="true"
+                          aria-controls="businessMobile5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusinessMobile(5, 'setActiveBusinessMobile5')" id="setActiveBusinessMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-bankStatement requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Bank Statement</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Bank Statement</h1>
+                              <p>
+                                A bank statement with adequate funds to show you are financially supported
+                                is necessary.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile7" aria-expanded="true"
+                          aria-controls="businessMobile7" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusinessMobile(7, 'setActiveBusinessMobile7')" id="setActiveBusinessMobile7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Invitation Letter.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile7" class="collapse" aria-labelledby="headingMobile7"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Invitation Letter
+                              </h1>
+                              <p>
+                                An invitation letter from business partners in Malaysia must also be
+                                submitted.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile8" aria-expanded="true"
+                          aria-controls="businessMobile8" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusinessMobile(8, 'setActiveBusinessMobile8')" id="setActiveBusinessMobile8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Stay.png"
+                            alt="malaysia tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfStay requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof of Stay</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile8" class="collapse" aria-labelledby="headingMobile8"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof of Stay</h1>
+                              <p>
+                                This can be in the form of any hotel bookings/ staying address etc.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#businessMobile9" aria-expanded="true"
+                          aria-controls="businessMobile9" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusinessMobile(9, 'setActiveBusinessMobile9')" id="setActiveBusinessMobile9">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Additional Documents.png"
+                            alt="malaysia tourist e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-additional-docs requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Additional Documents</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="businessMobile9" class="collapse" aria-labelledby="headingMobile9"
+                          data-parent="#businessAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Additional Documents</h1>
+                              <p>
+                                The Consulate may require additional documents, which must be produced
+                                upon demand.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+              </div>
+  
+  
+            </div>
+           
+  
+            
+  
+          </ng-template>
+        </ngb-tab>
+  
+        <ngb-tab id="Transit" title="Transit">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- transit -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
+                      VISA REQUIREMENT FOR
+                      Malaysia</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="transitAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit1" aria-expanded="true"
+                          aria-controls="transit1" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="malaysiae-visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Travel Itenary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit1" class="collapsed" aria-labelledby="transit1"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Travel Itenary</h1>
+                              <p>This involves flight details (a confirmed return flight ticket). A printed copy is
+                                accepted, merely the PNR no. / any other proof is not taken.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit2" aria-expanded="true"
+                          aria-controls="transit2" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="malaysiae-visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory. A passport or a travel document, with at
+                                least 6 months validity beyond the date of departure from the country must
+                                be submitted. It should also contain 2 blank pages.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transit3" aria-expanded="true"
+                          aria-controls="transit3" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Valid Long-Term Pass.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-validLongTermPass requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Valid Long-Term Pass</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transit3" class="collapse" aria-labelledby="transit3"
+                          data-parent="#transitAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Valid Long-Term Pass</h1>
+                              <p>Passengers must hold a valid long-term pass* of a 3rd country. Note: The
+                                definition of a long-term pass of a 3rd country is an employment/work
+                                permit, expatriate card, student pass or permanent resident card. It is
+                                important to note that a permanent multiple entry visa (MEV) does not fall
+                                under this category and therefore, is not counted as a long-term pass.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+  
+              <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+  
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
+                          aria-controls="transitMobile1" [class.showDiv]="selectedTransit === 1"
+                          (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="malaysiae-visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-itinerary requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Travel Itenary</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile1" class="collapsed" aria-labelledby="transitMobile1"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Travel Itenary</h1>
+                              <p>This involves flight details (a confirmed return flight ticket). A printed copy is
+                                accepted, merely the PNR no. / any other proof is not taken.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
+                          aria-controls="transitMobile2" [class.showDiv]="selectedTransit === 2"
+                          (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="malaysia e visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile2" class="collapse" aria-labelledby="transitMobile2"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                Passport details are mandatory. A passport or a travel document, with at
+                                least 6 months validity beyond the date of departure from the country must
+                                be submitted. It should also contain 2 blank pages.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
+                          aria-controls="transitMobile3" [class.showDiv]="selectedTransit === 3"
+                          (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Valid Long-Term Pass.png" alt="malaysiae-visa for indians"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-validLongTermPass requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Valid Long-Term Pass</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="transitMobile3" class="collapse" aria-labelledby="transitMobile3"
+                          data-parent="#transitAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Valid Long-Term Pass</h1>
+                              <p>Passengers must hold a valid long-term pass* of a 3rd country. Note: The
+                                definition of a long-term pass of a 3rd country is an employment/work
+                                permit, expatriate card, student pass or permanent resident card. It is
+                                important to note that a permanent multiple entry visa (MEV) does not fall
+                                under this category and therefore, is not counted as a long-term pass.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+            </div>
+           
+          </ng-template>
+        </ngb-tab>
+  
+      </ngb-tabset>
+    </div>
+</div>
