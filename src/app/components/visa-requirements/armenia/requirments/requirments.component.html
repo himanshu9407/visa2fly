@@ -3,11 +3,8 @@
     <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
       [justify]="desktopJustify" [orientation]="desktopOrientation">
       <ngb-tab id="Tourist" title="Tourist">
-
         <ng-template ngbTabContent>
-
           <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-
             <div class="row">
               <div class="col-12 text-center mgxTop">
                 <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -33,8 +30,7 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="tourist1" class="collapsed" aria-labelledby="heading1"
-                        data-parent="#touristAccodion">
+                      <div id="tourist1" class="collapsed" aria-labelledby="heading1" data-parent="#touristAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Visa Application Form</h1>
@@ -86,7 +82,6 @@
                       <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false" aria-controls="tourist3"
                         [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3, 'setActiveTourist3')"
                         id="setActiveTourist3">
-                        <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="australia tourist visa for indian" style="height: 45px; margin-bottom: 10px;" /> -->
                         <div class="makeIconCntr">
                           <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
@@ -117,8 +112,8 @@
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#tourist4" aria-expanded="true" aria-controls="tourist4"
-                      [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
-                      id="setActiveTourist4">
+                        [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
+                        id="setActiveTourist4">
                         <div class="makeIconCntr">
                           <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
@@ -423,8 +418,8 @@
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
-                      aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
-                      (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                        aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
+                        (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
                         <div class="makeIconCntr">
                           <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
@@ -433,7 +428,7 @@
                     </ng-template>
                     <ng-template ngbTabContent>
                       <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
-                      data-parent="#touristAccodionMobile">
+                        data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
                             <h1 class="requiredIconHeading">Flight Tickets
@@ -1365,7 +1360,8 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#businessMobile10" aria-expanded="true"
                         aria-controls="businessMobile10" [class.showDiv]="selectedMobileBusiness === 10"
-                        (click)="setActiveBusinessMobile(10, 'setActiveMobileBusiness10')" id="setActiveMobileBusiness10">
+                        (click)="setActiveBusinessMobile(10, 'setActiveMobileBusiness10')"
+                        id="setActiveMobileBusiness10">
                         <div class="makeIconCntr">
                           <div class="vr-residencePermit requiredIcons img-sprite"></div>
                         </div>

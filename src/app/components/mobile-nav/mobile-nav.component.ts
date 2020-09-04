@@ -35,11 +35,11 @@ export class MobileNavComponent implements OnInit {
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
 
     //  console.log(this.userLoggedIn);
-    // if (this.userFlow.getCookie("profile")) {
+    if (this.userFlow.getCookie("profile")) {
       if (isPlatformBrowser(this.platformId)) {
         this.userDetails = JSON.parse(this.userFlow.getCookie("profile"));
       }
-    // }
+    }
     // console.log(this.userDetails);
     // this.userLoggedIn = this.loginStatus.getUserLoggedIn() || false;
 

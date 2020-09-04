@@ -97,6 +97,8 @@ export class RequirementsComponent implements OnInit {
   selectedVariable: any;
   selectedItem: string;
 
+  public countryDesc: string;
+
   constructor(
     private router: Router,
     private titleService: Title,
@@ -244,7 +246,161 @@ export class RequirementsComponent implements OnInit {
         this.selectedPurposeType = "Tourist";
       }
 
-      // document.querySelector("#requiredSource00").classList.add("showDiv");
+      switch (this.selectedCountrytype) {
+        case "Austria":
+          this.countryDesc =
+            "Austria lies in the southern part of Central Europe. It is famous for its affinity towards winter sports, as well as talent for fine handcrafted items such as jewellery, ceramic and glassware. Magnificent cathedrals are also a star attraction here - as well as its title as the birthplace of Western Classical music . Austria is home to many famous people, including Mozart, Strauss, Hitler, Freud, Arnold Schwarzenegger and Gregor Mendel.";
+          break;
+
+        case "Belgium":
+          this.countryDesc =
+            "Belgium is part of Western Europe. It is the home to the headquarters of the European Union, and is a stronghold for many medieval and renaissance-dated architecture - including full towns, museums, galleries,churches and castles (moats and all!). The architecture itself is part of the artistic experience. Areas to explore include its capital, Brussels, as well as Antwerp and Ardennes.";
+          break;
+
+        case "Canada":
+          this.countryDesc =
+            "The World’s second-largest by total area - Canada - is part of North America and is the home of maple syrup, ice hockey and freezing climate. It is a conglomeration of French architecture (which can be seen in Quebec and Montreal) and lively metropolitan cityscape (such as that seen in Toronto and Vancouver). Most of its population lie in the Southern parts of the country, while the North is home to the snowy, icy forest Taiga - the World’s largest biome.";
+          break;
+
+        case "Czech Republic":
+          this.countryDesc =
+            "The Czech Republic is landlocked between Austria, Germany, Poland and Slovakia. It is part of both the Schengen area and the European Union, and is famous for its many castles (it has the most in Europe!) and gardenscape. Some of the most famous relics include Prague Castle, Zamek Lednice, Hluboka Nad Vltavou Castle and Cesky Krumlov Castle. One of the oldest astronomical clocks lies in Prague’s Old Town, with the design of apostles chiming every hour.";
+          break;
+
+        case "Denmark":
+          this.countryDesc =
+            "Denmark is a Scandinavian country comprising 406 islands - 70 of which are inhabited. It is famous for its arts and design connoisseurs, who have come up with the likes of Bang & Olufsen, Royal Copenhagen porcelain and even the Sydney Opera House. People who come here generally visit Copenhagen (its capital), the cobblestoned alleyways of Odense (home of Hans Christian Andersen), Aarhus and Aalborg.";
+          break;
+
+        case "Estonia":
+          this.countryDesc =
+            "The Republic of Estonia lies on the eastern coast of the Baltic sea, with Russia and Latvia being connected by land. Its prized landscape spans across rugged mountains and cliff-beaches, lush forests and splendid lakes. It is home to two Unesco World Heritage Sites (in the Old Town of Tallinn - also its capital - and the Struve Geodetic Arc).";
+          break;
+
+        case "Finland":
+          this.countryDesc =
+            "Finland lies in Northern Europe, surrounded by Russia, Norway and Sweden. It is famous for its untouched nature, as well as the much-coveted Northern Lights. You can check out its Midnight Sunrise, have a good ski session, tour the artistic streets of Helsinki, or visit the 18th century sea fortress Suomenlinna.";
+          break;
+
+        case "Georgia":
+          this.countryDesc =
+            "Georgia is a small country that intersects Europe and Asia. Its mountainous terrain is home to monasteries, cathedrals, and even a glacier. It is famous for Vardzia, a 12th-century cave monastery, and the age-old wine-growing region Kakheti. Its capital Tbilisi houses cobblestoned streets and the Narikala fortress, while Batumi lies at the port of the Black Sea, and is home to botanical gardens and an Alphabetic Tower.";
+          break;
+
+        case "Germany":
+          this.countryDesc =
+            "Many know of Germany’s knack for design and engineering. It is a Western European country that has natural beauty as well, in the form of rivers, forests, mountain ranges and the North Sea by its side. Its bread, beer and music festival culture is one to not miss whilst travelling; make sure to pass through Berlin, Munich, Frankfurt and Hamburg while you're here. ";
+          break;
+
+        case "Greece":
+          this.countryDesc =
+            "Often called the cradle of Western Civilization, Greece is a country that is revered in ancient lore. It has cerulean blue beaches dotted with vanilla white settlements in Mykonos and Santorini. Not to mention the wealth of the Greek Empire that inhabited it, which manifest in the form of archaeological paradises that are Athens and Corfu.";
+          break;
+
+        case "Hong Kong":
+          this.countryDesc =
+            "Hong Kong is a special administrative region that is part of the People’s Republic of China. It is an autonomous Chinese territory, and is famous for its beautiful nightlife, skyscrapers and shopping. Things to do here include a visit to Hong Kong Disneyland, experience a Victoria Harbour nighttime light show, stroll around a night market, and climb the hill to visit Tian Tan Buddha.";
+          break;
+
+        case "Hungary":
+          this.countryDesc =
+            "Hungary lies in Central Europe, and is part of both the European Union, and Schengen Area. Its skyline is a mixture of neoclassical and medieval architecture - places to visit include Budapest (its capital), Lake Balaton and Szentendre. Thermal and mineral spas are also popular, as part of the Turkish and Roman influence.";
+          break;
+
+        case "Iceland":
+          this.countryDesc =
+            "Iceland is a Nordic region that has a lot to offer in terms of natural beauty. Barring the obvious (but always awe-striking!) Northern Lights, the country’s laval fields, geysers, volcanoes and hot springs offer an interesting experience. For this reason, it is known as the “Land of Fire and Ice”. Fun fact - the country is also the most sparsely populated one in the whole of Europe.";
+          break;
+
+        case "Italy":
+          this.countryDesc =
+            "Ah, Italy. The land of pizzas, wine, flowing Venice canals, Milan fashion, Florentine art and The Pope. This boot-shaped country has much to offer in almost any field you think of, which is what makes it such a great tourist destination. Places to surely visit include Rome, Venice, Florence, Milan and the Vatican city.";
+          break;
+
+        case "Kenya":
+          this.countryDesc =
+            "Kenya is situated in East Africa - and is famous for its classic Savannah safaris. Kenyan wildlife is coveted, and its landscape facilitates this: The Great Rift Valley, lakelands, mountain highlands, and of course, the savannah all add to its charm as a country that has been allowed to flourish in its natural state.";
+          break;
+
+        case "Kyrgyzstan":
+          this.countryDesc =
+            "Kyrgyzstan, also known as Kirghizia, is a nation of mountains - having around 88 major ranges. And there’s so much to do here - stay a night in a traditional Yurt while waking up to crisp mountain air, or visit Issyk Kul and Tash Rabat. You can even white-water raft, or bathe in hot springs here: embrace all that the mountains can offer.";
+          break;
+
+        case "Latvia":
+          this.countryDesc =
+            "Latvia lies on the Baltic Sea, with far-reaching beaches and expansive, dense forests. Its capital, Riga, is famous for its wooden art , art nouveau and architecture. Local crafts and artefacts are on display in an open-air museum, the medieval St. Peter’s Church and the Latvian city Jūrmala are all great places to begin your journey through the country.";
+          break;
+
+        case "Liechtenstein":
+          this.countryDesc =
+            "Liechtenstein is a country in the midst of Austria and Switzerland. Its many private banks and modern, contemporary art galleries call tourists from all over the World. Its capital, Vaduz, is home to around 5000 people - a small yet inviting bunch. Rolling hills, quaint houses and a castle in the midst of a mountainous range are what make this a classic European landscape.";
+          break;
+
+        case "Lithuania":
+          this.countryDesc =
+            "Lithuania, with its capital Vilnius, lies on the edge of the Baltic Sea. There is much to do here, including experiencing Karaite culture in Trakai Island, visiting Kaunas Castle, and touring Klaipeda on foot - Drama Theatre, castles and all! Of course, the capital Vilnius also has its own set of happenings that include its Old Town and cobblestoned streets full of baroque architecture.";
+          break;
+
+        case "Luxembourg":
+          this.countryDesc =
+            "Luxembourg is a Western European country that is famous for its award-winning wines, among other things. It is the richest country in the European Union and is a safe place to stay and live. It has quite a small land mass, covered in mostly rural forests, rocky gorges and river valleys. Make sure to visit the medieval Old Town whilst here - a UNESCO World Heritage Site.";
+          break;
+
+        case "Malta":
+          this.countryDesc =
+            "An archipelago in the midst of the Mediterranean, Malta is a country known for its historical value. With a succession of colonizations by the Romans, Moors, Knights of Saint John, French and British, the sights here are a conglomeration of what is current and what has been. Its capital is Valletta, and Ħal Saflieni Hypogeum is one of the most visited spots - dating back to 4000 B. C.!";
+          break;
+
+        case "Norway":
+          this.countryDesc =
+            "Norway is a Scandinavian country that is part of the Schengen Area. The fjords, coastline and skyscraping rock formations are what make Norway a natural paradise. Its strong and ancient Viking culture makes its way into daily life as well, with fishing and hiking being popular activities. Skiing is also high on the to-do list here.";
+          break;
+
+        case "Oman":
+          this.countryDesc =
+            "The sultanate of Oman is located in-between UAE and Yemen, off the coast of the Arabian Sea. The sea food and sea breeze are what call people here - Muscat (its capital) and the surrounding areas offer much in terms of Arabic culture, and souks are the place to be. The Hajar mountains are regularly trekked, to enjoy a desert sunrise on cool days.";
+          break;
+
+        case "Poland":
+          this.countryDesc =
+            "Poland shares a coast of the Baltic Sea, and is located in central Europe. Polish people are known for their hospitality, straightforwardness and cuisine - expect a myriad potato dish coming your way! It has a modern democracy, and some of the best ski slopes to let your winter sport adrenaline out. Cities to visit include Krakow, Warsaw, Gdansk and Wroclaw.";
+          break;
+
+        case "Portugal":
+          this.countryDesc =
+            "Portugal is located next to Spain on the Atlantic Ocean, in Southern Europe. Portugal and India have a long-dated relationship, and many come to its coasts to enjoy the beach life and charismatic food culture. It is also one of Europe’s oldest countries, and is home to the World’s oldest bookshop - open since 1732!";
+          break;
+
+        case "Qatar":
+          this.countryDesc =
+            "Qatar is an Arab country comprising of vast desert life and shoreline beaches. Its architecture is a mix of both modern and ancient, with olden-day Islamic influences used to create futuristic skyscrapers. Examples of these include the Doha Corniche, Museum of Islamic Art, Katara Cultural Village and Aspire Park. It has a generally hot climate, with little rainfall - and is also known to be a country with one of the highest human developent rates. ";
+          break;
+
+        case "Slovakia":
+          this.countryDesc =
+            "Slovakia is situated in Central Europe, with beautiful snowy mountains where you can enjoy hiking and budget skiing. Other things to do here include a visit to one of their 180 castles, close to 6000 caves and 425 chateaux - huge numbers for a small country! Bratislava is its capital city, with Kosice being one of the most visited as well. ";
+          break;
+
+        case "Slovenia":
+          this.countryDesc =
+            "Slovenia, with its capital Ljubljana, is a country situated in Central Europe. Large, towering mountains capped with snow with lakes at their foot is what you can expect to see here. Hot springs that feed the glacial Lake Bled are a sight to see, as well as the baroque architecture in Ljubljana, Piran and Istria. The country is also home to beaches, as it lies in the crook of the Adriatic Sea. ";
+          break;
+
+        case "Sweden":
+          this.countryDesc =
+            "Sweden is a Scandinavian country lying in the northern part of Europe. It is well-known for its knack for avante-garde design producing stylish yet functional pieces - famous brands that originated here include IKEA, Spotify and Volvo. Alfred Nobel is a native of this country, and so are the evergreen pop sensation ABBA. The country’s natural landscape is also one to see; ice hotels, Northern Lights and Fika (the cultural practice) are some examples.";
+          break;
+
+        case "Uganda":
+          this.countryDesc =
+            "Uganda is situated in East Africa, and is home to the Crested Crane - among other unique species present here, it is also the bird on their flag. The country's diverse, expansive landscape includes many national parks (filled with shrubs, lakes, a 43-m waterfall, and various species of wide animals) and even a snow-capped mountain (Rwenzori)! ";
+          break;
+
+        default:
+          this.countryDesc = "";
+          break;
+      }
     });
 
     this.activateRoute.params.subscribe((params: any) => {});
