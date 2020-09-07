@@ -1,64 +1,97 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { CallBackService } from './CallBack.service';
-import { ToastService } from '../shared/toast.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, Validators, FormControl } from "@angular/forms";
+import { CallBackService } from "./CallBack.service";
+import { ToastService } from "../shared/toast.service";
+import { Router, Event } from "@angular/router";
+import {
+  NavigationEnd,
+  NavigationStart,
+  NavigationError,
+} from "@angular/router";
 
 @Component({
-  selector: 'app-chatbox',
-  templateUrl: './chatbox.component.html',
-  styleUrls: ['./chatbox.component.css']
+  selector: "app-chatbox",
+  templateUrl: "./chatbox.component.html",
+  styleUrls: ["./chatbox.component.css"],
 })
 export class ChatboxComponent implements OnInit {
+  constructor(
+    private callBackService: CallBackService,
+    private toastService: ToastService,
+    private router: Router
+  ) {}
 
-  constructor(private callBackService: CallBackService, private toastService : ToastService) { }
+  callBackForm: FormGroup;
+  alertMessage: string;
+  showSuccessAlert: boolean = false;
+  showErrorAlert: boolean = false;
 
-  callBackForm : FormGroup;
-  alertMessage : string ;
-  showSuccessAlert : boolean = false;
-  showErrorAlert : boolean = false;
   ngOnInit() {
     this.callBackForm = new FormGroup({
-      'name' : new FormControl('',[Validators.required]),
-      'cell': new FormControl('',[Validators.required]),
-      'emailId': new FormControl('',[]),
-      'visa' : new FormControl(false),
-      'sim' : new FormControl(false),
-      'insurance' : new FormControl(false),
-      'forex' : new FormControl(false)
+      name: new FormControl("", [Validators.required]),
+      cell: new FormControl("", [Validators.required]),
+      emailId: new FormControl("", []),
+      visa: new FormControl(false),
+      sim: new FormControl(false),
+      insurance: new FormControl(false),
+      forex: new FormControl(false),
+    });
+
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        // let modal = document.querySelector("#modalBox");
+        // modal.classList.remove("show");
+        // modal.setAttribute("aria-hidden", "true");
+        // modal.setAttribute("style", "display: none");
+        // modal.setAttribute("data-backdrop", "false");
+
+        document.getElementById('modalBox').click();
+      }
+
+      if (event instanceof NavigationError) {
+        // Handle error
+        // console.error(event.error);
+      }
+
+      if (event instanceof NavigationEnd) {
+        //do something on end activity
+        // console.log("end");
+      }
     });
   }
 
   onSubmit() {
-    if (this.callBackForm.get('visa').value || this.callBackForm.get('sim').value 
-    ||this.callBackForm.get('insurance').value ||this.callBackForm.get('forex').value) {
-      this.callBackService.submitCallBackForm(this.callBackForm.value).subscribe(
-        (data: any) => {
-          if(data.code =="0") {
+    if (
+      this.callBackForm.get("visa").value ||
+      this.callBackForm.get("sim").value ||
+      this.callBackForm.get("insurance").value ||
+      this.callBackForm.get("forex").value
+    ) {
+      this.callBackService
+        .submitCallBackForm(this.callBackForm.value)
+        .subscribe((data: any) => {
+          if (data.code == "0") {
             let el = document.getElementById("closeModel");
             // el.triger
-            
+
             this.callBackForm.reset();
             // this.toastService.showNotification(data.message+"",4000);
             this.alertMessage = data.message;
-            this.showSuccessAlert =true;
+            this.showSuccessAlert = true;
             setTimeout(() => {
               this.showSuccessAlert = false;
-              (<any>($('#exampleModal'))).modal('hide');
+              (<any>$("#exampleModal")).modal("hide");
             }, 4000);
-          }
-          else {
-            this.toastService.showNotification(data.message+"",4000);
+          } else {
+            this.toastService.showNotification(data.message + "", 4000);
             this.alertMessage = data.message;
-            this.showErrorAlert =true;
+            this.showErrorAlert = true;
             setTimeout(() => {
               this.showErrorAlert = false;
-              (<any>($('#exampleModal'))).modal('hide');
+              (<any>$("#exampleModal")).modal("hide");
             }, 4000);
-
           }
-        }
-      );
+        });
     }
   }
-
 }

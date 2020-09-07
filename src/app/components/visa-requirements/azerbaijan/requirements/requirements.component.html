@@ -272,6 +272,39 @@
                   </ngb-tab>
                 </ngb-tabset>
               </div>
+
+              <div class="row mt-4">
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                  type="pills">
+                  <ngb-tab>
+                    <ng-template ngbTabTitle>
+                      <div data-toggle="collapse" data-target="#touristMobileFour" aria-expanded="true"
+                        aria-controls="touristMobileFour" [class.showDiv]="selectedMobileTourist === 4"
+                        (click)="setActiveTouristMobile(4, 'setActiveTouristMobile')" id="setActiveTouristMobile">
+                        <div class="makeIconCntr">
+                          <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Proof Of Sufficient Funds</h2>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbTabContent>
+                      <div id="touristMobileFour" class="collapse" aria-labelledby="headingMobileFour"
+                        data-parent="#touristAccodionMobile">
+                        <div class="card requiredIcon">
+                          <div class="card-body" style="padding: 10px">
+                            <h1 class="requiredIconHeading">Proof Of Sufficient Funds</h1>
+                            <p>Sufficient funding is required to guarantee
+                              entry into Azerbaijan, and proof of the same must
+                              be displayed (in the form of hard cash, or
+                              bank statements).
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
             </div>
 
           </div>
@@ -388,8 +421,8 @@
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div class="collapsed" id="#businessHeading4" data-toggle="collapse" data-target="#business4"
-                      aria-expanded="false" aria-controls="business4" [class.showDiv]="selectedBusiness === 4"
-                      (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                        aria-expanded="false" aria-controls="business4" [class.showDiv]="selectedBusiness === 4"
+                        (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                         <div class="makeIconCntr">
                           <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
                         </div>
@@ -662,8 +695,7 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="transit1" class="collapsed" aria-labelledby="transit1"
-                        data-parent="#transitAccodion">
+                      <div id="transit1" class="collapsed" aria-labelledby="transit1" data-parent="#transitAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Passport</h1>

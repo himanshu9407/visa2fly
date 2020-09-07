@@ -308,7 +308,7 @@
           <ng-template ngbTabTitle>
             <div data-toggle="collapse" attr.data-target="#requiredSourceMobile{{ i }}{{ j }}" aria-expanded="true" attr.aria-controls="requiredSourceMobile{{ i }}{{ j }}" id="setActiveRequiredSourceMobile{{ i }}{{ j }}" [class.showDiv]="selectedItem === i + '' + j" (click)="setActiveItemMobile(i + '' + j, 'setActiveRequiredSourceMobile' + i + '' + j)">
               <div class="makeIconCntr">
-                <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                <div class="vr-{{item.fieldName | removespace}} requiredIcons img-sprite"></div>
               </div>
               <h2 class="setFontSize">{{item.fieldName}}</h2>
             </div>

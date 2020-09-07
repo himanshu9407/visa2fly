@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { RequirementMalaysiaComponent } from './requirement-malaysia/requirement-malaysia.component';
+import { ImportantPointsMalaysiaComponent } from './important-points-malaysia/important-points-malaysia.component';
+import { QuotationMalaysiaComponent } from './quotation-malaysia/quotation-malaysia.component';
 
 
 const routes: Routes = [
@@ -17,7 +20,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MalaysiaComponent,
-    FaqComponent
+    FaqComponent,
+    RequirementMalaysiaComponent,
+    ImportantPointsMalaysiaComponent,
+    QuotationMalaysiaComponent
   ],
 
   imports:[

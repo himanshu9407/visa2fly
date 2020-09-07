@@ -322,7 +322,7 @@
               [class.showDiv]="selectedItem === i + '' + j"
               (click)="setActiveItemMobile(i + '' + j, 'setActiveRequiredSourceMobile' + i + '' + j)">
               <div class="makeIconCntr">
-                <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                <div class="vr-{{item.fieldName | b2bRemovespace}} requiredIcons img-sprite"></div>
               </div>
               <h2 class="setFontSize">{{item.fieldName}}</h2>
             </div>
