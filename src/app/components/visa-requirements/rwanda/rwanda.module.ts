@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { ImportantPointsRwandaComponent } from './important-points-rwanda/important-points-rwanda.component';
+import { QuotationRwandaComponent } from './quotation-rwanda/quotation-rwanda.component';
+import { RequirementRwandaComponent } from './requirement-rwanda/requirement-rwanda.component';
 
 const routes: Routes = [
     { path: "", component: RwandaComponent },
@@ -17,7 +20,10 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         RwandaComponent,
-        FaqComponent
+        FaqComponent,
+        ImportantPointsRwandaComponent,
+        QuotationRwandaComponent,
+        RequirementRwandaComponent
     ],
     imports: [
         FormsModule,

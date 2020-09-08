@@ -7,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { FaqComponent } from './faq/faq.component';
+import { RequirementTaiwanComponent } from './requirement-taiwan/requirement-taiwan.component';
+import { ImportantPointsTaiwanComponent } from './important-points-taiwan/important-points-taiwan.component';
+import { QuotationTaiwanComponent } from './quotation-taiwan/quotation-taiwan.component';
 
 const routes: Routes = [
     { path: "", component: TaiwanComponent },
@@ -15,7 +18,10 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         TaiwanComponent,
-        FaqComponent
+        FaqComponent,
+        RequirementTaiwanComponent,
+        ImportantPointsTaiwanComponent,
+        QuotationTaiwanComponent
     ],
     imports: [
         FormsModule,
