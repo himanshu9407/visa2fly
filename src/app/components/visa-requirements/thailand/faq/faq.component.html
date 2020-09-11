@@ -136,7 +136,7 @@
           </div>
         </div>
 
-        <ng-container *ngIf="showFaqs" [@simpleFadeAnimation]="'in'">
+        <div id="faqCollapse"  class="collapse">
         <div class="card faqQueryCard">
           <div class="card-header faqQuery" id="heading6" data-toggle="collapse"
             data-target="#thailandAccordion6" aria-expanded="false"
@@ -431,13 +431,16 @@
             </div>
           </div>
         </div>
-        </ng-container>
+        </div>
 
       </div>
     </div>
 
     <div class="col-12 text-center loadMore mt-3">
-      <button class="loadMoreBtn btn" (click)="loadData()">{{loadText}}</button>
+      <button class="loadMoreBtn btn" (click)="loadData($event)" type="button" data-toggle="collapse"
+      data-target="#faqCollapse" aria-expanded="false" aria-controls="faqCollapse">
+      {{loadText}}
+    </button>
     </div>
     
   </div>

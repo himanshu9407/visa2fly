@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container-fluid p-0" style="position: relative;">
   <div class="iconSection">
     <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
       [justify]="desktopJustify" [orientation]="desktopOrientation">
@@ -30,7 +30,13 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="tourist1" class="collapsed" aria-labelledby="heading1" data-parent="#touristAccodion">
+                      <div id="tourist1" class="collapse"
+                        [ngStyle]="{
+                        'display': showTouristFirst ? 'block' : '',
+                        'opacity': showTouristFirst ? '1' : '',
+                        'visibility': showTouristFirst ? 'visible' : '',
+                        'transition': showTouristFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="heading1" data-parent="#touristAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Visa Application Form</h1>
@@ -48,9 +54,9 @@
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false" aria-controls="tourist2"
-                        [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2, 'setActiveTourist2')"
-                        id="setActiveTourist2">
+                      <div class="collapsed" data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
+                        aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
+                        (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
                         <div class="makeIconCntr">
                           <div class="vr-photograph requiredIcons img-sprite"></div>
                         </div>
@@ -79,9 +85,9 @@
                   </ngb-tab>
                   <ngb-tab>
                     <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false" aria-controls="tourist3"
-                        [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3, 'setActiveTourist3')"
-                        id="setActiveTourist3">
+                      <div class="collapsed" data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
+                        aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
+                        (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
                         <div class="makeIconCntr">
                           <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
@@ -355,8 +361,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
-                        data-parent="#touristAccodionMobile">
+                      <div id="touristMobile1" class="collapse" [ngStyle]="{
+                        'display': showTouristMobileFirst ? 'block' : '',
+                        'opacity': showTouristMobileFirst ? '1' : '',
+                        'visibility': showTouristMobileFirst ? 'visible' : '',
+                        'transition': showTouristMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1" data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
                             <h1 class="requiredIconHeading">Visa Application Form</h1>
@@ -726,8 +736,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
-                        data-parent="#businessAccodion">
+                      <div id="business1" class="collapse"   [ngStyle]="{
+                        'display': showBusinessFirst ? 'block' : '',
+                        'opacity': showBusinessFirst ? '1' : '',
+                        'visibility': showBusinessFirst ? 'visible' : '',
+                        'transition': showBusinessFirst ? 'all .35s ease-in-out' : ''
+                        }"  aria-labelledby="businessHeading1" data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Passport</h1>
@@ -1047,8 +1061,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
-                        data-parent="#businessAccodionMobile">
+                      <div id="businessMobile1" class="collapse" [ngStyle]="{
+                        'display': showBusinessMobileFirst ? 'block' : '',
+                        'opacity': showBusinessMobileFirst ? '1' : '',
+                        'visibility': showBusinessMobileFirst ? 'visible' : '',
+                        'transition': showBusinessMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1" data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
                             <h1 class="requiredIconHeading">Passport</h1>

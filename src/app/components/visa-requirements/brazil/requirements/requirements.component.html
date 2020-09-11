@@ -34,7 +34,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="tourist1" class="collapsed" aria-labelledby="heading1" data-parent="#touristAccodion">
+                      <div id="tourist1" class="collapse" [ngStyle]="{
+                        'display': showTouristFirst ? 'block' : '',
+                        'opacity': showTouristFirst ? '1' : '',
+                        'visibility': showTouristFirst ? 'visible' : '',
+                        'transition': showTouristFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="heading1" data-parent="#touristAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Visa Application Form</h1>
@@ -265,7 +270,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                      <div id="touristMobile1" class="collapse" [ngStyle]="{
+                        'display': showTouristMobileFirst ? 'block' : '',
+                        'opacity': showTouristMobileFirst ? '1' : '',
+                        'visibility': showTouristMobileFirst ? 'visible' : '',
+                        'transition': showTouristMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1"
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
@@ -516,6 +526,7 @@
           </div>
         </ng-template>
       </ngb-tab>
+      
       <ngb-tab id="Business" title="Business">
         <ng-template ngbTabContent>
 
@@ -548,7 +559,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                      <div id="business1" class="collapse" [ngStyle]="{
+                        'display': showBusinessFirst ? 'block' : '',
+                        'opacity': showBusinessFirst ? '1' : '',
+                        'visibility': showBusinessFirst ? 'visible' : '',
+                        'transition': showBusinessFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="businessHeading1"
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -790,7 +806,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                      <div id="businessMobile1" class="collapse" [ngStyle]="{
+                        'display': showBusinessMobileFirst ? 'block' : '',
+                        'opacity': showBusinessMobileFirst ? '1' : '',
+                        'visibility': showBusinessMobileFirst ? 'visible' : '',
+                        'transition': showBusinessMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1"
                         data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
@@ -1086,7 +1107,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="transit1" class="collapsed" aria-labelledby="transit1"
+                      <div id="transit1" class="collapse" [ngStyle]="{
+                        'display': showTransitFirst ? 'block' : '',
+                        'opacity': showTransitFirst ? '1' : '',
+                        'visibility': showTransitFirst ? 'visible' : '',
+                        'transition': showTransitFirst ? 'all .35s ease-in-out' : ''
+                        }"  aria-labelledby="transit1"
                         data-parent="#transitAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -1159,7 +1185,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                         aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
-                        (click)="setActiveMobileTransit(1, 'setActiveMobileTransit1')" id="setActiveMobileTransit1">
+                        (click)="setActiveTransitMobile(1, 'setActiveTransitMobile1')" id="setActiveTransitMobile1">
                         <div class="makeIconCntr">
                           <div class="vr-passport requiredIcons img-sprite"></div>
                         </div>
@@ -1167,7 +1193,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="transitMobile1" class="collapsed" aria-labelledby="transitMobile1"
+                      <div id="transitMobile1" class="collapse" [ngStyle]="{
+                        'display': showTransitMobileFirst ? 'block' : '',
+                        'opacity': showTransitMobileFirst ? '1' : '',
+                        'visibility': showTransitMobileFirst ? 'visible' : '',
+                        'transition': showTransitMobileFirst ? 'all .35s ease-in-out' : ''
+                        }"  aria-labelledby="transitMobile1"
                         data-parent="#transitAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
@@ -1190,7 +1221,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
                         aria-controls="transitMobile2" [class.showDiv]="selectedMobileTransit === 2"
-                        (click)="setActiveMobileTransit(2, 'setActiveMobileTransit2')" id="setActiveMobileTransit2">
+                        (click)="setActiveTransitMobile(2, 'setActiveTransitMobile2')" id="setActiveTransitMobile2">
                         <div class="makeIconCntr">
                           <div class="vr-flightTickets requiredIcons img-sprite"></div>
                         </div>
@@ -1221,7 +1252,7 @@
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
                         aria-controls="transitMobile3" [class.showDiv]="selectedMobileTransit === 3"
-                        (click)="setActiveMobileTransit(3, 'setActiveMobileTransit3')" id="setActiveMobileTransit3">
+                        (click)="setActiveTransitMobile(3, 'setActiveTransitMobile3')" id="setActiveTransitMobile3">
                         <div class="makeIconCntr">
                           <div class="vr-Visa requiredIcons img-sprite"></div>
                         </div>

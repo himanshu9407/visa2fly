@@ -34,7 +34,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="tourist1" class="collapsed" aria-labelledby="heading1" data-parent="#touristAccodion">
+                      <div id="tourist1" class="collapse" [ngStyle]="{
+                        'display': showTouristFirst ? 'block' : '',
+                        'opacity': showTouristFirst ? '1' : '',
+                        'visibility': showTouristFirst ? 'visible' : '',
+                        'transition': showTouristFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="heading1" data-parent="#touristAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
                             <h1 class="requiredIconHeading">Passport</h1>
@@ -250,7 +255,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                      <div id="touristMobile1" class="collapse" [ngStyle]="{
+                        'display': showTouristMobileFirst ? 'block' : '',
+                        'opacity': showTouristMobileFirst ? '1' : '',
+                        'visibility': showTouristMobileFirst ? 'visible' : '',
+                        'transition': showTouristMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1"
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
@@ -494,7 +504,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="businessVisa1" class="collapsed" aria-labelledby="businessVisa1"
+                      <div id="businessVisa1" class="collapse" [ngStyle]="{
+                        'display': showBusinessVisaFirst ? 'block' : '',
+                        'opacity': showBusinessVisaFirst ? '1' : '',
+                        'visibility': showBusinessVisaFirst ? 'visible' : '',
+                        'transition': showBusinessVisaFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="businessVisa1"
                         data-parent="#businessVisaAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -756,7 +771,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="businessVisaMobile1" class="collapsed" aria-labelledby="businessVisaMobile1"
+                      <div id="businessVisaMobile1" class="collapse" [ngStyle]="{
+                        'display': showBusinessVisaMobileFirst ? 'block' : '',
+                        'opacity': showBusinessVisaMobileFirst ? '1' : '',
+                        'visibility': showBusinessVisaMobileFirst ? 'visible' : '',
+                        'transition': showBusinessVisaMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="businessVisaMobile1"
                         data-parent="#businessVisaAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -1076,7 +1096,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                      <div id="business1" class="collapse" [ngStyle]="{
+                        'display': showBusinessFirst ? 'block' : '',
+                        'opacity': showBusinessFirst ? '1' : '',
+                        'visibility': showBusinessFirst ? 'visible' : '',
+                        'transition': showBusinessFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="businessHeading1"
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -1238,7 +1263,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                      <div id="businessMobile1" class="collapse" [ngStyle]="{
+                        'display': showBusinessMobileFirst ? 'block' : '',
+                        'opacity': showBusinessMobileFirst ? '1' : '',
+                        'visibility': showBusinessMobileFirst ? 'visible' : '',
+                        'transition': showBusinessMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1"
                         data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">

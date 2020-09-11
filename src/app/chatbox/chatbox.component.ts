@@ -39,12 +39,6 @@ export class ChatboxComponent implements OnInit {
 
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
-        // let modal = document.querySelector("#modalBox");
-        // modal.classList.remove("show");
-        // modal.setAttribute("aria-hidden", "true");
-        // modal.setAttribute("style", "display: none");
-        // modal.setAttribute("data-backdrop", "false");
-
         document.getElementById('modalBox').click();
       }
 

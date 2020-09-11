@@ -1,4 +1,5 @@
-<div class="imageContainer desktopView">
+<div class="imageContainer desktopView"
+  style="background-image: url(../../../../assets/country/{{selectedCountrytype}}.jpg);">
   <div class="row">
     <div class="col-12 text-right">
       <p class="breadcrum">
@@ -83,7 +84,7 @@
   </div>
 </div>
 
-<div class="imageContainer mobileView">
+<div class="imageContainer mobileView" style="background-image: url(../../../../assets/country/{{selectedCountrytype}}.jpg);">
   <div class="row">
     <div class="col-12 text-right p-0">
       <p class="breadcrum">
@@ -120,18 +121,18 @@
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input class="select-box__input" type="radio" id="TouristMobile" value="Tourist"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                      <input class="select-box__input" type="radio" id="BusinessMobile" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input class="select-box__input" type="radio" id="TransitMobile" value="Transit"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -145,15 +146,15 @@
                   </div>
                   <ul class="select-box__list">
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="TouristMobile"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="BusinessMobile"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="TransitMobile"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
@@ -264,7 +265,7 @@
     <div class="col-12 text-center mgxTop">
       <h1 class="outerRequirement">
         <span class="requirementContainer text-uppercase">
-          {{selectedPurposeType}} VISA REQUIREMENT FOR {{selectedCountrytype}}
+          VISA REQUIREMENT FOR {{selectedCountrytype}}
         </span>
       </h1>
     </div>
@@ -276,7 +277,10 @@
       <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
         <ngb-tab *ngFor="let item of items; let j = index;">
           <ng-template ngbTabTitle>
-            <div data-toggle="collapse" attr.data-target="#requiredSource{{ i }}{{ j }}" aria-expanded="true" attr.aria-controls="requiredSource{{ i }}{{ j }}" id="setActiveRequiredSource{{ i }}{{ j }}" [class.showDiv]="selectedItem === i + '' + j" (click)="setActiveItem(i + '' + j, 'setActiveRequiredSource' + i + '' + j)">
+            <div data-toggle="collapse" attr.data-target="#requiredSource{{ i }}{{ j }}" aria-expanded="true"
+              attr.aria-controls="requiredSource{{ i }}{{ j }}" id="setActiveRequiredSource{{ i }}{{ j }}"
+              [class.showDiv]="selectedItem === i + '' + j"
+              (click)="setActiveItem(i + '' + j, 'setActiveRequiredSource' + i + '' + j)">
               <div class="makeIconCntr">
                 <div class="vr-{{item.fieldName | removespace}} requiredIcons img-sprite"></div>
               </div>
@@ -284,7 +288,8 @@
             </div>
           </ng-template>
           <ng-template ngbTabContent>
-            <div id="requiredSource{{ i }}{{ j }}" class="collapse" attr.aria-labelledby="heading{{ i }}{{ j }}" data-parent="#requiredSourceAccodion">
+            <div id="requiredSource{{ i }}{{ j }}" class="collapse" attr.aria-labelledby="heading{{ i }}{{ j }}"
+              data-parent="#requiredSourceAccodion">
               <div class="card requiredIcon">
                 <div class="card-body">
                   <h1 class="requiredIconHeading">{{item.fieldName}}</h1>
@@ -303,10 +308,14 @@
   <!-- mobileContainer -->
   <div class="mobileContainer wrapContainer accordion" id="requiredSourceAccodionMobile">
     <div class="row mb-4" *ngFor="let items of mobileMainArr; let i = index;">
-      <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills" *ngFor="let item of items; let j = index;">
+      <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills"
+        *ngFor="let item of items; let j = index;">
         <ngb-tab>
           <ng-template ngbTabTitle>
-            <div data-toggle="collapse" attr.data-target="#requiredSourceMobile{{ i }}{{ j }}" aria-expanded="true" attr.aria-controls="requiredSourceMobile{{ i }}{{ j }}" id="setActiveRequiredSourceMobile{{ i }}{{ j }}" [class.showDiv]="selectedItem === i + '' + j" (click)="setActiveItemMobile(i + '' + j, 'setActiveRequiredSourceMobile' + i + '' + j)">
+            <div data-toggle="collapse" attr.data-target="#requiredSourceMobile{{ i }}{{ j }}" aria-expanded="true"
+              attr.aria-controls="requiredSourceMobile{{ i }}{{ j }}" id="setActiveRequiredSourceMobile{{ i }}{{ j }}"
+              [class.showDiv]="selectedItem === i + '' + j"
+              (click)="setActiveItemMobile(i + '' + j, 'setActiveRequiredSourceMobile' + i + '' + j)">
               <div class="makeIconCntr">
                 <div class="vr-{{item.fieldName | removespace}} requiredIcons img-sprite"></div>
               </div>
@@ -314,7 +323,8 @@
             </div>
           </ng-template>
           <ng-template ngbTabContent>
-            <div id="requiredSourceMobile{{ i }}{{ j }}" class="collapse" attr.aria-labelledby="heading{{ i }}{{ j }}" data-parent="#requiredSourceAccodionMobile">
+            <div id="requiredSourceMobile{{ i }}{{ j }}" class="collapse" attr.aria-labelledby="heading{{ i }}{{ j }}"
+              data-parent="#requiredSourceAccodionMobile">
               <div class="card requiredIcon">
                 <div class="card-body" style="padding: 10px">
                   <h1 class="requiredIconHeading" style="color: navy">{{mobileSelectedDataArr[i].fieldName}}</h1>

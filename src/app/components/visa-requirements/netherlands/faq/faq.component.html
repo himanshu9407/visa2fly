@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 text-center">
       <h1><span class="faqContainer">
-        <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" width="30" height="30"
+          <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" width="30" height="30"
             xmlns="http://www.w3.org/2000/svg">
             <g>
               <g>
@@ -29,7 +29,7 @@
                   d="m301 105c0 14.24-6.86 27.79-18.33 36.24-7.3 5.39-11.67 14-11.67 23.06v15.7h-15v-54.84c2.65-2.97 5.62-5.68 8.88-8.08 3.88-2.85 6.12-7.26 6.12-12.08 0-8.28-6.72-15-15-15v-30c24.81 0 45 20.19 45 45z" />
               </g>
             </g>
-        </svg>FAQ's</span></h1>
+          </svg>FAQ's</span></h1>
     </div>
 
     <div class="col-12 p-0">
@@ -139,7 +139,7 @@
           </div>
         </div>
 
-        <ng-container *ngIf="showFaqs" [@simpleFadeAnimation]="'in'">
+        <div id="faqCollapse" class="collapse">
           <div class="card faqQueryCard">
             <div class="card-header faqQuery" id="heading6" data-toggle="collapse" data-target="#netherlandAccordion6"
               aria-expanded="false" aria-controls="netherlandAccordion6">
@@ -483,13 +483,16 @@
               </div>
             </div>
           </div>
-        </ng-container>
+        </div>
 
       </div>
     </div>
 
     <div class="col-12 text-center loadMore mt-3">
-      <button class="loadMoreBtn btn" (click)="loadData()">{{loadText}}</button>
+      <button class="loadMoreBtn btn" (click)="loadData($event)" type="button" data-toggle="collapse"
+        data-target="#faqCollapse" aria-expanded="false" aria-controls="faqCollapse">
+        {{loadText}}
+      </button>
     </div>
 
   </div>

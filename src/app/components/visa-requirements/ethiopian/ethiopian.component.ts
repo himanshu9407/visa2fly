@@ -56,12 +56,17 @@ export class EthiopianComponent implements OnInit {
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
   transitArr: Array<any> = [];
+
   selectedBusiness: number = 1;
-  selectedTransit: number = 1;
-  selectedVisaBusiness: number = 1;
+  selectedMobileBusiness: number = 1;
+  
   selectedTourist: number = 1;
   selectedMobileTourist: number = 1;
-  selectedMobileBusiness: number = 1;
+  
+  selectedVisaBusiness: number = 1;
+  selectedVisaMobileBusiness: number = 1;
+  
+  selectedTransit: number = 1;
   selectedMobileTransit: number = 1;
 
   public selectedCountrytype = "Ethiopia";

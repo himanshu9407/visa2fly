@@ -34,7 +34,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="tourist1" class="collapsed" aria-labelledby="heading1"
+                      <div id="tourist1" class="collapse" [ngStyle]="{
+                        'display': showTouristFirst ? 'block' : '',
+                        'opacity': showTouristFirst ? '1' : '',
+                        'visibility': showTouristFirst ? 'visible' : '',
+                        'transition': showTouristFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="heading1"
                         data-parent="#touristAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -474,7 +479,7 @@
             <!-- mobileContainer -->
             <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
               <div class="row">
-                <ngb-tabset [orientation]="mobileOrientation" class="iconTabset" type="pills">
+                <ngb-tabset [orientation]="desktopOrientation" class="iconTabset" type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
@@ -487,7 +492,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                      <div id="touristMobile1" class="collapse" [ngStyle]="{
+                        'display': showTouristMobileFirst ? 'block' : '',
+                        'opacity': showTouristMobileFirst ? '1' : '',
+                        'visibility': showTouristMobileFirst ? 'visible' : '',
+                        'transition': showTouristMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1"
                         data-parent="#touristAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">
@@ -508,7 +518,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -546,7 +556,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [orientation]="mobileOrientation" class="iconTabset" type="pills">
+                <ngb-tabset [orientation]="desktopOrientation" class="iconTabset" type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
                       <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
@@ -581,7 +591,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -660,7 +670,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -695,7 +705,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -728,7 +738,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -764,7 +774,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -845,7 +855,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -886,7 +896,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -928,7 +938,7 @@
               </div>
 
               <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="mobileOrientation" class="iconTabset"
+                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                   type="pills">
                   <ngb-tab>
                     <ng-template ngbTabTitle>
@@ -998,7 +1008,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                      <div id="business1" class="collapse" [ngStyle]="{
+                        'display': showBusinessFirst ? 'block' : '',
+                        'opacity': showBusinessFirst ? '1' : '',
+                        'visibility': showBusinessFirst ? 'visible' : '',
+                        'transition': showBusinessFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="businessHeading1"
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
@@ -1362,7 +1377,12 @@
                       </div>
                     </ng-template>
                     <ng-template ngbTabContent>
-                      <div id="businessMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                      <div id="businessMobile1" class="collapse" [ngStyle]="{
+                        'display': showBusinessMobileFirst ? 'block' : '',
+                        'opacity': showBusinessMobileFirst ? '1' : '',
+                        'visibility': showBusinessMobileFirst ? 'visible' : '',
+                        'transition': showBusinessMobileFirst ? 'all .35s ease-in-out' : ''
+                        }" aria-labelledby="headingMobile1"
                         data-parent="#businessAccodionMobile">
                         <div class="card requiredIcon">
                           <div class="card-body" style="padding: 10px">

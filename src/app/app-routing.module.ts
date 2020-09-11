@@ -106,25 +106,6 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-  {
-    path: "visa-requirements/:country/:variable",
-    loadChildren: () =>
-      import("./components/requirements/requirements.module").then(
-        (m) => m.RequirementsModule
-      ),
-    data: { preload: true },
-  },
-
-  // Requirement Page
-  {
-    path: "visa-requirements/:country/:variable/:purpose",
-    loadChildren: () =>
-      import("./components/requirements/requirements.module").then(
-        (m) => m.RequirementsModule
-      ),
-    data: { preload: true },
-  },
-
   // Uk Page
   {
     path: "visa-requirements/apply-for-UK-visa-online/:purpose",
@@ -309,7 +290,6 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-
   // Eygpt Page
   {
     path: "visa/egypt-visa-online",
@@ -339,7 +319,6 @@ const routes: Routes = [
       ),
     data: { preload: true },
   },
-
 
   // Taiwan Page
   {
@@ -446,7 +425,6 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-  
    // UAE Page
    {
     path: "visa/uae-visa-online",
@@ -495,7 +473,6 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-
   // Spain Page
   {
     path: "visa-requirements/apply-for-Spain-visa-online/:purpose",
@@ -517,7 +494,7 @@ const routes: Routes = [
 
   // Singapore Page
   {
-    path: "visa-requirements/apply-for-Singapore-visa-online/:purpose",
+    path: "visa/singapore-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/singapore/singapore.module").then(
         (m) => m.SingaporeModule
@@ -526,13 +503,14 @@ const routes: Routes = [
   },
 
   {
-    path: "visa/singapore-visa-online",
+    path: "visa-requirements/apply-for-Singapore-visa-online/:purpose",
     loadChildren: () =>
       import("./components/visa-requirements/singapore/singapore.module").then(
         (m) => m.SingaporeModule
       ),
     data: { preload: true },
   },
+
 
   // Sri-Lanka Page
   {
@@ -736,11 +714,33 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // insurance
   { path: "insurance", component: InsuranceComponent },
   {
     path: "page-not-found",
     component: PageNotFoundComponent,
   },
+
+   // Requirement Page
+   {
+    path: "visa-requirements/:country/:variable",
+    loadChildren: () =>
+      import("./components/requirements/requirements.module").then(
+        (m) => m.RequirementsModule
+      ),
+    data: { preload: true },
+  },
+
+  // Requirement Page
+  {
+    path: "visa-requirements/:country/:variable/:purpose",
+    loadChildren: () =>
+      import("./components/requirements/requirements.module").then(
+        (m) => m.RequirementsModule
+      ),
+    data: { preload: true },
+  },
+
   { path: "**", redirectTo: "page-not-found", pathMatch: "full" },
 ];
 

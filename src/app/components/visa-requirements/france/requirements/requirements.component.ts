@@ -1,20 +1,6 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChild,
-  AfterViewInit,
-} from "@angular/core";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
-import { Subject } from 'rxjs';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter, AfterViewInit } from "@angular/core";
+import { Subject } from "rxjs";
+import { trigger, state, transition, style, animate } from "@angular/animations";
 
 @Component({
   selector: "app-requirements",
@@ -34,7 +20,6 @@ import { Subject } from 'rxjs';
 export class RequirementsComponent implements OnInit, AfterViewInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
-  mobileOrientation = "vertical";
 
   @ViewChild("t") t;
 
@@ -48,13 +33,19 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
   @Input() selectedPurpose: Subject<any>;
 
   @Output() changedPurpose = new EventEmitter();
+  showTouristFirst: boolean = true;
+  showBusinessFirst: boolean = true;
+  showTouristMobileFirst: boolean = true;
+  showBusinessMobileFirst: boolean = true;
+  showTransitFirst: boolean = true;
+  showTransitMobileFirst: boolean = true;
 
   constructor() {}
 
   ngOnInit(): void {
     this.selectedPurpose.subscribe((res) => {
       this.t.select(res);
-    })
+    });
   }
 
   ngAfterViewInit() {
@@ -63,6 +54,12 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
 
   setActiveTourist(index: number, id: string) {
     this.selectedTourist = index;
+    let touristBool = true;
+
+    if (touristBool) {
+      this.showTouristFirst = false;
+      touristBool = false;
+    }
 
     if ($("#tourist" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
@@ -73,6 +70,12 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
 
   setActiveTouristMobile(index: number, id: string) {
     this.selectedMobileTourist = index;
+    let touristMobileBool = true;
+
+    if (touristMobileBool) {
+      this.showTouristMobileFirst = false;
+      touristMobileBool = false;
+    }
 
     if ($("#touristMobile" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
@@ -81,8 +84,15 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
     }
   }
 
+
   setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;
+    let businessBool = true;
+
+    if (businessBool) {
+      this.showBusinessFirst = false;
+      businessBool = false;
+    }
 
     if ($("#business" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
@@ -93,6 +103,12 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
 
   setActiveBusinessMobile(index: number, id: string) {
     this.selectedMobileBusiness = index;
+    let businessMobileBool = true;
+
+    if (businessMobileBool) {
+      this.showBusinessMobileFirst = false;
+      businessMobileBool = false;
+    }
 
     if ($("#businessMobile" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
@@ -101,11 +117,60 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setActiveTransit(index: number) {
+  setActiveTransit(index: number, id: string) {
     this.selectedTransit = index;
+    let transitBool = true;
+
+    if (transitBool) {
+      this.showTransitMobileFirst = false;
+      transitBool = false;
+    }
+
+    if ($("#transit" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
   }
+
+  setActiveTransitMobile(index: number, id: string) {
+    this.selectedMobileTransit = index;
+    let transitMobileBool = true;
+
+    if (transitMobileBool) {
+      this.showTouristMobileFirst = false;
+      transitMobileBool = false;
+    }
+
+    if ($("#transitMobile" + index).hasClass("show")) {
+      $("#" + id).removeClass("showDiv");
+    } else {
+      $("#" + id).addClass("showDiv");
+    }
+  }
+
 
   changePurpose(event) {
     this.changedPurpose.emit(event);
+
+    if (event.nextId == "Tourist") {
+      this.selectedTourist = 1;
+      this.selectedMobileTourist = 1;
+
+      this.showTouristFirst = true;
+      this.showTouristMobileFirst = true;
+    } else if (event.nextId == "Business") {
+      this.selectedBusiness = 1;
+      this.selectedMobileBusiness = 1;
+
+      this.showBusinessFirst = true;
+      this.showBusinessMobileFirst = true;
+    } else if (event.nextId == "Transit") {
+      this.selectedTransit = 1;
+      this.selectedMobileTransit = 1;
+
+      this.showTransitFirst = true;
+      this.showTransitMobileFirst = true;
+    }
   }
 }

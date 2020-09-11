@@ -38,6 +38,7 @@ li {
 .faqQuery button {
   font-weight: 500;
   font-size: 16px;
+  text-align: left;
   color: #0000bb !important;
   text-decoration: none !important;
 }
@@ -53,7 +54,7 @@ li {
   color: #000;
   font-weight: 700;
   display: flex;
-  justify-content:center ;
+  justify-content: center;
   align-items: center;
   font-size: 24px;
   margin-bottom: 10px;
@@ -63,30 +64,47 @@ li {
   margin-right: 10px;
 }
 
+.wrapper {
+  position: relative;
+  height: auto;
+  border-top: 0;
+}
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+label {
+  background: #e4e3df;
+  display: block;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  transition: top 0.45s cubic-bezier(0.44, 0.99, 0.48, 1);
+}
+
 @media screen and (min-width: 481px) and (max-width: 500px) {
- 
   .faqQuery button {
     font-weight: 500;
     font-size: 14px;
     color: #0000bb !important;
     text-decoration: none !important;
   }
-
 }
 
 @media screen and (min-width: 501px) and (max-width: 767px) {
-
   .faqQuery button {
     font-weight: 500;
     font-size: 14px;
     color: #0000bb !important;
     text-decoration: none !important;
   }
-
 }
 
 @media screen and (min-width: 360px) and (max-width: 480px) {
-
   .faqContainer {
     color: #000;
     font-weight: 700;
@@ -97,11 +115,9 @@ li {
   .wrapContainer {
     padding: 35px 15px 10px;
   }
-
 }
 
 @media screen and (min-width: 320px) and (max-width: 359px) {
-
   .faqContainer {
     color: #000;
     font-weight: 700;
@@ -112,5 +128,4 @@ li {
   .wrapContainer {
     padding: 35px 15px 10px;
   }
-
 }

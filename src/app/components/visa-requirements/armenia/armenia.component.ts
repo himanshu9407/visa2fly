@@ -1,8 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Inject,
-} from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -18,7 +14,7 @@ import { VisaRequirementService } from "../visa-requirement.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
-import { Subject } from 'rxjs';
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-armenia",
@@ -280,20 +276,14 @@ export class ArmeniaComponent implements OnInit {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
-      this.selectedBusiness = 1;
-      this.selectedMobileBusiness = 1;
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
-      this.selectedTransit = 1;
-      this.selectedMobileTransit = 1;
     }
 
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
