@@ -1,0 +1,1333 @@
+<div class="container-fluid p-0">
+    <div class="iconSection">
+      <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
+        [orientation]="desktopOrientation">
+        <ngb-tab id="Tourist" title="Tourist">
+  
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- tourist -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                      VISA REQUIREMENT FOR
+                      TAIWAN</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <!-- desktopContainer -->
+              <div class="desktopContainer accordion" id="touristAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
+                          aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Application Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist1" class="collapsed" aria-labelledby="heading1"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Application Form</h1>
+                              <p>
+                                You will need to fill in the application form for the ETA online. It is recommended to use a Google Chrome browser to complete this.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
+                          aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                This document must be valid for at least 6 months after the 
+                                date of entry into Taiwan. You will be asked to submit a PDF 
+                                copy of the first and last pages of your 
+                                passport (the biodata pages).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
+                          aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="france tourist visa application"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist3" class="collapse" aria-labelledby="heading3"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                You will be asked to submit a JPG copy of a photograph of the applicant. This photograph must be in line with passport size and requirements.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#toursit4" aria-expanded="false"
+                          aria-controls="toursit4" [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Ticket</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="toursit4" class="collapse" aria-labelledby="heading4"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Ticket</h1>
+                              <p>
+                                You will need return tickets to be able to start 
+                                filling in the application form. Please make sure 
+                                you are in possession of these before starting 
+                                your application process.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true"
+                          aria-controls="tourist5" [class.showDiv]="selectedTourist === 5"
+                          (click)="setActiveTourist(5, 'setActiveTourist5')" id="setActiveTourist5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                            alt="france tourist visa application" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="tourist5" class="collapse" aria-labelledby="heading5"
+                          data-parent="#touristAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Credit Card
+                              </h1>
+                              <p>
+                                You will need a credit card to pay visa fees online. This must be a Mastercard or Visa. 
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                
+              </div>
+  
+  
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedMobileTourist === 1"
+                          (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Application Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Application Form</h1>
+                              <p> 
+                                You will need to fill in the application form for the ETA online. It is recommended to use a Google Chrome browser to complete this.
+                              </p>
+            
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                          aria-controls="touristMobile2" [class.showDiv]="selectedMobileTourist === 2"
+                          (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                This document must be valid for at least 6 months 
+                                after the date of entry into Taiwan. You will be asked 
+                                to submit a PDF copy of the first and last pages of 
+                                your passport (the biodata pages).
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedMobileTourist === 3"
+                          (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                You will be asked to submit a JPG copy of a photograph of the applicant. This photograph must be in line with passport size and requirements.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                          aria-controls="touristMobile4" [class.showDiv]="selectedMobileTourist === 4"
+                          (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Ticket</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Flight Ticket</h1>
+                              <p>
+                                You will need return tickets to be able to start filling in the application form. Please make sure you are in possession of these before starting your application process.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                          aria-controls="touristMobile5" [class.showDiv]="selectedMobileTourist === 5"
+                          (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                          <div class="makeIconCntr">
+                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Credit Card
+                              </h1>
+                              <p>
+                                You will need a credit card to pay visa fees online. This must be a Mastercard or Visa.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+  
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="Business" title="Business">
+          <ng-template ngbTabContent>
+  
+            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+              <!-- business -->
+              <div class="row">
+                <div class="col-12 text-center mgxTop">
+                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                      VISA REQUIREMENT FOR
+                      TAIWAN</span>
+                  </h1>
+                </div>
+              </div>
+  
+              <div class="desktopContainer accordion" id="businessAccodion">
+                <div class="row mt-2">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                          aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for france e-visa"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Application Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business1" class="collapsed" aria-labelledby="businessHeading1"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Application Form</h1>
+                              <p>
+                                You will need to apply online on the official visa website. 
+                                Any fields marked with ‘*’ are mandatory, you can choose to leave 
+                                out any of those that are marked without this ‘*’. We recommend 
+                                filling all form details. You will also need to sign on it.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                          aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+  
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                You will need a passport that will be valid for at least 
+                                6 months from your intended date of departure.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                          data-target="#business3" aria-expanded="false" aria-controls="business3"
+                          [class.showDiv]="selectedBusiness === 3" 
+                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for france e-visa"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                Two passport-sized photos with a white background must be 
+                                submitted. A minimum of 60% of the photo must be of 
+                                the applicant’s face.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                   
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                          data-target="#business4" aria-expanded="false" aria-controls="business4"
+                          [class.showDiv]="selectedBusiness === 4" 
+                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-proofOfFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Proof Of Funds</h1>
+                              <p>
+                                The applicant needs to provide proof of sufficient funding. 
+                                This could be in the form of their personal salary account 
+                                statement for the last 3 months. This statement 
+                                should have the official, original bank stamp.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business5" aria-expanded="true"
+                          aria-controls="business5" [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                            alt="apply for france e-visa" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Flight Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business5" class="collapse" aria-labelledby="business5"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Flight Tickets
+                              </h1>
+                              <p>
+                                Proof of flight bookings, both to and fro tmust be shown. That includes any stops in-between.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business6" aria-expanded="true"
+                          aria-controls="business6" [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusiness(6, 'setActiveBusiness6')" id="setActiveBusiness6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Hotel Reservation</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business6" class="collapse" aria-labelledby="business6"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Hotel Reservation
+                              </h1>
+                              <p>
+                                Proof of your confirmed accommodation for your entire 
+                                stay in Taiwan must be shown. This could be rental 
+                                agreements, hotel reservations, etc.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab> 
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business7" aria-expanded="true"
+                          aria-controls="business7" [class.showDiv]="selectedBusiness === 7"
+                          (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-incomeTaxReturn requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Income Tax Return/Form 16</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business7" class="collapse" aria-labelledby="business7"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Income Tax Return/Form 16
+                              </h1>
+                              <p>
+                                The applicant’s ITR or Form 16 (either one) for the last year must be supplied.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business8" aria-expanded="true"
+                          aria-controls="business8" [class.showDiv]="selectedBusiness === 8"
+                          (click)="setActiveBusiness(8, 'setActiveBusiness8')" id="setActiveBusiness8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="apply for france e-visa"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+
+                            <div class="makeIconCntr">
+                                <div class="vr-businessRegistration requiredIcons img-sprite"></div>
+                              </div>
+                          <h2 class="setFontSize">Registration Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business8" class="collapse" aria-labelledby="business8"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Registration Certificate</h1>
+                              <p>
+                                A copy of the Indian company’s registration certificate 
+                                (that is issued by the Indian government) must 
+                                also be attached.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business9" aria-expanded="true"
+                          aria-controls="business9" [class.showDiv]="selectedBusiness === 9"
+                          (click)="setActiveBusiness(9, 'setActiveBusiness9')" id="setActiveBusiness9">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                              </div>
+                          <h2 class="setFontSize">Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business9" class="collapse" aria-labelledby="businessNine"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Credit Card</h1>
+                              <p>
+                                You will need a credit card to pay the visa fees. Please ensure 
+                                this card is either MasterCard,Visa or JCB. After paying the fees, 
+                                you will need to collect the payment slip for submission later.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business10" aria-expanded="true"
+                          aria-controls="business10" [class.showDiv]="selectedBusiness === 10"
+                          (click)="setActiveBusiness(10, 'setActiveBusiness10')" id="setActiveBusiness10">
+                          <div class="makeIconCntr">
+                            <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business10" class="collapse" aria-labelledby="business10"
+                          data-parent="#businessAccodion">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                              <p>
+                                The company/institution in Taiwan must issue a letter that states 
+                                the purpose of the applicant’s visit, as well as the applicant’s 
+                                name and passport details. This must be on the official letterhead.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business11" aria-expanded="true"
+                        aria-controls="business11" [class.showDiv]="selectedBusiness === 11"
+                        (click)="setActiveBusiness(11, 'setActiveBusiness11')" id="setActiveBusiness11">
+                        <div class="makeIconCntr">
+                          <div class="vr-coverLetter requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Cover Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business11" class="collapse" aria-labelledby="business11"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Cover Letter</h1>
+                            <p>
+                                The Indian company must issue a cover letter that mentions 
+                                the purpose of visit, designation of the visitor, and the intended 
+                                duration and days of stay. If the applicant needs a multiple-entry visa, 
+                                tentative dates must be mentioned.
+                            </p>
+                          </div>
+                        </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#business12" aria-expanded="true"
+                        aria-controls="business12" [class.showDiv]="selectedBusiness === 12"
+                        (click)="setActiveBusiness(12, 'setActiveBusiness12')" id="setActiveBusiness12">
+                        <div class="makeIconCntr">
+                          <div class="vr-otherSupportDocs requiredIcons img-sprite"></div>
+                        </div>
+                        <h2 class="setFontSize">Supporting Document</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="business12" class="collapse" aria-labelledby="business12"
+                        data-parent="#businessAccodion">
+                        <div class="card requiredIcon">
+                          <div class="card-body">
+                            <h1 class="requiredIconHeading">Supporting Document</h1>
+                            <p>
+                                You will be requested for different documents based on your 
+                                purpose of visit and nationality. These will be informed to you 
+                                through email, after you have completed the 
+                                application form online.
+                            </p>
+                          </div>
+                        </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#business13" aria-expanded="true"
+                            aria-controls="business13" [class.showDiv]="selectedBusiness === 13"
+                            (click)="setActiveBusiness(13, 'setActiveBusiness13')" id="setActiveBusiness13">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                              alt="apply for france visa online"
+                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                              <div class="makeIconCntr">
+                                  <div class="vr-bankStatement requiredIcons img-sprite"></div>
+                                </div>
+                            <h2 class="setFontSize">Bank Statement</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business13" class="collapse" aria-labelledby="business13"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Bank Statement</h1>
+                                <p>
+                                    The Indian companies bank statements for the last 3 months 
+                                    must also be attached. The original bank stamp must be 
+                                    present on this, and the individual’s ITR for the 
+                                    last 1 year needs to be attached as well.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#business14" aria-expanded="true"
+                            aria-controls="business14" [class.showDiv]="selectedBusiness === 14"
+                            (click)="setActiveBusiness(14, 'setActiveBusiness14')" id="setActiveBusiness14">
+                            <div class="makeIconCntr">
+                              <div class="vr-proofOfSufficientFunds requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Proof Of Transaction</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business14" class="collapse" aria-labelledby="business14"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Proof Of Transaction</h1>
+                                <p>
+                                    If there is any proof of transaction/trading between the Taiwanese 
+                                    and Indian companies (eg. LC/remittance receipts/business correspondence), 
+                                    these must be submitted as well.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+              </div>
+  
+              <!-- mobileContainer -->
+              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                          aria-controls="touristMobile1" [class.showDiv]="selectedMobileBusiness === 1"
+                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Form.png" alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-form requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Application Form</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile1" class="collapsed" aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Application Form</h1>
+                              <p>
+                                You will need to apply online on the official visa website. Any 
+                                fields marked with ‘*’ are mandatory, you can choose to leave 
+                                out any of those that are marked without this ‘*’. We recommend 
+                                filling all form details. You will also need to sign on it.
+                              </p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                          aria-controls="touristMobile2" [class.showDiv]="selectedMobileBusiness === 2"
+                          (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-passport requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Passport</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Passport</h1>
+                              <p>
+                                You will need a passport that will be valid for at least 
+                                6 months from your intended date of departure. 
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                          aria-controls="touristMobile3" [class.showDiv]="selectedMobileBusiness === 3"
+                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Photograph
+                              </h1>
+                              <p>
+                                Two passport-sized photos with a white background must be submitted. A minimum of 60% of the photo must be of the applicant’s face.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+  
+  
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                          aria-controls="touristMobile4" [class.showDiv]="selectedMobileBusiness === 4"
+                          (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
+                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-ProofofFunds requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Proof Of Funds</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof Of Funds</h1>
+                              <p>
+                                The applicant needs to provide proof of sufficient funding. 
+                                This could be in the form of their personal salary account 
+                                statement for the last 3 months. This statement should 
+                                have the official, original bank stamp.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                          aria-controls="touristMobile5" [class.showDiv]="selectedMobileBusiness === 5"
+                          (click)="setActiveBusinessMobile(5, 'setActiveBusinessMobile5')" id="setActiveBusinessMobile5">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Accommodation.png"
+                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Return Tickets</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Return Tickets
+                              </h1>
+                              <p>
+                                Proof of flight bookings, both to and fro tmust be shown. That includes any stops in-between.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                          aria-controls="touristMobile6" [class.showDiv]="selectedMobileBusiness === 6"
+                          (click)="setActiveBusinessMobile(6, 'setActiveBusinessMobile6')" id="setActiveBusinessMobile6">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Flight Tickets.png"
+                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Hotel Reservation</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Hotel Reservation
+                              </h1>
+                              <p>
+                                Proof of your confirmed accommodation for your entire stay in 
+                                Taiwan must be shown. This could be rental agreements, 
+                                hotel reservations, etc.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
+                          aria-controls="touristMobile7" [class.showDiv]="selectedMobileBusiness === 7"
+                          (click)="setActiveBusinessMobile(7, 'setActiveBusinessMobile7')" id="setActiveBusinessMobile7">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Itinerary.png" alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-IncomeTaxReturns requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Income Tax Return/Form 16</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile7" class="collapse" aria-labelledby="headingMobile7"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Income Tax Return/Form 16
+                              </h1>
+                              <p>
+                                The applicant’s ITR or Form 16 (either one) for the last year must be supplied.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile8" aria-expanded="true"
+                          aria-controls="touristMobile8" [class.showDiv]="selectedMobileBusiness === 8"
+                          (click)="setActiveBusinessMobile(8, 'setActiveBusinessMobile8')" id="setActiveBusinessMobile8">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment- Student Proof.png"
+                            alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
+                          <div class="makeIconCntr">
+                            <div class="vr-businessRegistration requiredIcons img-sprite"></div>
+                          </div>
+                          <h2 class="setFontSize">Registration Certificate</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile8" class="collapse" aria-labelledby="headingMobile8"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Registration Certificate</h1>
+                              <p>
+                                A copy of the Indian company’s registration certificate (that is issued by the Indian government) must also be attached.
+                              </p>
+  
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+  
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile9" aria-expanded="true"
+                          aria-controls="touristMobile9" [class.showDiv]="selectedMobileBusiness === 9"
+                          (click)="setActiveBusinessMobile(9, 'setActiveBusinessMobile9')" id="setActiveBusinessMobile9">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                              </div>
+                          <h2 class="setFontSize">Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile9" class="collapse" aria-labelledby="headingMobile9"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Credit Card</h1>
+                              <p>
+                                You will need a credit card to pay the visa fees. Please ensure this 
+                                card is either MasterCard,Visa or JCB. After paying the fees, you 
+                                will need to collect the payment slip for submission later. 
+                              </p>
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div data-toggle="collapse" data-target="#touristMobile10" aria-expanded="true"
+                          aria-controls="touristMobile10" [class.showDiv]="selectedMobileBusiness === 10"
+                          (click)="setActiveBusinessMobile(10, 'setActiveBusinessMobile10')" id="setActiveBusinessMobile10">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Travel Insurance.png"
+                            alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                              </div>
+                          <h2 class="setFontSize">Invitation Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div id="touristMobile10" class="collapse" aria-labelledby="headingMobile10"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                              <p>
+                                The company/institution in Taiwan must issue a letter that 
+                                states the purpose of the applicant’s visit, as well as the applicant’s 
+                                name and passport details. This must be on the official letterhead.
+                              </p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile11" aria-expanded="true"
+                            aria-controls="touristMobile11" [class.showDiv]="selectedMobileBusiness === 11"
+                            (click)="setActiveBusinessMobile(11, 'setActiveBusinessMobile11')" id="setActiveBusinessMobile11">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                              alt="apply for france visa online"
+                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                              <div class="makeIconCntr">
+                                  <div class="vr-otherSupportDocs requiredIcons img-sprite"></div>
+                                </div>
+                            <h2 class="setFontSize">Supporting Document</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile11" class="collapse" aria-labelledby="headingMobile11"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Supporting Document</h1>
+                                <p>
+                                    You will be requested for different documents based on your purpose 
+                                    of visit and nationality. These will be informed to you through 
+                                    email, after you have completed the application form online. 
+                               </p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile12" aria-expanded="true"
+                          aria-controls="touristMobile12" [class.showDiv]="selectedBusiness === 12"
+                          (click)="setActiveBusinessMobile(12, 'setActiveBusinessMobile12')" id="setActiveBusinessMobile12">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-coverLetter requiredIcons img-sprite"></div>
+                              </div>
+                          <h2 class="setFontSize">Cover Letter</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                          <div id="touristMobile12" class="collapse" aria-labelledby="headingMobile12"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Cover Letter</h1>
+                              <p>
+                                  The Indian company must issue a cover letter that mentions the purpose 
+                                  of visit, designation of the visitor, and the intended duration and 
+                                  days of stay. If the applicant needs a multiple-entry visa, 
+                                  tentative dates must be mentioned. 
+                             </p>
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+                <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile13" aria-expanded="true"
+                            aria-controls="touristMobile13" [class.showDiv]="selectedMobileBusiness === 13"
+                            (click)="setActiveBusinessMobile(13, 'setActiveBusinessMobile13')" id="setActiveBusinessMobile13">
+                            <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                              alt="apply for france visa online"
+                              style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                              <div class="makeIconCntr">
+                                  <div class="vr-bankStatement requiredIcons img-sprite"></div>
+                                </div>
+                            <h2 class="setFontSize">Bank Statement</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile13" class="collapse" aria-labelledby="headingMobile13"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Bank Statement</h1>
+                                <p>
+                                    The Indian companies bank statements for the last 3 months must 
+                                    also be attached. The original bank stamp must be present on this, 
+                                    and the individual’s ITR for the last 1 year needs 
+                                    to be attached as well. 
+                               </p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                    type="pills">
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile14" aria-expanded="true"
+                          aria-controls="touristMobile14" [class.showDiv]="selectedMobileBusiness === 14"
+                          (click)="setActiveBusinessMobile(14, 'setActiveBusinessMobile14')" id="setActiveBusinessMobile14">
+                          <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Other Documents.png"
+                            alt="apply for france visa online"
+                            style="height: 45px; margin-bottom: 10px; padding-right: 10px;" /> -->
+                            <div class="makeIconCntr">
+                                <div class="vr-proofOfSufficientFunds requiredIcons img-sprite"></div>
+                              </div>
+                          <h2 class="setFontSize">Proof Of Transaction</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                          <div id="touristMobile14" class="collapse" aria-labelledby="headingMobile14"
+                          data-parent="#touristAccodionMobile">
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Proof Of Transaction</h1>
+                              <p>
+                                  If there is any proof of transaction/trading between the Taiwanese and Indian companies (eg. LC/remittance receipts/business correspondence), these must be submitted as well.
+                              </p>
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+              </div>
+              </div>
+  
+  
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+</div>

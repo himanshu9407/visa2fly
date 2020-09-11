@@ -1,6 +1,14 @@
 .setPadding {
   font-weight: 600;
   padding-right: 0px;
+  display: flex;
+  align-items: center;
+}
+
+
+.visaDropDown {
+  padding: 0px;
+  padding-right: 15px;
 }
 
 .mobileView,
@@ -18,7 +26,6 @@
 }
 
 .imageContainer {
-  background-image: url(../../../assets/France.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -32,7 +39,7 @@
 }
 
 .imageContainer .breadcrum {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 10px;
   color: #fff;
 }
@@ -318,7 +325,15 @@
   }
 
   .imageContainer {
-    height: 350px;
+    height: 225px;
+  }
+ .imageContainer .countryFlag {
+    height: 60px;
+    max-width: 110px; 
+  }
+
+  .imageContainer .country-info .country-heading {
+    font-size: 16px;
   }
 }
 
@@ -403,6 +418,7 @@
 
 .faqQueryCard {
   border-radius: 10px !important;
+  text-align: left;
 }
 
 .faqQueryCard .card-body {

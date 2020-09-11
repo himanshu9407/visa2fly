@@ -8,6 +8,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RequirementAntiguaComponent } from './requirement-antigua/requirement-antigua.component';
+import { ImportantPointsAntiguaComponent } from './important-points-antigua/important-points-antigua.component';
+import { QuotationAntiguaComponent } from './quotation-antigua/quotation-antigua.component';
 
 const routes: Routes = [
     { path: "", component: AntiguaComponent },
@@ -16,7 +19,10 @@ const routes: Routes = [
 @NgModule({
     declarations : [
         AntiguaComponent,
-        FaqComponent
+        FaqComponent,
+        RequirementAntiguaComponent,
+        ImportantPointsAntiguaComponent,
+        QuotationAntiguaComponent
     ],
     imports: [
         FormsModule,
