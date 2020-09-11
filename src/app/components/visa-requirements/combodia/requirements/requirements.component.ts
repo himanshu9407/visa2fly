@@ -83,7 +83,6 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
       $("#" + id).addClass("showDiv");
     }
   }
-
  
   setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;
@@ -122,7 +121,7 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
     let transitBool = true;
 
     if (transitBool) {
-      this.showTransitMobileFirst = false;
+      this.showTransitFirst = false;
       transitBool = false;
     }
 

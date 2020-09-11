@@ -136,7 +136,7 @@ export class RequirementsTurkeyComponent implements OnInit, AfterViewInit {
     let transitBool = true;
 
     if (transitBool) {
-      this.showTransitMobileFirst = false;
+      this.showTransitFirst = false;
       transitBool = false;
     }
 

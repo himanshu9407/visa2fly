@@ -131,12 +131,12 @@ export class RequirementThailandComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setActiveTransit(index: number, id: string) {
-    this.selectedTransit = index;
-    let transitBool = true;
-
-    if (transitBool) {
-      this.showTransitMobileFirst = false;
+    setActiveTransit(index: number, id: string) {
+      this.selectedTransit = index;
+      let transitBool = true;
+  
+      if (transitBool) {
+      this.showTransitFirst = false;
       transitBool = false;
     }
 

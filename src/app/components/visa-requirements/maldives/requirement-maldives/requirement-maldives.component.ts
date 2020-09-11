@@ -136,7 +136,7 @@ export class RequirementMaldivesComponent implements OnInit, AfterViewInit {
     let transitBool = true;
 
     if (transitBool) {
-      this.showTransitMobileFirst = false;
+      this.showTransitFirst = false;
       transitBool = false;
     }
 
@@ -146,7 +146,7 @@ export class RequirementMaldivesComponent implements OnInit, AfterViewInit {
       $("#" + id).addClass("showDiv");
     }
   }
-
+  
   setActiveTransitMobile(index: number, id: string) {
     this.selectedMobileTransit = index;
     let transitMobileBool = true;

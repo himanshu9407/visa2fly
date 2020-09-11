@@ -7,7 +7,7 @@ import {
   animate,
   group,
 } from "@angular/animations";
-import { Event } from 'jquery';
+import { Event } from "jquery";
 
 @Component({
   selector: "app-faq",
@@ -83,7 +83,7 @@ export class FaqComponent implements OnInit {
   loadText: string = "Load More";
   showFaqs: boolean = false;
   animationState = "in";
-  @ViewChild('ElementRefName') element: ElementRef;
+  @ViewChild("ElementRefName") element: ElementRef;
 
   constructor() {}
 
@@ -95,37 +95,11 @@ export class FaqComponent implements OnInit {
       this.showFaqs = !this.showFaqs;
       this.animationState = this.animationState === "out" ? "in" : "out";
 
-      // var rect = this.element.nativeElement.getBoundingClientRect(),
-      // scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-      // scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      // console.log(rect.top + scrollTop, rect.left + scrollLeft);
-
-      // let top = 0;
-      // let mobileTop = 0;
-
       if (this.showFaqs) {
         this.loadText = "Show Less";
-        // top = 2535;
-        // mobileTop = 3770;
       } else {
         this.loadText = "Load More";
-        // top = 3008;
-        // mobileTop = 4220;
       }
-
-      // if (window.innerWidth < 600) {
-      //   window.scrollTo({
-      //     top: mobileTop,
-      //     left: 0,
-      //     behavior: "smooth",
-      //   });
-      // } else {
-      //   window.scrollTo({
-      //     top: top,
-      //     left: 0,
-      //     behavior: "smooth",
-      //   });
-      // }
     }, Math.floor(Math.random() * 1000));
   }
 }

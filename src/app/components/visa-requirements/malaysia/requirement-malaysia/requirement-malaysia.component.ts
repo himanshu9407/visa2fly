@@ -137,7 +137,7 @@ export class RequirementMalaysiaComponent implements OnInit, AfterViewInit {
     let transitBool = true;
 
     if (transitBool) {
-      this.showTransitMobileFirst = false;
+      this.showTransitFirst = false;
       transitBool = false;
     }
 
@@ -163,8 +163,6 @@ export class RequirementMalaysiaComponent implements OnInit, AfterViewInit {
       $("#" + id).addClass("showDiv");
     }
   }
-
-
 
   changePurpose(event) {
     this.changedPurpose.emit(event);

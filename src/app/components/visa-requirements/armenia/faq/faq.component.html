@@ -1,7 +1,7 @@
 <div class="container-fluid wrapContainer" style="position: relative;" #ElementRefName>
   <div class="row">
     <div class="col-12 text-center">
-      <h1><span class="faqContainer" id = "faqContainer">
+      <h1><span class="faqContainer" id="faqContainer">
           <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" width="30" height="30"
             xmlns="http://www.w3.org/2000/svg">
             <g>
@@ -154,7 +154,7 @@
           </div>
         </div>
 
-        <div id="faqCollapse"  class="collapse">
+        <div id="faqCollapse" class="collapse">
           <div class="card faqQueryCard">
             <div class="card-header faqQuery" id="heading6" data-toggle="collapse" data-target="#armeniaAccordion6"
               aria-expanded="false" aria-controls="armeniaAccordion6">
@@ -295,12 +295,15 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-12 text-center loadMore mt-3">
       <button class="loadMoreBtn btn" (click)="loadData($event)" type="button" data-toggle="collapse"
       data-target="#faqCollapse" aria-expanded="false" aria-controls="faqCollapse">
       {{loadText}}
     </button>
+      <!-- <button class="loadMoreBtn btn" (click)="loadData($event)">
+        {{loadText}}
+      </button> -->
     </div>
   </div>
 </div>
