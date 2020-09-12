@@ -1,8 +1,13 @@
-var gulp = require('gulp');
-var gzip = require('gulp-gzip');
+// var gulp = require('gulp');
+// var gzip = require('gulp-gzip');
 
-gulp.task('compress', function() {
-  gulp.src(['./dist/**/*.*'])
-      .pipe(gzip())
-      .pipe(gulp.dest('./dist'));
+// gulp.task('compress', function() {
+//   gulp.src(['./dist/**/*.*'])
+//       .pipe(gzip())
+//       .pipe(gulp.dest('./dist'));
+// });
+
+var gulp = require('gulp');
+gulp.task('default', function () { 
+    console.log('Hello Gulp!') 
 });
