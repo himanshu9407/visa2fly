@@ -6,8 +6,3 @@ gulp.task('compress', function() {
       .pipe(gzip())
       .pipe(gulp.dest('./dist'));
 });
-
-// var gulp = require('gulp');
-// gulp.task('default', function () { 
-//     console.log('Hello Gulp!') 
-// });

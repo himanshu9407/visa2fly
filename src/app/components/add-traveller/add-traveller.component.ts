@@ -1,4 +1,10 @@
-import { Component, OnInit, HostListener } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  HostListener,
+  ViewChild,
+  ElementRef,
+} from "@angular/core";
 import {
   FormBuilder,
   Form,
@@ -323,6 +329,21 @@ export class AddTravellerComponent implements OnInit {
 
   checkDateOfDob(date: { month: any; day: any; year: any }) {}
 
+  // public myInterval: number = 1500;
+  // private _activeSlideIndex: number;
+
+  // get activeSlideIndex(): number {
+  //   return this._activeSlideIndex;
+  // }
+
+  // set activeSlideIndex(newIndex: number) {
+  //   if (this._activeSlideIndex !== newIndex) {
+  //     console.log("Active slider index would be changed!");
+  //     // here's the place for your "slide.bs.carousel" logic
+  //   }
+  //   this._activeSlideIndex = newIndex;
+  // }
+
   ngOnInit() {
     setTimeout(() => {
       this.intialInfo = false; // ..??
@@ -336,6 +357,26 @@ export class AddTravellerComponent implements OnInit {
         content: "",
       },
     ]);
+
+    $("#carouselExampleIndicators").on("slid.bs.carousel", function (e) {
+      let slide1 = document.getElementById("slide0");
+      let slide2 = document.getElementById("slide");
+      let slide3 = document.getElementById("slide3");
+      let slide4 = document.getElementById("slide4");
+      let slide5 = document.getElementById("slide5");
+      let slide6 = document.getElementById("slide6");
+      let active = $(".active", e.target).index();
+
+      var isActive = ($('#slide' + active).hasClass('activeSlide')) ? true : false;
+      $('#slide0').removeClass('activeSlide');
+      $('#slide1').removeClass('activeSlide');
+      $('#slide2').removeClass('activeSlide');
+      $('#slide3').removeClass('activeSlide');
+      $('#slide4').removeClass('activeSlide');
+      $('#slide5').removeClass('activeSlide');
+
+      if(!isActive) $('#slide' + active).addClass('activeSlide'); // set active only if it was not active
+    });
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
@@ -446,7 +487,10 @@ export class AddTravellerComponent implements OnInit {
         break;
     }
 
-    if (this.userFlowDetails.country === 'UAE' || this.userFlowDetails.country === 'Dubai') {
+    if (
+      this.userFlowDetails.country === "UAE" ||
+      this.userFlowDetails.country === "Dubai"
+    ) {
       this.disclaimerForDubai = true;
     }
 
@@ -942,8 +986,8 @@ export class AddTravellerComponent implements OnInit {
 
         tempArr.forEach((form: FormGroup, index) => {
           // if (this.category == "e-visa") {
-            if (this.imageUpload) {
-              this.filedNameArr.forEach((el) => {
+          if (this.imageUpload) {
+            this.filedNameArr.forEach((el) => {
               this.formData1.append("images", form.get(el).value);
 
               this.tempImageArr.push(form.get(el).value);
@@ -1032,8 +1076,8 @@ export class AddTravellerComponent implements OnInit {
         fd["otherTravellers"] = other;
         fd["dateOfTravel"] = finalDot;
         // if (this.category == "Sticker") {
-          if (!this.imageUpload) {
-            fd["dateOfDocumentCollection"] = finalDoc;
+        if (!this.imageUpload) {
+          fd["dateOfDocumentCollection"] = finalDoc;
         }
         fd["quoteId"] = this.quoteId;
         fd["countryName"] = this.country;
@@ -1333,8 +1377,8 @@ export class AddTravellerComponent implements OnInit {
         let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
         // if (this.category == "e-visa") {
-          if (this.imageUpload) {
-            arr.forEach((element: FormGroup, i) => {
+        if (this.imageUpload) {
+          arr.forEach((element: FormGroup, i) => {
             if (i == arr.length - 1) {
               this.filedNameArr.forEach((fieldName) => {
                 if (element.controls[fieldName]) {
