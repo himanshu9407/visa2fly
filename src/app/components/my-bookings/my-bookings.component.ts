@@ -125,6 +125,7 @@ export class MyBookingsComponent implements OnInit {
       this.bookingsForLoop = [...this.bookingService.allBookings];
       // this.bookingService.allBookings = this.allBooking.data.bookings;
       this.filterdDateArr = [...this.bookingService.allBookings];
+      this.totalItems = this.bookingService.totalItems;
       // console.log("found bookings in service variable");
     } else {
       let pageNo, pageSize;
@@ -141,7 +142,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   desktopBooking(event) {
-    // console.log(event);
+    console.log(event);
     this.currentPage1 = event;
     let pageSize = 6;
 
@@ -149,7 +150,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   mobileBooking(event) {
-    // console.log(event);
+    console.log(event);
     this.currentPage2 = event;
     let pageSize = 4;
 
@@ -165,7 +166,7 @@ export class MyBookingsComponent implements OnInit {
         this.bookingService.allBookings = this.allBooking.data.bookings;
         this.filterdDateArr = this.allBooking.data.bookings;
         this.totalItems = res.data.totalNumberOfPage * pageSize;
-        // console.log(this.totalItems);
+        this.bookingService.totalItems = this.totalItems
 
         if (this.allBooking != null) {
           this.totalCount = this.allBooking.data.bookings.length;
@@ -358,6 +359,7 @@ export class MyBookingsComponent implements OnInit {
       this.filteredBookingsEmpty = false;
     }
   }
+
   searchBookingsByBookingId() {
     let bookingId = this.bookingSearchForm.get("bookingId").value;
     let arr = [];

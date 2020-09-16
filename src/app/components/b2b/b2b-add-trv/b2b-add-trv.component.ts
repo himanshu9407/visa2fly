@@ -343,6 +343,31 @@ export class B2bAddTrvComponent implements OnInit {
 
   checkDateOfDob(date: { month: any; day: any; year: any }) {}
 
+  
+  onSlide(event) {
+    if (isPlatformBrowser(this.platformId)) {
+
+      for (let i = 0; i < 6; i++) {
+        $("#slide" + i).removeClass("activeSlide");
+      }
+
+      if (event.current === 'ngb-slide-0') {
+        $("#slide0").addClass("activeSlide");
+      } else if (event.current === 'ngb-slide-1') {
+        $("#slide1").addClass("activeSlide");
+      } else if (event.current === 'ngb-slide-2') {
+        $("#slide2").addClass("activeSlide");
+      } else if (event.current === 'ngb-slide-3') {
+        $("#slide3").addClass("activeSlide");
+      } else if (event.current === 'ngb-slide-4') {
+        $("#slide4").addClass("activeSlide");
+      } else if (event.current === 'ngb-slide-5') {
+        $("#slide5").addClass("activeSlide");
+      }
+
+    }
+  }
+
   ngOnInit() {
     setTimeout(() => {
       this.intialInfo = false; // ..??
@@ -358,22 +383,6 @@ export class B2bAddTrvComponent implements OnInit {
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
-
-    if (isPlatformBrowser(this.platformId)) {
-    $("#carouselExampleIndicators").on("slid.bs.carousel", function (e) {
-      let active = $(".active", e.target).index();
-
-      var isActive = ($('#slide' + active).hasClass('activeSlide')) ? true : false;
-      $('#slide0').removeClass('activeSlide');
-      $('#slide1').removeClass('activeSlide');
-      $('#slide2').removeClass('activeSlide');
-      $('#slide3').removeClass('activeSlide');
-      $('#slide4').removeClass('activeSlide');
-      $('#slide5').removeClass('activeSlide');
-
-      if(!isActive) $('#slide' + active).addClass('activeSlide');
-    });
-  }
 
     this.userFlowDetails = this.userFlow.getB2BUserFlowDetails();
 

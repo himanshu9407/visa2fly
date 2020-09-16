@@ -14,6 +14,8 @@ export class MyBookingsService {
   activeBooking: any;
   allBookings: Array<any> = [];
   verifytokendetails: Array<any> = [];
+  totalItems: number;
+  
   constructor(
     private router: Router,
     private loginService: LoginService,

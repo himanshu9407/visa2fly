@@ -76,13 +76,13 @@ textarea:focus,
   margin-top: 5px;
   display: flex;
   text-align: right;
-  align-items: center;
 }
 
 .dateOfTravelContainer label {
   margin-bottom: 0px;
   font-size: 15px;
   font-weight: bold;
+  padding-top: 4px;
   width: 170px;
 }
 
@@ -346,51 +346,6 @@ textarea:focus,
   height: 90px;
 }
 
-.slide-content .carousel-indicators {
-  position: absolute;
-  right: 0;
-  bottom: -40px;
-  left: 0;
-  z-index: 15;
-  margin-bottom: 0;
-  display: flex;
-  justify-content: center;
-  padding-left: 0;
-  margin-right: 15%;
-  margin-left: 15%;
-  list-style: none;
-}
-
-.slide-content .carousel-indicators .active {
-  background-color: #f4b938;
-}
-
-.slide-content .carousel-indicators li {
-  box-sizing: content-box;
-  flex: 0 1 auto;
-  width: 10px;
-  height: 10px;
-  margin-right: 3px;
-  margin-left: 3px;
-  text-indent: -999px;
-  opacity: 1;
-  cursor: pointer;
-  background-color: #130654;
-  background-clip: padding-box;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  transition: background-color 0.6s ease;
-  -webkit-transition: background-color 0.6s ease;
-  -moz-transition: background-color 0.6s ease;
-  -ms-transition: background-color 0.6s ease;
-  -o-transition: background-color 0.6s ease;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-
 .imageContainer .breadcrumLinker {
   /* display: flex; */
   /* justify-content: flex-end; */
@@ -412,6 +367,18 @@ textarea:focus,
 .imageContainer .breadcrum a {
   font-weight: 500;
   color: #fff;
+}
+
+.carousel-caption {
+  position: unset;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #000;
+  text-align: center;
 }
 
 @media screen and (max-width: 800px) {
@@ -515,7 +482,7 @@ textarea:focus,
   }
 
   .slide-img .precaution-img {
-    height: 90px;
+    height: 70px;
   }
 
   .slide-img .precaution-caption {
@@ -535,6 +502,10 @@ textarea:focus,
 
   .side-2 {
     height: 200px;
+  }
+
+  .slide-content p {
+    font-size: 15px;
   }
 }
 
@@ -565,18 +536,6 @@ textarea:focus,
 @media (min-width: 481px) and (max-width: 768px) {
   .addTravelDate {
     max-width: auto !important;
-  }
-}
-
-@media (min-width: 340px) and (max-width: 375px) {
-  .carousel-inner {
-    max-width: 320px !important;
-  }
-}
-
-@media (max-width: 339px) {
-  .carousel-inner {
-    max-width: 280px !important;
   }
 }
 

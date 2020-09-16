@@ -3,7 +3,9 @@ import {
   OnInit,
   HostListener,
   ViewChild,
-  ElementRef, Inject, PLATFORM_ID
+  ElementRef,
+  Inject,
+  PLATFORM_ID,
 } from "@angular/core";
 import {
   FormBuilder,
@@ -14,10 +16,8 @@ import {
   Validators,
 } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
-import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { requiredFileType } from "../../shared/Custom-Image.validator";
-import { element } from "protractor";
 import { AddTravellerService } from "./addTraveller.service";
 import { LoginService } from "../login-signup/login/login.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -107,6 +107,8 @@ export class AddTravellerComponent implements OnInit {
   redirect: any;
   imageUpload: boolean;
   disclaimerForDubai: boolean = false;
+  slideChangeMessage: string;
+  dataEvent: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -120,7 +122,7 @@ export class AddTravellerComponent implements OnInit {
     private meta: Meta,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.today = new Date();
     this.tomorrow = new Date(this.today);
@@ -345,6 +347,28 @@ export class AddTravellerComponent implements OnInit {
   //   this._activeSlideIndex = newIndex;
   // }
 
+  onSlide(event) {
+    if (isPlatformBrowser(this.platformId)) {
+      for (let i = 0; i < 6; i++) {
+        $("#slide" + i).removeClass("activeSlide");
+      }
+
+      if (event.current === "ngb-slide-0") {
+        $("#slide0").addClass("activeSlide");
+      } else if (event.current === "ngb-slide-1") {
+        $("#slide1").addClass("activeSlide");
+      } else if (event.current === "ngb-slide-2") {
+        $("#slide2").addClass("activeSlide");
+      } else if (event.current === "ngb-slide-3") {
+        $("#slide3").addClass("activeSlide");
+      } else if (event.current === "ngb-slide-4") {
+        $("#slide4").addClass("activeSlide");
+      } else if (event.current === "ngb-slide-5") {
+        $("#slide5").addClass("activeSlide");
+      }
+    }
+  }
+
   ngOnInit() {
     setTimeout(() => {
       this.intialInfo = false; // ..??
@@ -358,22 +382,6 @@ export class AddTravellerComponent implements OnInit {
         content: "",
       },
     ]);
-
-    if (isPlatformBrowser(this.platformId)) {
-    $("#carouselExampleIndicators").on("slid.bs.carousel", function (e) {
-      let active = $(".active", e.target).index();
-
-      var isActive = ($('#slide' + active).hasClass('activeSlide')) ? true : false;
-      $('#slide0').removeClass('activeSlide');
-      $('#slide1').removeClass('activeSlide');
-      $('#slide2').removeClass('activeSlide');
-      $('#slide3').removeClass('activeSlide');
-      $('#slide4').removeClass('activeSlide');
-      $('#slide5').removeClass('activeSlide');
-
-      if(!isActive) $('#slide' + active).addClass('activeSlide');
-    });
-  }
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
@@ -718,8 +726,14 @@ export class AddTravellerComponent implements OnInit {
         this.travelDetails.get("dateOfCollection").value == ""
       ) {
         this.collectionDateError = true;
+        let topPicker;
+        if (window.innerWidth > 600) {
+          topPicker = 0;
+        } else {
+          topPicker = 490;
+        }
         window.scrollTo({
-          top: 0,
+          top: topPicker + this.scrollBy,
           left: 0,
           behavior: "smooth",
         });
@@ -736,8 +750,14 @@ export class AddTravellerComponent implements OnInit {
       this.travelDetails.get("dateOfTravel").value == ""
     ) {
       this.travelDateError = true;
+      let topPicker;
+      if (window.innerWidth > 600) {
+        topPicker = 0;
+      } else {
+        topPicker = 350;
+      }
       window.scrollTo({
-        top: 0,
+        top: topPicker + this.scrollBy,
         left: 0,
         behavior: "smooth",
       });
@@ -1224,15 +1244,21 @@ export class AddTravellerComponent implements OnInit {
             }
           });
       } else {
-        this.toastr.warning("Please accept out terms and conditions");
+        this.toastr.warning("Please accept our terms and conditions");
       }
     } else {
       this.toastr.warning("Some details missing !");
       this.validateTravellerForm();
 
       if (this.travellerForm.invalid && this.travelDetails.valid) {
+        let topPicker;
+        if (window.innerWidth > 600) {
+          topPicker = 350;
+        } else {
+          topPicker = 490;
+        }
         window.scrollTo({
-          top: 350 + this.scrollBy,
+          top: topPicker + this.scrollBy,
           left: 0,
           behavior: "smooth",
         });
@@ -1345,18 +1371,30 @@ export class AddTravellerComponent implements OnInit {
     this.validateTravellerForm();
     if (this.travellerForm.invalid) {
       this.toastr.warning("Please fill in existing traveller details first");
-      window.scrollTo({
-        top: 350,
-        left: 0,
-        behavior: "smooth",
-      });
+      let topPicker;
+        if (window.innerWidth > 600) {
+          topPicker = 350;
+        } else {
+          topPicker = 490;
+        }
+        window.scrollTo({
+          top: topPicker + this.scrollBy,
+          left: 0,
+          behavior: "smooth",
+        });
     } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
         this.count = this.count + 1;
         this.scrollBy = 50 * this.count;
+        let topPicker;
+        if (window.innerWidth > 600) {
+          topPicker = 350;
+        } else {
+          topPicker = 490;
+        }
         window.scrollTo({
-          top: 350 + this.scrollBy,
+          top: topPicker + this.scrollBy,
           left: 0,
           behavior: "smooth",
         });
