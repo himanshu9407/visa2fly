@@ -89,6 +89,7 @@ export class B2bReqComponent implements OnInit {
   selectedItem: string;
   id: any;
   countryDesc: string;
+  makeUrl: string;
 
   constructor(
     private router: Router,
@@ -401,6 +402,8 @@ export class B2bReqComponent implements OnInit {
         break;
     }
 
+    this.makeUrl = 'https://static.visa2fly.com/country/v2/' + this.selectedCountrytype + '.jpg';
+
     let tempPurpose = this.selectedPurposeType;
     this.id = this.userFlow.getB2BUserFlowDetails().id;
 
@@ -545,6 +548,18 @@ export class B2bReqComponent implements OnInit {
             } else {
               this.mobileShowRequirementsDetailArr.push(false);
             }
+          }
+
+          let lastArr = this.mainArr[this.mainArr.length - 1];
+
+          let falseObject = {
+            content: "",
+            display: "",
+            fieldName: ""
+          }
+
+          if (lastArr.length == 2) {
+            lastArr.push(falseObject);
           }
         }
 

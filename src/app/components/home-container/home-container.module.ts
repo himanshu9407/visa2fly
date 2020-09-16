@@ -11,6 +11,7 @@ import { HomeFormComponent } from './home-form/home-form.component';
 import { WorldComponent } from './world/world.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { HomeStepComponent } from './home-step/home-step.component';
+import { SiteBriefComponent } from './site-brief/site-brief.component';
 
 const routes: Routes = [
   { path: "", component: HomeContainerComponent, pathMatch: "full" }
@@ -26,7 +27,8 @@ const routes: Routes = [
     HomeFormComponent,
     WorldComponent,
     TestimonialComponent,
-    HomeStepComponent
+    HomeStepComponent,
+    SiteBriefComponent
   ],
   imports: [
     CommonModule,

@@ -98,6 +98,7 @@ export class RequirementsComponent implements OnInit {
   selectedItem: string;
 
   public countryDesc: string;
+  makeUrl: string;
 
   constructor(
     private router: Router,
@@ -403,6 +404,8 @@ export class RequirementsComponent implements OnInit {
       }
     });
 
+    this.makeUrl = 'https://static.visa2fly.com/country/v2/' + this.selectedCountrytype + '.jpg';
+
     this.activateRoute.params.subscribe((params: any) => {});
     let tempPurpose = this.selectedPurposeType;
     this.purposeChooseForm = new FormGroup({
@@ -540,6 +543,18 @@ export class RequirementsComponent implements OnInit {
               } else {
                 this.mobileShowRequirementsDetailArr.push(false);
               }
+            }
+
+            let lastArr = this.mainArr[this.mainArr.length - 1];
+
+            let falseObject = {
+              content: "",
+              display: "",
+              fieldName: ""
+            }
+
+            if (lastArr.length == 2) {
+              lastArr.push(falseObject);
             }
           } else {
             setTimeout(() => {

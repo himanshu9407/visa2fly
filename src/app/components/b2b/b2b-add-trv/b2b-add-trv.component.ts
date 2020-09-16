@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from "@angular/core";
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from "@angular/core";
 import {
   FormArray,
   FormGroup,
@@ -18,6 +18,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { B2bAddTrvService } from "./b2b-add-trv.service";
 import { Title, Meta } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: "app-b2b-add-trv",
@@ -144,7 +145,8 @@ export class B2bAddTrvComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private preloaderService: PreloaderService,
-    private routerHistory: RouterHistory
+    private routerHistory: RouterHistory,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
@@ -356,6 +358,22 @@ export class B2bAddTrvComponent implements OnInit {
       // { name: "author", content: "rsgitech" },
       // { name: "robots", content: "index, follow" }
     ]);
+
+    if (isPlatformBrowser(this.platformId)) {
+    $("#carouselExampleIndicators").on("slid.bs.carousel", function (e) {
+      let active = $(".active", e.target).index();
+
+      var isActive = ($('#slide' + active).hasClass('activeSlide')) ? true : false;
+      $('#slide0').removeClass('activeSlide');
+      $('#slide1').removeClass('activeSlide');
+      $('#slide2').removeClass('activeSlide');
+      $('#slide3').removeClass('activeSlide');
+      $('#slide4').removeClass('activeSlide');
+      $('#slide5').removeClass('activeSlide');
+
+      if(!isActive) $('#slide' + active).addClass('activeSlide');
+    });
+  }
 
     this.userFlowDetails = this.userFlow.getB2BUserFlowDetails();
 

@@ -3,7 +3,7 @@ import {
   OnInit,
   HostListener,
   ViewChild,
-  ElementRef,
+  ElementRef, Inject, PLATFORM_ID
 } from "@angular/core";
 import {
   FormBuilder,
@@ -26,7 +26,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { from } from "rxjs";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { LowerCasePipe } from "@angular/common";
+import { isPlatformBrowser, LowerCasePipe } from "@angular/common";
 
 @Component({
   selector: "app-add-traveller",
@@ -119,7 +119,8 @@ export class AddTravellerComponent implements OnInit {
     private titleService: Title,
     private meta: Meta,
     private preloaderService: PreloaderService,
-    private routerHistory: RouterHistory
+    private routerHistory: RouterHistory,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     this.today = new Date();
     this.tomorrow = new Date(this.today);
@@ -358,13 +359,8 @@ export class AddTravellerComponent implements OnInit {
       },
     ]);
 
+    if (isPlatformBrowser(this.platformId)) {
     $("#carouselExampleIndicators").on("slid.bs.carousel", function (e) {
-      let slide1 = document.getElementById("slide0");
-      let slide2 = document.getElementById("slide");
-      let slide3 = document.getElementById("slide3");
-      let slide4 = document.getElementById("slide4");
-      let slide5 = document.getElementById("slide5");
-      let slide6 = document.getElementById("slide6");
       let active = $(".active", e.target).index();
 
       var isActive = ($('#slide' + active).hasClass('activeSlide')) ? true : false;
@@ -375,8 +371,9 @@ export class AddTravellerComponent implements OnInit {
       $('#slide4').removeClass('activeSlide');
       $('#slide5').removeClass('activeSlide');
 
-      if(!isActive) $('#slide' + active).addClass('activeSlide'); // set active only if it was not active
+      if(!isActive) $('#slide' + active).addClass('activeSlide');
     });
+  }
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
