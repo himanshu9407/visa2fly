@@ -349,23 +349,25 @@ export class AddTravellerComponent implements OnInit {
 
   onSlide(event) {
     if (isPlatformBrowser(this.platformId)) {
+
       for (let i = 0; i < 6; i++) {
         $("#slide" + i).removeClass("activeSlide");
       }
 
-      if (event.current === "ngb-slide-0") {
+      if (event.current === 'ngb-slide-0') {
         $("#slide0").addClass("activeSlide");
-      } else if (event.current === "ngb-slide-1") {
+      } else if (event.current === 'ngb-slide-1') {
         $("#slide1").addClass("activeSlide");
-      } else if (event.current === "ngb-slide-2") {
+      } else if (event.current === 'ngb-slide-2') {
         $("#slide2").addClass("activeSlide");
-      } else if (event.current === "ngb-slide-3") {
+      } else if (event.current === 'ngb-slide-3') {
         $("#slide3").addClass("activeSlide");
-      } else if (event.current === "ngb-slide-4") {
+      } else if (event.current === 'ngb-slide-4') {
         $("#slide4").addClass("activeSlide");
-      } else if (event.current === "ngb-slide-5") {
+      } else if (event.current === 'ngb-slide-5') {
         $("#slide5").addClass("activeSlide");
       }
+
     }
   }
 

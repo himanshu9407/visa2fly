@@ -345,6 +345,8 @@ export class B2bAddTrvComponent implements OnInit {
 
   
   onSlide(event) {
+    console.log(event);
+    
     if (isPlatformBrowser(this.platformId)) {
 
       for (let i = 0; i < 6; i++) {
