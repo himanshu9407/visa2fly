@@ -11,6 +11,7 @@ import { FaqComponent } from './faq/faq.component';
 import { ImportantPointsComponent } from './important-points/important-points.component';
 import { QuotationComponent } from './quotation/quotation.component';
 import { RequirementsComponent } from './requirements/requirements.component';
+import { BlogPostComponent } from './blog-post/blog-post.component';
 
 const routes: Routes = [
   { path: "", component: DubaiComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     FaqComponent,
     ImportantPointsComponent,
     QuotationComponent,
-    RequirementsComponent
+    RequirementsComponent,
+    BlogPostComponent
   ],
 
   imports: [
