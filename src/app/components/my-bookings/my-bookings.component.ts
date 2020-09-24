@@ -1,6 +1,6 @@
 import {
   FormGroup,
-  FormControl,
+  FormControl, Validators
 } from "@angular/forms";
 import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
@@ -60,7 +60,7 @@ export class MyBookingsComponent implements OnInit {
   activeMobileBookingPage: Array<any> = [];
   public allBooking: any;
   AUTH_TOKEN = "";
-
+  feedbackMsg : boolean;
   public bookingData: any;
   bookingStatus: boolean = false;
   FeedbackForm: FormGroup;
@@ -90,10 +90,10 @@ export class MyBookingsComponent implements OnInit {
     var bookingIdC;
 
     this.FeedbackForm = new FormGroup({
-      "f3-rating": new FormControl(null),
-      "f1-rating": new FormControl(null),
-      "f2-rating": new FormControl(null),
-      FeedbackEdit: new FormControl(null),
+      "f3-rating": new FormControl(null, Validators.required),
+      "f1-rating": new FormControl(null, Validators.required),
+      "f2-rating": new FormControl(null, Validators.required),
+      FeedbackEdit: new FormControl(null, Validators.required),
     });
 
     const current = new Date();
@@ -253,6 +253,7 @@ export class MyBookingsComponent implements OnInit {
       this.downloadImageService
         .downloadInvoice(bookingId)
         .subscribe((response: any) => {
+          console.log(response);
           let dataType = response.type;
           let binaryData = [];
           binaryData.push(response);
@@ -286,12 +287,19 @@ export class MyBookingsComponent implements OnInit {
 
   onSubmit() {
     var bookingid = this.allBooking.data.feedbackToBeTakenFor;
-
     let rateOne = this.FeedbackForm.get("f3-rating").value;
     let rateTwo = this.FeedbackForm.get("f1-rating").value;
     let rateThree = this.FeedbackForm.get("f2-rating").value;
     let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
     let notInterested = false;
+
+    if(this.FeedbackForm.get("f3-rating").value == null 
+    || this.FeedbackForm.get("f1-rating").value == null 
+    || this.FeedbackForm.get("f2-rating").value == null 
+    || this.FeedbackForm.get("FeedbackEdit").value == null){
+      this.feedbackMsg = true;
+    }else{
+
     this.bookingService
       .postFeedback(
         bookingid,
@@ -304,6 +312,7 @@ export class MyBookingsComponent implements OnInit {
       .subscribe((res) => {});
     this.toastr.success("Feedback Submitted");
     this.bookingStatus = false;
+    }
   }
 
   smoothScrollToTop() {
