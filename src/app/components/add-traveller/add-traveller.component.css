@@ -271,10 +271,10 @@ textarea:focus,
   margin-bottom: 15px;
 }
 
-.country-img span {
-  font-size: 20px;
+.country-img h2 {
+  font-size: 16px;
   font-weight: 600;
-  margin-left: 15px;;
+  margin-top: 10px;;
   color: #000;
 }
 
@@ -423,6 +423,10 @@ textarea:focus,
     display: none;
   }
 
+  .addPassengerContainer {
+    padding-top: 10px;
+  } 
+
   .mobileView {
     display: flex;
   }
@@ -440,6 +444,32 @@ textarea:focus,
     padding-right: 20px;
     padding-left: 20px;
   }
+
+  .blurry-bg {
+    padding: 0px 0px 15px;
+  }
+
+  .mobileView .box {
+    color: #000;
+    display: unset;
+  }
+
+  .mobileView .wrapper-info {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .visaPriceHeading, .visaTypeHeading {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.visaPrice,
+.visaType {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 15px;
+}
 
   .imageContainer {
     margin-top: 107px;
@@ -469,31 +499,42 @@ textarea:focus,
 
   .covid-poster {
     padding-top: 15px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
   }
 
   .side {
     padding: 0;
   }
 
+  .countryFlag {
+    height: 70px;
+    width: 120px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+
+  .carousel-caption {
+    padding-top: 10px;
+  }
+
   .slide-img {
-    margin-top: 25px;
+    margin-top: 15px;
     padding: 0;
   }
 
   .slide-img .precaution-img {
-    height: 70px;
+    height: 55px;
   }
 
   .slide-img .precaution-caption {
     margin-bottom: 0px;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
     margin-top: 10px;
   }
 
   .slide-content img {
-    height: 100px;
+    height: 75px;
   }
 
   .slide-content .carousel-inner {
@@ -501,11 +542,11 @@ textarea:focus,
   }
 
   .side-2 {
-    height: 200px;
+    height: 170px;
   }
 
   .slide-content p {
-    font-size: 15px;
+    font-size: 12px;
   }
 }
 
@@ -546,4 +587,19 @@ textarea:focus,
   -moz-transition: .9s, ease-in-out, left;
   -o-transition: .9s, ease-in-out, left;
   transition: .9s, ease-in-out, left;
+  }
+
+
+  @media screen and (max-width: 361px) {
+    .visaPriceHeading, .visaTypeHeading {
+      font-size: 13px;
+      font-weight: 500;
+  }
+  
+  .visaPrice,
+  .visaType {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 5px;
+  }
   }

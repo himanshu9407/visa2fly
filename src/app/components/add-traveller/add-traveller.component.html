@@ -495,19 +495,43 @@
   <!-- </div> -->
 
   <div class="container mobileView" style="border-top: 1px solid #eee;">
-    <div class="row">
-      <div class="col-12 mt-2">
+    <div class="row w-100">
+      <div class="col-4 mt-2 p-0">
         <div class="country-img">
           <img data-src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}} flag image"
             class="img-fluid countryFlag rounded lazyload" />
-          <span class="mt-2">{{ country }}</span>
+          <h2>{{ country }}</h2>
+        </div>
+      </div>
+      <div class="col-8 mt-3 pr-0">
+        <div class="box">
+          <div class="wrapper-info">
+            <div class="visaTypeContainer">
+              <div class="visaTypeHeading ">Visa Type : </div>
+            </div>
+            <div class="visaType">
+              {{userFlowDetails.purpose}} / {{stayPeriod}} <br />{{userFlowDetails.entryType}}
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="wrapper-info mt-1">
+            <div class="visaPriceContainer">
+              <div class="visaPriceHeading">
+                Visa Price : 
+              </div>
+            </div>
+            <div class="visaPrice" style="text-align: left;">₹ {{(basePrice + serviceTax)* dataSource.length}}
+              <span class="d-block">(including taxes)</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="blurry-bg">
-    <div class="complex-boxing mobileView">
+    <!-- <div class="complex-boxing desktopView">
       <div class="box">
         <div class="wrapper-info">
           <div class="visaTypeContainer">
@@ -530,7 +554,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="complex-boxing">
       <div class="box tabletView">
