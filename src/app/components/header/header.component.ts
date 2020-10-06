@@ -52,6 +52,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "freeVisa" ||
           arr[1] == "visaOnArrival" ||
           arr[1] == "profile" ||
+          arr[1] == "booking" ||
           arr[1] == "myBookings" ||
           arr[1] == "bookingDetail" ||
           arr[1] == "visa-requirements" ||

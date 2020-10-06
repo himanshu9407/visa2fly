@@ -76,13 +76,13 @@ textarea:focus,
   margin-top: 5px;
   display: flex;
   text-align: right;
-  align-items: center;
 }
 
 .dateOfTravelContainer label {
   margin-bottom: 0px;
   font-size: 15px;
   font-weight: bold;
+  padding-top: 4px;
   width: 170px;
 }
 
@@ -271,15 +271,15 @@ textarea:focus,
   margin-bottom: 15px;
 }
 
-.country-img span {
-  font-size: 20px;
+.country-img h2 {
+  font-size: 16px;
   font-weight: 600;
-  margin-left: 15px;;
+  margin-top: 10px;;
   color: #000;
 }
 
 .imageContainer {
-  margin-top: 60px;
+  margin-top: 50px;
   position: relative;
 }
 
@@ -354,7 +354,7 @@ textarea:focus,
 }
 
 .imageContainer .breadcrum {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 10px;
   color: #fff;
 }
@@ -423,6 +423,10 @@ textarea:focus,
     display: none;
   }
 
+  .addPassengerContainer {
+    padding-top: 10px;
+  } 
+
   .mobileView {
     display: flex;
   }
@@ -441,9 +445,31 @@ textarea:focus,
     padding-left: 20px;
   }
 
-  .imageContainer {
-    margin-top: 45px;
+  .blurry-bg {
+    padding: 0px 0px 15px;
   }
+
+  .mobileView .box {
+    color: #000;
+    display: unset;
+  }
+
+  .mobileView .wrapper-info {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .visaPriceHeading, .visaTypeHeading {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.visaPrice,
+.visaType {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+}
 
   .addPassengerHeading {
     flex-direction: column;
@@ -469,31 +495,60 @@ textarea:focus,
 
   .covid-poster {
     padding-top: 15px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
   }
 
   .side {
     padding: 0;
   }
 
+  .countryFlag {
+    height: 60px;
+    width: 100px;
+    margin-top: 5px;
+    border-radius: 6px;
+  }
+
+  .country-img {
+    margin-bottom: 5px;
+}
+
+  .carousel-caption {
+    padding-top: 10px;
+  }
+
+  .slide-img:nth-child(1),
+  .slide-img:nth-child(2),
+  .slide-img:nth-child(3) {
+    margin-top: 15px;
+    padding: 0;
+  }
+
+  .slide-img:nth-child(4),
+  .slide-img:nth-child(5),
+  .slide-img:nth-child(6) {
+    margin-top: 10px;
+    padding: 0;
+  }
+
   .slide-img {
-    margin-top: 25px;
+    margin-top: 15px;
     padding: 0;
   }
 
   .slide-img .precaution-img {
-    height: 90px;
+    height: 55px;
   }
 
   .slide-img .precaution-caption {
     margin-bottom: 0px;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   .slide-content img {
-    height: 100px;
+    height: 62px;
   }
 
   .slide-content .carousel-inner {
@@ -501,7 +556,12 @@ textarea:focus,
   }
 
   .side-2 {
-    height: 200px;
+    height: 145px;
+  }
+
+  .slide-content p {
+    font-size: 12px;
+    margin-bottom: 5px;
   }
 }
 
@@ -535,18 +595,6 @@ textarea:focus,
   }
 }
 
-@media (min-width: 340px) and (max-width: 375px) {
-  .carousel-inner {
-    max-width: 320px !important;
-  }
-}
-
-@media (max-width: 339px) {
-  .carousel-inner {
-    max-width: 280px !important;
-  }
-}
-
 .carousel-inner>.carousel-item {
   -webkit-transition: 0.9s ease-in-out left;
   transition: 0.9s ease-in-out left;
@@ -554,4 +602,19 @@ textarea:focus,
   -moz-transition: .9s, ease-in-out, left;
   -o-transition: .9s, ease-in-out, left;
   transition: .9s, ease-in-out, left;
+  }
+
+
+  @media screen and (max-width: 361px) {
+    .visaPriceHeading, .visaTypeHeading {
+      font-size: 13px;
+      font-weight: 500;
+  }
+  
+  .visaPrice,
+  .visaType {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 5px;
+  }
   }

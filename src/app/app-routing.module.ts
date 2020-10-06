@@ -86,6 +86,16 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // success and failure booking page
+  {
+    path: "booking/:bookingId/payment",
+    loadChildren: () =>
+      import("./components/booking-status/booking-status.module").then(
+        (m) => m.BookingStatusModule
+      ),
+    data: { preload: true },
+  },
+
   // MyBooking Page
   {
     path: "myBookings",
@@ -176,12 +186,11 @@ const routes: Routes = [
   {
     path: "visa/new-zealand-visa-online",
     loadChildren: () =>
-      import("./components/visa-requirements/new-zealand/new-zealand.module").then(
-        (m) => m.NewZealandModule
-      ),
+      import(
+        "./components/visa-requirements/new-zealand/new-zealand.module"
+      ).then((m) => m.NewZealandModule),
     data: { preload: true },
   },
-
 
   // Armenia Page
   {
@@ -197,12 +206,11 @@ const routes: Routes = [
   {
     path: "visa/south-africa-visa-online",
     loadChildren: () =>
-      import("./components/visa-requirements/south-africa/south-africa.module").then(
-        (m) => m.SouthAfricaModule
-      ),
+      import(
+        "./components/visa-requirements/south-africa/south-africa.module"
+      ).then((m) => m.SouthAfricaModule),
     data: { preload: true },
   },
-
 
   // Rwanda Page
   {
@@ -425,8 +433,8 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-   // UAE Page
-   {
+  // UAE Page
+  {
     path: "visa/uae-visa-online",
     loadChildren: () =>
       import("./components/visa-requirements/uae/uae.module").then(
@@ -510,7 +518,6 @@ const routes: Routes = [
       ),
     data: { preload: true },
   },
-
 
   // Sri-Lanka Page
   {
@@ -721,8 +728,8 @@ const routes: Routes = [
     component: PageNotFoundComponent,
   },
 
-   // Requirement Page
-   {
+  // Requirement Page
+  {
     path: "visa-requirements/:country/:variable",
     loadChildren: () =>
       import("./components/requirements/requirements.module").then(
