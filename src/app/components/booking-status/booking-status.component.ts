@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./booking-status.component.css']
 })
 export class BookingStatusComponent implements OnInit {
+  bookingStatus: boolean = false;
 
   constructor() { }
 

@@ -52,6 +52,7 @@ import { PrivacyPolicyModule } from './components/static/privacy-policy/privacy-
 import { TermsandConditionsModule } from './components/static/termsand-conditions/termsand-conditions.module';
 import { VisaRequirementModule } from './components/visa-requirements/visa-requirement.module';
 import { BookingDetailsModule } from './components/booking-details/booking-details.module';
+import { BookingStatusModule } from './components/booking-status/booking-status.module';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
     LoginSignupModule,
     MyBookingsModule,
     ProfileModule,
+    BookingStatusModule,
     RequirementsModule,
     FreeVisaModule,
     SimModule,
