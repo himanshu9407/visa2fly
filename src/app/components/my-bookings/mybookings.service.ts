@@ -80,6 +80,8 @@ export class MyBookingsService {
         notInterested: notInterested,
       };
 
+      // console.log(feedback);
+
       const base_url = this.userFlow.getBaseURL();
       return this.http.post(base_url + "feedback/submit", feedback, {
         headers: headers,
