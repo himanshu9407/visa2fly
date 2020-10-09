@@ -15,17 +15,12 @@ import { AddPassengerDetailsComponent } from "./add-passenger-details/add-passen
 import { Ng2FlatpickrModule } from "ng2-flatpickr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
-// import { CarouselModule } from "ngx-owl-carousel-o";
-// import { ServiceWorkerModule } from '@angular/service-worker';
+
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RequestInterceptor } from "./shared/request.interceptor";
 import { ToastComponent } from "./shared/components/toast/toast.component";
 import { ChatboxComponent } from "./chatbox/chatbox.component";
-import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { PreloaderComponent } from "./shared/preloader/preloader.component";
-import { AuthenticationGuard } from './shared/AuthenticationGuard.service';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -53,6 +48,7 @@ import { TermsandConditionsModule } from './components/static/termsand-condition
 import { VisaRequirementModule } from './components/visa-requirements/visa-requirement.module';
 import { BookingDetailsModule } from './components/booking-details/booking-details.module';
 import { BookingStatusModule } from './components/booking-status/booking-status.module';
+import { InsuranceModule } from './components/insurance/insurance.module';
 
 @NgModule({
   declarations: [
@@ -64,7 +60,6 @@ import { BookingStatusModule } from './components/booking-status/booking-status.
     AddPassengerDetailsComponent,
     ToastComponent,
     ChatboxComponent,
-    InsuranceComponent,
     PreloaderComponent,
     SomethingWrongComponent,
     B2bHeaderComponent,
@@ -108,6 +103,7 @@ import { BookingStatusModule } from './components/booking-status/booking-status.
     TermsandConditionsModule,
     VisaRequirementModule,
     BookingDetailsModule,
+    InsuranceModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

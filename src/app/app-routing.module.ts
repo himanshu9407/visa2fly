@@ -1,6 +1,5 @@
 import { NgModule, Component } from "@angular/core";
 import { RouterModule, Routes, PreloadAllModules } from "@angular/router";
-import { InsuranceComponent } from "./components/insurance/insurance.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
@@ -722,7 +721,14 @@ const routes: Routes = [
   },
 
   // insurance
-  { path: "insurance", component: InsuranceComponent },
+  {
+    path: "insurance",
+    loadChildren: () =>
+      import("./components/insurance/insurance.module").then((m) => m.InsuranceModule),
+    data: { preload: true },
+  },
+
+  // page-not-found
   {
     path: "page-not-found",
     component: PageNotFoundComponent,
