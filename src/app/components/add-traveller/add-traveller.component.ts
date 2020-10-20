@@ -506,6 +506,8 @@ export class AddTravellerComponent implements OnInit {
       this.imageUploads = [];
     }
 
+    this.imageUploads.sort((a, b) => a.sequence - b.sequence);
+
     this.category = this.userFlowDetails.category;
     this.imageUpload = JSON.parse(this.userFlowDetails.imageUpload);
 
@@ -663,6 +665,7 @@ export class AddTravellerComponent implements OnInit {
         passportExpiryDate: ["", [Validators.nullValidator]],
         gstNumber: "",
         cellNumber: ["", [Validators.required]],
+        state: ["Haryana", [Validators.required]],
 
         passportFrontImage: [null],
         itr: [null],

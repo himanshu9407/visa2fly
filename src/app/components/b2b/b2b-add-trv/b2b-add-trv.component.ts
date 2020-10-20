@@ -394,6 +394,8 @@ export class B2bAddTrvComponent implements OnInit {
       this.imageUploads = [];
     }
 
+    this.imageUploads.sort((a, b) => a.sequence - b.sequence);
+
     this.category = this.userFlowDetails.category;
     this.imageUpload = JSON.parse(this.userFlowDetails.imageUpload);
 
@@ -568,6 +570,7 @@ export class B2bAddTrvComponent implements OnInit {
         passportExpiryDate: ["", [Validators.nullValidator]],
         gstNumber: "",
         cellNumber: ["", [Validators.required]],
+        state: ["Haryana", [Validators.required]],
 
         passportFrontImage: [null],
         passportBioImage: [null],

@@ -1271,6 +1271,16 @@
                     Enter a valid mobile number
                   </div>
                 </div>
+                <div class="col-md-2 mb-3" *ngIf="imageUpload">
+                  <label>State <span class="astrisk">*</span></label>
+                  <select (change)="checkCity(i)" formControlName="state" class="form-control">
+                    <option *ngFor="let state of list.states;let first=first" value="{{state}}">{{state}}</option>
+                  </select>
+                  <div *ngIf=" (travellerForm.controls.travellers.controls[i].controls.state.errors?.valueErr)"
+                    class="invalid-feedback" style="display: block">
+                    Select a valid state
+                  </div>
+                </div>
               </div>
               <div *ngIf="!imageUpload" class="form-row mt-2">
                 <div class="col-md-12">
