@@ -46,7 +46,37 @@ textarea,
 .custom-file-label,
 .custom-file-input {
   border-color: #9c9c9c;
+    font-size: 16px;
+    padding: 4px 8px;
+    height: 32px;
+}
+
+label {
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.custom-file-label::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
   font-size: 14px;
+  display: block;
+  height: 30px;
+  padding: .375rem .75rem;
+  line-height: 1.3;
+  color: #495057;
+  content: "Browse";
+  background-color: #e9ecef;
+  border-left: inherit;
+  border-radius: 0 .25rem .25rem 0;
+}
+
+.input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .astrisk {
