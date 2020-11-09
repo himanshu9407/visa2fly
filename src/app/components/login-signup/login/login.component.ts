@@ -190,89 +190,94 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.showLoader = true;
-    this.showLoginButton = false;
-    let userId = this.loginForm.get("userId").value;
-    let otp = this.loginForm.get("otp").value;
-    let rememberMe = this.loginForm.get("rememberMe").value;
-    let temp = this.checkUserId();
-
-    this.userFlowService.setExpiry(rememberMe);
-
-    this.getIP.getClientIP().subscribe(
-      (data1: { ip: string }) => {
-        // console.log(data1  );
-        this.ipAddress = data1.ip;
-        this.loginService
-          .loginUser(userId, otp, rememberMe, this.ipAddress, temp)
-          .subscribe(
-            (data: LoginResponseModel) => {
-              // console.log(data);
-
-              if (!data) {
-                // console.log("req failed"+data);
-                this.toastr.error(
-                  "Something Went wrong! Please try again later."
-                );
-                this.setFormFresh();
-              } else {
-                if (data.code == "0") {
+    if (!this.loginForm.valid) {
+      this.toastr.error("Kindly Enter Valid Credentials");
+    } else {
+      console.log(this.loginForm.get("userId").valid);
+        this.showLoader = true;
+        this.showLoginButton = false;
+        let userId = this.loginForm.get("userId").value;
+        let otp = this.loginForm.get("otp").value;
+        let rememberMe = this.loginForm.get("rememberMe").value;
+        let temp = this.checkUserId();
+    
+        this.userFlowService.setExpiry(rememberMe);
+    
+        this.getIP.getClientIP().subscribe(
+          (data1: { ip: string }) => {
+            // console.log(data1  );
+            this.ipAddress = data1.ip;
+            this.loginService
+              .loginUser(userId, otp, rememberMe, this.ipAddress, temp)
+              .subscribe(
+                (data: LoginResponseModel) => {
                   // console.log(data);
-                  this.loginService.setAuthToken(
-                    data.data.authentication.token
-                  );
-                  this.loginService.setUserStatus(true);
-                  this.loginStatus.setUserStatus(true);
-                  this.loginStatus.setUserLoggedIn(true);
-                  this.changeNumber = false;
-                  this.userFlowService.setUserProfile(data.data.profile);
-                  this.loginStatus.setUserProfile(data.data.profile);
-                  // window.location.reload();
-                  if (this.prevRoute == "req") {
-                    this.routerHistory.clearRouteHistory();
-                    this.router.navigate(["addTraveller"]);
-                  } else if (this.prevRoute == "req-and-quote") {
-                    // req-and-quotere use in req page
-                    let quoteId = this.userFlowService.getUserFlowDetails()
-                      .quoteId;
-
-                    this.reqService
-                      .verifyQuotation(quoteId)
-                      .subscribe((data: any) => {
-                        if (data.code == "0") {
-                          this.router.navigate(["addTraveller"]);
-                        } else {
-                          this.router.navigate(["visa"]);
-                        }
-                      });
-                  } else if (this.prevRoute == "fail-login-sim") {
-                    // fail-login-sim use in sim
-                    this.router.navigate(["/sim/checkout"]);
+    
+                  if (!data) {
+                    // console.log("req failed"+data);
+                    this.toastr.error(
+                      "Something Went wrong! Please try again later."
+                    );
+                    this.setFormFresh();
                   } else {
-                    this.router.navigate([""]);
+                    if (data.code == "0") {
+                      // console.log(data);
+                      this.loginService.setAuthToken(
+                        data.data.authentication.token
+                      );
+                      this.loginService.setUserStatus(true);
+                      this.loginStatus.setUserStatus(true);
+                      this.loginStatus.setUserLoggedIn(true);
+                      this.changeNumber = false;
+                      this.userFlowService.setUserProfile(data.data.profile);
+                      this.loginStatus.setUserProfile(data.data.profile);
+                      // window.location.reload();
+                      if (this.prevRoute == "req") {
+                        this.routerHistory.clearRouteHistory();
+                        this.router.navigate(["addTraveller"]);
+                      } else if (this.prevRoute == "req-and-quote") {
+                        // req-and-quotere use in req page
+                        let quoteId = this.userFlowService.getUserFlowDetails()
+                          .quoteId;
+    
+                        this.reqService
+                          .verifyQuotation(quoteId)
+                          .subscribe((data: any) => {
+                            if (data.code == "0") {
+                              this.router.navigate(["addTraveller"]);
+                            } else {
+                              this.router.navigate(["visa"]);
+                            }
+                          });
+                      } else if (this.prevRoute == "fail-login-sim") {
+                        // fail-login-sim use in sim
+                        this.router.navigate(["/sim/checkout"]);
+                      } else {
+                        this.router.navigate([""]);
+                      }
+                    } else {
+                      // console.log("sartahk agrawal");
+                      this.toastr.error(data.message);
+    
+                      // this.setFormFresh();
+                      this.showLoader = false;
+                      this.showLoginButton = true;
+                      // this.showOtpField = false;
+                      this.otpSentCount = 0;
+                      //this.showSendOtp = true;
+                      //this.showLoginButton = true;
+                      this.loginService.setUserStatus(false);
+                      this.loginStatus.setUserStatus(false);
+                    }
                   }
-                } else {
-                  // console.log("sartahk agrawal");
-                  this.toastr.error(data.message);
-
-                  // this.setFormFresh();
-                  this.showLoader = false;
-                  this.showLoginButton = true;
-                  // this.showOtpField = false;
-                  this.otpSentCount = 0;
-                  //this.showSendOtp = true;
-                  //this.showLoginButton = true;
-                  this.loginService.setUserStatus(false);
-                  this.loginStatus.setUserStatus(false);
                 }
-              }
-            }
-            // (err) => console.log(err)
-          );
-      },
-      (err) => {
-        this.toastr.error("Something went wrong! Please try again later.");
+                // (err) => console.log(err)
+              );
+          },
+          (err) => {
+            this.toastr.error("Something went wrong! Please try again later.");
+          }
+        );
       }
-    );
-  }
+    }
 }

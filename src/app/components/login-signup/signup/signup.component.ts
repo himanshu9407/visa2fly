@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { SignupService } from "./signup.service";
 import { SignupResponseModel } from "./SignupResponse.model";
-import { HttpParams } from "@angular/common/http";
-// import { ToastService } from 'src/app/shared/toast.service';
 import { Router } from "@angular/router";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -11,12 +9,12 @@ import { RequirementsService } from "../../requirements/requirements.service";
 import { LoginService } from "../login/login.service";
 import { ToastrService } from "ngx-toastr";
 import { LoginStatusService } from "src/app/shared/login-status.service";
-import { Meta, Title } from '@angular/platform-browser';
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
-  styleUrls: ["./signup.component.css"]
+  styleUrls: ["./signup.component.css"],
 })
 export class SignupComponent implements OnInit {
   showOtpFields: boolean = false;
@@ -30,10 +28,10 @@ export class SignupComponent implements OnInit {
   showSignUpButton: boolean = false;
   prevRoute = "";
   displayButton: boolean = false;
+  changeNumber: boolean = false;
 
   constructor(
     private singUpService: SignupService,
-    // private toastService: ToastService,
     private router: Router,
     private toastr: ToastrService,
     private routerHistory: RouterHistory,
@@ -59,10 +57,8 @@ export class SignupComponent implements OnInit {
       { name: "keywords", content: "" },
       {
         name: "description",
-        content: ""
-      }
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
+        content: "",
+      },
     ]);
     this.prevRoute = this.routerHistory.getPrevRoute();
     // console.log(this.prevRoute);
@@ -72,38 +68,31 @@ export class SignupComponent implements OnInit {
       firstName: new FormControl(null, [
         Validators.required,
         Validators.maxLength(20),
-        Validators.minLength(3)
+        Validators.minLength(3),
       ]),
       lastName: new FormControl(null, [
         Validators.required,
         Validators.maxLength(20),
-        Validators.minLength(3)
+        Validators.minLength(3),
       ]),
       mobile: new FormControl(null, [
         Validators.required,
         Validators.maxLength(10),
-        Validators.minLength(10)
+        Validators.minLength(10),
       ]),
       otp: new FormControl(null, [Validators.required]),
-      tnc: new FormControl(false)
+      tnc: new FormControl(false),
     });
-    //   setTimeout(function() {
-    //     $(".alert").fadeTo(500, 0).slideUp(500, function(){
-    //         (<any>$(this)).remove();
-    //     });
-    // }, 2000);
   }
 
   createUser() {
-    // console.log(this.signupForm.value);
-
     let reqBody = {
       emailId: "",
       firstName: "",
       lastName: "",
       cell: "",
       otp: "",
-      acceptedTOC: ""
+      acceptedTOC: "",
     };
     this.showSignUpButton = false;
     this.showLoader = true;
@@ -128,6 +117,7 @@ export class SignupComponent implements OnInit {
         this.loginStatus.setUserLoggedIn(true);
         this.userFlowService.setUserProfile(data.data.profile);
         this.loginStatus.setUserProfile(data.data.profile);
+        this.changeNumber = false;
         // this.router.navigate(['slcontainer/login']);
         if (this.prevRoute == "req") {
           this.routerHistory.clearRouteHistory();
@@ -160,6 +150,7 @@ export class SignupComponent implements OnInit {
       }
     });
   }
+
   setFormFresh() {
     this.signupForm.markAsPristine();
     this.signupForm.markAsUntouched();
@@ -170,11 +161,10 @@ export class SignupComponent implements OnInit {
       otp: "",
       firstName: "",
       lastName: "",
-      tnc: false
+      tnc: false,
     });
     this.showLoader = false;
     this.showSignUpButton = true;
-    //this.showSendOtpButton = true;
   }
 
   showAlertMessage() {
@@ -208,7 +198,7 @@ export class SignupComponent implements OnInit {
       otp: "",
       firstName: "",
       lastName: "",
-      tnc: false
+      tnc: false,
     });
     this.showLoader = false;
     this.displayButton = false;
@@ -220,49 +210,54 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.showLoader = true;
-    this.showSendOtpButton = false;
-    // this.signupForm.markAsPristine();
-    // this.signupForm.markAsUntouched()
-    this.signupForm.disable();
-    this.signupForm.get("otp").enable();
-    this.signupForm.get("tnc").enable();
-
-    // console.log("submitted");
-    let enteredMobile = this.signupForm.get("mobile").value;
-    this.singUpService.getOtp(enteredMobile).subscribe(
-      (data: SignupResponseModel) => {
-        if (!data) {
-          // console.log("req failed"+data);
-          this.toastr.error("Something Went wrong");
-
-          this.setFormFresh();
-        } else {
-          if (data.code == "0" /*|| data.code == "15" */) {
-            // console.log(data);
-            this.afterSuccessfullOtpSent();
-            this.otpFormSubmitted = true;
-          } else if (data.code == "309") {
-            this.toastr.error(data.message.toString());
-            // this.afterSuccessfullOtpSent();
-            this.otpFormSubmitted = true;
+    if (
+      (this.signupForm.get("mobile").invalid &&
+        this.signupForm.get("mobile").dirty) ||
+      (this.signupForm.get("email").invalid &&
+        this.signupForm.get("email").dirty) ||
+      this.signupForm.get("email").pristine ||
+      this.signupForm.get("mobile").pristine
+    ) {
+      this.toastr.error(
+        "Kindly Enter Valid Details"
+      );
+    } else {
+      let enteredMobile = this.signupForm.get("mobile").value;
+      this.singUpService.getOtp(enteredMobile).subscribe(
+        (data: SignupResponseModel) => {
+          if (!data) {
+            this.toastr.error("Something Went wrong");
+            
+            this.setFormFresh();
           } else {
-            this.toastr.error(data.message.toString());
-
-
-            // this.setFormFresh();
+            if (data.code == "0" /*|| data.code == "15" */) {
+              this.afterSuccessfullOtpSent();
+              this.otpFormSubmitted = true;
+              this.showSendOtpButton = false;
+              this.changeNumber = true;
+            } else if (data.code == "309") {
+              this.toastr.error(data.message.toString());
+              this.otpFormSubmitted = true;
+            } else {
+              this.toastr.error(data.message.toString());
+            }
           }
+        },
+        (err) => {
+          this.toastr.error(
+            "Something went wrong ! Please try again after some time"
+          );
+          this.setFormFresh();
         }
-      },
+      );
+    }
+  }
 
-      err => {
-        // console.log(err.toString()+ "*****");
-        this.toastr.error(
-          "Something went wrong ! Please try again after some time"
-        );
-        this.setFormFresh();
-        // this.setFormFresh();
-      }
-    );
+  changeUserNumber() {
+    this.resetDetails()
+    this.showSendOtpButton = true;
+    this.showSignUpButton = false
+    this.showOtpFields = false;
+    this.signupForm.enable();
   }
 }

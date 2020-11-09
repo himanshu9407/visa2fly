@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginSignupComponent } from './login-signup.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OtpFormComponent } from './otp-form/otp-form.component';
 
 const routes: Routes = [
   { path: "", component: LoginSignupComponent, pathMatch: "full" }
@@ -15,7 +16,8 @@ const routes: Routes = [
   declarations: [
     LoginSignupComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    OtpFormComponent
   ],
   imports: [
     CommonModule,

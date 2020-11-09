@@ -1,223 +1,15 @@
-/* .help {
-    padding: 10px 10px 0px 10px;
-    text-align: center;
-    z-index: 1200;
-    background-color: navy;
-    color: white;
-    position: fixed;
-    bottom: 40px;
-    right: 35px;
-    font-size: 20px;
-    border-radius: 100px;
-    width: 45px;
-}
-
-svg {
-    margin-bottom: 7px;
-}
-
-.shp0 {
-    fill: #fff;
-}
-
-input {
-    font-size: 14px;
-}
-
-input:focus {
-    outline: none !important;
-    border-color: #000080;
-    box-shadow: none !important;
-}
-
-.modal-body {
-    padding-bottom: 0px;
-}
-
-.modal-title {
-    margin-left: 35px;
-    font-size: 18px;
-    color: navy;
-}
-
-.modal-content {
-    width: 350px !important;
-}
-
-.help:hover {
-    color: navy;
-    background-color: white;
-    border: 1px solid navy;
-}
-
-.help:hover .shp0 {
-    fill: #000080;
-}
-
-.mgTop {
-    font-size: 14px;
-}
-
-.contactLabel {
-    margin-bottom: 2px;
-}
-
-.modal-dialog {
-    position: fixed;
-    bottom: 70px;
-    right: 30px;
-}
-
-.smallCheck {
-    height: 12px !important;
-    width: 12px !important;
-}
-
-.smallLabel {
-    font-size: 14px;
-}
-
-.marginLeft {
-    margin-left: 5px;
-}
-
-.modal-footer {
-    padding: 8px !important;
-}
-
-.btn-oval {
-    border-radius: 20px 20px 20px 20px !important;
-    background-color: navy;
-}
-
-.btn-oval:hover {
-    background-color: white;
-    color: navy;
-    border: 1px solid navy;
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-    .help {
-        bottom: 70px;
-        right: 20px;
-    }
-    .modal-dialog {
-        bottom: 120px;
-        right: 20px;
-    }
-    .mgBtm {
-        margin-bottom: 5px;
-    }
-
-    .mgBtm2 {
-        margin-bottom: 0px !important;
-    }
-}
-
-@media (min-width: 320px) and (max-width: 480px) {
-    .help {
-        bottom: 70px;
-        right: 20px;
-    }
-    .modal-dialog {
-        bottom: 115px;
-        right: 20px;
-    }
-    .modal-content {
-        width: 320px !important;
-    }
-    .modal-title {
-        margin-left: 10px;
-    }
-
-    .mgBtm {
-        margin-bottom: 5px;
-    }
-
-    .mgBtm2 {
-        margin-bottom: 0px !important;
-    }
-
-
-input {
-    font-size: 12px;
-}
-}
-
-@media (max-width: 320px) {
-    .modal-content {
-        width: 100% !important;
-        height: 100% !important;
-    }
-    .modal-header {
-        padding: 10px 10px;
-    }
-
-    .help {
-        bottom:  60px !important;
-    }
-    .modal-dialog {
-        right: 0px !important;
-        bottom: 100px !important;
-    }
-    .modal-body {
-        height: 267px;
-        padding-top: 8px;
-    }
-    .modal-title {
-        font-size: 14px;
-    }
-    input {
-        height: 27px;
-    }
-    .smallLabel {
-        font-size: 12px;
-    }
-    .modal-body p {
-        font-size: 12px;
-        line-height: 1.5;
-    }
-    .mgTop {
-        margin-top: 2px;
-    }
-    .contactLabel {
-        margin-bottom: 4px;
-    }
-    .btn-oval {
-        padding: 2px 10px;
-    }
-
-    .form-group {
-        margin-bottom: 8px !important;
-    }
-}
-
-.form-check-label b {
-    font-size: 14px;
-} */
-
 #chat-circle {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
+  bottom: 40px;
+  right: 35px;
   background: #000080;
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   color: white;
-  padding: 12px 10px;
+  padding: 8px 8px;
   z-index: 1200;
   cursor: pointer;
-}
-
-.btn#my-btn {
-  background: white;
-  padding-top: 13px;
-  padding-bottom: 12px;
-  border-radius: 45px;
-  padding-right: 40px;
-  padding-left: 40px;
-  color: #5865c3;
 }
 
 #chat-overlay {
@@ -316,12 +108,10 @@ input {
 }
 
 #chat-input::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
   color: #ccc;
 }
 
 #chat-input::-moz-placeholder {
-  /* Firefox 19+ */
   color: #ccc;
 }
 
@@ -352,7 +142,6 @@ input {
 
 .chat-logs {
   height: auto;
-  /* overflow-y: scroll; */
   padding: 10px 15px;
 }
 
@@ -434,4 +223,11 @@ input {
 .cm-msg-button {
   clear: both;
   margin-bottom: 70px;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  #chat-circle {
+    bottom: 70px;
+    right: 20px;
+  }
 }

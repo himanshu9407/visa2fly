@@ -1,7 +1,7 @@
 <form class="form-body" [formGroup]="loginForm">
   <div class="row">
     <div class="col-12 input-group">
-      <label for="username">Email/Cell Number</label>
+      <label for="username">Email/Cell Number <span class="astrisk">*</span></label>
       <input minlength="6" id="username" class="form-control"
         pattern="^([6-9][0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" (keydown.enter)="onUserPress($event)"
         formControlName="userId" placeholder="Email/Mobile" type="text" autocomplete="off" name="userId"
@@ -9,24 +9,23 @@
 
       <div class="invalid-feedback" style="display: block;">
         <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address or
-          mobile number</div>
+          mobile number *</div>
       </div>
     </div>
 
     <div class="col-12 input-group">
-      <label for="otp">OTP</label>
+      <label for="otp">OTP <span class="astrisk">*</span></label>
       <input class="form-control"
         [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}"
         (keydown.enter)="onOTPPress($event)" pattern="^[0,1-9][0-9]{5}$" autocomplete="off" name="otp"
         formControlName="otp" type="text" placeholder="OTP" />
       <div class="invalid-feedback" style="display: block;">
-        <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp </div>
+        <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp *</div>
       </div>
     </div>
-
     <div class="col-12 rememberMeBox" *ngIf="showOtpField">
       <input type="checkbox" name="rememberMe" formControlName="rememberMe" id="rememberMe">
-      <label for="rememberMe">Stay Signed In</label>
+      <label for="rememberMe" class="staySignedIn">Stay Signed In</label>
     </div>
 
     <div class="col-12 button-group" *ngIf="showSendOtp">
@@ -41,12 +40,11 @@
 
     <div class="col-12 button-group" *ngIf="showLoginButton">
       <button (click)="onSubmit()"
-        [disabled]="loginForm.get('otp').invalid && loginForm.get('otp').dirty || loginForm.get('otp').pristine"
         type="button" class="btn">Submit</button>
     </div>
 
     <!-- *ngIf="changeNumber" -->
-    <div class="col-12 mt-4 change-group" *ngIf="changeNumber">
+    <div class="col-12 mt-3 change-group" *ngIf="changeNumber">
       <div class="resendBtn changeBtn">
         <a (click)="sendOtp()" style="cursor: pointer;color: navy;">
           <span class="agree">
