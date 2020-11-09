@@ -3,24 +3,24 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl
+  FormControl,
 } from "@angular/forms";
 import { LoginService } from "./login.service";
 import { GetIPService } from "src/app/shared/getIP.service";
 import { LoginResponseModel } from "./loginResponse.model";
 // import { ToastService } from "src/app/shared/toast.service";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
-import { Meta, Title } from '@angular/platform-browser';
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
   otpSentCount: number = 0;
@@ -47,18 +47,16 @@ export class LoginComponent implements OnInit {
     private titleService: Title,
     private meta: Meta,
     private reqService: RequirementsService
-  ) {
-   
-  }
+  ) {}
 
   onUserPress(event: any) {
-    if (this.loginForm.get('userId').valid) {
+    if (this.loginForm.get("userId").valid) {
       this.sendOtp();
     }
   }
 
   onOTPPress(event: any) {
-    if (this.loginForm.get('otp').valid) {
+    if (this.loginForm.get("otp").valid) {
       this.onSubmit();
     }
   }
@@ -69,8 +67,8 @@ export class LoginComponent implements OnInit {
       { name: "keywords", content: "" },
       {
         name: "description",
-        content: ""
-      }
+        content: "",
+      },
     ]);
 
     this.prevRoute = this.routerHistory.getPrevRoute();
@@ -78,14 +76,19 @@ export class LoginComponent implements OnInit {
 
     this.loginForm = new FormGroup({
       userId: new FormControl(null, [Validators.required]),
-      otp: new FormControl(null, [Validators.required]),
-      rememberMe: new FormControl(false)
+      otp: new FormControl({ value: null, disabled: !this.showOtpField }, [
+        Validators.required,
+      ]),
+      rememberMe: new FormControl(false),
     });
 
-    if (this.loginForm.get('userId').valid || this.loginForm.get('userId').value !== null) {
-      this.loginForm.get('otp').enable();
+    if (
+      this.loginForm.get("userId").valid ||
+      this.loginForm.get("userId").value !== null
+    ) {
+      this.loginForm.get("otp").enable();
     } else {
-      this.loginForm.get('otp').disable();
+      this.loginForm.get("otp").disable();
     }
   }
 
@@ -136,37 +139,39 @@ export class LoginComponent implements OnInit {
   // }
 
   sendOtp() {
-    if (this.loginForm.get('userId').invalid && this.loginForm.get('userId').dirty || this.loginForm.get('userId').pristine) {
-      this.toastr.error("Kindly Enter Your Email/Mobile Number")
+    if (
+      (this.loginForm.get("userId").invalid &&
+        this.loginForm.get("userId").dirty) ||
+      this.loginForm.get("userId").pristine
+    ) {
+      this.toastr.error("Kindly Enter Your Email/Mobile Number");
     } else {
-    this.showLoader = true;
-    this.showSendOtp = false;
-    this.loginForm.get('otp').enable();
-    // this.showOtpField  =true;
-    let userId = this.loginForm.get("userId").value;
-    // console.log(userId);
-    this.loginService.sendLoginOtp(userId).subscribe(data => {
-      if (!data) {
-        this.toastr.error(
-          "Something Went wrong! Please try again later."
-        );
-        this.setFormFresh();
-      } else if (data.code == "0") {
-        this.showLoader = false;
-        this.showLoginButton = true;
-        this.showAlertMessage();
-        this.loginForm.get("userId").disable();
-        this.showOtpField = true;
-        this.changeNumber = true;
-        this.otpSentCount = this.otpSentCount + 1;
-      } else {
-        this.toastr.error(data.message);
-        this.showLoader = false;
-        //this.setFormFresh();
-        this.showSendOtp = true;
-      }
-    });
-  }
+      this.showLoader = true;
+      this.showSendOtp = false;
+      this.loginForm.get("otp").enable();
+      // this.showOtpField  =true;
+      let userId = this.loginForm.get("userId").value;
+      // console.log(userId);
+      this.loginService.sendLoginOtp(userId).subscribe((data) => {
+        if (!data) {
+          this.toastr.error("Something Went wrong! Please try again later.");
+          this.setFormFresh();
+        } else if (data.code == "0") {
+          this.showLoader = false;
+          this.showLoginButton = true;
+          this.showAlertMessage();
+          this.loginForm.get("userId").disable();
+          this.showOtpField = true;
+          this.changeNumber = true;
+          this.otpSentCount = this.otpSentCount + 1;
+        } else {
+          this.toastr.error(data.message);
+          this.showLoader = false;
+          //this.setFormFresh();
+          this.showSendOtp = true;
+        }
+      });
+    }
   }
 
   changeUserNumber() {
@@ -191,7 +196,7 @@ export class LoginComponent implements OnInit {
     let otp = this.loginForm.get("otp").value;
     let rememberMe = this.loginForm.get("rememberMe").value;
     let temp = this.checkUserId();
-    
+
     this.userFlowService.setExpiry(rememberMe);
 
     this.getIP.getClientIP().subscribe(
@@ -265,10 +270,8 @@ export class LoginComponent implements OnInit {
             // (err) => console.log(err)
           );
       },
-      err => {
-        this.toastr.error(
-          "Something went wrong! Please try again later.",
-        );
+      (err) => {
+        this.toastr.error("Something went wrong! Please try again later.");
       }
     );
   }

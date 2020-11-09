@@ -87,13 +87,15 @@ const routes: Routes = [
 
   // success and failure booking page
   {
-    path: "booking/:bookingId/payment",
+    path: "payment/handle/:id",
     loadChildren: () =>
       import("./components/booking-status/booking-status.module").then(
         (m) => m.BookingStatusModule
       ),
     data: { preload: true },
   },
+
+  // :orderId/:checksum/:amount/:bank/:bankid/:cardId/:cardScheme/:cardToken/:cardhashid/:doRedirect/:paymentMethod/:paymentMode/:responseCode/:responseDescription/:productDescription/:product1Description/:product2Description/:product3Description/:product4Description/:pgTransId/:pgTransTime
 
   // MyBooking Page
   {

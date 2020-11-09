@@ -17,7 +17,7 @@
         <label class="chkLabel">Visa Type</label>
         <div class="icon-s1-calender pull-left"></div>
         <select formControlName="purpose" [(ngModel)]="selectedPurpose" required name="purpose" id="ddlPurpose"
-        class=" form-control form-control-sm" style="">
+        class=" form-control form-control-sm">
         <option value="select">Select</option>
         <option class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry]['purpose']"
             value="{{visaType}}">{{visaType}}</option>
@@ -35,7 +35,7 @@
             <div class="icon-s1-small-loader" alt="apply visa online"></div>
         </div>
         <select formControlName="livingin" [(ngModel)]="selectedResidenceOf" required name="livingin"
-            id="ddlJurisction" class=" form-control form-control-sm" style="">
+            id="ddlJurisction" class=" form-control form-control-sm">
             <option value="select" class="option">Select</option>
             <option class="purpose-opt option"
             *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">

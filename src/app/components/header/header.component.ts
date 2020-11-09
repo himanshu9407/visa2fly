@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
     private loginService: LoginService,
     private loginStatus: LoginStatusService,
     private logoutService: LogoutService,
-    // private toastService: ToastService,
     private toastr: ToastrService,
     private router: Router,
     private actRoute: ActivatedRoute,
@@ -39,11 +38,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // console.log("header called again");
-
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        // console.log(event.url);
         let url: string = event.url;
         let arr = url.split("/");
 
@@ -52,7 +48,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "freeVisa" ||
           arr[1] == "visaOnArrival" ||
           arr[1] == "profile" ||
-          arr[1] == "booking" ||
+          arr[1] == "payment" ||
           arr[1] == "myBookings" ||
           arr[1] == "bookingDetail" ||
           arr[1] == "visa-requirements" ||

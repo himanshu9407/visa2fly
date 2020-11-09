@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-booking-status',
@@ -8,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class BookingStatusComponent implements OnInit {
   bookingStatus: boolean = false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
+    this.route.paramMap.subscribe((params: any) => {
+      console.log(params);
+    });
+    
+    console.log("params");
+  }
 
   ngOnInit(): void {
   }
