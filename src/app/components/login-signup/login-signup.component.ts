@@ -7,7 +7,7 @@ import { Meta, Title } from "@angular/platform-browser";
 @Component({
   selector: "app-login-signup",
   templateUrl: "./login-signup.component.html",
-  styleUrls: ["./login-signup.component.css"]
+  styleUrls: ["./login-signup.component.css"],
 })
 export class LoginSignupComponent implements OnInit {
   title: string;
@@ -23,12 +23,10 @@ export class LoginSignupComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       if (params["form"] == "login") {
         this.showLogin();
-      }
-      if (params["form"] == "signup") {
+      } else if (params["form"] == "signup") {
         this.showSignup();
       }
     });
-
   }
 
   showSignup() {
@@ -39,7 +37,6 @@ export class LoginSignupComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       $("#signUp").addClass("active");
       $("#signIn").removeClass("active");
-      // $(".blurred-box").css("height", "520px");
     }
   }
 
@@ -62,5 +59,4 @@ export class LoginSignupComponent implements OnInit {
   navigateToSignup() {
     this.router.navigate(["slcontainer", "signup"]);
   }
-
 }

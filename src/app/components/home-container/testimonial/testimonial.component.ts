@@ -1,70 +1,61 @@
-import { Component, OnInit } from '@angular/core';
-import { TestimonialService } from './testimonial.service';
+import { Component, OnInit } from "@angular/core";
+import { from, of } from 'rxjs';
+import { toArray } from 'rxjs/operators';
+import { TestimonialService } from "./testimonial.service";
 
 @Component({
-  selector: 'app-testimonial',
-  templateUrl: './testimonial.component.html',
-  styleUrls: ['./testimonial.component.css']
+  selector: "app-testimonial",
+  templateUrl: "./testimonial.component.html",
+  styleUrls: ["./testimonial.component.css"],
 })
 export class TestimonialComponent implements OnInit {
-  
-  testimonialData : [];
-  
-  constructor(private testimonialService : TestimonialService) { }
-  
+  testimonialData: [];
+
+  constructor(private testimonialService: TestimonialService) {}
+
   firstTestimonialArr = [];
   secondTestimonialArr = [];
 
-  showTestimonialComponent : boolean = true;
-  firstTestimonialArrExists :boolean = true;
-  secondTestimonialArrExists :boolean = true;
-  ngOnInit() { 
-  this.testimonialService.getTestimonials().subscribe(
+  showTestimonialComponent: boolean = true;
+  firstTestimonialArrExists: boolean = true;
+  secondTestimonialArrExists: boolean = true;
+  ngOnInit() {
 
-    (data) => {
-      
-      if(!data) {
-        // assign dummy data
-      }
+    this.testimonialService.getTestimonials().subscribe(
+      (res) => {
+        if (!res) {
+          // assign dummy res
+        } else if (res.code == "0") {
+          console.log(res);
+          this.testimonialData = res.data;
+      console.log(typeof this.testimonialData);
 
-      else if (data.code == "0") {
-        // console.log(data.data);
-        this.testimonialData = data.data ;
-        this.firstTestimonialArr = this.testimonialData.slice(0,3);
-        this.secondTestimonialArr = this.testimonialData.slice(3,6);
+          this.firstTestimonialArr = this.testimonialData.slice(0, 3);
+          this.secondTestimonialArr = this.testimonialData.slice(3, 6);
 
+          if (this.secondTestimonialArr.length == 0) {
+            this.secondTestimonialArrExists = false;
+          }
+          if (this.firstTestimonialArr.length == 0) {
+            this.firstTestimonialArrExists = false;
+          }
 
-        if (this.secondTestimonialArr.length == 0) {
-          this.secondTestimonialArrExists = false;
+          if (
+            !this.secondTestimonialArrExists &&
+            !this.firstTestimonialArrExists
+          ) {
+            this.showTestimonialComponent = false;
+          }
+        } else {
+          // dummy data assignment
         }
-        if (this.firstTestimonialArr.length == 0) {
-          this.firstTestimonialArrExists = false;
-        }
-
-        if (!this.secondTestimonialArrExists && !this.firstTestimonialArrExists) {
-          this.showTestimonialComponent = false;
-        }
-
-       
-
-
-      }
-
-      else {
-        // dummy data assignment
-      }
-    
-    },
-    (error) => {
-
-    }
-  );
+      },
+      (error) => {}
+    );
   }
 
-
-  createStarArray (stars :any) :any {
-  
-    let arr = Array.from(Array(stars)).map((x, i) => i )
+  createStarArray(stars: any): any {
+    let arr = Array.from(Array(stars)).map((x, i) => i);
 
     return arr;
   }

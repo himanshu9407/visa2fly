@@ -72,7 +72,6 @@ export class LoginComponent implements OnInit {
     ]);
 
     this.prevRoute = this.routerHistory.getPrevRoute();
-    // console.log(this.prevRoute);
 
     this.loginForm = new FormGroup({
       userId: new FormControl(null, [Validators.required]),
@@ -151,7 +150,6 @@ export class LoginComponent implements OnInit {
       this.loginForm.get("otp").enable();
       // this.showOtpField  =true;
       let userId = this.loginForm.get("userId").value;
-      // console.log(userId);
       this.loginService.sendLoginOtp(userId).subscribe((data) => {
         if (!data) {
           this.toastr.error("Something Went wrong! Please try again later.");
@@ -193,7 +191,6 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       this.toastr.error("Kindly Enter Valid Credentials");
     } else {
-      console.log(this.loginForm.get("userId").valid);
         this.showLoader = true;
         this.showLoginButton = false;
         let userId = this.loginForm.get("userId").value;
@@ -205,23 +202,19 @@ export class LoginComponent implements OnInit {
     
         this.getIP.getClientIP().subscribe(
           (data1: { ip: string }) => {
-            // console.log(data1  );
             this.ipAddress = data1.ip;
             this.loginService
               .loginUser(userId, otp, rememberMe, this.ipAddress, temp)
               .subscribe(
                 (data: LoginResponseModel) => {
-                  // console.log(data);
     
                   if (!data) {
-                    // console.log("req failed"+data);
                     this.toastr.error(
                       "Something Went wrong! Please try again later."
                     );
                     this.setFormFresh();
                   } else {
                     if (data.code == "0") {
-                      // console.log(data);
                       this.loginService.setAuthToken(
                         data.data.authentication.token
                       );
@@ -256,11 +249,10 @@ export class LoginComponent implements OnInit {
                         this.router.navigate([""]);
                       }
                     } else {
-                      // console.log("sartahk agrawal");
                       this.toastr.error(data.message);
-    
-                      // this.setFormFresh();
                       this.showLoader = false;
+                      console.log('kjh');
+                      
                       this.showLoginButton = true;
                       // this.showOtpField = false;
                       this.otpSentCount = 0;
@@ -271,7 +263,6 @@ export class LoginComponent implements OnInit {
                     }
                   }
                 }
-                // (err) => console.log(err)
               );
           },
           (err) => {
