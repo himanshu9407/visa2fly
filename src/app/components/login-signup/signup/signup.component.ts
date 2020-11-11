@@ -30,6 +30,7 @@ export class SignupComponent implements OnInit {
   prevRoute = "";
   displayButton: boolean = false;
   changeNumber: boolean = false;
+  showOtpBox: boolean = false;
 
   constructor(
     private singUpService: SignupService,
@@ -73,50 +74,45 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(10),
         Validators.minLength(10),
       ]),
-      otp: new FormGroup({
-        digit1: new FormControl('1', [
-          Validators.required,
-          Validators.maxLength(1),
-        ]),
-        digit2: new FormControl('2', [
-          Validators.required,
-          Validators.maxLength(1),
-        ]),
-        digit3: new FormControl('3', [
-          Validators.required,
-          Validators.maxLength(1),
-        ]),
-        digit4: new FormControl('4', [
-          Validators.required,
-          Validators.maxLength(1),
-        ]),
-        digit5: new FormControl('5', [
-          Validators.required,
-          Validators.maxLength(1),
-        ]),
-        digit6: new FormControl('6', [
-          Validators.required,
-          Validators.maxLength(1),
-        ]),
-      }),
-      // otp: new FormControl(null, [Validators.required]),
+      digit1: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit2: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit3: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit4: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit5: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit6: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
       tnc: new FormControl(false),
     });
   }
 
   createUser() {
-    console.log("createUser");
-
     if (
-      (this.signupForm.get("otp").invalid &&
-        this.signupForm.get("otp").dirty) ||
-      this.signupForm.get("otp").pristine
+      this.signupForm.get("digit1").invalid ||
+      this.signupForm.get("digit2").invalid ||
+      this.signupForm.get("digit3").invalid ||
+      this.signupForm.get("digit4").invalid ||
+      this.signupForm.get("digit5").invalid ||
+      this.signupForm.get("digit6").invalid
     ) {
       this.toastr.error("Enter valid OTP");
-    } else if (this.signupForm.get("tnc").value == false) {
-      this.toastr.error("Please accept terms and condition.");
-    }
-    else {
+    } else {
       this.showSignUpButton = false;
       this.showSendOtpButton = false;
       this.showRotatingLoader = true;
@@ -220,6 +216,7 @@ export class SignupComponent implements OnInit {
     this.showSendOtpButton = false;
     this.changeNumber = true;
     this.showLoader = false;
+    this.showOtpBox = true;
     this.showAlertMessage();
   }
 
@@ -230,10 +227,15 @@ export class SignupComponent implements OnInit {
     this.signupForm.setValue({
       email: "",
       mobile: "",
-      otp: "",
       firstName: "",
       lastName: "",
       tnc: false,
+      digit1: "",
+      digit2: "",
+      digit3: "",
+      digit4: "",
+      digit5: "",
+      digit6: "",
     });
     this.showLoader = false;
     this.displayButton = false;
@@ -245,17 +247,15 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("onSubmit");
-    
     if (
-      (this.signupForm.get("mobile").invalid &&
-        this.signupForm.get("mobile").dirty) ||
-      (this.signupForm.get("email").invalid &&
-        this.signupForm.get("email").dirty) ||
-      this.signupForm.get("email").pristine ||
-      this.signupForm.get("mobile").pristine
+      this.signupForm.get("firstName").invalid ||
+      this.signupForm.get("lastName").invalid ||
+      this.signupForm.get("mobile").invalid ||
+      this.signupForm.get("email").invalid
     ) {
       this.toastr.error("Kindly Enter Valid Details");
+    } else if (this.signupForm.get("tnc").value == false) {
+      this.toastr.error("Please accept terms and condition.");
     } else {
       let enteredMobile = this.signupForm.get("mobile").value;
       this.showSignUpButton = false;
@@ -299,6 +299,31 @@ export class SignupComponent implements OnInit {
     this.showSendOtpButton = true;
     this.showSignUpButton = false;
     this.showOtpFields = false;
+    this.showOtpBox = false;
     this.signupForm.enable();
+  }
+
+  signUpDetail(event: any) {
+    if (
+      this.signupForm.get("email").valid ||
+      this.signupForm.get("firstName").valid ||
+      this.signupForm.get("lastName").valid ||
+      this.signupForm.get("mobile").valid
+    ) {
+      this.onSubmit();
+    }
+  }
+
+  onOTPPress(event: any) {
+    if (
+      this.signupForm.get("digit1").valid ||
+      this.signupForm.get("digit2").valid ||
+      this.signupForm.get("digit3").valid ||
+      this.signupForm.get("digit4").valid ||
+      this.signupForm.get("digit5").valid ||
+      this.signupForm.get("digit6").valid
+    ) {
+      this.createUser();
+    }
   }
 }
