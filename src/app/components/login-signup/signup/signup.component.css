@@ -136,11 +136,14 @@
   justify-content: space-evenly;
 }
 
-.change-group .resendBtn {
-  background: rgba(221, 221, 221, 0.4);
-  padding: 2px 5px;
-  font-size: 14px;
-  border-radius: 4px;
+.change-group .resendBtn button,
+.change-group .resendBtn button:disabled {
+    color: navy;
+    border: none;
+    background: rgba(221, 221, 221, 0.4);
+    padding: 2px 5px;
+    font-size: 14px;
+    border-radius: 4px;
 }
 
 .loading svg {
@@ -182,4 +185,12 @@
   text-align: center;
   border: 1px solid gray;
   border-radius: 5px;
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
 }

@@ -87,7 +87,7 @@ const routes: Routes = [
 
   // success and failure booking page
   {
-    path: "payment/handle/:id",
+    path: "payment/handle",
     loadChildren: () =>
       import("./components/booking-status/booking-status.module").then(
         (m) => m.BookingStatusModule

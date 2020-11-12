@@ -1,40 +1,25 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
-
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 
 @Injectable({
-    providedIn : "root"
+  providedIn: "root",
 })
 export class HomeFormService {
-    homeFormData;
-    constructor ( private http : HttpClient, private userFlow : UserFlowDetails ) {}
+  homeFormData;
+  constructor(private http: HttpClient, private userFlow: UserFlowDetails) {}
 
+  getHomeFormData() {
+    return this.homeFormData;
+  }
 
+  setHomeFormData(data) {
+    this.homeFormData = data;
+  }
 
-    getHomeFormData () {
-        return this.homeFormData;
-    }
-
-    setHomeFormData (data) {
-        this.homeFormData = data;
-        // console.log("data set");
-    }
-  getHomeFormDataFromServer () {
-
+  getHomeFormDataFromServer() {
     const base_url = this.userFlow.getBaseURL();
-        
-        return this.http.get<any>(base_url+"info/landing");
 
-          
-    }
-
-    // getQuotation(){
-    //     const base_url = this.userFlow.getBaseURL();
-
-    //     return this.http.get(base_url + "info/"+ { }+"/quotation");
-    // }
-  
-    
-
+    return this.http.get<any>(base_url + "info/landing");
+  }
 }

@@ -97,7 +97,6 @@ export class HomeFormComponent {
     this.homeFormService.getHomeFormDataFromServer().subscribe((data) => {
       if (isPlatformBrowser(this.platformId)) {
         this.homeFormData = data;
-        //console.log(this.homeFormData);
         let activeCountry: string = this.userFlow.getCookie("activeCountry");
         let popularCountry: string = this.userFlow.getCookie("popularCountry");
         if (
@@ -108,11 +107,9 @@ export class HomeFormComponent {
           this.country.setValue(this.homeFormData.data.countries[0]);
           this.selectedCountry = this.homeFormData.data.countries[0];
 
-          // console.log("here 1");
         } else {
           this.country.setValue(activeCountry);
           this.userFlow.setCookie("activeCountry", "");
-          // console.log("here 2");
         }
         if (
           popularCountry == "" ||
@@ -121,19 +118,15 @@ export class HomeFormComponent {
         ) {
           this.country.setValue(this.homeFormData.data.countries[0]);
           this.selectedCountry = this.homeFormData.data.countries[0];
-
-          // console.log("here 3");
         } else {
           this.country.setValue(popularCountry);
           this.userFlow.setCookie("popularCountry", "");
-          // console.log("here 4");
         }
 
         this.userFlow.setCookie(
           "countryList",
           JSON.stringify(data.data.countries)
         );
-        // console.log(data.data.data[this.selectedCountry]);
         this.preloaderService.showPreloader(false);
       }
     });

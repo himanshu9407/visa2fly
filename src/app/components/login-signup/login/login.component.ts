@@ -168,6 +168,10 @@ export class LoginComponent implements OnInit {
           //this.setFormFresh();
           this.showSendOtp = true;
         }
+      }, (err) => {
+        this.toastr.error("Something went wrong.");
+        this.showLoader = false;
+        this.showSendOtp = true;
       });
     }
   }

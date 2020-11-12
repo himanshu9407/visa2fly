@@ -10,6 +10,7 @@ import { LoginService } from "../login/login.service";
 import { ToastrService } from "ngx-toastr";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { Meta, Title } from "@angular/platform-browser";
+import { Subscription, timer } from "rxjs";
 
 @Component({
   selector: "app-signup",
@@ -31,6 +32,12 @@ export class SignupComponent implements OnInit {
   displayButton: boolean = false;
   changeNumber: boolean = false;
   showOtpBox: boolean = false;
+
+  countDown: Subscription;
+  counter = 5;
+  tick = 1000;
+  disableResend: boolean = true;
+  resendBtnText: string = "Resend OTP";
 
   constructor(
     private singUpService: SignupService,
@@ -100,9 +107,33 @@ export class SignupComponent implements OnInit {
       ]),
       tnc: new FormControl(false),
     });
+
+    $(function () {
+      $(".box").on("keyup", function (e) {
+        var $input = $(this);
+        console.log($input);
+        if ((<any>$input.val()).length == 0 && e.which == 8) {
+          $input.toggleClass("productkey2 productkey1").prev(".box").focus();
+        } else if (
+          (<any>$input.val()).length >= parseInt($input.attr("maxlength"), 10)
+        ) {
+          $input.toggleClass("productkey1 productkey2").next(".box").focus();
+        }
+      });
+    });
+
   }
 
   createUser() {
+    let digit1 = this.signupForm.get("digit1").value;
+    let digit2 = this.signupForm.get("digit2").value;
+    let digit3 = this.signupForm.get("digit3").value;
+    let digit4 = this.signupForm.get("digit4").value;
+    let digit5 = this.signupForm.get("digit5").value;
+    let digit6 = this.signupForm.get("digit6").value;
+
+    console.log(digit1 + digit2 + digit3 + digit4 + digit5 + digit6);
+
     if (
       this.signupForm.get("digit1").invalid ||
       this.signupForm.get("digit2").invalid ||
@@ -125,12 +156,20 @@ export class SignupComponent implements OnInit {
         otp: "",
         acceptedTOC: "",
       };
+
+      let digit1 = this.signupForm.get("digit1").value;
+      let digit2 = this.signupForm.get("digit2").value;
+      let digit3 = this.signupForm.get("digit3").value;
+      let digit4 = this.signupForm.get("digit4").value;
+      let digit5 = this.signupForm.get("digit5").value;
+      let digit6 = this.signupForm.get("digit6").value;
+
       this.showLoader = true;
       reqBody.emailId = this.signupForm.get("email").value;
       reqBody.firstName = this.signupForm.get("firstName").value;
       reqBody.lastName = this.signupForm.get("lastName").value;
       reqBody.cell = this.signupForm.get("mobile").value;
-      reqBody.otp = this.signupForm.get("otp").value;
+      reqBody.otp = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
       reqBody.acceptedTOC = this.signupForm.get("tnc").value;
 
       console.log(reqBody);
@@ -186,10 +225,15 @@ export class SignupComponent implements OnInit {
     this.signupForm.setValue({
       email: "",
       mobile: "",
-      otp: "",
       firstName: "",
       lastName: "",
       tnc: false,
+      digit1: "",
+      digit2: "",
+      digit3: "",
+      digit4: "",
+      digit5: "",
+      digit6: "",
     });
     this.showLoader = false;
     this.showSignUpButton = true;
@@ -270,12 +314,19 @@ export class SignupComponent implements OnInit {
           } else {
             if (data.code == "0") {
               this.afterSuccessfullOtpSent();
+              this.disableResend = true;
+              this.counter = 60;
+              this.counterFunc();
             } else if (data.code == "309") {
               this.toastr.error(data.message.toString());
               this.showSignUpButton = false;
               this.showRotatingLoader = false;
               this.showSendOtpButton = true;
               this.changeNumber = false;
+            } else if (data.code == "312") {
+              this.toastr.error(data.message.toString());
+              this.resetDetails();
+              this.showOtpBox = false;
             } else {
               this.showSignUpButton = false;
               this.showRotatingLoader = false;
@@ -289,6 +340,9 @@ export class SignupComponent implements OnInit {
             "Something went wrong ! Please try again after some time"
           );
           this.setFormFresh();
+          this.showSignUpButton = false;
+          this.showSendOtpButton = true;
+          this.showRotatingLoader = false;
         }
       );
     }
@@ -325,5 +379,27 @@ export class SignupComponent implements OnInit {
     ) {
       this.createUser();
     }
+  }
+
+  counterFunc() {
+    this.countDown = timer(0, this.tick).subscribe(() => {
+      console.log("log");
+
+      if (this.counter === 0) {
+        console.log("log1");
+        this.countDown.unsubscribe();
+        this.resendBtnText = "Resend OTP";
+        this.disableResend = false;
+        return;
+      } else {
+        console.log("log2");
+        this.resendBtnText = "Resend in " + this.counter + "s";
+        --this.counter;
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.countDown.unsubscribe();
   }
 }

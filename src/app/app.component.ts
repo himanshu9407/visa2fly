@@ -86,3 +86,7 @@ export class AppComponent implements OnInit {
     }
   }
 }
+
+
+// orderId=1605165242794W7TC3&responseCode=100&responseDescription=The%20transaction%20was%20completed%20successfully&checksum=b4c9d4656b43e96faf385dc1679f2f71211ca7c9380e65aa8efc6a88a55ef256&amount=349000&doRedirect=false&paymentMode=Credit%20Card&cardId=ccbeaadd20191223a6485ca4e353baf6f844b5923c65b27192b7bdee7f1435b1~8
+// cardScheme=Visa&cardToken=4111%20XXXX%20XXXX%201111&bank=HDFC&bankid=NA&paymentMethod=411111&cardhashid=CH108&productDescription=NA&product1Description=NA&product2Description=NA&product3Description=NA&product4Description=NA&pgTransId=ZP5b3e3a84d476f&pgTransTime=11/12/2020%2012:44:23
