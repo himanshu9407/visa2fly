@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
-import { MatSelectModule } from '@angular/material/select';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FaqComponent } from './faq/faq.component';
 import { RequirementsUaeComponent } from './requirements-uae/requirements-uae.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
     NgxPaginationModule,
     NgbModule,
     SharedVisaModuleModule,
-    MatSelectModule,
+    
     RouterModule.forChild(routes)
   ]
 })

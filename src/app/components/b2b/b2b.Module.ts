@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatSelectModule } from '@angular/material/select';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SomethingWrongComponent } from 'src/app/shared/components/something-wrong/something-wrong.component';
 import { B2bRemovespacePipe } from './b2b-removespace.pipe';
@@ -45,7 +45,7 @@ const routes: Routes = [
     NgxPaginationModule,
     NgbModule,
     SharedVisaModuleModule,
-    MatSelectModule,
+    
     RouterModule.forChild(routes)
   ]
 })

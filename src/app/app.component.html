@@ -1,5 +1,4 @@
-<!-- <div [ngClass]="{'show':!showPreloader,'hide':showPreloader}"> -->
-
+<div [ngClass]="{'show':!showPreloader,'hide':showPreloader}">
   <app-b2b-header class="pcOnly" *ngIf="showB2BHeader"></app-b2b-header>
   <app-header class="pcOnly" *ngIf="!showB2BHeader"></app-header>
   <app-mobile-nav class="mobileOnly" *ngIf="!showB2BHeader"></app-mobile-nav>
@@ -12,9 +11,7 @@
   </div>
   <app-footer class="pcOnly" *ngIf="this.activeRoute !== 'slcontainer' && !showB2BHeader "></app-footer>
   <app-b2b-footer class="pcOnly" *ngIf="showB2BHeader"></app-b2b-footer>
-
-<!-- </div> -->
-
+</div>
 
 <div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">
   <app-preloader></app-preloader>

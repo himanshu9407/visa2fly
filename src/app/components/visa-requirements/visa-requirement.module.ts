@@ -32,6 +32,8 @@ import { UAEModule } from './uae/uae.module';
 import { BahrainModule } from './bahrain/bahrain.module';
 import { UkraineModule } from './ukraine/ukraine.module';
 import { AntiguaModule } from './antigua/antigua.module';
+import { RussiaModule } from './russia/russia.module';
+import { BrazilModule } from './brazil/brazil.module';
 
 
 @NgModule({
@@ -69,7 +71,9 @@ import { AntiguaModule } from './antigua/antigua.module';
     UAEModule,
     BahrainModule,
     UkraineModule,
-    AntiguaModule
+    AntiguaModule,
+    RussiaModule,
+    BrazilModule
   ],
  
 })

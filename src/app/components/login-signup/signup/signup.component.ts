@@ -10,7 +10,7 @@ import { LoginService } from "../login/login.service";
 import { ToastrService } from "ngx-toastr";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { Meta, Title } from "@angular/platform-browser";
-import { Subscription, timer } from "rxjs";
+import { Subscriber, Subscription, timer } from "rxjs";
 
 @Component({
   selector: "app-signup",
@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
   showOtpBox: boolean = false;
 
   countDown: Subscription;
-  counter = 5;
+  counter = 60;
   tick = 1000;
   disableResend: boolean = true;
   resendBtnText: string = "Resend OTP";
@@ -62,7 +62,6 @@ export class SignupComponent implements OnInit {
       },
     ]);
     this.prevRoute = this.routerHistory.getPrevRoute();
-    // console.log(this.prevRoute);
 
     this.signupForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -111,7 +110,6 @@ export class SignupComponent implements OnInit {
     $(function () {
       $(".box").on("keyup", function (e) {
         var $input = $(this);
-        console.log($input);
         if ((<any>$input.val()).length == 0 && e.which == 8) {
           $input.toggleClass("productkey2 productkey1").prev(".box").focus();
         } else if (
@@ -121,7 +119,6 @@ export class SignupComponent implements OnInit {
         }
       });
     });
-
   }
 
   createUser() {
@@ -131,8 +128,6 @@ export class SignupComponent implements OnInit {
     let digit4 = this.signupForm.get("digit4").value;
     let digit5 = this.signupForm.get("digit5").value;
     let digit6 = this.signupForm.get("digit6").value;
-
-    console.log(digit1 + digit2 + digit3 + digit4 + digit5 + digit6);
 
     if (
       this.signupForm.get("digit1").invalid ||
@@ -171,8 +166,6 @@ export class SignupComponent implements OnInit {
       reqBody.cell = this.signupForm.get("mobile").value;
       reqBody.otp = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
       reqBody.acceptedTOC = this.signupForm.get("tnc").value;
-
-      console.log(reqBody);
 
       this.singUpService.createUser(reqBody).subscribe((data: any) => {
         if (!data) {
@@ -383,16 +376,12 @@ export class SignupComponent implements OnInit {
 
   counterFunc() {
     this.countDown = timer(0, this.tick).subscribe(() => {
-      console.log("log");
-
       if (this.counter === 0) {
-        console.log("log1");
         this.countDown.unsubscribe();
         this.resendBtnText = "Resend OTP";
         this.disableResend = false;
         return;
       } else {
-        console.log("log2");
         this.resendBtnText = "Resend in " + this.counter + "s";
         --this.counter;
       }
@@ -400,6 +389,8 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.countDown.unsubscribe();
+    if (this.countDown instanceof Subscriber) {
+      this.countDown.unsubscribe();
+    }
   }
 }

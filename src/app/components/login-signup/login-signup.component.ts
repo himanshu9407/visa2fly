@@ -1,5 +1,4 @@
 import { Component, OnInit, PLATFORM_ID, Inject, Output } from "@angular/core";
-import * as $ from "jquery";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { isPlatformBrowser } from "@angular/common";
 import { Meta, Title } from "@angular/platform-browser";

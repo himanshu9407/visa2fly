@@ -6,7 +6,6 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule } from 'ngx-toastr';
 
-import { MatSelectModule } from "@angular/material/select";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MobileNavComponent } from "./components/mobile-nav/mobile-nav.component";
@@ -79,7 +78,7 @@ import { InsuranceModule } from './components/insurance/insurance.module';
     }), // ToastrModule added
     Ng2FlatpickrModule,
     FormsModule,
-    MatSelectModule,
+    
     ReactiveFormsModule,
     CarouselModule,
     NgbModule,
