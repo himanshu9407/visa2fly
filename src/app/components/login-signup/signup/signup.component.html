@@ -1,7 +1,7 @@
 <form class="form-body" [formGroup]="signupForm">
   <div class="row" [ngClass]="{'hide': showOtpBox, 'show': !showOtpBox }">
     <div class="col-6 input-group pr-1">
-      <label for="firstName">First Name <span class="astrisk">*</span></label>
+      <!-- <label for="firstName">First Name <span class="astrisk">*</span></label> -->
       <input pattern="[A-Za-z]{3,32}" formControlName="firstName" autocomplete="off" class="form-control" type="text"
         name="firstName" id="firstName" (keydown.enter)="signUpDetail($event)"
         [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}"
@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-6 input-group pl-1">
-      <label for="lastName">Last Name <span class="astrisk">*</span></label>
+      <!-- <label for="lastName">Last Name <span class="astrisk">*</span></label> -->
       <input pattern="[A-Za-z]{3,32}" formControlName="lastName" autocomplete="off" type="text" name="lastName"
         id="lastName" class="form-control" (keydown.enter)="signUpDetail($event)"
         [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}"
@@ -31,11 +31,11 @@
     </div>
 
     <div class="col-12 input-group">
-      <label for="email">Email <span class="astrisk">*</span></label>
+      <!-- <label for="email">Email <span class="astrisk">*</span></label> -->
       <input pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" autocomplete="off" formControlName="email"
         class="form-control" type="email" name="email" id="email" (keydown.enter)="signUpDetail($event)"
         [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}"
-        placeholder="Email" />
+        placeholder="Email Id" />
       <div class="invalid-feedback" style="display: block;">
         <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').dirty ">Enter a valid email address*
         </div>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="col-12 input-group">
-      <label for="cellNo">Cell Number <span class="astrisk">*</span></label>
+      <!-- <label for="cellNo">Cell Number <span class="astrisk">*</span></label> -->
       <input
         [ngClass]="{'is-invalid':signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,'is-valid':!(signupForm.get('mobile').invalid && signupForm.get('mobile').dirty) && !signupForm.get('mobile').pristine}"
         (keydown.enter)="signUpDetail($event)" formControlName="mobile" pattern="^[4-9][0-9]{9}$" type="tel"
