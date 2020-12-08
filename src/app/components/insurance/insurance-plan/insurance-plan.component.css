@@ -14,6 +14,8 @@ section#plans {
   background: red;
   padding: 5px 15px;
   border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+color: #fff;
 }
 
 .travelFormTab {
@@ -43,8 +45,8 @@ ul {
 
 .travelFormTab li a.active {
   background: #002154;
-  color: #fff;
   padding: 10px;
+  color: #fff;
   border-radius: 5px;
   position: relative;
 }
@@ -67,7 +69,6 @@ ul {
 .label_sty {
   display: block;
   font-size: 13px;
-  color: #fff;
   font-weight: 400;
   margin: 5px 0 3px;
   letter-spacing: 0;
@@ -85,11 +86,11 @@ ul {
 .formbox_new span {
   display: block;
   font-size: 13px;
-  color: #fff;
   font-weight: 400;
   margin: 5px 0 3px;
   letter-spacing: 0;
   top: 15px;
+  text-transform: uppercase;
 }
 
 ul.travellerAgelist li.ageList {
@@ -160,7 +161,6 @@ ul.travellerAgelist li.list_btn {
     width: 50%;
     display: inline-block;
     font-size: 13px;
-    color: #fff;
     font-weight: 400;
     margin: 5px 0 3px;
     letter-spacing: 0;
@@ -179,4 +179,133 @@ ul.travellerAgelist li.list_btn {
     border-radius: 0px;
     padding: 0;
     color: #fff;
+}
+
+.formbox_new {
+  display: table;
+  width: 100%;
+}
+
+.formbox_new .radioLabel {
+  width: 55%;
+  display: block;
+  float: left;
+}
+
+.formbox_new span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 5px 0 3px;
+  letter-spacing: 0;
+  top: 15px;
+}
+
+.formbox_new .formInput .inputLabel {
+  background: #293f5e;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  font-size: 10px;
+  top: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 2px 5px 2px 2px;
+  display: none;
+}
+
+.formbox_new .formInput.alignRight {
+  float: right;
+  position: relative;
+}
+
+.formbox_new .formInput {
+  background: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  width: 100%;
+  color: #333;
+  font-size: 12px;
+  min-height: 40px;
+  box-shadow: 1px 1px 1px #000;
+  display: flex;
+}
+
+
+.formbox_new .formInput input, .formbox_new .formInput select {
+  width: 100%;
+  border: 0;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 0 10px;
+  letter-spacing: 0;
+}
+
+.formbox_new .formInput.travellers {
+  min-height: 50px;
+}
+
+.formbox_new .radioBox {
+  float: right;
+  width: 45%
+}
+
+.formbox_new .radioBox label.wrapper {
+  font-weight: 400;
+  display: block;
+  position: relative;
+  padding-left: 23px;
+  margin-bottom: 7px;
+  padding-top: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 25%;
+  float: left;
+}
+
+.formbox_new .wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.formbox_new .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+table th {
+  padding-bottom: 5px;
+  border-bottom: 1ps solid #fff !important;
+}
+
+table td {
+  padding-top: 5px;
+}
+
+.ageListInputBox {
+  position: relative;
+}
+
+button.btn-proceed {
+  border-radius: 3px;
+  background-color: #f8ab35;
+  box-shadow: 0 0 8px 0 rgba(66,66,66,.2);
+  color: #fff;
+  width: 60%;
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 8px;
+  margin: 13px 0 10px;
+  position: relative;
 }
