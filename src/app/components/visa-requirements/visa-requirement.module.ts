@@ -1,3 +1,4 @@
+import { FinlandModule } from './finland/finland.module';
 import { NgModule } from '@angular/core';
 import { AustraliaModule } from './australia/australia.module';
 import { VietnamModule } from './vietnam/vietnam.module';
@@ -73,8 +74,10 @@ import { BrazilModule } from './brazil/brazil.module';
     UkraineModule,
     AntiguaModule,
     RussiaModule,
-    BrazilModule
+    BrazilModule,
+    FinlandModule
   ],
+  declarations: [],
  
 })
 

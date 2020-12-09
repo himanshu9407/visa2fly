@@ -157,6 +157,9 @@ export class RequirementsComponent implements OnInit {
         case "Ethiopia":
           this.router.navigate(["/visa", "ethiopia-visa-online"]);
           break;
+        case "Finland":
+          this.router.navigate(["/visa", "finland-visa-online"]);
+          break;
         case "France":
           this.router.navigate(["/visa", "france-visa-online"]);
           break;

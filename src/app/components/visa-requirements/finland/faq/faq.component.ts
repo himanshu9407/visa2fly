@@ -1,12 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-  group,
-} from "@angular/animations";
+import {trigger, state, style, transition, animate, group} from "@angular/animations";
 
 @Component({
   selector: "app-faq",
