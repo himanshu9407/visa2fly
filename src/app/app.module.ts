@@ -3,7 +3,6 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NgxPaginationModule } from "ngx-pagination";
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -80,7 +79,6 @@ import { InsuranceModule } from './components/insurance/insurance.module';
     FormsModule,
     
     ReactiveFormsModule,
-    CarouselModule,
     NgbModule,
     HomeContainerModule,
     B2BModule,
