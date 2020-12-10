@@ -146,12 +146,12 @@ export class RequirementsComponent implements OnInit {
     }
   }
 
-  setActiveTransitMobile(index: number, id: string) {
+  setActiveMobileTransit(index: number, id: string) {
     this.selectedMobileTransit = index;
     let transitMobileBool = true;
 
     if (transitMobileBool) {
-      this.showTouristMobileFirst = false;
+      this.showTransitMobileFirst = false;
       transitMobileBool = false;
     }
 
