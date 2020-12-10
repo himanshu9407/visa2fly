@@ -368,6 +368,16 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+    // finland
+    {
+      path: "visa/belgium-visa-online",
+      loadChildren: () =>
+        import("./components/visa-requirements/belgium/belgium.module").then(
+          (m) => m.BelgiumModule
+        ),
+      data: { preload: true },
+    },
+
   // Malaysia Page
   {
     path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",

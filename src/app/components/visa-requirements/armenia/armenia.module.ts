@@ -14,7 +14,7 @@ import { ImportantPointsComponent } from './important-points/important-points.co
 
 const routes: Routes = [
     { path: "", component: ArmeniaComponent },
-  ]
+]
 
 @NgModule({
     declarations: [
@@ -28,11 +28,9 @@ const routes: Routes = [
         FormsModule,
         CommonModule,
         ReactiveFormsModule,
-        NgxPaginationModule,
         NgbModule,
-        
         SharedVisaModuleModule,
         RouterModule.forChild(routes)
     ]
 })
-export class ArmeniaModule {}
+export class ArmeniaModule { }

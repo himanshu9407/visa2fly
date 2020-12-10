@@ -10,10 +10,11 @@ import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
 import { Subject } from "rxjs";
 
+
 @Component({
-  selector: 'app-finland',
-  templateUrl: './finland.component.html',
-  styleUrls: ['./finland.component.css'],
+  selector: 'app-belgium',
+  templateUrl: './belgium.component.html',
+  styleUrls: ['./belgium.component.css'],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -31,7 +32,7 @@ import { Subject } from "rxjs";
     ]),
   ],
 })
-export class FinlandComponent implements OnInit {
+export class BelgiumComponent implements OnInit {
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
@@ -63,7 +64,7 @@ export class FinlandComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
 
-  public selectedCountrytype = "Finland";
+  public selectedCountrytype = "Belgium";
   public onlinestatus: boolean = false;
 
   constructor(
@@ -158,44 +159,44 @@ export class FinlandComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle(
-      "Finland Visa | Apply For Finland Visa Online for Indians- Visa2Fly"
+      "Belgium Visa | Apply For Belgium Visa Online for Indians- Visa2Fly"
     );
 
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for Finland e-visa, Finland tourist visa application, Finland Visa, Finland tourist visa for indian, apply for Finland e visa, Finland e-visa for indians",
+        "apply for Belgium e-visa, Belgium tourist visa application, Belgium Visa, Belgium tourist visa for indian, apply for Belgium e visa, Belgium e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Visa2fly offers Finland visa for Indians. Indian passport holders can easily apply for an Finland visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Finland visa online with Visa2Fly here.",
+        "Visa2fly offers Belgium visa for Indians. Indian passport holders can easily apply for an Belgium visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Belgium visa online with Visa2Fly here.",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "Finland Visa | Apply For Finland Visa Online for Indians- Visa2Fly",
+        "Belgium Visa | Apply For Belgium Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
       property: "og:image",
-      content: "https://static.visa2fly.com/country/Finland.jpg",
+      content: "https://static.visa2fly.com/country/Belgium.jpg",
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/finland-visa-online",
+      content: "https://visa2fly.com/visa/belgium-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
       content:
-        "Finland Visa | Apply For Finland Visa Online for Indians- Visa2Fly",
+        "Belgium Visa | Apply For Belgium Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Visa2fly offers Finland visa for Indians. Indian passport holders can easily apply for an Finland visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Finland visa online with Visa2Fly here.",
+        "Visa2fly offers Belgium visa for Indians. Indian passport holders can easily apply for an Belgium visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Belgium visa online with Visa2Fly here.",
     });
 
     // twitter
@@ -206,21 +207,21 @@ export class FinlandComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "Finland Visa | Apply For Finland Visa Online for Indians- Visa2Fly",
+        "Belgium Visa | Apply For Belgium Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:image",
-      content: "https://static.visa2fly.com/country/Finland.jpg",
+      content: "https://static.visa2fly.com/country/Belgium.jpg",
     });
     this.meta.updateTag({
       property: "twitter:image:alt",
       content:
-        "Finland Visa | Apply For Finland Visa Online for Indians- Visa2Fly",
+        "Belgium Visa | Apply For Belgium Visa Online for Indians- Visa2Fly",
     });
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Visa2fly offers Finland visa for Indians. Indian passport holders can easily apply for an Finland visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Finland visa online with Visa2Fly here.",
+        "Visa2fly offers Belgium visa for Indians. Indian passport holders can easily apply for an Belgium visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Belgium visa online with Visa2Fly here.",
     });
     this.meta.updateTag({
       property: "twitter:site",

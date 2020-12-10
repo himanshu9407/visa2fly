@@ -330,6 +330,12 @@ export class HomeFormComponent {
           break;
         }
 
+        case "Belgium": {
+          this.router.navigate(["visa/belgium-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         case "Malaysia": {
           this.router.navigate(["visa/malaysia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
