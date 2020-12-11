@@ -348,6 +348,31 @@ export class HomeFormComponent {
           break;
         }
 
+        case "Bhutan": {
+          this.router.navigate(["visa/bhutan-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Estonia": {
+          this.router.navigate(["visa/estonia-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+
+        case "Denmark": {
+          this.router.navigate(["visa/denmark-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
+        case "Georgia": {
+          this.router.navigate(["visa/georgia-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         case "Malaysia": {
           this.router.navigate(["visa/malaysia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);

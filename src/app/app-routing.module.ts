@@ -418,6 +418,26 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // georgia
+  {
+    path: "visa/georgia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/georgia/georgia.module").then(
+        (m) => m.GeorgiaModule
+      ),
+    data: { preload: true },
+  },
+
+    // denmark
+    {
+      path: "visa/denmark-visa-online",
+      loadChildren: () =>
+        import("./components/visa-requirements/denmark/denmark.module").then(
+          (m) => m.DenmarkModule
+        ),
+      data: { preload: true },
+    },
+
 
   // Malaysia Page
   {

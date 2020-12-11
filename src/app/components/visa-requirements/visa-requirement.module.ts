@@ -1,3 +1,5 @@
+import { GeorgiaModule } from './georgia/georgia.module';
+import { DenmarkModule } from './denmark/denmark.module';
 import { EstoniaModule } from './estonia/estonia.module';
 import { BhutanModule } from './bhutan/bhutan.module';
 import { AustriaModule } from './austria/austria.module';
@@ -85,10 +87,12 @@ import { BrazilModule } from './brazil/brazil.module';
     CanadaModule,
     AustriaModule,
     BhutanModule,
-    EstoniaModule
+    EstoniaModule,
+    DenmarkModule,
+    GeorgiaModule
   ],
   declarations: [],
- 
+
 })
 
-export class VisaRequirementModule {}
+export class VisaRequirementModule { }
