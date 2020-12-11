@@ -20,6 +20,13 @@
     >
 
     <a
+      *ngIf="activeRoute !== 'austria-visa-online'"
+      (click)="resetPage()"
+      [routerLink]="['/visa', 'austria-visa-online']"
+      >Austria Visa online&nbsp;|&nbsp;</a
+    >
+
+    <a
       *ngIf="activeRoute !== 'azerbaijan-visa-online'"
       (click)="resetPage()"
       [routerLink]="['/visa', 'azerbaijan-visa-online']"
@@ -33,6 +40,13 @@
       >Bahrain Visa online&nbsp;|&nbsp;</a
     >
 
+    <a
+    *ngIf="activeRoute !== 'belgium-visa-online'"
+    (click)="resetPage()"
+    [routerLink]="['/visa', 'belgium-visa-online']"
+    >Belgium Visa online&nbsp;|&nbsp;</a
+  >
+
     <!-- <a *ngIf="activeRoute !== 'brazil-visa-online'" (click)="resetPage()"
       [routerLink]="['/visa', 'brazil-visa-online']">Brazil Visa online&nbsp;|&nbsp;</a> -->
 
@@ -42,6 +56,14 @@
       [routerLink]="['/visa', 'china-visa-online']"
       >China Visa online&nbsp;|&nbsp;</a
     >
+
+    <a
+      *ngIf="activeRoute !== 'canada-visa-online'"
+      (click)="resetPage()"
+      [routerLink]="['/visa', 'canada-visa-online']"
+      >Canada Visa online&nbsp;|&nbsp;</a
+    >
+
     <a
       *ngIf="activeRoute !== 'cambodia-visa-online'"
       (click)="resetPage()"

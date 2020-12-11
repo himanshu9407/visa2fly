@@ -63,6 +63,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "aboutUs" ||
           arr[1] == "insurance" ||
           arr[2] == "australia-visa-online" ||
+          arr[2] == "austria-visa-online" ||
           arr[2] == "antigua & barbuda-visa-online" ||
           arr[2] == "armenia-visa-online" ||
           arr[2] == "bahrain-visa-online" ||
@@ -71,6 +72,7 @@ export class HeaderComponent implements OnInit {
           arr[2] == "brazil-visa-online" ||
           arr[2] == "ukraine-visa-online" ||
           arr[2] == "china-visa-online" ||
+          arr[2] == "canada-visa-online" ||
           arr[2] == "cambodia-visa-online" ||
           arr[2] == "dubai-visa-online" ||
           arr[2] == "ethiopia-visa-online" ||

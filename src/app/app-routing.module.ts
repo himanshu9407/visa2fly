@@ -368,15 +368,35 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-    // finland
-    {
-      path: "visa/belgium-visa-online",
-      loadChildren: () =>
-        import("./components/visa-requirements/belgium/belgium.module").then(
-          (m) => m.BelgiumModule
-        ),
-      data: { preload: true },
-    },
+  // belgium
+  {
+    path: "visa/belgium-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/belgium/belgium.module").then(
+        (m) => m.BelgiumModule
+      ),
+    data: { preload: true },
+  },
+
+  // austria
+  {
+    path: "visa/austria-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/austria/austria.module").then(
+        (m) => m.AustriaModule
+      ),
+    data: { preload: true },
+  },
+
+  // canada
+  {
+    path: "visa/canada-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/canada/canada.module").then(
+        (m) => m.CanadaModule
+      ),
+    data: { preload: true },
+  },
 
   // Malaysia Page
   {
@@ -790,4 +810,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: [],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

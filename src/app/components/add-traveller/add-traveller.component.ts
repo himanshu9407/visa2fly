@@ -330,7 +330,7 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  checkDateOfDob(date: { month: any; day: any; year: any }) {}
+  checkDateOfDob(date: { month: any; day: any; year: any }) { }
 
   // public myInterval: number = 1500;
   // private _activeSlideIndex: number;
@@ -388,11 +388,14 @@ export class AddTravellerComponent implements OnInit {
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
     switch (this.userFlowDetails.country) {
+      case "Armenia":
+        this.breadcrumRouting = "/visa/armenia-visa-online";
+        break;
       case "Australia":
         this.breadcrumRouting = "/visa/australia-visa-online";
         break;
-      case "Armenia":
-        this.breadcrumRouting = "/visa/armenia-visa-online";
+      case "Austria":
+        this.breadcrumRouting = "/visa/austria-visa-online";
         break;
       case "Azerbaijan":
         this.breadcrumRouting = "/visa/azerbaijan-visa-online";
@@ -400,6 +403,9 @@ export class AddTravellerComponent implements OnInit {
       // case "Brazil":
       //   this.breadcrumRouting = "/visa/brazil-visa-online";
       //   break;
+      case "Canada":
+        this.breadcrumRouting = "/visa/canada-visa-online";
+        break;
       case "Bahrain":
         this.breadcrumRouting = "/visa/bahrain-visa-online";
         break;
@@ -419,8 +425,8 @@ export class AddTravellerComponent implements OnInit {
         this.breadcrumRouting = "/visa/ethiopia-visa-online";
         break;
       case "Finland":
-          this.breadcrumRouting = "/visa/finland-visa-online";
-          break;
+        this.breadcrumRouting = "/visa/finland-visa-online";
+        break;
       case "France":
         this.breadcrumRouting = "/visa/france-visa-online";
         break;
@@ -946,7 +952,7 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  validateImage() {}
+  validateImage() { }
 
   seeValues() {
     this.validateImage();
@@ -1356,7 +1362,7 @@ export class AddTravellerComponent implements OnInit {
   check() {
     let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-    arr.forEach((element: FormGroup) => {});
+    arr.forEach((element: FormGroup) => { });
   }
 
   onFileSelected(event, index, controlName) {
@@ -1380,16 +1386,16 @@ export class AddTravellerComponent implements OnInit {
     if (this.travellerForm.invalid) {
       this.toastr.warning("Please fill in existing traveller details first");
       let topPicker;
-        if (window.innerWidth > 600) {
-          topPicker = 350;
-        } else {
-          topPicker = 490;
-        }
-        window.scrollTo({
-          top: topPicker + this.scrollBy,
-          left: 0,
-          behavior: "smooth",
-        });
+      if (window.innerWidth > 600) {
+        topPicker = 350;
+      } else {
+        topPicker = 490;
+      }
+      window.scrollTo({
+        top: topPicker + this.scrollBy,
+        left: 0,
+        behavior: "smooth",
+      });
     } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;

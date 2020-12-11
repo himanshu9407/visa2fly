@@ -130,6 +130,9 @@ export class RequirementsComponent implements OnInit {
         case "Australia":
           this.router.navigate(["/visa", "australia-visa-online"]);
           break;
+        case "Austria":
+          this.router.navigate(["/visa", "austria-visa-online"]);
+          break;
         case "Antigua & Barbuda":
           this.router.navigate(["/visa", "antigua & barbuda-visa-online"]);
           break;
@@ -139,6 +142,9 @@ export class RequirementsComponent implements OnInit {
         // case "Brazil":
         //   this.router.navigate(["/visa", "brazil-visa-online"]);
         //   break;
+        case "Canada":
+          this.router.navigate(["/visa", "canada-visa-online"]);
+          break;
         case "Bahrain":
           this.router.navigate(["/visa", "bahrain-visa-online"]);
           break;
@@ -412,7 +418,7 @@ export class RequirementsComponent implements OnInit {
 
     this.makeUrl = 'https://static.visa2fly.com/country/v2/' + this.selectedCountrytype + '.jpg';
 
-    this.activateRoute.params.subscribe((params: any) => {});
+    this.activateRoute.params.subscribe((params: any) => { });
     let tempPurpose = this.selectedPurposeType;
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
@@ -422,7 +428,7 @@ export class RequirementsComponent implements OnInit {
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
         // console.log(data);
-        
+
         if (isPlatformBrowser(this.platformId)) {
           if (data.code == "0") {
             this.requirementsData = data;
