@@ -398,6 +398,27 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // bhutan
+  {
+    path: "visa/bhutan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/bhutan/bhutan.module").then(
+        (m) => m.BhutanModule
+      ),
+    data: { preload: true },
+  },
+
+  // estonia
+  {
+    path: "visa/estonia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/estonia/estonia.module").then(
+        (m) => m.EstoniaModule
+      ),
+    data: { preload: true },
+  },
+
+
   // Malaysia Page
   {
     path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",

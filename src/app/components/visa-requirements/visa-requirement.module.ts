@@ -1,3 +1,5 @@
+import { EstoniaModule } from './estonia/estonia.module';
+import { BhutanModule } from './bhutan/bhutan.module';
 import { AustriaModule } from './austria/austria.module';
 import { CanadaModule } from './canada/canada.module';
 import { BelgiumModule } from './belgium/belgium.module';
@@ -81,7 +83,9 @@ import { BrazilModule } from './brazil/brazil.module';
     FinlandModule,
     BelgiumModule,
     CanadaModule,
-    AustriaModule
+    AustriaModule,
+    BhutanModule,
+    EstoniaModule
   ],
   declarations: [],
  
