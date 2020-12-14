@@ -9,10 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedVisaModuleModule } from '../../shared-visa-module/shared-visa-module.module';
-import { FinlandComponent } from '../finland/finland.component';
 
 const routes: Routes = [
-  { path: "", component: FinlandComponent },
+  { path: "", component: BhutanComponent },
 ]
 
 @NgModule({
