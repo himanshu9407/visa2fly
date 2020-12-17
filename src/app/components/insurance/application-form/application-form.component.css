@@ -1,9 +1,9 @@
 .insurance-banner {
-    background-image: url(../../../../assets/insurance-banner.png);
-    background-position: center;
-    background-size: cover;
-    height: 495px;
-    margin-top: 50px;
+  background-image: url(../../../../assets/insurance-banner.png);
+  background-position: center;
+  background-size: cover;
+  height: 495px;
+  margin-top: 50px;
 }
 
 .insurance_application {
@@ -11,8 +11,8 @@
 }
 
 .insurance_application-header_box {
-    background-color: #D8CEDD;
-    padding: 10px 0px;
+  background-color: #d8cedd;
+  padding: 10px 0px;
 }
 
 .insurance_application-heading {
@@ -23,18 +23,19 @@
 }
 
 .insurance_application-container {
-    padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .insurance_application-subheading {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 5px 0;
-    color: #130654;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0;
+  color: #130654;
 }
 
 .insurance-input_box {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .insurance-label {
@@ -47,29 +48,112 @@
 .insurance-input,
 .insurance-select {
   /* border-color: #9c9c9c; */
-  border-color: #130654;
   font-size: 14px;
   height: 32px;
 }
 
+.astrisk {
+  color: red;
+}
+
+.titleSelect {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .insurance-input:focus,
 .insurance-select:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 @media screen and (max-width: 600px) {
-    .insurance-banner {
-        background-image: url(../../../../assets/insurance-banner-mobile.png);
-        background-position: center;
-        background-size: cover;
-        height: 250px;
-        margin-top: 105px;
-    }
-    
+  .insurance-banner {
+    background-image: url(../../../../assets/insurance-banner-mobile.png);
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    margin-top: 105px;
+  }
 
-    .insurance-box,
-    .insurance_application-subheader_box {
-        padding: 0 10px;
-    }
+  .insurance-box,
+  .insurance_application-subheader_box {
+    padding: 0 10px;
+  }
+}
+
+.main__card-heading {
+  background: #000080;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.main__card-heading .btn,
+.main__card-heading .btn:disabled {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  opacity: 1;
+}
+
+.main__card-heading .main__card-heading-form_statue {
+  margin-right: auto;
+  display: flex;
+}
+
+.proceedBtn {
+  background-color: navy;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.addInsurerBtn {
+  display: flex;
+    align-items: center;
+    border-radius: 25px !important;
+    padding: 4px 10px;
+    background-color: #000080;
+    font-weight: 600;
+}
+
+.addInsurerBtn svg {
+  margin-right: 10px;
+}
+
+@media (min-width: 1200px) {
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1280px !important;
+}
+}
+
+/* collapse */
+.collapse {
+  visibility: hidden;
+}
+.collapse.show {
+  visibility: visible;
+  display: block;
+}
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: auto;
 }

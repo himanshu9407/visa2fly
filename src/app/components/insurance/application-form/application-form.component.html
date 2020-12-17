@@ -5,165 +5,1111 @@
   </div>
 
   <div class="container insurance_application-container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box">
-        <h5 class="insurance_application-subheading">Policy Details :</h5>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="TravelPurpuse" class="insurance-label">Travel Purpuse</label>
-          <select name="" id="TravelPurpuse" class="insurance-select form-control">
-            <option value="">-- Select --</option>
-          </select>
+    <div class="accordion" id="accordionInsurer">
+      <form [formGroup]="insuranceForm">
+        <div
+          formArrayName="insurer"
+          *ngFor="let insurer of getControls; let first = first; let i = index"
+          class="card"
+        >
+          <form [formGroupName]="i">
+            <div class="card-header main__card-heading" id="headingOne">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link p-0"
+                  type="button"
+                  [disabled]=" selectedTravellerForm === i ||
+                  getControls[i].invalid"
+                  data-toggle="collapse"
+                  attr.aria-controls="{{ dataSource[i].dataToggle }}"
+                  attr.data-target="{{ dataSource[i].dataToggleHash }}" 
+                  attr.aria-expanded="{{selectedTravellerForm === i ||
+                  getControls[i].invalid? 'true' : 'false'}}"
+                >
+                {{ dataSource[i].id.substring(0,8) }} <span *ngIf="!first">{{i + 1}}</span>
+                </button>
+              </h5>
+              <span
+                *ngIf="!getControls[i].valid"
+                class="main__card-heading-form_statue"
+              >
+                <div class="error-formIcon img-sprite"></div>
+              </span>
+              <span
+                *ngIf="getControls[i].valid"
+                class="main__card-heading-form_statue"
+              >
+                <div class="success-formIcon img-sprite"></div>
+              </span>
+              <span (click)="onRemoveInsurer(i)" *ngIf="!first">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              id="{{ dataSource[i].dataToggle }}"
+              class="collapse"
+              [class.show]="
+                selectedTravellerForm === i ||
+                getControls[i].invalid"
+              attr.aria-labelledby="{{ dataSource[i].id }}"
+              data-parent="#accordionInsurer"
+            >
+              <div class="card-body">
+                <div class="form-row">
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                  >
+                    <h5 class="insurance_application-subheading">
+                      Policy Details :
+                    </h5>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="TravelPurpuse" class="insurance-label"
+                        >Travel Purpuse<span class="astrisk">*</span></label
+                      >
+                      <select
+                        name=""
+                        id="TravelPurpuse"
+                        class="insurance-select form-control-sm form-control"
+                      >
+                        <option value="">-- Select --</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="NumberOfTravelers" class="insurance-label"
+                        >Number Of Travelers<span class="astrisk"
+                          >*</span
+                        ></label
+                      >
+                      <select
+                        name=""
+                        id=""
+                        class="insurance-select form-control-sm form-control"
+                      >
+                        <option value="">-- Select --</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="TripPeriod" class="insurance-label"
+                        >Trip Period<span class="astrisk">*</span></label
+                      >
+                      <select
+                        name=""
+                        id="TripPeriod"
+                        class="insurance-select form-control-sm form-control"
+                      >
+                        <option value="">-- Select --</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="SelectPlan" class="insurance-label"
+                        >Select Plan<span class="astrisk">*</span></label
+                      >
+                      <select
+                        name=""
+                        id="SelectPlan"
+                        class="insurance-select form-control-sm form-control"
+                      >
+                        <option value="">-- Select --</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row mt-2">
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                  >
+                    <h5 class="insurance_application-subheading">
+                      Customer Details :
+                    </h5>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="firstName" class="insurance-label"
+                        >First Name<span class="astrisk">*</span></label
+                      >
+                      <div class="input-group">
+                        <div class="input-group-prepend" style="width: 60px">
+                          <select
+                            name="titleCd"
+                            id="titleCd"
+                            class="form-control form-control-sm insurance-select titleSelect"
+                            formControlName="titleCd"
+                          >
+                            <option selected>Title</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Master">Master</option>
+                            <option value="Ms">Ms</option>
+                          </select>
+                        </div>
+                        <input
+                          type="text"
+                          id="firstName"
+                          formControlName="firstName"
+                          [ngClass]="{
+                            'is-invalid':
+                              getControls[i]['controls'].firstName.invalid &&
+                              getControls[i]['controls'].firstName.dirty,
+                            'is-valid':
+                              !(
+                                getControls[i]['controls'].firstName.invalid &&
+                                getControls[i]['controls'].firstName.dirty
+                              ) &&
+                              !getControls[i]['controls'].firstName.pristine
+                          }"
+                          class="form-control-sm form-control insurance-input"
+                        />
+                      </div>
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].firstName.invalid &&
+                            getControls[i]['controls'].firstName.dirty) ||
+                          getControls[i]['controls'].firstName.errors
+                            ?.valueErr ||
+                          (getControls[i]['controls'].firstName.pristine &&
+                            getControls[i]['controls'].firstName.firstNameError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid first name*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="lastName" class="insurance-label"
+                        >Last Name<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="lastName"
+                        formControlName="lastName"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].lastName.invalid &&
+                            getControls[i]['controls'].lastName.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].lastName.invalid &&
+                              getControls[i]['controls'].lastName.dirty
+                            ) && !getControls[i]['controls'].lastName.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].lastName.invalid &&
+                            getControls[i]['controls'].lastName.dirty) ||
+                          getControls[i]['controls'].lastName.errors
+                            ?.valueErr ||
+                          (getControls[i]['controls'].lastName.pristine &&
+                            getControls[i]['controls'].lastName.lastNameError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid last name*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="dateOfBirth" class="insurance-label"
+                        >Date Of Birth<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="dateOfBirth"
+                        formControlName="birthDt"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].birthDt.invalid &&
+                            getControls[i]['controls'].birthDt.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].birthDt.invalid &&
+                              getControls[i]['controls'].birthDt.dirty
+                            ) && !getControls[i]['controls'].birthDt.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].birthDt.invalid &&
+                            getControls[i]['controls'].birthDt.dirty) ||
+                          getControls[i]['controls'].birthDt.errors?.valueErr ||
+                          (getControls[i]['controls'].birthDt.pristine &&
+                            getControls[i]['controls'].birthDt.birthDtError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid date of birth*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="gender" class="insurance-label"
+                        >Gender<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="gender"
+                        formControlName="genderCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].genderCd.invalid &&
+                            getControls[i]['controls'].genderCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].genderCd.invalid &&
+                              getControls[i]['controls'].genderCd.dirty
+                            ) && !getControls[i]['controls'].genderCd.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].genderCd.invalid &&
+                            getControls[i]['controls'].genderCd.dirty) ||
+                          getControls[i]['controls'].genderCd.errors
+                            ?.valueErr ||
+                          (getControls[i]['controls'].genderCd.pristine &&
+                            getControls[i]['controls'].genderCd.genderCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid gender*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="nationality" class="insurance-label"
+                        >Nationality<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="nationality"
+                        formControlName="citizenshipCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].citizenshipCd.invalid &&
+                            getControls[i]['controls'].citizenshipCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].citizenshipCd
+                                .invalid &&
+                              getControls[i]['controls'].citizenshipCd.dirty
+                            ) &&
+                            !getControls[i]['controls'].citizenshipCd.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].citizenshipCd.invalid &&
+                            getControls[i]['controls'].citizenshipCd.dirty) ||
+                          getControls[i]['controls'].citizenshipCd.errors
+                            ?.valueErr ||
+                          (getControls[i]['controls'].citizenshipCd.pristine &&
+                            getControls[i]['controls'].citizenshipCd
+                              .citizenshipCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid nationality*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="residenceProof" class="insurance-label"
+                        >Residence Proof<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="residenceProof"
+                        formControlName="residenceProof"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].residenceProof.invalid &&
+                            getControls[i]['controls'].residenceProof.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].residenceProof
+                                .invalid &&
+                              getControls[i]['controls'].residenceProof.dirty
+                            ) &&
+                            !getControls[i]['controls'].residenceProof.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].residenceProof.invalid &&
+                            getControls[i]['controls'].residenceProof.dirty) ||
+                          getControls[i]['controls'].residenceProof.errors
+                            ?.valueErr ||
+                          (getControls[i]['controls'].residenceProof.pristine &&
+                            getControls[i]['controls'].residenceProof
+                              .residenceProofError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid residence proof*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="relation" class="insurance-label"
+                        >Relation<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="relation"
+                        formControlName="relationCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].relationCd.invalid &&
+                            getControls[i]['controls'].relationCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].relationCd.invalid &&
+                              getControls[i]['controls'].relationCd.dirty
+                            ) && !getControls[i]['controls'].relationCd.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].relationCd.invalid &&
+                            getControls[i]['controls'].relationCd.dirty) ||
+                          getControls[i]['controls'].relationCd.errors
+                            ?.valueErr ||
+                          (getControls[i]['controls'].relationCd.pristine &&
+                            getControls[i]['controls'].relationCd
+                              .relationCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid relation*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="role" class="insurance-label"
+                        >Role<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="role"
+                        formControlName="roleCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].roleCd.invalid &&
+                            getControls[i]['controls'].roleCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].roleCd.invalid &&
+                              getControls[i]['controls'].roleCd.dirty
+                            ) && !getControls[i]['controls'].roleCd.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].roleCd.invalid &&
+                            getControls[i]['controls'].roleCd.dirty) ||
+                          getControls[i]['controls'].roleCd.errors?.valueErr ||
+                          (getControls[i]['controls'].roleCd.pristine &&
+                            getControls[i]['controls'].roleCd.roleCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid role*
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-lg-6">
+                    <div class="form-row">
+                      <div
+                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                        formGroupName="partyContactDOList"
+                      >
+                        <div class="insurance-input_box">
+                          <label class="insurance-label"
+                            >Contact No.<span class="astrisk">*</span></label
+                          >
+                          <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">+91</span>
+                            </div>
+                            <input
+                              type="tel"
+                              id="contactNum"
+                              formControlName="contactNum"
+                              [ngClass]="{
+                                'is-invalid':
+                                  getControls[i]['controls'].partyContactDOList
+                                    .controls.contactNum.invalid &&
+                                  getControls[i]['controls'].partyContactDOList
+                                    .controls.contactNum.dirty,
+                                'is-valid':
+                                  !(
+                                    getControls[i]['controls']
+                                      .partyContactDOList.controls.contactNum
+                                      .invalid &&
+                                    getControls[i]['controls']
+                                      .partyContactDOList.controls.contactNum
+                                      .dirty
+                                  ) &&
+                                  !getControls[i]['controls'].partyContactDOList
+                                    .controls.contactNum.pristine
+                              }"
+                              class="form-control-sm form-control insurance-input iti"
+                            />
+                          </div>
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].partyContactDOList
+                                .controls.contactNum.invalid &&
+                                getControls[i]['controls'].partyContactDOList
+                                  .controls.contactNum.dirty) ||
+                              getControls[i]['controls'].partyContactDOList
+                                .controls.contactNum.errors?.valueErr ||
+                              (getControls[i]['controls'].partyContactDOList
+                                .controls.contactNum.pristine &&
+                                getControls[i]['controls'].partyContactDOList
+                                  .controls.contactNum.contactNumError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid contact number*
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                        formGroupName="partyEmailDOList"
+                      >
+                        <div class="insurance-input_box">
+                          <label for="emailAddress" class="insurance-label"
+                            >Email Address<span class="astrisk">*</span></label
+                          >
+                          <input
+                            type="email"
+                            id="emailAddress"
+                            formControlName="emailAddress"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].partyEmailDOList
+                                  .controls.emailAddress.invalid &&
+                                getControls[i]['controls'].partyEmailDOList
+                                  .controls.emailAddress.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].partyEmailDOList
+                                    .controls.emailAddress.invalid &&
+                                  getControls[i]['controls'].partyEmailDOList
+                                    .controls.emailAddress.dirty
+                                ) &&
+                                !getControls[i]['controls'].partyEmailDOList
+                                  .controls.emailAddress.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].partyEmailDOList
+                                .controls.emailAddress.invalid &&
+                                getControls[i]['controls'].partyEmailDOList
+                                  .controls.emailAddress.dirty) ||
+                              getControls[i]['controls'].partyEmailDOList
+                                .controls.emailAddress.errors?.valueErr ||
+                              (getControls[i]['controls'].partyEmailDOList
+                                .controls.emailAddress.pristine &&
+                                getControls[i]['controls'].partyEmailDOList
+                                  .controls.emailAddress.emailAddressError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid email address*
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-row" formGroupName="partyIdentityDOList">
+                      <div
+                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                      >
+                        <div class="insurance-input_box">
+                          <label for="identityNumber" class="insurance-label"
+                            >Identity Number<span class="astrisk"
+                              >*</span
+                            ></label
+                          >
+                          <input
+                            type="text"
+                            id="identityNumber"
+                            formControlName="identityNum"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityNum.invalid &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityNum.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].partyIdentityDOList
+                                    .controls.identityNum.invalid &&
+                                  getControls[i]['controls'].partyIdentityDOList
+                                    .controls.identityNum.dirty
+                                ) &&
+                                !getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityNum.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].partyIdentityDOList
+                                .controls.identityNum.invalid &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityNum.dirty) ||
+                              getControls[i]['controls'].partyIdentityDOList
+                                .controls.identityNum.errors?.valueErr ||
+                              (getControls[i]['controls'].partyIdentityDOList
+                                .controls.identityNum.pristine &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityNum.identityNumError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid identity number*
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                      >
+                        <div class="insurance-input_box">
+                          <label for="identityType" class="insurance-label"
+                            >Identity Type<span class="astrisk">*</span></label
+                          >
+                          <input
+                            type="text"
+                            id="identityType"
+                            formControlName="identityTypeCd"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityTypeCd.invalid &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityTypeCd.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].partyIdentityDOList
+                                    .controls.identityTypeCd.invalid &&
+                                  getControls[i]['controls'].partyIdentityDOList
+                                    .controls.identityTypeCd.dirty
+                                ) &&
+                                !getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityTypeCd.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].partyIdentityDOList
+                                .controls.identityTypeCd.invalid &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityTypeCd.dirty) ||
+                              getControls[i]['controls'].partyIdentityDOList
+                                .controls.identityTypeCd.errors?.valueErr ||
+                              (getControls[i]['controls'].partyIdentityDOList
+                                .controls.identityTypeCd.pristine &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls.identityTypeCd.identityTypeCdError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid identity type*
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row mt-2" formGroupName="partyAddressDOList">
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                  >
+                    <h5 class="insurance_application-subheading">
+                      Address Details :
+                    </h5>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="line1" class="insurance-label"
+                        >Line 1<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="line1"
+                        formControlName="addressLine1Lang1"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine1Lang1.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine1Lang1.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.addressLine1Lang1.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.addressLine1Lang1.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine1Lang1.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.addressLine1Lang1.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine1Lang1.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .addressLine1Lang1.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.addressLine1Lang1.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine1Lang1
+                              .addressLine1Lang1Error)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid address 1*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="line2" class="insurance-label"
+                        >Line 2<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="line2"
+                        formControlName="addressLine2Lang1"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine2Lang1.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine2Lang1.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.addressLine2Lang1.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.addressLine2Lang1.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine2Lang1.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.addressLine2Lang1.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine2Lang1.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .addressLine2Lang1.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.addressLine2Lang1.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressLine2Lang1
+                              .addressLine2Lang1Error)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid address 2*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="addressType" class="insurance-label"
+                        >Address Type<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="addressType"
+                        formControlName="addressTypeCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressTypeCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressTypeCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.addressTypeCd.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.addressTypeCd.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.addressTypeCd.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.addressTypeCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressTypeCd.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .addressTypeCd.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.addressTypeCd.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.addressTypeCd.addressTypeCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid address type*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="area" class="insurance-label"
+                        >Area<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="area"
+                        formControlName="areaCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.areaCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.areaCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.areaCd.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.areaCd.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.areaCd.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.areaCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.areaCd.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .areaCd.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.areaCd.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.areaCd.areaCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid area*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="city" class="insurance-label"
+                        >City<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="city"
+                        formControlName="cityCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.cityCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.cityCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.cityCd.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.cityCd.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.cityCd.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.cityCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.cityCd.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .cityCd.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.cityCd.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.cityCd.cityCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid city*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="pinCode" class="insurance-label"
+                        >Pin Code<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="pinCode"
+                        formControlName="pinCode"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.pinCode.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.pinCode.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.pinCode.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.pinCode.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.pinCode.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.pinCode.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.pinCode.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .pinCode.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.pinCode.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.pinCode.pinCodeError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid pin code*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="state" class="insurance-label"
+                        >State<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="state"
+                        formControlName="stateCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.stateCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.stateCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.stateCd.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.stateCd.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.stateCd.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.stateCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.stateCd.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .stateCd.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.stateCd.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.stateCd.stateCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid pin state*
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                    <div class="insurance-input_box">
+                      <label for="country" class="insurance-label"
+                        >Country<span class="astrisk">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="country"
+                        formControlName="countryCd"
+                        [ngClass]="{
+                          'is-invalid':
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.countryCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.countryCd.dirty,
+                          'is-valid':
+                            !(
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.countryCd.invalid &&
+                              getControls[i]['controls'].partyAddressDOList
+                                .controls.countryCd.dirty
+                            ) &&
+                            !getControls[i]['controls'].partyAddressDOList
+                              .controls.countryCd.pristine
+                        }"
+                        class="insurance-input form-control-sm form-control"
+                      />
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.countryCd.invalid &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.countryCd.dirty) ||
+                          getControls[i]['controls'].partyAddressDOList.controls
+                            .countryCd.errors?.valueErr ||
+                          (getControls[i]['controls'].partyAddressDOList
+                            .controls.countryCd.pristine &&
+                            getControls[i]['controls'].partyAddressDOList
+                              .controls.countryCd.countryCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Enter a valid country*
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="NumberOfTravelers" class="insurance-label">Number Of Travelers</label>
-          <select name="" id="" class="insurance-select form-control">
-            <option value="">-- Select --</option>
-          </select>
+
+        <div class="form-row mt-2">
+          <div class="col-12">
+            <button
+              class="btn btn-sm rounded btn-primary addInsurerBtn"
+              (click)="addInsurer()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="14px"
+                viewBox="0 0 512 512"
+                width="14px"
+                style="margin-top: -1px"
+                class="hovered-paths"
+              >
+                <g>
+                  <path
+                    d="m304 512h-96c-17.679688 0-32-14.320312-32-32v-144h-144c-17.679688 0-32-14.320312-32-32v-96c0-17.679688 14.320312-32 32-32h144v-144c0-17.679688 14.320312-32 32-32h96c17.679688 0 32 14.320312 32 32v144h144c17.679688 0 32 14.320312 32 32v96c0 17.679688-14.320312 32-32 32h-144v144c0 17.679688-14.320312 32-32 32zm0 0"
+                    fill="#FFFFFF"
+                    data-original="#48C8EF"
+                    class="hovered-path active-path"
+                    data-old_color="#48c8ef"
+                  />
+                </g>
+              </svg>
+              Add Insurer
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="TripPeriod" class="insurance-label">Trip Period</label>
-          <select name="" id="TripPeriod" class="insurance-select form-control">
-            <option value="">-- Select --</option>
-          </select>
+        <div class="form-row mt-2">
+          <div class="col-12 text-center">
+            <button
+              class="btn btn-sm rounded btn-primary proceedBtn"
+              (click)="submitForm()"
+            >
+              Proceed
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="SelectPlan" class="insurance-label">Select Plan</label>
-          <select name="" id="SelectPlan" class="insurance-select form-control">
-            <option value="">-- Select --</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box">
-        <h5 class="insurance_application-subheading">Customer Details :</h5>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="firstName" class="insurance-label">First Name</label>
-          <input type="text" id="firstName" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="middleName" class="insurance-label">Middle Name</label>
-          <input type="text" id="middleName" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="dateOfBirth" class="insurance-label">Date Of Birth</label>
-          <input type="text" id="dateOfBirth" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="gender" class="insurance-label">Gender</label>
-          <input type="text" id="gender" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="nationality" class="insurance-label">Nationality</label>
-          <input type="text" id="nationality" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="residenceProof" class="insurance-label">Residence Proof</label>
-          <input type="text" id="residenceProof" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="relation" class="insurance-label">Relation</label>
-          <input type="text" id="relation" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="role" class="insurance-label">Role</label>
-          <input type="text" id="role" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="contactNo" class="insurance-label">Contact No.</label>
-          <input type="text" id="contactNo" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="emailAddress" class="insurance-label">Email Address</label>
-          <input type="text" id="emailAddress" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="identityNumber" class="insurance-label">Identity Number</label>
-          <input type="text" id="identityNumber" class="form-control insurance-input">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="identityType" class="insurance-label">Identity Type</label>
-          <input type="text" id="identityType" class="form-control insurance-input">
-        </div>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box">
-        <h5 class="insurance_application-subheading">Address Details :</h5>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="line1" class="insurance-label">Line 1</label>
-          <input type="text" id="line1" class="insurance-input form-control">
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="line2" class="insurance-label">Line 2</label>
-          <input type="text" id="line2" class="insurance-input form-control"></div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="addressType" class="insurance-label">Address Type</label>
-          <input type="text" id="addressType" class="insurance-input form-control"></div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="area" class="insurance-label">Area</label>
-          <input type="text" id="area" class="insurance-input form-control"></div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="city" class="insurance-label">City</label>
-          <input type="text" id="city" class="insurance-input form-control"></div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="pinCode" class="insurance-label">Pin Code</label>
-          <input type="text" id="pinCode" class="insurance-input form-control"></div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="state" class="insurance-label">State</label>
-          <input type="text" id="state" class="insurance-input form-control"></div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-        <div class="insurance-input_box">
-          <label for="country" class="insurance-label">Country</label>
-          <input type="text" id="country" class="insurance-input form-control"></div>
-      </div>
+      </form>
     </div>
   </div>
 </section>
