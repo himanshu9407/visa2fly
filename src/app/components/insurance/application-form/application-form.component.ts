@@ -2,8 +2,7 @@ import { InsuranceService } from './../insurance.service';
 import { PreloaderService } from './../../../shared/preloader.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-application-form',
@@ -19,6 +18,10 @@ export class ApplicationFormComponent implements OnInit {
     { id: "Primary", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
   ];
   selectedTravellerForm: number = 0;
+  maxDateDob: { year: number; month: number; day: number; };
+  formData: any;
+  termsAndConditions: FormGroup;
+  valueAddedService: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -29,41 +32,65 @@ export class ApplicationFormComponent implements OnInit {
     this.insuranceForm = this.formBuilder.group({
       insurer: this.formBuilder.array([this.issueInsurancePolicy()]),
     });
+
+    this.termsAndConditions = this.formBuilder.group({
+      tnc: [{ value: false }, [Validators.requiredTrue]],
+    });
+
+    this.valueAddedService = this.formBuilder.group({
+      selectAll: [{ value: false }, []],
+      sim: [{ value: false }, []],
+      insurance: [{ value: false }],
+      forex: [{ value: false }],
+    });
+
+    let yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    this.maxDateDob = {
+      year: yesterday.getFullYear(),
+      month: yesterday.getMonth() + 1,
+      day: yesterday.getDate(),
+    };
   }
 
   issueInsurancePolicy(): FormGroup {
     return this.formBuilder.group({
-      "birthDt": ["", [Validators.required]],
-      "firstName": ["Kuldeep", [Validators.required]],
-      "genderCd": ["", [Validators.required]],
-      "lastName": ["", [Validators.required]],
-      "relationCd": ["", [Validators.required]],
-      "roleCd": ["", [Validators.required]],
-      "titleCd": ["Mr", [Validators.required]],
-      "citizenshipCd": ["", [Validators.required]],
-      "residenceProof": ["", [Validators.required]],
-      "partyAddressDOList": this.formBuilder.group({
-        "addressLine1Lang1": ["", [Validators.required]],
-        "addressLine2Lang1": ["", [Validators.required]],
-        "addressTypeCd": ["", [Validators.required]],
-        "areaCd": ["", [Validators.required]],
-        "cityCd": ["", [Validators.required]],
-        "pinCode": ["", [Validators.required]],
-        "stateCd": ["", [Validators.required]],
-        "countryCd": ["", [Validators.required]],
+      birthDtCopy: ["", [Validators.required]],
+      birthDt: ["", [Validators.required]],
+      firstName: ["", [Validators.required,]],
+      genderCd: ["", [
+        Validators.required,
+      ]],
+      lastName: ["", [Validators.required,]],
+      relationCd: ["", [Validators.required]],
+      roleCd: ["", [Validators.required]],
+      titleCd: ["Mr", [Validators.required]],
+      citizenshipCd: ["", [Validators.required]],
+      residenceProof: ["", [Validators.required]],
+      addressForPickupSame: [false, [Validators.required]],
+      partyAddressDOList: this.formBuilder.group({
+        addressLine1Lang1: ["", [Validators.required]],
+        addressLine2Lang1: ["", [Validators.required]],
+        addressTypeCd: ["", [Validators.required]],
+        areaCd: ["", [Validators.required]],
+        cityCd: ["", [Validators.required]],
+        pinCode: ["", [Validators.required]],
+        stateCd: ["", [Validators.required]],
+        countryCd: ["", [Validators.required]],
       }),
-      "partyContactDOList": this.formBuilder.group({
-        "contactNum": ["", [Validators.required]],
-        "contactTypeCd": ["MOBILE", [Validators.required]],
-        "stdCode": ["+91", [Validators.required]],
+      partyContactDOList: this.formBuilder.group({
+        contactNum: ["", [Validators.required]],
+        contactTypeCd: ["MOBILE", [Validators.required]],
+        stdCode: ["+91", [Validators.required]],
       }),
-      "partyEmailDOList": this.formBuilder.group({
-        "emailAddress": ["", [Validators.required]],
-        "emailTypeCd": ["PERSONAL", [Validators.required]],
+      partyEmailDOList: this.formBuilder.group({
+        emailAddress: ["", [Validators.required]],
+        emailTypeCd: ["PERSONAL", [Validators.required]],
       }),
-      "partyIdentityDOList": this.formBuilder.group({
-        "identityNum": ["", [Validators.required]],
-        "identityTypeCd": ["", [Validators.required]]
+      partyIdentityDOList: this.formBuilder.group({
+        identityNum: ["", [Validators.required]],
+        identityTypeCd: ["", [Validators.required]]
       })
 
     })
@@ -74,26 +101,46 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   submitForm() {
+    $('html, body').animate({
+      scrollTop: $("#Primary").offset().top
+    }, 500);
+
     console.log(JSON.stringify(this.insuranceForm.value));
-    
-    // if (this.insuranceForm.valid) {
-    //   if (true) {
-    //     // this.preloaderService.showPreloader(true);
-    //     const fd = {};
 
-    //     let tempArr = this.getControls || [];
+    if (!this.insuranceForm.valid) {
+      if (true) {
+        // this.preloaderService.showPreloader(true);
+        const fd = {};
 
-    //     this.insuranceService.createPolicy(this.insuranceForm.value).subscribe(res => {
-    //       console.log(res);
-    //     })
+        let tempArr = this.getControls || [];
 
-    //   } else {
-    //     this.toastr.warning("Please accept our terms and conditions");
-    //   }
-    // } else {
-    //   this.toastr.warning("Some details missing !");
-    //   this.checkValidateForm();
-    // }
+        let ptdata: any = this.insuranceForm.get("insurer").value || [];
+        ptdata["id"] = this.dataSource[0].id;
+        // ptdata.forEach((element: {}, index) => {
+        //   element["id"] = this.dataSource[index].id;
+        // });
+        fd["partyDOList"] = ptdata;
+        fd["policyCommencementDt"] = "30/12/2020";
+        fd["policyMaturityDt"] = "10/01/2021",
+          fd["maxTripPeriod"] = "45",
+          fd["tripTypeCd"] = "SINGLE"
+
+        // this.formData.set("data", JSON.stringify(fd));
+
+        console.log(fd);
+
+
+        this.insuranceService.createPolicy(this.insuranceForm.value).subscribe(res => {
+          console.log(res);
+        })
+
+      } else {
+        this.toastr.warning("Please accept our terms and conditions");
+      }
+    } else {
+      this.toastr.warning("Some details missing !");
+      this.checkValidateForm();
+    }
   }
 
   checkValidateForm() {
@@ -230,8 +277,14 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   addInsurer() {
+    $('html, body').animate({
+      scrollTop: $("#Primary").offset().top
+    }, 500);
+
+    console.log(this.checkValidateForm());
+
     if (this.insuranceForm.valid) {
-      console.log("true");
+      this.toastr.warning("Please fill in existing traveller details first");
     } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
@@ -265,14 +318,49 @@ export class ApplicationFormComponent implements OnInit {
 
   }
 
-  public beforeChange($event: NgbPanelChangeEvent) {
+  setAddressSame(index: number) {
+    let same = this.getControls[index]['controls'].addressForPickupSame.value;
 
-    if ($event.panelId === 'preventchange-2') {
-      $event.preventDefault();
-    }
+    if (!same) {
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.setValidators(null);
 
-    if ($event.panelId === 'preventchange-3' && $event.nextState === false) {
-      $event.preventDefault();
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.updateValueAndValidity();
+
+      this.getControls[index].updateValueAndValidity();
+    } else {
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.setValidators(Validators.required);
+
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.updateValueAndValidity();
+
+      this.getControls[index].updateValueAndValidity();
     }
   }
 

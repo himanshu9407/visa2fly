@@ -91,14 +91,19 @@
 }
 
 .main__card-heading .btn,
-.main__card-heading .btn:disabled {
+.main__card-heading .btn:disabled,
+.valueAddServices h5 {
   text-decoration: none;
-  color: #fff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   margin-right: 10px;
   opacity: 1;
+}
+
+.main__card-heading .btn,
+.main__card-heading .btn:disabled {
+  color: #fff;
 }
 
 .main__card-heading .main__card-heading-form_statue {
@@ -115,21 +120,70 @@
 
 .addInsurerBtn {
   display: flex;
-    align-items: center;
-    border-radius: 25px !important;
-    padding: 4px 10px;
-    background-color: #000080;
-    font-weight: 600;
+  align-items: center;
+  border-radius: 25px !important;
+  padding: 4px 10px;
+  background-color: #000080;
+  font-weight: 600;
 }
 
 .addInsurerBtn svg {
   margin-right: 10px;
 }
 
-@media (min-width: 1200px) {
-.container, .container-lg, .container-md, .container-sm, .container-xl {
-    max-width: 1280px !important;
+.calendar {
+  border-color: #6c757d;
+  color: #6c757d;
 }
+
+.calendar .calendarSvg {
+  fill: currentColor;
+}
+
+.calendar:hover,
+.calendar:focus {
+  background-color: #6c757c;
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1280px !important;
+  }
+}
+
+.valueAddServices {
+  margin-top: 20px;
+}
+
+.valueAddServices h5 {
+  color: #000080;
+}
+
+.valueAddServices .wrapper-box {
+  margin-top: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+}
+
+.valueAddServices .form-check {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+} 
+
+.valueAddServices .custom-control-label {
+  position: static !important;
+  margin-bottom: 0;
+  vertical-align: top;
+  font-size: 14px;
 }
 
 /* collapse */
