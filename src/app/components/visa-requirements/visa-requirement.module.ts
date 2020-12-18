@@ -1,3 +1,4 @@
+import { GermanyModule } from './germany/germany.module';
 import { GeorgiaModule } from './georgia/georgia.module';
 import { DenmarkModule } from './denmark/denmark.module';
 import { EstoniaModule } from './estonia/estonia.module';
@@ -42,7 +43,6 @@ import { UkraineModule } from './ukraine/ukraine.module';
 import { AntiguaModule } from './antigua/antigua.module';
 import { RussiaModule } from './russia/russia.module';
 import { BrazilModule } from './brazil/brazil.module';
-
 
 @NgModule({
   imports: [
@@ -89,9 +89,9 @@ import { BrazilModule } from './brazil/brazil.module';
     BhutanModule,
     EstoniaModule,
     DenmarkModule,
-    GeorgiaModule
+    GeorgiaModule,
+    GermanyModule
   ],
-  declarations: [],
 
 })
 
