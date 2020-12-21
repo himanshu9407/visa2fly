@@ -1,17 +1,14 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import {trigger, state, style, transition, animate, group} from "@angular/animations";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-faq",
-  templateUrl: "./faq.component.html",
-  styleUrls: ["./faq.component.css"]
+  selector: 'app-faq',
+  templateUrl: './faq.component.html',
+  styleUrls: ['./faq.component.css']
 })
 export class FaqComponent implements OnInit {
   loadText: string = "Load More";
   showFaqs: boolean = false;
   animationState = "in";
-  @ViewChild("ElementRefName") element: ElementRef;
-
   constructor() {}
 
   ngOnInit(): void {}
