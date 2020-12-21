@@ -428,6 +428,28 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  
+  // germany
+  {
+    path: "visa/germany-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/germany/germany.module").then(
+        (m) => m.GermanyModule
+      ),
+    data: { preload: true },
+  },
+
+  
+  // iraq
+  {
+    path: "visa/iraq-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/iraq/iraq.module").then(
+        (m) => m.IraqModule
+      ),
+    data: { preload: true },
+  },
+
     // denmark
     {
       path: "visa/denmark-visa-online",

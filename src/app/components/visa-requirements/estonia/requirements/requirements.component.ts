@@ -6,6 +6,7 @@ import {
   Output,
   EventEmitter,
   AfterViewInit,
+  AfterContentInit,
 } from "@angular/core";
 import { Subject } from "rxjs";
 import {
@@ -31,7 +32,7 @@ import {
     ]),
   ],
 })
-export class RequirementsComponent implements OnInit {
+export class RequirementsComponent implements OnInit, AfterContentInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
 
@@ -61,8 +62,8 @@ export class RequirementsComponent implements OnInit {
       this.t.select(res);
     });
   }
-
-  ngAfterViewInit() {
+  
+  ngAfterContentInit(): void {
     this.t.select(this.selectedVisaType);
   }
 

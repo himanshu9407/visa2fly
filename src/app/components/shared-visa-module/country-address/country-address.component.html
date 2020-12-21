@@ -126,6 +126,18 @@
       >Georgia Visa online&nbsp;|&nbsp;</a
     >
     <a
+      *ngIf="activeRoute !== 'germany-visa-online'"
+      (click)="resetPage()"
+      [routerLink]="['/visa', 'germany-visa-online']"
+      >Germany Visa online&nbsp;|&nbsp;</a
+    >
+    <a
+      *ngIf="activeRoute !== 'iraq-visa-online'"
+      (click)="resetPage()"
+      [routerLink]="['/visa', 'iraq-visa-online']"
+      >Iraq Visa online&nbsp;|&nbsp;</a
+    >
+    <a
       *ngIf="activeRoute !== 'japan-visa-online'"
       (click)="resetPage()"
       [routerLink]="['/visa', 'japan-visa-online']"
