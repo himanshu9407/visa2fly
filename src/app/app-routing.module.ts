@@ -428,15 +428,57 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-    // denmark
-    {
-      path: "visa/denmark-visa-online",
-      loadChildren: () =>
-        import("./components/visa-requirements/denmark/denmark.module").then(
-          (m) => m.DenmarkModule
-        ),
-      data: { preload: true },
-    },
+
+  // germany
+  {
+    path: "visa/germany-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/germany/germany.module").then(
+        (m) => m.GermanyModule
+      ),
+    data: { preload: true },
+  },
+
+
+  // iraq
+  {
+    path: "visa/iraq-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/iraq/iraq.module").then(
+        (m) => m.IraqModule
+      ),
+    data: { preload: true },
+  },
+
+  // kenya
+  {
+    path: "visa/kenya-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/kenya/kenya.module").then(
+        (m) => m.KenyaModule
+      ),
+    data: { preload: true },
+  },
+
+  // malta
+  {
+    path: "visa/malta-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/malta/malta.module").then(
+        (m) => m.MaltaModule
+      ),
+    data: { preload: true },
+  },
+
+  // denmark
+  {
+    path: "visa/denmark-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/denmark/denmark.module").then(
+        (m) => m.DenmarkModule
+      ),
+    data: { preload: true },
+  },
 
 
   // Malaysia Page

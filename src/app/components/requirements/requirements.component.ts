@@ -130,9 +130,9 @@ export class RequirementsComponent implements OnInit {
         case "Australia":
           this.router.navigate(["/visa", "australia-visa-online"]);
           break;
-        case "Austria":
-          this.router.navigate(["/visa", "austria-visa-online"]);
-          break;
+        // case "Austria":
+        //   this.router.navigate(["/visa", "austria-visa-online"]);
+        //   break;
         case "Antigua & Barbuda":
           this.router.navigate(["/visa", "antigua & barbuda-visa-online"]);
           break;
@@ -151,9 +151,9 @@ export class RequirementsComponent implements OnInit {
         case "Belgium":
           this.router.navigate(["/visa", "belgium-visa-online"]);
           break;
-        case "Bhutan":
-          this.router.navigate(["/visa", "bhutan-visa-online"]);
-          break;
+        // case "Bhutan":
+        //   this.router.navigate(["/visa", "bhutan-visa-online"]);
+        //   break;
         case "China":
           this.router.navigate(["/visa", "china-visa-online"]);
           break;
@@ -184,6 +184,12 @@ export class RequirementsComponent implements OnInit {
         case "Georgia":
           this.router.navigate(["/visa", "georgia-visa-online"]);
           break;
+        // case "Germany":
+        //   this.router.navigate(["/visa", "germany-visa-online"]);
+        //   break;
+        // case "Iraq":
+        //   this.router.navigate(["/visa", "iraq-visa-online"]);
+        //   break;
         case "Japan":
           this.router.navigate(["/visa", "japan-visa-online"]);
           break;
