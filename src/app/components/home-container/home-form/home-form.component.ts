@@ -342,17 +342,17 @@ export class HomeFormComponent {
           break;
         }
 
-        case "Austria": {
-          this.router.navigate(["visa/austria-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Austria": {
+        //   this.router.navigate(["visa/austria-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Bhutan": {
-          this.router.navigate(["visa/bhutan-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Bhutan": {
+        //   this.router.navigate(["visa/bhutan-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
         case "Estonia": {
           this.router.navigate(["visa/estonia-visa-online"]);
@@ -373,17 +373,17 @@ export class HomeFormComponent {
           break;
         }
 
-        case "Germany": {
-          this.router.navigate(["visa/germany-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Germany": {
+        //   this.router.navigate(["visa/germany-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
-        case "Iraq": {
-          this.router.navigate(["visa/iraq-visa-online"]);
-          this.userFlow.setCookie("selectedVisaPurpose", purpose);
-          break;
-        }
+        // case "Iraq": {
+        //   this.router.navigate(["visa/iraq-visa-online"]);
+        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
+        //   break;
+        // }
 
         case "Malaysia": {
           this.router.navigate(["visa/malaysia-visa-online"]);

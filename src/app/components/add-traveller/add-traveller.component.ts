@@ -212,7 +212,7 @@ export class AddTravellerComponent implements OnInit {
         this.minDateOfTravel = {
           year: date.year,
           month: date.month + 1,
-          day: tempDay,
+          day: tempDay
         };
       }
     } else if (date.month == 2) {
@@ -222,7 +222,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfTravel = {
             year: date.year,
             month: date.month + 1,
-            day: tempDay,
+            day: tempDay
           };
         }
       } else {
@@ -231,7 +231,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfTravel = {
             year: date.year,
             month: date.month + 1,
-            day: tempDay,
+            day: tempDay
           };
         }
       }
@@ -241,7 +241,7 @@ export class AddTravellerComponent implements OnInit {
         this.minDateOfTravel = {
           year: date.year,
           month: date.month + 1,
-          day: tempDay,
+          day: tempDay
         };
       }
     }
@@ -736,11 +736,12 @@ export class AddTravellerComponent implements OnInit {
   checkDateOfTravel() {
     this.travelDetails.get("dateOfCollection").setValue("");
 
+
     let temp: any = this.travelDetails.get("dateOfTravel").value;
     this.minDateOfCollection = {
       year: temp.year,
       month: temp.month,
-      day: temp.day - this.minTravelDate,
+      day: temp.day - this.minTravelDate
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);

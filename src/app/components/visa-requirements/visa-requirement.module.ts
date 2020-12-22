@@ -92,6 +92,7 @@ import { BrazilModule } from './brazil/brazil.module';
     GeorgiaModule,
     GermanyModule
   ],
+  declarations: [],
 
 })
 
