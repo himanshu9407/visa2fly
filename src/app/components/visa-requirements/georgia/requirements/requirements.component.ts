@@ -17,9 +17,9 @@ import {
 } from "@angular/animations";
 
 @Component({
-  selector: 'app-requirements',
-  templateUrl: './requirements.component.html',
-  styleUrls: ['./requirements.component.css'],
+  selector: "app-requirements",
+  templateUrl: "./requirements.component.html",
+  styleUrls: ["./requirements.component.css"],
   animations: [
     trigger("simpleFadeAnimation", [
       state("in", style({ opacity: 1 })),
@@ -31,7 +31,7 @@ import {
     ]),
   ],
 })
-export class RequirementsComponent implements OnInit {
+export class RequirementsComponent implements OnInit, AfterViewInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
 
@@ -98,6 +98,7 @@ export class RequirementsComponent implements OnInit {
     }
   }
 
+
   setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;
     let businessBool = true;
@@ -151,7 +152,7 @@ export class RequirementsComponent implements OnInit {
     let transitMobileBool = true;
 
     if (transitMobileBool) {
-      this.showTransitMobileFirst = false;
+      this.showTouristMobileFirst = false;
       transitMobileBool = false;
     }
 
@@ -161,6 +162,7 @@ export class RequirementsComponent implements OnInit {
       $("#" + id).addClass("showDiv");
     }
   }
+
 
   changePurpose(event) {
     this.changedPurpose.emit(event);

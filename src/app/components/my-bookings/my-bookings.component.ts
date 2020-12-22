@@ -142,7 +142,6 @@ export class MyBookingsComponent implements OnInit {
   }
 
   desktopBooking(event) {
-    console.log(event);
     this.currentPage1 = event;
     let pageSize = 6;
 
@@ -150,7 +149,6 @@ export class MyBookingsComponent implements OnInit {
   }
 
   mobileBooking(event) {
-    console.log(event);
     this.currentPage2 = event;
     let pageSize = 4;
 
@@ -253,7 +251,6 @@ export class MyBookingsComponent implements OnInit {
       this.downloadImageService
         .downloadInvoice(bookingId)
         .subscribe((response: any) => {
-          console.log(response);
           let dataType = response.type;
           let binaryData = [];
           binaryData.push(response);

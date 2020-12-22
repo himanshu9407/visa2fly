@@ -1,19 +1,43 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Data } from "./../../../interfaces/requirement";
+import { country } from "./../../../interfaces/home_formData";
 import { FormGroup, FormControl } from "@angular/forms";
-import { trigger, state, style, transition, animate } from "@angular/animations";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  Inject,
+  PLATFORM_ID,
+} from "@angular/core";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { VisaRequirementService } from "../visa-requirement.service";
+import { LoginStatusService } from "src/app/shared/login-status.service";
+import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
+import { RouterHistory } from "src/app/shared/router-history.service";
+import { RequirementsService } from "../../requirements/requirements.service";
 import { Title, Meta } from "@angular/platform-browser";
+import { ToastrService } from "ngx-toastr";
 import { DOCUMENT } from "@angular/common";
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
+
+export interface Food {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
-  selector: 'app-georgia',
-  templateUrl: './georgia.component.html',
-  styleUrls: ['./georgia.component.css'],
+  selector: "app-georgia",
+  templateUrl: "./georgia.component.html",
+  styleUrls: ["./georgia.component.css"],
   animations: [
     // the fade-in/fade-out animation.
     trigger("simpleFadeAnimation", [
@@ -35,17 +59,16 @@ export class GeorgiaComponent implements OnInit {
   ngbTabTitleClass;
 
   selectedRequirement: boolean = false;
+  // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-
-  // public selectedCountryType = "France";
+  
   public selectedVisaType = "Tourist";
-  desktopJustify = "justified";
-  desktopOrientation = "horizontal";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
   public MyQuotation1: Array<any> = [];
   public imagefield1: Array<any> = [];
   public purposeChooseForm: FormGroup;
+  public onlinestatus: boolean = false;
   // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
@@ -57,14 +80,14 @@ export class GeorgiaComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
+  public selectedCountrytype = "Georgia";
+
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
   public imageCatogoryTouristTemp: Array<any> = [];
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
-
-  public selectedCountrytype = "Georgia";
-  public onlinestatus: boolean = false;
+  activeTouristArr: Array<any> = [];
 
   constructor(
     private router: Router,
@@ -75,11 +98,12 @@ export class GeorgiaComponent implements OnInit {
     private titleService: Title,
     private meta: Meta,
     private activatedRoute: ActivatedRoute,
-    @Inject(DOCUMENT) private doc
+    @Inject(DOCUMENT) private doc,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(["visa", "georgia-visa-online"]);
+        this.router.navigate(['visa','georgia-visa-online']);
       }
     });
 
@@ -138,9 +162,6 @@ export class GeorgiaComponent implements OnInit {
             this.router.navigate(["visa/"]);
           }
 
-          console.log(this.MyQuotation1);
-          
-
           this.userFlow.setUserFlowDetails(
             "imageUploads",
             JSON.stringify(this.imageCatogoryTemp)
@@ -160,19 +181,17 @@ export class GeorgiaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle(
-      "Georgia Visa | Apply For Georgia Visa Online for Indians- Visa2Fly"
-    );
-
+    this.titleService.setTitle("Georgia Visa | Apply For Georgia Visa Online for Indians- Visa2Fly");
+    
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for Georgia e-visa, Georgia tourist visa application, Georgia Visa, Georgia tourist visa for indian, apply for Georgia e visa, Georgia e-visa for indians",
+        "apply for georgia e-visa, georgia tourist visa application, georgia tourist visa for indian, apply for georgia e visa, georgia e-visa for indians",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Visa2fly offers Georgia visa for Indians. Indian passport holders can easily apply for an Georgia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Georgia visa online with Visa2Fly here.",
+        "Get your Georgia e visa online by Visa2fly today. Get to know the Georgia e-visa requirements and easily apply for Georgia tourist visa. Know More",
     });
 
     // facebook and linkedin
@@ -193,12 +212,12 @@ export class GeorgiaComponent implements OnInit {
     this.meta.updateTag({
       property: "og:image:alt",
       content:
-        "Georgia Visa | Apply For Georgia Visa Online for Indians- Visa2Fly",
+        "Georgia Visa - Visa2Fly",
     });
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Visa2fly offers Georgia visa for Indians. Indian passport holders can easily apply for an Georgia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Georgia visa online with Visa2Fly here.",
+        "Get your Georgia e visa online by Visa2fly today. Get to know the Georgia e-visa requirements and easily apply for Georgia tourist visa. Know More",
     });
 
     // twitter
@@ -218,12 +237,12 @@ export class GeorgiaComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:image:alt",
       content:
-        "Georgia Visa | Apply For Georgia Visa Online for Indians- Visa2Fly",
+        "Georgia Visa - Visa2Fly"
     });
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Visa2fly offers Georgia visa for Indians. Indian passport holders can easily apply for an Georgia visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Georgia visa online with Visa2Fly here.",
+        "Get your Georgia e visa online by Visa2fly today. Get to know the Georgia e-visa requirements and easily apply for Georgia tourist visa. Know More",
     });
     this.meta.updateTag({
       property: "twitter:site",
@@ -237,7 +256,10 @@ export class GeorgiaComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/georgia-visa-online");
+    link.setAttribute(
+      "href",
+      "https://visa2fly.com/visa/georgia-visa-online"
+    );
   }
 
   purposeChanged() {
@@ -273,14 +295,20 @@ export class GeorgiaComponent implements OnInit {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
+      this.selectedTourist = 1;
+      this.selectedMobileTourist = 1;
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
       this.selectedVisaType = "Business";
+      this.selectedBusiness = 1;
+      this.selectedMobileBusiness = 1;
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
       this.selectedVisaType = "Transit";
+      this.selectedTransit = 1;
+      this.selectedMobileTransit = 1;
     }
 
     this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);

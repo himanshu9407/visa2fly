@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
@@ -7,27 +6,28 @@ import { LoginService } from 'src/app/components/login-signup/login/login.servic
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { RequirementsService } from 'src/app/components/requirements/requirements.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-quotation",
-  templateUrl: "./quotation.component.html",
-  styleUrls: ["./quotation.component.css"],
+  selector: 'app-quotation',
+  templateUrl: './quotation.component.html',
+  styleUrls: ['./quotation.component.css']
 })
 export class QuotationComponent implements OnInit {
+
   @Input() quotation;
 
-  constructor(
-    private router: Router,
+  constructor(private router: Router,
     private userFlow: UserFlowDetails,
     private toastr: ToastrService,
     private loginStatus: LoginStatusService,
     private loginService: LoginService,
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
-    private reqService: RequirementsService
-  ) { }
+    private reqService: RequirementsService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   navigate(
     quoteId: string,
@@ -37,7 +37,7 @@ export class QuotationComponent implements OnInit {
     basePrice: number,
     serviceTax: number,
     stayPeriod: string,
-    imageUpload: boolean
+    imageUpload: boolean,
   ) {
     this.preloaderService.showPreloader(true);
 
@@ -51,10 +51,7 @@ export class QuotationComponent implements OnInit {
     this.userFlow.setUserFlowDetails("basePrice", JSON.stringify(basePrice));
     this.userFlow.setUserFlowDetails("serviceTax", JSON.stringify(serviceTax));
     this.userFlow.setUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
-      "imageUpload",
-      JSON.stringify(imageUpload)
-    );
+    this.userFlow.setUserFlowDetails("imageUpload", JSON.stringify(imageUpload));
 
     let token = this.loginService.getAuthToken();
     if (token == null || token == undefined) {
@@ -88,4 +85,6 @@ export class QuotationComponent implements OnInit {
       }
     });
   }
+
+
 }

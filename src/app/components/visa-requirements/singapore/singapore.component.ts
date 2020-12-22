@@ -90,7 +90,6 @@ export class SingaporeComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
     ) {
       this.activatedRoute.params.subscribe((params) => {
-        console.log(params);
         if (params["purpose"]) {
           this.router.navigate(['visa','singapore-visa-online']);
         }
@@ -113,7 +112,6 @@ export class SingaporeComponent implements OnInit {
       this.requireQuotation
         .getRequireQuotation(this.selectedCountrytype)
         .subscribe((res: any) => {
-          console.log(res);
           if (res.code == 0) {
             this.MyQuotation = res.data.quotations;
             this.imageCatogory.push(res.data.imageUploadInfo);

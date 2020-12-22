@@ -537,6 +537,8 @@ export class AddTravellerComponent implements OnInit {
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
 
+    
+
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
     } else {
