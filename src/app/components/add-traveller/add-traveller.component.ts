@@ -44,7 +44,6 @@ export class AddTravellerComponent implements OnInit {
   checksum = "";
   primaryAddress = "";
   intialInfo = true;
-  dateOfTravelModel: any = "";
   modalWarnings: Array<any> = [];
   originalImageArr = [];
   selectedTravellerForm: number = 0;
@@ -234,6 +233,15 @@ export class AddTravellerComponent implements OnInit {
             day: tempDay,
           };
         }
+      }
+    } else if(date.month == 12) {
+      if (date.day > 31) {
+        let tempDay = date.day - 30;
+        this.minDateOfTravel = {
+          year: date.year + 1,
+          month: 1,
+          day: tempDay,
+        };
       }
     } else {
       if (date.day > 31) {
