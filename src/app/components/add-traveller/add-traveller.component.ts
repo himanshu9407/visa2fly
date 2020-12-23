@@ -254,6 +254,9 @@ export class AddTravellerComponent implements OnInit {
           };
         }
       }
+
+      // console.log(this.minDateOfTravel);
+      
     }
 
     checkDateOfCollectionUnderFlow(date: { month: any; year: any; day: any }) {
@@ -288,6 +291,15 @@ export class AddTravellerComponent implements OnInit {
                 year: date.year,
                 month: prevMonth,
                 day: 28,
+              };
+            }
+          } else if (date.month == 12) {
+            if (date.day > 31) {
+              let tempDay = date.day - 30;
+              this.minDateOfTravel = {
+                year: date.year + 1,
+                month: 1,
+                day: tempDay,
               };
             }
           } else {
@@ -337,6 +349,8 @@ export class AddTravellerComponent implements OnInit {
           }
         }
       }
+
+      // console.log(this.minDateOfCollection);
     }
 
     checkDateOfDob(date: { month: any; day: any; year: any }) { }
@@ -395,6 +409,8 @@ export class AddTravellerComponent implements OnInit {
       ]);
 
       this.userFlowDetails = this.userFlow.getUserFlowDetails();
+
+      // console.log(this.userFlowDetails.minTravelDate);
 
       switch (this.userFlowDetails.country) {
         case "Armenia":
@@ -752,18 +768,8 @@ export class AddTravellerComponent implements OnInit {
         day: temp.day - this.minTravelDate,
       };
 
-<<<<<<< HEAD
       this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);
     }
-=======
-
-    let temp: any = this.travelDetails.get("dateOfTravel").value;
-    this.minDateOfCollection = {
-      year: temp.year,
-      month: temp.month,
-      day: temp.day - this.minTravelDate
-    };
->>>>>>> b5e92a649ae4284cbfa1dbfae637bb93ed8c69b8
 
     checkDateOfCollection() {
       // if (this.category == "Sticker") {
