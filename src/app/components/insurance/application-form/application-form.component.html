@@ -75,7 +75,7 @@
               data-parent="#accordionInsurer"
             >
               <div class="card-body">
-                <div class="form-row">
+                <!-- <div class="form-row">
                   <div
                     class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
                   >
@@ -141,8 +141,8 @@
                       </select>
                     </div>
                   </div>
-                </div>
-                <div class="form-row mt-2">
+                </div> -->
+                <div class="form-row">
                   <div
                     class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
                   >
@@ -501,7 +501,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="form-row">
                   <div class="col-lg-6">
                     <div class="form-row">
@@ -1191,81 +1190,134 @@
       </form>
     </div>
 
-    <div class="valueAddServices">
-      <h5>Value Added Services</h5>
-      <div class="wrapper-box">
-        <label style="font-size: 15px; font-weight: 600">
-          Request for a callback for</label
-        >
-        <form [formGroup]="valueAddedService">
-          <div class="form-row" style="margin-left: 4px">
-            <div class="form-check col-sm-4 col-md-3">
-              <div
-                class="custom-control custom-checkbox"
-                style="padding-left: 0px !important"
+      <div class="valueAddServices">
+        <div class="row">
+          <div class="col-12">
+            <h5>Value Added Services</h5>
+            <div class="wrapper-box">
+              <label style="font-size: 15px; font-weight: 600">
+                Request for a callback for</label
               >
-                <input
-                  formControlName="selectAll"
-                  type="checkbox"
-                  id="selectall"
-                  class="custom-control-input"
-                /><label for="selectall" class="custom-control-label"
-                  >Select All
-                </label>
-              </div>
-            </div>
-            <div class="form-check col-sm-4 col-md-3">
-              <div
-                class="custom-control custom-checkbox"
-                style="padding-left: 0px !important"
-              >
-                <div class="callBack-sim img-sprite"></div>
-                <input
-                  formControlName="sim"
-                  type="checkbox"
-                  id="sim"
-                  class="custom-control-input"
-                /><label for="sim" class="custom-control-label">Sim</label>
-              </div>
-            </div>
-            <div class="form-check col-sm-4 col-md-3">
-              <div
-                class="custom-control custom-checkbox"
-                style="padding-left: 0px !important"
-              >
-                <div class="callBack-forex img-sprite"></div>
-                <input
-                  formControlName="forex"
-                  type="checkbox"
-                  id="forex"
-                  class="custom-control-input"
-                /><label for="forex" class="custom-control-label"
-                  >Forex Card</label
-                >
-              </div>
-            </div>
-            <div class="form-check col-sm-4 col-md-3">
-              <div
-                class="custom-control custom-checkbox"
-                style="padding-left: 0px !important"
-              >
-                <div class="callBack-insurance img-sprite"></div>
-                <input
-                  formControlName="insurance"
-                  type="checkbox"
-                  id="insurance"
-                  class="custom-control-input"
-                /><label for="insurance" class="custom-control-label"
-                  >Insurance
-                </label>
-              </div>
+              <form [formGroup]="valueAddedService">
+                <div class="form-row" style="margin-left: 4px">
+                  <div class="form-check col-sm-4 col-md-3">
+                    <div
+                      class="custom-control custom-checkbox"
+                      style="padding-left: 0px !important"
+                    >
+                      <input
+                        formControlName="selectAll"
+                        type="checkbox"
+                        id="selectall"
+                        class="custom-control-input"
+                      /><label for="selectall" class="custom-control-label"
+                        >Select All
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-check col-sm-4 col-md-3">
+                    <div
+                      class="custom-control custom-checkbox"
+                      style="padding-left: 0px !important"
+                    >
+                      <div class="callBack-sim img-sprite"></div>
+                      <input
+                        formControlName="sim"
+                        type="checkbox"
+                        id="sim"
+                        class="custom-control-input"
+                      /><label for="sim" class="custom-control-label"
+                        >Sim</label
+                      >
+                    </div>
+                  </div>
+                  <div class="form-check col-sm-4 col-md-3">
+                    <div
+                      class="custom-control custom-checkbox"
+                      style="padding-left: 0px !important"
+                    >
+                      <div class="callBack-forex img-sprite"></div>
+                      <input
+                        formControlName="forex"
+                        type="checkbox"
+                        id="forex"
+                        class="custom-control-input"
+                      /><label for="forex" class="custom-control-label"
+                        >Forex Card</label
+                      >
+                    </div>
+                  </div>
+                  <div class="form-check col-sm-4 col-md-3">
+                    <div
+                      class="custom-control custom-checkbox"
+                      style="padding-left: 0px !important"
+                    >
+                      <div class="callBack-insurance img-sprite"></div>
+                      <input
+                        formControlName="insurance"
+                        type="checkbox"
+                        id="insurance"
+                        class="custom-control-input"
+                      /><label for="insurance" class="custom-control-label"
+                        >Insurance
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
 
-    <div class="form-row mt-4">
+      <div class="termsAndConditions">
+        <div class="row">
+          <div class="col-12">
+            <div class="wrapper-box">
+            <form [formGroup]="termsAndConditions">
+              <div class="form-check">
+                <div
+                  class="custom-control custom-checkbox"
+                  style="padding-left: 0px !important; font-size: 14px"
+                >
+                  <input
+                    formControlName="tnc"
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="tnc"
+                  />
+                  <label
+                    class="custom-control-label tnc"
+                    for="tnc"
+                    style="cursor: pointer"
+                    >I agree with the
+                    <a
+                      [routerLink]="['/tnc']"
+                      target="_blank"
+                      routerLinkActive="router-link-active"
+                      >Terms &amp; Conditions</a
+                    >
+                    and
+                    <a
+                      [routerLink]="['/cancellationPolicy']"
+                      target="_blank"
+                      routerLinkActive="router-link-active"
+                      >Cancellation Policy</a
+                    >
+                    of Visa2fly.
+                  </label>
+                </div>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row mt-4">
       <div class="col-12 text-center">
         <button
           class="btn btn-sm rounded btn-primary proceedBtn"

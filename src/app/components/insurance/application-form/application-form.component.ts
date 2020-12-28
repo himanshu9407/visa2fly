@@ -1,3 +1,4 @@
+import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { InsuranceService } from './../insurance.service';
 import { PreloaderService } from './../../../shared/preloader.service';
 import { ToastrService } from 'ngx-toastr';
@@ -22,11 +23,20 @@ export class ApplicationFormComponent implements OnInit {
   formData: any;
   termsAndConditions: FormGroup;
   valueAddedService: FormGroup;
+  premiumFormDetail: any;
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private preloaderService: PreloaderService,
-    private insuranceService: InsuranceService) { }
+    private insuranceService: InsuranceService, private userflowDetails: UserFlowDetails) {
+    this.premiumFormDetail = JSON.parse(this.userflowDetails.getCookie('premiumFormDetails'));
+
+    // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
+    // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
+    // this.getPremiumForm.get('tripStartDate').setValue(premiumFormDetail.tripStartDate);
+    // this.getPremiumForm.get('tripEndDate').setValue(premiumFormDetail.tripEndDate);
+    // this.getPremiumForm.get('anyMedicalCondition').setValue(premiumFormDetail.anyMedicalCondition);
+  }
 
   ngOnInit(): void {
     this.insuranceForm = this.formBuilder.group({
@@ -34,14 +44,14 @@ export class ApplicationFormComponent implements OnInit {
     });
 
     this.termsAndConditions = this.formBuilder.group({
-      tnc: [{ value: false }, [Validators.requiredTrue]],
+      tnc: [false, [Validators.requiredTrue]],
     });
 
     this.valueAddedService = this.formBuilder.group({
-      selectAll: [{ value: false }, []],
-      sim: [{ value: false }, []],
-      insurance: [{ value: false }],
-      forex: [{ value: false }],
+      selectAll: [false, []],
+      sim: [false, []],
+      insurance: [false, []],
+      forex: [false, []],
     });
 
     let yesterday = new Date();
@@ -107,7 +117,7 @@ export class ApplicationFormComponent implements OnInit {
 
     console.log(JSON.stringify(this.insuranceForm.value));
 
-    if (!this.insuranceForm.valid) {
+    if (this.insuranceForm.valid) {
       if (true) {
         // this.preloaderService.showPreloader(true);
         const fd = {};
@@ -116,18 +126,30 @@ export class ApplicationFormComponent implements OnInit {
 
         let ptdata: any = this.insuranceForm.get("insurer").value || [];
         ptdata["id"] = this.dataSource[0].id;
+
+        let tripStartDateDay = this.premiumFormDetail.tripStartDate.split('-')[2];
+        let tripStartDateMonth = this.premiumFormDetail.tripStartDate.split('-')[1];
+        let tripStartDateYear = this.premiumFormDetail.tripStartDate.split('-')[0];
+
+        let tripEndDateDay = this.premiumFormDetail.tripEndDate.split('-')[2];
+        let tripEndDateMonth = this.premiumFormDetail.tripEndDate.split('-')[1];
+        let tripEndDateYear = this.premiumFormDetail.tripEndDate.split('-')[0];
+
+        let tripStartDate = tripStartDateDay + "/" + tripStartDateMonth + "/" + tripStartDateYear // 10/01/2021
+        let tripEndDate = tripEndDateDay + "/" + tripEndDateMonth + "/" + tripEndDateYear // 10/01/2021
+
         // ptdata.forEach((element: {}, index) => {
         //   element["id"] = this.dataSource[index].id;
         // });
         fd["partyDOList"] = ptdata;
-        fd["policyCommencementDt"] = "30/12/2020";
-        fd["policyMaturityDt"] = "10/01/2021",
-          fd["maxTripPeriod"] = "45",
-          fd["tripTypeCd"] = "SINGLE"
+        fd["policyCommencementDt"] = tripStartDate;
+        fd["policyMaturityDt"] = tripEndDate,
+          // fd["maxTripPeriod"] = "45",
+          // fd["tripTypeCd"] = "SINGLE"
 
-        // this.formData.set("data", JSON.stringify(fd));
+          // this.formData.set("data", JSON.stringify(fd));
 
-        console.log(fd);
+          console.log(fd);
 
 
         this.insuranceService.createPolicy(this.insuranceForm.value).subscribe(res => {
@@ -277,13 +299,9 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   addInsurer() {
-    $('html, body').animate({
-      scrollTop: $("#Primary").offset().top
-    }, 500);
+    this.checkValidateForm();
+    if (!this.insuranceForm.valid) {
 
-    console.log(this.checkValidateForm());
-
-    if (this.insuranceForm.valid) {
       this.toastr.warning("Please fill in existing traveller details first");
     } else {
       if (this.count <= 9) {
@@ -364,4 +382,9 @@ export class ApplicationFormComponent implements OnInit {
     }
   }
 
+  scrollToInvalid(id: string) {
+    $('html, body').animate({
+      scrollTop: $("#" + id).offset().top
+    }, 500);
+  }
 }

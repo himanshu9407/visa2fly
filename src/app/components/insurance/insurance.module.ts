@@ -1,3 +1,4 @@
+import { PremiumBannerComponent } from './home/premium-banner/premium-banner.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,21 +9,29 @@ import { InsurancePlanComponent } from './insurance-plan/insurance-plan.componen
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { InsuranceBookingStatusComponent } from './insurance-booking-status/insurance-booking-status.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { PremiumFormComponent } from './home/premium-form/premium-form.component';
+import { PremiumPlansComponent } from './home/premium-plans/premium-plans.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "plans", component: InsurancePlanComponent },
+  {
+    path: "", component: HomeComponent, children: [
+      { path: "", component: PremiumBannerComponent },
+      { path: "plans", component: PremiumPlansComponent },
+    ]
+  },
   { path: "application-form", component: ApplicationFormComponent },
-  { path: "application-details", component: ApplicationDetailsComponent},
-  { path: "response", component: InsuranceBookingStatusComponent},
+  { path: "application-details", component: ApplicationDetailsComponent },
+  { path: "response", component: InsuranceBookingStatusComponent },
 ]
 
 @NgModule({
-  declarations: [HomeComponent, ApplicationFormComponent, ApplicationDetailsComponent, InsurancePlanComponent, InsuranceBookingStatusComponent],
+  declarations: [HomeComponent, ApplicationFormComponent, ApplicationDetailsComponent, InsurancePlanComponent, InsuranceBookingStatusComponent, PremiumFormComponent, PremiumPlansComponent, PremiumBannerComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    AutocompleteLibModule,
     NgbModule,
     RouterModule.forChild(routes)
   ]

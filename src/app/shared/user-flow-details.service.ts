@@ -13,7 +13,7 @@ export class UserFlowDetails {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookies: CookiesService
-  ) {}
+  ) { }
 
   setExpiry(rememberMe: boolean) {
     console.log(rememberMe);
@@ -132,6 +132,18 @@ export class UserFlowDetails {
   getCookie(key: string) {
     if (isPlatformBrowser(this.platformId)) {
       return this.cookies.get(key);
+    }
+  }
+
+  setLocalStorage(key: string, value: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(key, value);
+    }
+  }
+
+  getLocalStorage(key: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem(key);
     }
   }
 
