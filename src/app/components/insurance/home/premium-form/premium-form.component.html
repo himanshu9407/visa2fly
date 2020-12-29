@@ -49,13 +49,16 @@
           <div *ngIf="destinationNotSelected" class="invalid-input">
             Please choose a destination.
           </div>
+          <div *ngIf="deniedCountryEnable" class="invalid-input">
+            No policy for {{deniedCountry}} *
+          </div>
         </div>
         <div class="col-12">
           <div class="formbox_new" id="travellerDetails">
             <span>Age of Traveller(s)*</span>
             <ul class="travellerAgelist" formArrayName="ageOfTravellers">
               <li class="ageList list_btn">
-                <button class="btn" (click)="addAgeOfTravellers()">
+                <button class="btn" type="button" (click)="addAgeOfTravellers()">
                   <svg
                     height="20pt"
                     viewBox="0 0 512 512"
@@ -80,6 +83,9 @@
                   placeholder="{{ i === 0 ? 'Self' : 'Member ' + i }}"
                   class="form-control input-sty"
                 />
+                <span (click)="onRemoveAgeOfTraveller(i)" *ngIf="i >= 4">
+                  <i class="material-icons">close</i>
+                </span>
               </li>
               <div *ngIf="ageOfTravellersError" class="invalid-input">
                 Please choose a destination.

@@ -377,6 +377,38 @@ ul.travellerAgelist li.ageList {
   width: 20%;
   text-align: center;
   margin: 0 6px 6px 0;
+  position: relative;
+}
+
+ul.travellerAgelist li.ageList span {
+  position: absolute;
+  border-radius: 50%;
+  background: #000;
+  height: 15px;
+  width: 15px;
+  top: -10px;
+  right: -5px;
+  display: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: display 0.3s ease;
+}
+
+/* ul.travellerAgelist li.ageList:nth-child(1):hover span,
+ul.travellerAgelist li.ageList:nth-child(2):hover span,
+ul.travellerAgelist li.ageList:nth-child(3):hover span,
+ul.travellerAgelist li.ageList:nth-child(4):hover span,
+ul.travellerAgelist li.ageList:nth-child(5):hover span {
+  display: none;
+} */
+
+ul.travellerAgelist li.ageList:hover span {
+  display: flex;
+}
+
+ul.travellerAgelist li.ageList span i {
+  font-size: 10px;
 }
 
 ul.travellerAgelist li.list_btn {
