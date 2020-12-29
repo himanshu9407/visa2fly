@@ -144,6 +144,12 @@
       >Japan Visa online&nbsp;|&nbsp;</a
     >
     <a
+      *ngIf="activeRoute !== 'kenya-visa-online'"
+      (click)="resetPage()"
+      [routerLink]="['/visa', 'kenya-visa-online']"
+      >Kenya Visa online&nbsp;|&nbsp;</a
+    >
+    <a
       *ngIf="activeRoute !== 'malaysia-visa-online'"
       (click)="resetPage()"
       [routerLink]="['/visa', 'malaysia-visa-online']"

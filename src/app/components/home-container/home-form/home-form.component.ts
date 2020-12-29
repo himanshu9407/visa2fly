@@ -265,6 +265,12 @@ export class HomeFormComponent {
           break;
         }
 
+        case "Kenya": {
+          this.router.navigate(["visa/kenya-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
+
         // case "Brazil": {
         //   this.router.navigate(["visa/brazil-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
