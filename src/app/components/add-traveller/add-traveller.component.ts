@@ -235,16 +235,28 @@ export class AddTravellerComponent implements OnInit {
           };
         }
       }
+    } else if (date.month == 12) {
+      if (date.day > 31) {
+        let tempDay = date.day - 30;
+        this.minDateOfTravel = {
+          year: date.year + 1,
+          month: 1,
+          day: tempDay,
+        };
+      }
     } else {
       if (date.day > 31) {
         let tempDay = date.day - 31;
         this.minDateOfTravel = {
           year: date.year,
           month: date.month + 1,
-          day: tempDay
+          day: tempDay,
         };
       }
     }
+
+    // console.log(this.minDateOfTravel);
+
   }
 
   checkDateOfCollectionUnderFlow(date: { month: any; year: any; day: any }) {
@@ -279,6 +291,15 @@ export class AddTravellerComponent implements OnInit {
               year: date.year,
               month: prevMonth,
               day: 28,
+            };
+          }
+        } else if (date.month == 12) {
+          if (date.day > 31) {
+            let tempDay = date.day - 30;
+            this.minDateOfTravel = {
+              year: date.year + 1,
+              month: 1,
+              day: tempDay,
             };
           }
         } else {
@@ -328,6 +349,8 @@ export class AddTravellerComponent implements OnInit {
         }
       }
     }
+
+    // console.log(this.minDateOfCollection);
   }
 
   checkDateOfDob(date: { month: any; day: any; year: any }) { }
@@ -386,6 +409,8 @@ export class AddTravellerComponent implements OnInit {
     ]);
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
+
+    // console.log(this.userFlowDetails.minTravelDate);
 
     switch (this.userFlowDetails.country) {
       case "Armenia":
@@ -448,11 +473,17 @@ export class AddTravellerComponent implements OnInit {
       case "Japan":
         this.breadcrumRouting = "/visa/japan-visa-online";
         break;
+      case "Kenya":
+        this.breadcrumRouting = "/visa/kenya-visa-online";
+        break;
       case "Malaysia":
         this.breadcrumRouting = "/visa/malaysia-visa-online";
         break;
       case "Maldives":
         this.breadcrumRouting = "/visa/maldives-visa-online";
+        break;
+      case "Malta":
+        this.breadcrumRouting = "/visa/malta-visa-online";
         break;
       case "New Zealand":
         this.breadcrumRouting = "/visa/new-zealand-visa-online";
@@ -536,8 +567,6 @@ export class AddTravellerComponent implements OnInit {
     this.imageUpload = JSON.parse(this.userFlowDetails.imageUpload);
 
     this.minTravelDate = parseInt(this.userFlowDetails.minTravelDate);
-
-    
 
     if (this.userFlowDetails.onlineCountry == "true") {
       this.onlineCategory = true;
@@ -738,12 +767,11 @@ export class AddTravellerComponent implements OnInit {
   checkDateOfTravel() {
     this.travelDetails.get("dateOfCollection").setValue("");
 
-
     let temp: any = this.travelDetails.get("dateOfTravel").value;
     this.minDateOfCollection = {
       year: temp.year,
       month: temp.month,
-      day: temp.day - this.minTravelDate
+      day: temp.day - this.minTravelDate,
     };
 
     this.checkDateOfCollectionUnderFlow(this.minDateOfCollection);

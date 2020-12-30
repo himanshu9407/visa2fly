@@ -162,6 +162,12 @@
       >Maldives Visa online&nbsp;|&nbsp;</a
     >
     <a
+      *ngIf="activeRoute !== 'malta-visa-online'"
+      (click)="resetPage()"
+      [routerLink]="['/visa', 'malta-visa-online']"
+      >Malta Visa online&nbsp;|&nbsp;</a
+    >
+    <a
       *ngIf="activeRoute !== 'netherlands-visa-online'"
       (click)="resetPage()"
       [routerLink]="['/visa', 'netherlands-visa-online']"

@@ -193,11 +193,17 @@ export class RequirementsComponent implements OnInit {
         case "Japan":
           this.router.navigate(["/visa", "japan-visa-online"]);
           break;
+        case "Kenya":
+          this.router.navigate(["/visa", "Kenya-visa-online"]);
+          break;
         case "Malaysia":
           this.router.navigate(["/visa", "malaysia-visa-online"]);
           break;
         case "Maldives":
           this.router.navigate(["/visa", "maldives-visa-online"]);
+          break;
+        case "Malta":
+          this.router.navigate(["/visa", "malta-visa-online"]);
           break;
         case "New Zealand":
           this.router.navigate(["/visa", "new-zealand-visa-online"]);

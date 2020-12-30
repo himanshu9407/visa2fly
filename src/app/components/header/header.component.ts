@@ -89,6 +89,7 @@ export class HeaderComponent implements OnInit {
           arr[2] == "kenya-visa-online" ||
           arr[2] == "malaysia-visa-online" ||
           arr[2] == "maldives-visa-online" ||
+          arr[2] == "malta-visa-online" ||
           arr[2] == "new-zealand-visa-online" ||
           arr[2] == "south-africa-visa-online" ||
           arr[2] == "netherlands-visa-online" ||
