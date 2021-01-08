@@ -63,8 +63,8 @@ export class DubaiComponent implements OnInit {
   transitArr: Array<any> = [];
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
-  selectedTourist: number = 1;
-  selectedMobileTourist: number = 1;
+  selectedMandatory: number = 1;
+  selectedMobileMandatory: number = 1;
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
@@ -93,7 +93,7 @@ export class DubaiComponent implements OnInit {
       }
     });
 
-       this.preloaderService.showPreloader(true);
+      //  this.preloaderService.showPreloader(true);
 
     if (this.userFlow.getCookie("selectedVisaPurpose")) {
       this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
@@ -281,8 +281,8 @@ export class DubaiComponent implements OnInit {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
       this.selectedVisaType = "Tourist";
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
+      this.selectedMandatory = 1;
+      this.selectedMobileMandatory = 1;
     } else if (purposeString == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;

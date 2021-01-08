@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter, AfterViewInit } from "@angular/core";
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from "@angular/core";
 import { Subject } from "rxjs";
 import { trigger, state, transition, style, animate } from "@angular/animations";
 
@@ -17,7 +17,7 @@ import { trigger, state, transition, style, animate } from "@angular/animations"
     ]),
   ],
 })
-export class RequirementsComponent implements OnInit, AfterViewInit {
+export class RequirementsComponent implements OnInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
 
@@ -25,66 +25,62 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
 
   @Input() selectedBusiness: number;
   @Input() selectedTransit: number;
-  @Input() selectedTourist: number;
-  @Input() selectedMobileTourist: number;
+  @Input() selectedMandatory: number;
+
+  @Input() selectedMobileMandatory: number;
   @Input() selectedMobileBusiness: number;
   @Input() selectedMobileTransit: number;
+
   @Input() selectedVisaType: string;
   @Input() selectedPurpose: Subject<any>;
 
   @Output() changedPurpose = new EventEmitter();
-  showTouristFirst: boolean = true;
+  showMandatoryFirst: boolean = true;
   showBusinessFirst: boolean = true;
+  showTransitFirst: boolean = true;
+
   showTouristMobileFirst: boolean = true;
   showBusinessMobileFirst: boolean = true;
-  showTransitFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
-    this.selectedPurpose.subscribe((res) => {
-      this.t.select(res);
-    });
   }
 
-  ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
-  }
+  setActiveMandatory(index: number, id: string) {
+    this.selectedMandatory = index;
+    let mandatoryBool = true;
 
-  setActiveTourist(index: number, id: string) {
-    this.selectedTourist = index;
-    let touristBool = true;
-
-    if (touristBool) {
-      this.showTouristFirst = false;
-      touristBool = false;
+    if (mandatoryBool) {
+      this.showMandatoryFirst = false;
+      mandatoryBool = false;
     }
 
-    if ($("#tourist" + index).hasClass("show")) {
+    if ($("#mandatory" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
     } else {
       $("#" + id).addClass("showDiv");
     }
   }
 
-  setActiveTouristMobile(index: number, id: string) {
-    this.selectedMobileTourist = index;
-    let touristMobileBool = true;
+  setActiveMandatoryMobile(index: number, id: string) {
+    this.selectedMobileMandatory = index;
+    let mandatoryMobileBool = true;
 
-    if (touristMobileBool) {
+    if (mandatoryMobileBool) {
       this.showTouristMobileFirst = false;
-      touristMobileBool = false;
+      mandatoryMobileBool = false;
     }
 
-    if ($("#touristMobile" + index).hasClass("show")) {
+    if ($("#mandatoryMobile" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
     } else {
       $("#" + id).addClass("showDiv");
     }
   }
 
- 
+
   setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;
     let businessBool = true;
@@ -118,7 +114,6 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
   }
 
   setActiveTransit(index: number, id: string) {
-    this.selectedTransit = index;
     let transitBool = true;
 
     if (transitBool) {
@@ -134,7 +129,6 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
   }
 
   setActiveTransitMobile(index: number, id: string) {
-    this.selectedMobileTransit = index;
     let transitMobileBool = true;
 
     if (transitMobileBool) {
@@ -153,10 +147,10 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
     this.changedPurpose.emit(event);
 
     if (event.nextId == "Tourist") {
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
+      this.selectedMandatory = 1;
+      this.selectedMobileMandatory = 1;
 
-      this.showTouristFirst = true;
+      this.showMandatoryFirst = true;
       this.showTouristMobileFirst = true;
     } else if (event.nextId == "Business") {
       this.selectedBusiness = 1;
