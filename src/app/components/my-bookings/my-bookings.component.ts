@@ -159,7 +159,6 @@ export class MyBookingsComponent implements OnInit {
     this.bookingService.fetchBooking(pageNo, pageSize).subscribe((res) => {
       if (res.code == 0) {
         this.allBooking = res;
-        console.log(res);
         
         this.bookings = this.allBooking.data.bookings;
         this.bookingsForLoop = this.allBooking.data.bookings;
