@@ -22,7 +22,6 @@ export class ApplicationFormComponent implements OnInit {
   maxDateDob: { year: number; month: number; day: number; };
   formData: any;
   termsAndConditions: FormGroup;
-  valueAddedService: FormGroup;
   premiumFormDetail: any;
 
   constructor(private formBuilder: FormBuilder,
@@ -47,13 +46,6 @@ export class ApplicationFormComponent implements OnInit {
       tnc: [false, [Validators.requiredTrue]],
     });
 
-    this.valueAddedService = this.formBuilder.group({
-      selectAll: [false, []],
-      sim: [false, []],
-      insurance: [false, []],
-      forex: [false, []],
-    });
-
     let yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
 
@@ -69,20 +61,20 @@ export class ApplicationFormComponent implements OnInit {
       birthDtCopy: ["", [Validators.required]],
       birthDt: ["", [Validators.required]],
       firstName: ["", [Validators.required,]],
-      genderCd: ["", [
+      genderCd: ["MALE", [
         Validators.required,
       ]],
       lastName: ["", [Validators.required,]],
-      relationCd: ["", [Validators.required]],
-      roleCd: ["", [Validators.required]],
-      titleCd: ["Mr", [Validators.required]],
+      relationCd: ["SELF", [Validators.required]],
+      // roleCd: ["", [Validators.required]],
+      titleCd: ["MR", [Validators.required]],
       citizenshipCd: ["", [Validators.required]],
       residenceProof: ["", [Validators.required]],
       addressForPickupSame: [false, [Validators.required]],
       partyAddressDOList: this.formBuilder.group({
         addressLine1Lang1: ["", [Validators.required]],
         addressLine2Lang1: ["", [Validators.required]],
-        addressTypeCd: ["", [Validators.required]],
+        addressTypeCd: ["PERMANENT", [Validators.required]],
         areaCd: ["", [Validators.required]],
         cityCd: ["", [Validators.required]],
         pinCode: ["", [Validators.required]],
@@ -100,7 +92,7 @@ export class ApplicationFormComponent implements OnInit {
       }),
       partyIdentityDOList: this.formBuilder.group({
         identityNum: ["", [Validators.required]],
-        identityTypeCd: ["", [Validators.required]]
+        identityTypeCd: ["PAN", [Validators.required]]
       })
 
     })
@@ -206,10 +198,10 @@ export class ApplicationFormComponent implements OnInit {
         this.getControls[index]['controls'].relationCd.relationCdError = true :
         this.getControls[index]['controls'].relationCd.relationCdError = false;
 
-      let roleCd = this.getControls[index]['controls'].roleCd.value;
-      roleCd == "" || roleCd == null || roleCd == undefined ?
-        this.getControls[index]['controls'].roleCd.roleCdError = true :
-        this.getControls[index]['controls'].roleCd.roleCdError = false;
+      // let roleCd = this.getControls[index]['controls'].roleCd.value;
+      // roleCd == "" || roleCd == null || roleCd == undefined ?
+      //   this.getControls[index]['controls'].roleCd.roleCdError = true :
+      //   this.getControls[index]['controls'].roleCd.roleCdError = false;
 
       let titleCd = this.getControls[index]['controls'].titleCd.value;
       titleCd == "" || titleCd == null || titleCd == undefined ?

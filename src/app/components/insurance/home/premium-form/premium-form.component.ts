@@ -1,9 +1,13 @@
+import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { InsuranceService } from '../../insurance.service';
+import { LoginService } from 'src/app/components/login-signup/login/login.service';
+import { PreloaderService } from 'src/app/shared/preloader.service';
+import { RouterHistory } from 'src/app/shared/router-history.service';
 
 @Component({
   selector: 'app-premium-form',
@@ -23,14 +27,20 @@ export class PremiumFormComponent implements OnInit {
   enableCheckoutBtn: boolean = false;
   deniedCountryEnable: boolean = false;
   deniedCountry: string;
+  activeRoute: string;
 
 
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
     private insuranceService: InsuranceService,
     private userflowDetails: UserFlowDetails,
-    private toastr: ToastrService
+    private router: Router,
+    private userFlow: UserFlowDetails,
+    private toastr: ToastrService,
+    private loginStatus: LoginStatusService,
+    private loginService: LoginService,
+    private routerHistory: RouterHistory,
+    private preloaderService: PreloaderService,
   ) { }
 
   ngOnInit(): void {
@@ -52,10 +62,12 @@ export class PremiumFormComponent implements OnInit {
       ]),
       tripStartDate: ["", [Validators.required]],
       tripEndDate: ["", [Validators.required]],
-      anyMedicalCondition: [false, [Validators.required]],
+      anyMedicalCondition: [false],
       // frequentTraveller: [false, [Validators.required]],
       // tripFrequency: [30, [Validators.required]]
     });
+
+    console.log(typeof this.getPremiumForm.get('anyMedicalCondition').value);
 
     this.today = new Date();
     this.enableReviewPremiumForm();
@@ -64,8 +76,8 @@ export class PremiumFormComponent implements OnInit {
   keyword = 'name';
   public countries = [
     { 'id': 1, 'name': "China" },
-    // { 'id': 2, 'name': "India" },
-    { 'id': 3, 'name': "United States" },
+    { 'id': 2, 'name': "Dubai" },
+    { 'id': 3, 'name': "United States (US)" },
     { 'id': 4, 'name': "Indonesia" },
     { 'id': 5, 'name': "Pakistan" },
     { 'id': 6, 'name': "Brazil" },
@@ -83,7 +95,7 @@ export class PremiumFormComponent implements OnInit {
     { 'id': 18, 'name': "Iran" },
     { 'id': 19, 'name': "Germany" },
     { 'id': 20, 'name': "Thailand" },
-    { 'id': 21, 'name': "United Kingdom" },
+    { 'id': 21, 'name': "United Kingdom (UK)" },
     { 'id': 22, 'name': "France" },
     { 'id': 23, 'name': "Italy" },
     { 'id': 24, 'name': "Tanzania" },
@@ -154,7 +166,7 @@ export class PremiumFormComponent implements OnInit {
     { 'id': 89, 'name': "Azerbaijan" },
     { 'id': 90, 'name': "Sweden" },
     { 'id': 91, 'name': "Honduras" },
-    { 'id': 92, 'name': "United Arab Emirates" },
+    { 'id': 92, 'name': "United Arab Emirates (UAE)" },
     { 'id': 93, 'name': "Hungary" },
     { 'id': 94, 'name': "Tajikistan" },
     { 'id': 95, 'name': "Belarus" },
@@ -260,7 +272,7 @@ export class PremiumFormComponent implements OnInit {
     { 'id': 195, 'name': "Holy" },
   ];
 
-  selectEvent(item) {
+  selectEvent(item: { name: string, id: number }) {
     let searchItem = item.name;
     if (searchItem == 'Cuba' ||
       searchItem === 'Iran' ||
@@ -286,7 +298,7 @@ export class PremiumFormComponent implements OnInit {
 
   onChangeSearch(search: string) {
     console.log(search);
-    // fetch remote data from here
+    // fetch remote res from here
     // And reassign the 'data' which is binded to 'data' property.
   }
 
@@ -321,7 +333,10 @@ export class PremiumFormComponent implements OnInit {
   }
 
   validatePremiumForm() {
-    let country = this.getPremiumForm.get('country').value.name;
+    let country = this.getPremiumForm.get('country').value;
+
+    console.log(this.getPremiumForm.get('country').value);
+
     country == "" || country == null || country == undefined ?
       this.destinationNotSelected = true :
       this.destinationNotSelected = false;
@@ -337,8 +352,10 @@ export class PremiumFormComponent implements OnInit {
       this.tripEndDateNotSelected = false;
 
 
-    if (this.controls[0]['controls'].memberAge.value) {
+    if (!this.controls[0]['controls'].memberAge.valid) {
       let ageOfTravellers = this.controls[0]['controls'].memberAge.value;
+
+      console.log(ageOfTravellers);
       ageOfTravellers == "" || ageOfTravellers == null || ageOfTravellers == undefined ?
         this.ageOfTravellersError = true :
         this.ageOfTravellersError = false;
@@ -347,9 +364,11 @@ export class PremiumFormComponent implements OnInit {
 
   proceedBtn() {
     this.validatePremiumForm();
+    console.log(!this.getPremiumForm.valid);
+
     if (!this.getPremiumForm.valid) {
     } else {
-      let country = this.getPremiumForm.get('country').value.name;
+      let country = this.getPremiumForm.get('country').value.name.replace(/ *\([^)]*\) */g, "");
       let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
       let ageOfTravellersList = []
       let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
@@ -357,9 +376,6 @@ export class PremiumFormComponent implements OnInit {
       let anyMedicalCondition = this.getPremiumForm.get('anyMedicalCondition').value;
       // let frequentTraveller = this.getPremiumForm.get('frequentTraveller').value;
       // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
-
-      console.log(this.getPremiumForm.get('ageOfTravellers'));
-
 
       for (let i = 0; i < ageOfTravellers.length; i++) {
         if (ageOfTravellers[i].memberAge !== "") {
@@ -401,6 +417,9 @@ export class PremiumFormComponent implements OnInit {
     let routeLength = this.router.url.split('/').length;
     let endRoute = this.router.url.split('/')[routeLength - 1];
 
+    console.log(endRoute);
+
+
     if (endRoute == 'plans') {
       let premiumFormDetail = JSON.parse(this.userflowDetails.getCookie('premiumFormDetails'));
       this.enableCheckoutBtn = true;
@@ -414,14 +433,35 @@ export class PremiumFormComponent implements OnInit {
       this.getPremiumForm.get('anyMedicalCondition').setValue(premiumFormDetail.anyMedicalCondition);
 
       for (let i = 0; i < premiumFormDetail.ageOfTravellers.length; i++) {
-        console.log(this.controls);
-
-        console.log(premiumFormDetail.ageOfTravellers[i]);
-
-
         this.controls[i]['controls'].memberAge.setValue(premiumFormDetail.ageOfTravellers[i]);
-
       }
     }
+  }
+
+  onCheckout() {
+    this.preloaderService.showPreloader(true);
+    let token = this.loginService.getAuthToken();
+    this.loginStatus.verifyAuthToken(token).subscribe((res: any) => {
+      console.log(res);
+
+      if (res.code === '0') {
+        this.router.navigate(["insurance/application-form"]);
+        this.preloaderService.showPreloader(false);
+      } else if (res.code == "301") {
+        this.loginService.setAuthToken("");
+        this.loginStatus.setUserStatus(false);
+        this.loginStatus.setUserLoggedIn(false);
+        this.preloaderService.showPreloader(false);
+        this.userFlow.setCookie("profile", JSON.stringify({}));
+        this.routerHistory.pushHistory("insurance-form");
+        this.router.navigate(["slcontainer/login"]);
+        this.preloaderService.showPreloader(false);
+      } else {
+        this.routerHistory.pushHistory("insurance-form");
+        this.router.navigate(["slcontainer/login"]);
+        this.preloaderService.showPreloader(false);
+      }
+
+    });
   }
 }

@@ -3,7 +3,7 @@
     <div class="col-12 input-group">
       <!-- <label for="username">Email/Cell Number <span class="astrisk">*</span></label> -->
       <input minlength="6" id="username" class="form-control"
-        pattern="^([6-9][0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" (keydown.enter)="onUserPress($event)"
+        pattern="^([6-9][0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" (keydown.enter)="onUserPress()"
         formControlName="userId" placeholder="Enter Email/Cell Number" type="text" autocomplete="off" name="userId"
         [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}">
 
@@ -17,7 +17,7 @@
       <!-- <label for="otp">OTP <span class="astrisk">*</span></label> -->
       <input class="form-control"
         [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}"
-        (keydown.enter)="onOTPPress($event)" pattern="^[0,1-9][0-9]{5}$" autocomplete="off" name="otp"
+        (keydown.enter)="onOTPPress()" pattern="^[0,1-9][0-9]{5}$" autocomplete="off" name="otp"
         formControlName="otp" type="text" placeholder="Enter OTP" />
       <div class="invalid-feedback" style="display: block;">
         <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp *</div>

@@ -163,11 +163,8 @@
                             class="form-control form-control-sm insurance-select titleSelect"
                             formControlName="titleCd"
                           >
-                            <option selected>Title</option>
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Master">Master</option>
-                            <option value="Ms">Ms</option>
+                            <option selected value="MR">Mr</option>
+                            <option value="MS">Ms</option>
                           </select>
                         </div>
                         <input
@@ -309,37 +306,16 @@
                       <label for="gender" class="insurance-label"
                         >Gender<span class="astrisk">*</span></label
                       >
-                      <input
-                        type="text"
-                        id="gender"
-                        formControlName="genderCd"
-                        autocomplete="new-genderCd"
-                        [ngClass]="{
-                          'is-invalid':
-                            getControls[i]['controls'].genderCd.invalid &&
-                            getControls[i]['controls'].genderCd.dirty,
-                          'is-valid':
-                            !(
-                              getControls[i]['controls'].genderCd.invalid &&
-                              getControls[i]['controls'].genderCd.dirty
-                            ) && !getControls[i]['controls'].genderCd.pristine
-                        }"
-                        class="form-control-sm form-control insurance-input"
-                      />
-                      <div
-                        *ngIf="
-                          (getControls[i]['controls'].genderCd.invalid &&
-                            getControls[i]['controls'].genderCd.dirty) ||
-                          getControls[i]['controls'].genderCd.errors
-                            ?.valueErr ||
-                          (getControls[i]['controls'].genderCd.pristine &&
-                            getControls[i]['controls'].genderCd.genderCdError)
-                        "
-                        class="invalid-feedback"
-                        style="display: block"
-                      >
-                        Enter a valid gender*
-                      </div>
+                      <select
+                      name="genderCd{{i}}"
+                      id="genderCd{{ i }}"
+                      formControlName="genderCd"
+                      autocomplete="new-genderCd"
+                      class="form-control form-control-sm insurance-select"
+                    >
+                      <option selected value="MALE">Male</option>
+                      <option value="FEMALE">Female</option>
+                    </select>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
@@ -426,44 +402,24 @@
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
                     <div class="insurance-input_box">
-                      <label for="relation{{ i }}" class="insurance-label"
+                      <label for="relationCd{{ i }}" class="insurance-label"
                         >Relation<span class="astrisk">*</span></label
                       >
-                      <input
-                        type="text"
-                        id="relation{{ i }}"
-                        formControlName="relationCd"
-                        autocomplete="new-relationCd"
-                        [ngClass]="{
-                          'is-invalid':
-                            getControls[i]['controls'].relationCd.invalid &&
-                            getControls[i]['controls'].relationCd.dirty,
-                          'is-valid':
-                            !(
-                              getControls[i]['controls'].relationCd.invalid &&
-                              getControls[i]['controls'].relationCd.dirty
-                            ) && !getControls[i]['controls'].relationCd.pristine
-                        }"
-                        class="form-control-sm form-control insurance-input"
-                      />
-                      <div
-                        *ngIf="
-                          (getControls[i]['controls'].relationCd.invalid &&
-                            getControls[i]['controls'].relationCd.dirty) ||
-                          getControls[i]['controls'].relationCd.errors
-                            ?.valueErr ||
-                          (getControls[i]['controls'].relationCd.pristine &&
-                            getControls[i]['controls'].relationCd
-                              .relationCdError)
-                        "
-                        class="invalid-feedback"
-                        style="display: block"
-                      >
-                        Enter a valid relation*
-                      </div>
+                      <select
+                      name="relationCd{{i}}"
+                      id="relationCd{{ i }}"
+                      formControlName="relationCd"
+                      autocomplete="new-relationCd"
+                      class="form-control form-control-sm insurance-select"
+                    >
+                      <option selected value="SELF">Self</option>
+                      <option value="SON">Son</option>
+                      <option value="SPOUSE">Spouse</option>
+                      <option value="DAUGHTER">Daughter</option>
+                    </select>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
                     <div class="insurance-input_box">
                       <label for="role{{ i }}" class="insurance-label"
                         >Role<span class="astrisk">*</span></label
@@ -499,7 +455,7 @@
                         Enter a valid role*
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="form-row">
                   <div class="col-lg-6">
@@ -684,47 +640,16 @@
                             class="insurance-label"
                             >Identity Type<span class="astrisk">*</span></label
                           >
-                          <input
-                            type="text"
-                            id="identityType{{ i }}"
-                            formControlName="identityTypeCd"
-                            autocomplete="new-identityTypeCd"
-                            [ngClass]="{
-                              'is-invalid':
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls.identityTypeCd.invalid &&
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls.identityTypeCd.dirty,
-                              'is-valid':
-                                !(
-                                  getControls[i]['controls'].partyIdentityDOList
-                                    .controls.identityTypeCd.invalid &&
-                                  getControls[i]['controls'].partyIdentityDOList
-                                    .controls.identityTypeCd.dirty
-                                ) &&
-                                !getControls[i]['controls'].partyIdentityDOList
-                                  .controls.identityTypeCd.pristine
-                            }"
-                            class="form-control-sm form-control insurance-input"
-                          />
-                          <div
-                            *ngIf="
-                              (getControls[i]['controls'].partyIdentityDOList
-                                .controls.identityTypeCd.invalid &&
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls.identityTypeCd.dirty) ||
-                              getControls[i]['controls'].partyIdentityDOList
-                                .controls.identityTypeCd.errors?.valueErr ||
-                              (getControls[i]['controls'].partyIdentityDOList
-                                .controls.identityTypeCd.pristine &&
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls.identityTypeCd.identityTypeCdError)
-                            "
-                            class="invalid-feedback"
-                            style="display: block"
-                          >
-                            Enter a valid identity type*
-                          </div>
+                          <select
+                          name="identityTypeCd{{i}}"
+                          id="identityTypeCd{{ i }}"
+                          formControlName="identityTypeCd"
+                          autocomplete="new-identityTypeCd"
+                          class="form-control form-control-sm insurance-select"
+                        >
+                          <option selected value="PAN">PAN</option>
+                          <option value="PASSPORT">PASSPORT</option>
+                        </select>
                         </div>
                       </div>
                     </div>
@@ -869,47 +794,16 @@
                       <label for="addressType-{{ i }}" class="insurance-label"
                         >Address Type<span class="astrisk">*</span></label
                       >
-                      <input
-                        type="text"
-                        id="addressType-{{ i }}"
-                        formControlName="addressTypeCd"
-                        autocomplete="new-addressTypeCd"
-                        [ngClass]="{
-                          'is-invalid':
-                            getControls[i]['controls'].partyAddressDOList
-                              .controls.addressTypeCd.invalid &&
-                            getControls[i]['controls'].partyAddressDOList
-                              .controls.addressTypeCd.dirty,
-                          'is-valid':
-                            !(
-                              getControls[i]['controls'].partyAddressDOList
-                                .controls.addressTypeCd.invalid &&
-                              getControls[i]['controls'].partyAddressDOList
-                                .controls.addressTypeCd.dirty
-                            ) &&
-                            !getControls[i]['controls'].partyAddressDOList
-                              .controls.addressTypeCd.pristine
-                        }"
-                        class="insurance-input form-control-sm form-control"
-                      />
-                      <div
-                        *ngIf="
-                          (getControls[i]['controls'].partyAddressDOList
-                            .controls.addressTypeCd.invalid &&
-                            getControls[i]['controls'].partyAddressDOList
-                              .controls.addressTypeCd.dirty) ||
-                          getControls[i]['controls'].partyAddressDOList.controls
-                            .addressTypeCd.errors?.valueErr ||
-                          (getControls[i]['controls'].partyAddressDOList
-                            .controls.addressTypeCd.pristine &&
-                            getControls[i]['controls'].partyAddressDOList
-                              .controls.addressTypeCd.addressTypeCdError)
-                        "
-                        class="invalid-feedback"
-                        style="display: block"
-                      >
-                        Enter a valid address type*
-                      </div>
+                      <select
+                      name="addressTypeCd{{i}}"
+                      id="addressTypeCd{{ i }}"
+                      formControlName="addressTypeCd"
+                      autocomplete="new-addressTypeCd"
+                      class="form-control form-control-sm insurance-select"
+                    >
+                      <option selected value="PERMANENT">Permanent</option>
+                      <option value="COMMUNICATION">Communication</option>
+                    </select>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
@@ -1190,90 +1084,10 @@
       </form>
     </div>
 
-      <div class="valueAddServices">
-        <div class="row">
-          <div class="col-12">
-            <h5>Value Added Services</h5>
-            <div class="wrapper-box">
-              <label style="font-size: 15px; font-weight: 600">
-                Request for a callback for</label
-              >
-              <form [formGroup]="valueAddedService">
-                <div class="form-row" style="margin-left: 4px">
-                  <div class="form-check col-sm-4 col-md-3">
-                    <div
-                      class="custom-control custom-checkbox"
-                      style="padding-left: 0px !important"
-                    >
-                      <input
-                        formControlName="selectAll"
-                        type="checkbox"
-                        id="selectall"
-                        class="custom-control-input"
-                      /><label for="selectall" class="custom-control-label"
-                        >Select All
-                      </label>
-                    </div>
-                  </div>
-                  <div class="form-check col-sm-4 col-md-3">
-                    <div
-                      class="custom-control custom-checkbox"
-                      style="padding-left: 0px !important"
-                    >
-                      <div class="callBack-sim img-sprite"></div>
-                      <input
-                        formControlName="sim"
-                        type="checkbox"
-                        id="sim"
-                        class="custom-control-input"
-                      /><label for="sim" class="custom-control-label"
-                        >Sim</label
-                      >
-                    </div>
-                  </div>
-                  <div class="form-check col-sm-4 col-md-3">
-                    <div
-                      class="custom-control custom-checkbox"
-                      style="padding-left: 0px !important"
-                    >
-                      <div class="callBack-forex img-sprite"></div>
-                      <input
-                        formControlName="forex"
-                        type="checkbox"
-                        id="forex"
-                        class="custom-control-input"
-                      /><label for="forex" class="custom-control-label"
-                        >Forex Card</label
-                      >
-                    </div>
-                  </div>
-                  <div class="form-check col-sm-4 col-md-3">
-                    <div
-                      class="custom-control custom-checkbox"
-                      style="padding-left: 0px !important"
-                    >
-                      <div class="callBack-insurance img-sprite"></div>
-                      <input
-                        formControlName="insurance"
-                        type="checkbox"
-                        id="insurance"
-                        class="custom-control-input"
-                      /><label for="insurance" class="custom-control-label"
-                        >Insurance
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="termsAndConditions">
-        <div class="row">
-          <div class="col-12">
-            <div class="wrapper-box">
+    <div class="termsAndConditions mt-3">
+      <div class="row">
+        <div class="col-12">
+          <div class="wrapper-box">
             <form [formGroup]="termsAndConditions">
               <div class="form-check">
                 <div
@@ -1313,9 +1127,9 @@
               </div>
             </form>
           </div>
-          </div>
         </div>
       </div>
+    </div>
 
     <div class="row mt-4">
       <div class="col-12 text-center">

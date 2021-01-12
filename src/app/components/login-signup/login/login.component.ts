@@ -49,13 +49,13 @@ export class LoginComponent implements OnInit {
     private reqService: RequirementsService
   ) {}
 
-  onUserPress(event: any) {
+  onUserPress() {
     if (this.loginForm.get("userId").valid) {
       this.sendOtp();
     }
   }
 
-  onOTPPress(event: any) {
+  onOTPPress() {
     if (this.loginForm.get("otp").valid) {
       this.onSubmit();
     }
@@ -246,6 +246,8 @@ export class LoginComponent implements OnInit {
                               this.router.navigate(["visa"]);
                             }
                           });
+                      } else if (this.prevRoute == "insurance-form") {
+                        this.router.navigate(["insurance/application-form"]);
                       } else if (this.prevRoute == "fail-login-sim") {
                         // fail-login-sim use in sim
                         this.router.navigate(["/sim/checkout"]);

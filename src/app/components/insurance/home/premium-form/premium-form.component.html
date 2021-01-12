@@ -6,7 +6,7 @@
           <ul class="travelFormTab" tabindex="0">
             <li>
               <a href="javascript:void(0)" class="active" data-value="1"
-                >Family / Self / Friends</a
+                >Family / Self</a
               >
             </li>
           </ul>
@@ -46,7 +46,7 @@
               <div [innerHTML]="notFound"></div>
             </ng-template>
           </div>
-          <div *ngIf="destinationNotSelected" class="invalid-input">
+          <div *ngIf="destinationNotSelected && getPremiumForm.get('country').pristine" class="invalid-input">
             Please choose a destination.
           </div>
           <div *ngIf="deniedCountryEnable" class="invalid-input">
@@ -87,7 +87,7 @@
                   <i class="material-icons">close</i>
                 </span>
               </li>
-              <div *ngIf="ageOfTravellersError" class="invalid-input">
+              <div *ngIf="ageOfTravellersError && controls[0]['controls'].memberAge.pristine" class="invalid-input">
                 Please choose a destination.
               </div>
             </ul>
@@ -106,8 +106,9 @@
               placeholder="Trip Start Date"
               class="form-control form-control-sm"
               data-datepicker="separateRange"
+              [ngStyle]="{'border': tripStartDateNotSelected? '1px solid red' : '1px solid #ced4da'}"
             />
-            <div *ngIf="tripStartDateNotSelected" class="invalid-input">
+            <div *ngIf="tripStartDateNotSelected && getPremiumForm.get('tripStartDate').pristine" class="invalid-input">
               Please enter trip start date.
             </div>
           </div>
@@ -121,8 +122,9 @@
               id="tripEndDate"
               placeholder="Trip End Date"
               class="form-control form-control-sm"
+              [ngStyle]="{'border': tripEndDateNotSelected? '1px solid red' : '1px solid #ced4da'}"
             />
-            <div *ngIf="tripEndDateNotSelected" class="invalid-input">
+            <div *ngIf="tripEndDateNotSelected && getPremiumForm.get('tripEndDate').pristine" class="invalid-input">
               Please enter trip end date.
             </div>
           </div>
@@ -240,7 +242,7 @@
           <button
             class="btn-sm btn btn-proceed"
             type="button"
-            [routerLink]="[ 'application-form']"
+            (click)="onCheckout()"
           >
             Checkout
           </button>
