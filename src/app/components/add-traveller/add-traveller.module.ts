@@ -8,7 +8,7 @@ import { AuthenticationGuard } from 'src/app/shared/AuthenticationGuard.service'
 import { SharedVisaModuleModule } from '../shared-visa-module/shared-visa-module.module';
 
 const routes: Routes = [
-  { path: "",component: AddTravellerComponent, pathMatch: "full",canActivate: [AuthenticationGuard] },
+  { path: "",component: AddTravellerComponent, canActivate: [AuthenticationGuard] },
 ]
 
 @NgModule({

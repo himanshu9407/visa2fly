@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { LoginService } from '../login-signup/login/login.service';
 
@@ -7,6 +8,7 @@ import { LoginService } from '../login-signup/login/login.service';
   providedIn: 'root'
 })
 export class InsuranceService {
+  permiumCalculated: Subject<Array<{planType: string, premiumCalculated: number, gst: number}>> = new Subject();
 
   constructor(private http: HttpClient,
     private loginService: LoginService,

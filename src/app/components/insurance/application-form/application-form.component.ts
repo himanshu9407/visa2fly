@@ -22,13 +22,31 @@ export class ApplicationFormComponent implements OnInit {
   maxDateDob: { year: number; month: number; day: number; };
   formData: any;
   termsAndConditions: FormGroup;
-  premiumFormDetail: any;
+ 
+  policyDetailForm: FormGroup;
+  insuranceDetails: {
+    country: string,
+    ageOfTravellers: Array<number>[],
+    tripStartDate: string,
+    tripEndDate: string,
+    anyMedicalCondition: boolean
+  };
+  insurancePlan: {
+    coverage: string,
+    planType: string,
+  };
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private preloaderService: PreloaderService,
     private insuranceService: InsuranceService, private userflowDetails: UserFlowDetails) {
-    this.premiumFormDetail = JSON.parse(this.userflowDetails.getCookie('premiumFormDetails'));
+
+    this.insuranceDetails = this.userflowDetails.getInsuranceDetails();
+    console.log(this.insuranceDetails);
+    // console.log(this.premiumFormDetail);
+
+    this.insurancePlan = this.userflowDetails.getInsurancePlanDetails();
+
 
     // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
     // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
@@ -42,6 +60,11 @@ export class ApplicationFormComponent implements OnInit {
       insurer: this.formBuilder.array([this.issueInsurancePolicy()]),
     });
 
+    this.policyDetailForm = this.formBuilder.group({
+      planType: [{ value: '' }, [Validators.required]],
+      coverage: [{ value: '', disabled: true }, [Validators.required]]
+    })
+
     this.termsAndConditions = this.formBuilder.group({
       tnc: [false, [Validators.requiredTrue]],
     });
@@ -54,6 +77,10 @@ export class ApplicationFormComponent implements OnInit {
       month: yesterday.getMonth() + 1,
       day: yesterday.getDate(),
     };
+
+    this.policyDetailForm.get('planType').setValue(this.insurancePlan.planType);
+    this.policyDetailForm.get('coverage').setValue(this.insurancePlan.coverage);
+
   }
 
   issueInsurancePolicy(): FormGroup {
@@ -68,7 +95,7 @@ export class ApplicationFormComponent implements OnInit {
       relationCd: ["SELF", [Validators.required]],
       // roleCd: ["", [Validators.required]],
       titleCd: ["MR", [Validators.required]],
-      citizenshipCd: ["", [Validators.required]],
+      citizenshipCd: [{ value: "Indian", disabled: true }, [Validators.required]],
       residenceProof: ["", [Validators.required]],
       addressForPickupSame: [false, [Validators.required]],
       partyAddressDOList: this.formBuilder.group({
@@ -119,13 +146,13 @@ export class ApplicationFormComponent implements OnInit {
         let ptdata: any = this.insuranceForm.get("insurer").value || [];
         ptdata["id"] = this.dataSource[0].id;
 
-        let tripStartDateDay = this.premiumFormDetail.tripStartDate.split('-')[2];
-        let tripStartDateMonth = this.premiumFormDetail.tripStartDate.split('-')[1];
-        let tripStartDateYear = this.premiumFormDetail.tripStartDate.split('-')[0];
+        let tripStartDateDay = this.insuranceDetails.tripStartDate.split('-')[2];
+        let tripStartDateMonth = this.insuranceDetails.tripStartDate.split('-')[1];
+        let tripStartDateYear = this.insuranceDetails.tripStartDate.split('-')[0];
 
-        let tripEndDateDay = this.premiumFormDetail.tripEndDate.split('-')[2];
-        let tripEndDateMonth = this.premiumFormDetail.tripEndDate.split('-')[1];
-        let tripEndDateYear = this.premiumFormDetail.tripEndDate.split('-')[0];
+        let tripEndDateDay = this.insuranceDetails.tripEndDate.split('-')[2];
+        let tripEndDateMonth = this.insuranceDetails.tripEndDate.split('-')[1];
+        let tripEndDateYear = this.insuranceDetails.tripEndDate.split('-')[0];
 
         let tripStartDate = tripStartDateDay + "/" + tripStartDateMonth + "/" + tripStartDateYear // 10/01/2021
         let tripEndDate = tripEndDateDay + "/" + tripEndDateMonth + "/" + tripEndDateYear // 10/01/2021
@@ -160,7 +187,7 @@ export class ApplicationFormComponent implements OnInit {
   checkValidateForm() {
     for (
       let index = 0;
-      index < this.getControls.length;
+      index < this.getControls.length - 1;
       index++
     ) {
       let citizenshipCd = this.getControls[index]['controls'].citizenshipCd.value;
@@ -296,7 +323,7 @@ export class ApplicationFormComponent implements OnInit {
 
       this.toastr.warning("Please fill in existing traveller details first");
     } else {
-      if (this.count <= 9) {
+      if (this.count <= 5) {
         this.selectedTravellerForm = this.count;
         this.count = this.count + 1;
 
@@ -378,5 +405,30 @@ export class ApplicationFormComponent implements OnInit {
     $('html, body').animate({
       scrollTop: $("#" + id).offset().top
     }, 500);
+  }
+
+  onChangePlan() {
+    let planType = this.policyDetailForm.get('planType').value;
+
+    if (planType === "Basic") {
+      this.policyDetailForm.get('coverage').setValue("US $ 50,000");
+      this.userflowDetails.setInsurancePlan("coverage", "US $ 50,000");
+    } else if (planType === "Gold") {
+      this.policyDetailForm.get('coverage').setValue("US $ 100,000");
+      this.userflowDetails.setInsurancePlan("coverage", "US $ 100,000");
+    }
+    this.userflowDetails.setInsurancePlan("planType", planType);
+    
+    this.insuranceService.permiumCalculated.subscribe((res: Array<{planType: string, premiumCalculated: number, gst: number}>) => {
+      res.forEach(element => {
+        console.log(element);
+        if (element.planType === 'Basic') {
+          // this.basicPremiumCalculated = element.premiumCalculated;
+        } else if (element.planType === 'Gold') {
+          // this.goldPremiumCalculated = element.premiumCalculated;
+        }
+      });
+      
+    })
   }
 }

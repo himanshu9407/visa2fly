@@ -5,6 +5,42 @@
   </div>
 
   <div class="container insurance_application-container">
+    <form [formGroup]="policyDetailForm">
+      <div class="form-row form-group">
+        <div
+          class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+        >
+          <h5 class="insurance_application-subheading">Policy Details :</h5>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+          <div class="insurance-input_box">
+            <label for="planType" class="insurance-label">Plan Type</label>
+            <select
+              name="planType"
+              (change)="onChangePlan()"
+              class="form-control form-control-sm"
+              id="planType"
+              formControlName="planType"
+            >
+              <option value="Basic">Basic</option>
+              <option value="Gold">Gold</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+          <div class="insurance-input_box">
+            <label for="coverage" class="insurance-label">Coverage</label>
+            <input
+              type="text"
+              id="coverage"
+              formControlName="coverage"
+              class="form-control-sm form-control insurance-input"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+
     <div class="accordion" id="accordionInsurer">
       <form [formGroup]="insuranceForm">
         <div
@@ -307,15 +343,15 @@
                         >Gender<span class="astrisk">*</span></label
                       >
                       <select
-                      name="genderCd{{i}}"
-                      id="genderCd{{ i }}"
-                      formControlName="genderCd"
-                      autocomplete="new-genderCd"
-                      class="form-control form-control-sm insurance-select"
-                    >
-                      <option selected value="MALE">Male</option>
-                      <option value="FEMALE">Female</option>
-                    </select>
+                        name="genderCd{{ i }}"
+                        id="genderCd{{ i }}"
+                        formControlName="genderCd"
+                        autocomplete="new-genderCd"
+                        class="form-control form-control-sm insurance-select"
+                      >
+                        <option selected value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
@@ -406,17 +442,17 @@
                         >Relation<span class="astrisk">*</span></label
                       >
                       <select
-                      name="relationCd{{i}}"
-                      id="relationCd{{ i }}"
-                      formControlName="relationCd"
-                      autocomplete="new-relationCd"
-                      class="form-control form-control-sm insurance-select"
-                    >
-                      <option selected value="SELF">Self</option>
-                      <option value="SON">Son</option>
-                      <option value="SPOUSE">Spouse</option>
-                      <option value="DAUGHTER">Daughter</option>
-                    </select>
+                        name="relationCd{{ i }}"
+                        id="relationCd{{ i }}"
+                        formControlName="relationCd"
+                        autocomplete="new-relationCd"
+                        class="form-control form-control-sm insurance-select"
+                      >
+                        <option selected value="SELF">Self</option>
+                        <option value="SON">Son</option>
+                        <option value="SPOUSE">Spouse</option>
+                        <option value="DAUGHTER">Daughter</option>
+                      </select>
                     </div>
                   </div>
                   <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
@@ -641,15 +677,15 @@
                             >Identity Type<span class="astrisk">*</span></label
                           >
                           <select
-                          name="identityTypeCd{{i}}"
-                          id="identityTypeCd{{ i }}"
-                          formControlName="identityTypeCd"
-                          autocomplete="new-identityTypeCd"
-                          class="form-control form-control-sm insurance-select"
-                        >
-                          <option selected value="PAN">PAN</option>
-                          <option value="PASSPORT">PASSPORT</option>
-                        </select>
+                            name="identityTypeCd{{ i }}"
+                            id="identityTypeCd{{ i }}"
+                            formControlName="identityTypeCd"
+                            autocomplete="new-identityTypeCd"
+                            class="form-control form-control-sm insurance-select"
+                          >
+                            <option selected value="PAN">PAN</option>
+                            <option value="PASSPORT">PASSPORT</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -795,15 +831,15 @@
                         >Address Type<span class="astrisk">*</span></label
                       >
                       <select
-                      name="addressTypeCd{{i}}"
-                      id="addressTypeCd{{ i }}"
-                      formControlName="addressTypeCd"
-                      autocomplete="new-addressTypeCd"
-                      class="form-control form-control-sm insurance-select"
-                    >
-                      <option selected value="PERMANENT">Permanent</option>
-                      <option value="COMMUNICATION">Communication</option>
-                    </select>
+                        name="addressTypeCd{{ i }}"
+                        id="addressTypeCd{{ i }}"
+                        formControlName="addressTypeCd"
+                        autocomplete="new-addressTypeCd"
+                        class="form-control form-control-sm insurance-select"
+                      >
+                        <option selected value="PERMANENT">Permanent</option>
+                        <option value="COMMUNICATION">Communication</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">

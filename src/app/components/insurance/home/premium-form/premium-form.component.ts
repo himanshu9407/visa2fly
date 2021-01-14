@@ -8,6 +8,7 @@ import { InsuranceService } from '../../insurance.service';
 import { LoginService } from 'src/app/components/login-signup/login/login.service';
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-premium-form',
@@ -67,10 +68,9 @@ export class PremiumFormComponent implements OnInit {
       // tripFrequency: [30, [Validators.required]]
     });
 
-    console.log(typeof this.getPremiumForm.get('anyMedicalCondition').value);
-
     this.today = new Date();
     this.enableReviewPremiumForm();
+    this.checkParenthesis("string())");
   }
 
   keyword = 'name';
@@ -273,7 +273,76 @@ export class PremiumFormComponent implements OnInit {
   ];
 
   selectEvent(item: { name: string, id: number }) {
-    let searchItem = item.name;
+    this.restrictedCountry(item.name);
+  }
+
+  onChangePlan() {
+    console.log(this.getPremiumForm);
+    console.log(this.getPremiumForm.valid);
+    if (this.enableCheckoutBtn && !this.deniedCountryEnable) {
+
+      if (!this.getPremiumForm.valid) {
+      } else {
+        let country = this.getPremiumForm.get('country').value;
+        if (this.checkParenthesis(country)) {
+          country = country.replace(/ *\([^)]*\) */g, "");
+        } else {
+          country = country;
+        }
+        let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
+        let ageOfTravellersList = []
+        let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
+        let tripEndDate = this.getPremiumForm.get('tripEndDate').value;
+        let anyMedicalCondition = this.getPremiumForm.get('anyMedicalCondition').value;
+        // let frequentTraveller = this.getPremiumForm.get('frequentTraveller').value;
+        // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
+
+        for (let i = 0; i < ageOfTravellers.length; i++) {
+          if (ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== '') {
+            ageOfTravellersList.push(ageOfTravellers[i].memberAge);
+            console.log(ageOfTravellers[i]);
+            
+          }
+        }
+
+        let reqData = {
+          country: country,
+          ageOfTravellers: ageOfTravellersList,
+          tripStartDate: tripStartDate,
+          tripEndDate: tripEndDate,
+          anyMedicalCondition: anyMedicalCondition,
+          // frequentTraveller: frequentTraveller,
+          // tripFrequency: tripFrequency
+        }
+
+        console.log(reqData);
+
+        this.insuranceService.getPremium(reqData).subscribe((res: any) => {
+          console.log(res);
+
+          if (res.code === '0') {
+            this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
+            this.userflowDetails.setInsuranceDetails('country', country);
+            this.userflowDetails.setInsuranceDetails('ageOfTravellers', JSON.stringify(ageOfTravellersList));
+            this.userflowDetails.setInsuranceDetails('tripStartDate', tripStartDate);
+            this.userflowDetails.setInsuranceDetails('tripEndDate', tripEndDate);
+            this.userflowDetails.setInsuranceDetails('anyMedicalCondition', anyMedicalCondition);
+
+            this.insuranceService.permiumCalculated.next(res.data.premiumAsPerPlan);
+
+            this.enableReviewPremiumForm();
+            this.enableCheckoutBtn = true;
+          } else {
+            this.toastr.error(res.message);
+          }
+        });
+
+      }
+    }
+  }
+
+  restrictedCountry(country: string) {
+    let searchItem = country;
     if (searchItem == 'Cuba' ||
       searchItem === 'Iran' ||
       searchItem === 'North Korea' ||
@@ -317,7 +386,7 @@ export class PremiumFormComponent implements OnInit {
   }
 
   addAgeOfTravellers() {
-    if (this.count <= 9) {
+    if (this.count <= 5) {
       this.controls.push(
         this.formBuilder.group({
           'memberAge': ''
@@ -368,7 +437,12 @@ export class PremiumFormComponent implements OnInit {
 
     if (!this.getPremiumForm.valid) {
     } else {
-      let country = this.getPremiumForm.get('country').value.name.replace(/ *\([^)]*\) */g, "");
+      console.log(this.getPremiumForm.get('country').value);
+
+      if (this.checkParenthesis(this.getPremiumForm.get('country').value)) {
+        let country = this.getPremiumForm.get('country').value.name.replace(/ *\([^)]*\) */g, "");
+      }
+      let country = this.getPremiumForm.get('country').value.name;
       let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
       let ageOfTravellersList = []
       let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
@@ -400,14 +474,19 @@ export class PremiumFormComponent implements OnInit {
 
         if (res.code === '0') {
           this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
-          this.userflowDetails.setCookie('premiumFormDetails', JSON.stringify(reqData))
+          this.userflowDetails.setInsuranceDetails('country', country);
+          this.userflowDetails.setInsuranceDetails('ageOfTravellers', JSON.stringify(ageOfTravellersList));
+          this.userflowDetails.setInsuranceDetails('tripStartDate', tripStartDate);
+          this.userflowDetails.setInsuranceDetails('tripEndDate', tripEndDate);
+          this.userflowDetails.setInsuranceDetails('anyMedicalCondition', anyMedicalCondition);
+
           this.enableReviewPremiumForm();
           this.enableCheckoutBtn = true;
           this.router.navigateByUrl('insurance/plans');
         } else {
           this.toastr.error(res.message);
         }
-      })
+      });
 
     }
 
@@ -421,20 +500,28 @@ export class PremiumFormComponent implements OnInit {
 
 
     if (endRoute == 'plans') {
-      let premiumFormDetail = JSON.parse(this.userflowDetails.getCookie('premiumFormDetails'));
-      this.enableCheckoutBtn = true;
+      if (this.userflowDetails.getInsuranceDetails()) {
+        this.enableCheckoutBtn = true;
 
-      console.log(premiumFormDetail);
-
-
-      this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
-      this.getPremiumForm.get('tripStartDate').setValue(premiumFormDetail.tripStartDate);
-      this.getPremiumForm.get('tripEndDate').setValue(premiumFormDetail.tripEndDate);
-      this.getPremiumForm.get('anyMedicalCondition').setValue(premiumFormDetail.anyMedicalCondition);
-
-      for (let i = 0; i < premiumFormDetail.ageOfTravellers.length; i++) {
-        this.controls[i]['controls'].memberAge.setValue(premiumFormDetail.ageOfTravellers[i]);
+        let country = this.userflowDetails.getInsuranceDetails().country;
+        let ageOfTravellers = JSON.parse(this.userflowDetails.getInsuranceDetails().ageOfTravellers);
+        let tripStartDate = this.userflowDetails.getInsuranceDetails().tripStartDate;
+        let tripEndDate = this.userflowDetails.getInsuranceDetails().tripEndDate;
+        let anyMedicalCondition = this.userflowDetails.getInsuranceDetails().anyMedicalCondition;
+  
+        this.getPremiumForm.get('country').setValue(country);
+        this.getPremiumForm.get('tripStartDate').setValue(tripStartDate);
+        this.getPremiumForm.get('tripEndDate').setValue(tripEndDate);
+        this.getPremiumForm.get('anyMedicalCondition').setValue(anyMedicalCondition);
+  
+        for (let i = 0; i < ageOfTravellers.length; i++) {
+          this.controls[i]['controls'].memberAge.setValue(ageOfTravellers[i]);
+        }
+      } else {
+        this.router.navigateByUrl('insurance');
       }
+  
+      // this.getPremiumForm.get('country').disable();
     }
   }
 
@@ -463,5 +550,17 @@ export class PremiumFormComponent implements OnInit {
       }
 
     });
+  }
+
+  checkParenthesis(string) {
+    console.log(string);
+
+    for (let i = 0; i < string.length; i++) {
+      if (string[i] === "(") {
+        return true;
+      }
+
+
+    }
   }
 }

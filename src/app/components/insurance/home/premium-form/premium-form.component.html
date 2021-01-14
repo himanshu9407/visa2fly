@@ -80,6 +80,7 @@
                 <input
                   type="number"
                   formControlName="memberAge"
+                  (change)="onChangePlan()"
                   placeholder="{{ i === 0 ? 'Self' : 'Member ' + i }}"
                   class="form-control input-sty"
                 />
@@ -116,6 +117,7 @@
             <span class="label-sty">Trip End Date*</span>
             <input
               type="date"
+              (change)="onChangePlan()"
               [min]="minDate | date: 'yyyy-MM-dd'"
               formControlName="tripEndDate"
               name="tripEndDate"

@@ -9,6 +9,8 @@ export class UserFlowDetails {
   public userObject: object = {};
   expiry: string;
   expiryDate: { year: number; month: number; day: number };
+  insuranceObject: object = {};
+  insurancePlanObject: object = {};
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -71,8 +73,36 @@ export class UserFlowDetails {
   setUserFlowDetails(name: string, value: string) {
     this.userObject[name] = value;
 
+    console.log(this.userObject)
+
     if (isPlatformBrowser(this.platformId)) {
       this.cookies.put("userFlowDetails", JSON.stringify(this.userObject), {
+        expires: this.expiry,
+      });
+    }
+  }
+
+  setInsuranceDetails(name: string, value: string) {
+    this.insuranceObject[name] = value;
+
+    console.log(this.insuranceObject);
+    
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.cookies.put("insuranceDetails", JSON.stringify(this.insuranceObject), {
+        expires: this.expiry,
+      });
+    }
+  }
+
+  setInsurancePlan(name: string, value: string) {
+    this.insurancePlanObject[name] = value;
+
+    console.log(this.insurancePlanObject);
+    
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.cookies.put("insurancePlanDetails", JSON.stringify(this.insurancePlanObject), {
         expires: this.expiry,
       });
     }
@@ -112,6 +142,18 @@ export class UserFlowDetails {
   getUserFlowDetails() {
     if (isPlatformBrowser(this.platformId)) {
       return JSON.parse(this.cookies.get("userFlowDetails"));
+    }
+  }
+
+  getInsuranceDetails() {
+    if (isPlatformBrowser(this.platformId)) {
+      return JSON.parse(this.cookies.get("insuranceDetails"));
+    }
+  }
+
+  getInsurancePlanDetails() {
+    if (isPlatformBrowser(this.platformId)) {
+      return JSON.parse(this.cookies.get("insurancePlanDetails"));
     }
   }
 

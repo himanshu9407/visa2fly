@@ -58,21 +58,45 @@ export class PremiumPlansComponent implements OnInit {
 
     let planType = this.filterPlanForm.get('planFilter').value;
     this.asPerPlanType(planType);
+
+    this.insuranceService.permiumCalculated.subscribe((res: Array<{planType: string, premiumCalculated: number, gst: number}>) => {
+      console.log(res);
+
+      let planType = this.filterPlanForm.get('planFilter').value;
+      res.forEach(element => {
+        console.log(element);
+        if (element.planType === 'Basic') {
+          this.basicPremiumCalculated = element.premiumCalculated;
+        } else if (element.planType === 'Gold') {
+          this.goldPremiumCalculated = element.premiumCalculated;
+        }
+    
+        this.asPerPlanType(planType);
+      });
+      
+    })
   }
 
   onChangePlan(event) {
     let planType = this.filterPlanForm.get('planFilter').value;
     this.asPerPlanType(planType);
+
+    console.log(planType);
+
   }
 
   asPerPlanType(planType: string) {
     if (planType == 'Basic') {
       this.policyBenefits = this.basicPolicyBenefits;
       this.premiumCalculated = this.basicPremiumCalculated;
+      this.userflowDetails.setInsurancePlan("coverage", "US $ 50,000");
     } else if (planType == 'Gold') {
       this.policyBenefits = this.goldPolicyBenefits;
       this.premiumCalculated = this.goldPremiumCalculated;
+      this.userflowDetails.setInsurancePlan("coverage", "US $ 100,000");
     }
+
+    this.userflowDetails.setInsurancePlan("planType", planType);
   }
 
 }

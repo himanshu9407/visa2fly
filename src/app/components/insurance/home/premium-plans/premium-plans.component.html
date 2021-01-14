@@ -3,24 +3,28 @@
     <div class="row">
       <div class="col-lg-5 col-md-5 col-sm-12 col-12 xyz__0 pre_plan_pr">
         <form class="plans-filter" [formGroup]="filterPlanForm">
-          <span>Premium Plan</span>
-          <select
-            name="plan"
-            id="plan"
-            class="form-control-sm form-control"
-            formControlName="planFilter"
-            (change)="onChangePlan($event)"
-          >
-            <option *ngFor="let item of planType" [value]="item">
-              {{ item }}
-            </option>
-          </select>
+          <span>Premium Plan:</span>
+          <div class="styleSelectFilter">
+            <select
+              name="plan"
+              id="plan"
+              class="form-control-sm form-control"
+              formControlName="planFilter"
+              (change)="onChangePlan($event)"
+            >
+              <option *ngFor="let item of planType" [value]="item">
+                {{ item }}
+              </option>
+            </select>
+          </div>
         </form>
       </div>
       <div class="col-lg-7 col-md-7 col-sm-12 col-12 xyz__0 pdtp__02">
-        <div class="plans-filter ">
-          <span>Premium Calculated</span>
-          <span style="font-weight: 600; font-size: 13px;">₹ {{ premiumCalculated }} <em>(including taxes)</em></span>
+        <div class="plans-filter">
+          <span>Premium Calculated:</span>
+          <span style="font-weight: 600; font-size: 13px"
+            >₹ {{ premiumCalculated }} <em>(including taxes)</em></span
+          >
         </div>
       </div>
     </div>
@@ -32,18 +36,37 @@
           <table width="100%" class="table-striped">
             <thead style="font-size: 14px">
               <tr>
-                <th width="40%" style="border-top-left-radius: 5px;
-                border-bottom-left-radius: 5px;">Benefits</th>
+                <th
+                  width="40%"
+                  style="
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                  "
+                >
+                  Benefits
+                </th>
                 <th width="30%" style="text-align: right">Coverage</th>
-                <th width="30%" style="text-align: right; border-top-right-radius: 5px;
-                border-bottom-right-radius: 5px;">Deductible</th>
+                <th
+                  width="30%"
+                  style="
+                    text-align: right;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                  "
+                >
+                  Deductible
+                </th>
               </tr>
             </thead>
             <tbody style="font-size: 13px">
               <tr *ngFor="let item of policyBenefits">
-                <td style="padding: 5px 0px 5px 5px;">{{ item.benefit }}</td>
-                <td style="text-align: right; padding: 5px 5px 5px 0px;">{{ item.coverage }}</td>
-                <td style="text-align: right; padding: 5px 5px 5px 0px;">{{ item.deductible }}</td>
+                <td style="padding: 5px 0px 5px 5px">{{ item.benefit }}</td>
+                <td style="text-align: right; padding: 5px 5px 5px 0px">
+                  {{ item.coverage }}
+                </td>
+                <td style="text-align: right; padding: 5px 5px 5px 0px">
+                  {{ item.deductible }}
+                </td>
               </tr>
             </tbody>
           </table>
