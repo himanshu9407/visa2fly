@@ -36,6 +36,8 @@ export class ApplicationFormComponent implements OnInit {
     planType: string,
   };
 
+  residenceProofError: boolean;
+
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private preloaderService: PreloaderService,
@@ -134,6 +136,7 @@ export class ApplicationFormComponent implements OnInit {
       scrollTop: $("#Primary").offset().top
     }, 500);
 
+    this.checkValidateForm();
     console.log(JSON.stringify(this.insuranceForm.value));
 
     if (this.insuranceForm.valid) {
@@ -187,13 +190,16 @@ export class ApplicationFormComponent implements OnInit {
   checkValidateForm() {
     for (
       let index = 0;
-      index < this.getControls.length - 1;
+      index < this.getControls.length;
       index++
     ) {
-      let citizenshipCd = this.getControls[index]['controls'].citizenshipCd.value;
-      citizenshipCd == "" || citizenshipCd == null || citizenshipCd == undefined ?
-        this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = true :
-        this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = false;
+      console.log(index);
+      console.log(this.getControls.length);
+      
+      // let citizenshipCd = this.getControls[index]['controls'].citizenshipCd.value;
+      // citizenshipCd == "" || citizenshipCd == null || citizenshipCd == undefined ?
+      //   this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = true :
+      //   this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = false;
 
       let residenceProof = this.getControls[index]['controls'].residenceProof.value;
       residenceProof == "" || residenceProof == null || residenceProof == undefined ?
@@ -210,20 +216,20 @@ export class ApplicationFormComponent implements OnInit {
         this.getControls[index]['controls'].firstName.firstNameError = true :
         this.getControls[index]['controls'].firstName.firstNameError = false;
 
-      let genderCd = this.getControls[index]['controls'].genderCd.value;
-      genderCd == "" || genderCd == null || genderCd == undefined ?
-        this.getControls[index]['controls'].genderCd.genderCdError = true :
-        this.getControls[index]['controls'].genderCd.genderCdError = false;
+      // let genderCd = this.getControls[index]['controls'].genderCd.value;
+      // genderCd == "" || genderCd == null || genderCd == undefined ?
+      //   this.getControls[index]['controls'].genderCd.genderCdError = true :
+      //   this.getControls[index]['controls'].genderCd.genderCdError = false;
 
       let lastName = this.getControls[index]['controls'].lastName.value;
       lastName == "" || lastName == null || lastName == undefined ?
         this.getControls[index]['controls'].lastName.lastNameError = true :
         this.getControls[index]['controls'].lastName.lastNameError = false;
 
-      let relationCd = this.getControls[index]['controls'].relationCd.value;
-      relationCd == "" || relationCd == null || relationCd == undefined ?
-        this.getControls[index]['controls'].relationCd.relationCdError = true :
-        this.getControls[index]['controls'].relationCd.relationCdError = false;
+      // let relationCd = this.getControls[index]['controls'].relationCd.value;
+      // relationCd == "" || relationCd == null || relationCd == undefined ?
+      //   this.getControls[index]['controls'].relationCd.relationCdError = true :
+      //   this.getControls[index]['controls'].relationCd.relationCdError = false;
 
       // let roleCd = this.getControls[index]['controls'].roleCd.value;
       // roleCd == "" || roleCd == null || roleCd == undefined ?
@@ -247,10 +253,10 @@ export class ApplicationFormComponent implements OnInit {
         this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.addressLine2Lang1Error = true :
         this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.addressLine2Lang1Error = false;
 
-      let addressTypeCd = this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.value;
-      addressTypeCd == "" || addressTypeCd == null || addressTypeCd == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.addressTypeCdError = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.addressTypeCdError = false;
+      // let addressTypeCd = this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.value;
+      // addressTypeCd == "" || addressTypeCd == null || addressTypeCd == undefined ?
+      //   this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.addressTypeCdError = true :
+      //   this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.addressTypeCdError = false;
 
       let areaCd = this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.value;
       areaCd == "" || areaCd == null || areaCd == undefined ?
@@ -305,10 +311,10 @@ export class ApplicationFormComponent implements OnInit {
         this.getControls[index]['controls'].partyEmailDOList.controls.emailTypeCd.emailTypeCdError = false;
 
       // partyIdentityDOList
-      let identityTypeCd = this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.value;
-      identityTypeCd == "" || identityTypeCd == null || identityTypeCd == undefined ?
-        this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.identityTypeCdError = true :
-        this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.identityTypeCdError = false;
+      // let identityTypeCd = this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.value;
+      // identityTypeCd == "" || identityTypeCd == null || identityTypeCd == undefined ?
+      //   this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.identityTypeCdError = true :
+      //   this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.identityTypeCdError = false;
 
       let identityNum = this.getControls[index]['controls'].partyIdentityDOList.controls.identityNum.value;
       identityNum == "" || identityNum == null || identityNum == undefined ?

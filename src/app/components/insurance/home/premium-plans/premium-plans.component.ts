@@ -20,6 +20,8 @@ export class PremiumPlansComponent implements OnInit {
   premiumCalculated: any;
   goldPremiumCalculated: any;
   basicPremiumCalculated: any;
+  loadingSkeleton: boolean = false;
+  numbers: number[];
 
   constructor(
     private router: Router,
@@ -31,6 +33,7 @@ export class PremiumPlansComponent implements OnInit {
 
   ngOnInit(): void {
     this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
+    this.numbers = Array(5).fill(0).map((x,i)=>i);
 
     console.log(this.premiumDetails);
 
@@ -59,7 +62,7 @@ export class PremiumPlansComponent implements OnInit {
     let planType = this.filterPlanForm.get('planFilter').value;
     this.asPerPlanType(planType);
 
-    this.insuranceService.permiumCalculated.subscribe((res: Array<{planType: string, premiumCalculated: number, gst: number}>) => {
+    this.insuranceService.permiumCalculated.subscribe((res: Array<{ planType: string, premiumCalculated: number, gst: number }>) => {
       console.log(res);
 
       let planType = this.filterPlanForm.get('planFilter').value;
@@ -70,11 +73,15 @@ export class PremiumPlansComponent implements OnInit {
         } else if (element.planType === 'Gold') {
           this.goldPremiumCalculated = element.premiumCalculated;
         }
-    
+
         this.asPerPlanType(planType);
       });
-      
-    })
+
+    });
+
+    this.insuranceService.loadingSkeleton.subscribe((res: boolean) => {
+      this.loadingSkeleton = res;
+    });
   }
 
   onChangePlan(event) {

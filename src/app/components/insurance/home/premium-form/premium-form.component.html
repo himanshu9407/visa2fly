@@ -80,7 +80,6 @@
                 <input
                   type="number"
                   formControlName="memberAge"
-                  (change)="onChangePlan()"
                   placeholder="{{ i === 0 ? 'Self' : 'Member ' + i }}"
                   class="form-control input-sty"
                 />
@@ -246,7 +245,16 @@
             type="button"
             (click)="onCheckout()"
           >
-            Checkout
+            Proceed
+          </button>
+        </div>
+        <div class="col-12" *ngIf="enableCheckoutBtn">
+          <button
+            class="btn-sm btn btn-quotes"
+            type="button"
+            (click)="onChangePlan()"
+          >
+            Get Quotes
           </button>
         </div>
       </div>

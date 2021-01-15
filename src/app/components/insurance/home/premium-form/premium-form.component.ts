@@ -29,6 +29,7 @@ export class PremiumFormComponent implements OnInit {
   deniedCountryEnable: boolean = false;
   deniedCountry: string;
   activeRoute: string;
+  selectedCountry: string;
 
 
   constructor(
@@ -70,7 +71,6 @@ export class PremiumFormComponent implements OnInit {
 
     this.today = new Date();
     this.enableReviewPremiumForm();
-    this.checkParenthesis("string())");
   }
 
   keyword = 'name';
@@ -273,6 +273,10 @@ export class PremiumFormComponent implements OnInit {
   ];
 
   selectEvent(item: { name: string, id: number }) {
+    this.getPremiumForm.get("country").setValue(item.name);
+    this.selectedCountry = item.name;
+
+    this.userflowDetails.setInsuranceDetails("country", item.name);
     this.restrictedCountry(item.name);
   }
 
@@ -283,7 +287,11 @@ export class PremiumFormComponent implements OnInit {
 
       if (!this.getPremiumForm.valid) {
       } else {
-        let country = this.getPremiumForm.get('country').value;
+        let country = this.getPremiumForm.get("country").value;
+        if (typeof country === 'object' && country !== null) {
+          country = country.name
+        }
+
         if (this.checkParenthesis(country)) {
           country = country.replace(/ *\([^)]*\) */g, "");
         } else {
@@ -301,7 +309,7 @@ export class PremiumFormComponent implements OnInit {
           if (ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== '') {
             ageOfTravellersList.push(ageOfTravellers[i].memberAge);
             console.log(ageOfTravellers[i]);
-            
+
           }
         }
 
@@ -317,6 +325,7 @@ export class PremiumFormComponent implements OnInit {
 
         console.log(reqData);
 
+        this.insuranceService.loadingSkeleton.next(true);
         this.insuranceService.getPremium(reqData).subscribe((res: any) => {
           console.log(res);
 
@@ -329,6 +338,7 @@ export class PremiumFormComponent implements OnInit {
             this.userflowDetails.setInsuranceDetails('anyMedicalCondition', anyMedicalCondition);
 
             this.insuranceService.permiumCalculated.next(res.data.premiumAsPerPlan);
+            this.insuranceService.loadingSkeleton.next(false);
 
             this.enableReviewPremiumForm();
             this.enableCheckoutBtn = true;
@@ -437,12 +447,15 @@ export class PremiumFormComponent implements OnInit {
 
     if (!this.getPremiumForm.valid) {
     } else {
-      console.log(this.getPremiumForm.get('country').value);
+      console.log(this.selectedCountry);
 
-      if (this.checkParenthesis(this.getPremiumForm.get('country').value)) {
-        let country = this.getPremiumForm.get('country').value.name.replace(/ *\([^)]*\) */g, "");
+      let country;
+      if (this.checkParenthesis(this.selectedCountry)) {
+        country = this.selectedCountry.replace(/ *\([^)]*\) */g, "");
+      } else {
+        country = this.selectedCountry;
       }
-      let country = this.getPremiumForm.get('country').value.name;
+
       let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
       let ageOfTravellersList = []
       let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
@@ -500,7 +513,8 @@ export class PremiumFormComponent implements OnInit {
 
 
     if (endRoute == 'plans') {
-      if (this.userflowDetails.getInsuranceDetails()) {
+
+      if (document.cookie.indexOf('insuranceDetails') != -1) {
         this.enableCheckoutBtn = true;
 
         let country = this.userflowDetails.getInsuranceDetails().country;
@@ -508,19 +522,20 @@ export class PremiumFormComponent implements OnInit {
         let tripStartDate = this.userflowDetails.getInsuranceDetails().tripStartDate;
         let tripEndDate = this.userflowDetails.getInsuranceDetails().tripEndDate;
         let anyMedicalCondition = this.userflowDetails.getInsuranceDetails().anyMedicalCondition;
-  
+
         this.getPremiumForm.get('country').setValue(country);
         this.getPremiumForm.get('tripStartDate').setValue(tripStartDate);
         this.getPremiumForm.get('tripEndDate').setValue(tripEndDate);
         this.getPremiumForm.get('anyMedicalCondition').setValue(anyMedicalCondition);
-  
+
         for (let i = 0; i < ageOfTravellers.length; i++) {
           this.controls[i]['controls'].memberAge.setValue(ageOfTravellers[i]);
         }
       } else {
         this.router.navigateByUrl('insurance');
+        this.toastr.error("Please fill the travel details.")
       }
-  
+
       // this.getPremiumForm.get('country').disable();
     }
   }

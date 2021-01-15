@@ -4,7 +4,10 @@
       <div class="col-lg-5 col-md-5 col-sm-12 col-12 xyz__0 pre_plan_pr">
         <form class="plans-filter" [formGroup]="filterPlanForm">
           <span>Premium Plan:</span>
-          <div class="styleSelectFilter">
+          <div class="premiumSkeleton" *ngIf="loadingSkeleton">
+            <div class="bar"></div>
+          </div>
+          <div class="styleSelectFilter" *ngIf="!loadingSkeleton">
             <select
               name="plan"
               id="plan"
@@ -16,15 +19,19 @@
                 {{ item }}
               </option>
             </select>
+            <div class="bar-short"></div>
           </div>
         </form>
       </div>
       <div class="col-lg-7 col-md-7 col-sm-12 col-12 xyz__0 pdtp__02">
         <div class="plans-filter">
           <span>Premium Calculated:</span>
-          <span style="font-weight: 600; font-size: 13px"
-            >₹ {{ premiumCalculated }} <em>(including taxes)</em></span
-          >
+          <span class="premiumSkeleton" *ngIf="loadingSkeleton">
+            <div class="bar"></div>
+          </span>
+          <span style="font-weight: 600; font-size: 13px;" *ngIf="!loadingSkeleton">
+            ₹ {{ premiumCalculated }} <em>(including taxes)</em>
+          </span>
         </div>
       </div>
     </div>
@@ -58,7 +65,18 @@
                 </th>
               </tr>
             </thead>
-            <tbody style="font-size: 13px">
+            <tbody style="font-size: 13px" *ngIf="loadingSkeleton">
+              <tr *ngFor="let number of numbers">
+                <td class="loading">
+                  <div class="bar"></div>
+                  <div class="bar-short"></div>
+                </td>
+                <td class="loading"><div class="bar"></div></td>
+                <td class="loading"><div class="bar"></div></td>
+              </tr>
+            </tbody>
+
+            <tbody style="font-size: 13px" *ngIf="!loadingSkeleton">
               <tr *ngFor="let item of policyBenefits">
                 <td style="padding: 5px 0px 5px 5px">{{ item.benefit }}</td>
                 <td style="text-align: right; padding: 5px 5px 5px 0px">
