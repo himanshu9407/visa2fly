@@ -21,8 +21,8 @@ export class ApplicationFormComponent implements OnInit {
   selectedTravellerForm: number = 0;
   maxDateDob: { year: number; month: number; day: number; };
   formData: any;
-  termsAndConditions: FormGroup;
- 
+  termsAndConditionForm: FormGroup;
+
   policyDetailForm: FormGroup;
   insuranceDetails: {
     country: string,
@@ -37,6 +37,20 @@ export class ApplicationFormComponent implements OnInit {
   };
 
   residenceProofError: boolean;
+  setResposeArr: Array<any> = [];
+  premiumDetails: any;
+  basicPremiumCalculated: any;
+  goldPremiumCalculated: any;
+  premiumCalculated: any;
+  actionUrl: string;
+  returnUrl: string;
+  proposalNumber: string;
+
+  public paymentForm: any = {};
+  newPremium: number;
+  oldPremium: number;
+  createPolicyBookingId: string;
+  agreeWarningForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -49,6 +63,8 @@ export class ApplicationFormComponent implements OnInit {
 
     this.insurancePlan = this.userflowDetails.getInsurancePlanDetails();
 
+    this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
+    console.log(this.premiumDetails.noOfTraveller);
 
     // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
     // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
@@ -58,6 +74,8 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.preloaderService.showPreloader(false);
+
     this.insuranceForm = this.formBuilder.group({
       insurer: this.formBuilder.array([this.issueInsurancePolicy()]),
     });
@@ -67,8 +85,12 @@ export class ApplicationFormComponent implements OnInit {
       coverage: [{ value: '', disabled: true }, [Validators.required]]
     })
 
-    this.termsAndConditions = this.formBuilder.group({
+    this.termsAndConditionForm = this.formBuilder.group({
       tnc: [false, [Validators.requiredTrue]],
+    });
+
+    this.agreeWarningForm = this.formBuilder.group({
+      agree: [false, [Validators.requiredTrue]],
     });
 
     let yesterday = new Date();
@@ -83,6 +105,24 @@ export class ApplicationFormComponent implements OnInit {
     this.policyDetailForm.get('planType').setValue(this.insurancePlan.planType);
     this.policyDetailForm.get('coverage').setValue(this.insurancePlan.coverage);
 
+    this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
+    this.premiumDetails.premiumAsPerPlan.forEach(element => {
+      console.log(element);
+      if (element.planType == 'Basic') {
+        this.basicPremiumCalculated = element.premiumCalculated;
+      } else if (element.planType == 'Gold') {
+        this.goldPremiumCalculated = element.premiumCalculated;
+      }
+    });
+
+
+    if (this.insurancePlan.planType == 'Basic') {
+      this.premiumCalculated = this.basicPremiumCalculated;
+    } else if (this.insurancePlan.planType == 'Gold') {
+      this.premiumCalculated = this.goldPremiumCalculated;
+    }
+
+    console.log(this.getControls);
   }
 
   issueInsurancePolicy(): FormGroup {
@@ -90,41 +130,54 @@ export class ApplicationFormComponent implements OnInit {
       birthDtCopy: ["", [Validators.required]],
       birthDt: ["", [Validators.required]],
       firstName: ["", [Validators.required,]],
-      genderCd: ["MALE", [
-        Validators.required,
-      ]],
+      genderCd: ["MALE", [Validators.required]],
       lastName: ["", [Validators.required,]],
       relationCd: ["SELF", [Validators.required]],
       // roleCd: ["", [Validators.required]],
       titleCd: ["MR", [Validators.required]],
-      citizenshipCd: [{ value: "Indian", disabled: true }, [Validators.required]],
-      residenceProof: ["", [Validators.required]],
+      citizenshipCd: [{ value: "IND", disabled: true }, [Validators.required]],
+      // residenceProof: ["", [Validators.required]],
       addressForPickupSame: [false, [Validators.required]],
-      partyAddressDOList: this.formBuilder.group({
-        addressLine1Lang1: ["", [Validators.required]],
-        addressLine2Lang1: ["", [Validators.required]],
-        addressTypeCd: ["PERMANENT", [Validators.required]],
-        areaCd: ["", [Validators.required]],
-        cityCd: ["", [Validators.required]],
-        pinCode: ["", [Validators.required]],
-        stateCd: ["", [Validators.required]],
-        countryCd: ["", [Validators.required]],
-      }),
-      partyContactDOList: this.formBuilder.group({
-        contactNum: ["", [Validators.required]],
-        contactTypeCd: ["MOBILE", [Validators.required]],
-        stdCode: ["+91", [Validators.required]],
-      }),
-      partyEmailDOList: this.formBuilder.group({
-        emailAddress: ["", [Validators.required]],
-        emailTypeCd: ["PERSONAL", [Validators.required]],
-      }),
-      partyIdentityDOList: this.formBuilder.group({
-        identityNum: ["", [Validators.required]],
-        identityTypeCd: ["PAN", [Validators.required]]
-      })
-
+      partyAddressDOList: this.formBuilder.array([this.partyAddressDoList()]),
+      partyContactDOList: this.formBuilder.array([this.partyContactDOList()]),
+      partyEmailDOList: this.formBuilder.array([this.partyEmailDOList()]),
+      partyIdentityDOList: this.formBuilder.array([this.partyIdentityDOList()])
     })
+  }
+
+  partyAddressDoList() {
+    return this.formBuilder.group({
+      addressLine1Lang1: ["", [Validators.required]],
+      addressLine2Lang1: ["", [Validators.required]],
+      addressTypeCd: ["PERMANENT", [Validators.required]],
+      areaCd: ["", [Validators.required]],
+      cityCd: ["", [Validators.required]],
+      pinCode: ["", [Validators.required]],
+      stateCd: ["", [Validators.required]],
+      countryCd: ["", [Validators.required]],
+    });
+  }
+
+  partyContactDOList() {
+    return this.formBuilder.group({
+      contactNum: ["", [Validators.required]],
+      // contactTypeCd: ["MOBILE", [Validators.required]],
+      stdCode: ["+91", [Validators.required]],
+    });
+  }
+
+  partyEmailDOList() {
+    return this.formBuilder.group({
+      emailAddress: ["", [Validators.required]],
+      // emailTypeCd: ["PERSONAL", [Validators.required]],
+    });
+  }
+
+  partyIdentityDOList() {
+    return this.formBuilder.group({
+      identityNum: ["", [Validators.required]],
+      identityTypeCd: ["PAN", [Validators.required]]
+    });
   }
 
   get getControls() {
@@ -132,15 +185,44 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   submitForm() {
-    $('html, body').animate({
-      scrollTop: $("#Primary").offset().top
-    }, 500);
-
-    this.checkValidateForm();
+    ($('#warningModal') as any).modal('show')
+    // this.checkValidateForm();
     console.log(JSON.stringify(this.insuranceForm.value));
 
-    if (this.insuranceForm.valid) {
-      if (true) {
+    let tempArr =
+      (<FormArray>this.insuranceForm.get("insurer")).controls || [];
+
+    tempArr.forEach((form: FormGroup) => {
+      let birthDtVar: { year: number; month: number; day: number } = form.get(
+        "birthDtCopy"
+      ).value;
+
+      let tempBirthDt = "";
+
+      if (birthDtVar.month < 10 && birthDtVar.day < 10) {
+        tempBirthDt = "0" + birthDtVar.day + "/0" + birthDtVar.month + "/" + birthDtVar.year;
+      } else if (birthDtVar.day < 10) {
+        tempBirthDt = "0" + birthDtVar.day + "/" + birthDtVar.month + "/" + birthDtVar.year;
+      } else if (birthDtVar.month < 10) {
+        tempBirthDt = birthDtVar.day + "/0" + birthDtVar.month + "/" + birthDtVar.year;
+      } else {
+        tempBirthDt = birthDtVar.day + "/" + birthDtVar.month + "/" + birthDtVar.year;
+      }
+
+      console.log(tempBirthDt);
+
+
+      form.get("birthDt").setValue(tempBirthDt);
+      form.get("birthDt").updateValueAndValidity();
+    });
+
+    if (!this.insuranceForm.valid) {
+      this.toastr.warning("Some details missing !");
+      this.checkValidateForm();
+    } else {
+      if (!this.termsAndConditionForm.valid) {
+        this.toastr.warning("Please accept our terms and conditions");
+      } else {
         // this.preloaderService.showPreloader(true);
         const fd = {};
 
@@ -160,30 +242,69 @@ export class ApplicationFormComponent implements OnInit {
         let tripStartDate = tripStartDateDay + "/" + tripStartDateMonth + "/" + tripStartDateYear // 10/01/2021
         let tripEndDate = tripEndDateDay + "/" + tripEndDateMonth + "/" + tripEndDateYear // 10/01/2021
 
+        let country = this.insuranceDetails.country;
+        let planType = this.userflowDetails.getInsurancePlanDetails().planType;
+
         // ptdata.forEach((element: {}, index) => {
         //   element["id"] = this.dataSource[index].id;
         // });
         fd["partyDOList"] = ptdata;
         fd["policyCommencementDt"] = tripStartDate;
-        fd["policyMaturityDt"] = tripEndDate,
-          // fd["maxTripPeriod"] = "45",
-          // fd["tripTypeCd"] = "SINGLE"
+        fd["policyMaturityDt"] = tripEndDate;
+        fd["country"] = country;
+        fd["planType"] = planType;
+        // fd["maxTripPeriod"] = "45",
+        // fd["tripTypeCd"] = "SINGLE"
 
-          // this.formData.set("data", JSON.stringify(fd));
+        // this.formData.set("data", JSON.stringify(fd));
 
-          console.log(fd);
+        console.log(fd);
 
+        this.insuranceService.createPolicy(fd).subscribe((res: any) => {
+          if (res.code === "0") {
+            this.createPolicyBookingId = res.data.bookingId;
+            this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
+            console.log(this.premiumDetails.noOfTraveller);
+            
+            if (this.premiumDetails.noOfTraveller !== this.getControls.length) {
+              this.newPremium = res.data.amount;
+              this.oldPremium = this.premiumCalculated;
+              ($('#warningModal') as any).modal('show')
+            } else {
+              this.paymentInitiate(this.createPolicyBookingId);
+            }
+          } else {
+            this.toastr.error(res.message);
+          }
+        });
 
-        this.insuranceService.createPolicy(this.insuranceForm.value).subscribe(res => {
-          console.log(res);
-        })
-
-      } else {
-        this.toastr.warning("Please accept our terms and conditions");
+        this.setResposeArr = [];
       }
+    }
+  }
+
+  paymentInitiate(bookingId: string) {
+    this.preloaderService.showPreloader(true);
+    this.insuranceService.paymentInitiate(bookingId).subscribe((res: any) => {
+      if (res.code == "0") {
+        this.actionUrl = res.actionUrl;
+        this.returnUrl = res.returnUrl;
+        this.proposalNumber = res.proposalNumber;
+  
+        setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+          document.forms["paymentForm"].submit();
+        }, 5000);
+      }
+    });
+  }
+
+  warningModal() {
+    if (!this.agreeWarningForm.valid) {
+      this.toastr.warning("Please agree to the warning and then continue.")
     } else {
-      this.toastr.warning("Some details missing !");
-      this.checkValidateForm();
+      this.paymentInitiate(this.createPolicyBookingId);
+      ($('#warningModal') as any).modal('hide');
     }
   }
 
@@ -195,18 +316,18 @@ export class ApplicationFormComponent implements OnInit {
     ) {
       console.log(index);
       console.log(this.getControls.length);
-      
+
       // let citizenshipCd = this.getControls[index]['controls'].citizenshipCd.value;
       // citizenshipCd == "" || citizenshipCd == null || citizenshipCd == undefined ?
       //   this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = true :
       //   this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = false;
 
-      let residenceProof = this.getControls[index]['controls'].residenceProof.value;
-      residenceProof == "" || residenceProof == null || residenceProof == undefined ?
-        this.getControls[index]['controls'].residenceProof.residenceProofError = true :
-        this.getControls[index]['controls'].residenceProof.residenceProofError = false;
+      // let residenceProof = this.getControls[index]['controls'].residenceProof.value;
+      // residenceProof == "" || residenceProof == null || residenceProof == undefined ?
+      //   this.getControls[index]['controls'].residenceProof.residenceProofError = true :
+      //   this.getControls[index]['controls'].residenceProof.residenceProofError = false;
 
-      let birthDt = this.getControls[index]['controls'].birthDt.value;
+      let birthDt = this.getControls[index]['controls'].birthDtCopy.value;
       birthDt == "" || birthDt == null || birthDt == undefined ?
         this.getControls[index]['controls'].birthDt.birthDtError = true :
         this.getControls[index]['controls'].birthDt.birthDtError = false;
@@ -243,83 +364,83 @@ export class ApplicationFormComponent implements OnInit {
 
 
       // partyAddressDOList
-      let addressLine1Lang1 = this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.value;
+      let addressLine1Lang1 = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.value;
       addressLine1Lang1 == "" || addressLine1Lang1 == null || addressLine1Lang1 == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.addressLine1Lang1Error = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.addressLine1Lang1Error = false;
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.addressLine1Lang1Error = true :
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.addressLine1Lang1Error = false;
 
-      let addressLine2Lang1 = this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.value;
+      let addressLine2Lang1 = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.value;
       addressLine2Lang1 == "" || addressLine2Lang1 == null || addressLine2Lang1 == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.addressLine2Lang1Error = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.addressLine2Lang1Error = false;
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.addressLine2Lang1Error = true :
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.addressLine2Lang1Error = false;
 
-      // let addressTypeCd = this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.value;
+      // let addressTypeCd = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.value;
       // addressTypeCd == "" || addressTypeCd == null || addressTypeCd == undefined ?
-      //   this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.addressTypeCdError = true :
-      //   this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.addressTypeCdError = false;
+      //   this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.addressTypeCdError = true :
+      //   this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.addressTypeCdError = false;
 
-      let areaCd = this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.value;
+      let areaCd = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.value;
       areaCd == "" || areaCd == null || areaCd == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.areaCdError = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.areaCdError = false;
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.areaCdError = true :
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.areaCdError = false;
 
-      let cityCd = this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.value;
+      let cityCd = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.value;
       cityCd == "" || cityCd == null || cityCd == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.cityCdError = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.cityCdError = false;
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.cityCdError = true :
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.cityCdError = false;
 
-      let pinCode = this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.value;
+      let pinCode = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.value;
       pinCode == "" || pinCode == null || pinCode == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.pinCodeError = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.pinCodeError = false;
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.pinCodeError = true :
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.pinCodeError = false;
 
-      let stateCd = this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.value;
+      let stateCd = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.value;
       stateCd == "" || stateCd == null || stateCd == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.stateCdError = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.stateCdError = false;
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.stateCdError = true :
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.stateCdError = false;
 
-      let countryCd = this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.value;
+      let countryCd = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.value;
       countryCd == "" || countryCd == null || countryCd == undefined ?
-        this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.countryCdError = true :
-        this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.countryCdError = false;
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.countryCdError = true :
+        this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.countryCdError = false;
 
       // partyContactDOList
-      let contactNum = this.getControls[index]['controls'].partyContactDOList.controls.contactNum.value;
+      let contactNum = this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactNum.value;
       contactNum == "" || contactNum == null || contactNum == undefined ?
-        this.getControls[index]['controls'].partyContactDOList.controls.contactNum.contactNumError = true :
-        this.getControls[index]['controls'].partyContactDOList.controls.contactNum.contactNumError = false;
+        this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactNum.contactNumError = true :
+        this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactNum.contactNumError = false;
 
-      let contactTypeCd = this.getControls[index]['controls'].partyContactDOList.controls.contactTypeCd.value;
-      contactTypeCd == "" || contactTypeCd == null || contactTypeCd == undefined ?
-        this.getControls[index]['controls'].partyContactDOList.controls.contactTypeCd.contactTypeCdError = true :
-        this.getControls[index]['controls'].partyContactDOList.controls.contactTypeCd.contactTypeCdError = false;
+      // let contactTypeCd = this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactTypeCd.value;
+      // contactTypeCd == "" || contactTypeCd == null || contactTypeCd == undefined ?
+      //   this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactTypeCd.contactTypeCdError = true :
+      //   this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactTypeCd.contactTypeCdError = false;
 
-      let stdCode = this.getControls[index]['controls'].partyContactDOList.controls.stdCode.value;
+      let stdCode = this.getControls[index]['controls'].partyContactDOList.controls[0].controls.stdCode.value;
       stdCode == "" || stdCode == null || stdCode == undefined ?
-        this.getControls[index]['controls'].partyContactDOList.controls.stdCode.stdCodeError = true :
-        this.getControls[index]['controls'].partyContactDOList.controls.stdCode.stdCodeError = false;
+        this.getControls[index]['controls'].partyContactDOList.controls[0].controls.stdCode.stdCodeError = true :
+        this.getControls[index]['controls'].partyContactDOList.controls[0].controls.stdCode.stdCodeError = false;
 
       // partyEmailDOList
-      let emailAddress = this.getControls[index]['controls'].partyEmailDOList.controls.emailAddress.value;
+      let emailAddress = this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailAddress.value;
       emailAddress == "" || emailAddress == null || emailAddress == undefined ?
-        this.getControls[index]['controls'].partyEmailDOList.controls.emailAddress.emailAddressError = true :
-        this.getControls[index]['controls'].partyEmailDOList.controls.emailAddress.emailAddressError = false;
+        this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailAddress.emailAddressError = true :
+        this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailAddress.emailAddressError = false;
 
-      let emailTypeCd = this.getControls[index]['controls'].partyEmailDOList.controls.emailTypeCd.value;
-      emailTypeCd == "" || emailTypeCd == null || emailTypeCd == undefined ?
-        this.getControls[index]['controls'].partyEmailDOList.controls.emailTypeCd.emailTypeCdError = true :
-        this.getControls[index]['controls'].partyEmailDOList.controls.emailTypeCd.emailTypeCdError = false;
+      // let emailTypeCd = this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailTypeCd.value;
+      // emailTypeCd == "" || emailTypeCd == null || emailTypeCd == undefined ?
+      //   this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailTypeCd.emailTypeCdError = true :
+      //   this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailTypeCd.emailTypeCdError = false;
 
       // partyIdentityDOList
-      // let identityTypeCd = this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.value;
+      // let identityTypeCd = this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityTypeCd.value;
       // identityTypeCd == "" || identityTypeCd == null || identityTypeCd == undefined ?
-      //   this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.identityTypeCdError = true :
-      //   this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.identityTypeCdError = false;
+      //   this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityTypeCd.identityTypeCdError = true :
+      //   this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityTypeCd.identityTypeCdError = false;
 
-      let identityNum = this.getControls[index]['controls'].partyIdentityDOList.controls.identityNum.value;
+      let identityNum = this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityNum.value;
       identityNum == "" || identityNum == null || identityNum == undefined ?
-        this.getControls[index]['controls'].partyIdentityDOList.controls.identityNum.identityNumError = true :
-        this.getControls[index]['controls'].partyIdentityDOList.controls.identityNum.identityNumError = false;
+        this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityNum.identityNumError = true :
+        this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityNum.identityNumError = false;
     }
   }
 
@@ -417,24 +538,67 @@ export class ApplicationFormComponent implements OnInit {
     let planType = this.policyDetailForm.get('planType').value;
 
     if (planType === "Basic") {
+      this.premiumCalculated = this.basicPremiumCalculated;
       this.policyDetailForm.get('coverage').setValue("US $ 50,000");
       this.userflowDetails.setInsurancePlan("coverage", "US $ 50,000");
     } else if (planType === "Gold") {
+      this.premiumCalculated = this.goldPremiumCalculated;
       this.policyDetailForm.get('coverage').setValue("US $ 100,000");
       this.userflowDetails.setInsurancePlan("coverage", "US $ 100,000");
     }
     this.userflowDetails.setInsurancePlan("planType", planType);
-    
-    this.insuranceService.permiumCalculated.subscribe((res: Array<{planType: string, premiumCalculated: number, gst: number}>) => {
-      res.forEach(element => {
-        console.log(element);
-        if (element.planType === 'Basic') {
-          // this.basicPremiumCalculated = element.premiumCalculated;
-        } else if (element.planType === 'Gold') {
-          // this.goldPremiumCalculated = element.premiumCalculated;
-        }
-      });
-      
-    })
   }
+
+  // setRespose() {
+  //   for (
+  //     let index = 0;
+  //     index < this.getControls.length;
+  //     index++
+  //   ) {
+  //     this.setResposeArr.push(
+  //       {
+  //         birthDt: this.getControls[index]['controls'].birthDt.value,
+  //         firstName: this.getControls[index]['controls'].firstName.value,
+  //         genderCd: this.getControls[index]['controls'].genderCd.value,
+  //         lastName: this.getControls[index]['controls'].lastName.value,
+  //         citizenshipCd: this.getControls[index]['controls'].citizenshipCd.value,
+  //         relationCd: this.getControls[index]['controls'].relationCd.value,
+  //         titleCd: this.getControls[index]['controls'].titleCd.value,
+  //         partyAddressDOList: [
+  //           {
+  //             addressLine1Lang1: this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.value,
+  //             addressLine2Lang1: this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.value,
+  //             addressTypeCd: this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.value,
+  //             areaCd: this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.value,
+  //             cityCd: this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.value,
+  //             pinCode: this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.value,
+  //             stateCd: this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.value,
+  //             countryCd: this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.value
+  //           }
+  //         ],
+  //         partyContactDOList: [
+  //           {
+  //             contactNum: this.getControls[index]['controls'].partyContactDOList.controls.contactNum.value,
+  //             stdCode: this.getControls[index]['controls'].partyContactDOList.controls.stdCode.value
+  //           }
+  //         ],
+  //         partyEmailDOList: [
+  //           {
+  //             emailAddress: this.getControls[index]['controls'].partyEmailDOList.controls.emailAddress.value,
+  //           }
+  //         ],
+  //         partyIdentityDOList: [
+  //           {
+  //             identityNum: this.getControls[index]['controls'].partyIdentityDOList.controls.identityNum.value,
+  //             identityTypeCd: this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.value,
+  //           }
+  //         ]
+  //       }
+  //     );
+
+  //   }
+
+  //   console.log(this.setResposeArr);
+  //   return this.setResposeArr;
+  // }
 }

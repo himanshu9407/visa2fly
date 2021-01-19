@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: "plans", component: PremiumPlansComponent },
     ]
   },
-  { path: "application-form", component: ApplicationFormComponent, canActivate: [AuthenticationGuard] },
+  { path: "application-form", component: ApplicationFormComponent },
   { path: "application-details", component: ApplicationDetailsComponent, canActivate: [AuthenticationGuard] },
   { path: "response", component: InsuranceBookingStatusComponent },
 ]

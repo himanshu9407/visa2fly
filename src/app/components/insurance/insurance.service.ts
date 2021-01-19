@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
@@ -29,5 +29,14 @@ export class InsuranceService {
     const base_url = this.userFlow.getBaseURL();
 
     return this.http.post(base_url + "insurance/getPremium", reqData, { headers: headers });
+  }
+
+  paymentInitiate(bookingId: string) {
+    let AUTH_TOKEN = this.loginService.getAuthToken();
+    let headers = new HttpHeaders({ 'token': AUTH_TOKEN, 'bookingId':  bookingId });
+    let httpParams = new HttpParams().set("bookingId", bookingId);
+    const base_url = this.userFlow.getBaseURL();
+
+    return this.http.post(base_url + "insurance/payment/initiate", '', { headers: headers });
   }
 }
