@@ -128,7 +128,7 @@ export class ApplicationFormComponent implements OnInit {
   issueInsurancePolicy(): FormGroup {
     return this.formBuilder.group({
       birthDtCopy: ["", [Validators.required]],
-      birthDt: ["", [Validators.required]],
+      birthDt: ["", [Validators.nullValidator]],
       firstName: ["", [Validators.required,]],
       genderCd: ["MALE", [Validators.required]],
       lastName: ["", [Validators.required,]],
@@ -184,7 +184,12 @@ export class ApplicationFormComponent implements OnInit {
     return (this.insuranceForm.get('insurer') as FormArray).controls;
   }
 
+  isLetter(str) {
+    return str.length === 1 && str.match(/[a-z]/i);
+  }
+
   submitForm() {
+
     let tempArr =
       (<FormArray>this.insuranceForm.get("insurer")).controls || [];
 
@@ -213,7 +218,13 @@ export class ApplicationFormComponent implements OnInit {
 
       form.get("citizenshipCd").setValue('IND');
 
-      console.log(form.get("citizenshipCd").value);
+      let identityNum = form.controls.partyIdentityDOList["controls"][0].controls.identityNum.value.toUpperCase();
+      // form.controls.partyIdentityDOList["controls"][0].controls.get("identityNum").setValue(identityNum);
+
+      form.controls.partyIdentityDOList["controls"][0].controls.identityNum.setValue(identityNum);
+
+      console.log(form.controls.partyIdentityDOList["controls"][0].controls.identityNum.value);
+
     });
 
     if (!this.insuranceForm.valid) {
@@ -227,6 +238,55 @@ export class ApplicationFormComponent implements OnInit {
         const fd = {};
 
         let tempArr = this.getControls || [];
+
+        tempArr.forEach((form: FormGroup, index) => {
+          let eliminateEnter1 = form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").value.replace(/[\r\n]+/g, " ");
+          let eliminateEnter2 = form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").value.replace(/[\r\n]+/g, " ");
+
+          form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").setValue(eliminateEnter1);
+          form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").updateValueAndValidity();
+
+          form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").setValue(eliminateEnter2);
+          form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").updateValueAndValidity();
+
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.setValidators(null);
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.setValidators(null);
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.setValidators(null);
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.setValidators(null);
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.setValidators(null);
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.setValidators(null);
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.setValidators(null);
+          // this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.setValidators(null);
+
+          // let primaryAddress = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.addressLine1Lang1.value.replace(/[\r\n]+/g, " ");
+
+          let addressLine1Lang1 = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.addressLine1Lang1.value.replace(/[\r\n]+/g, " ");
+          let addressLine2Lang1 = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.addressLine2Lang1.value.replace(/[\r\n]+/g, " ");
+          let addressTypeCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.addressTypeCd.value;
+          let areaCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.areaCd.value;
+          let cityCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.cityCd.value;
+          let pinCode = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.pinCode.value;
+          let stateCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.stateCd.value;
+          let countryCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.countryCd.value;
+
+          let same = form.get("addressForPickupSame").value;
+
+          if (same) {
+            form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").setValue(addressLine1Lang1);
+            form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").setValue(addressLine2Lang1);
+            form.controls.partyAddressDOList["controls"][0].get("addressTypeCd").setValue(addressTypeCd);
+            form.controls.partyAddressDOList["controls"][0].get("areaCd").setValue(areaCd);
+            form.controls.partyAddressDOList["controls"][0].get("cityCd").setValue(cityCd);
+            form.controls.partyAddressDOList["controls"][0].get("pinCode").setValue(pinCode);
+            form.controls.partyAddressDOList["controls"][0].get("stateCd").setValue(stateCd);
+            form.controls.partyAddressDOList["controls"][0].get("countryCd").setValue(countryCd);
+            // form.get("address").setValue(primaryAddress);
+            // form.get("state").setValue(primaryState);
+            // form.get("city").setValue(primaryCity);
+            // form.get("pinCode").setValue(primaryPinCode);
+            // form.updateValueAndValidity();
+          }
+        });
 
         let ptdata: any = this.insuranceForm.get("insurer").value || [];
         ptdata["id"] = this.dataSource[0].id;
@@ -266,9 +326,9 @@ export class ApplicationFormComponent implements OnInit {
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
             console.log(this.premiumDetails.noOfTraveller);
             console.log(this.getControls.length);
-            
-            
-            if (this.premiumDetails.noOfTraveller !== this.getControls.length) {
+
+
+            if (this.newPremium !== this.oldPremium) {
               this.newPremium = res.data.amount;
               this.oldPremium = this.premiumCalculated;
               ($('#warningModal') as any).modal('show')
@@ -292,7 +352,7 @@ export class ApplicationFormComponent implements OnInit {
         this.actionUrl = res.actionUrl;
         this.returnUrl = res.returnUrl;
         this.proposalNumber = res.proposalNumber;
-  
+
         setTimeout(() => {
           this.preloaderService.showPreloader(false);
           document.forms["paymentForm"].submit();
@@ -302,8 +362,8 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   warningModal() {
-      this.paymentInitiate(this.createPolicyBookingId);
-      ($('#warningModal') as any).modal('hide');
+    this.paymentInitiate(this.createPolicyBookingId);
+    ($('#warningModal') as any).modal('hide');
   }
 
   checkValidateForm() {
@@ -327,8 +387,8 @@ export class ApplicationFormComponent implements OnInit {
 
       let birthDt = this.getControls[index]['controls'].birthDtCopy.value;
       birthDt == "" || birthDt == null || birthDt == undefined ?
-        this.getControls[index]['controls'].birthDt.birthDtError = true :
-        this.getControls[index]['controls'].birthDt.birthDtError = false;
+        this.getControls[index]['controls'].birthDtCopy.birthDtError = true :
+        this.getControls[index]['controls'].birthDtCopy.birthDtError = false;
 
       let firstName = this.getControls[index]['controls'].firstName.value;
       firstName == "" || firstName == null || firstName == undefined ?
@@ -445,7 +505,6 @@ export class ApplicationFormComponent implements OnInit {
   addInsurer() {
     this.checkValidateForm();
     if (!this.insuranceForm.valid) {
-
       this.toastr.warning("Please fill in existing traveller details first");
     } else {
       if (this.count <= 5) {
@@ -460,6 +519,7 @@ export class ApplicationFormComponent implements OnInit {
 
         this.insurer = this.insuranceForm.get("insurer") as FormArray;
         this.insurer.push(this.issueInsurancePolicy());
+        // ($('#toogle' + (this.count - 1)) as any).collapse();
 
       } else {
         this.toastr.error("Maximum Travellers Limit of 10 reached !");
@@ -467,63 +527,62 @@ export class ApplicationFormComponent implements OnInit {
     }
   }
 
-  onRemoveInsurer(index) {
+  onRemoveInsurer(index: number) {
     let temp = this.insuranceForm.get("insurer") as FormArray;
     temp.removeAt(index);
     console.log(temp.length);
-
-    console.log(this.dataSource.splice(index, 1));
-
+    this.dataSource.splice(index, 1);
     this.count = this.count - 1;
     this.selectedTravellerForm = this.count;
-    console.log(this.selectedTravellerForm);
 
+      ($('#toogle' + temp.length) as any).collapse();
   }
 
   setAddressSame(index: number) {
     let same = this.getControls[index]['controls'].addressForPickupSame.value;
-
     if (!same) {
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.setValidators(null);
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.setValidators(null);
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.setValidators(null);
-      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.setValidators(null);
-      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.setValidators(null);
-      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.setValidators(null);
-      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.setValidators(null);
-      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.setValidators(null);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.setValidators(null);
 
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.updateValueAndValidity();
 
       this.getControls[index].updateValueAndValidity();
     } else {
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.setValidators(Validators.required);
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.setValidators(Validators.required);
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.setValidators(Validators.required);
-      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.setValidators(Validators.required);
-      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.setValidators(Validators.required);
-      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.setValidators(Validators.required);
-      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.setValidators(Validators.required);
-      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.setValidators(Validators.required);
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.setValidators(Validators.required);
 
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.updateValueAndValidity();
-      this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.cityCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.pinCode.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.updateValueAndValidity();
+      this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.updateValueAndValidity();
 
       this.getControls[index].updateValueAndValidity();
     }
+
+    console.log(this.getControls[index]['controls'].partyAddressDOList.controls[0].controls)
   }
 
   scrollToInvalid(id: string) {

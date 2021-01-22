@@ -65,19 +65,20 @@
             <div
               class="card-header main__card-heading"
               id="{{ dataSource[i].id }}"
+              data-toggle="collapse"
+              attr.aria-controls="{{ dataSource[i].dataToggle }}"
+              attr.data-target="{{ dataSource[i].dataToggleHash }}"
+              attr.aria-expanded="{{
+                selectedTravellerForm === i || getControls[i].invalid
+                  ? 'true'
+                  : 'false'
+              }}"
             >
               <h5 class="mb-0">
                 <button
                   class="btn btn-link p-0"
                   type="button"
-                  data-toggle="collapse"
-                  attr.aria-controls="{{ dataSource[i].dataToggle }}"
-                  attr.data-target="{{ dataSource[i].dataToggleHash }}"
-                  attr.aria-expanded="{{
-                    selectedTravellerForm === i || getControls[i].invalid
-                      ? 'true'
-                      : 'false'
-                  }}"
+                 
                 >
                   {{ dataSource[i].id.substring(0, 8) }}
                   <span *ngIf="!first">{{ i + 1 }}</span>
@@ -334,12 +335,9 @@
                       </div>
                       <div
                         *ngIf="
-                          (getControls[i]['controls'].birthDt.invalid &&
-                            getControls[i]['controls'].birthDt.dirty) ||
-                          getControls[i]['controls'].birthDt.errors?.valueErr ||
-                          (getControls[i]['controls'].birthDtCopy.pristine &&
-                            getControls[i]['controls'].birthDt.birthDtError)
-                        "
+                        getControls[i]['controls'].birthDt.errors?.valueErr ||
+                        (getControls[i]['controls'].birthDtCopy.birthDtError &&
+                        getControls[i]['controls'].birthDtCopy.pristine)"
                         class="invalid-feedback"
                         style="display: block"
                       >
@@ -651,73 +649,6 @@
                       >
                         <div class="insurance-input_box">
                           <label
-                            for="identityNumber{{ i }}"
-                            class="insurance-label"
-                            >Identity Number<span class="astrisk"
-                              >*</span
-                            ></label
-                          >
-                          <input
-                            type="text"
-                            id="identityNumber{{ i }}"
-                            formControlName="identityNum"
-                            autocomplete="new-identityNum"
-                            [pattern]="
-                              getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityTypeCd.value ===
-                              'PAN'
-                                ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
-                                : '^[A-Za-z]{1}[0-9]{7}$'
-                            "
-                            #identityNum
-                            (input)="
-                              identityNum.value = $event.target.value.toUpperCase()
-                            "
-                            [ngClass]="{
-                              'is-invalid':
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls[0].controls.identityNum.invalid &&
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls[0].controls.identityNum.dirty,
-                              'is-valid':
-                                !(
-                                  getControls[i]['controls'].partyIdentityDOList
-                                    .controls[0].controls.identityNum.invalid &&
-                                  getControls[i]['controls'].partyIdentityDOList
-                                    .controls[0].controls.identityNum.dirty
-                                ) &&
-                                !getControls[i]['controls'].partyIdentityDOList
-                                  .controls[0].controls.identityNum.pristine
-                            }"
-                            class="form-control-sm form-control insurance-input"
-                          />
-                          <div
-                            *ngIf="
-                              (getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum.invalid &&
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls[0].controls.identityNum.dirty) ||
-                              getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum.errors
-                                ?.valueErr ||
-                              (getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum.pristine &&
-                                getControls[i]['controls'].partyIdentityDOList
-                                  .controls[0].controls.identityNum
-                                  .identityNumError)
-                            "
-                            class="invalid-feedback"
-                            style="display: block"
-                          >
-                            Enter a valid identity number*
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
-                      >
-                        <div class="insurance-input_box">
-                          <label
                             for="identityType{{ i }}"
                             class="insurance-label"
                             >Identity Type<span class="astrisk">*</span></label
@@ -734,6 +665,73 @@
                           </select>
                         </div>
                       </div>
+                      <div
+                      class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                    >
+                      <div class="insurance-input_box">
+                        <label
+                          for="identityNumber{{ i }}"
+                          class="insurance-label"
+                          >Identity Number<span class="astrisk"
+                            >*</span
+                          ></label
+                        >
+                        <input
+                          type="text"
+                          id="identityNumber{{ i }}"
+                          formControlName="identityNum"
+                          autocomplete="new-identityNum"
+                          [pattern]="
+                            getControls[i]['controls'].partyIdentityDOList
+                              .controls[0].controls.identityTypeCd.value ===
+                            'PAN'
+                              ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                              : '^[A-Za-z]{1}[0-9]{7}$'
+                          "
+                          #identityNum
+                          (input)="
+                            identityNum.value = $event.target.value.toUpperCase()
+                          "
+                          [ngClass]="{
+                            'is-invalid':
+                              getControls[i]['controls'].partyIdentityDOList
+                                .controls[0].controls.identityNum.invalid &&
+                              getControls[i]['controls'].partyIdentityDOList
+                                .controls[0].controls.identityNum.dirty,
+                            'is-valid':
+                              !(
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls[0].controls.identityNum.invalid &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls[0].controls.identityNum.dirty
+                              ) &&
+                              !getControls[i]['controls'].partyIdentityDOList
+                                .controls[0].controls.identityNum.pristine
+                          }"
+                          class="form-control-sm form-control insurance-input"
+                        />
+                        <div
+                          *ngIf="
+                            (getControls[i]['controls'].partyIdentityDOList
+                              .controls[0].controls.identityNum.invalid &&
+                              getControls[i]['controls'].partyIdentityDOList
+                                .controls[0].controls.identityNum.dirty) ||
+                            getControls[i]['controls'].partyIdentityDOList
+                              .controls[0].controls.identityNum.errors
+                              ?.valueErr ||
+                            (getControls[i]['controls'].partyIdentityDOList
+                              .controls[0].controls.identityNum.pristine &&
+                              getControls[i]['controls'].partyIdentityDOList
+                                .controls[0].controls.identityNum
+                                .identityNumError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid identity number*
+                        </div>
+                      </div>
+                    </div>
                     </div>
                   </div>
                 </div>
