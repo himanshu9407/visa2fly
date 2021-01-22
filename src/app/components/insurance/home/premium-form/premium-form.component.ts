@@ -9,6 +9,7 @@ import { LoginService } from 'src/app/components/login-signup/login/login.servic
 import { PreloaderService } from 'src/app/shared/preloader.service';
 import { RouterHistory } from 'src/app/shared/router-history.service';
 import { catchError } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-premium-form',
@@ -31,11 +32,13 @@ export class PremiumFormComponent implements OnInit {
   activeRoute: string;
   selectedCountry: string;
 
+  title: string = "Visa2fly | Insurance";
 
   constructor(
     private formBuilder: FormBuilder,
     private insuranceService: InsuranceService,
     private userflowDetails: UserFlowDetails,
+    private titleService: Title,
     private router: Router,
     private userFlow: UserFlowDetails,
     private toastr: ToastrService,
@@ -71,6 +74,8 @@ export class PremiumFormComponent implements OnInit {
 
     this.today = new Date();
     this.enableReviewPremiumForm();
+
+    this.titleService.setTitle(this.title);
   }
 
   keyword = 'name';

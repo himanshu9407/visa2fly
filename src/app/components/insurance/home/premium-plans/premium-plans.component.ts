@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
@@ -23,11 +24,14 @@ export class PremiumPlansComponent implements OnInit {
   loadingSkeleton: boolean = false;
   numbers: number[];
 
+  title: string = "Visa2fly | Insurance Plans";
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private insuranceService: InsuranceService,
     private userflowDetails: UserFlowDetails,
+    private titleService: Title,
     private toastr: ToastrService
   ) { }
 
@@ -82,6 +86,8 @@ export class PremiumPlansComponent implements OnInit {
     this.insuranceService.loadingSkeleton.subscribe((res: boolean) => {
       this.loadingSkeleton = res;
     });
+
+    this.titleService.setTitle(this.title);
   }
 
   onChangePlan(event) {

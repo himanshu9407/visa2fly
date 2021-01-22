@@ -4,6 +4,7 @@ import { PreloaderService } from './../../../shared/preloader.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-application-form',
@@ -50,11 +51,13 @@ export class ApplicationFormComponent implements OnInit {
   newPremium: number;
   oldPremium: number;
   createPolicyBookingId: string;
-  agreeWarningForm: FormGroup;
+
+  title: string = "Visa2fly | Insurance Application Form";
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private preloaderService: PreloaderService,
+    private titleService: Title,
     private insuranceService: InsuranceService, private userflowDetails: UserFlowDetails) {
 
     this.insuranceDetails = this.userflowDetails.getInsuranceDetails();
@@ -89,10 +92,6 @@ export class ApplicationFormComponent implements OnInit {
       tnc: [false, [Validators.requiredTrue]],
     });
 
-    this.agreeWarningForm = this.formBuilder.group({
-      agree: [false, [Validators.requiredTrue]],
-    });
-
     let yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
 
@@ -123,6 +122,7 @@ export class ApplicationFormComponent implements OnInit {
     }
 
     console.log(this.getControls);
+    this.titleService.setTitle(this.title);
   }
 
   issueInsurancePolicy(): FormGroup {
@@ -135,7 +135,7 @@ export class ApplicationFormComponent implements OnInit {
       relationCd: ["SELF", [Validators.required]],
       // roleCd: ["", [Validators.required]],
       titleCd: ["MR", [Validators.required]],
-      citizenshipCd: [{ value: "IND", disabled: true }, [Validators.required]],
+      citizenshipCd: [{ value: "INDIAN", disabled: true }, [Validators.required]],
       // residenceProof: ["", [Validators.required]],
       addressForPickupSame: [false, [Validators.required]],
       partyAddressDOList: this.formBuilder.array([this.partyAddressDoList()]),
@@ -153,7 +153,7 @@ export class ApplicationFormComponent implements OnInit {
       areaCd: ["", [Validators.required]],
       cityCd: ["", [Validators.required]],
       pinCode: ["", [Validators.required]],
-      stateCd: ["", [Validators.required]],
+      stateCd: ["Delhi", [Validators.required]],
       countryCd: ["", [Validators.required]],
     });
   }
@@ -185,10 +185,6 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   submitForm() {
-    ($('#warningModal') as any).modal('show')
-    // this.checkValidateForm();
-    console.log(JSON.stringify(this.insuranceForm.value));
-
     let tempArr =
       (<FormArray>this.insuranceForm.get("insurer")).controls || [];
 
@@ -214,6 +210,10 @@ export class ApplicationFormComponent implements OnInit {
 
       form.get("birthDt").setValue(tempBirthDt);
       form.get("birthDt").updateValueAndValidity();
+
+      form.get("citizenshipCd").setValue('IND');
+
+      console.log(form.get("citizenshipCd").value);
     });
 
     if (!this.insuranceForm.valid) {
@@ -265,6 +265,8 @@ export class ApplicationFormComponent implements OnInit {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
             console.log(this.premiumDetails.noOfTraveller);
+            console.log(this.getControls.length);
+            
             
             if (this.premiumDetails.noOfTraveller !== this.getControls.length) {
               this.newPremium = res.data.amount;
@@ -300,12 +302,8 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   warningModal() {
-    if (!this.agreeWarningForm.valid) {
-      this.toastr.warning("Please agree to the warning and then continue.")
-    } else {
       this.paymentInitiate(this.createPolicyBookingId);
       ($('#warningModal') as any).modal('hide');
-    }
   }
 
   checkValidateForm() {
