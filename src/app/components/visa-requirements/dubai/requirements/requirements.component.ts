@@ -23,16 +23,16 @@ export class RequirementsComponent implements OnInit {
 
   @ViewChild("t") t;
 
-  @Input() selectedBusiness: number;
-  @Input() selectedTransit: number;
-  @Input() selectedMandatory: number;
+  selectedBusiness: number = 1;
+  selectedTransit: number = 1;
+  selectedMandatory: number = 1;
 
-  @Input() selectedMobileMandatory: number;
-  @Input() selectedMobileBusiness: number;
-  @Input() selectedMobileTransit: number;
+  selectedMobileMandatory: number = 1;
+  selectedMobileBusiness: number = 1;
+  selectedMobileTransit: number = 1;
 
-  @Input() selectedVisaType: string;
-  @Input() selectedPurpose: Subject<any>;
+  selectedVisaType: string;
+  selectedPurpose: Subject<any>;
 
   @Output() changedPurpose = new EventEmitter();
   showMandatoryFirst: boolean = true;
@@ -79,7 +79,6 @@ export class RequirementsComponent implements OnInit {
       $("#" + id).addClass("showDiv");
     }
   }
-
 
   setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;

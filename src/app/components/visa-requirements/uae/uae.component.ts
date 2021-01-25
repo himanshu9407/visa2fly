@@ -261,8 +261,10 @@ export class UAEComponent implements OnInit {
     );
   }
 
+  
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
+    
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
@@ -285,36 +287,4 @@ export class UAEComponent implements OnInit {
     );
   }
 
-  navigateTo(purpose: any) {
-    let purposeString: string = purpose.nextId;
-    let purposeUrl =
-      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-    this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-    if (purposeString == "Tourist") {
-      this.MyQuotation1 = this.touristArr;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.selectedVisaType = "Tourist";
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
-    } else if (purposeString == "Business") {
-      this.MyQuotation1 = this.businessArr;
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.selectedVisaType = "Business";
-      this.selectedBusiness = 1;
-      this.selectedMobileBusiness = 1;
-    } else {
-      this.MyQuotation1 = this.transitArr;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.selectedVisaType = "Transit";
-      this.selectedTransit = 1;
-      this.selectedMobileTransit = 1;
-    }
-
-    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
-
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imageCatogoryTemp)
-    );
-  }
 }
