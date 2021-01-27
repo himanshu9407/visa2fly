@@ -65,13 +65,13 @@ export class ApplicationFormComponent implements OnInit {
     private insuranceService: InsuranceService, private userflowDetails: UserFlowDetails) {
 
     this.insuranceDetails = this.userflowDetails.getInsuranceDetails();
-    console.log(this.insuranceDetails);
+    // console.log(this.insuranceDetails);
     // console.log(this.premiumFormDetail);
 
     this.insurancePlan = this.userflowDetails.getInsurancePlanDetails();
 
     this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-    console.log(this.premiumDetails.noOfTraveller);
+    // console.log(this.premiumDetails.noOfTraveller);
 
     // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
     // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
@@ -112,7 +112,7 @@ export class ApplicationFormComponent implements OnInit {
       day: yesterday.getDate(),
     };
 
-    console.log(this.maxDateDobForProposal);
+    // console.log(this.maxDateDobForProposal);
 
 
     this.policyDetailForm.get('planType').setValue(this.insurancePlan.planType);
@@ -120,7 +120,7 @@ export class ApplicationFormComponent implements OnInit {
 
     this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
     this.premiumDetails.premiumAsPerPlan.forEach(element => {
-      console.log(element);
+      // console.log(element);
       if (element.planType == 'Basic') {
         this.basicPremiumCalculated = element.premiumCalculated;
       } else if (element.planType == 'Gold') {
@@ -128,18 +128,31 @@ export class ApplicationFormComponent implements OnInit {
       }
     });
 
-
     if (this.insurancePlan.planType == 'Basic') {
       this.premiumCalculated = this.basicPremiumCalculated;
     } else if (this.insurancePlan.planType == 'Gold') {
       this.premiumCalculated = this.goldPremiumCalculated;
     }
 
-    console.log(this.insuranceForm);
+    // console.log(this.insuranceForm);
     this.titleService.setTitle(this.title);
 
-    // console.log(this.relationOptionArr.filter(function(e) { return e !== 'SELF' }));
+    // $('#Self').on('click', function (e) {
+    //   // if (this.insuranceForm.controls.proposer.get('ensureYourSelf').value) {
+    //     e.stopPropagation();
+    //   // }
+    // });
 
+  //   $('#toggle1').on('shown.bs.collapse', function () {
+  //     $('[data-toggle=collapse]').prop('disabled',true);
+  // });
+
+    // $("[data-toggle='collapse'] [data-toggle='modal']").click(function(event) {
+  //     event.stopPropagation();
+  //     var thisModal = $(this).attr('data-target');
+  // });
+
+      // console.log("ffjj")
   }
 
   issueInsurancePolicy(): FormGroup {
@@ -190,7 +203,7 @@ export class ApplicationFormComponent implements OnInit {
       cityCd: [""],
       pinCode: [""],
       stateCd: ["Delhi"],
-      countryCd: [{value: "India", disabled: true}],
+      countryCd: [{ value: "India", disabled: true }],
     });
   }
 
@@ -203,7 +216,7 @@ export class ApplicationFormComponent implements OnInit {
       cityCd: ["", [Validators.required]],
       pinCode: ["", [Validators.required]],
       stateCd: ["Delhi", [Validators.required]],
-      countryCd: [{value: "India", disabled: true}],
+      countryCd: [{ value: "India", disabled: true }],
     });
   }
 
@@ -238,9 +251,9 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.insuranceForm);
-    console.log(this.insuranceForm.get("insurer").value)
-    console.log(this.insuranceForm.get("proposer").value)
+    // console.log(this.insuranceForm);
+    // console.log(this.insuranceForm.get("insurer").value)
+    // console.log(this.insuranceForm.get("proposer").value)
 
     if (!this.insuranceForm.valid) {
       this.toastr.warning("Some details missing !");
@@ -266,11 +279,12 @@ export class ApplicationFormComponent implements OnInit {
           tempBirthDt = birthDtVar.day + "/" + birthDtVar.month + "/" + birthDtVar.year;
         }
 
-        console.log(tempBirthDt);
+        // console.log(tempBirthDt);
         this.insuranceForm.controls.proposer['controls'].birthDt.setValue(tempBirthDt);
         this.insuranceForm.controls.proposer['controls'].birthDt.updateValueAndValidity();
 
         this.insuranceForm.controls.proposer['controls'].citizenshipCd.setValue('IND');
+        this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('countryCd').setValue('India');
 
         let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
         if (same) {
@@ -327,8 +341,6 @@ export class ApplicationFormComponent implements OnInit {
           this.getControls[0]['controls'].partyAddressDOList['controls'][0].get("countryCd").setValue(countryCd);
         }
 
-
-
         const fd = {};
         let tempArr = this.getControls || [];
         tempArr.forEach((form: FormGroup, index) => {
@@ -350,7 +362,6 @@ export class ApplicationFormComponent implements OnInit {
           let cityCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.cityCd.value;
           let pinCode = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.pinCode.value;
           let stateCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.stateCd.value;
-          let countryCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.countryCd.value;
 
           let same = form.get("addressForPickupSame").value;
 
@@ -362,7 +373,9 @@ export class ApplicationFormComponent implements OnInit {
             form.controls.partyAddressDOList["controls"][0].get("cityCd").setValue(cityCd);
             form.controls.partyAddressDOList["controls"][0].get("pinCode").setValue(pinCode);
             form.controls.partyAddressDOList["controls"][0].get("stateCd").setValue(stateCd);
-            form.controls.partyAddressDOList["controls"][0].get("countryCd").setValue(countryCd);
+            form.controls.partyAddressDOList["controls"][0].get("countryCd").setValue("India");
+          } else {
+            form.controls.partyAddressDOList["controls"][0].get("countryCd").setValue("India");
           }
 
           let birthDtVar: { year: number; month: number; day: number } = form.get(
@@ -381,7 +394,7 @@ export class ApplicationFormComponent implements OnInit {
             tempBirthDt = birthDtVar.day + "/" + birthDtVar.month + "/" + birthDtVar.year;
           }
 
-          console.log(tempBirthDt);
+          // console.log(tempBirthDt);
           form.get("birthDt").setValue(tempBirthDt);
           form.get("birthDt").updateValueAndValidity();
 
@@ -389,7 +402,7 @@ export class ApplicationFormComponent implements OnInit {
 
           form.controls.partyIdentityDOList["controls"][0].controls.identityNum.setValue(identityNum);
 
-          console.log(form.controls.partyIdentityDOList["controls"][0].controls.identityNum.value);
+          // console.log(form.controls.partyIdentityDOList["controls"][0].controls.identityNum.value);
         });
 
         let ptdata: any = this.insuranceForm.get("insurer").value || [];
@@ -424,14 +437,14 @@ export class ApplicationFormComponent implements OnInit {
 
         // this.formData.set("data", JSON.stringify(fd));
 
-        console.log(fd);
+        // console.log(fd);
 
         this.insuranceService.createPolicy(fd).subscribe((res: any) => {
           if (res.code === "0") {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-            console.log(this.premiumDetails.noOfTraveller);
-            console.log(this.getControls.length);
+            // console.log(this.premiumDetails.noOfTraveller);
+            // console.log(this.getControls.length);
 
 
             if (this.newPremium !== this.oldPremium) {
@@ -473,23 +486,22 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   checkValidateForm() {
+    let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
+    let startedWith: number;
+
+    if (same) {
+      startedWith = 1;
+    } else {
+      startedWith = 0;
+    }
+
     for (
-      let index = 0;
+      let index = startedWith;
       index < this.getControls.length;
       index++
     ) {
-      console.log(index);
-      console.log(this.getControls.length);
-
-      // let citizenshipCd = this.getControls[index]['controls'].citizenshipCd.value;
-      // citizenshipCd == "" || citizenshipCd == null || citizenshipCd == undefined ?
-      //   this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = true :
-      //   this.getControls[index]['controls'].citizenshipCd.citizenshipCdError = false;
-
-      // let residenceProof = this.getControls[index]['controls'].residenceProof.value;
-      // residenceProof == "" || residenceProof == null || residenceProof == undefined ?
-      //   this.getControls[index]['controls'].residenceProof.residenceProofError = true :
-      //   this.getControls[index]['controls'].residenceProof.residenceProofError = false;
+      // console.log(index);
+      // console.log(this.getControls.length);
 
       let birthDt = this.getControls[index]['controls'].birthDtCopy.value;
       birthDt == "" || birthDt == null || birthDt == undefined ?
@@ -501,11 +513,6 @@ export class ApplicationFormComponent implements OnInit {
         this.getControls[index]['controls'].firstName.firstNameError = true :
         this.getControls[index]['controls'].firstName.firstNameError = false;
 
-      // let genderCd = this.getControls[index]['controls'].genderCd.value;
-      // genderCd == "" || genderCd == null || genderCd == undefined ?
-      //   this.getControls[index]['controls'].genderCd.genderCdError = true :
-      //   this.getControls[index]['controls'].genderCd.genderCdError = false;
-
       let lastName = this.getControls[index]['controls'].lastName.value;
       lastName == "" || lastName == null || lastName == undefined ?
         this.getControls[index]['controls'].lastName.lastNameError = true :
@@ -515,11 +522,6 @@ export class ApplicationFormComponent implements OnInit {
       relationCd == "" || relationCd == null || relationCd == undefined ?
         this.getControls[index]['controls'].relationCd.relationCdError = true :
         this.getControls[index]['controls'].relationCd.relationCdError = false;
-
-      // let roleCd = this.getControls[index]['controls'].roleCd.value;
-      // roleCd == "" || roleCd == null || roleCd == undefined ?
-      //   this.getControls[index]['controls'].roleCd.roleCdError = true :
-      //   this.getControls[index]['controls'].roleCd.roleCdError = false;
 
       let titleCd = this.getControls[index]['controls'].titleCd.value;
       titleCd == "" || titleCd == null || titleCd == undefined ?
@@ -537,11 +539,6 @@ export class ApplicationFormComponent implements OnInit {
       addressLine2Lang1 == "" || addressLine2Lang1 == null || addressLine2Lang1 == undefined ?
         this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.addressLine2Lang1Error = true :
         this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.addressLine2Lang1Error = false;
-
-      // let addressTypeCd = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.value;
-      // addressTypeCd == "" || addressTypeCd == null || addressTypeCd == undefined ?
-      //   this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.addressTypeCdError = true :
-      //   this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.addressTypeCdError = false;
 
       let areaCd = this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.areaCd.value;
       areaCd == "" || areaCd == null || areaCd == undefined ?
@@ -574,11 +571,6 @@ export class ApplicationFormComponent implements OnInit {
         this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactNum.contactNumError = true :
         this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactNum.contactNumError = false;
 
-      // let contactTypeCd = this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactTypeCd.value;
-      // contactTypeCd == "" || contactTypeCd == null || contactTypeCd == undefined ?
-      //   this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactTypeCd.contactTypeCdError = true :
-      //   this.getControls[index]['controls'].partyContactDOList.controls[0].controls.contactTypeCd.contactTypeCdError = false;
-
       let stdCode = this.getControls[index]['controls'].partyContactDOList.controls[0].controls.stdCode.value;
       stdCode == "" || stdCode == null || stdCode == undefined ?
         this.getControls[index]['controls'].partyContactDOList.controls[0].controls.stdCode.stdCodeError = true :
@@ -590,17 +582,6 @@ export class ApplicationFormComponent implements OnInit {
         this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailAddress.emailAddressError = true :
         this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailAddress.emailAddressError = false;
 
-      // let emailTypeCd = this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailTypeCd.value;
-      // emailTypeCd == "" || emailTypeCd == null || emailTypeCd == undefined ?
-      //   this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailTypeCd.emailTypeCdError = true :
-      //   this.getControls[index]['controls'].partyEmailDOList.controls[0].controls.emailTypeCd.emailTypeCdError = false;
-
-      // partyIdentityDOList
-      // let identityTypeCd = this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityTypeCd.value;
-      // identityTypeCd == "" || identityTypeCd == null || identityTypeCd == undefined ?
-      //   this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityTypeCd.identityTypeCdError = true :
-      //   this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityTypeCd.identityTypeCdError = false;
-
       let identityNum = this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityNum.value;
       identityNum == "" || identityNum == null || identityNum == undefined ?
         this.getControls[index]['controls'].partyIdentityDOList.controls[0].controls.identityNum.identityNumError = true :
@@ -611,98 +592,98 @@ export class ApplicationFormComponent implements OnInit {
   checkValidateProposer() {
     let birthDt = this.insuranceForm.controls.proposer.get('birthDtCopy').value;
     birthDt == "" || birthDt == null || birthDt == undefined ?
-    this.insuranceForm.controls.proposer['controls'].birthDt.birthDtError = true :
-    this.insuranceForm.controls.proposer['controls'].birthDt.birthDtError = false;
+      this.insuranceForm.controls.proposer['controls'].birthDt.birthDtError = true :
+      this.insuranceForm.controls.proposer['controls'].birthDt.birthDtError = false;
 
     let firstName = this.insuranceForm.controls.proposer.get('firstName').value;
     firstName == "" || firstName == null || firstName == undefined ?
-    this.insuranceForm.controls.proposer['controls'].firstName.firstNameError = true :
-    this.insuranceForm.controls.proposer['controls'].firstName.firstNameError = false;
+      this.insuranceForm.controls.proposer['controls'].firstName.firstNameError = true :
+      this.insuranceForm.controls.proposer['controls'].firstName.firstNameError = false;
 
     let genderCd = this.insuranceForm.controls.proposer.get('genderCd').value;
     genderCd == "" || genderCd == null || genderCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].genderCd.genderCdError = true :
-    this.insuranceForm.controls.proposer['controls'].genderCd.genderCdError = false;
+      this.insuranceForm.controls.proposer['controls'].genderCd.genderCdError = true :
+      this.insuranceForm.controls.proposer['controls'].genderCd.genderCdError = false;
 
     let lastName = this.insuranceForm.controls.proposer.get('lastName').value;
     lastName == "" || lastName == null || lastName == undefined ?
-    this.insuranceForm.controls.proposer['controls'].lastName.lastNameError = true :
-    this.insuranceForm.controls.proposer['controls'].lastName.lastNameError = false;
+      this.insuranceForm.controls.proposer['controls'].lastName.lastNameError = true :
+      this.insuranceForm.controls.proposer['controls'].lastName.lastNameError = false;
 
     let relationCd = this.insuranceForm.controls.proposer.get('relationCd').value;
     relationCd == "" || relationCd == null || relationCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].relationCd.relationCdError = true :
-    this.insuranceForm.controls.proposer['controls'].relationCd.relationCdError = false;
+      this.insuranceForm.controls.proposer['controls'].relationCd.relationCdError = true :
+      this.insuranceForm.controls.proposer['controls'].relationCd.relationCdError = false;
 
     let titleCd = this.insuranceForm.controls.proposer.get('titleCd').value;
     titleCd == "" || titleCd == null || titleCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].titleCd.titleCdError = true :
-    this.insuranceForm.controls.proposer['controls'].titleCd.titleCdError = false;
+      this.insuranceForm.controls.proposer['controls'].titleCd.titleCdError = true :
+      this.insuranceForm.controls.proposer['controls'].titleCd.titleCdError = false;
 
     let identityNum = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value;
     identityNum == "" || identityNum == null || identityNum == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].controls.identityNum.identityNumError = true :
-    this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].controls.identityNum.identityNumError = false;
+      this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].controls.identityNum.identityNumError = true :
+      this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].controls.identityNum.identityNumError = false;
 
     let identityTypeCd = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityTypeCd').value;
     identityTypeCd == "" || identityTypeCd == null || identityTypeCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0]['controls'].identityTypeCd.identityTypeCdError = true :
-    this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0]['controls'].identityTypeCd.identityTypeCdError = false;
+      this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0]['controls'].identityTypeCd.identityTypeCdError = true :
+      this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0]['controls'].identityTypeCd.identityTypeCdError = false;
 
     let contactNum = this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0].get('contactNum').value;
     contactNum == "" || contactNum == null || contactNum == undefined ?
-     this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].contactNum.contactNumError = true :
-     this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].contactNum.contactNumError = false;
+      this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].contactNum.contactNumError = true :
+      this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].contactNum.contactNumError = false;
 
     let stdCode = this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0].get('stdCode').value;
     stdCode == "" || stdCode == null || stdCode == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].stdCode.stdCodeError = true :
-    this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].stdCode.stdCodeError = false;
+      this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].stdCode.stdCodeError = true :
+      this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0]['controls'].stdCode.stdCodeError = false;
 
     let emailAddress = this.insuranceForm.controls.proposer['controls'].partyEmailDOList['controls'][0].get('emailAddress').value;
     emailAddress == "" || emailAddress == null || emailAddress == undefined ?
-     this.insuranceForm.controls.proposer['controls'].partyEmailDOList['controls'][0]['controls'].emailAddress.emailAddressError = true :
-     this.insuranceForm.controls.proposer['controls'].partyEmailDOList['controls'][0]['controls'].emailAddress.emailAddressError = false;
+      this.insuranceForm.controls.proposer['controls'].partyEmailDOList['controls'][0]['controls'].emailAddress.emailAddressError = true :
+      this.insuranceForm.controls.proposer['controls'].partyEmailDOList['controls'][0]['controls'].emailAddress.emailAddressError = false;
 
     let addressLine1Lang1 = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('addressLine1Lang1').value;
     addressLine1Lang1 == "" || addressLine1Lang1 == null || addressLine1Lang1 == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine1Lang1.addressLine1Lang1Error = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine1Lang1.addressLine1Lang1Error = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine1Lang1.addressLine1Lang1Error = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine1Lang1.addressLine1Lang1Error = false;
 
     let addressLine2Lang1 = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('addressLine2Lang1').value;
     addressLine2Lang1 == "" || addressLine2Lang1 == null || addressLine2Lang1 == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine2Lang1.addressLine2Lang1Error = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine2Lang1.addressLine2Lang1Error = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine2Lang1.addressLine2Lang1Error = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressLine2Lang1.addressLine2Lang1Error = false;
 
     let addressTypeCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('addressTypeCd').value;
     addressTypeCd == "" || addressTypeCd == null || addressTypeCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressTypeCd.addressTypeCdError = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressTypeCd.addressTypeCdError = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressTypeCd.addressTypeCdError = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].addressTypeCd.addressTypeCdError = false;
 
     let areaCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('areaCd').value;
     areaCd == "" || areaCd == null || areaCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].areaCd.areaCdError = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].areaCd.areaCdError = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].areaCd.areaCdError = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].areaCd.areaCdError = false;
 
     let cityCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('cityCd').value;
     cityCd == "" || cityCd == null || cityCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].cityCd.cityCdError = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].cityCd.cityCdError = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].cityCd.cityCdError = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].cityCd.cityCdError = false;
 
     let pinCode = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('pinCode').value;
     pinCode == "" || pinCode == null || pinCode == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.pinCodeError = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.pinCodeError = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.pinCodeError = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.pinCodeError = false;
 
     let stateCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('stateCd').value;
     stateCd == "" || stateCd == null || stateCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].stateCd.stateCdError = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].stateCd.stateCdError = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].stateCd.stateCdError = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].stateCd.stateCdError = false;
 
     let countryCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('countryCd').value;
     countryCd == "" || countryCd == null || countryCd == undefined ?
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].countryCd.countryCdError = true :
-    this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].countryCd.countryCdError = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].countryCd.countryCdError = true :
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].countryCd.countryCdError = false;
   }
 
   addInsurer() {
@@ -717,7 +698,7 @@ export class ApplicationFormComponent implements OnInit {
           element.classList.remove('show');
         });
 
-        console.log(this.count)
+        // console.log(this.count)
         this.selectedTravellerForm = this.count;
         this.count = this.count + 1;
 
@@ -739,21 +720,21 @@ export class ApplicationFormComponent implements OnInit {
   onRemoveInsurer(index: number) {
     let temp = this.insuranceForm.get("insurer") as FormArray;
     temp.removeAt(index);
-    console.log(temp.length);
+    // console.log(temp.length);
     this.dataSource.splice(index, 1);
     this.count = this.count - 1;
 
-    if (index == this.getControls.length - 1) {
-      this.selectedTravellerForm = index;
-    } else {
-      this.selectedTravellerForm = index - 1;
-    }
+    // if (index == this.getControls.length - 1) {
+    //   this.selectedTravellerForm = index;
+    // } else {
+    //   this.selectedTravellerForm = index - 1;
+    // }
   }
 
   setAddressSame(value, index: number) {
     let same = this.getControls[index]['controls'].addressForPickupSame.value;
     if (!same) {
-      console.log("Fuckup");
+      // console.log("Fuckup");
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.setValidators(null);
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.setValidators(null);
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.setValidators(null);
@@ -763,7 +744,7 @@ export class ApplicationFormComponent implements OnInit {
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.stateCd.setValidators(null);
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.countryCd.setValidators(null);
     } else {
-      console.log("Fuckdown");
+      // console.log("Fuckdown");
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.setValidators([
         Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
       ]);
@@ -789,13 +770,13 @@ export class ApplicationFormComponent implements OnInit {
 
     this.getControls[index].updateValueAndValidity();
 
-    console.log(this.getControls[index]['controls'].partyAddressDOList.controls[0].controls)
+    // console.log(this.getControls[index]['controls'].partyAddressDOList.controls[0].controls)
   }
 
   setPrimaryAsProposer() {
     let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
 
-    console.log(same);
+    // console.log(same);
     if (same) {
 
       this.getControls[0]['controls'].firstName.setValidators(null);
@@ -908,7 +889,7 @@ export class ApplicationFormComponent implements OnInit {
 
     this.getControls[0].updateValueAndValidity();
 
-    console.log(this.getControls[0]['controls']);
+    // console.log(this.getControls[0]['controls']);
   }
 
   scrollToInvalid(id: string) {
@@ -933,18 +914,22 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   onRelationValueChange() {
-    var relationArr: Array<string> = [];
+    let relationArr: Array<string> = [];
+    let duplicates:  Array<string> = [];
+    let startWith: number = 0;
 
     let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
 
     if (same) {
       relationArr = ["SELF"];
+      startWith = 1;
     } else {
       relationArr = [];
+      startWith = 0;
     }
 
     for (
-      let index = 0;
+      let index = startWith;
       index < this.getControls.length;
       index++
     ) {
@@ -963,22 +948,22 @@ export class ApplicationFormComponent implements OnInit {
           a[b.name] = (a[b.name] || 0) + b.count
           return a
         }, {});
-    
-        console.log(uniq);
-    
-        var duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
-    
-        console.log(duplicates);
-    
-        if (duplicates[0] == "SPOUSE" || duplicates[0] == "SELF") {
-          this.getControls[index]['controls'].relationCd.duplicatesError = true
-        } else {
-          this.getControls[index]['controls'].relationCd.duplicatesError = false;
-        }
-    
+
+        // console.log(uniq);
+
+        duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
+
+        // console.log(duplicates);
+
+        
       }
       // relationArr = [];
-      
+      if (duplicates[0] == "SPOUSE" || duplicates[0] == "SELF") {
+        this.getControls[index]['controls'].relationCd.duplicatesError = true
+      } else {
+        this.getControls[index]['controls'].relationCd.duplicatesError = false;
+      }
+
     }
   }
 

@@ -1044,6 +1044,7 @@
           <form [formGroupName]="i">
             <div
               class="card-header main__card-heading"
+              [ngClass]="{'no-collapsable': first}"
               id="{{ dataSource[i].id }} {{ i + 1 }}"
               data-toggle="collapse"
               attr.aria-controls="{{ dataSource[i].dataToggle }}"
@@ -1372,7 +1373,6 @@
                         id="relationCd{{ i }}"
                         formControlName="relationCd"
                         autocomplete="new-relationCd"
-                        (change)="onRelationValueChange($event.target.value)"
                         class="form-control form-control-sm insurance-select"
                       >
                       <option value="">-- Relation --</option>
@@ -1398,17 +1398,12 @@
                     Select the valid option*
                     </div>
                     <div
-                    *ngIf="
-                  
-                    
-                      getControls[i]['controls'].relationCd.duplicatesError
-                  "
+                    *ngIf="getControls[i]['controls'].relationCd.duplicatesError && getControls[i]['controls'].relationCd.value != ''"
                     class="invalid-feedback"
                     style="display: block"
                   >
-                  {{getControls[i]['controls'].relationCd.value}} detail are already existe.
+                  Details already exist.
                   </div>
-                    
                     </div>
                   </div>
                 </div>
