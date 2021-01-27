@@ -60,7 +60,7 @@
           <div class="card-header main__card-heading" id="proposer">
             <h5 class="mb-0">
               <button class="btn btn-link p-0" type="button">
-                Person who is applying for insurance
+                Contact Details of Proposer
               </button>
             </h5>
           </div>
@@ -1375,6 +1375,7 @@
                         (change)="onRelationValueChange($event.target.value)"
                         class="form-control form-control-sm insurance-select"
                       >
+                      <option value="">-- Relation --</option>
                         <option
                           *ngFor="let item of relationOptionArr"
                           [value]="item"
@@ -1384,8 +1385,13 @@
                       </select>
                       <div
                       *ngIf="
-                      getControls[i]['controls'].relationCd.duplicatesError
-                      "
+                      (getControls[i]['controls'].relationCd.invalid &&
+                        getControls[i]['controls'].relationCd.dirty) ||
+                      getControls[i]['controls'].relationCd.errors
+                        ?.valueErr ||
+                      (getControls[i]['controls'].relationCd.pristine &&
+                        getControls[i]['controls'].relationCd.duplicatesError)
+                    "
                       class="invalid-feedback"
                       style="display: block"
                     >

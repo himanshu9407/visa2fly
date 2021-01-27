@@ -149,7 +149,7 @@ export class ApplicationFormComponent implements OnInit {
       firstName: ["", [Validators.required,]],
       genderCd: ["MALE", [Validators.required]],
       lastName: ["", [Validators.required,]],
-      relationCd: ["SELF", [Validators.required]],
+      relationCd: ["", [Validators.required]],
       // roleCd: ["", [Validators.required]],
       titleCd: ["MR", [Validators.required]],
       citizenshipCd: [{ value: "INDIAN", disabled: true }, [Validators.required]],
@@ -991,7 +991,7 @@ export class ApplicationFormComponent implements OnInit {
         }
     
       }
-      relationArr = [];
+      // relationArr = [];
       
     }
   }
