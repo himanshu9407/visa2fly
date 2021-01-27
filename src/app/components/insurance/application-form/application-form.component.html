@@ -290,7 +290,6 @@
                       id="proposerRelation"
                       formControlName="relationCd"
                       autocomplete="new-relationCd"
-                      (change)="onRelationValueChange($event.target.value)"
                       class="form-control form-control-sm insurance-select"
                     >
                       <option
@@ -1369,6 +1368,7 @@
                       >
                       <select
                         name="relationCd{{ i }}"
+                        (change)="onRelationValueChange()"
                         id="relationCd{{ i }}"
                         formControlName="relationCd"
                         autocomplete="new-relationCd"
