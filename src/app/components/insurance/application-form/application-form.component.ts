@@ -202,7 +202,7 @@ export class ApplicationFormComponent implements OnInit {
       areaCd: [""],
       cityCd: [""],
       pinCode: [""],
-      stateCd: ["Delhi"],
+      stateCd: ["New Delhi"],
       countryCd: [{ value: "India", disabled: true }],
     });
   }
@@ -215,7 +215,7 @@ export class ApplicationFormComponent implements OnInit {
       areaCd: ["", [Validators.required]],
       cityCd: ["", [Validators.required]],
       pinCode: ["", [Validators.required]],
-      stateCd: ["Delhi", [Validators.required]],
+      stateCd: ["New Delhi", [Validators.required]],
       countryCd: [{ value: "India", disabled: true }],
     });
   }
@@ -450,11 +450,11 @@ export class ApplicationFormComponent implements OnInit {
           if (res.code === "0") {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-            console.log(res.data.amount);
-            console.log(this.premiumCalculated);
+            console.log(typeof res.data.amount);
+            console.log(typeof this.premiumCalculated);
             
             
-            if (this.newPremium !== this.oldPremium) {
+            if (this.newPremium != this.oldPremium) {
               this.preloaderService.showPreloader(false);
               this.newPremium = res.data.amount;
               this.oldPremium = this.premiumCalculated;

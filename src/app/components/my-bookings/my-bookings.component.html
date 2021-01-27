@@ -207,10 +207,10 @@
       <div
         *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first', totalItems: totalItems }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
+              {{booking.booking.bookingType}}
             </div>
             <div class="card-body">
               <ul class="visa-type">
@@ -335,10 +335,10 @@
       <div
         *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second', totalItems: totalItems }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa', 'sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
+              {{booking.booking.bookingType}}
             </div>
             <div class="card-body">
               <!-- <h5 class="card-title">Special title treatment</h5>
