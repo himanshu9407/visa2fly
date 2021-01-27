@@ -263,7 +263,7 @@ export class ApplicationFormComponent implements OnInit {
       if (!this.termsAndConditionForm.valid) {
         this.toastr.warning("Please accept our terms and conditions");
       } else {
-        // this.preloaderService.showPreloader(true);
+        this.preloaderService.showPreloader(true);
 
         let birthDtVar: { year: number; month: number; day: number } = this.insuranceForm.controls.proposer['controls'].birthDtCopy.value;
 
@@ -296,8 +296,14 @@ export class ApplicationFormComponent implements OnInit {
           let relationCd = this.insuranceForm.controls.proposer.get('relationCd').value;
           let titleCd = this.insuranceForm.controls.proposer.get('titleCd').value;
 
+          let identityNumTemp = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value.toUpperCase();
+          this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').setValue(identityNumTemp);
+
           let identityNum = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value;
+
           let identityTypeCd = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityTypeCd').value;
+
+
 
           let contactNum = this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0].get('contactNum').value;
           let stdCode = this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0].get('stdCode').value;
@@ -439,15 +445,17 @@ export class ApplicationFormComponent implements OnInit {
 
         // console.log(fd);
 
+        
         this.insuranceService.createPolicy(fd).subscribe((res: any) => {
           if (res.code === "0") {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-            // console.log(this.premiumDetails.noOfTraveller);
-            // console.log(this.getControls.length);
-
-
+            console.log(res.data.amount);
+            console.log(this.premiumCalculated);
+            
+            
             if (this.newPremium !== this.oldPremium) {
+              this.preloaderService.showPreloader(false);
               this.newPremium = res.data.amount;
               this.oldPremium = this.premiumCalculated;
               ($('#warningModal') as any).modal('show')
@@ -456,6 +464,7 @@ export class ApplicationFormComponent implements OnInit {
             }
           } else {
             this.toastr.error(res.message);
+            this.preloaderService.showPreloader(false);
           }
         });
 
