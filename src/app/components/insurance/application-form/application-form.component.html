@@ -1390,13 +1390,25 @@
                       getControls[i]['controls'].relationCd.errors
                         ?.valueErr ||
                       (getControls[i]['controls'].relationCd.pristine &&
-                        getControls[i]['controls'].relationCd.duplicatesError)
+                        getControls[i]['controls'].relationCd.relationCdError)
                     "
                       class="invalid-feedback"
                       style="display: block"
                     >
-                    {{getControls[i]['controls'].relationCd.value}} detail are already existe.
+                    Select the valid option*
                     </div>
+                    <div
+                    *ngIf="
+                  
+                    
+                      getControls[i]['controls'].relationCd.duplicatesError
+                  "
+                    class="invalid-feedback"
+                    style="display: block"
+                  >
+                  {{getControls[i]['controls'].relationCd.value}} detail are already existe.
+                  </div>
+                    
                     </div>
                   </div>
                 </div>
