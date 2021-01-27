@@ -56,6 +56,987 @@
 
     <div class="accordion" id="accordionInsurer">
       <form [formGroup]="insuranceForm">
+        <form formGroupName="proposer">
+          <div class="card-header main__card-heading" id="proposer">
+            <h5 class="mb-0">
+              <button class="btn btn-link p-0" type="button">
+                Person who is applying for insurance
+              </button>
+            </h5>
+          </div>
+          <div id="proposerForm">
+            <div class="card-body" style="background-color: #fff">
+              <div class="form-row">
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                >
+                  <h5 class="insurance_application-subheading">
+                    Customer Details :
+                  </h5>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="proposerFirstName" class="insurance-label"
+                      >First Name<span class="astrisk">*</span></label
+                    >
+                    <div class="input-group">
+                      <div class="input-group-prepend" style="width: 60px">
+                        <select
+                          name="titleCd"
+                          id="proposerTitle"
+                          class="form-control form-control-sm insurance-select titleSelect"
+                          formControlName="titleCd"
+                        >
+                          <option selected value="MR">Mr</option>
+                          <option value="MS">Ms</option>
+                        </select>
+                      </div>
+                      <input
+                        type="text"
+                        id="proposerFirstName"
+                        formControlName="firstName"
+                        autocomplete="new-name"
+                        pattern="[A-Za-z]{3,32}"
+                        [ngClass]="{
+                          'is-invalid':
+                            insuranceForm.controls.proposer['controls']
+                              .firstName.invalid &&
+                            insuranceForm.controls.proposer['controls']
+                              .firstName.dirty,
+                          'is-valid':
+                            !(
+                              insuranceForm.controls.proposer['controls']
+                                .firstName.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .firstName.dirty
+                            ) &&
+                            !insuranceForm.controls.proposer['controls']
+                              .firstName.pristine
+                        }"
+                        class="form-control-sm form-control insurance-input"
+                      />
+                    </div>
+                    <div
+                      *ngIf="
+                        (insuranceForm.controls.proposer['controls'].firstName
+                          .invalid &&
+                          insuranceForm.controls.proposer['controls'].firstName
+                            .dirty) ||
+                        insuranceForm.controls.proposer['controls'].firstName
+                          .errors?.valueErr ||
+                        (insuranceForm.controls.proposer['controls'].firstName
+                          .pristine &&
+                          insuranceForm.controls.proposer['controls'].firstName
+                            .firstNameError)
+                      "
+                      class="invalid-feedback"
+                      style="display: block"
+                    >
+                      Enter a valid first name*
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="proposerLastName" class="insurance-label"
+                      >Last Name<span class="astrisk">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="proposerLastName"
+                      formControlName="lastName"
+                      autocomplete="new-lastName"
+                      pattern="[A-Za-z]{3,32}"
+                      [ngClass]="{
+                        'is-invalid':
+                          insuranceForm.controls.proposer['controls'].lastName
+                            .invalid &&
+                          insuranceForm.controls.proposer['controls'].lastName
+                            .dirty,
+                        'is-valid':
+                          !(
+                            insuranceForm.controls.proposer['controls'].lastName
+                              .invalid &&
+                            insuranceForm.controls.proposer['controls'].lastName
+                              .dirty
+                          ) &&
+                          !insuranceForm.controls.proposer['controls'].lastName
+                            .pristine
+                      }"
+                      class="form-control-sm form-control insurance-input"
+                    />
+                    <div
+                      *ngIf="
+                        (insuranceForm.controls.proposer['controls'].lastName
+                          .invalid &&
+                          insuranceForm.controls.proposer['controls'].lastName
+                            .dirty) ||
+                        insuranceForm.controls.proposer['controls'].lastName
+                          .errors?.valueErr ||
+                        (insuranceForm.controls.proposer['controls'].lastName
+                          .pristine &&
+                          insuranceForm.controls.proposer['controls'].lastName
+                            .lastNameError)
+                      "
+                      class="invalid-feedback"
+                      style="display: block"
+                    >
+                      Enter a valid last name*
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="proposerDateOfBirth" class="insurance-label"
+                      >Date Of Birth<span class="astrisk">*</span></label
+                    >
+                    <div class="input-group">
+                      <input hidden formControlName="birthDt" type="text" />
+                      <input
+                        [minDate]="{ year: 1930, month: 1, day: 1 }"
+                        [maxDate]="maxDateDobForProposal"
+                        formControlName="birthDtCopy"
+                        id="#dob"
+                        class="form-control form-control-sm addTravelDate"
+                        autocomplete="new-birthDt"
+                        placeholder="Date Of Birth"
+                        name="dp"
+                        ngbDatepicker
+                        #dob="ngbDatepicker"
+                        style="
+                          border-top-left-radius: 0.2rem;
+                          border-bottom-left-radius: 0.2rem;
+                        "
+                      />
+                      <div class="input-group-append">
+                        <button
+                          class="btn btn-sm calendar"
+                          (click)="dob.toggle()"
+                          type="button"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            class="calendarSvg"
+                            width="18px"
+                            height="18px"
+                          >
+                            <path
+                              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                            />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      *ngIf="
+                        (insuranceForm.controls.proposer['controls'].birthDt
+                          .invalid &&
+                          insuranceForm.controls.proposer['controls'].birthDt
+                            .dirty) ||
+                        insuranceForm.controls.proposer['controls'].birthDt
+                          .errors?.valueErr ||
+                        (insuranceForm.controls.proposer['controls'].birthDtCopy
+                          .pristine &&
+                          insuranceForm.controls.proposer['controls'].birthDt
+                            .birthDtError)
+                      "
+                      class="invalid-feedback"
+                      style="display: block"
+                    >
+                      Enter a valid date of birth*
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="gender" class="insurance-label"
+                      >Gender<span class="astrisk">*</span></label
+                    >
+                    <select
+                      name="proposerGender"
+                      id="proposerGender"
+                      formControlName="genderCd"
+                      autocomplete="new-genderCd"
+                      class="form-control form-control-sm insurance-select"
+                    >
+                      <option selected value="MALE">Male</option>
+                      <option value="FEMALE">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="proposerNationality" class="insurance-label"
+                      >Nationality<span class="astrisk">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="proposerNationality"
+                      formControlName="citizenshipCd"
+                      autocomplete="new-citizenshipCd"
+                      class="form-control-sm form-control insurance-input"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="proposerRelation" class="insurance-label"
+                      >Relation<span class="astrisk">*</span></label
+                    >
+                    <select
+                      name="proposerRelation"
+                      id="proposerRelation"
+                      formControlName="relationCd"
+                      autocomplete="new-relationCd"
+                      (change)="onRelationValueChange($event.target.value)"
+                      class="form-control form-control-sm insurance-select"
+                    >
+                      <option
+                        *ngFor="let item of relationOptionArr"
+                        [value]="item"
+                      >
+                        {{ item }}
+                      </option>
+                    </select>
+                   
+                  </div>
+
+                  <!-- {{ relationOptionArr.filter(element => disabledRelationOptionArr.includes(element)) }} -->
+                  <!-- array1.filter(element => array2.includes(element)) -->
+                </div>
+              </div>
+              <div class="form-row mt-2">
+                <div class="col-lg-6">
+                  <div class="form-row">
+                    <div
+                      class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
+                      formArrayName="partyContactDOList"
+                      *ngFor="
+                        let contact of insuranceForm.controls.proposer[
+                          'controls'
+                        ].partyContactDOList['controls'];
+                        let j = index
+                      "
+                    >
+                      <div class="insurance-input_box" [formGroupName]="j">
+                        <label class="insurance-label" for="proposerContactNum"
+                          >Contact No.<span class="astrisk">*</span></label
+                        >
+                        <div class="input-group input-group-sm">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">+91</span>
+                          </div>
+                          <input
+                            type="tel"
+                            id="proposerContactNum"
+                            formControlName="contactNum"
+                            autocomplete="new-contactNum"
+                            pattern="^[6-9][0-9]{9}$"
+                            [ngClass]="{
+                              'is-invalid':
+                                insuranceForm.controls.proposer['controls']
+                                  .partyContactDOList['controls'][j].controls
+                                  .contactNum.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyContactDOList['controls'][j].controls
+                                  .contactNum.dirty,
+                              'is-valid':
+                                !(
+                                  insuranceForm.controls.proposer['controls']
+                                    .partyContactDOList['controls'][j].controls
+                                    .contactNum.invalid &&
+                                  insuranceForm.controls.proposer['controls']
+                                    .partyContactDOList['controls'][j].controls
+                                    .contactNum.dirty
+                                ) &&
+                                !insuranceForm.controls.proposer['controls']
+                                  .partyContactDOList['controls'][j].controls
+                                  .contactNum.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input iti"
+                          />
+                        </div>
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyContactDOList['controls'][j].controls
+                              .contactNum.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyContactDOList['controls'][j].controls
+                                .contactNum.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyContactDOList['controls'][j].controls
+                              .contactNum.errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyContactDOList['controls'][j].controls
+                              .contactNum.pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyContactDOList['controls'][j].controls
+                                .contactNum.contactNumError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid contact number*
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
+                      formArrayName="partyEmailDOList"
+                      *ngFor="
+                        let contact of insuranceForm.controls.proposer[
+                          'controls'
+                        ].partyEmailDOList['controls'];
+                        let j = index
+                      "
+                    >
+                      <div class="insurance-input_box" [formGroupName]="j">
+                        <label
+                          for="proposerEmailAddress"
+                          class="insurance-label"
+                          >Email Address<span class="astrisk">*</span></label
+                        >
+                        <input
+                          type="email"
+                          id="proposerEmailAddress"
+                          formControlName="emailAddress"
+                          autocomplete="new-emailAddress"
+                          pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyEmailDOList['controls'][j].controls
+                                .emailAddress.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyEmailDOList['controls'][j].controls
+                                .emailAddress.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyEmailDOList['controls'][j].controls
+                                  .emailAddress.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyEmailDOList['controls'][j].controls
+                                  .emailAddress.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyEmailDOList['controls'][j].controls
+                                .emailAddress.pristine
+                          }"
+                          class="form-control-sm form-control insurance-input"
+                        />
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyEmailDOList['controls'][j].controls
+                              .emailAddress.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyEmailDOList['controls'][j].controls
+                                .emailAddress.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyEmailDOList['controls'][j].controls
+                              .emailAddress.errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyEmailDOList['controls'][j].controls
+                              .emailAddress.pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyEmailDOList['controls'][j].controls
+                                .emailAddress.emailAddressError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid email address*
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-6"
+                  formArrayName="partyIdentityDOList"
+                  *ngFor="
+                    let contact of insuranceForm.controls.proposer['controls']
+                      .partyIdentityDOList['controls'];
+                    let j = index
+                  "
+                >
+                  <div class="form-row" [formGroupName]="j">
+                    <div class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label
+                          for="proposerIdentityType"
+                          class="insurance-label"
+                          >Identity Type<span class="astrisk">*</span></label
+                        >
+                        <select
+                          name="proposerIdentityType"
+                          id="proposerIdentityType"
+                          formControlName="identityTypeCd"
+                          autocomplete="new-identityTypeCd"
+                          class="form-control form-control-sm insurance-select"
+                        >
+                          <option selected value="PAN">PAN</option>
+                          <option value="PASSPORT">PASSPORT</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label
+                          for="proposerIdentityNumber"
+                          class="insurance-label"
+                          >Identity Number<span class="astrisk">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="proposerIdentityNumber"
+                          formControlName="identityNum"
+                          autocomplete="new-identityNum"
+                          [pattern]="
+                            insuranceForm.controls.proposer['controls']
+                              .partyIdentityDOList['controls'][j].controls
+                              .identityTypeCd.value === 'PAN'
+                              ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                              : '^[A-Za-z]{1}[0-9]{7}$'
+                          "
+                          #identityNum
+                          (input)="
+                            identityNum.value = $event.target.value.toUpperCase()
+                          "
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyIdentityDOList['controls'][j].controls
+                                .identityNum.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyIdentityDOList['controls'][j].controls
+                                .identityNum.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyIdentityDOList['controls'][j].controls
+                                  .identityNum.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyIdentityDOList['controls'][j].controls
+                                  .identityNum.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyIdentityDOList['controls'][j].controls
+                                .identityNum.pristine
+                          }"
+                          class="form-control-sm form-control insurance-input"
+                        />
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyIdentityDOList['controls'][j].controls
+                              .identityNum.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyIdentityDOList['controls'][j].controls
+                                .identityNum.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyIdentityDOList['controls'][j].controls
+                              .identityNum.errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyIdentityDOList['controls'][j].controls
+                              .identityNum.pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyIdentityDOList['controls'][j].controls
+                                .identityNum.identityNumError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid identity number*
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row mt-2">
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                >
+                  <h5 class="insurance_application-subheading mr-auto">
+                    Address Details :
+                  </h5>
+                </div>
+              </div>
+              <div>
+                <div
+                  formArrayName="partyAddressDOList"
+                  *ngFor="
+                    let contact of insuranceForm.controls.proposer['controls']
+                      .partyAddressDOList['controls'];
+                    let j = index
+                  "
+                >
+                  <div class="form-row" [formGroupName]="j">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerLine1" class="insurance-label"
+                          >Line 1<span class="astrisk">*</span></label
+                        >
+                        <textarea
+                          type="text"
+                          id="proposerLine1"
+                          minlength="10"
+                          maxlength="400"
+                          formControlName="addressLine1Lang1"
+                          autocomplete="new-addressLine1Lang1"
+                          pattern="^[ A-Za-z0-9-:./\n,]*$"
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine1Lang1.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine1Lang1.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .addressLine1Lang1.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .addressLine1Lang1.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine1Lang1.pristine
+                          }"
+                          class="insurance-input form-control-sm form-control"
+                        ></textarea>
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .addressLine1Lang1.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine1Lang1.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .addressLine1Lang1.errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .addressLine1Lang1.pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine1Lang1.addressLine1Lang1Error)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid address 1*
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerLine2" class="insurance-label"
+                          >Line 2<span class="astrisk">*</span></label
+                        >
+                        <textarea
+                          type="text"
+                          id="proposerLine2"
+                          minlength="10"
+                          maxlength="400"
+                          formControlName="addressLine2Lang1"
+                          autocomplete="new-addressLine2Lang1"
+                          pattern="^[ A-Za-z0-9-:./\n,]*$"
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine2Lang1.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine2Lang1.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .addressLine2Lang1.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .addressLine2Lang1.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine2Lang1.pristine
+                          }"
+                          class="insurance-input form-control-sm form-control"
+                        ></textarea>
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .addressLine2Lang1.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine2Lang1.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .addressLine2Lang1.errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .addressLine2Lang1.pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .addressLine2Lang1.addressLine2Lang1Error)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid address 2*
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerAddressType" class="insurance-label"
+                          >Address Type<span class="astrisk">*</span></label
+                        >
+                        <select
+                          name="proposerAddressType"
+                          id="proposerAddressType"
+                          formControlName="addressTypeCd"
+                          autocomplete="new-addressTypeCd"
+                          class="form-control form-control-sm insurance-select"
+                        >
+                          <option selected value="PERMANENT">Permanent</option>
+                          <option value="COMMUNICATION">Communication</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerArea" class="insurance-label"
+                          >Area<span class="astrisk">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="proposerArea"
+                          formControlName="areaCd"
+                          autocomplete="new-areaCd"
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .areaCd.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .areaCd.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .areaCd.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .areaCd.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .areaCd.pristine
+                          }"
+                          class="insurance-input form-control-sm form-control"
+                        />
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls.areaCd
+                              .invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .areaCd.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls.areaCd
+                              .errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls.areaCd
+                              .pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .areaCd.areaCdError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid area*
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerCity" class="insurance-label"
+                          >City<span class="astrisk">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="proposerCity"
+                          formControlName="cityCd"
+                          autocomplete="new-cityCd"
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .cityCd.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .cityCd.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .cityCd.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .cityCd.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .cityCd.pristine
+                          }"
+                          class="insurance-input form-control-sm form-control"
+                        />
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls.cityCd
+                              .invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .cityCd.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls.cityCd
+                              .errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls.cityCd
+                              .pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .cityCd.cityCdError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid city*
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerPinCode" class="insurance-label"
+                          >Pin Code<span class="astrisk">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="proposerPinCode"
+                          formControlName="pinCode"
+                          autocomplete="new-pinCode"
+                          pattern="^[1-9][0-9]{5}$"
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .pinCode.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .pinCode.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .pinCode.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .pinCode.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .pinCode.pristine
+                          }"
+                          class="insurance-input form-control-sm form-control"
+                        />
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .pinCode.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .pinCode.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .pinCode.errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .pinCode.pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .pinCode.pinCodeError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid pin code*
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerState" class="insurance-label"
+                          >State<span class="astrisk">*</span></label
+                        >
+                        <select
+                          formControlName="stateCd"
+                          id="proposerState"
+                          class="form-control col form-control-sm insurance-select"
+                        >
+                        <option value="Delhi">Delhi</option>
+                        <option value="New Delhi">New Delhi</option>
+                        <option value="Andaman And Nicobar Islands">
+                          Andaman And Nicobar Islands
+                        </option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">
+                          Arunachal Pradesh
+                        </option>ion
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadar And Nagar Haveli">
+                          Dadar and Nagar Haveli
+                        </option>
+                        <option value="Daman And Diu">Daman And Diu</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">
+                          Himachal Pradesh
+                        </option>
+                        <option value="Jammu And Kashmir">
+                          Jammu and Kashmir
+                        </option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                      <div class="insurance-input_box">
+                        <label for="proposerCountry" class="insurance-label"
+                          >Country<span class="astrisk">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="proposerCountry"
+                          formControlName="countryCd"
+                          autocomplete="new-countryCd"
+                          [ngClass]="{
+                            'is-invalid':
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .countryCd.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .countryCd.dirty,
+                            'is-valid':
+                              !(
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .countryCd.invalid &&
+                                insuranceForm.controls.proposer['controls']
+                                  .partyAddressDOList['controls'][j].controls
+                                  .countryCd.dirty
+                              ) &&
+                              !insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .countryCd.pristine
+                          }"
+                          class="insurance-input form-control-sm form-control"
+                        />
+                        <div
+                          *ngIf="
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .countryCd.invalid &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .countryCd.dirty) ||
+                            insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .countryCd.errors?.valueErr ||
+                            (insuranceForm.controls.proposer['controls']
+                              .partyAddressDOList['controls'][j].controls
+                              .countryCd.pristine &&
+                              insuranceForm.controls.proposer['controls']
+                                .partyAddressDOList['controls'][j].controls
+                                .countryCd.countryCdError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid country*
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row mt-2">
+                <div class="col-12">
+                  <div class="sameAsPrimary d-flex align-items-center">
+                    <label
+                    class="form-check-label insurance-label"
+                    for="ensureYourSelf"
+                    style="font-size: 14px; margin-bottom: 0px;"
+                    >
+                    Do you want to ensure yourself ?
+                  </label>
+                  <input
+                  (change)="setPrimaryAsProposer()"
+                    formControlName="ensureYourSelf"
+                    class="mt-0 ml-2"
+                    type="checkbox"
+                    id="ensureYourSelf"
+                  />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="mt-4">
         <div
           formArrayName="insurer"
           *ngFor="let insurer of getControls; let first = first; let i = index"
@@ -64,7 +1045,7 @@
           <form [formGroupName]="i">
             <div
               class="card-header main__card-heading"
-              id="{{ dataSource[i].id }}"
+              id="{{ dataSource[i].id }} {{ i + 1 }}"
               data-toggle="collapse"
               attr.aria-controls="{{ dataSource[i].dataToggle }}"
               attr.data-target="{{ dataSource[i].dataToggleHash }}"
@@ -75,12 +1056,8 @@
               }}"
             >
               <h5 class="mb-0">
-                <button
-                  class="btn btn-link p-0"
-                  type="button"
-                 
-                >
-                  {{ dataSource[i].id.substring(0, 8) }}
+                <button class="btn btn-link p-0" type="button">
+                  {{ dataSource[i].id.substring(0, 6) }}
                   <span *ngIf="!first">{{ i + 1 }}</span>
                 </button>
               </h5>
@@ -115,89 +1092,27 @@
             <div
               id="{{ dataSource[i].dataToggle }}"
               class="collapse"
-              [class.show]="
-                selectedTravellerForm === i || getControls[i].invalid
-              "
+              [class.show]="selectedTravellerForm === i"
               attr.aria-labelledby="{{ dataSource[i].id }}"
               data-parent="#accordionInsurer"
             >
               <div class="card-body">
-                <!-- <div class="form-row">
+                <div class="form-row mt-2">
                   <div
-                    class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
                   >
-                    <h5 class="insurance_application-subheading">
-                      Policy Details :
+                    <h5 class="insurance_application-subheading mr-auto">
+                      Customer Details :
                     </h5>
                   </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-                    <div class="insurance-input_box">
-                      <label for="TravelPurpuse" class="insurance-label"
-                        >Travel Purpuse<span class="astrisk">*</span></label
-                      >
-                      <select
-                        name=""
-                        id="TravelPurpuse"
-                        class="insurance-select form-control-sm form-control"
-                      >
-                        <option value="">-- Select --</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-                    <div class="insurance-input_box">
-                      <label for="NumberOfTravelers" class="insurance-label"
-                        >Number Of Travelers<span class="astrisk"
-                          >*</span
-                        ></label
-                      >
-                      <select
-                        name=""
-                        id=""
-                        class="insurance-select form-control-sm form-control"
-                      >
-                        <option value="">-- Select --</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-                    <div class="insurance-input_box">
-                      <label for="TripPeriod" class="insurance-label"
-                        >Trip Period<span class="astrisk">*</span></label
-                      >
-                      <select
-                        name=""
-                        id="TripPeriod"
-                        class="insurance-select form-control-sm form-control"
-                      >
-                        <option value="">-- Select --</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-                    <div class="insurance-input_box">
-                      <label for="SelectPlan" class="insurance-label"
-                        >Select Plan<span class="astrisk">*</span></label
-                      >
-                      <select
-                        name=""
-                        id="SelectPlan"
-                        class="insurance-select form-control-sm form-control"
-                      >
-                        <option value="">-- Select --</option>
-                      </select>
-                    </div>
-                  </div>
-                </div> -->
+                </div>
                 <div class="form-row">
                   <div
                     class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
                   >
-                    <h5 class="insurance_application-subheading">
-                      Customer Details :
-                    </h5>
+                    <h5 class="insurance_application-subheading"></h5>
                   </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                     <div class="insurance-input_box">
                       <label for="firstName{{ i }}" class="insurance-label"
                         >First Name<span class="astrisk">*</span></label
@@ -250,7 +1165,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                     <div class="insurance-input_box">
                       <label for="lastName{{ i }}" class="insurance-label"
                         >Last Name<span class="astrisk">*</span></label
@@ -289,7 +1204,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                     <div class="insurance-input_box">
                       <label for="dateOfBirth{{ i }}" class="insurance-label"
                         >Date Of Birth<span class="astrisk">*</span></label
@@ -335,9 +1250,12 @@
                       </div>
                       <div
                         *ngIf="
-                        getControls[i]['controls'].birthDt.errors?.valueErr ||
-                        (getControls[i]['controls'].birthDtCopy.birthDtError &&
-                        getControls[i]['controls'].birthDtCopy.pristine)"
+                          (getControls[i]['controls'].birthDt.invalid &&
+                            getControls[i]['controls'].birthDt.dirty) ||
+                          getControls[i]['controls'].birthDt.errors?.valueErr ||
+                          (getControls[i]['controls'].birthDtCopy.pristine &&
+                            getControls[i]['controls'].birthDt.birthDtError)
+                        "
                         class="invalid-feedback"
                         style="display: block"
                       >
@@ -345,7 +1263,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                     <div class="insurance-input_box">
                       <label for="gender" class="insurance-label"
                         >Gender<span class="astrisk">*</span></label
@@ -362,7 +1280,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                     <div class="insurance-input_box">
                       <label for="nationality{{ i }}" class="insurance-label"
                         >Nationality<span class="astrisk">*</span></label
@@ -403,7 +1321,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <!-- <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                     <div class="insurance-input_box">
                       <label class="insurance-label" for="residenceProof{{ i }}"
                         >Residence Proof<span class="astrisk">*</span></label
@@ -444,7 +1362,7 @@
                       </div>
                     </div>
                   </div> -->
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
+                  <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                     <div class="insurance-input_box">
                       <label for="relationCd{{ i }}" class="insurance-label"
                         >Relation<span class="astrisk">*</span></label
@@ -454,58 +1372,33 @@
                         id="relationCd{{ i }}"
                         formControlName="relationCd"
                         autocomplete="new-relationCd"
+                        (change)="onRelationValueChange($event.target.value)"
                         class="form-control form-control-sm insurance-select"
                       >
-                        <option selected value="SELF">Self</option>
-                        <option value="SON">Son</option>
-                        <option value="SPOUSE">Spouse</option>
-                        <option value="DAUGHTER">Daughter</option>
+                        <option
+                          *ngFor="let item of relationOptionArr"
+                          [value]="item"
+                        >
+                          {{ item }}
+                        </option>
                       </select>
+                      <div
+                      *ngIf="
+                      getControls[i]['controls'].relationCd.duplicatesError
+                      "
+                      class="invalid-feedback"
+                      style="display: block"
+                    >
+                    {{getControls[i]['controls'].relationCd.value}} detail are already existe.
+                    </div>
                     </div>
                   </div>
-                  <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box">
-                    <div class="insurance-input_box">
-                      <label for="role{{ i }}" class="insurance-label"
-                        >Role<span class="astrisk">*</span></label
-                      >
-                      <input
-                        type="text"
-                        id="role{{ i }}"
-                        formControlName="roleCd"
-                        autocomplete="new-roleCd"
-                        [ngClass]="{
-                          'is-invalid':
-                            getControls[i]['controls'].roleCd.invalid &&
-                            getControls[i]['controls'].roleCd.dirty,
-                          'is-valid':
-                            !(
-                              getControls[i]['controls'].roleCd.invalid &&
-                              getControls[i]['controls'].roleCd.dirty
-                            ) && !getControls[i]['controls'].roleCd.pristine
-                        }"
-                        class="form-control-sm form-control insurance-input"
-                      />
-                      <div
-                        *ngIf="
-                          (getControls[i]['controls'].roleCd.invalid &&
-                            getControls[i]['controls'].roleCd.dirty) ||
-                          getControls[i]['controls'].roleCd.errors?.valueErr ||
-                          (getControls[i]['controls'].roleCd.pristine &&
-                            getControls[i]['controls'].roleCd.roleCdError)
-                        "
-                        class="invalid-feedback"
-                        style="display: block"
-                      >
-                        Enter a valid role*
-                      </div>
-                    </div>
-                  </div> -->
                 </div>
                 <div class="form-row">
                   <div class="col-lg-6">
                     <div class="form-row">
                       <div
-                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
                         formArrayName="partyContactDOList"
                         *ngFor="
                           let contact of getControls[i]['controls']
@@ -571,7 +1464,7 @@
                         </div>
                       </div>
                       <div
-                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
                         formArrayName="partyEmailDOList"
                         *ngFor="
                           let email of getControls[i]['controls']
@@ -645,11 +1538,11 @@
                   >
                     <div class="form-row" [formGroupName]="j">
                       <div
-                        class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label
-                            for="identityType{{ i }}"
+                            for="proposerIdentityType"
                             class="insurance-label"
                             >Identity Type<span class="astrisk">*</span></label
                           >
@@ -666,72 +1559,72 @@
                         </div>
                       </div>
                       <div
-                      class="col-lg-6 col-md-4 col-sm-6 col-6 insurance-box"
-                    >
-                      <div class="insurance-input_box">
-                        <label
-                          for="identityNumber{{ i }}"
-                          class="insurance-label"
-                          >Identity Number<span class="astrisk"
-                            >*</span
-                          ></label
-                        >
-                        <input
-                          type="text"
-                          id="identityNumber{{ i }}"
-                          formControlName="identityNum"
-                          autocomplete="new-identityNum"
-                          [pattern]="
-                            getControls[i]['controls'].partyIdentityDOList
-                              .controls[0].controls.identityTypeCd.value ===
-                            'PAN'
-                              ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
-                              : '^[A-Za-z]{1}[0-9]{7}$'
-                          "
-                          #identityNum
-                          (input)="
-                            identityNum.value = $event.target.value.toUpperCase()
-                          "
-                          [ngClass]="{
-                            'is-invalid':
+                        class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
+                      >
+                        <div class="insurance-input_box">
+                          <label
+                            for="identityNumber{{ i }}"
+                            class="insurance-label"
+                            >Identity Number<span class="astrisk"
+                              >*</span
+                            ></label
+                          >
+                          <input
+                            type="text"
+                            id="identityNumber{{ i }}"
+                            formControlName="identityNum"
+                            autocomplete="new-identityNum"
+                            [pattern]="
                               getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum.invalid &&
-                              getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum.dirty,
-                            'is-valid':
-                              !(
+                                .controls[0].controls.identityTypeCd.value ===
+                              'PAN'
+                                ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                                : '^[A-Za-z]{1}[0-9]{7}$'
+                            "
+                            #identityNum
+                            (input)="
+                              identityNum.value = $event.target.value.toUpperCase()
+                            "
+                            [ngClass]="{
+                              'is-invalid':
                                 getControls[i]['controls'].partyIdentityDOList
                                   .controls[0].controls.identityNum.invalid &&
                                 getControls[i]['controls'].partyIdentityDOList
-                                  .controls[0].controls.identityNum.dirty
-                              ) &&
-                              !getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum.pristine
-                          }"
-                          class="form-control-sm form-control insurance-input"
-                        />
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].partyIdentityDOList
-                              .controls[0].controls.identityNum.invalid &&
+                                  .controls[0].controls.identityNum.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].partyIdentityDOList
+                                    .controls[0].controls.identityNum.invalid &&
+                                  getControls[i]['controls'].partyIdentityDOList
+                                    .controls[0].controls.identityNum.dirty
+                                ) &&
+                                !getControls[i]['controls'].partyIdentityDOList
+                                  .controls[0].controls.identityNum.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].partyIdentityDOList
+                                .controls[0].controls.identityNum.invalid &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls[0].controls.identityNum.dirty) ||
                               getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum.dirty) ||
-                            getControls[i]['controls'].partyIdentityDOList
-                              .controls[0].controls.identityNum.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].partyIdentityDOList
-                              .controls[0].controls.identityNum.pristine &&
-                              getControls[i]['controls'].partyIdentityDOList
-                                .controls[0].controls.identityNum
-                                .identityNumError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid identity number*
+                                .controls[0].controls.identityNum.errors
+                                ?.valueErr ||
+                              (getControls[i]['controls'].partyIdentityDOList
+                                .controls[0].controls.identityNum.pristine &&
+                                getControls[i]['controls'].partyIdentityDOList
+                                  .controls[0].controls.identityNum
+                                  .identityNumError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid identity number*
+                          </div>
                         </div>
                       </div>
-                    </div>
                     </div>
                   </div>
                 </div>
@@ -748,15 +1641,15 @@
                       *ngIf="!first"
                     >
                       <input
-                        (click)="setAddressSame(i)"
+                        (click)="setAddressSame($event.target.value, i)"
                         formControlName="addressForPickupSame"
                         class="form-check-input mt-0"
                         type="checkbox"
-                        [id]="i"
+                        id="sameAddress{{ i }}"
                       />
                       <label
                         class="form-check-label"
-                        [for]="i"
+                        for="sameAddress{{ i }}"
                         style="font-size: 13px"
                       >
                         Same as Primary Traveller
@@ -765,7 +1658,7 @@
                   </div>
                 </div>
                 <div
-                  *ngIf="!getControls[i]['controls'].addressForPickupSame.value"
+                  *ngIf="!getControls[i]['controls'].addressForPickupSame.value || first"
                 >
                   <div
                     formArrayName="partyAddressDOList"
@@ -777,7 +1670,7 @@
                   >
                     <div class="form-row" [formGroupName]="j">
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label for="line1-{{ i }}" class="insurance-label"
@@ -790,6 +1683,7 @@
                             maxlength="400"
                             formControlName="addressLine1Lang1"
                             autocomplete="new-addressLine1Lang1"
+                            [required]="first"
                             pattern="^[ A-Za-z0-9-:./\n,]*$"
                             [ngClass]="{
                               'is-invalid':
@@ -839,7 +1733,7 @@
                         </div>
                       </div>
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label for="line2-{{ i }}" class="insurance-label"
@@ -852,6 +1746,7 @@
                             maxlength="400"
                             formControlName="addressLine2Lang1"
                             autocomplete="new-addressLine2Lang1"
+                            [required]="first"
                             pattern="^[ A-Za-z0-9-:./\n,]*$"
                             [ngClass]="{
                               'is-invalid':
@@ -901,7 +1796,7 @@
                         </div>
                       </div>
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label
@@ -924,7 +1819,7 @@
                         </div>
                       </div>
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label for="area-{{ i }}" class="insurance-label"
@@ -935,6 +1830,7 @@
                             id="area-{{ i }}"
                             formControlName="areaCd"
                             autocomplete="new-areaCd"
+                            [required]="first"
                             [ngClass]="{
                               'is-invalid':
                                 getControls[i]['controls'].partyAddressDOList
@@ -974,7 +1870,7 @@
                         </div>
                       </div>
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label for="city-{{ i }}" class="insurance-label"
@@ -985,6 +1881,7 @@
                             id="city-{{ i }}"
                             formControlName="cityCd"
                             autocomplete="new-cityCd"
+                            [required]="first"
                             [ngClass]="{
                               'is-invalid':
                                 getControls[i]['controls'].partyAddressDOList
@@ -1024,7 +1921,7 @@
                         </div>
                       </div>
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label for="pinCode-{{ i }}" class="insurance-label"
@@ -1035,6 +1932,7 @@
                             id="pinCode-{{ i }}"
                             formControlName="pinCode"
                             autocomplete="new-pinCode"
+                            [required]="first"
                             pattern="^[1-9][0-9]{5}$"
                             [ngClass]="{
                               'is-invalid':
@@ -1076,7 +1974,7 @@
                         </div>
                       </div>
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label for="state-{{ i }}" class="insurance-label"
@@ -1087,61 +1985,58 @@
                             id="inputState"
                             class="form-control col form-control-sm insurance-select"
                           >
-                            <option value="Delhi">Delhi</option>
-                            <option value="Andaman And Nicobar Islands">
-                              Andaman and Nicobar Islands
-                            </option>
-                            <option value="Andhra Pradesh">
-                              Andhra Pradesh
-                            </option>
-                            <option value="Arunachal Pradesh">
-                              Arunachal Pradesh
-                            </option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Chandigarh">Chandigarh</option>
-                            <option value="Dadar And Nagar Haveli">
-                              Dadar and Nagar Haveli
-                            </option>
-                            <option value="Daman">Daman and Diu</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">
-                              Himachal Pradesh
-                            </option>
-                            <option value="Jammu And Kashmir">
-                              Jammu and Kashmir
-                            </option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Lakshadweep">Lakshadweep</option>
-                            <option value="Madhya Pradesh">
-                              Madhya Pradesh
-                            </option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Puducherry">Puducherry</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttar">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="West Bengal">West Bengal</option>
+                          <option value="Delhi">Delhi</option>
+                          <option value="New Delhi">New Delhi</option>
+                          <option value="Andaman And Nicobar Islands">
+                            Andaman And Nicobar Islands
+                          </option>
+                          <option value="Andhra Pradesh">Andhra Pradesh</option>
+                          <option value="Arunachal Pradesh">
+                            Arunachal Pradesh
+                          </option>ion
+                          <option value="Assam">Assam</option>
+                          <option value="Bihar">Bihar</option>
+                          <option value="Chhattisgarh">Chhattisgarh</option>
+                          <option value="Chandigarh">Chandigarh</option>
+                          <option value="Dadar And Nagar Haveli">
+                            Dadar and Nagar Haveli
+                          </option>
+                          <option value="Daman And Diu">Daman And Diu</option>
+                          <option value="Goa">Goa</option>
+                          <option value="Gujarat">Gujarat</option>
+                          <option value="Haryana">Haryana</option>
+                          <option value="Himachal Pradesh">
+                            Himachal Pradesh
+                          </option>
+                          <option value="Jammu And Kashmir">
+                            Jammu and Kashmir
+                          </option>
+                          <option value="Jharkhand">Jharkhand</option>
+                          <option value="Karnataka">Karnataka</option>
+                          <option value="Kerala">Kerala</option>
+                          <option value="Lakshadweep">Lakshadweep</option>
+                          <option value="Madhya Pradesh">Madhya Pradesh</option>
+                          <option value="Maharashtra">Maharashtra</option>
+                          <option value="Manipur">Manipur</option>
+                          <option value="Meghalaya">Meghalaya</option>
+                          <option value="Mizoram">Mizoram</option>
+                          <option value="Nagaland">Nagaland</option>
+                          <option value="Odisha">Odisha</option>
+                          <option value="Punjab">Punjab</option>
+                          <option value="Puducherry">Puducherry</option>
+                          <option value="Rajasthan">Rajasthan</option>
+                          <option value="Sikkim">Sikkim</option>
+                          <option value="Tamil Nadu">Tamil Nadu</option>
+                          <option value="Telangana">Telangana</option>
+                          <option value="Tripura">Tripura</option>
+                          <option value="Uttar Pradesh">Uttar Pradesh</option>
+                          <option value="Uttarakhand">Uttarakhand</option>
+                          <option value="West Bengal">West Bengal</option>
                           </select>
                         </div>
                       </div>
                       <div
-                        class="col-lg-3 col-md-4 col-sm-6 col-6 insurance-box"
+                        class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                       >
                         <div class="insurance-input_box">
                           <label for="country-{{ i }}" class="insurance-label"
@@ -1152,6 +2047,7 @@
                             id="country-{{ i }}"
                             formControlName="countryCd"
                             autocomplete="new-countryCd"
+                            [required]="first"
                             [ngClass]="{
                               'is-invalid':
                                 getControls[i]['controls'].partyAddressDOList
@@ -1199,6 +2095,7 @@
             </div>
           </form>
         </div>
+      </div>
 
         <div class="form-row mt-3">
           <div class="col-12">
@@ -1471,7 +2368,6 @@
           </svg>
           Change of plan type
         </p>
-
       </div>
       <div
         class="modal-footer"

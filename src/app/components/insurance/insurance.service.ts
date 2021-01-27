@@ -24,11 +24,8 @@ export class InsuranceService {
   }
 
   getPremium(reqData) {
-    let AUTH_TOKEN = this.loginService.getAuthToken();
-    let headers = new HttpHeaders({ 'token': AUTH_TOKEN, 'visa-client': "0" });
     const base_url = this.userFlow.getBaseURL();
-
-    return this.http.post(base_url + "insurance/getPremium", reqData, { headers: headers });
+    return this.http.post(base_url + "insurance/getPremium", reqData);
   }
 
   paymentInitiate(bookingId: string) {
