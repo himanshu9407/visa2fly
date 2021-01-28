@@ -273,3 +273,26 @@
   padding: 0;
   font-weight: 600;
 }
+
+.loading svg {
+  animation: rotatingLoader 1.5s linear infinite;
+  -webkit-animation: rotatingLoader 1.5s linear infinite;
+  margin-left: 2px;
+}
+
+@keyframes rotatingLoader {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}

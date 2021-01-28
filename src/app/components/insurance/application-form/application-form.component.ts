@@ -57,6 +57,7 @@ export class ApplicationFormComponent implements OnInit {
 
   title: string = "Visa2fly | Insurance Application Form";
   maxDateDobForProposal: { year: number; month: number; day: number; };
+  loaderOnProceed: boolean;
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -236,7 +237,9 @@ export class ApplicationFormComponent implements OnInit {
       if (!this.termsAndConditionForm.valid) {
         this.toastr.warning("Please accept our terms and conditions");
       } else {
-        this.preloaderService.showPreloader(true);
+        // this.preloaderService.showPreloader(true);
+
+        this.loaderOnProceed = true;
 
         let birthDtVar: { year: number; month: number; day: number } = this.insuranceForm.controls.proposer['controls'].birthDtCopy.value;
 
@@ -423,14 +426,14 @@ export class ApplicationFormComponent implements OnInit {
           if (res.code === "0") {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-            console.log(typeof res.data.amount);
-            console.log(typeof this.premiumCalculated);
+            console.log(res.data.amount);
+            console.log(this.premiumCalculated);
+            this.newPremium = res.data.amount;
+            this.oldPremium = this.premiumCalculated;
 
 
             if (this.newPremium != this.oldPremium) {
               this.preloaderService.showPreloader(false);
-              this.newPremium = res.data.amount;
-              this.oldPremium = this.premiumCalculated;
               ($('#warningModal') as any).modal('show')
             } else {
               this.paymentInitiate(this.createPolicyBookingId);
@@ -441,6 +444,7 @@ export class ApplicationFormComponent implements OnInit {
           }
         });
 
+        this.loaderOnProceed = false;
         this.setResposeArr = [];
       }
     }
