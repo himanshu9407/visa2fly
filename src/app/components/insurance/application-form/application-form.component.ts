@@ -63,36 +63,27 @@ export class ApplicationFormComponent implements OnInit {
     private preloaderService: PreloaderService,
     private titleService: Title,
     private insuranceService: InsuranceService, private userflowDetails: UserFlowDetails) {
-
     this.insuranceDetails = this.userflowDetails.getInsuranceDetails();
-    // console.log(this.insuranceDetails);
-    // console.log(this.premiumFormDetail);
-
     this.insurancePlan = this.userflowDetails.getInsurancePlanDetails();
-
     this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-    // console.log(this.premiumDetails.noOfTraveller);
-
-    // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
-    // this.getPremiumForm.get('country').setValue(premiumFormDetail.country);
-    // this.getPremiumForm.get('tripStartDate').setValue(premiumFormDetail.tripStartDate);
-    // this.getPremiumForm.get('tripEndDate').setValue(premiumFormDetail.tripEndDate);
-    // this.getPremiumForm.get('anyMedicalCondition').setValue(premiumFormDetail.anyMedicalCondition);
   }
 
   ngOnInit(): void {
     this.preloaderService.showPreloader(false);
 
+    // insurance form
     this.insuranceForm = this.formBuilder.group({
       proposer: this.issueProposerDetail(),
       insurer: this.formBuilder.array([this.issueInsurancePolicy()]),
     });
 
+    // policydetails form
     this.policyDetailForm = this.formBuilder.group({
       planType: [{ value: '' }, [Validators.required]],
       coverage: [{ value: '', disabled: true }, [Validators.required]]
-    })
+    });
 
+    // terms and condition form
     this.termsAndConditionForm = this.formBuilder.group({
       tnc: [false, [Validators.requiredTrue]],
     });
@@ -134,25 +125,7 @@ export class ApplicationFormComponent implements OnInit {
       this.premiumCalculated = this.goldPremiumCalculated;
     }
 
-    // console.log(this.insuranceForm);
     this.titleService.setTitle(this.title);
-
-    // $('#Self').on('click', function (e) {
-    //   // if (this.insuranceForm.controls.proposer.get('ensureYourSelf').value) {
-    //     e.stopPropagation();
-    //   // }
-    // });
-
-  //   $('#toggle1').on('shown.bs.collapse', function () {
-  //     $('[data-toggle=collapse]').prop('disabled',true);
-  // });
-
-    // $("[data-toggle='collapse'] [data-toggle='modal']").click(function(event) {
-  //     event.stopPropagation();
-  //     var thisModal = $(this).attr('data-target');
-  // });
-
-      // console.log("ffjj")
   }
 
   issueInsurancePolicy(): FormGroup {
@@ -445,15 +418,15 @@ export class ApplicationFormComponent implements OnInit {
 
         // console.log(fd);
 
-        
+
         this.insuranceService.createPolicy(fd).subscribe((res: any) => {
           if (res.code === "0") {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
             console.log(typeof res.data.amount);
             console.log(typeof this.premiumCalculated);
-            
-            
+
+
             if (this.newPremium != this.oldPremium) {
               this.preloaderService.showPreloader(false);
               this.newPremium = res.data.amount;
@@ -784,6 +757,7 @@ export class ApplicationFormComponent implements OnInit {
 
   setPrimaryAsProposer() {
     let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
+    let firstCollapse = document.querySelector('.no-collapsable');
 
     // console.log(same);
     if (same) {
@@ -823,6 +797,8 @@ export class ApplicationFormComponent implements OnInit {
         element.classList.remove('show');
       });
       this.selectedTravellerForm = null;
+
+      firstCollapse.addEventListener("click", this.stopIt);
 
     } else {
 
@@ -864,6 +840,8 @@ export class ApplicationFormComponent implements OnInit {
       this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.stateCd.setValidators(Validators.required);
       this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.countryCd.setValidators(Validators.required);
 
+      firstCollapse.removeEventListener("click", this.stopIt);
+
     }
 
     this.getControls[0]['controls'].firstName.updateValueAndValidity();
@@ -901,6 +879,11 @@ export class ApplicationFormComponent implements OnInit {
     // console.log(this.getControls[0]['controls']);
   }
 
+  stopIt(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
   scrollToInvalid(id: string) {
     $('html, body').animate({
       scrollTop: $("#" + id).offset().top
@@ -924,7 +907,7 @@ export class ApplicationFormComponent implements OnInit {
 
   onRelationValueChange() {
     let relationArr: Array<string> = [];
-    let duplicates:  Array<string> = [];
+    let duplicates: Array<string> = [];
     let startWith: number = 0;
 
     let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
@@ -964,7 +947,7 @@ export class ApplicationFormComponent implements OnInit {
 
         // console.log(duplicates);
 
-        
+
       }
       // relationArr = [];
       if (duplicates[0] == "SPOUSE" || duplicates[0] == "SELF") {
