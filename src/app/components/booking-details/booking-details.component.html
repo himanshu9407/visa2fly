@@ -733,7 +733,7 @@
           </div>
         </div>
       </div>
-      <div *ngFor=" let insuranceItem of selectedBooking.insuranceBookings" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+      <div *ngFor=" let insuranceItem of InsuranceDetail" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
               <div class="insurance">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
@@ -752,7 +752,7 @@
                       </li>
                       <li>
                         Coverage :
-                        <span class="fieldData">{{insuranceItem.country + ' '+ insuranceItem.country}}</span>
+                        <span class="fieldData">{{insuranceItem.currency + ' '+ insuranceItem.coverage}}</span>
                       </li>
                       <li>
                         No Of Insured Person :
@@ -772,22 +772,31 @@
                       </li>
                       <li>
                         Booking date:
-                        <span class="fieldData">24/12/1998</span>
+                        <span class="fieldData">{{selectedBooking.booking.bookingDate}}</span>
                       </li>
                       <li>
                         Date of journey:
-                        <span class="fieldData">24/12/1998</span>
+                        <span class="fieldData">{{insuranceItem.policyCommencementDt}}</span>
                       </li>
                       <li>
                         Booking Status:
-                        <span class="fieldData badge badge-warning">Pending</span>
+                        <span
+                        [ngClass]="{'badge-success':selectedBooking.booking.statusColor == 'g' ,'badge-danger':selectedBooking.booking.statusColor == 'r','badge-warning':selectedBooking.booking.statusColor == 'y' }"
+                         class="fieldData badge">{{selectedBooking.booking.bookingStatus}}</span>
                       </li>
                       <li>
                         Payment status:
-                        <span class="fieldData badge badge-success">Successfull</span>
+                        <span
+                        [ngClass]="{'badge-success':selectedBooking.booking.statusColor == 'g' ,'badge-danger':selectedBooking.booking.statusColor == 'r','badge-warning':selectedBooking.booking.statusColor == 'y' }"
+                         class="fieldData badge">{{selectedBooking.booking.paymentStatus}}</span>
                       </li>
 
-                      <li>Click the button below to receive your policy on your email (if you have not received it yet)</li>
+                      <li class="text-center mt-4">
+                        <button (click)="downloadPolicy(selectedBooking.insuranceBookings.policyNum,selectedBooking.booking.paymentColor)"
+                        type="button" class="btn btn-outline-success btn-sm">
+                        Get Policy
+                      </button>
+                    </li>
                     </ul>
                   </div>
 
@@ -795,9 +804,9 @@
               </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
       <div class="col text-center">
-        <button class="btn btn-primary" [routerLink]="['/myBookings']">Back</button>
+        <button class="btn btn-primary" [routerLink]="['/myBookings']">Go Back To Bookings</button>
       </div>
     </div>
   </div>
