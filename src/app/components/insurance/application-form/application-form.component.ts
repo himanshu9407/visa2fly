@@ -58,6 +58,55 @@ export class ApplicationFormComponent implements OnInit {
   title: string = "Visa2fly | Insurance Application Form";
   maxDateDobForProposal: { year: number; month: number; day: number; };
   loaderOnProceed: boolean;
+  pinCodeArr: Array<string> = [];
+  cityListForProposal: Array<string> = [];
+  stateListForProposal: Array<string> = [];
+
+  cityList_0: Array<string> = [];
+  stateList_0: Array<string> = [];
+
+  cityList_1: Array<string> = [];
+  stateList_1: Array<string> = [];
+
+  cityList_2: Array<string> = [];
+  stateList_2: Array<string> = [];
+
+  cityList_3: Array<string> = [];
+  stateList_3: Array<string> = [];
+
+  cityList_4: Array<string> = [];
+  stateList_4: Array<string> = [];
+
+  cityList_5: Array<string> = [];
+  stateList_5: Array<string> = [];
+
+  // fetchPinCodeForProposal: boolean;
+  // invalidPinCodeForProposal: boolean = false;
+  // validPinCodeForProposal: boolean = false;
+
+  fetchPinCodeForProposal_0: boolean;
+  invalidPinCodeForProposal_0: boolean = false;
+  validPinCodeForProposal_0: boolean;
+
+  fetchPinCodeForProposal_1: boolean;
+  invalidPinCodeForProposal_1: boolean = false;
+  validPinCodeForProposal_1: boolean = false;
+
+  fetchPinCodeForProposal_2: boolean;
+  invalidPinCodeForProposal_2: boolean = false;
+  validPinCodeForProposal_2: boolean = false;
+
+  fetchPinCodeForProposal_3: boolean;
+  invalidPinCodeForProposal_3: boolean = false;
+  validPinCodeForProposal_3: boolean = false;
+
+  fetchPinCodeForProposal_4: boolean;
+  invalidPinCodeForProposal_4: boolean = false;
+  validPinCodeForProposal_4: boolean = false;
+
+  fetchPinCodeForProposal_5: boolean;
+  invalidPinCodeForProposal_5: boolean = false;
+  validPinCodeForProposal_5: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -127,6 +176,10 @@ export class ApplicationFormComponent implements OnInit {
     }
 
     this.titleService.setTitle(this.title);
+
+    // ($(".pinCodeAutoComplete") as any).autocomplete({
+    //   source: this.pinCodeArr
+    // });
   }
 
   issueInsurancePolicy(): FormGroup {
@@ -176,7 +229,7 @@ export class ApplicationFormComponent implements OnInit {
       areaCd: [""],
       cityCd: [""],
       pinCode: [""],
-      stateCd: ["New Delhi"],
+      stateCd: [""],
       countryCd: [{ value: "India", disabled: true }],
     });
   }
@@ -189,7 +242,7 @@ export class ApplicationFormComponent implements OnInit {
       areaCd: ["", [Validators.required]],
       cityCd: ["", [Validators.required]],
       pinCode: ["", [Validators.required]],
-      stateCd: ["New Delhi", [Validators.required]],
+      stateCd: ["", [Validators.required]],
       countryCd: [{ value: "India", disabled: true }],
     });
   }
@@ -224,11 +277,216 @@ export class ApplicationFormComponent implements OnInit {
     return str.length === 1 && str.match(/[a-z]/i);
   }
 
-  submitForm() {
-    // console.log(this.insuranceForm);
-    // console.log(this.insuranceForm.get("insurer").value)
-    // console.log(this.insuranceForm.get("proposer").value)
+  onChangePinCodeForProposer(city: string) {
+    if (city.length > 6 || city.length < 1) {
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.fetchPinCodeForProposal = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.invalidPinCodeForProposal = true;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.validPinCodeForProposal = false;
+    } else if (city.length > 1 || city.length < 6) {
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.fetchPinCodeForProposal = true;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.invalidPinCodeForProposal = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.validPinCodeForProposal = false;
+    } else {
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.fetchPinCodeForProposal = false;
+      this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.invalidPinCodeForProposal = false;
+    }
 
+    if (this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('pinCode').valid) {
+      let reqBody = {
+        pinCode: this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('pinCode').value
+      }
+      this.insuranceService.pinCodeCityState(reqBody).subscribe((res: any) => {
+        if (res.validValue == true) {
+          this.cityListForProposal = res.city;
+          this.stateListForProposal = res.state;
+
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('cityCd').setValue(this.cityListForProposal[0]);
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('stateCd').setValue(this.stateListForProposal[0]);
+
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.pinCodeFetchError = false;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.fetchPinCodeForProposal = false;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.validPinCodeForProposal = true;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.invalidPinCodeForProposal = false;
+        } else {
+          this.cityListForProposal = [];
+          this.stateListForProposal = [];
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('cityCd').setValue('');
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('stateCd').setValue('');
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.pinCodeFetchError = true;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.fetchPinCodeForProposal = false;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.validPinCodeForProposal = false;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.invalidPinCodeForProposal = true;
+        }
+      });
+    }
+  }
+
+  onChangePinCode(city: string, i: number) {
+    console.log(city);
+
+    if (city.length > 6 || city.length < 1) {
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = true;
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = false;
+    } else if (city.length > 1 || city.length < 6) {
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = true;
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = false;
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = false;
+    } else {
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
+      this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = false;
+    }
+
+    if (this.getControls[i]['controls'].partyAddressDOList.controls[0].get('pinCode').valid) {
+      let reqBody = {
+        pinCode: this.getControls[i]['controls'].partyAddressDOList.controls[0].get('pinCode').value
+      }
+      this.insuranceService.pinCodeCityState(reqBody).subscribe((res: any) => {
+        // res.foreach((element: any) => {
+        // })
+
+        let cityList: string;
+        let stateList: string;
+
+        if (res.validValue == true) {
+
+          switch (i) {
+            case 0:
+              this.cityList_0 = res.city;
+              this.stateList_0 = res.state;
+
+              cityList = this.cityList_0[0];
+              stateList = this.stateList_0[0];
+
+              break;
+
+            case 1:
+              this.cityList_1 = res.city;
+              this.stateList_1 = res.state;
+
+              cityList = this.cityList_1[0];
+              stateList = this.stateList_1[0];
+
+              break;
+
+            case 2:
+              this.cityList_2 = res.city;
+              this.stateList_2 = res.state;
+
+              cityList = this.cityList_2[0];
+              stateList = this.stateList_2[0];
+
+              break;
+
+            case 3:
+              this.cityList_3 = res.city;
+              this.stateList_3 = res.state;
+
+              cityList = this.cityList_3[0];
+              stateList = this.stateList_3[0];
+
+              break;
+
+            case 4:
+              this.cityList_4 = res.city;
+              this.stateList_4 = res.state;
+
+              cityList = this.cityList_4[0];
+              stateList = this.stateList_4[0];
+
+              break;
+
+            case 5:
+              this.cityList_5 = res.city;
+              this.stateList_5 = res.state;
+
+              cityList = this.cityList_5[0];
+              stateList = this.stateList_5[0];
+
+              break;
+
+          }
+
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].get('cityCd').setValue(cityList);
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].get('stateCd').setValue(stateList);
+
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.pinCodeFetchError = false;
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = true;
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = false;
+
+        } else {
+
+          switch (i) {
+            case 0:
+              this.cityList_0 = [];
+              this.stateList_0 = [];
+
+              cityList = this.cityList_0[0];
+              stateList = this.stateList_0[0];
+
+              break;
+
+            case 1:
+              this.cityList_1 = [];
+              this.stateList_1 = [];
+
+              cityList = this.cityList_1[0];
+              stateList = this.stateList_1[0];
+
+              break;
+
+            case 2:
+              this.cityList_2 = [];
+              this.stateList_2 = [];
+
+              cityList = this.cityList_2[0];
+              stateList = this.stateList_2[0];
+
+              break;
+
+            case 3:
+              this.cityList_3 = [];
+              this.stateList_3 = [];
+
+              cityList = this.cityList_3[0];
+              stateList = this.stateList_3[0];
+
+              break;
+
+            case 4:
+              this.cityList_4 = [];
+              this.stateList_4 = [];
+
+              cityList = this.cityList_4[0];
+              stateList = this.stateList_4[0];
+
+              break;
+
+            case 5:
+              this.cityList_5 = [];
+              this.stateList_5 = [];
+
+              cityList = this.cityList_5[0];
+              stateList = this.stateList_5[0];
+
+              break;
+
+          }
+
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].get('cityCd').setValue('');
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].get('stateCd').setValue('');
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.pinCodeFetchError = true;
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = false;
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = true;
+
+        }
+      });
+    }
+  }
+
+  submitForm() {
     if (!this.insuranceForm.valid) {
       this.toastr.warning("Some details missing !");
       this.checkValidateForm();
@@ -262,6 +520,9 @@ export class ApplicationFormComponent implements OnInit {
         this.insuranceForm.controls.proposer['controls'].citizenshipCd.setValue('IND');
         this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('countryCd').setValue('India');
 
+        let identityNumTemp = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value.toUpperCase();
+        this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').setValue(identityNumTemp);
+
         let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
         if (same) {
 
@@ -271,9 +532,6 @@ export class ApplicationFormComponent implements OnInit {
           let lastName = this.insuranceForm.controls.proposer.get('lastName').value;
           let relationCd = this.insuranceForm.controls.proposer.get('relationCd').value;
           let titleCd = this.insuranceForm.controls.proposer.get('titleCd').value;
-
-          let identityNumTemp = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value.toUpperCase();
-          this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').setValue(identityNumTemp);
 
           let identityNum = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value;
 
@@ -706,21 +964,13 @@ export class ApplicationFormComponent implements OnInit {
   onRemoveInsurer(index: number) {
     let temp = this.insuranceForm.get("insurer") as FormArray;
     temp.removeAt(index);
-    // console.log(temp.length);
     this.dataSource.splice(index, 1);
     this.count = this.count - 1;
-
-    // if (index == this.getControls.length - 1) {
-    //   this.selectedTravellerForm = index;
-    // } else {
-    //   this.selectedTravellerForm = index - 1;
-    // }
   }
 
   setAddressSame(value, index: number) {
     let same = this.getControls[index]['controls'].addressForPickupSame.value;
     if (!same) {
-      // console.log("Fuckup");
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine1Lang1.setValidators(null);
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressLine2Lang1.setValidators(null);
       this.getControls[index]['controls'].partyAddressDOList.controls[0].controls.addressTypeCd.setValidators(null);
@@ -963,56 +1213,22 @@ export class ApplicationFormComponent implements OnInit {
     }
   }
 
-  // setRespose() {
-  //   for (
-  //     let index = 0;
-  //     index < this.getControls.length;
-  //     index++
-  //   ) {
-  //     this.setResposeArr.push(
-  //       {
-  //         birthDt: this.getControls[index]['controls'].birthDt.value,
-  //         firstName: this.getControls[index]['controls'].firstName.value,
-  //         genderCd: this.getControls[index]['controls'].genderCd.value,
-  //         lastName: this.getControls[index]['controls'].lastName.value,
-  //         citizenshipCd: this.getControls[index]['controls'].citizenshipCd.value,
-  //         relationCd: this.getControls[index]['controls'].relationCd.value,
-  //         titleCd: this.getControls[index]['controls'].titleCd.value,
-  //         partyAddressDOList: [
-  //           {
-  //             addressLine1Lang1: this.getControls[index]['controls'].partyAddressDOList.controls.addressLine1Lang1.value,
-  //             addressLine2Lang1: this.getControls[index]['controls'].partyAddressDOList.controls.addressLine2Lang1.value,
-  //             addressTypeCd: this.getControls[index]['controls'].partyAddressDOList.controls.addressTypeCd.value,
-  //             areaCd: this.getControls[index]['controls'].partyAddressDOList.controls.areaCd.value,
-  //             cityCd: this.getControls[index]['controls'].partyAddressDOList.controls.cityCd.value,
-  //             pinCode: this.getControls[index]['controls'].partyAddressDOList.controls.pinCode.value,
-  //             stateCd: this.getControls[index]['controls'].partyAddressDOList.controls.stateCd.value,
-  //             countryCd: this.getControls[index]['controls'].partyAddressDOList.controls.countryCd.value
-  //           }
-  //         ],
-  //         partyContactDOList: [
-  //           {
-  //             contactNum: this.getControls[index]['controls'].partyContactDOList.controls.contactNum.value,
-  //             stdCode: this.getControls[index]['controls'].partyContactDOList.controls.stdCode.value
-  //           }
-  //         ],
-  //         partyEmailDOList: [
-  //           {
-  //             emailAddress: this.getControls[index]['controls'].partyEmailDOList.controls.emailAddress.value,
-  //           }
-  //         ],
-  //         partyIdentityDOList: [
-  //           {
-  //             identityNum: this.getControls[index]['controls'].partyIdentityDOList.controls.identityNum.value,
-  //             identityTypeCd: this.getControls[index]['controls'].partyIdentityDOList.controls.identityTypeCd.value,
-  //           }
-  //         ]
-  //       }
-  //     );
+  selectEvent(item: { name: string, id: number }) {
+    // this.getPremiumForm.get("country").setValue(item.name);
+    // this.selectedCountry = item.name;
 
-  //   }
+    // this.userflowDetails.setInsuranceDetails("country", item.name);
+    // this.restrictedCountry(item.name);
+  }
 
-  //   console.log(this.setResposeArr);
-  //   return this.setResposeArr;
-  // }
+  onChangeSearch(search: string) {
+    console.log(search);
+    // fetch remote res from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+
+  onFocused(e) {
+    console.log(e);
+    // do something
+  }
 }
