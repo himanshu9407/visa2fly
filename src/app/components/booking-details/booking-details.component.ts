@@ -44,6 +44,7 @@ export class BookingDetailsComponent implements OnInit {
       temp = localStorageBooking;
     }
     this.selectedBooking = temp;
+    console.log(this.selectedBooking);
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
     }, 2000);

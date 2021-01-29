@@ -296,7 +296,7 @@ export class ApplicationFormComponent implements OnInit {
           let countryCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('countryCd').value;
 
 
-          // paste it 
+          // paste it
 
           this.getControls[0].get('birthDtCopy').setValue(birthDtCopy);
           this.getControls[0].get('firstName').setValue(firstName);

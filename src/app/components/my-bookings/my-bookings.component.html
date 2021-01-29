@@ -220,21 +220,55 @@
                 </li>
                 <li>
                   Transaction ID :
-                  <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId != null">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId == null">NA</span>
                 </li>
-                <li>
-                  {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}} For :
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
+                  Visa For :
                   <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim For :
+                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Insurance For :
+                  <span class="fieldData">{{booking.insuranceBookings.country}}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
                   <span class="fieldData">{{booking.booking.visaType}}</span>
                 </li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim Type:
+                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Plan Type:
+                  <span class="fieldData">{{booking.insuranceBookings.planType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Number:
+                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum != null">{{booking.insuranceBookings.policyNum}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.insuranceBookings.policyNum == null">NA</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Coverage:
+                  <span class="fieldData">{{booking.insuranceBookings.currency + ' ' + booking.insuranceBookings.coverage }}</span>
+                </li>
+                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Commencement Date:
+                  <span class="fieldData">{{booking.insuranceBookings.policyCommencementDt}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Number Of Insured Person:
+                  <span class="fieldData">{{booking.insuranceBookings.numberOfInsuredPerson}}</span>
+                </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
                   <span class="fieldData">{{booking.booking.entryType}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Total Travellers:
                   <span class="fieldData">{{booking.booking.totalTravellers}}</span>
                 </li>
@@ -249,6 +283,10 @@
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
                   <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                </li>
+                <li>
+                  Booking Amount:
+                  <span class="fieldData">{{booking.booking.bookingAmount}}</span>
                 </li>
                 <li>
                   Booking Status:
@@ -273,9 +311,17 @@
                 </div>
 
                 <div class="col-6 button">
-                  <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                  <button *ngIf="booking.booking.bookingType == 'Visa'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Sim'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Policy
                   </button>
                 </div>
               </div>
@@ -351,17 +397,51 @@
                 </li>
                 <li>
                   Transaction ID :
-                  <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId != null">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId == null">NA</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa For :
                   <span class="fieldData">{{booking.booking.visaForCountry}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim For :
+                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Insurance For :
+                  <span class="fieldData">{{booking.insuranceBookings.country}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
                   <span class="fieldData">{{booking.booking.visaType}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim Type:
+                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Plan Type:
+                  <span class="fieldData">{{booking.insuranceBookings.planType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Number:
+                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum != null">{{booking.insuranceBookings.policyNum}}</span>
+                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum == null">NA</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Coverage:
+                  <span class="fieldData">{{booking.insuranceBookings.currency + ' '+ booking.insuranceBookings.coverage}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Commencement Date:
+                  <span class="fieldData">{{booking.insuranceBookings.policyCommencementDt}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Number Of Insured Person:
+                  <span class="fieldData">{{booking.insuranceBookings.numberOfInsuredPerson}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
                   <span class="fieldData">{{booking.booking.entryType}}</span>
                 </li>
@@ -373,11 +453,11 @@
                   Booking date:
                   <span class="fieldData">{{booking.booking.bookingDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Document Collection Date:
                   <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
                   <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
                 </li>
@@ -406,9 +486,17 @@
                 </div>
 
                 <div class="col-6 button">
-                  <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                  <button *ngIf="booking.booking.bookingType == 'Visa'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Sim'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Policy
                   </button>
                 </div>
               </div>
@@ -574,7 +662,7 @@
                       <div class="invalid-feedback" style="display: block; margin-top: -10px; margin-bottom: 5px;">
                         <div *ngIf="feedbackMsg && FeedbackForm.get('f3-rating').invalid">
                           *Please provide your rating
-                        </div> 
+                        </div>
                       </div>
                     </fieldset> -->
                     <div class="star-rating">
