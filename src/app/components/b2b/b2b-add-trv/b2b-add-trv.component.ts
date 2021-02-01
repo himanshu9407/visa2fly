@@ -246,6 +246,15 @@ export class B2bAddTrvComponent implements OnInit {
           };
         }
       }
+    }  else if (date.month == 12) {
+      if (date.day > 31) {
+        let tempDay = date.day - 30;
+        this.minDateOfTravel = {
+          year: date.year + 1,
+          month: 1,
+          day: tempDay,
+        };
+      }
     } else {
       if (date.day > 31) {
         let tempDay = date.day - 31;
@@ -290,6 +299,15 @@ export class B2bAddTrvComponent implements OnInit {
               year: date.year,
               month: prevMonth,
               day: 28
+            };
+          }
+        } else if (date.month == 12) {
+          if (date.day > 31) {
+            let tempDay = date.day - 30;
+            this.minDateOfTravel = {
+              year: date.year + 1,
+              month: 1,
+              day: tempDay,
             };
           }
         } else {

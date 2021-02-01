@@ -153,13 +153,13 @@ export class AddTravellerComponent implements OnInit {
   collectionDateError = false;
   public errorMessage: Array<any> = [];
 
-  // checkCity(i) {
-  //   let tempState = this.travellerForm.controls.travellers.controls[i].controls
-  //     .state.value;
-  //   this.travellerForm.controls.travellers.controls[i].controls.city.setValue(
-  //     this.list.cities[tempState][0]
-  //   );
-  // }
+  checkCity(i) {
+    let tempState = this.travellerForm.controls.travellers.controls[i].controls
+      .state.value;
+    this.travellerForm.controls.travellers.controls[i].controls.city.setValue(
+      this.list.cities[tempState][0]
+    );
+  }
 
   checkDateOfExpiry(date: { year: any; day: any; month: any }) {
     //normal months
