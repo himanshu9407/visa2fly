@@ -585,6 +585,7 @@ export class B2bReqComponent implements OnInit {
       "purpose",
       this.purposeChooseForm.get("purposeSelected").value
     );
+    this.userFlow.setB2BUserFlowDetails("markUp" , this.requirementsData.data.markup)
     this.userFlow.setB2BUserFlowDetails("quoteId", quoteId);
     this.userFlow.setB2BUserFlowDetails("category", category);
     this.userFlow.setB2BUserFlowDetails(

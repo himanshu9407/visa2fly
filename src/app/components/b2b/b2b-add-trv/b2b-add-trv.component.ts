@@ -133,6 +133,7 @@ export class B2bAddTrvComponent implements OnInit {
   country: string = "";
   collectionDateError = false;
   public errorMessage: Array<any> = [];
+  markUpForm : FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -153,6 +154,7 @@ export class B2bAddTrvComponent implements OnInit {
     }, 2000);
 
     this.today = new Date();
+    console.log(this.userFlow.getB2BUserFlowDetails());
     this.tomorrow = new Date(this.today);
     this.tomorrow.setDate(this.tomorrow.getDate() + 1);
     this.tomorrowDate = {
@@ -160,6 +162,8 @@ export class B2bAddTrvComponent implements OnInit {
       month: this.tomorrow.getMonth() + 1,
       day: this.tomorrow.getDate()
     };
+
+
 
     this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
   }
@@ -361,10 +365,10 @@ export class B2bAddTrvComponent implements OnInit {
 
   checkDateOfDob(date: { month: any; day: any; year: any }) {}
 
-  
+
   onSlide(event) {
-    console.log(event);
-    
+    // console.log(event);
+
     if (isPlatformBrowser(this.platformId)) {
 
       for (let i = 0; i < 6; i++) {
@@ -518,6 +522,12 @@ export class B2bAddTrvComponent implements OnInit {
     //   insurance: new FormControl(false, []),
     //   forex: new FormControl(false, [])
     // });
+
+    this.markUpForm = new FormGroup({
+      markup: new FormControl('')
+    })
+
+    this.markUpForm.get('markup').setValue(this.userFlow.getB2BUserFlowDetails().markUp);
 
     this.travellerForm = this.formBuilder.group({
       travellers: this.formBuilder.array([this.createTraveller()])
@@ -996,6 +1006,7 @@ export class B2bAddTrvComponent implements OnInit {
           // console.log(element);
         });
 
+
         // console.log(ptdata[0]);
         // console.log("himanshu");
 
@@ -1050,6 +1061,8 @@ export class B2bAddTrvComponent implements OnInit {
         fd["totalPayableAmount"] =
           (this.serviceTax + this.basePrice) * totalTraveller;
 
+        fd["markup"] = this.markUpForm.get('markup').value;
+
         // this.formData1.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
 
         // this.formData1.append('needSim',this.valueAddedService.get('sim').value);
@@ -1071,7 +1084,7 @@ export class B2bAddTrvComponent implements OnInit {
         // console.log(tempData.values());
 
         // console.log(this.travellerForm.get('travellers').value);
-
+        console.log(this.formData1);
         this.travellerService
           .submitForm(this.formData1)
           .subscribe((data: any) => {
@@ -1087,7 +1100,7 @@ export class B2bAddTrvComponent implements OnInit {
               this.status = data.status;
               this.message = data.message;
               this.extraParams = JSON.stringify(data.data.extraParams);
-              
+
               setTimeout(() => {
                 this.preloaderService.showPreloader(false);
                 document.forms["paymentForm"].submit();
@@ -1272,13 +1285,13 @@ export class B2bAddTrvComponent implements OnInit {
 
       this.travellerService.submitWarningForm().subscribe((data1: any) => {
         if (data1.code == 0) {
-          
+
           this.bookingId = data1.data.bookingId;
           this.collectPayment = data1.data.collectPayment;
           this.amount = data1.data.amount;
           this.hash = data1.data.hash;
           this.redirect = data1.data.redirectUrl;
-          
+
           this.code = data1.code;
           this.status = data1.status;
           this.message = data1.message;
