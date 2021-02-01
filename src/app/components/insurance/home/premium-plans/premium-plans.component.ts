@@ -39,7 +39,7 @@ export class PremiumPlansComponent implements OnInit {
     this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
     this.numbers = Array(5).fill(0).map((x,i)=>i);
 
-    console.log(this.premiumDetails);
+    // console.log(this.premiumDetails);
 
     this.premiumDetails.insuranceBenefitAsPerPlans.forEach(element => {
       this.planType.push(element.planType);
@@ -51,7 +51,7 @@ export class PremiumPlansComponent implements OnInit {
     });
 
     this.premiumDetails.premiumAsPerPlan.forEach(element => {
-      console.log(element);
+      // console.log(element);
       if (element.planType == 'Basic') {
         this.basicPremiumCalculated = element.premiumCalculated;
       } else if (element.planType == 'Gold') {
@@ -67,11 +67,11 @@ export class PremiumPlansComponent implements OnInit {
     this.asPerPlanType(planType);
 
     this.insuranceService.permiumCalculated.subscribe((res: Array<{ planType: string, premiumCalculated: number, gst: number }>) => {
-      console.log(res);
+      // console.log(res);
 
       let planType = this.filterPlanForm.get('planFilter').value;
       res.forEach(element => {
-        console.log(element);
+        // console.log(element);
         if (element.planType === 'Basic') {
           this.basicPremiumCalculated = element.premiumCalculated;
         } else if (element.planType === 'Gold') {
@@ -94,7 +94,7 @@ export class PremiumPlansComponent implements OnInit {
     let planType = this.filterPlanForm.get('planFilter').value;
     this.asPerPlanType(planType);
 
-    console.log(planType);
+    // console.log(planType);
 
   }
 

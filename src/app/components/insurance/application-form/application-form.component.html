@@ -2628,20 +2628,28 @@
 </section>
 
 <div style="display: none">
-  <form name="paymentForm" ngNoForm [action]="actionUrl" method="POST">
+  <form name="paymentForm" [action]="actionUrl" method="POST">
     <input
-      type="text"
-      name="returnUrl"
-      id="returnUrl"
+      type="hidden"
+      name="returnURL"
+      id="returnURL"
       [(ngModel)]="returnUrl"
     />
     <input
-      type="text"
-      name="proposalNumber"
-      id="proposalNumber"
+      type="hidden"
+      name="proposalNum"
+      id="proposalNum"
       [(ngModel)]="proposalNumber"
     />
   </form>
+
+  <!-- <form action="https://apiuat.religarehealthinsurance.com/portalui/PortalPayment.run" name="0.1_PAYMENTFORM" method="post" target="_blank" onsubmit="try {return window.confirm(&quot;This form may not function properly due to certain security constraints.\nContinue?&quot;);} catch (e) {return false;}">
+    <div>
+    <input type="hidden" name="proposalNum" value="1120002818106">
+	<input type="hidden" name="returnURL" value="http://13.127.24.123/vizzaweb/#/paymentSuccess">	
+	</div>
+  	
+    </form> -->
 </div>
 
 <div

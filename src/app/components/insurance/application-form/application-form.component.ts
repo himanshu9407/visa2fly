@@ -324,7 +324,7 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   onChangePinCode(city: string, i: number) {
-    console.log(city);
+    // console.log(city);
 
     if (city.length > 6 || city.length < 1) {
       this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
@@ -687,8 +687,8 @@ export class ApplicationFormComponent implements OnInit {
           if (res.code === "0") {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-            console.log(res.data.amount);
-            console.log(this.premiumCalculated);
+            // console.log(res.data.amount);
+            // console.log(this.premiumCalculated);
             this.newPremium = res.data.amount;
             this.oldPremium = this.premiumCalculated;
 
@@ -1225,13 +1225,13 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   onChangeSearch(search: string) {
-    console.log(search);
+    // console.log(search);
     // fetch remote res from here
     // And reassign the 'data' which is binded to 'data' property.
   }
 
   onFocused(e) {
-    console.log(e);
+    // console.log(e);
     // do something
   }
 }

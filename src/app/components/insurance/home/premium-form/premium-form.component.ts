@@ -286,8 +286,8 @@ export class PremiumFormComponent implements OnInit {
   }
 
   onChangePlan() {
-    console.log(this.getPremiumForm);
-    console.log(this.getPremiumForm.valid);
+    // console.log(this.getPremiumForm);
+    // console.log(this.getPremiumForm.valid);
     if (this.enableCheckoutBtn && !this.deniedCountryEnable) {
 
       if (!this.getPremiumForm.valid) {
@@ -313,7 +313,7 @@ export class PremiumFormComponent implements OnInit {
         for (let i = 0; i < ageOfTravellers.length; i++) {
           if (ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== '') {
             ageOfTravellersList.push(ageOfTravellers[i].memberAge);
-            console.log(ageOfTravellers[i]);
+            // console.log(ageOfTravellers[i]);
 
           }
         }
@@ -328,11 +328,11 @@ export class PremiumFormComponent implements OnInit {
           // tripFrequency: tripFrequency
         }
 
-        console.log(reqData);
+        // console.log(reqData);
 
         this.insuranceService.loadingSkeleton.next(true);
         this.insuranceService.getPremium(reqData).subscribe((res: any) => {
-          console.log(res);
+          // console.log(res);
 
           if (res.code === '0') {
             this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
@@ -373,7 +373,7 @@ export class PremiumFormComponent implements OnInit {
       searchItem === 'Yemen') {
       this.deniedCountryEnable = true;
       this.deniedCountry = searchItem;
-      console.log(this.deniedCountry);
+      // console.log(this.deniedCountry);
 
     } else {
       this.deniedCountryEnable = false;
@@ -381,13 +381,13 @@ export class PremiumFormComponent implements OnInit {
   }
 
   onChangeSearch(search: string) {
-    console.log(search);
+    // console.log(search);
     // fetch remote res from here
     // And reassign the 'data' which is binded to 'data' property.
   }
 
   onFocused(e) {
-    console.log(e);
+    // console.log(e);
     // do something
   }
 
@@ -419,7 +419,7 @@ export class PremiumFormComponent implements OnInit {
   validatePremiumForm() {
     let country = this.getPremiumForm.get('country').value;
 
-    console.log(this.getPremiumForm.get('country').value);
+    // console.log(this.getPremiumForm.get('country').value);
 
     country == "" || country == null || country == undefined ?
       this.destinationNotSelected = true :
@@ -439,7 +439,7 @@ export class PremiumFormComponent implements OnInit {
     if (!this.controls[0]['controls'].memberAge.valid) {
       let ageOfTravellers = this.controls[0]['controls'].memberAge.value;
 
-      console.log(ageOfTravellers);
+      // console.log(ageOfTravellers);
       ageOfTravellers == "" || ageOfTravellers == null || ageOfTravellers == undefined ?
         this.ageOfTravellersError = true :
         this.ageOfTravellersError = false;
@@ -448,11 +448,11 @@ export class PremiumFormComponent implements OnInit {
 
   proceedBtn() {
     this.validatePremiumForm();
-    console.log(!this.getPremiumForm.valid);
+    // console.log(!this.getPremiumForm.valid);
 
     if (!this.getPremiumForm.valid) {
     } else {
-      console.log(this.selectedCountry);
+      // console.log(this.selectedCountry);
 
       let country;
       if (this.checkParenthesis(this.selectedCountry)) {
@@ -485,10 +485,10 @@ export class PremiumFormComponent implements OnInit {
         // tripFrequency: tripFrequency
       }
 
-      console.log(reqData);
+      // console.log(reqData);
 
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
 
         if (res.code === '0') {
           this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
@@ -514,7 +514,7 @@ export class PremiumFormComponent implements OnInit {
     let routeLength = this.router.url.split('/').length;
     let endRoute = this.router.url.split('/')[routeLength - 1];
 
-    console.log(endRoute);
+    // console.log(endRoute);
 
 
     if (endRoute == 'plans') {
@@ -549,7 +549,7 @@ export class PremiumFormComponent implements OnInit {
     this.preloaderService.showPreloader(true);
     let token = this.loginService.getAuthToken();
     this.loginStatus.verifyAuthToken(token).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
 
       if (res.code === '0') {
         this.router.navigate(["insurance/application-form"]);
@@ -573,7 +573,7 @@ export class PremiumFormComponent implements OnInit {
   }
 
   checkParenthesis(string) {
-    console.log(string);
+    // console.log(string);
 
     for (let i = 0; i < string.length; i++) {
       if (string[i] === "(") {
