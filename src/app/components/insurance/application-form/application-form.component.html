@@ -862,12 +862,6 @@
                         </div>
                       </div>
                     </div>
-
-                    {{
-                      insuranceForm.controls.proposer["controls"]
-                        .partyAddressDOList["controls"][j].controls.pinCode
-                        .pinCodeError
-                    }}
                     <div
                       class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                     >
@@ -974,9 +968,7 @@
                             insuranceForm.controls.proposer['controls']
                               .partyAddressDOList['controls'][j].controls.cityCd
                               .errors?.valueErr ||
-                            (insuranceForm.controls.proposer['controls']
-                              .partyAddressDOList['controls'][j].controls.cityCd
-                              .pristine &&
+                            (
                               insuranceForm.controls.proposer['controls']
                                 .partyAddressDOList['controls'][j].controls
                                 .cityCd.cityCdError)
@@ -988,6 +980,27 @@
                         </div>
                       </div>
                     </div>
+                    <!-- 1. {{ + insuranceForm.controls.proposer['controls']
+                    .partyAddressDOList['controls'][j].controls.cityCd
+                    .invalid}}
+
+                    2 {{ insuranceForm.controls.proposer['controls']
+                    .partyAddressDOList['controls'][j].controls
+                    .cityCd.dirty}}
+
+                    3 {{insuranceForm.controls.proposer['controls']
+                    .partyAddressDOList['controls'][j].controls.cityCd
+                    .errors?.valueErr}}
+
+                    4 {{insuranceForm.controls.proposer['controls']
+                    .partyAddressDOList['controls'][j].controls.cityCd
+                    .pristine}}
+
+                    5 {{insuranceForm.controls.proposer['controls']
+                    .partyAddressDOList['controls'][j].controls
+                    .cityCd.cityCdError}} -->
+
+
                     <div
                       class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                     >

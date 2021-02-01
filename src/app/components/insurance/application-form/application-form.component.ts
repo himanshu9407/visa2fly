@@ -307,6 +307,7 @@ export class ApplicationFormComponent implements OnInit {
           this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.fetchPinCodeForProposal = false;
           this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.validPinCodeForProposal = true;
           this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.invalidPinCodeForProposal = false;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].controls.cityCd.cityCdError = false;
         } else {
           this.cityListForProposal = [];
           this.stateListForProposal = [];
@@ -316,6 +317,7 @@ export class ApplicationFormComponent implements OnInit {
           this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.fetchPinCodeForProposal = false;
           this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.validPinCodeForProposal = false;
           this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0]['controls'].pinCode.invalidPinCodeForProposal = true;
+          this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].controls.cityCd.cityCdError = true;
         }
       });
     }
@@ -414,6 +416,7 @@ export class ApplicationFormComponent implements OnInit {
           this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
           this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = true;
           this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = false;
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.cityCd.cityCdError = false;
 
         } else {
 
@@ -480,7 +483,7 @@ export class ApplicationFormComponent implements OnInit {
           this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
           this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = false;
           this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = true;
-
+          this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.cityCd.cityCdError = true;
         }
       });
     }
@@ -517,7 +520,7 @@ export class ApplicationFormComponent implements OnInit {
         this.insuranceForm.controls.proposer['controls'].birthDt.setValue(tempBirthDt);
         this.insuranceForm.controls.proposer['controls'].birthDt.updateValueAndValidity();
 
-        this.insuranceForm.controls.proposer['controls'].citizenshipCd.setValue('IND');
+        this.insuranceForm.controls.proposer['controls'].citizenshipCd.setValue('INDIAN');
         this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('countryCd').setValue('India');
 
         let identityNumTemp = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value.toUpperCase();
@@ -584,7 +587,7 @@ export class ApplicationFormComponent implements OnInit {
         const fd = {};
         let tempArr = this.getControls || [];
         tempArr.forEach((form: FormGroup, index) => {
-          form.get("citizenshipCd").setValue('IND');
+          form.get("citizenshipCd").setValue('INDIAN');
 
           let eliminateEnter1 = form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").value.replace(/[\r\n]+/g, " ");
           let eliminateEnter2 = form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").value.replace(/[\r\n]+/g, " ");
