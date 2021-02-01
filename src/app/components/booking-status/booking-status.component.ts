@@ -12,10 +12,10 @@ export class BookingStatusComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     this.route.paramMap.subscribe((params: any) => {
-      console.log(params);
+      // console.log(params);
     });
     
-    console.log("params");
+    // console.log("params");
   }
 
   ngOnInit(): void {

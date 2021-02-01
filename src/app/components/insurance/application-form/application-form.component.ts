@@ -557,7 +557,7 @@ export class ApplicationFormComponent implements OnInit {
           let countryCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('countryCd').value;
 
 
-          // paste it 
+          // paste it
 
           this.getControls[0].get('birthDtCopy').setValue(birthDtCopy);
           this.getControls[0].get('firstName').setValue(firstName);
@@ -1216,22 +1216,4 @@ export class ApplicationFormComponent implements OnInit {
     }
   }
 
-  selectEvent(item: { name: string, id: number }) {
-    // this.getPremiumForm.get("country").setValue(item.name);
-    // this.selectedCountry = item.name;
-
-    // this.userflowDetails.setInsuranceDetails("country", item.name);
-    // this.restrictedCountry(item.name);
-  }
-
-  onChangeSearch(search: string) {
-    // console.log(search);
-    // fetch remote res from here
-    // And reassign the 'data' which is binded to 'data' property.
-  }
-
-  onFocused(e) {
-    // console.log(e);
-    // do something
-  }
 }

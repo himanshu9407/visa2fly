@@ -37,7 +37,7 @@ export class CanDeactivateGuard
         return this.showTransparentHeader = true;
       }
     } else {
-      console.log("5");
+      // console.log("5");
       return true;
     }
   }

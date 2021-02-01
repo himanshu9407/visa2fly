@@ -18,7 +18,7 @@ export class UserFlowDetails {
   ) { }
 
   setExpiry(rememberMe: boolean) {
-    console.log(rememberMe);
+    // console.log(rememberMe);
     if (rememberMe) {
       const current = new Date();
       current.setDate(current.getDate() + 60);
@@ -73,7 +73,7 @@ export class UserFlowDetails {
   setUserFlowDetails(name: string, value: string) {
     this.userObject[name] = value;
 
-    console.log(this.userObject)
+    // console.log(this.userObject)
 
     if (isPlatformBrowser(this.platformId)) {
       this.cookies.put("userFlowDetails", JSON.stringify(this.userObject), {
@@ -85,7 +85,7 @@ export class UserFlowDetails {
   setInsuranceDetails(name: string, value: string) {
     this.insuranceObject[name] = value;
 
-    console.log(this.insuranceObject);
+    // console.log(this.insuranceObject);
     
 
     if (isPlatformBrowser(this.platformId)) {
@@ -98,7 +98,7 @@ export class UserFlowDetails {
   setInsurancePlan(name: string, value: string) {
     this.insurancePlanObject[name] = value;
 
-    console.log(this.insurancePlanObject);
+    // console.log(this.insurancePlanObject);
     
 
     if (isPlatformBrowser(this.platformId)) {

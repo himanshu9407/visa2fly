@@ -22,7 +22,8 @@ const routes: Routes = [
   },
   { path: "application-form", component: ApplicationFormComponent, canActivate: [AuthenticationGuard] },
   { path: "application-details", component: ApplicationDetailsComponent, canActivate: [AuthenticationGuard] },
-  { path: "response", component: InsuranceBookingStatusComponent },
+  // { path: "payment/handle", component: InsuranceBookingStatusComponent },
+  { path: "insurancePaymentHandler", component: InsuranceBookingStatusComponent },
 ]
 
 @NgModule({

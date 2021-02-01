@@ -142,7 +142,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   desktopBooking(event) {
-    console.log(event);
+    // console.log(event);
     this.currentPage1 = event;
     let pageSize = 6;
 
@@ -150,7 +150,7 @@ export class MyBookingsComponent implements OnInit {
   }
 
   mobileBooking(event) {
-    console.log(event);
+    // console.log(event);
     this.currentPage2 = event;
     let pageSize = 4;
 
@@ -253,7 +253,7 @@ export class MyBookingsComponent implements OnInit {
       this.downloadImageService
         .downloadInvoice(bookingId)
         .subscribe((response: any) => {
-          console.log(response);
+          // console.log(response);
           let dataType = response.type;
           let binaryData = [];
           binaryData.push(response);
@@ -275,10 +275,37 @@ export class MyBookingsComponent implements OnInit {
     }
   }
 
+  downloadPolicy(policyNumber: string, bookingStatus: string) {
+    if (bookingStatus == "g") {
+      this.downloadImageService
+        .downloadPolicy(policyNumber)
+        .subscribe((response: any) => {
+          // console.log(response);
+          let dataType = response.type;
+          let binaryData = [];
+          binaryData.push(response);
+          var a = document.createElement("a");
+          document.body.appendChild(a);
+          a.style.display = "none";
+          let url = window.URL.createObjectURL(
+            new Blob(binaryData, { type: dataType })
+          );
+          a.href = url;
+          a.download = "Invoice" + policyNumber;
+          a.click();
+          window.URL.revokeObjectURL(url);
+        });
+    } else {
+      this.toastr.error(
+        "Policy could not be generated as the payment failed."
+      );
+    }
+  }
+
   setActiveBooking(booking: any) {
-    
+
     this.userflow.setCookie("activeBooking", JSON.stringify(booking));
-    
+
     this.bookingService.setActiveBooking(booking);
 
     this.router.navigate(["/bookingDetail"]);
@@ -293,9 +320,9 @@ export class MyBookingsComponent implements OnInit {
     let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
     let notInterested = false;
 
-    if(this.FeedbackForm.get("f3-rating").value == null 
-    || this.FeedbackForm.get("f1-rating").value == null 
-    || this.FeedbackForm.get("f2-rating").value == null 
+    if(this.FeedbackForm.get("f3-rating").value == null
+    || this.FeedbackForm.get("f1-rating").value == null
+    || this.FeedbackForm.get("f2-rating").value == null
     || this.FeedbackForm.get("FeedbackEdit").value == null){
       this.feedbackMsg = true;
     }else{

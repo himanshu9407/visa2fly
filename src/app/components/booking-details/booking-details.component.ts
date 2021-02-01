@@ -25,6 +25,7 @@ export class BookingDetailsComponent implements OnInit {
   redirectTo: any;
   bookingStatus: boolean = false;
   title: string = "Visa2fly | Booking Details";
+  InsuranceDetail : Array<any> = [];
   constructor(
     private myBookingService: MyBookingsService,
     // private toastService: ToastService,
@@ -44,6 +45,8 @@ export class BookingDetailsComponent implements OnInit {
       temp = localStorageBooking;
     }
     this.selectedBooking = temp;
+    this.InsuranceDetail.push(this.selectedBooking.insuranceBookings);
+    // console.log(this.selectedBooking);
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
     }, 2000);
@@ -83,6 +86,33 @@ export class BookingDetailsComponent implements OnInit {
           a.click();
           window.URL.revokeObjectURL(url);
         });
+    }
+  }
+
+  downloadPolicy(policyNumber: string, bookingStatus: string) {
+    if (bookingStatus == "g") {
+      this.downloadImageService
+        .downloadPolicy(policyNumber)
+        .subscribe((response: any) => {
+          // console.log(response);
+          let dataType = response.type;
+          let binaryData = [];
+          binaryData.push(response);
+          var a = document.createElement("a");
+          document.body.appendChild(a);
+          a.style.display = "none";
+          let url = window.URL.createObjectURL(
+            new Blob(binaryData, { type: dataType })
+          );
+          a.href = url;
+          a.download = "Invoice" + policyNumber;
+          a.click();
+          window.URL.revokeObjectURL(url);
+        });
+    } else {
+      this.toastr.error(
+        "Policy could not be generated as the payment failed."
+      );
     }
   }
 }
