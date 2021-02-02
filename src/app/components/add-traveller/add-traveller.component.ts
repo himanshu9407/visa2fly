@@ -153,6 +153,17 @@ export class AddTravellerComponent implements OnInit {
   collectionDateError = false;
   public errorMessage: Array<any> = [];
 
+  stateList: string;
+
+  stateListArr: Array<string> = [
+    "Andaman And Nicobar Islands",
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
+    "Dadar And Nagar Haveli", "Daman And Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal",
+    "Jammu And Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Puducherry", "Rajasthan", "Sikkim", "Tamil Nadu",
+    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+  ];
+
   // checkCity(i) {
   //   let tempState = this.travellerForm.controls.travellers.controls[i].controls
   //     .state.value;

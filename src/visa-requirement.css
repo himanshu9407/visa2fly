@@ -34,14 +34,14 @@ section#site-wrapper .wrapContainer {
 /* section#faq */
 section#faq p,
 section#faq li {
-  font-size: 14px;
+  font-size: 13px;
   margin: 0;
 }
 section#faq .btn {
   display: inline-block;
   background: transparent;
   color: inherit;
-  font: inherit;
+  font-size: 14px !important;
   border: 0;
   outline: 0;
   padding: 0;
@@ -65,7 +65,7 @@ section#faq .accordion > .card:not(:first-of-type) .card-header:first-child {
 }
 section#faq .faqQuery button {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
   color: #00b !important;
   text-decoration: none !important;
@@ -82,11 +82,13 @@ section#faq .faqContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 section#faq .faqContainer svg {
   margin-right: 10px;
+  height: 25px;
+  width: 25px;
 }
 section#faq .wrapper {
   position: relative;
@@ -820,11 +822,11 @@ section#dubai_requirement .iconTabset a.nav-link.active {
 section#dubai_requirement .requiredIcon {
   border-radius: 10px;
   margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
-  background: #fff;
-  border: none;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.7);
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  /* background: #fff; */
+  border: 1px solid #eee;
+  /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.7); */
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -856,9 +858,15 @@ section#dubai_requirement li {
   font-size: 13px;
 }
 
-section#dubai_requirement ul {
+section#dubai_requirement .requiredIcon ul {
   padding-left: 15px;
+  margin-bottom: 0px;
 }
+
+section#dubai_requirement .requiredIcon p:first-child {
+  margin-bottom: 0px !important;
+}
+
 
 section#dubai_requirement
   .accordion
@@ -882,6 +890,12 @@ section#dubai_requirement .headingWrapContainer {
 }
 section#dubai_requirement .outerRequirement {
   font-size: initial;
+  margin-bottom: 20px;
+}
+section#dubai_requirement .requirement-main--heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #130654;
 }
 section#dubai_requirement .requirementContainer {
   font-weight: 700;
@@ -1352,5 +1366,29 @@ section#dubai_requirement .iconSection {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+  }
+}
+
+/* section#important_point */
+section#dubai_important_point .impRequired .card-header {
+  color: #130654;
+  font-weight: 600;
+  font-size: 15px;
+}
+section#dubai_important_point .impRequired .card-header svg {
+  height: 25px;
+  margin-right: 10px;
+}
+section#dubai_important_point .impRequired .card-body {
+  /* background-color: #130654; */
+  font-size: 14px;
+  color: #505050;
+}
+section#dubai_important_point .impRequired .card-body p {
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 600px) {
+  section#dubai_important_point .container-fluid {
+    padding: 0px !important;
   }
 }

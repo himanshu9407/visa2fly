@@ -288,7 +288,7 @@
 <app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
 <app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
 
-<app-requirements></app-requirements>
+<app-requirements [selectedPurpose]="selectedPurpose"  [selectedVisaType]="selectedVisaType"></app-requirements>
 
 <app-important-points></app-important-points>
 

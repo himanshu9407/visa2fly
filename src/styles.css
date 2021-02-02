@@ -1,6 +1,7 @@
 @import "~ngx-toastr/toastr";
 @import "visa-requirement.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 body {
   font-family: "Poppins", sans-serif !important;
@@ -1632,3 +1633,48 @@ left: 5px;
 }
 
 
+.home-form .ng-select-container .ng-clear-wrapper.ng-star-inserted {
+  display: none !important;
+}
+
+.home-form .ng-select-container {
+  border: none !important;
+}
+
+.home-form .ng-select {
+  border: none !important;
+    font-size: 16px !important;
+    font-weight: 550 !important;
+    padding-left: 0px !important;
+    color: #5b6167 !important;
+}
+
+.home-form .ng-select.ng-select-single .ng-select-container .ng-value-container {
+  padding: 0 !important;
+}
+
+#sim .ng-select-container  {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+#sim .ng-select-container .ng-clear-wrapper,
+.addPassengerForm .ng-select-container .ng-clear-wrapper {
+  display: none !important;
+}
+
+.addPassengerForm .ng-select-container {
+  font-size: 14px;
+}
+
+.addPassengerForm .ng-select.ng-select-single .ng-select-container {
+  min-height: 32px;
+  height: 32px;
+}
+
+ng-select:focus,
+ng-select > *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

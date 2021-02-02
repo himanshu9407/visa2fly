@@ -22,6 +22,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 })
 export class HomeFormComponent {
   homeForm: FormGroup;
+  selectedCar: number;
   public homeFormData: any = {
     code: "0",
     status: "SUCCESS",

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter, AfterViewInit } from "@angular/core";
 import { Subject } from "rxjs";
 import { trigger, state, transition, style, animate } from "@angular/animations";
 
@@ -17,11 +17,9 @@ import { trigger, state, transition, style, animate } from "@angular/animations"
     ]),
   ],
 })
-export class RequirementsComponent implements OnInit {
+export class RequirementsComponent implements OnInit, AfterViewInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
-
-  @ViewChild("t") t;
 
   selectedBusiness: number = 1;
   selectedTransit: number = 1;
@@ -31,8 +29,8 @@ export class RequirementsComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
-  selectedVisaType: string;
-  selectedPurpose: Subject<any>;
+  @Input() selectedVisaType: string;
+  @Input() selectedPurpose: Subject<any>;
 
   @Output() changedPurpose = new EventEmitter();
   showMandatoryFirst: boolean = true;
@@ -42,10 +40,20 @@ export class RequirementsComponent implements OnInit {
   showTouristMobileFirst: boolean = true;
   showBusinessMobileFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
-
+  visaType: string
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedPurpose.subscribe((res) => {
+      this.visaType = res;
+      console.log(this.visaType);
+    });
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.visaType = this.selectedVisaType;
+    })
   }
 
   setActiveMandatory(index: number, id: string) {

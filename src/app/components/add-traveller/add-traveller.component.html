@@ -10,7 +10,7 @@
     </p>
   </div>
 
-  <div class="container covid-poster">
+  <!-- <div class="container covid-poster">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-12 side">
         <div class="row">
@@ -159,7 +159,6 @@
                 />
               </g>
             </svg>
-            <!-- <img src="../../../assets/form/mask.png" alt="" class="img-fluid precaution-img" id="slide0" > -->
             <p class="precaution-caption">Wear Mask</p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -327,7 +326,6 @@
                 </g>
               </g>
             </svg>
-            <!-- <img src="../../../assets/form/hand-wash.png" alt="" class="img-fluid precaution-img" id="slide1" > -->
             <p class="precaution-caption">Wash Hands</p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -478,7 +476,6 @@
                 </g>
               </g>
             </svg>
-            <!-- <img src="../../../assets/form/hand-wash.png" alt="" class="img-fluid precaution-img" id="slide2" > -->
             <p class="precaution-caption">Avoid Contact</p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -606,7 +603,6 @@
                 </g>
               </g>
             </svg>
-            <!-- <img src="../../../assets/form/sanitizers.png" alt="" class="img-fluid precaution-img" id="slide3" > -->
             <p class="precaution-caption">
               Use Soap & <br />
               Antibacterial Gel
@@ -773,7 +769,6 @@
                 />
               </g>
             </svg>
-            <!-- <img src="../../../assets/form/sneeze.png" alt="" class="img-fluid precaution-img" id="slide4" > -->
             <p class="precaution-caption">Cough On Your Elbow</p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -906,7 +901,6 @@
                 />
               </g>
             </svg>
-            <!-- <img src="../../../assets/form/social-distance.png" alt="" class="img-fluid precaution-img" id="slide5" > -->
             <p class="precaution-caption">Keep Your Distance</p>
           </div>
         </div>
@@ -974,7 +968,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="container mobileView" style="border-top: 1px solid #eee">
     <div class="row w-100">
@@ -1712,7 +1706,7 @@
                 </div>
                 <div class="col-md-2 mb-3" *ngIf="imageUpload">
                   <label>State <span class="astrisk">*</span></label>
-                  <select
+                  <!-- <select
                   formControlName="state"
                   class="form-control"
                 >
@@ -1763,7 +1757,13 @@
                   <option value="Uttar Pradesh">Uttar Pradesh</option>
                   <option value="Uttarakhand">Uttarakhand</option>
                   <option value="West Bengal">West Bengal</option>
-                </select>
+                </select> -->
+
+                <ng-select formControlName="state">
+                  <ng-option *ngFor="let state of stateListArr" [value]="state">
+                      {{state}}
+                  </ng-option>
+                </ng-select>
 
                   <div
                     *ngIf="
@@ -1866,7 +1866,6 @@
                 >
                   <label>State <span class="astrisk">*</span></label>
                   <select
-                    (change)="checkCity(i)"
                     formControlName="state"
                     class="form-control"
                   >
