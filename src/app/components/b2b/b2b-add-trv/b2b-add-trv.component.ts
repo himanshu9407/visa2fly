@@ -154,7 +154,7 @@ export class B2bAddTrvComponent implements OnInit {
     }, 2000);
 
     this.today = new Date();
-    console.log(this.userFlow.getB2BUserFlowDetails());
+    // console.log(this.userFlow.getB2BUserFlowDetails());
     this.tomorrow = new Date(this.today);
     this.tomorrow.setDate(this.tomorrow.getDate() + 1);
     this.tomorrowDate = {
@@ -165,7 +165,7 @@ export class B2bAddTrvComponent implements OnInit {
 
 
 
-    this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
+
   }
 
   checkCity(i) {
@@ -885,6 +885,7 @@ export class B2bAddTrvComponent implements OnInit {
     this.validateDate();
     this.checkDateOfCollection();
 
+    this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
     this.formData1.set("images", "");
     // console.log(this.formData1);
 

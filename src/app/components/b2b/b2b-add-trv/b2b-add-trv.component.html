@@ -515,7 +515,7 @@
       </p>
     </div>
 
-    <div class="container covid-poster">
+    <!-- <div class="container covid-poster">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 side">
           <div class="row">
@@ -572,7 +572,7 @@
                     stroke-linejoin="round" stroke-width="1.8" />
                 </g>
               </svg>
-              <!-- <img src="../../../assets/form/mask.png" alt="" class="img-fluid precaution-img" id="slide0" > -->
+
               <p class="precaution-caption">Wear Mask</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -638,7 +638,7 @@
                   </g>
                 </g>
               </svg>
-              <!-- <img src="../../../assets/form/hand-wash.png" alt="" class="img-fluid precaution-img" id="slide1" > -->
+
               <p class="precaution-caption">Wash Hands</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -699,7 +699,7 @@
                   </g>
                 </g>
               </svg>
-              <!-- <img src="../../../assets/form/hand-wash.png" alt="" class="img-fluid precaution-img" id="slide2" > -->
+
               <p class="precaution-caption">Avoid Contact</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -742,7 +742,7 @@
                   </g>
                 </g>
               </svg>
-              <!-- <img src="../../../assets/form/sanitizers.png" alt="" class="img-fluid precaution-img" id="slide3" > -->
+
               <p class="precaution-caption">Use Soap & <br> Antibacterial Gel</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -797,7 +797,7 @@
                     stroke-miterlimit="10" stroke-width="1.3" />
                 </g>
               </svg>
-              <!-- <img src="../../../assets/form/sneeze.png" alt="" class="img-fluid precaution-img" id="slide4" > -->
+
               <p class="precaution-caption">Cough On Your Elbow</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center slide-img">
@@ -837,7 +837,7 @@
                     stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
                 </g>
               </svg>
-              <!-- <img src="../../../assets/form/social-distance.png" alt="" class="img-fluid precaution-img" id="slide5" > -->
+
               <p class="precaution-caption">Keep Your Distance</p>
             </div>
           </div>
@@ -881,11 +881,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   <!-- </div> -->
 
   <div class="container mobileView" style="border-top: 1px solid #eee;">
-    <div class="row w-100">
+    <div class="row w-100 visaDetails">
       <div class="col-4 mt-2 p-0">
         <div class="country-img">
           <img data-src="https://static.visa2fly.com/flag/{{country}}.png" alt="{{country}} flag image"
@@ -912,34 +912,6 @@
               </div>
             </div>
             <div class="visaPrice" style="text-align: left;">₹ {{(basePrice + serviceTax)* dataSource.length}}
-              <span class="d-block">(including taxes)</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="wrapper-info mt-1">
-            <div class="visaPriceContainer">
-              <div class="visaPriceHeading">
-                Total Price :
-              </div>
-            </div>
-            <div class="visaPrice" style="text-align: left;">₹ {{(basePrice + serviceTax)* dataSource.length}}
-              <span class="d-block">(including taxes)</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="wrapper-info mt-1">
-            <div class="visaPriceContainer">
-              <div class="visaPriceHeading">
-                Markup:
-              </div>
-            </div>
-            <!-- {{(basePrice + serviceTax)* dataSource.length}} -->
-            <div class="visaPrice">
-              <form [formGroup]="markUpForm">
-                <span class="d-block"><input type="text" formControlName="markup" class="form-control form-control-sm markUpField" id="markUp"/></span>
-              </form>
               <!-- <span class="d-block">(including taxes)</span> -->
             </div>
           </div>
@@ -973,14 +945,13 @@
           <div class="col">
             <div class="box desktopView">
               <div class="wrapper-info">
-                <div class="visaTypeContainer">
-                  <div class="visaTypeHeading ">Mark Up</div>
+                <div class="visaPriceContainer">
+                  <div class="visaPriceHeading ">
+                    Visa Price
+                  </div>
                 </div>
-                <div class="visaType">
-                  <form [formGroup]="markUpForm">
-                    <!-- {{userFlowDetails.purpose}} / {{stayPeriod}} <br />{{userFlowDetails.entryType}} -->
-                  <input type="text" formControlName="markup" class="form-control form-control-sm markUpField" id="markUp"/>
-                </form>
+                <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}
+                  <!-- <span class="d-block">(including taxes)</span> -->
                 </div>
               </div>
             </div>
@@ -989,13 +960,18 @@
           <div class="col">
             <div class="box desktopView">
               <div class="wrapper-info">
-                <div class="visaPriceContainer">
-                  <div class="visaPriceHeading ">
-                    Visa Price
-                  </div>
+                <div class="visaTypeContainer" style="margin-bottom: 5px;">
+                  <div class="visaTypeHeading ">Mark Up</div>
                 </div>
-                <div class="visaPrice" style="text-align: center;">₹ {{(basePrice + serviceTax)* dataSource.length}}
-                  <span class="d-block">(including taxes)</span>
+                <div class="visaType">
+                  <form [formGroup]="markUpForm">
+                    <div class="input-group markUpField">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text dollarSign">₹</span>
+                      </div>
+                      <input type="number" min="0" class="form-control form-control-sm" style="text-align: center;" formControlName="markup" aria-label="Amount (to the nearest dollar)">
+                    </div>
+                </form>
                 </div>
               </div>
             </div>
@@ -1017,30 +993,55 @@
       </div>
       <div class="box">
         <div class="wrapper-info">
+          <form [formGroup]="markUpForm">
+            <div class="dateOfTravelContainer mt-2 visaDateHeading mobileView">
+              <label for="">Markup</label>
+               <div class="input-group markUpField">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text dollarSign">₹</span>
+                  </div>
+                  <input type="number" min="0" class="form-control form-control-sm" style="text-align: center;" formControlName="markup" aria-label="Amount (to the nearest dollar)">
+              </div>
+
+            </div>
+          </form>
+          <div class="dateOfTravelContainer visaDateHeading mobileView">
+            <label for="">Total Price</label>
+            <div class="visaPriceForMobile">₹ {{(basePrice + serviceTax)* dataSource.length}}
+              <span class="d-block">(including taxes)</span>
+            </div>
+             <!-- <div class="input-group markUpField">
+                <div class="input-group-prepend">
+                  <span class="input-group-text dollarSign">₹</span>
+                </div>
+                <input type="number" min="0" class="form-control form-control-sm" style="text-align: center;" formControlName="markup" aria-label="Amount (to the nearest dollar)">
+            </div> -->
+
+          </div>
           <form [formGroup]="travelDetails">
             <div class="dateOfTravelContainer visaDateHeading">
-              <label for="">Date Of Travel</label>
-              <div class="form-group">
-                <div class="input-group">
-                  <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel"
-                    formControlName="dateOfTravel" id="#dot" autocomplete="off" class="form-control addTravelDate"
-                    placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
-                    #dot="ngbDatepicker">
-                  <div class="input-group-append">
-                    <button class="btn calendar top-calendar" (click)="dot.toggle()" type="button">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px"
-                        class="calendarSvg">
-                        <path
-                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-                        <path d="M0 0h24v24H0z" fill="none" /></svg>
-                    </button>
+               <label for="">Date Of Travel</label>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input (ngModelChange)="checkDateOfTravel()" [(ngModel)]="dateOfTravelModel"
+                      formControlName="dateOfTravel" id="#dot" autocomplete="off" class="form-control addTravelDate"
+                      placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
+                      #dot="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn calendar top-calendar" (click)="dot.toggle()" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px"
+                          class="calendarSvg">
+                          <path
+                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                          <path d="M0 0h24v24H0z" fill="none" /></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div *ngIf="travelDateError && travelDetails.get('dateOfTravel').pristine" class="invalid-feedback"
+                    style="display: block">
+                    Please select Date of Travel .
                   </div>
                 </div>
-                <div *ngIf="travelDateError && travelDetails.get('dateOfTravel').pristine" class="invalid-feedback"
-                  style="display: block">
-                  Please select Date of Travel .
-                </div>
-              </div>
             </div>
             <div *ngIf="!imageUpload" class="dateOfTravelContainer visaDateHeading documents mt-2">
               <label for="">Date Of Collection <br /> of Documents</label>

@@ -75,9 +75,10 @@ textarea:focus,
 .dateOfTravelContainer {
   margin-bottom: 5px;
   margin-top: 5px;
-  display: flex;
-  text-align: right;
+  /* display: flex; */
+  /* text-align: right; */
 }
+
 
 .dateOfTravelContainer label {
   margin-bottom: 0px;
@@ -166,12 +167,24 @@ textarea:focus,
 
 .markUpField{
   width: 50%;
-  margin-left: 57px;
+  margin-left: 52px;
+  /* background-im/age: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='85px'><text x='2' y='13' fill='gray' font-size='12' font-family='arial'>$</text></svg>"); */
+}
+
+.dollarSign {
+  padding: 0px 11px;
 }
 
 .visaPrice,
 .visaType {
   font-size: 17px;
+}
+
+.currencyinput {
+  border: 1px inset #ccc;
+}
+.currencyinput input {
+  border: 0;
 }
 
 .visaPrice span {
@@ -398,6 +411,18 @@ textarea:focus,
     display: none;
   }
 
+  .dateOfTravelContainer .form-group {
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .dateOfTravelContainer {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    text-align: left;
+  }
+
   .markUpField{
     width: 50%;
     margin-left: 0px;
@@ -444,6 +469,22 @@ textarea:focus,
     display: none;
   }
 
+  .dateOfTravelContainer {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    text-align: left;
+  }
+
+  .dateOfTravelContainer .form-group {
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .visaDetails{
+    margin-top: 20px;
+  }
+
   .addPassengerContainer {
     padding-top: 10px;
   }
@@ -457,8 +498,8 @@ textarea:focus,
   }
 
   .markUpField{
-    width: 50%;
-    margin-left: 20px;
+    width: 65%;
+    margin-left: 0px;
   }
 
   .addPassengerForm {
@@ -501,6 +542,12 @@ textarea:focus,
   margin-left: 10px;
 }
 
+.visaPriceForMobile{
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: -20px;
+}
+
   .addPassengerHeading {
     flex-direction: column;
     justify-content: unset;
@@ -519,7 +566,7 @@ textarea:focus,
 
   .dateOfTravelContainer {
     margin-top: 15px;
-    text-align: left;
+    /* text-align: left; */
     padding: 0px 15px;
   }
 
@@ -646,13 +693,45 @@ textarea:focus,
 
   @media screen and (max-width: 361px) {
     .visaPriceHeading, .visaTypeHeading {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 500;
+  }
+
+  .dateOfTravelContainer .form-group {
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .visaPriceForMobile{
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: -45px;
+  }
+
+  .markUpField{
+    width: 77%;
+    margin-left: 0px;
+  }
+
+  .imageContainer .breadcrum span {
+    background-color: rgba(19, 6, 84, 0.4);
+    padding: 5px 12px;
+  }
+
+  .dateOfTravelContainer {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    text-align: left;
+  }
+
+  .visaDetails{
+    margin-top: 20px;
   }
 
   .visaPrice,
   .visaType {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     margin-left: 5px;
   }
