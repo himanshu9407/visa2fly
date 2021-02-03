@@ -1,0 +1,299 @@
+<div id="sim">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-4 form">
+              <form [formGroup]="simHomeForm">
+                <label class="mr-sm-2 text-white" for="country"
+                  >Select country for which you want SIM</label
+                >
+                <select
+                  formControlName="simSelect"
+                  class="form-control form-control-sm"
+                  id="country"
+                >
+                  <option value="">Select Country</option>
+                  <option
+                    *ngFor="let country of simCountries"
+                    value="{{ country }}"
+                    >{{ country }}</option
+                  >
+                </select>
+                <button
+                  (click)="onSimCountrySelected()"
+                  type="button"
+                  class="btn btn-outline-primary btn-sm"
+                >
+                  View Plans
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="sim-plan desktopView" style="margin-bottom: 30px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center visaHeading">
+            Tariff Plans For Popular Destinations
+          </h1>
+        </div>
+        <div (click)="proceedToPlans('Australia')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Australia.jpg"
+                alt="Australia"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Australia</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('France')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/France.jpg"
+                alt="France"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>France</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('Germany')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Germany.jpg"
+                alt="Germany"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Germany</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('Italy')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Italy.jpg"
+                alt="Italy"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Italy</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('Singapore')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Singapore.jpg"
+                alt="Singapore"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Singapore</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('UAE')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/United Arab Emirates.jpg"
+                alt="United Arab Emirates"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>United Arab Emirates</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('United Kingdom')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/United Kingdom.jpg"
+                alt="United Kingdom"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>United Kingdom</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('USA')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/United State Of America.jpg"
+                alt="United State Of America"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>United States</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="sim-plan mobile" style="margin-bottom: 30px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center visaHeading">
+            Tariff Plans For Popular Destinations
+          </h1>
+        </div>
+        <div (click)="proceedToPlans('Australia')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Australia.jpg"
+                alt="Australia"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Australia</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('France')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/France.jpg"
+                alt="France"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>France</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('Germany')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Germany.jpg"
+                alt="Germany"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Germany</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('Italy')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Italy.jpg"
+                alt="Italy"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Italy</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('Singapore')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/Singapore.jpg"
+                alt="Singapore"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>Singapore</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('UAE')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/United Arab Emirates.jpg"
+                alt="United Arab Emirates"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>United Arab Emirates</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('United Kingdom')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/United Kingdom.jpg"
+                alt="United Kingdom"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>United Kingdom</p>
+            </div>
+          </div>
+        </div>
+  
+        <div (click)="proceedToPlans('USA')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+          <div class="visa-card">
+            <div class="img-box">
+              <img
+                data-src="https://static.visa2fly.com/sim/United State Of America.jpg"
+                alt="United State Of America"
+                class="img-fluid lazyload"
+              />
+            </div>
+            <div class="content">
+              <p>United States</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

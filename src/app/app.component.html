@@ -1,16 +1,19 @@
 <div [ngClass]="{'show':!showPreloader,'hide':showPreloader}">
   <app-b2b-header class="pcOnly" *ngIf="showB2BHeader"></app-b2b-header>
-  <app-header class="pcOnly" *ngIf="!showB2BHeader"></app-header>
-  <app-mobile-nav class="mobileOnly" *ngIf="!showB2BHeader"></app-mobile-nav>
+  <app-b2b-sim-header class="pcOnly" *ngIf="showB2BSimHeader"></app-b2b-sim-header>
+  <app-header class="pcOnly" *ngIf="showVisaHeader"></app-header>
+  <app-mobile-nav class="mobileOnly" *ngIf="showVisaHeader"></app-mobile-nav>
   <app-b2b-mobile-nav class="mobileOnly" *ngIf="showB2BHeader"></app-b2b-mobile-nav>
+  <app-b2b-sim-mobile-nav class="mobileOnly" *ngIf="showB2BSimHeader"></app-b2b-sim-mobile-nav>
   <div id="main" class="paddingTop">
     <app-toast></app-toast>
     <router-outlet></router-outlet>
     <app-chatbox></app-chatbox>
     <app-mobile-footer class="mobileOnly"></app-mobile-footer>
   </div>
-  <app-footer class="pcOnly" *ngIf="this.activeRoute !== 'slcontainer' && !showB2BHeader "></app-footer>
+  <app-footer class="pcOnly" *ngIf="this.activeRoute !== 'slcontainer' && showVisaHeader "></app-footer>
   <app-b2b-footer class="pcOnly" *ngIf="showB2BHeader"></app-b2b-footer>
+  <app-b2b-sim-footer class="pcOnly"></app-b2b-sim-footer>
 </div>
 
 <div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">

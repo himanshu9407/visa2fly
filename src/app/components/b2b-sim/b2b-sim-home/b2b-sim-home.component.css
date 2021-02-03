@@ -1,0 +1,254 @@
+/* FIREFOX FIX OF UGLY SELECT BOXES */
+@supports (-moz-appearance:none) {
+
+  SELECT
+  {
+  -moz-appearance:none !important;
+  background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
+  background-position: calc(100% - 5px) center !important;
+  }
+
+}
+
+select {
+  border: none;
+  font-size: 16px;
+  font-weight: 550;
+  padding-left: 0px;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.mobile {
+  display: none;
+}
+
+.desktopView {
+  display: block;
+}
+
+#sim {
+  background-image: linear-gradient(to top,
+  rgba(0, 45, 75, 0),
+  rgba(0, 0, 0, 0.1)),
+  url('https://static.visa2fly.com/carousel/simBg.jpg');
+height: 60vh;
+background-size: cover;
+background-position: center center;
+}
+#sim .form {
+  margin-top: 100px;
+  font-size: 14px;
+}
+#sim select {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+#sim option {
+  background: #fff;
+  color: #000;
+}
+.t-place {
+  transform: translateY(-20px);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+}
+#sim button,
+#sim button:disabled {
+  color: #fff;
+  font-weight: 600;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  padding: 4px 40px;
+  margin-top: 10px;
+  opacity: 1;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #sim select {
+    max-width: 300px;
+  }
+
+  #sim {
+    height: 38vh;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  #sim {
+    height: 50vh;
+    background-size: cover;
+    background-position: center center;
+  }
+  #sim select {
+    max-width: 300px;
+  }
+}
+      
+
+@media (min-width: 481px) and (max-width: 767px) {
+ 
+  #sim .form {
+    margin-top: 50px;
+  }
+  #sim select {
+    max-width: 200px;
+  }
+}
+
+ .container .visaHeading {
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.desktopView .container .visa-card {
+  position: relative;
+  background: #e2e2e2;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+/* .desktopView .container .visa-card:hover { */
+  /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); */
+/* } */
+
+.desktopView .container .visa-card .img-box {
+  transition: 0.5s;
+}
+
+/* .desktopView .container .visa-card:hover .img-box { */
+  /* opacity: 0.5; */
+/* } */
+
+.desktopView .container .visa-card .content {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  bottom: 0;
+  padding-top: 60px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: 0.5s;
+}
+
+/* .desktopView .container .visa-card:hover .content { */
+  /* bottom: 0; */
+/* } */
+
+/* .desktopView .container .visa-card:nth-child(1) .content { */
+  /* background: linear-gradient(0deg, #acb4bc, transparent); */
+/* } */
+
+.desktopView .container .visa-card .content p {
+  color: #fff;
+  position: absolute;
+  left: 20px;
+  font-weight: 600;
+  bottom: 0px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .container .visaHeading {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  #sim {
+    margin-top: 60px;
+    height: 280px !important;
+  }
+}
+
+.pagination .active a {
+  color: #143361;
+  background-color: transparent;
+  font-weight: 600;
+}
+.pagination .active a:hover {
+  background-color: transparent;
+  color: #143361;
+  border: 0px;
+}
+.pagination .active a:focus {
+  background-color: transparent;
+  color: #143361;
+  outline: none;
+}
+.pagination li a {
+  border: 1px;
+  margin-left: 0px;
+  color: #707070;
+  padding: 7px 2px;
+  margin: 0px 20px;
+}
+.pagination li a:hover {
+  background-color: transparent;
+  color: #4A90E2;
+  padding-bottom: 2px;
+  border-bottom: 1px solid;
+}
+.pagination li a:focus {
+  outline: none;
+  background-color: transparent;
+  /*color:#707070;*/
+}
+.pagination li:first-child a, .pagination li:last-child a {
+  border: 2px solid #143361 !important;
+  border-radius: 6px;
+  margin: 0px;
+  padding: 6px 12px;
+  border: 2px solid;
+  font-size: 14px;
+  color: #143361;
+}
+.pagination li:first-child a:hover, .pagination li:last-child a:hover {
+  text-decoration: none !important;
+  color: #fff;
+  background-color: #143361;
+}
+.pagination li:first-child a:focus, .pagination li:last-child a:focus {
+  outline: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+  .desktopView {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .container .visa-card {
+    position: relative;
+    background: #e2e2e2;
+    border: none;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+
+  .mobile .container .visa-card .content p {
+    color: #fff;
+  position: absolute;
+  left: 15px;
+  bottom: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  }
+}

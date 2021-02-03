@@ -1,3 +1,6 @@
+import { B2bSimMobileNavComponent } from './components/b2b-sim/b2b-sim-mobile-nav/b2b-sim-mobile-nav.component';
+import { B2bSimHeaderComponent } from './components/b2b-sim/b2b-sim-header/b2b-sim-header.component';
+import { B2bSimFooterComponent } from './components/b2b-sim/b2b-sim-footer/b2b-sim-footer.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -47,6 +50,7 @@ import { VisaRequirementModule } from './components/visa-requirements/visa-requi
 import { BookingDetailsModule } from './components/booking-details/booking-details.module';
 import { BookingStatusModule } from './components/booking-status/booking-status.module';
 import { InsuranceModule } from './components/insurance/insurance.module';
+// import { B2bSimHomeComponent } from './components/b2b-sim/b2b-sim-home/b2b-sim-home.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,10 @@ import { InsuranceModule } from './components/insurance/insurance.module';
     SomethingWrongComponent,
     B2bHeaderComponent,
     B2bFooterComponent,
-    B2bMobileNavComponent
+    B2bMobileNavComponent,
+    B2bSimFooterComponent,
+    B2bSimHeaderComponent,
+    B2bSimMobileNavComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -77,7 +84,7 @@ import { InsuranceModule } from './components/insurance/insurance.module';
     }), // ToastrModule added
     Ng2FlatpickrModule,
     FormsModule,
-    
+
     ReactiveFormsModule,
     NgbModule,
     HomeContainerModule,

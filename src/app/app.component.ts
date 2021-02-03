@@ -26,7 +26,9 @@ export class AppComponent implements OnInit {
   title = "visa-App";
   public showPreloader: boolean = false;
   users: object;
+  showVisaHeader : boolean;
   showB2BHeader: boolean;
+  showB2BSimHeader : boolean;
   hideFooter: boolean;
   activeRoute: string;
   constructor(
@@ -52,9 +54,22 @@ export class AppComponent implements OnInit {
 
         if (arr[1] == "b2b") {
           this.showB2BHeader = true;
+          this.showVisaHeader = false;
+          this.showB2BSimHeader = false;
+          
+        } else if(arr[1] == "b2bSim") {
+          this.showB2BSimHeader = true;
+          this.showVisaHeader = false;
+          this.showB2BHeader = false;
+          // this.showB2BHeader = false;
         } else {
+          // this.showB2BSimHeader = 
+          this.showVisaHeader = true;
+          this.showB2BSimHeader = true;
           this.showB2BHeader = false;
         }
+          
+          // this.showB2BSimHeader = false;
 
       }
     });

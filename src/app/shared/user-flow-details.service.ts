@@ -85,6 +85,14 @@ export class UserFlowDetails {
     }
   }
 
+  setB2BSimUserFlowDetails(name: string, value: string) {
+    this.userObject[name] = value;
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.cookies.put("b2bSimUserFlowDetails", JSON.stringify(this.userObject));
+    }
+  }
+
   setUserFlowDetailsObject(name: string, value: object) {
     this.userObject[name] = value;
     if (isPlatformBrowser(this.platformId)) {
@@ -120,6 +128,12 @@ export class UserFlowDetails {
     }
   }
 
+  getB2BSimUserFlowDetails() {
+    if (isPlatformBrowser(this.platformId)) {
+      return JSON.parse(this.cookies.get("b2bSimUserFlowDetails"));
+    }
+  }
+
   setCookie(key: string, value: string) {
     if (isPlatformBrowser(this.platformId)) {
       this.cookies.put(key, value, {
@@ -135,6 +149,6 @@ export class UserFlowDetails {
   }
 
   getBaseURL() {
-    return "https://test.visa2fly.com/api/";
+    return "https://visa2fly.com/api/";
   }
 }
