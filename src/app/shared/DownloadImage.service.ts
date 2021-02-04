@@ -40,10 +40,13 @@ export class DownloadImageService {
       if(token == null || token == undefined) {
           token = "";
       }
-      // console.log(token);
+      console.log(policyNumber);
       let headers = new HttpHeaders({'token':token,'visa-client':"0"});
       let base_url = this.userFlowDetails.getBaseURL();
-      return this.http.post(base_url+"insurance/getPolicy", policyNumber,{headers :headers,responseType: 'blob' as 'json'});
+      let reqBody = {
+        'policyNum': policyNumber
+      }
+      return this.http.post(base_url+"insurance/getPolicy", reqBody, {headers :headers,responseType: 'blob' as 'json'});
 
   }
 }

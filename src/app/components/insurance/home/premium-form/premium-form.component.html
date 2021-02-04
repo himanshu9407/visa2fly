@@ -46,11 +46,16 @@
               <div [innerHTML]="notFound"></div>
             </ng-template>
           </div>
-          <div *ngIf="destinationNotSelected && getPremiumForm.get('country').pristine" class="invalid-input">
+          <div
+            *ngIf="
+              destinationNotSelected && getPremiumForm.get('country').pristine
+            "
+            class="invalid-input"
+          >
             Please choose a destination.
           </div>
           <div *ngIf="deniedCountryEnable" class="invalid-input">
-            No policy for {{deniedCountry}} *
+            No policy for {{ deniedCountry }} *
           </div>
         </div>
         <div class="col-12">
@@ -58,7 +63,11 @@
             <span>Age of Traveller(s)*</span>
             <ul class="travellerAgelist" formArrayName="ageOfTravellers">
               <li class="ageList list_btn">
-                <button class="btn" type="button" (click)="addAgeOfTravellers()">
+                <button
+                  class="btn"
+                  type="button"
+                  (click)="addAgeOfTravellers()"
+                >
                   <svg
                     height="20pt"
                     viewBox="0 0 512 512"
@@ -78,6 +87,8 @@
                 [formGroupName]="i"
               >
                 <input
+                  min="0"
+                  oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
                   type="number"
                   formControlName="memberAge"
                   placeholder="{{ i === 0 ? 'Self' : 'Member ' + i }}"
@@ -87,9 +98,6 @@
                   <i class="material-icons">close</i>
                 </span>
               </li>
-              <div *ngIf="ageOfTravellersError && controls[0]['controls'].memberAge.pristine" class="invalid-input">
-                Kindly please enter your age
-              </div>
             </ul>
           </div>
         </div>
@@ -106,9 +114,19 @@
               placeholder="Trip Start Date"
               class="form-control form-control-sm"
               data-datepicker="separateRange"
-              [ngStyle]="{'border': tripStartDateNotSelected? '1px solid red' : '1px solid #ced4da'}"
+              [ngStyle]="{
+                border: tripStartDateNotSelected
+                  ? '1px solid red'
+                  : '1px solid #ced4da'
+              }"
             />
-            <div *ngIf="tripStartDateNotSelected && getPremiumForm.get('tripStartDate').pristine" class="invalid-input">
+            <div
+              *ngIf="
+                tripStartDateNotSelected &&
+                getPremiumForm.get('tripStartDate').pristine
+              "
+              class="invalid-input"
+            >
               Please enter trip start date.
             </div>
           </div>
@@ -123,9 +141,19 @@
               id="tripEndDate"
               placeholder="Trip End Date"
               class="form-control form-control-sm"
-              [ngStyle]="{'border': tripEndDateNotSelected? '1px solid red' : '1px solid #ced4da'}"
+              [ngStyle]="{
+                border: tripEndDateNotSelected
+                  ? '1px solid red'
+                  : '1px solid #ced4da'
+              }"
             />
-            <div *ngIf="tripEndDateNotSelected && getPremiumForm.get('tripEndDate').pristine" class="invalid-input">
+            <div
+              *ngIf="
+                tripEndDateNotSelected &&
+                getPremiumForm.get('tripEndDate').pristine
+              "
+              class="invalid-input"
+            >
               Please enter trip end date.
             </div>
           </div>

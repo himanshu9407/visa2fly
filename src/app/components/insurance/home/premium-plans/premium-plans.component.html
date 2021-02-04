@@ -4,9 +4,9 @@
       <div class="col-lg-5 col-md-5 col-sm-12 col-12 xyz__0 pre_plan_pr">
         <form class="plans-filter" [formGroup]="filterPlanForm">
           <span>Premium Plan:</span>
-          <div class="premiumSkeleton" *ngIf="loadingSkeleton">
+          <span class="premiumSkeleton" *ngIf="loadingSkeleton">
             <div class="bar"></div>
-          </div>
+          </span>
           <div class="styleSelectFilter" *ngIf="!loadingSkeleton">
             <select
               name="plan"
@@ -30,7 +30,7 @@
             <div class="bar"></div>
           </span>
           <span style="font-weight: 600; font-size: 13px;" *ngIf="!loadingSkeleton">
-            ₹ {{ premiumCalculated }} <em>(including taxes)</em>
+            ₹ {{ premiumCalculated + premiumGST}} <em style="font-size: 12px;">(including taxes)</em>
           </span>
         </div>
       </div>

@@ -46,23 +46,25 @@ export class PremiumFormComponent implements OnInit {
     private loginService: LoginService,
     private routerHistory: RouterHistory,
     private preloaderService: PreloaderService,
-  ) { }
+  ) { 
+    this.preloaderService.showPreloader(false);
+  }
 
   ngOnInit(): void {
     this.getPremiumForm = this.formBuilder.group({
       country: ["", [Validators.required]],
       ageOfTravellers: this.formBuilder.array([
         this.formBuilder.group({
-          memberAge: ['', [Validators.required]],
+          memberAge: [''],
         }),
         this.formBuilder.group({
-          memberAge: '',
+          memberAge: [''],
         }),
         this.formBuilder.group({
-          memberAge: '',
+          memberAge: [''],
         }),
         this.formBuilder.group({
-          memberAge: '',
+          memberAge: [''],
         }),
       ]),
       tripStartDate: ["", [Validators.required]],
@@ -313,7 +315,7 @@ export class PremiumFormComponent implements OnInit {
         for (let i = 0; i < ageOfTravellers.length; i++) {
           if (ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== '') {
             ageOfTravellersList.push(ageOfTravellers[i].memberAge);
-            // console.log(ageOfTravellers[i]);
+            console.log(ageOfTravellers[i]);
 
           }
         }
@@ -469,11 +471,18 @@ export class PremiumFormComponent implements OnInit {
       // let frequentTraveller = this.getPremiumForm.get('frequentTraveller').value;
       // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
 
-      for (let i = 0; i < ageOfTravellers.length; i++) {
-        if (ageOfTravellers[i].memberAge !== "") {
-          ageOfTravellersList.push(ageOfTravellers[i].memberAge);
+      // if (ageOfTravellers.length < 0) {
+        for (let i = 0; i < ageOfTravellers.length; i++) {
+          if (ageOfTravellers[i].memberAge !== "" && ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== undefined) {
+            ageOfTravellersList.push(ageOfTravellers[i].memberAge);
+            console.log(ageOfTravellers[i]);
+          }
         }
-      }
+  
+        if (ageOfTravellersList.length == 0) {
+          this.toastr.error("Age details are missing or invalid.");
+          return;
+        }
 
       let reqData = {
         country: country,
@@ -485,7 +494,7 @@ export class PremiumFormComponent implements OnInit {
         // tripFrequency: tripFrequency
       }
 
-      // console.log(reqData);
+      console.log(reqData);
 
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
         // console.log(res);

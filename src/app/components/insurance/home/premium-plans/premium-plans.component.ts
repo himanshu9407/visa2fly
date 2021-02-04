@@ -25,6 +25,9 @@ export class PremiumPlansComponent implements OnInit {
   numbers: number[];
 
   title: string = "Visa2fly | Insurance Plans";
+  basicPremiumGSTCalculated: any;
+  goldPremiumGSTCalculated: any;
+  premiumGST: any;
 
   constructor(
     private router: Router,
@@ -54,8 +57,10 @@ export class PremiumPlansComponent implements OnInit {
       // console.log(element);
       if (element.planType == 'Basic') {
         this.basicPremiumCalculated = element.premiumCalculated;
+        this.basicPremiumGSTCalculated = element.gst;
       } else if (element.planType == 'Gold') {
         this.goldPremiumCalculated = element.premiumCalculated;
+        this.goldPremiumGSTCalculated = element.gst;
       }
     });
 
@@ -102,10 +107,12 @@ export class PremiumPlansComponent implements OnInit {
     if (planType == 'Basic') {
       this.policyBenefits = this.basicPolicyBenefits;
       this.premiumCalculated = this.basicPremiumCalculated;
+      this.premiumGST = this.basicPremiumGSTCalculated;
       this.userflowDetails.setInsurancePlan("coverage", "US $ 50,000");
     } else if (planType == 'Gold') {
       this.policyBenefits = this.goldPolicyBenefits;
       this.premiumCalculated = this.goldPremiumCalculated;
+      this.premiumGST = this.goldPremiumGSTCalculated;
       this.userflowDetails.setInsurancePlan("coverage", "US $ 100,000");
     }
 

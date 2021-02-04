@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { DownloadImageService } from 'src/app/shared/DownloadImage.service';
 
 @Component({
   selector: 'app-insurance-booking-status',
@@ -7,9 +11,71 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsuranceBookingStatusComponent implements OnInit {
 
-  constructor() { }
+  proposalNum: string;
+  status: string;
+  message: string;
+  bookingId: string;
+  feedbackForm: any;
+  transactionRefNum: any;
+  policyNumber: any;
+  amount: any;
+  date: string;
+  constructor(private route: ActivatedRoute, private downloadImageService: DownloadImageService,  private titleService: Title) {
+
+    console.log('Called Constructor');
+    this.route.queryParams.subscribe(params => {
+      this.bookingId = params['bookingId'];
+      this.transactionRefNum = params['transactionRefNum']
+      this.proposalNum = params['proposalNum'];
+      this.status = params['status'];
+      this.message = params['message'];
+      this.policyNumber = params['policyNumber'];
+      this.amount = params['amount'];
+      console.log(params)
+    });
+  }
 
   ngOnInit(): void {
+    this.feedbackForm = new FormGroup({
+      "f1-rating": new FormControl(null, Validators.required),
+      "f2-rating": new FormControl(null, Validators.required),
+      "f3-rating": new FormControl(null, Validators.required),
+      "feedbackcomment": new FormControl(null, Validators.required),
+    });
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    
+    this.date = mm + '/' + dd + '/' + yyyy;
+
+    this.titleService.setTitle("Visa2fly | Booking " + this.status);
+  }
+
+  onSubmitFeedbackForm() {
+
+  }
+
+  downloadInvoiceOnSuccess(policyNumber: string) {
+    this.downloadImageService
+    .downloadPolicy(policyNumber)
+    .subscribe((response: any) => {
+      // console.log(response);
+      let dataType = response.type;
+      let binaryData = [];
+      binaryData.push(response);
+      var a = document.createElement("a");
+      document.body.appendChild(a);
+      a.style.display = "none";
+      let url = window.URL.createObjectURL(
+        new Blob(binaryData, { type: dataType })
+      );
+      a.href = url;
+      a.download = "Invoice" + policyNumber;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    });
   }
 
 }

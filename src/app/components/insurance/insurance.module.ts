@@ -20,10 +20,10 @@ const routes: Routes = [
       { path: "plans", component: PremiumPlansComponent },
     ]
   },
-  { path: "application-form", component: ApplicationFormComponent, canActivate: [AuthenticationGuard] },
+  { path: "application-form", component: ApplicationFormComponent },
   { path: "application-details", component: ApplicationDetailsComponent, canActivate: [AuthenticationGuard] },
-  // { path: "payment/handle", component: InsuranceBookingStatusComponent },
-  { path: "insurancePaymentHandler", component: InsuranceBookingStatusComponent },
+  { path: "payment/handle", component: InsuranceBookingStatusComponent },
+  // { path: "insurancePaymentHandler", component: InsuranceBookingStatusComponent },
 ]
 
 @NgModule({

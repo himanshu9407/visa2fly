@@ -276,7 +276,8 @@ export class MyBookingsComponent implements OnInit {
   }
 
   downloadPolicy(policyNumber: string, bookingStatus: string) {
-    if (bookingStatus == "g") {
+    if (bookingStatus == "y") {
+      console.log(bookingStatus);
       this.downloadImageService
         .downloadPolicy(policyNumber)
         .subscribe((response: any) => {
@@ -296,6 +297,7 @@ export class MyBookingsComponent implements OnInit {
           window.URL.revokeObjectURL(url);
         });
     } else {
+      console.log(bookingStatus);
       this.toastr.error(
         "Policy could not be generated as the payment failed."
       );
