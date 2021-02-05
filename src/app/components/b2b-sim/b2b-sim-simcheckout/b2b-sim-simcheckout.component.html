@@ -34,13 +34,15 @@
             <li style="font-weight: 550;">Item<span class="float-right">{{totalQty}}</span></li>
             <div class="markupDiv">
               <li style="font-weight: 550; margin-top: 5px;">MarkUp
-                      <div class="input-group markUp">
+                <form [formGroup]="markUp">
+                    <div class="input-group markUp">
                       <div class="input-group-prepend">
                         <span class="input-group-text symbol">₹</span>
                       </div>
-                      <input type="number" max="999" min="0" ng-pattern="/^[0-9]{1,7}$/" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)">
+                      <input type="number" max="999" min="0" formControlName="price" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)">
 
-                      </div>
+                    </div>
+                  </form>
                 </li>
 
             </div>
@@ -65,12 +67,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text symbol">₹</span>
                         </div>
-                        <input type="number" max="999" min="0" ng-pattern="/^[0-9]{1,7}$/" ng-model="price" formControlName="price" name="price_field" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)" required>
-                        <!-- <span ng-show="myForm.price_field.$error.pattern">Not a valid number!</span> -->
-                        <!-- <div *ngIf="markUp.get('price').value.$error.pattern"
-                          class="invalid-feedback" style="display: block">
-                          Enter a Valid Price
-                          </div> -->
+                        <input type="number" max="999" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" formControlName="price" name="price_field" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)" required>
                         </div>
                     </form>
                   </li>
