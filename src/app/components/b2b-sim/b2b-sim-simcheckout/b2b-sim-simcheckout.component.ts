@@ -37,6 +37,7 @@ export class B2bSimSimcheckoutComponent implements OnInit {
   totalQty: number = 0;
   title: string = "Visa2fly | Sim Checkout";
   paymentUrl: any = "";
+  markUp : FormGroup;
 
   constructor(private simCheckoutService: SimCheckoutService,
     private router: Router,
@@ -51,6 +52,10 @@ export class B2bSimSimcheckoutComponent implements OnInit {
       this.updateTotal();
       this.totalQuantity();
       this.selectedCountry = this.userFlow.getCookie("simSelectedCountry");
+
+      this.markUp = new FormGroup({
+        price : new FormControl('', [Validators.required])
+      })
 
      }
 
@@ -204,7 +209,7 @@ export class B2bSimSimcheckoutComponent implements OnInit {
             this.currency = data1.currency;
             this.merchantIdentifier = data1.merchantIdentifier;
             this.returnUrl = data1.returnUrl;
-            this.checksum = data1.checksum; 
+            this.checksum = data1.checksum;
 
             setTimeout(() => {
               this.preloaderService.showPreloader(false);

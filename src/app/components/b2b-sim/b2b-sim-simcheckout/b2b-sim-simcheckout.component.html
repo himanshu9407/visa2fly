@@ -9,28 +9,16 @@
           <div class="desktopView">
             <table>
               <tr>
-                <th width="20%">ITEM:</th>
+                <th width="25%">ITEM:</th>
                 <th width="10%">QTY:</th>
-                <th width="15%">MarkUp:</th>
-                <th width="10%">PRICE:</th>
+                <th width="15%">PRICE:</th>
                 <th width="15%">CONVENIENCE FEE:</th>
-                <th width="10%">GST:</th>
+                <th width="15%">GST:</th>
                 <th width="25%">Sub Total (Inclusive of taxes)</th>
               </tr>
               <tr *ngFor="let item of simCart">
                 <td style="font-weight: 600;">{{item.planName}}</td>
                 <td>{{item.quantity}}</td>
-                <td>
-                    <div class="input-group markUp">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text symbol">₹</span>
-                    </div>
-                    <input type="text" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)">
-                    <!-- <div class="input-group-append">
-                      <span class="input-group-text">.00</span>
-                    </div> -->
-                  </div>
-                </td>
                 <td>&#x20B9; &nbsp;{{(item.priceWithoutGST) |  number: '1.0-2'}}</td>
                 <td>&#x20B9; &nbsp;{{item.convenienceFee}}</td>
                 <td>&#x20B9; &nbsp;{{item.gst}}</td>
@@ -44,6 +32,18 @@
 
           <div class="mobileView">
             <li style="font-weight: 550;">Item<span class="float-right">{{totalQty}}</span></li>
+            <div class="markupDiv">
+              <li style="font-weight: 550; margin-top: 5px;">MarkUp
+                      <div class="input-group markUp">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text symbol">₹</span>
+                      </div>
+                      <input type="number" max="999" min="0" ng-pattern="/^[0-9]{1,7}$/" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)">
+
+                      </div>
+                </li>
+
+            </div>
             <li style="font-weight: 550;">Grand Total<span class="float-right">&#x20B9;
                 &nbsp;{{totalPrice |  number: '1.0-2'}}</span>
             </li>
@@ -51,6 +51,32 @@
 
           <div class="onlyMob">
             <hr style="border-top: 1px solid #000; margin-bottom: 0px; margin-top: 5px;">
+            <div class="row mobileTotal">
+              <div class="col-md-9 col-sm-6 grandTotal ">
+                <div class="planDetail grandLabel">
+                  <li>MarkUp</li>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 grandTotal">
+                <div class="planDetail" style="font-size: 18px; font-weight: 700;">
+                  <li class="totalPrice" ng-controller="formCtrl">
+                    <form name="myForm" ng-submit="onSubmit()" [formGroup]="markUp">
+                      <div class="input-group markUp">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text symbol">₹</span>
+                        </div>
+                        <input type="number" max="999" min="0" ng-pattern="/^[0-9]{1,7}$/" ng-model="price" formControlName="price" name="price_field" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)" required>
+                        <!-- <span ng-show="myForm.price_field.$error.pattern">Not a valid number!</span> -->
+                        <!-- <div *ngIf="markUp.get('price').value.$error.pattern"
+                          class="invalid-feedback" style="display: block">
+                          Enter a Valid Price
+                          </div> -->
+                        </div>
+                    </form>
+                  </li>
+                </div>
+              </div>
+            </div>
             <div class="row mobileTotal">
               <div class="col-md-9 col-sm-6 grandTotal ">
                 <div class="planDetail grandLabel">
@@ -79,7 +105,7 @@
                   <tr>
                     <th style="width: 130px; vertical-align: top; padding-left: 12px;">ITEM</th>
                     <th style="width: 70px; vertical-align: top;">QTY</th>
-                    <th style="width: 135px; vertical-align: top;">MarkUp</th>
+                    <!-- <th style="width: 135px; vertical-align: top;">MarkUp</th> -->
                     <th style="width: 90px; vertical-align: top;">PRICE</th>
                     <th style="width: 120px; vertical-align: top;">CONVENIENCE FEE</th>
                     <th style="width: 80px; vertical-align: top;">GST</th>
@@ -90,14 +116,14 @@
                   <tr *ngFor="let item of simCart">
                     <td style="padding-left: 12px;">{{item.planName}}</td>
                     <td>{{item.quantity}}</td>
-                    <td>
+                    <!-- <td>
                         <div class="input-group markUp">
                         <div class="input-group-prepend">
                           <span class="input-group-text symbol">₹</span>
                         </div>
                         <input type="text" class="form-control form-control-sm w-50" aria-label="Amount (to the nearest dollar)">
                       </div>
-                    </td>
+                    </td> -->
                     <td>&#x20B9; &nbsp;{{(item.priceWithoutGST) |  number: '1.0-2'}}</td>
                     <td>&#x20B9; &nbsp;{{item.convenienceFee}}</td>
                     <td>&#x20B9; &nbsp;{{item.gst}}</td>
