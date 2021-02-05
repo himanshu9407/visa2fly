@@ -33,7 +33,7 @@
                   <div class="row">
                     <div class="col-6 booking-details-label" style="text-align: left;">Policy No.</div>
                     <div class="col-6 booking-details-input" style="text-align: left;">
-                      {{policyNumber}}
+                      {{policyNum}}
                     </div>
                   </div>
                   <div class="row">
@@ -56,14 +56,14 @@
                     <div
                       class="col-6 text-center booking-details-button-container"
                     >
-                      <button class="btn booking-details-button" (click)="downloadInvoiceOnSuccess(this.policyNumber, this.bookingId)">
+                      <button class="btn booking-details-button" (click)="downloadInvoiceOnSuccess(this.policyNum, this.bookingId)">
                         Download Policy
                       </button>
                     </div>
                     <div
                       class="col-6 text-center booking-details-button-container"
                     >
-                      <button class="btn booking-details-button">
+                      <button class="btn booking-details-button" (click)="navigationToMyBooking()">
                         My Booking
                       </button>
                     </div>

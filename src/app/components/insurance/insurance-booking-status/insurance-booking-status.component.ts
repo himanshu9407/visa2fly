@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DownloadImageService } from 'src/app/shared/DownloadImage.service';
 
@@ -18,10 +18,15 @@ export class InsuranceBookingStatusComponent implements OnInit {
   bookingId: string;
   feedbackForm: any;
   transactionRefNum: any;
-  policyNumber: any;
+  policyNum: any;
   amount: any;
   date: string;
-  constructor(private route: ActivatedRoute, private downloadImageService: DownloadImageService, private titleService: Title, private toastr: ToastrService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private downloadImageService: DownloadImageService,
+    private titleService: Title, 
+    private toastr: ToastrService,
+    private router: Router) {
 
     console.log('Called Constructor');
     this.route.queryParams.subscribe(params => {
@@ -30,7 +35,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
       this.proposalNum = params['proposalNum'];
       this.status = params['status'];
       this.message = params['message'];
-      this.policyNumber = params['policyNumber'];
+      this.policyNum = params['policyNum'];
       this.amount = params['amount'];
       console.log(params)
     });
@@ -54,13 +59,13 @@ export class InsuranceBookingStatusComponent implements OnInit {
     this.titleService.setTitle("Visa2fly | Booking " + this.status);
   }
 
-  onSubmitFeedbackForm() {
-
+  navigationToMyBooking() {
+    this.router.navigate(['/myBookings'])
   }
 
-  downloadInvoiceOnSuccess(policyNumber: string, bookingId: string) {
+  downloadInvoiceOnSuccess(policyNum: string, bookingId: string) {
     this.downloadImageService
-      .getPolicy(policyNumber)
+      .getPolicy(policyNum)
       .subscribe((res: any) => {
         console.log(res);
         if (res.code == "0") {
@@ -75,7 +80,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
               new Blob(binaryData, { type: dataType })
             );
             a.href = url;
-            a.download = "Invoice" + policyNumber;
+            a.download = "Invoice" + policyNum;
             a.click();
             window.URL.revokeObjectURL(url);
           });
