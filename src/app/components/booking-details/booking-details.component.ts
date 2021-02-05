@@ -89,30 +89,55 @@ export class BookingDetailsComponent implements OnInit {
     }
   }
 
-  downloadPolicy(policyNumber: string, bookingStatus: string) {
-    if (bookingStatus == "g") {
-      this.downloadImageService
-        .downloadPolicy(policyNumber)
-        .subscribe((response: any) => {
-          // console.log(response);
-          let dataType = response.type;
-          let binaryData = [];
-          binaryData.push(response);
-          var a = document.createElement("a");
-          document.body.appendChild(a);
-          a.style.display = "none";
-          let url = window.URL.createObjectURL(
-            new Blob(binaryData, { type: dataType })
-          );
-          a.href = url;
-          a.download = "Invoice" + policyNumber;
-          a.click();
-          window.URL.revokeObjectURL(url);
-        });
+  downloadPolicy(policyNumber: string, bookingStatus: string, bookingId: string) {
+  //   if (bookingStatus == "g") {
+  //     this.downloadImageService
+  //       .downloadPolicy(policyNumber)
+  //       .subscribe((response: any) => {
+  //         // console.log(response);
+  //         let dataType = response.type;
+  //         let binaryData = [];
+  //         binaryData.push(response);
+  //         var a = document.createElement("a");
+  //         document.body.appendChild(a);
+  //         a.style.display = "none";
+  //         let url = window.URL.createObjectURL(
+  //           new Blob(binaryData, { type: dataType })
+  //         );
+  //         a.href = url;
+  //         a.download = "Invoice" + policyNumber;
+  //         a.click();
+  //         window.URL.revokeObjectURL(url);
+  //       });
+  //   } else {
+  //     this.toastr.error(
+  //       "Policy could not be generated as the payment failed."
+  //     );
+  //   }
+
+  this.downloadImageService
+  .getPolicy(policyNumber)
+  .subscribe((res: any) => {
+    console.log(res);
+    if (res.code == "0") {
+      this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
+        let dataType = response.type;
+        let binaryData = [];
+        binaryData.push(response);
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style.display = "none";
+        let url = window.URL.createObjectURL(
+          new Blob(binaryData, { type: dataType })
+        );
+        a.href = url;
+        a.download = "Invoice" + policyNumber;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
     } else {
-      this.toastr.error(
-        "Policy could not be generated as the payment failed."
-      );
+      this.toastr.error(res.message);
     }
+  });
   }
 }

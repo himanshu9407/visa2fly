@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DownloadImageService } from 'src/app/shared/DownloadImage.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
   policyNumber: any;
   amount: any;
   date: string;
-  constructor(private route: ActivatedRoute, private downloadImageService: DownloadImageService,  private titleService: Title) {
+  constructor(private route: ActivatedRoute, private downloadImageService: DownloadImageService, private titleService: Title, private toastr: ToastrService) {
 
     console.log('Called Constructor');
     this.route.queryParams.subscribe(params => {
@@ -47,7 +48,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    
+
     this.date = mm + '/' + dd + '/' + yyyy;
 
     this.titleService.setTitle("Visa2fly | Booking " + this.status);
@@ -57,25 +58,31 @@ export class InsuranceBookingStatusComponent implements OnInit {
 
   }
 
-  downloadInvoiceOnSuccess(policyNumber: string) {
+  downloadInvoiceOnSuccess(policyNumber: string, bookingId: string) {
     this.downloadImageService
-    .downloadPolicy(policyNumber)
-    .subscribe((response: any) => {
-      // console.log(response);
-      let dataType = response.type;
-      let binaryData = [];
-      binaryData.push(response);
-      var a = document.createElement("a");
-      document.body.appendChild(a);
-      a.style.display = "none";
-      let url = window.URL.createObjectURL(
-        new Blob(binaryData, { type: dataType })
-      );
-      a.href = url;
-      a.download = "Invoice" + policyNumber;
-      a.click();
-      window.URL.revokeObjectURL(url);
-    });
+      .getPolicy(policyNumber)
+      .subscribe((res: any) => {
+        console.log(res);
+        if (res.code == "0") {
+          this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
+            let dataType = response.type;
+            let binaryData = [];
+            binaryData.push(response);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style.display = "none";
+            let url = window.URL.createObjectURL(
+              new Blob(binaryData, { type: dataType })
+            );
+            a.href = url;
+            a.download = "Invoice" + policyNumber;
+            a.click();
+            window.URL.revokeObjectURL(url);
+          });
+        } else {
+          this.toastr.error(res.message);
+        }
+      });
   }
 
 }

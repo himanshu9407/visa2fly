@@ -205,13 +205,18 @@ export class MyBookingsComponent implements OnInit {
               element.booking.statusColor = "y";
             }
 
+            console.log(element.booking.bookingStatus);
+            console.log(element.booking.statusColor);
+
             if (element.booking.paymentStatus == "Payment completed") {
-              element.booking.paymentColor = "g";
-            } else if (element.booking.paymentStatus == "Payment completed") {
               element.booking.paymentColor = "g";
             } else {
               element.booking.paymentColor = "y";
             }
+
+            console.log('  ');
+            console.log(element.booking.paymentStatus)
+            console.log(element.booking.paymentColor)
           });
           let arr1 = [];
           this.bookings.forEach((booking) => {
@@ -275,13 +280,46 @@ export class MyBookingsComponent implements OnInit {
     }
   }
 
-  downloadPolicy(policyNumber: string, bookingStatus: string) {
-    if (bookingStatus == "y") {
-      console.log(bookingStatus);
-      this.downloadImageService
-        .downloadPolicy(policyNumber)
-        .subscribe((response: any) => {
-          // console.log(response);
+  downloadPolicy(policyNumber: string, bookingStatus: string, bookingId: string) {
+    // console.log(policyNumber);
+    // if (bookingStatus == "y") {
+    //   this.downloadImageService
+    //     .getPolicy(policyNumber)
+    //     .subscribe((res: any) => {
+    //       console.log(res);
+    //       if (res.code == "0") {
+    //         this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
+    //           let dataType = response.type;
+    //           let binaryData = [];
+    //           binaryData.push(response);
+    //           var a = document.createElement("a");
+    //           document.body.appendChild(a);
+    //           a.style.display = "none";
+    //           let url = window.URL.createObjectURL(
+    //             new Blob(binaryData, { type: dataType })
+    //           );
+    //           a.href = url;
+    //           a.download = "Invoice" + policyNumber;
+    //           a.click();
+    //           window.URL.revokeObjectURL(url);
+    //         });
+    //       } else {
+    //         this.toastr.error(res.message);
+    //       }
+    //     });
+    // } else {
+    //   console.log(bookingStatus);
+    //   this.toastr.error(
+    //     "Policy could not be generated as the payment failed."
+    //   );
+    // }
+
+    this.downloadImageService
+    .getPolicy(policyNumber)
+    .subscribe((res: any) => {
+      console.log(res);
+      if (res.code == "0") {
+        this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
           let dataType = response.type;
           let binaryData = [];
           binaryData.push(response);
@@ -296,12 +334,10 @@ export class MyBookingsComponent implements OnInit {
           a.click();
           window.URL.revokeObjectURL(url);
         });
-    } else {
-      console.log(bookingStatus);
-      this.toastr.error(
-        "Policy could not be generated as the payment failed."
-      );
-    }
+      } else {
+        this.toastr.error(res.message);
+      }
+    });
   }
 
   setActiveBooking(booking: any) {

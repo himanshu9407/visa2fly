@@ -319,7 +319,7 @@
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
                   </button>
-                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor)"
+                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor, booking.booking.bookingId)"
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Policy
                   </button>
@@ -494,7 +494,7 @@
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
                   </button>
-                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor)"
+                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor, booking.booking.bookingId)"
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Policy
                   </button>
