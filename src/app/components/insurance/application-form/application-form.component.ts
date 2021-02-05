@@ -17,7 +17,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   birthDtError: boolean;
   count: number = 1;
   dataSource = [
-    { id: "Self", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
+    { id: "Insurer", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
   ];
   selectedTravellerForm: number = 0;
   maxDateDob: { year: number; month: number; day: number; };

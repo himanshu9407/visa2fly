@@ -10,6 +10,15 @@
   background-color: #f4f8fb;
 }
 
+.address_heading_box {
+  display: flex;
+  align-items: center;
+}
+
+.ques_ans_option_box {
+  justify-content: space-around;
+}
+
 .insurance_application-header_box {
   background-color: #d8cedd;
   padding: 10px 0px;
@@ -92,7 +101,28 @@
   .policyDetailForm .insurance-box .insurance-input_box.right .insurance-label {
     width: 50% !important;
   }
-  
+
+  .address_heading_box {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 8px;
+  }
+
+  .address_heading-checkbox {
+    margin-left: 20px;
+  }
+
+  .ques_ans_option_box {
+    justify-content: unset;
+  }
+
+  .ques_ans_right_option {
+    margin-left: 50px;
+  }
+
+  .ques_ans_textarea {
+    margin-top: 5px;
+  }
 }
 
 .main__card-heading {
@@ -183,7 +213,7 @@
   border-radius: 5px;
   padding: 10px 15px;
   font-size: 16px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .termsAndConditions .wrapper-box {
@@ -194,7 +224,7 @@
   position: relative;
   display: block;
   padding-left: 1.25rem;
-} 
+}
 
 .valueAddServices .custom-control-label {
   position: static !important;
@@ -228,7 +258,6 @@
   width: 0;
   height: auto;
 }
-
 
 .policyDetailForm .insurance-box .insurance-input_box {
   display: flex;
@@ -311,10 +340,10 @@
   margin: 0;
   height: 100%;
   width: 2.67142857em;
-  opacity: .5;
-  border-radius: 0 .28571429rem .28571429rem 0;
-  -webkit-transition: opacity .3s ease;
-  transition: opacity .3s ease;
+  opacity: 0.5;
+  border-radius: 0 0.28571429rem 0.28571429rem 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 /* START TOOLTIP STYLES */
@@ -326,7 +355,7 @@
 [tooltip]::before,
 [tooltip]::after {
   text-transform: none; /* opinion 2 */
-  font-size: .9em; /* opinion 3 */
+  font-size: 0.9em; /* opinion 3 */
   line-height: 1;
   user-select: none;
   pointer-events: none;
@@ -335,17 +364,17 @@
   opacity: 0;
 }
 [tooltip]::before {
-  content: '';
+  content: "";
   border: 5px solid transparent; /* opinion 4 */
   z-index: 1001; /* absurdity 1 */
 }
 [tooltip]::after {
   content: attr(tooltip); /* magic! */
-  
+
   /* most of the rest of this is opinion */
   font-family: Helvetica, sans-serif;
   text-align: center;
-  
+
   /* 
     Let the content set the size of the tooltips 
     but this will also keep them from being obnoxious
@@ -356,8 +385,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 1ch 1.5ch;
-  border-radius: .3ch;
-  box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+  border-radius: 0.3ch;
+  box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
   background: #333;
   color: #fff;
   z-index: 1000; /* absurdity 2 */
@@ -370,11 +399,10 @@
 }
 
 /* don't show empty tooltips */
-[tooltip='']::before,
-[tooltip='']::after {
+[tooltip=""]::before,
+[tooltip=""]::after {
   display: none !important;
 }
-
 
 /* FLOW: RIGHT */
 [tooltip][flow^="right"]::before {
@@ -382,25 +410,25 @@
   border-left-width: 0;
   border-right-color: #333;
   right: calc(0em - 5px);
-  transform: translate(.5em, -50%);
+  transform: translate(0.5em, -50%);
 }
 [tooltip][flow^="right"]::after {
   top: 50%;
   left: calc(100% + 5px);
-  transform: translate(.5em, -50%);
+  transform: translate(0.5em, -50%);
 }
 
 /* KEYFRAMES */
 @keyframes tooltips-vert {
   to {
-    opacity: .9;
+    opacity: 0.9;
     transform: translate(-50%, 0);
   }
 }
 
 @keyframes tooltips-horz {
   to {
-    opacity: .9;
+    opacity: 0.9;
     transform: translate(0, -50%);
   }
 }
@@ -409,5 +437,3 @@
 [tooltip][flow^="right"]:hover::after {
   animation: tooltips-horz 300ms ease-out forwards;
 }
-
-
