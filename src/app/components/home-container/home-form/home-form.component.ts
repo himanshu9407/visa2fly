@@ -145,11 +145,11 @@ export class HomeFormComponent {
   }
 
   countryChanged(event: string) {
-    console.log(event);
+    // console.log(event);
     this.selectedPurpose = "select";
     this.selectedResidenceOf = "select";
     if (event == undefined || event == null || event == "") {
-      console.log("country changed");
+      // console.log("country changed");
       this.homeForm.get("purpose").setValue("select");
       this.homeForm.get("livingin").setValue("select");
       this.countryNotSelected = true;
@@ -208,7 +208,7 @@ export class HomeFormComponent {
   }
 
   onSubmit() {
-    console.log(this.homeForm.value);
+    // console.log(this.homeForm.value);
     this.purpose.valueChanges.subscribe((value) => {
       if (value == "select") {
         this.purposeNotSelected = true;
