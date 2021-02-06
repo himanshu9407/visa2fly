@@ -257,7 +257,7 @@ export class LoginComponent implements OnInit {
                     } else {
                       this.toastr.error(data.message);
                       this.showLoader = false;
-                      console.log('kjh');
+                      // console.log('kjh');
                       
                       this.showLoginButton = true;
                       // this.showOtpField = false;

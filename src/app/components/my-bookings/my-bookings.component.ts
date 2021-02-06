@@ -205,8 +205,8 @@ export class MyBookingsComponent implements OnInit {
               element.booking.statusColor = "y";
             }
 
-            console.log(element.booking.bookingStatus);
-            console.log(element.booking.statusColor);
+            // console.log(element.booking.bookingStatus);
+            // console.log(element.booking.statusColor);
 
             if (element.booking.paymentStatus == "Payment completed") {
               element.booking.paymentColor = "g";
@@ -214,9 +214,9 @@ export class MyBookingsComponent implements OnInit {
               element.booking.paymentColor = "y";
             }
 
-            console.log('  ');
-            console.log(element.booking.paymentStatus)
-            console.log(element.booking.paymentColor)
+            // console.log('  ');
+            // console.log(element.booking.paymentStatus)
+            // console.log(element.booking.paymentColor)
           });
           let arr1 = [];
           this.bookings.forEach((booking) => {
@@ -317,7 +317,7 @@ export class MyBookingsComponent implements OnInit {
     this.downloadImageService
     .getPolicy(policyNumber)
     .subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       if (res.code == "0") {
         this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
           let dataType = response.type;

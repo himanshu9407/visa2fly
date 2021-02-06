@@ -315,7 +315,7 @@ export class PremiumFormComponent implements OnInit {
         for (let i = 0; i < ageOfTravellers.length; i++) {
           if (ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== '') {
             ageOfTravellersList.push(ageOfTravellers[i].memberAge);
-            console.log(ageOfTravellers[i]);
+            // console.log(ageOfTravellers[i]);
 
           }
         }
@@ -475,7 +475,7 @@ export class PremiumFormComponent implements OnInit {
         for (let i = 0; i < ageOfTravellers.length; i++) {
           if (ageOfTravellers[i].memberAge !== "" && ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== undefined) {
             ageOfTravellersList.push(ageOfTravellers[i].memberAge);
-            console.log(ageOfTravellers[i]);
+            // console.log(ageOfTravellers[i]);
           }
         }
   
@@ -494,7 +494,7 @@ export class PremiumFormComponent implements OnInit {
         // tripFrequency: tripFrequency
       }
 
-      console.log(reqData);
+      // console.log(reqData);
 
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
         // console.log(res);

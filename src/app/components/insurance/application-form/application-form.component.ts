@@ -1253,9 +1253,9 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
 
   sameAsPermanentAddress(value: any, index: number) {
     let same = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][index].get('sameAsPermanentAddress').value;
-    console.log(same);
-    console.log(value);
-    console.log(index);
+    // console.log(same);
+    // console.log(value);
+    // console.log(index);
     if (!same) {
       this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][index].controls.addressLine1Lang1.setValidators(null);
       this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][index].controls.addressLine2Lang1.setValidators(null);
@@ -1453,14 +1453,14 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   }
 
   onRelationValueChange(event, i: number, section: string) {
-    console.log(event)
+    // console.log(event)
     let relationArr: Array<string> = [];
     let duplicates: Array<string> = [];
     let startWith: number = 0;
 
-    console.log(this.getControls[i].get("titleCd").value);
-    console.log(i);
-    console.log(this.getControls[i].get("genderCd").value);
+    // console.log(this.getControls[i].get("titleCd").value);
+    // console.log(i);
+    // console.log(this.getControls[i].get("genderCd").value);
 
     // let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
 
@@ -1497,7 +1497,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
 
         duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
 
-        console.log(duplicates);
+        // console.log(duplicates);
 
 
       }
@@ -1508,15 +1508,15 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
         this.getControls[index]['controls'].relationCd.duplicatesError = false;
       }
 
-      console.log(index);
-      console.log(i);
+      // console.log(index);
+      // console.log(i);
 
     }
 
-    console.log(typeof this.getControls[i]['controls'].relationCd.value + '  ' + this.getControls[i]['controls'].relationCd.value);
-    console.log(this.getControls[i]['controls'].relationCd.duplicatesError = false);
-    console.log(this.getControls[i]['controls'].relationCd.value == 'SELF');
-    console.log(this.getControls[i]['controls'].relationCd.duplicatesError = false && this.getControls[i]['controls'].relationCd.value == 'SELF');
+    // console.log(typeof this.getControls[i]['controls'].relationCd.value + '  ' + this.getControls[i]['controls'].relationCd.value);
+    // console.log(this.getControls[i]['controls'].relationCd.duplicatesError = false);
+    // console.log(this.getControls[i]['controls'].relationCd.value == 'SELF');
+    // console.log(this.getControls[i]['controls'].relationCd.duplicatesError = false && this.getControls[i]['controls'].relationCd.value == 'SELF');
 
     if (!this.getControls[i]['controls'].relationCd.duplicatesError && this.getControls[i]['controls'].relationCd.value == 'SELF') {
       let birthDtCopy = this.insuranceForm.controls.proposer.get('birthDtCopy').value;
@@ -1674,8 +1674,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   }
 
   validatingGender(event: string, i: number, section: string) {
-    console.log(event);
-    console.log(i);
+    // console.log(event);
+    // console.log(i);
 
     if (section == 'partyDoList') {
       if (event == 'MALE') {
@@ -1693,8 +1693,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   }
 
   validatingTitle(event: string, i: number, section: string) {
-    console.log(event);
-    console.log(i);
+    // console.log(event);
+    // console.log(i);
 
     if (section == 'partyDoList') {
       if (event == 'MS') {
@@ -1719,10 +1719,10 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     // let question = this.getControls[i]['controls'].partyQuestionDOList.controls[i].get('response_' + i).value;
     this.getControls[i]['controls'].partyQuestionDOList.controls[j].get('response').setValue(event);
 
-    console.log(this.getControls[i]['controls'].partyQuestionDOList.controls[j].get('response').value);
-    console.log(i);
-    console.log(j);
-    console.log(event);
+    // console.log(this.getControls[i]['controls'].partyQuestionDOList.controls[j].get('response').value);
+    // console.log(i);
+    // console.log(j);
+    // console.log(event);
 
     if ((j == 6 || j == 8 || j == 10) && event == 'YES') {
       document.getElementById("question_" + (j + 1)).style.display = 'block';

@@ -40,7 +40,7 @@ export class DownloadImageService {
         if (token == null || token == undefined) {
             token = "";
         }
-        console.log(policyNumber);
+        // console.log(policyNumber);
         let headers = new HttpHeaders({ 'token': token, 'visa-client': "0" });
         let base_url = this.userFlowDetails.getBaseURL();
         let reqBody = {
@@ -56,7 +56,7 @@ export class DownloadImageService {
         if (token == null || token == undefined) {
             token = "";
         }
-        console.log(bookingId);
+        // console.log(bookingId);
         let headers = new HttpHeaders({ 'token': token, 'visa-client': "0" });
         let base_url = this.userFlowDetails.getBaseURL();
         return this.http.post(base_url + "insurance/download/policy/" + bookingId, '', { headers: headers, responseType: 'blob' as 'json' });

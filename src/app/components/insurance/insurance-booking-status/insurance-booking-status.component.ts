@@ -28,7 +28,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-    console.log('Called Constructor');
+    // console.log('Called Constructor');
     this.route.queryParams.subscribe(params => {
       this.bookingId = params['bookingId'];
       this.transactionRefNum = params['transactionRefNum']
@@ -37,7 +37,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
       this.message = params['message'];
       this.policyNum = params['policyNum'];
       this.amount = params['amount'];
-      console.log(params)
+      // console.log(params)
     });
   }
 
@@ -67,7 +67,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
     this.downloadImageService
       .getPolicy(policyNum)
       .subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
         if (res.code == "0") {
           this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
             let dataType = response.type;
