@@ -11,9 +11,9 @@ import {
   AbstractControl,
 } from "@angular/forms";
 import { HomeFormService } from "./home-form.service";
-import { HomeFormModel } from "./home-form.model";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
+import { element } from "protractor";
 
 @Component({
   selector: "app-home-form",
@@ -28,7 +28,7 @@ export class HomeFormComponent {
     status: "SUCCESS",
     message: "Data Fetched Successfully",
     data: {
-      countries: ["China", "Sri Lanka", "Australia"],
+      countries: ["China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia"],
       data: {
         "Sri Lanka": {
           countryName: "Sri Lanka",
@@ -73,6 +73,9 @@ export class HomeFormComponent {
   public purposeNotSelected: boolean = false;
   public livesInNotSelected: boolean = false;
   staticPagesArr: Array<any> = ["United Kingdom"];
+  purposeArr: Array<string> = [];
+  resideInArr: Array<string> = [];
+  countryNotSelected: boolean;
 
   constructor(
     private router: Router,
@@ -107,6 +110,8 @@ export class HomeFormComponent {
         ) {
           this.country.setValue(this.homeFormData.data.countries[0]);
           this.selectedCountry = this.homeFormData.data.countries[0];
+          this.sortPurposeArr(this.homeFormData.data.data[this.selectedCountry]['purpose'])
+          this.resideInArr = this.homeFormData.data.data[this.selectedCountry]['residenceOf'];
 
         } else {
           this.country.setValue(activeCountry);
@@ -119,6 +124,8 @@ export class HomeFormComponent {
         ) {
           this.country.setValue(this.homeFormData.data.countries[0]);
           this.selectedCountry = this.homeFormData.data.countries[0];
+          this.sortPurposeArr(this.homeFormData.data.data[this.selectedCountry]['purpose'])
+          this.resideInArr = this.homeFormData.data.data[this.selectedCountry]['residenceOf'];
         } else {
           this.country.setValue(popularCountry);
           this.userFlow.setCookie("popularCountry", "");
@@ -137,17 +144,31 @@ export class HomeFormComponent {
     // console.log(this.homeForm.get('purpose').value == "");
   }
 
-  countryChanged() {
-    // console.log("country changed");
-    let temoCountry = this.homeForm.get("country").value;
-    this.homeForm.get("purpose").setValue("select");
-    // this.homeForm.get('visatype').setValue('select');
-    this.homeForm.get("livingin").setValue("select");
-    // this.homeForm.get('purpose')
+  countryChanged(event: string) {
+    console.log(event);
     this.selectedPurpose = "select";
-    //this.selectedVisaType = 'select';
     this.selectedResidenceOf = "select";
-    this.homeForm.get("country").setValue(temoCountry);
+    if (event == undefined || event == null || event == "") {
+      console.log("country changed");
+      this.homeForm.get("purpose").setValue("select");
+      this.homeForm.get("livingin").setValue("select");
+      this.countryNotSelected = true;
+    } else {
+      this.sortPurposeArr(this.homeFormData.data.data[event]['purpose'])
+      this.resideInArr = this.homeFormData.data.data[event]['residenceOf'];
+      this.countryNotSelected = false;
+    }
+  }
+
+  validateCountry() {
+    if (this.country.dirty && (this.country.value == undefined || this.country.value == null || this.country.value == "")
+    ) {
+      this.countryNotSelected = true;
+
+      return false;
+    } else {
+      return true;
+    }
   }
 
   validatePurpose() {
@@ -178,11 +199,8 @@ export class HomeFormComponent {
   }
 
   validateForm() {
-    //console.log("validate form method called");
-    this.validatePurpose();
-    //this.validatePurposeType();
     this.validateLivingIn();
-    if (this.validatePurpose() == false || this.validateLivingIn() == false) {
+    if (!this.validatePurpose() || !this.validateLivingIn() || !this.validateCountry()) {
       return false;
     } else {
       return true;
@@ -190,6 +208,7 @@ export class HomeFormComponent {
   }
 
   onSubmit() {
+    console.log(this.homeForm.value);
     this.purpose.valueChanges.subscribe((value) => {
       if (value == "select") {
         this.purposeNotSelected = true;
@@ -205,13 +224,21 @@ export class HomeFormComponent {
         this.livesInNotSelected = false;
       }
     });
+
+    this.country.valueChanges.subscribe((value) => {
+      if (value == "" || value == undefined || value == null) {
+        this.countryNotSelected = true;
+      } else {
+        this.countryNotSelected = false;
+      }
+    });
+
     if (this.validateForm()) {
       let purpose = this.homeForm.get("purpose").value;
-      let country1 = this.homeForm.get("country").value;
-      let variable = "apply-for-" + country1 + "-visa-online";
-      let countryTemp1 = this.staticPagesArr.includes(this.selectedCountry);
+      let country = this.homeForm.get("country").value;
+      let variable = "apply-for-" + country + "-visa-online";
 
-      switch (this.selectedCountry) {
+      switch (country) {
         case "United Kingdom": {
           this.router.navigate(["visa/uk-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
@@ -487,12 +514,43 @@ export class HomeFormComponent {
         default: {
           this.router.navigate([
             "visa-requirements/",
-            "" + country1,
+            "" + country,
             variable
           ]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
         }
       }
     }
+  }
+
+  sortPurposeArr(purposeArr: Array<string>) {
+    this.purposeArr = [];
+    let purposeCustomArr: Array<{ purpose: string, order: number }> = []
+    purposeArr.forEach(element => {
+      if (element == "Tourist") {
+        purposeCustomArr.push({
+          purpose: "Tourist",
+          order: 1
+        })
+      } else if (element == "Business") {
+        purposeCustomArr.push({
+          purpose: "Business",
+          order: 2
+        })
+      } else if (element == "Transit") {
+        purposeCustomArr.push({
+          purpose: "Transit",
+          order: 3
+        })
+      }
+    });
+
+    purposeCustomArr.sort(function (a, b) {
+      return a.order - b.order || a.purpose.localeCompare(b.purpose);
+    });
+
+    purposeCustomArr.forEach(element => {
+      this.purposeArr.push(element.purpose);
+    })
   }
 }

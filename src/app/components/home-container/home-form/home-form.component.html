@@ -39,11 +39,15 @@
             </div> -->
 
       <!--Using ng-option and for loop-->
-      <ng-select [(ngModel)]="selectedCountry" formControlName="country" required (change)="countryChanged()">
+      <ng-select formControlName="country" [(ngModel)]="selectedCountry" placeholder="Select Country" required (change)="countryChanged($event)">
         <ng-option *ngFor="let country of homeFormData.data.countries" [value]="country">
             {{country}}
         </ng-option>
       </ng-select>
+      <div *ngIf="countryNotSelected" class="invalid-feedback">
+        Please choose a country.
+      </div>
+      
     </div>
     <div class="chkIp chkIp2">
       <label class="chkLabel">Visa Type</label>
@@ -60,9 +64,7 @@
         <option
           class="purpose-opt"
           *ngFor="
-            let visaType of homeFormData.data.data[this.selectedCountry][
-              'purpose'
-            ]
+            let visaType of purposeArr
           "
           value="{{ visaType }}"
         >
@@ -102,11 +104,11 @@
           </option>
         </select> -->
 
-        <ng-select  [(ngModel)]="selectedResidenceOf"formControlName="livingin" required>
+        <ng-select  [(ngModel)]="selectedResidenceOf"formControlName="livingin"  placeholder="Select Reside In" required>
           <ng-option value="select">
             Select
         </ng-option>
-          <ng-option *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" [value]="livesin">
+          <ng-option *ngFor="let livesin of resideInArr;" [value]="livesin">
               {{livesin}}
           </ng-option>
         </ng-select>
