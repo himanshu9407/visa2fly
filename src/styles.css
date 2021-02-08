@@ -659,7 +659,7 @@ button:hover {
 .requiredIcons {
   height: 45px;
   width: 45px;
-  zoom: .8;
+  zoom: 0.8;
 }
 
 .vr-accommodation,
@@ -1478,7 +1478,7 @@ a {
 
 .carousel-caption:focus,
 .carousel-inner:focus,
-ngb-carousel:focus{
+ngb-carousel:focus {
   outline: none !important;
   box-shadow: none !important;
 }
@@ -1548,7 +1548,7 @@ ngb-carousel {
   }
 }
 
-#blogPostCarousel .carousel-control-next, 
+#blogPostCarousel .carousel-control-next,
 #blogPostCarousel .carousel-control-prev {
   position: absolute;
   top: 0;
@@ -1563,7 +1563,7 @@ ngb-carousel {
   opacity: 0;
   height: 150px;
   top: 18%;
-  transition: all .15s ease;
+  transition: all 0.15s ease;
   background-color: #fff;
   box-shadow: 0 1px 3px #888;
 }
@@ -1579,8 +1579,8 @@ ngb-carousel {
 }
 
 #blogPostCarousel .carousel-control-prev {
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* #blogPostCarousel .carousel-control-next:focus, */
@@ -1592,7 +1592,7 @@ border-bottom-right-radius: 10px;
   opacity: 1;
 }
 
-#MobileblogPostCarousel .carousel-control-next, 
+#MobileblogPostCarousel .carousel-control-next,
 #MobileblogPostCarousel .carousel-control-prev {
   position: absolute;
   bottom: 0;
@@ -1606,7 +1606,7 @@ border-bottom-right-radius: 10px;
   opacity: 0.5;
   height: 100px;
   top: 20%;
-  transition: all .15s ease;
+  transition: all 0.15s ease;
   background-color: #fff;
   box-shadow: 0 1px 3px #888;
 }
@@ -1618,9 +1618,9 @@ border-bottom-right-radius: 10px;
 }
 
 #MobileblogPostCarousel .carousel-control-prev {
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;
-left: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  left: 5px;
 }
 
 #MobileblogPostCarousel .carousel-control-next:focus,
@@ -1632,7 +1632,6 @@ left: 5px;
   opacity: 0.5;
 }
 
-
 .home-form .ng-select-container .ng-clear-wrapper.ng-star-inserted {
   display: none !important;
 }
@@ -1643,17 +1642,20 @@ left: 5px;
 
 .home-form .ng-select {
   border: none !important;
-    font-size: 16px !important;
-    font-weight: 550 !important;
-    padding-left: 0px !important;
-    color: #5b6167 !important;
+  font-size: 16px !important;
+  font-weight: 550 !important;
+  padding-left: 0px !important;
+  color: #5b6167 !important;
 }
 
-.home-form .ng-select.ng-select-single .ng-select-container .ng-value-container {
+.home-form
+  .ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container {
   padding: 0 !important;
 }
 
-#sim .ng-select-container  {
+#sim .ng-select-container {
   background: transparent !important;
   color: #fff !important;
   border: 2px solid #fff !important;
@@ -1664,7 +1666,7 @@ left: 5px;
   display: none !important;
 }
 
-#sim ng-select .ng-select-container .ng-value-container .ng-input>input {
+#sim ng-select .ng-select-container .ng-value-container .ng-input > input {
   color: #fff;
 }
 
@@ -1683,6 +1685,15 @@ ng-select > *:focus {
   box-shadow: none !important;
 }
 
-.home-form .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+.home-form
+  .ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container
+  .ng-input {
   padding: 0;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+  border-color: none !important;
+  box-shadow: none !important;
 }

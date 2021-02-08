@@ -93,7 +93,7 @@ export class DubaiComponent implements OnInit {
       }
     });
 
-      //  this.preloaderService.showPreloader(true);
+       this.preloaderService.showPreloader(true);
 
     if (this.userFlow.getCookie("selectedVisaPurpose")) {
       this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");

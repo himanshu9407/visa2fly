@@ -863,6 +863,9 @@ export class AddTravellerComponent implements OnInit {
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
 
+      let stateValue = this.travellerForm.controls.travellers.controls[i]
+        .controls.state.value;
+
       if (
         firstNameValue == "" ||
         firstNameValue == null ||
@@ -971,6 +974,22 @@ export class AddTravellerComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
+      if (this.imageUpload) {
+        if (
+          stateValue == "" ||
+          stateValue == null ||
+          stateValue == undefined
+        ) {
+          this.travellerForm.controls.travellers.controls[
+            i
+          ].controls.state.stateError = true;
+        } else {
+          this.travellerForm.controls.travellers.controls[
+            i
+          ].controls.state.stateError = false;
+        }
+      }
+
       // if (this.category == "sticker") {
       if (!this.imageUpload) {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
@@ -1009,10 +1028,15 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  validateImage() { }
+  stateChanged(event: string, i: number) {
+    if (event == undefined || event == null || event == "") {
+      this.travellerForm.controls.travellers.controls[i].controls.state.stateError = true;
+    } else {
+      this.travellerForm.controls.travellers.controls[i].controls.state.stateError = false;
+    }
+  }
 
   seeValues() {
-    this.validateImage();
     this.validateTravellerForm();
     this.validateDate();
     this.checkDateOfCollection();
