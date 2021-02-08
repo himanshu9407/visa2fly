@@ -44,7 +44,6 @@ export class AddTravellerComponent implements OnInit {
   checksum = "";
   primaryAddress = "";
   intialInfo = true;
-  dateOfTravelModel: any = "";
   modalWarnings: Array<any> = [];
   originalImageArr = [];
   selectedTravellerForm: number = 0;
