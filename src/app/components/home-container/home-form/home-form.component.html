@@ -39,20 +39,27 @@
             </div> -->
 
       <!--Using ng-option and for loop-->
-      <ng-select formControlName="country" [(ngModel)]="selectedCountry" placeholder="Select Country" required (change)="countryChanged($event)">
-        <ng-option *ngFor="let country of homeFormData.data.countries" [value]="country">
-            {{country}}
+      <ng-select
+        formControlName="country"
+        placeholder="Select Country"
+        required
+        (change)="countryChanged($event)"
+      >
+        <ng-option
+          *ngFor="let country of homeFormData.countries"
+          [value]="country"
+        >
+          {{ country }}
         </ng-option>
       </ng-select>
       <div *ngIf="countryNotSelected" class="invalid-feedback">
         Please choose a country.
       </div>
-      
     </div>
     <div class="chkIp chkIp2">
       <label class="chkLabel">Visa Type</label>
       <div class="icon-s1-calender pull-left"></div>
-      <select
+      <!-- <select
         formControlName="purpose"
         [(ngModel)]="selectedPurpose"
         required
@@ -63,14 +70,22 @@
         <option value="select">Select</option>
         <option
           class="purpose-opt"
-          *ngFor="
-            let visaType of purposeArr
-          "
+          *ngFor="let visaType of purposeArr"
           value="{{ visaType }}"
         >
-        {{ visaType }}
+          {{ visaType }}
         </option>
-      </select>
+      </select> -->
+      <ng-select
+        formControlName="purpose"
+        placeholder="Select Purpose"
+        required
+      >
+        <ng-option value=""> Select </ng-option>
+        <ng-option *ngFor="let purpose of purposeArr" [value]="purpose">
+          {{ purpose }}
+        </ng-option>
+      </ng-select>
       <div *ngIf="purposeNotSelected" class="invalid-feedback">
         Please choose a Entry Type.
       </div>
@@ -104,12 +119,26 @@
           </option>
         </select> -->
 
-        <ng-select  [(ngModel)]="selectedResidenceOf"formControlName="livingin"  placeholder="Select Reside In" required>
-          <ng-option value="select">
-            Select
-        </ng-option>
-          <ng-option *ngFor="let livesin of resideInArr;" [value]="livesin">
-              {{livesin}}
+        <!-- <ng-select
+          [(ngModel)]="selectedResidenceOf"
+          formControlName="livingin"
+          placeholder="Select Reside In"
+          required
+        >
+          <ng-option value="select"> Select </ng-option>
+          <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
+            {{ livesin }}
+          </ng-option>
+        </ng-select> -->
+
+        <ng-select
+          formControlName="livingin"
+          placeholder="Select Reside In"
+          required
+        >
+          <ng-option value=""> Select </ng-option>
+          <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
+            {{ livesin }}
           </ng-option>
         </ng-select>
 

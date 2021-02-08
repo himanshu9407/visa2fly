@@ -23,49 +23,7 @@ import { element } from "protractor";
 export class HomeFormComponent {
   homeForm: FormGroup;
   selectedCar: number;
-  public homeFormData: any = {
-    code: "0",
-    status: "SUCCESS",
-    message: "Data Fetched Successfully",
-    data: {
-      countries: ["China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia", "China", "Sri Lanka", "Australia"],
-      data: {
-        "Sri Lanka": {
-          countryName: "Sri Lanka",
-          purpose: ["Business", "Transit", "Tourist"],
-          entryType: ["Single Entry"],
-          Business: ["Single Entry"],
-          Transit: ["Single Entry"],
-          Tourist: ["Single Entry"],
-          residenceOf: ["Delhi", "Noida", "Gurugram"],
-        },
-        China: {
-          countryName: "China",
-          purpose: ["Business", "Transit", "Tourist"],
-          entryType: ["Single Entry", "Double Entry", "Multiple Entry"],
-          Business: ["Single Entry", "Double Entry", "Multiple Entry"],
-          Transit: ["Single Entry"],
-          Tourist: ["Single Entry", "Double Entry", "Multiple Entry"],
-          residenceOf: ["Delhi", "Noida", "Gurugram"],
-        },
-        Australia: {
-          countryName: "Australia",
-          purpose: ["Business"],
-          entryType: ["Single entry"],
-
-          Business: ["Single Entry", "Multiple Entry"],
-          Transit: ["Single Entry"],
-          Tourist: ["Single Entry", "Multiple Entry"],
-          residenceOf: ["Delhi"],
-        },
-      },
-    },
-  };
-
-  public selectedResidenceOf: string = "select";
-  public selectedCountry: string = "Sri Lanka";
-  public selectedPurpose: string = "select";
-
+  public homeFormData: any = "";
   public country: AbstractControl;
   public purpose: AbstractControl;
   public livesIn: AbstractControl;
@@ -98,9 +56,9 @@ export class HomeFormComponent {
 
     // console.log(this.homeFormData.data.countries);
 
-    this.homeFormService.getHomeFormDataFromServer().subscribe((data) => {
+    this.homeFormService.getHomeFormDataFromServer().subscribe((res) => {
       if (isPlatformBrowser(this.platformId)) {
-        this.homeFormData = data;
+        this.homeFormData = res.data;
         let activeCountry: string = this.userFlow.getCookie("activeCountry");
         let popularCountry: string = this.userFlow.getCookie("popularCountry");
         if (
@@ -108,10 +66,10 @@ export class HomeFormComponent {
           activeCountry == undefined ||
           activeCountry == null
         ) {
-          this.country.setValue(this.homeFormData.data.countries[0]);
-          this.selectedCountry = this.homeFormData.data.countries[0];
-          this.sortPurposeArr(this.homeFormData.data.data[this.selectedCountry]['purpose'])
-          this.resideInArr = this.homeFormData.data.data[this.selectedCountry]['residenceOf'];
+          this.country.setValue(this.homeFormData.countries[0]);
+          this.homeForm.get('country').setValue(this.homeFormData.countries[0]);
+          this.sortPurposeArr(this.homeFormData.data[this.homeForm.get('country').value]['purpose'])
+          this.resideInArr = this.homeFormData.data[this.homeForm.get('country').value]['residenceOf'];
 
         } else {
           this.country.setValue(activeCountry);
@@ -122,10 +80,11 @@ export class HomeFormComponent {
           popularCountry == undefined ||
           popularCountry == null
         ) {
-          this.country.setValue(this.homeFormData.data.countries[0]);
-          this.selectedCountry = this.homeFormData.data.countries[0];
-          this.sortPurposeArr(this.homeFormData.data.data[this.selectedCountry]['purpose'])
-          this.resideInArr = this.homeFormData.data.data[this.selectedCountry]['residenceOf'];
+          this.country.setValue(this.homeFormData.countries[0]);
+
+          this.homeForm.get('country').setValue(this.homeFormData.countries[0]);
+          this.sortPurposeArr(this.homeFormData.data[this.homeForm.get('country').value]['purpose'])
+          this.resideInArr = this.homeFormData.data[this.homeForm.get('country').value]['residenceOf'];
         } else {
           this.country.setValue(popularCountry);
           this.userFlow.setCookie("popularCountry", "");
@@ -133,7 +92,7 @@ export class HomeFormComponent {
 
         this.userFlow.setCookie(
           "countryList",
-          JSON.stringify(data.data.countries)
+          JSON.stringify(res.countries)
         );
         this.preloaderService.showPreloader(false);
       }
@@ -145,17 +104,16 @@ export class HomeFormComponent {
   }
 
   countryChanged(event: string) {
-    // console.log(event);
-    this.selectedPurpose = "select";
-    this.selectedResidenceOf = "select";
+    this.homeForm.get('purpose').setValue("");
+    this.homeForm.get('livingin').setValue("");
     if (event == undefined || event == null || event == "") {
       // console.log("country changed");
       this.homeForm.get("purpose").setValue("select");
       this.homeForm.get("livingin").setValue("select");
       this.countryNotSelected = true;
     } else {
-      this.sortPurposeArr(this.homeFormData.data.data[event]['purpose'])
-      this.resideInArr = this.homeFormData.data.data[event]['residenceOf'];
+      this.sortPurposeArr(this.homeFormData.data[event]['purpose'])
+      this.resideInArr = this.homeFormData.data[event]['residenceOf'];
       this.countryNotSelected = false;
     }
   }
@@ -173,7 +131,7 @@ export class HomeFormComponent {
 
   validatePurpose() {
     if (
-      (this.purpose.dirty && this.purpose.value == "select") ||
+      (this.purpose.dirty && (this.purpose.value == undefined || this.purpose.value == null || this.purpose.value == "")) ||
       !this.purpose.touched ||
       this.purpose.pristine
     ) {
@@ -186,7 +144,7 @@ export class HomeFormComponent {
 
   validateLivingIn() {
     if (
-      (this.livesIn.dirty && this.livesIn.value == "select") ||
+      (this.livesIn.dirty && (this.livesIn.value == undefined || this.livesIn.value == null || this.livesIn.value == "")) ||
       !this.livesIn.touched ||
       this.livesIn.pristine
     ) {
