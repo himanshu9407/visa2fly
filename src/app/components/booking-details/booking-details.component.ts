@@ -25,7 +25,7 @@ export class BookingDetailsComponent implements OnInit {
   redirectTo: any;
   bookingStatus: boolean = false;
   title: string = "Visa2fly | Booking Details";
-  InsuranceDetail : Array<any> = [];
+  insuranceDetail : Array<any> = [];
   constructor(
     private myBookingService: MyBookingsService,
     // private toastService: ToastService,
@@ -45,8 +45,8 @@ export class BookingDetailsComponent implements OnInit {
       temp = localStorageBooking;
     }
     this.selectedBooking = temp;
-    this.InsuranceDetail.push(this.selectedBooking.insuranceBookings);
-    // console.log(this.selectedBooking);
+    this.insuranceDetail.push(this.selectedBooking.insuranceBookings);
+    console.log(this.insuranceDetail);
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
     }, 2000);

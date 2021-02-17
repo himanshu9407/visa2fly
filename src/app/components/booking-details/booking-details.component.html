@@ -733,8 +733,8 @@
           </div>
         </div>
       </div>
-      <div *ngFor=" let insuranceItem of InsuranceDetail" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-              <div class="insurance">
+      <div *ngFor=" let insuranceItem of insuranceDetail" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2" [ngStyle]="{'display': insuranceDetail == null? 'block' : 'none'}">
+              <div class="insurance" *ngIf="insuranceItem != null">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
                     Insurance Booking Detail
@@ -743,8 +743,7 @@
                     <ul class="visa-type">
                       <li>
                         Policy Number:
-                        <span *ngIf="insuranceItem.policyNum != null" class="fieldData">{{insuranceItem.policyNum}}</span>
-                        <span *ngIf="insuranceItem.policyNum == null" class="fieldData">NA</span>
+                        <span class="fieldData">{{insuranceItem.policyNum != null? insuranceItem.policyNum : 'null'}}</span>
                       </li>
                       <li>
                         Country:
