@@ -1536,8 +1536,19 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityNum").setValue(identityNum);
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityTypeCd").setValue(identityTypeCd);
 
-      // this.getControls[i].get('firstName').setValidators([null]);
-      // this.getControls[i]['controls'].firstName.firstNameError = false;
+      console.log(this.getControls[i]['controls'].birthDtCopy);
+      console.log(this.getControls[i]['controls'].birthDt);
+
+      this.getControls[i]['controls'].firstName.firstNameError = false;
+      this.getControls[i]['controls'].lastName.lastNameError = false;
+      this.getControls[i]['controls'].titleCd.titleCdError = false;
+      this.getControls[i]['controls'].genderCd.genderCdError = false;
+      this.getControls[i]['controls'].birthDt.birthDtError = false;
+      this.getControls[i]['controls'].birthDtCopy.birthDtCopyError = false;
+
+      this.getControls[i]['controls'].partyIdentityDOList.controls[0].controls.identityNum.identityNumError = false;
+      this.getControls[i]['controls'].partyIdentityDOList.controls[0].controls.identityType.identityTypeError = false;
+
 
       // this.getControls[i].get('birthDtCopy').setValidators(null);
       // this.getControls[i].get('genderCd').setValidators(null);
