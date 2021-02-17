@@ -60,7 +60,7 @@ export class MyBookingsComponent implements OnInit {
   activeMobileBookingPage: Array<any> = [];
   public allBooking: any;
   AUTH_TOKEN = "";
-  feedbackMsg : boolean;
+  feedbackMsg: boolean;
   public bookingData: any;
   bookingStatus: boolean = false;
   FeedbackForm: FormGroup;
@@ -192,21 +192,18 @@ export class MyBookingsComponent implements OnInit {
             if (
               element.booking.bookingStatus == "Sim order confirmed" ||
               element.booking.bookingStatus == "Payment completed" ||
-              element.booking.bookingStatus == "Visa application approved"
+              element.booking.bookingStatus == "Visa application approved" ||
+              element.booking.bookingStatus == "Insurance policy generated"
             ) {
               element.booking.statusColor = "g";
             } else if (
-              (element.booking.bookingStatus =
-                "Payment failed" ||
-                element.booking.bookingStatus == "Visa application rejected")
+              element.booking.bookingStatus == "Payment failed" ||
+              element.booking.bookingStatus == "Visa application rejected"
             ) {
               element.booking.statusColor = "r";
             } else {
               element.booking.statusColor = "y";
             }
-
-            // console.log(element.booking.bookingStatus);
-            // console.log(element.booking.statusColor);
 
             if (element.booking.paymentStatus == "Payment completed") {
               element.booking.paymentColor = "g";
@@ -315,29 +312,29 @@ export class MyBookingsComponent implements OnInit {
     // }
 
     this.downloadImageService
-    .getPolicy(policyNumber)
-    .subscribe((res: any) => {
-      // console.log(res);
-      if (res.code == "0") {
-        this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
-          let dataType = response.type;
-          let binaryData = [];
-          binaryData.push(response);
-          var a = document.createElement("a");
-          document.body.appendChild(a);
-          a.style.display = "none";
-          let url = window.URL.createObjectURL(
-            new Blob(binaryData, { type: dataType })
-          );
-          a.href = url;
-          a.download = "Invoice" + policyNumber;
-          a.click();
-          window.URL.revokeObjectURL(url);
-        });
-      } else {
-        this.toastr.error(res.message);
-      }
-    });
+      .getPolicy(policyNumber)
+      .subscribe((res: any) => {
+        // console.log(res);
+        if (res.code == "0") {
+          this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
+            let dataType = response.type;
+            let binaryData = [];
+            binaryData.push(response);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style.display = "none";
+            let url = window.URL.createObjectURL(
+              new Blob(binaryData, { type: dataType })
+            );
+            a.href = url;
+            a.download = "Invoice" + policyNumber;
+            a.click();
+            window.URL.revokeObjectURL(url);
+          });
+        } else {
+          this.toastr.error(res.message);
+        }
+      });
   }
 
   setActiveBooking(booking: any) {
@@ -358,25 +355,25 @@ export class MyBookingsComponent implements OnInit {
     let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
     let notInterested = false;
 
-    if(this.FeedbackForm.get("f3-rating").value == null
-    || this.FeedbackForm.get("f1-rating").value == null
-    || this.FeedbackForm.get("f2-rating").value == null
-    || this.FeedbackForm.get("FeedbackEdit").value == null){
+    if (this.FeedbackForm.get("f3-rating").value == null
+      || this.FeedbackForm.get("f1-rating").value == null
+      || this.FeedbackForm.get("f2-rating").value == null
+      || this.FeedbackForm.get("FeedbackEdit").value == null) {
       this.feedbackMsg = true;
-    }else{
+    } else {
 
-    this.bookingService
-      .postFeedback(
-        bookingid,
-        rateOne,
-        rateTwo,
-        rateThree,
-        suggestion,
-        notInterested
-      )
-      .subscribe((res) => {});
-    this.toastr.success("Feedback Submitted");
-    this.bookingStatus = false;
+      this.bookingService
+        .postFeedback(
+          bookingid,
+          rateOne,
+          rateTwo,
+          rateThree,
+          suggestion,
+          notInterested
+        )
+        .subscribe((res) => { });
+      this.toastr.success("Feedback Submitted");
+      this.bookingStatus = false;
     }
   }
 
@@ -544,7 +541,7 @@ export class MyBookingsComponent implements OnInit {
         suggestion,
         notInterested
       )
-      .subscribe((res) => {});
+      .subscribe((res) => { });
     this.bookingStatus = false;
   }
 
