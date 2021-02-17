@@ -135,6 +135,6 @@ export class UserFlowDetails {
   }
 
   getBaseURL() {
-    return "https://test.visa2fly.com/api/";
+    return "https://visa2fly.com/api/";
   }
 }
