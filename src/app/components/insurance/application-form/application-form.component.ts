@@ -239,8 +239,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     setTimeout(() => {
       if ((this.premiumCalculated + this.premiumGST) < 50000) {
         document.getElementById('identityProposer_1').style.display = 'none';
-         this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.setValidators(null);
-         this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.updateValueAndValidity();
+        this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.setValidators(null);
+        this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.updateValueAndValidity();
       }
     })
   }
@@ -933,24 +933,25 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
 
 
             if (this.newPremium != this.oldPremium) {
+              this.loaderOnProceed = false;
               this.preloaderService.showPreloader(false);
               ($('#warningModal') as any).modal('show')
             } else {
               this.paymentInitiate(this.createPolicyBookingId);
             }
           } else if (res.code === "2020") {
+            this.loaderOnProceed = false;
             this.scrollToInvalid('proposerForm');
             document.getElementById('identityProposer_1').style.display = 'block';
             this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.setValidators([Validators.required]);
             this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.updateValueAndValidity();
             this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityTypeCd.identityNumError = true;
           } else {
+            this.loaderOnProceed = false;
             this.toastr.error(res.message);
             this.preloaderService.showPreloader(false);
           }
         });
-
-        this.loaderOnProceed = false;
         this.setResposeArr = [];
       }
     }
@@ -1124,12 +1125,12 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0]['controls'].identityTypeCd.identityTypeCdError = true :
       this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0]['controls'].identityTypeCd.identityTypeCdError = false;
 
-      if ((this.premiumCalculated + this.premiumGST) > 50000) {
-        let identityNum2 = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].get('identityNum2').value;
-        identityNum2 == "" || identityNum2 == null || identityNum2 == undefined ?
-          this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityTypeCd.identityNumError = true :
-          this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityTypeCd.identityNumError = false;
-      }
+    if ((this.premiumCalculated + this.premiumGST) > 50000) {
+      let identityNum2 = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].get('identityNum2').value;
+      identityNum2 == "" || identityNum2 == null || identityNum2 == undefined ?
+        this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityTypeCd.identityNumError = true :
+        this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityTypeCd.identityNumError = false;
+    }
 
 
     // Contact Form
@@ -1523,148 +1524,79 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       let firstName = this.insuranceForm.controls.proposer.get('firstName').value;
       let genderCd = this.insuranceForm.controls.proposer.get('genderCd').value;
       let lastName = this.insuranceForm.controls.proposer.get('lastName').value;
-      // let relationCd = this.insuranceForm.controls.proposer.get('relationCd').value;
       let titleCd = this.insuranceForm.controls.proposer.get('titleCd').value;
-
       let identityNum = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityNum').value;
-
       let identityTypeCd = this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][0].get('identityTypeCd').value;
-
-
-
-      // let contactNum = this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0].get('contactNum').value;
-      // let stdCode = this.insuranceForm.controls.proposer['controls'].partyContactDOList['controls'][0].get('stdCode').value;
-
-      // let emailAddress = this.insuranceForm.controls.proposer['controls'].partyEmailDOList['controls'][0].get('emailAddress').value;
-
-      // let addressLine1Lang1 = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('addressLine1Lang1').value.replace(/[\r\n]+/g, " ");
-      // let addressLine2Lang1 = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('addressLine2Lang1').value.replace(/[\r\n]+/g, " ");
-      // let addressTypeCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('addressTypeCd').value;
-      // let areaCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('areaCd').value;
-      // let cityCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('cityCd').value;
-      // let pinCode = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('pinCode').value;
-      // let stateCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('stateCd').value;
-      // let countryCd = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][0].get('countryCd').value;
-
-
-      // paste it
 
       this.getControls[i].get('birthDtCopy').setValue(birthDtCopy);
       this.getControls[i].get('firstName').setValue(firstName);
-      this.getControls[i].get('lastName').setValue(lastName);
       this.getControls[i].get("genderCd").setValue(genderCd);
-      // this.getControls[i].get("relationCd").setValue(relationCd);
+      this.getControls[i].get('lastName').setValue(lastName);
       this.getControls[i].get("titleCd").setValue(titleCd);
-
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityNum").setValue(identityNum);
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityTypeCd").setValue(identityTypeCd);
 
-      // this.getControls[i]['controls'].partyContactDOList['controls'][0].get("contactNum").setValue(contactNum);
-      // this.getControls[i]['controls'].partyContactDOList['controls'][0].get("stdCode").setValue(stdCode);
+      // this.getControls[i].get('firstName').setValidators([null]);
+      // this.getControls[i]['controls'].firstName.firstNameError = false;
 
-      // this.getControls[i]['controls'].partyEmailDOList['controls'][0].get("emailAddress").setValue(emailAddress);
+      // this.getControls[i].get('birthDtCopy').setValidators(null);
+      // this.getControls[i].get('genderCd').setValidators(null);
+      // this.getControls[i].get('lastName').setValidators([null]);
+      // this.getControls[i]['controls'].lastName.lastNameError = false;
 
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("addressLine1Lang1").setValue(addressLine1Lang1);
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("addressLine2Lang1").setValue(addressLine2Lang1);
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("addressTypeCd").setValue(addressTypeCd);
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("areaCd").setValue(areaCd);
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("cityCd").setValue(cityCd);
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("pinCode").setValue(pinCode);
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("stateCd").setValue(stateCd);
-      // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("countryCd").setValue(countryCd);
-    // } else {
-    //   // paste it
+      // this.getControls[i].get('titleCd').setValidators(null);
 
-    //   this.getControls[i].get('birthDtCopy').setValue('');
-    //   this.getControls[i].get('firstName').setValue('');
-    //   this.getControls[i].get('lastName').setValue('');
-    //   this.getControls[i].get("genderCd").setValue('MALE');
-    //   // this.getControls[i].get("relationCd").setValue('');
-    //   this.getControls[i].get("titleCd").setValue('MR');
+      // // partyIdentityDOList
+      // this.getControls[i].get('partyIdentityDOList')['controls'][0].controls.identityNum.setValidators([null]);
 
-    //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityNum").setValue('');
-    //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityTypeCd").setValue('PASSPORT');
+      // this.getControls[i].get('partyIdentityDOList')['controls'][0].controls.identityTypeCd.setValidators(null);
 
-    //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].get("contactNum").setValue('');
-    //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].get("stdCode").setValue('');
-
-    //   // this.getControls[i]['controls'].partyEmailDOList['controls'][0].get("emailAddress").setValue('');
-
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("addressLine1Lang1").setValue('');
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("addressLine2Lang1").setValue('');
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("addressTypeCd").setValue('PERMANENT');
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("areaCd").setValue('');
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("cityCd").setValue('');
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("pinCode").setValue('');
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("stateCd").setValue('');
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].get("countryCd").setValue('India');
-
-    //   this.getControls[i]['controls'].firstName.setValidators([Validators.required, Validators.pattern('^[A-Za-z]{3,32}$')]);
-    //   this.getControls[i]['controls'].lastName.setValidators([Validators.required, Validators.pattern('^[A-Za-z]{3,32}$')]);
-    //   this.getControls[i]['controls'].birthDtCopy.setValidators(Validators.required);
-    //   this.getControls[i]['controls'].genderCd.setValidators(Validators.required);
-    //   this.getControls[i]['controls'].relationCd.setValidators(Validators.required);
-    //   this.getControls[i]['controls'].titleCd.setValidators(Validators.required);
-    //   this.getControls[i]['controls'].citizenshipCd.setValidators(Validators.required);
-
-    //   // partyContactDOList
-    //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.contactNum.setValidators([Validators.required, Validators.pattern("^[6-9][0-9]{9}$")]);
-    //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.stdCode.setValidators(Validators.required);
-
-    //   // partyEmailDOList
-    //   // this.getControls[i]['controls'].partyEmailDOList['controls'][0].controls.emailAddress.setValidators([Validators.required, Validators.pattern("^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$")]);
-
-    //   // partyIdentityDOList
-    //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityNum.setValidators([Validators.required, Validators.pattern('^[A-Za-z]{1}[0-9]{7}$')]);
-
-    //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityTypeCd.setValidators(Validators.required);
-
-    //   // partyAddressDOList
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.setValidators([
-    //   //   Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
-    //   // ]);
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.setValidators([
-    //   //   Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
-    //   // ]);
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.setValidators(Validators.required);
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.areaCd.setValidators(Validators.required);
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.cityCd.setValidators(Validators.required);
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.pinCode.setValidators([Validators.required, Validators.pattern("^[1-9][0-9]{5}$")]);
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.stateCd.setValidators(Validators.required);
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.countryCd.setValidators(Validators.required);
+      //   // partyAddressDOList
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.setValidators([
+      //   //   Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
+      //   // ]);
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.setValidators([
+      //   //   Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
+      //   // ]);
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.setValidators(Validators.required);
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.areaCd.setValidators(Validators.required);
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.cityCd.setValidators(Validators.required);
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.pinCode.setValidators([Validators.required, Validators.pattern("^[1-9][0-9]{5}$")]);
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.stateCd.setValidators(Validators.required);
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.countryCd.setValidators(Validators.required);
 
 
-    //   this.getControls[i]['controls'].firstName.updateValueAndValidity();
-    //   this.getControls[i]['controls'].lastName.updateValueAndValidity();
-    //   this.getControls[i]['controls'].birthDtCopy.updateValueAndValidity();
-    //   this.getControls[i]['controls'].genderCd.updateValueAndValidity();
-    //   this.getControls[i]['controls'].relationCd.updateValueAndValidity();
-    //   this.getControls[i]['controls'].titleCd.updateValueAndValidity();
-    //   this.getControls[i]['controls'].citizenshipCd.updateValueAndValidity();
+      //   this.getControls[i]['controls'].firstName.updateValueAndValidity();
+      //   this.getControls[i]['controls'].lastName.updateValueAndValidity();
+      //   this.getControls[i]['controls'].birthDtCopy.updateValueAndValidity();
+      //   this.getControls[i]['controls'].genderCd.updateValueAndValidity();
+      //   this.getControls[i]['controls'].relationCd.updateValueAndValidity();
+      //   this.getControls[i]['controls'].titleCd.updateValueAndValidity();
+      //   this.getControls[i]['controls'].citizenshipCd.updateValueAndValidity();
 
-    //   // partyContactDOList
-    //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.contactNum.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.stdCode.updateValueAndValidity();
+      //   // partyContactDOList
+      //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.contactNum.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.stdCode.updateValueAndValidity();
 
-    //   // partyEmailDOList
-    //   // this.getControls[i]['controls'].partyEmailDOList['controls'][0].controls.emailAddress.updateValueAndValidity();
+      //   // partyEmailDOList
+      //   // this.getControls[i]['controls'].partyEmailDOList['controls'][0].controls.emailAddress.updateValueAndValidity();
 
-    //   // partyIdentityDOList
-    //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityNum.updateValueAndValidity();
+      //   // partyIdentityDOList
+      //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityNum.updateValueAndValidity();
 
-    //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityTypeCd.updateValueAndValidity();
+      //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityTypeCd.updateValueAndValidity();
 
-    //   // partyAddressDOList
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.areaCd.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.cityCd.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.pinCode.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.stateCd.updateValueAndValidity();
-    //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.countryCd.updateValueAndValidity();
+      //   // partyAddressDOList
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.areaCd.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.cityCd.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.pinCode.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.stateCd.updateValueAndValidity();
+      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.countryCd.updateValueAndValidity();
 
-    //   this.getControls[i].updateValueAndValidity();
+      //   this.getControls[i].updateValueAndValidity();
     }
 
     if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
