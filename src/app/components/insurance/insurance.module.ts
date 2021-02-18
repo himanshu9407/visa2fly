@@ -8,10 +8,10 @@ import { ApplicationDetailsComponent } from './application-details/application-d
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { InsuranceBookingStatusComponent } from './insurance-booking-status/insurance-booking-status.component';
-import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { PremiumFormComponent } from './home/premium-form/premium-form.component';
 import { PremiumPlansComponent } from './home/premium-plans/premium-plans.component';
 import { AuthenticationGuard } from 'src/app/shared/AuthenticationGuard.service';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 const routes: Routes = [
   {
@@ -32,8 +32,8 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    AutocompleteLibModule,
     NgbModule,
+    NgSelectModule,
     RouterModule.forChild(routes)
   ]
 })

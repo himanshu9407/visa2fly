@@ -23,7 +23,7 @@
             id="country"
             placeholder="Please input all countries"
           /> -->
-          <div class="ng-autocomplete">
+          <!-- <div class="ng-autocomplete">
             <ng-autocomplete
               [data]="countries"
               [searchKeyword]="keyword"
@@ -45,7 +45,16 @@
             <ng-template #notFoundTemplate let-notFound>
               <div [innerHTML]="notFound"></div>
             </ng-template>
-          </div>
+          </div> -->
+
+          <ng-select [multiple]="true"  formControlName="country"  (change)="countryChanged($event)">
+            <ng-option
+              *ngFor="let country of countries"
+              [value]="country"
+              >{{ country }}
+              </ng-option>
+          </ng-select>
+
           <div
             *ngIf="
               destinationNotSelected && getPremiumForm.get('country').pristine
@@ -84,19 +93,22 @@
               <li
                 class="ageList"
                 *ngFor="let item of controls; let i = index"
-                [formGroupName]="i"
+                
               >
+              <div [formGroupName]="i">
                 <input
-                  min="0"
-                  oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
-                  type="number"
-                  formControlName="memberAge"
-                  placeholder="{{ i === 0 ? 'Self' : 'Member ' + i }}"
-                  class="form-control input-sty"
-                />
-                <span (click)="onRemoveAgeOfTraveller(i)" *ngIf="i >= 4">
-                  <i class="material-icons">close</i>
-                </span>
+                min="0"
+               
+                type="number"
+                formControlName="memberAge"
+                placeholder="{{ i === 0 ? 'Self' : 'Member ' + i }}"
+                class="form-control input-sty"
+              />
+              <span (click)="onRemoveAgeOfTraveller(i)" *ngIf="i >= 4">
+                <i class="material-icons">close</i>
+              </span>
+              </div>
+               
               </li>
             </ul>
           </div>

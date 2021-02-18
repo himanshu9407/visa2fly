@@ -21,7 +21,7 @@ export class PremiumFormComponent implements OnInit {
   minDate: any;
   today: Date;
   travellersAge: FormArray;
-  count: number = 4;
+  count: number = 1;
   destinationNotSelected: boolean = false;
   tripStartDateNotSelected: boolean = false;
   tripEndDateNotSelected: boolean = false;
@@ -30,7 +30,7 @@ export class PremiumFormComponent implements OnInit {
   deniedCountryEnable: boolean = false;
   deniedCountry: string;
   activeRoute: string;
-  selectedCountry: string;
+  // selectedCountry: string;
 
   title: string = "Visa2fly | Insurance";
 
@@ -46,7 +46,7 @@ export class PremiumFormComponent implements OnInit {
     private loginService: LoginService,
     private routerHistory: RouterHistory,
     private preloaderService: PreloaderService,
-  ) { 
+  ) {
     this.preloaderService.showPreloader(false);
   }
 
@@ -56,16 +56,7 @@ export class PremiumFormComponent implements OnInit {
       ageOfTravellers: this.formBuilder.array([
         this.formBuilder.group({
           memberAge: [''],
-        }),
-        this.formBuilder.group({
-          memberAge: [''],
-        }),
-        this.formBuilder.group({
-          memberAge: [''],
-        }),
-        this.formBuilder.group({
-          memberAge: [''],
-        }),
+        })
       ]),
       tripStartDate: ["", [Validators.required]],
       tripEndDate: ["", [Validators.required]],
@@ -78,214 +69,216 @@ export class PremiumFormComponent implements OnInit {
     this.enableReviewPremiumForm();
 
     this.titleService.setTitle(this.title);
+
+    console.log(this.countries);
+
+  
   }
 
-  keyword = 'name';
+  countryChanged(country: string) {
+    // this.selectedCountry = country;
+
+    this.userflowDetails.setInsuranceDetails("country", country);
+    this.restrictedCountry(country);
+  }
+
   public countries = [
-    { 'id': 1, 'name': "China" },
-    { 'id': 2, 'name': "Dubai" },
-    { 'id': 3, 'name': "United States (US)" },
-    { 'id': 4, 'name': "Indonesia" },
-    { 'id': 5, 'name': "Pakistan" },
-    { 'id': 6, 'name': "Brazil" },
-    { 'id': 7, 'name': "Nigeria" },
-    { 'id': 8, 'name': "Bangladesh" },
-    { 'id': 9, 'name': "Russia" },
-    { 'id': 10, 'name': "Mexico" },
-    { 'id': 11, 'name': "Japan" },
-    { 'id': 12, 'name': "Ethiopia" },
-    { 'id': 13, 'name': "Philippines" },
-    { 'id': 14, 'name': "Egypt" },
-    { 'id': 15, 'name': "Vietnam" },
-    { 'id': 16, 'name': "DR Congo" },
-    { 'id': 17, 'name': "Turkey" },
-    { 'id': 18, 'name': "Iran" },
-    { 'id': 19, 'name': "Germany" },
-    { 'id': 20, 'name': "Thailand" },
-    { 'id': 21, 'name': "United Kingdom (UK)" },
-    { 'id': 22, 'name': "France" },
-    { 'id': 23, 'name': "Italy" },
-    { 'id': 24, 'name': "Tanzania" },
-    { 'id': 25, 'name': "South Africa" },
-    { 'id': 26, 'name': "Myanmar" },
-    { 'id': 27, 'name': "Kenya" },
-    { 'id': 28, 'name': "South Korea" },
-    { 'id': 29, 'name': "Colombia" },
-    { 'id': 30, 'name': "Spain" },
-    { 'id': 31, 'name': "Uganda" },
-    { 'id': 32, 'name': "Argentina" },
-    { 'id': 33, 'name': "Algeria" },
-    { 'id': 34, 'name': "Sudan" },
-    { 'id': 35, 'name': "Ukraine" },
-    { 'id': 36, 'name': "Iraq" },
-    { 'id': 37, 'name': "Afghanistan" },
-    { 'id': 38, 'name': "Poland" },
-    { 'id': 39, 'name': "Canada" },
-    { 'id': 40, 'name': "Morocco" },
-    { 'id': 41, 'name': "Saudi Arabia" },
-    { 'id': 42, 'name': "Uzbekistan" },
-    { 'id': 43, 'name': "Peru" },
-    { 'id': 44, 'name': "Angola" },
-    { 'id': 45, 'name': "Malaysia" },
-    { 'id': 46, 'name': "Mozambique" },
-    { 'id': 47, 'name': "Ghana" },
-    { 'id': 48, 'name': "Yemen" },
-    { 'id': 49, 'name': "Nepal" },
-    { 'id': 50, 'name': "Venezuela" },
-    { 'id': 51, 'name': "Madagascar" },
-    { 'id': 52, 'name': "Cameroon" },
-    { 'id': 53, 'name': "Côte d'Ivoire" },
-    { 'id': 54, 'name': "North Korea" },
-    { 'id': 55, 'name': "Australia" },
-    { 'id': 56, 'name': "Niger" },
-    { 'id': 57, 'name': "Sri Lanka" },
-    { 'id': 58, 'name': "Burkina" },
-    { 'id': 59, 'name': "Mali" },
-    { 'id': 60, 'name': "Romania" },
-    { 'id': 61, 'name': "Malawi" },
-    { 'id': 62, 'name': "Chile" },
-    { 'id': 63, 'name': "Kazakhstan" },
-    { 'id': 64, 'name': "Zambia" },
-    { 'id': 65, 'name': "Guatemala" },
-    { 'id': 66, 'name': "Ecuador" },
-    { 'id': 67, 'name': "Syria" },
-    { 'id': 68, 'name': "Netherlands" },
-    { 'id': 69, 'name': "Senegal" },
-    { 'id': 70, 'name': "Cambodia" },
-    { 'id': 71, 'name': "Chad" },
-    { 'id': 72, 'name': "Somalia" },
-    { 'id': 73, 'name': "Zimbabwe" },
-    { 'id': 74, 'name': "Guinea" },
-    { 'id': 75, 'name': "Rwanda" },
-    { 'id': 76, 'name': "Benin" },
-    { 'id': 77, 'name': "Burundi" },
-    { 'id': 78, 'name': "Tunisia" },
-    { 'id': 79, 'name': "Bolivia" },
-    { 'id': 80, 'name': "Belgium" },
-    { 'id': 81, 'name': "Haiti" },
-    { 'id': 82, 'name': "Cuba" },
-    { 'id': 83, 'name': "South Sudan" },
-    { 'id': 84, 'name': "Dominican Republic" },
-    { 'id': 85, 'name': "Czech Republic (Czechia)" },
-    { 'id': 86, 'name': "Greece" },
-    { 'id': 87, 'name': "Jordan" },
-    { 'id': 88, 'name': "Portugal" },
-    { 'id': 89, 'name': "Azerbaijan" },
-    { 'id': 90, 'name': "Sweden" },
-    { 'id': 91, 'name': "Honduras" },
-    { 'id': 92, 'name': "United Arab Emirates (UAE)" },
-    { 'id': 93, 'name': "Hungary" },
-    { 'id': 94, 'name': "Tajikistan" },
-    { 'id': 95, 'name': "Belarus" },
-    { 'id': 96, 'name': "Austria" },
-    { 'id': 97, 'name': "Papua New Guinea" },
-    { 'id': 98, 'name': "Serbia" },
-    { 'id': 99, 'name': "Israel" },
-    { 'id': 100, 'name': "Switzerland" },
-    { 'id': 101, 'name': "Togo" },
-    { 'id': 102, 'name': "Sierra Leone" },
-    { 'id': 103, 'name': "Laos" },
-    { 'id': 104, 'name': "Paraguay" },
-    { 'id': 105, 'name': "Bulgaria" },
-    { 'id': 106, 'name': "Libya" },
-    { 'id': 107, 'name': "Lebanon" },
-    { 'id': 108, 'name': "Nicaragua" },
-    { 'id': 109, 'name': "Kyrgyzstan" },
-    { 'id': 110, 'name': "El Salvador" },
-    { 'id': 111, 'name': "Turkmenistan" },
-    { 'id': 112, 'name': "Singapore" },
-    { 'id': 113, 'name': "Denmark" },
-    { 'id': 114, 'name': "Finland" },
-    { 'id': 115, 'name': "Congo" },
-    { 'id': 116, 'name': "Slovakia" },
-    { 'id': 117, 'name': "Norway" },
-    { 'id': 118, 'name': "Oman" },
-    { 'id': 119, 'name': "State of Palestine" },
-    { 'id': 120, 'name': "Costa Rica" },
-    { 'id': 121, 'name': "Liberia" },
-    { 'id': 122, 'name': "Ireland" },
-    { 'id': 123, 'name': "Central African Republic" },
-    { 'id': 124, 'name': "New Zealand" },
-    { 'id': 125, 'name': "Mauritania" },
-    { 'id': 126, 'name': "Panama" },
-    { 'id': 127, 'name': "Kuwait" },
-    { 'id': 128, 'name': "Croatia" },
-    { 'id': 129, 'name': "Moldova" },
-    { 'id': 130, 'name': "Georgia" },
-    { 'id': 131, 'name': "Eritrea" },
-    { 'id': 132, 'name': "Uruguay" },
-    { 'id': 133, 'name': "Bosnia and Herzegovina" },
-    { 'id': 134, 'name': "Mongolia" },
-    { 'id': 135, 'name': "Armenia" },
-    { 'id': 136, 'name': "Jamaica" },
-    { 'id': 137, 'name': "Qatar" },
-    { 'id': 138, 'name': "Albania" },
-    { 'id': 139, 'name': "Lithuania" },
-    { 'id': 140, 'name': "Namibia" },
-    { 'id': 141, 'name': "Gambia" },
-    { 'id': 142, 'name': "Botswana" },
-    { 'id': 143, 'name': "Gabon" },
-    { 'id': 144, 'name': "Lesotho" },
-    { 'id': 145, 'name': "North Macedonia" },
-    { 'id': 146, 'name': "Slovenia" },
-    { 'id': 147, 'name': "Guinea-Bissau" },
-    { 'id': 148, 'name': "Latvia" },
-    { 'id': 149, 'name': "Bahrain" },
-    { 'id': 150, 'name': "Equatorial Guinea" },
-    { 'id': 151, 'name': "Trinidad and Tobago" },
-    { 'id': 152, 'name': "Estonia" },
-    { 'id': 153, 'name': "Timor Leste" },
-    { 'id': 154, 'name': "Mauritius" },
-    { 'id': 155, 'name': "Cyprus" },
-    { 'id': 156, 'name': "Eswatini" },
-    { 'id': 157, 'name': "Djibouti" },
-    { 'id': 158, 'name': "Fiji" },
-    { 'id': 159, 'name': "Comoros" },
-    { 'id': 160, 'name': "Guyana" },
-    { 'id': 161, 'name': "Bhutan" },
-    { 'id': 162, 'name': "Solomon Islands" },
-    { 'id': 163, 'name': "Montenegro" },
-    { 'id': 164, 'name': "Luxembourg" },
-    { 'id': 165, 'name': "Suriname" },
-    { 'id': 166, 'name': "Cabo Verde" },
-    { 'id': 167, 'name': "Maldives" },
-    { 'id': 168, 'name': "Malta" },
-    { 'id': 169, 'name': "Brunei" },
-    { 'id': 170, 'name': "Belize" },
-    { 'id': 171, 'name': "Bahamas" },
-    { 'id': 172, 'name': "Iceland" },
-    { 'id': 173, 'name': "Vanuatu" },
-    { 'id': 174, 'name': "Barbados" },
-    { 'id': 175, 'name': "Sao Tome & Principe" },
-    { 'id': 176, 'name': "Samoa" },
-    { 'id': 177, 'name': "Saint Lucia" },
-    { 'id': 178, 'name': "Kiribati" },
-    { 'id': 179, 'name': "Micronesia" },
-    { 'id': 180, 'name': "Grenada" },
-    { 'id': 181, 'name': "St. Vincent & Grenadines" },
-    { 'id': 182, 'name': "Tonga" },
-    { 'id': 183, 'name': "Seychelles" },
-    { 'id': 184, 'name': "Antigua and Barbuda" },
-    { 'id': 185, 'name': "Andorra" },
-    { 'id': 186, 'name': "Dominica" },
-    { 'id': 187, 'name': "Marshall Islands" },
-    { 'id': 188, 'name': "Saint Kitts & Nevis" },
-    { 'id': 189, 'name': "Monaco" },
-    { 'id': 190, 'name': "Liechtenstein" },
-    { 'id': 191, 'name': "San Marino" },
-    { 'id': 192, 'name': "Palau" },
-    { 'id': 193, 'name': "Tuvalu" },
-    { 'id': 194, 'name': "Nauru" },
-    { 'id': 195, 'name': "Holy" },
+    "China",
+    "Dubai",
+    "United States (US)",
+    "Indonesia",
+    "Pakistan",
+    "Brazil",
+    "Nigeria",
+    "Bangladesh",
+    "Russia",
+    "Mexico",
+    "Japan",
+    "Ethiopia",
+    "Philippines",
+    "Egypt",
+    "Vietnam",
+    "DR Congo",
+    "Turkey",
+    "Iran",
+    "Germany",
+    "Thailand",
+    "United Kingdom (UK)",
+    "France",
+    "Italy",
+    "Tanzania",
+    "South Africa",
+    "Myanmar",
+    "Kenya",
+    "South Korea",
+    "Colombia",
+    "Spain",
+    "Uganda",
+    "Argentina",
+    "Algeria",
+    "Sudan",
+    "Ukraine",
+    "Iraq",
+    "Afghanistan",
+    "Poland",
+    "Canada",
+    "Morocco",
+    "Saudi Arabia",
+    "Uzbekistan",
+    "Peru",
+    "Angola",
+    "Malaysia",
+    "Mozambique",
+    "Ghana",
+    "Yemen",
+    "Nepal",
+    "Venezuela",
+    "Madagascar",
+    "Cameroon",
+    "Côte d'Ivoire",
+    "North Korea",
+    "Australia",
+    "Niger",
+    "Sri Lanka",
+    "Burkina",
+    "Mali",
+    "Romania",
+    "Malawi",
+    "Chile",
+    "Kazakhstan",
+    "Zambia",
+    "Guatemala",
+    "Ecuador",
+    "Syria",
+    "Netherlands",
+    "Senegal",
+    "Cambodia",
+    "Chad",
+    "Somalia",
+    "Zimbabwe",
+    "Guinea",
+    "Rwanda",
+    "Benin",
+    "Burundi",
+    "Tunisia",
+    "Bolivia",
+    "Belgium",
+    "Haiti",
+    "Cuba",
+    "South Sudan",
+    "Dominican Republic",
+    "Czech Republic (Czechia)",
+    "Greece",
+    "Jordan",
+    "Portugal",
+    "Azerbaijan",
+    "Sweden",
+    "Honduras",
+    "United Arab Emirates (UAE)",
+    "Hungary",
+    "Tajikistan",
+    "Belarus",
+    "Austria",
+    "Papua New Guinea",
+    "Serbia",
+    "Israel",
+    "Switzerland",
+    "Togo",
+    "Sierra Leone",
+    "Laos",
+    "Paraguay",
+    "Bulgaria",
+    "Libya",
+    "Lebanon",
+    "Nicaragua",
+    "Kyrgyzstan",
+    "El Salvador",
+    "Turkmenistan",
+    "Singapore",
+    "Denmark",
+    "Finland",
+    "Congo",
+    "Slovakia",
+    "Norway",
+    "Oman",
+    "State of Palestine",
+    "Costa Rica",
+    "Liberia",
+    "Ireland",
+    "Central African Republic",
+    "New Zealand",
+    "Mauritania",
+    "Panama",
+    "Kuwait",
+    "Croatia",
+    "Moldova",
+    "Georgia",
+    "Eritrea",
+    "Uruguay",
+    "Bosnia and Herzegovina",
+    "Mongolia",
+    "Armenia",
+    "Jamaica",
+    "Qatar",
+    "Albania",
+    "Lithuania",
+    "Namibia",
+    "Gambia",
+    "Botswana",
+    "Gabon",
+    "Lesotho",
+    "North Macedonia",
+    "Slovenia",
+    "Guinea-Bissau",
+    "Latvia",
+    "Bahrain",
+    "Equatorial Guinea",
+    "Trinidad and Tobago",
+    "Estonia",
+    "Timor Leste",
+    "Mauritius",
+    "Cyprus",
+    "Eswatini",
+    "Djibouti",
+    "Fiji",
+    "Comoros",
+    "Guyana",
+    "Bhutan",
+    "Solomon Islands",
+    "Montenegro",
+    "Luxembourg",
+    "Suriname",
+    "Cabo Verde",
+    "Maldives",
+    "Malta",
+    "Brunei",
+    "Belize",
+    "Bahamas",
+    "Iceland",
+    "Vanuatu",
+    "Barbados",
+    "Sao Tome & Principe",
+    "Samoa",
+    "Saint Lucia",
+    "Kiribati",
+    "Micronesia",
+    "Grenada",
+    "St. Vincent & Grenadines",
+    "Tonga",
+    "Seychelles",
+    "Antigua and Barbuda",
+    "Andorra",
+    "Dominica",
+    "Marshall Islands",
+    "Saint Kitts & Nevis",
+    "Monaco",
+    "Liechtenstein",
+    "San Marino",
+    "Palau",
+    "Tuvalu",
+    "Nauru",
+    "Holy",
   ];
-
-  selectEvent(item: { name: string, id: number }) {
-    this.getPremiumForm.get("country").setValue(item.name);
-    this.selectedCountry = item.name;
-
-    this.userflowDetails.setInsuranceDetails("country", item.name);
-    this.restrictedCountry(item.name);
-  }
 
   onChangePlan() {
     // console.log(this.getPremiumForm);
@@ -295,15 +288,15 @@ export class PremiumFormComponent implements OnInit {
       if (!this.getPremiumForm.valid) {
       } else {
         let country = this.getPremiumForm.get("country").value;
-        if (typeof country === 'object' && country !== null) {
-          country = country.name
-        }
+        // if (typeof country === 'object' && country !== null) {
+        //   country = country.name
+        // }
 
-        if (this.checkParenthesis(country)) {
-          country = country.replace(/ *\([^)]*\) */g, "");
-        } else {
-          country = country;
-        }
+        // if (this.checkParenthesis(country)) {
+        //   country = country.replace(/ *\([^)]*\) */g, "");
+        // } else {
+        //   country = country;
+        // }
         let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
         let ageOfTravellersList = []
         let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
@@ -330,7 +323,7 @@ export class PremiumFormComponent implements OnInit {
           // tripFrequency: tripFrequency
         }
 
-        // console.log(reqData);
+        console.log(reqData);
 
         this.insuranceService.loadingSkeleton.next(true);
         this.insuranceService.getPremium(reqData).subscribe((res: any) => {
@@ -382,17 +375,6 @@ export class PremiumFormComponent implements OnInit {
     }
   }
 
-  onChangeSearch(search: string) {
-    // console.log(search);
-    // fetch remote res from here
-    // And reassign the 'data' which is binded to 'data' property.
-  }
-
-  onFocused(e) {
-    // console.log(e);
-    // do something
-  }
-
   onChangeDate(event) {
     this.minDate = event.target.value;
     this.getPremiumForm.get('tripEndDate').setValue('');
@@ -404,13 +386,18 @@ export class PremiumFormComponent implements OnInit {
 
   addAgeOfTravellers() {
     if (this.count <= 5) {
-      this.controls.push(
+
+      let getPremiumForm: FormArray = this.getPremiumForm.get('ageOfTravellers') as FormArray;
+      getPremiumForm.push(
         this.formBuilder.group({
-          'memberAge': ''
-        })
+          memberAge: [''],
+        }),
       );
       this.count++;
     }
+
+    console.log(this.controls);
+    console.log(this.getPremiumForm);
   }
 
   onRemoveAgeOfTraveller(i) {
@@ -450,18 +437,20 @@ export class PremiumFormComponent implements OnInit {
 
   proceedBtn() {
     this.validatePremiumForm();
-    // console.log(!this.getPremiumForm.valid);
+    console.log(this.getPremiumForm);
 
     if (!this.getPremiumForm.valid) {
     } else {
       // console.log(this.selectedCountry);
 
-      let country;
-      if (this.checkParenthesis(this.selectedCountry)) {
-        country = this.selectedCountry.replace(/ *\([^)]*\) */g, "");
-      } else {
-        country = this.selectedCountry;
-      }
+      // let country;
+      // if (this.checkParenthesis(this.selectedCountry)) {
+      //   country = this.selectedCountry.replace(/ *\([^)]*\) */g, "");
+      // } else {
+      //   country = this.selectedCountry;
+      // }
+
+      let country = this.getPremiumForm.get('country').value;
 
       let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
       let ageOfTravellersList = []
@@ -472,17 +461,17 @@ export class PremiumFormComponent implements OnInit {
       // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
 
       // if (ageOfTravellers.length < 0) {
-        for (let i = 0; i < ageOfTravellers.length; i++) {
-          if (ageOfTravellers[i].memberAge !== "" && ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== undefined) {
-            ageOfTravellersList.push(ageOfTravellers[i].memberAge);
-            // console.log(ageOfTravellers[i]);
-          }
+      for (let i = 0; i < ageOfTravellers.length; i++) {
+        if (ageOfTravellers[i].memberAge !== "" && ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== undefined) {
+          ageOfTravellersList.push(ageOfTravellers[i].memberAge);
+          // console.log(ageOfTravellers[i]);
         }
-  
-        if (ageOfTravellersList.length == 0) {
-          this.toastr.error("Age details are missing or invalid.");
-          return;
-        }
+      }
+
+      if (ageOfTravellersList.length == 0) {
+        this.toastr.error("Age details are missing or invalid.");
+        return;
+      }
 
       let reqData = {
         country: country,
@@ -494,7 +483,7 @@ export class PremiumFormComponent implements OnInit {
         // tripFrequency: tripFrequency
       }
 
-      // console.log(reqData);
+      console.log(reqData);
 
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
         // console.log(res);
@@ -523,7 +512,7 @@ export class PremiumFormComponent implements OnInit {
     let routeLength = this.router.url.split('/').length;
     let endRoute = this.router.url.split('/')[routeLength - 1];
 
-    // console.log(endRoute);
+    console.log(endRoute);
 
 
     if (endRoute == 'plans') {
@@ -531,19 +520,31 @@ export class PremiumFormComponent implements OnInit {
       if (document.cookie.indexOf('insuranceDetails') != -1) {
         this.enableCheckoutBtn = true;
 
+        let getPremiumForm: FormArray = this.getPremiumForm.get('ageOfTravellers') as FormArray;
+        this.getPremiumForm.reset();
+        getPremiumForm.clear()
+
         let country = this.userflowDetails.getInsuranceDetails().country;
         let ageOfTravellers = JSON.parse(this.userflowDetails.getInsuranceDetails().ageOfTravellers);
         let tripStartDate = this.userflowDetails.getInsuranceDetails().tripStartDate;
         let tripEndDate = this.userflowDetails.getInsuranceDetails().tripEndDate;
         let anyMedicalCondition = this.userflowDetails.getInsuranceDetails().anyMedicalCondition;
 
+
         this.getPremiumForm.get('country').setValue(country);
         this.getPremiumForm.get('tripStartDate').setValue(tripStartDate);
         this.getPremiumForm.get('tripEndDate').setValue(tripEndDate);
         this.getPremiumForm.get('anyMedicalCondition').setValue(anyMedicalCondition);
 
+        this.count = 0;
+        console.log(getPremiumForm);
         for (let i = 0; i < ageOfTravellers.length; i++) {
-          this.controls[i]['controls'].memberAge.setValue(ageOfTravellers[i]);
+          getPremiumForm.push(
+            this.formBuilder.group({
+              memberAge: [ageOfTravellers[i]]
+            }),
+          );
+          this.count++;
         }
       } else {
         this.router.navigateByUrl('insurance');
@@ -551,6 +552,16 @@ export class PremiumFormComponent implements OnInit {
       }
 
       // this.getPremiumForm.get('country').disable();
+    } else if (endRoute == 'insurance') {
+      for (let i = 1; i <= 3; i++) {
+        let getPremiumForm: FormArray = this.getPremiumForm.get('ageOfTravellers') as FormArray;
+        getPremiumForm.push(
+          this.formBuilder.group({
+            memberAge: [''],
+          }),
+        );
+        this.count++;
+      }
     }
   }
 

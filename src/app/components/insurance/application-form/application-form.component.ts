@@ -20,7 +20,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     { id: "Member", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
   ];
   selectedTravellerForm: number = 0;
-  maxDateDob: { year: number; month: number; day: number; };
+  
   formData: any;
   termsAndConditionForm: FormGroup;
 
@@ -56,7 +56,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   disabledRelationOptionArr: Array<string> = [];
 
   title: string = "Visa2fly | Insurance Application Form";
-  maxDateDobForProposal: { year: number; month: number; day: number; };
   loaderOnProceed: boolean;
   pinCodeArr: Array<string> = [];
   cityListForProposal_0: Array<string> = [];
@@ -133,6 +132,17 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   goldPremiumGSTCalculated: any;
   basicPremiumGSTCalculated: any;
   premiumGST: any;
+  minDate: { year: number; month: number; day: number; };
+
+  maxDateDobForProposal: { year: number; month: number; day: number; };
+
+  maxDateDob: { year: number; month: number; day: number; };
+  maxDateDob_0: { year: number; month: number; day: number; };
+  maxDateDob_1: { year: number; month: number; day: number; };
+  maxDateDob_2: { year: number; month: number; day: number; };
+  maxDateDob_3: { year: number; month: number; day: number; };
+  maxDateDob_4: { year: number; month: number; day: number; };
+  maxDateDob_5: { year: number; month: number; day: number; };
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -184,22 +194,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       tnc: [false, [Validators.requiredTrue]],
     });
 
-    let yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    this.maxDateDob = {
-      year: yesterday.getFullYear(),
-      month: yesterday.getMonth() + 1,
-      day: yesterday.getDate(),
-    };
-
-    this.maxDateDobForProposal = {
-      year: yesterday.getFullYear() - 18,
-      month: yesterday.getMonth() + 1,
-      day: yesterday.getDate(),
-    };
-
-    // console.log(this.maxDateDobForProposal);
+    // console.log(this.maxDateDob_ForProposal);
     this.policyDetailForm.get('planType').setValue(this.insurancePlan.planType);
     this.policyDetailForm.get('coverage').setValue(this.insurancePlan.coverage);
 
@@ -232,6 +227,60 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     //   }
     // }
     // });
+
+    const current = new Date();
+    this.minDate = {
+      year: current.getFullYear() - 60,
+      month: current.getMonth() + 1,
+      day: current.getDate()
+    };
+    //console.log(this.simCart);
+
+    let today = new Date();
+    today.setDate(today.getDate() - 91);
+
+    this.maxDateDob_0 = {
+      year: today.getFullYear(),
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
+    this.maxDateDob_1 = {
+      year: today.getFullYear(),
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
+    this.maxDateDob_2 = {
+      year: today.getFullYear(),
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
+    this.maxDateDob_3 = {
+      year: today.getFullYear(),
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
+    this.maxDateDob_4 = {
+      year: today.getFullYear(),
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
+    this.maxDateDob_5 = {
+      year: today.getFullYear(),
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
+    this.maxDateDobForProposal = {
+      year: today.getFullYear() - 18,
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
 
   }
 
@@ -1547,7 +1596,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       this.getControls[i]['controls'].birthDtCopy.birthDtCopyError = false;
 
       this.getControls[i]['controls'].partyIdentityDOList.controls[0].controls.identityNum.identityNumError = false;
-      this.getControls[i]['controls'].partyIdentityDOList.controls[0].controls.identityType.identityTypeError = false;
 
 
       // this.getControls[i].get('birthDtCopy').setValidators(null);
@@ -1613,7 +1661,124 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
       this.getControls[i].get("titleCd").setValue('MS');
       this.getControls[i].get("genderCd").setValue('FEMALE');
+    } else if (this.getControls[i].get("relationCd").value === "SON") {
+      this.getControls[i].get("titleCd").setValue('MR');
+      this.getControls[i].get("genderCd").setValue('MALE');
     }
+
+    let yesterday = new Date();
+
+    if (this.getControls[i].get("relationCd").value === "SON" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
+      console.log(typeof i);
+      switch (i) {
+      
+        case 0:
+          yesterday.setDate(yesterday.getDate() - 91);
+          this.maxDateDob_0 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 1:
+          yesterday.setDate(yesterday.getDate() - 91);
+          this.maxDateDob_1 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 2:
+       
+          yesterday.setDate(yesterday.getDate() - 91);
+          this.maxDateDob_2 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 3:
+          yesterday.setDate(yesterday.getDate() - 91);
+          this.maxDateDob_3 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 4:
+          yesterday.setDate(yesterday.getDate() - 91);
+          this.maxDateDob_4 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 5:
+          yesterday.setDate(yesterday.getDate() - 91);
+          this.maxDateDob_5 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+      }
+      console.log(this.maxDateDob_0);
+    } else if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "SELF") {
+      console.log("relatedCd 1");
+      switch (i) {
+        case 0:
+          yesterday.setFullYear(yesterday.getFullYear() - 18);
+          this.maxDateDob_0 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 1:
+          yesterday.setFullYear(yesterday.getFullYear() - 18);
+          this.maxDateDob_1 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 2:
+          yesterday.setFullYear(yesterday.getFullYear() - 18);
+          this.maxDateDob_2 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 3:
+          yesterday.setFullYear(yesterday.getFullYear() - 18);
+          this.maxDateDob_3 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 4:
+          yesterday.setFullYear(yesterday.getFullYear() - 18);
+          this.maxDateDob_4 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+        case 5:
+          yesterday.setFullYear(yesterday.getFullYear() - 18);
+          this.maxDateDob_5 = {
+            year: yesterday.getFullYear(),
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate(),
+          };
+          break;
+      }
+    }
+
+
+
   }
 
   validatingGender(event: string, i: number, section: string) {
@@ -1626,6 +1791,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       } else {
         this.getControls[i].get("titleCd").setValue('MS');
       }
+      this.getControls[i].get("relationCd").setValue("");
     } else if (section == 'proposal') {
       if (event == 'MALE') {
         this.insuranceForm.controls.proposer.get('titleCd').setValue('MR');
@@ -1645,6 +1811,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       } else {
         this.getControls[i].get("genderCd").setValue('MALE');
       }
+      this.getControls[i].get("relationCd").setValue("");
     } else if (section == 'proposal') {
       if (event == 'MS') {
         this.insuranceForm.controls.proposer.get('genderCd').setValue('FEMALE');
@@ -1652,6 +1819,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
         this.insuranceForm.controls.proposer.get('genderCd').setValue('MALE');
       }
     }
+
   }
 
   // validatingRelation(event: string, i: number, section: string) {

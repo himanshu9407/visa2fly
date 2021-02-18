@@ -207,7 +207,7 @@
                     <div class="input-group">
                       <input hidden formControlName="birthDt" type="text" />
                       <input
-                        [minDate]="{ year: 1930, month: 1, day: 1 }"
+                        [minDate]="minDate"
                         [maxDate]="maxDateDobForProposal"
                         formControlName="birthDtCopy"
                         (ngModelChange)="
@@ -218,11 +218,14 @@
                         autocomplete="new-birthDt"
                         placeholder="Date Of Birth"
                         name="dp"
+                        (click)="dob.toggle()"
+                        readonly="readonly"
                         ngbDatepicker
                         #dob="ngbDatepicker"
                         style="
                           border-top-left-radius: 0.2rem;
                           border-bottom-left-radius: 0.2rem;
+                          cursor: pointer;
                         "
                       />
                       <div class="input-group-append">
@@ -1481,67 +1484,73 @@
                       </div>
                     </div>
                     <div
-                      class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
-                    >
-                      <div class="insurance-input_box">
-                        <label for="dateOfBirth{{ i }}" class="insurance-label"
-                          >Date Of Birth<span class="astrisk">*</span></label
+                    class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                  >
+                    <div class="insurance-input_box">
+                      <label for="relationCd{{ i }}" class="insurance-label"
+                        >Relation<span class="astrisk">*</span></label
+                      >
+                      <select
+                        name="relationCd{{ i }}"
+                        (change)="
+                          onRelationValueChange(
+                            $event.target.value,
+                            i,
+                            'partyDoList'
+                          )
+                        "
+                        id="relationCd{{ i }}"
+                        formControlName="relationCd"
+                        autocomplete="new-relationCd"
+                        class="form-control form-control-sm insurance-select"
+                      >
+                        <option value="">-- Relation --</option>
+                        <option
+                          *ngFor="let item of relationOptionArr"
+                          [value]="item"
                         >
-                        <div class="input-group">
-                          <input hidden formControlName="birthDt" type="text" />
-                          <input
-                            [minDate]="{ year: 1930, month: 1, day: 1 }"
-                            [maxDate]="maxDateDob"
-                            formControlName="birthDtCopy"
-                            id="#dob"
-                            class="form-control form-control-sm addTravelDate"
-                            autocomplete="new-birthDt"
-                            placeholder="Date Of Birth"
-                            name="dp"
-                            ngbDatepicker
-                            #dob="ngbDatepicker"
-                            style="
-                              border-top-left-radius: 0.2rem;
-                              border-bottom-left-radius: 0.2rem;
-                            "
-                          />
-                          <div class="input-group-append">
-                            <button
-                              class="btn btn-sm calendar"
-                              (click)="dob.toggle()"
-                              type="button"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                class="calendarSvg"
-                                width="18px"
-                                height="18px"
-                              >
-                                <path
-                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                                />
-                                <path d="M0 0h24v24H0z" fill="none" />
-                              </svg>
-                            </button>
-                          </div>
-                        </div>
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].birthDt.invalid &&
-                              getControls[i]['controls'].birthDt.dirty) ||
-                            getControls[i]['controls'].birthDt.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].birthDtCopy.pristine &&
-                              getControls[i]['controls'].birthDt.birthDtError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid date of birth*
-                        </div>
+                          {{ item }}
+                        </option>
+                      </select>
+                      <div
+                        *ngIf="
+                          (getControls[i]['controls'].relationCd.invalid &&
+                            getControls[i]['controls'].relationCd.dirty) ||
+                          getControls[i]['controls'].relationCd.errors
+                            ?.valueErr ||
+                          (getControls[i]['controls'].relationCd.pristine &&
+                            getControls[i]['controls'].relationCd
+                              .relationCdError)
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Select the valid option*
                       </div>
+                      <div
+                        *ngIf="
+                          getControls[i]['controls'].relationCd
+                            .duplicatesError &&
+                          getControls[i]['controls'].relationCd.value != ''
+                        "
+                        class="invalid-feedback"
+                        style="display: block"
+                      >
+                        Details already exists
+                      </div>
+
+                      <!-- {{getControls[i]['controls'].relationCd
+                      .duplicatesError}}
+
+                      {{                      getControls[i]['controls'].relationCd.value != ''}}
+
+                      {{ getControls[i]['controls'].relationCd
+                      .duplicatesError &&
+                    getControls[i]['controls'].relationCd.value != ''}}
+
+                    {{getControls[i]['controls'].relationCd.value}} -->
                     </div>
+                  </div>
                     <div
                       class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                     >
@@ -1613,74 +1622,373 @@
                         </div>
                       </div>
                     </div>
+                 
+
                     <div
-                      class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
-                    >
-                      <div class="insurance-input_box">
-                        <label for="relationCd{{ i }}" class="insurance-label"
-                          >Relation<span class="astrisk">*</span></label
-                        >
-                        <select
-                          name="relationCd{{ i }}"
-                          (change)="
-                            onRelationValueChange(
-                              $event.target.value,
-                              i,
-                              'partyDoList'
-                            )
-                          "
-                          id="relationCd{{ i }}"
-                          formControlName="relationCd"
-                          autocomplete="new-relationCd"
-                          class="form-control form-control-sm insurance-select"
-                        >
-                          <option value="">-- Relation --</option>
-                          <option
-                            *ngFor="let item of relationOptionArr"
-                            [value]="item"
-                          >
-                            {{ item }}
-                          </option>
-                        </select>
+                    class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                  >
+                    <div class="insurance-input_box">
+                      <label for="dateOfBirth{{ i }}" class="insurance-label"
+                        >Date Of Birth<span class="astrisk">*</span></label
+                      >
+                      <div *ngIf="i == 0">
+                        <div class="input-group">
+                          <input hidden formControlName="birthDt" type="text" />
+                          <input
+                            [minDate]="minDate"
+                            [maxDate]="maxDateDob_0"
+                            formControlName="birthDtCopy"
+                            (click)="dob.toggle()"
+                            readonly="readonly"
+                            id="#dob"
+                            class="form-control form-control-sm addTravelDate"
+                            autocomplete="new-birthDt"
+                            placeholder="Date Of Birth"
+                            name="dp"
+                            ngbDatepicker
+                            #dob="ngbDatepicker"
+                            style="
+                              border-top-left-radius: 0.2rem;
+                              border-bottom-left-radius: 0.2rem;
+                              cursor: pointer;
+                            "
+                          />
+                          <div class="input-group-append">
+                            <button
+                              class="btn btn-sm calendar"
+                              (click)="dob.toggle()"
+                              type="button"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                class="calendarSvg"
+                                width="18px"
+                                height="18px"
+                              >
+                                <path
+                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
                         <div
                           *ngIf="
-                            (getControls[i]['controls'].relationCd.invalid &&
-                              getControls[i]['controls'].relationCd.dirty) ||
-                            getControls[i]['controls'].relationCd.errors
+                            (getControls[i]['controls'].birthDt.invalid &&
+                              getControls[i]['controls'].birthDt.dirty) ||
+                            getControls[i]['controls'].birthDt.errors
                               ?.valueErr ||
-                            (getControls[i]['controls'].relationCd.pristine &&
-                              getControls[i]['controls'].relationCd
-                                .relationCdError)
+                            (getControls[i]['controls'].birthDtCopy.pristine &&
+                              getControls[i]['controls'].birthDt.birthDtError)
                           "
                           class="invalid-feedback"
                           style="display: block"
                         >
-                          Select the valid option*
+                          Enter a valid date of birth*
+                        </div>
+                      </div>
+
+                      <div *ngIf="i == 1">
+                        <div class="input-group">
+                          <input hidden formControlName="birthDt" type="text" />
+                          <input
+                            [minDate]="minDate"
+                            [maxDate]="maxDateDob_1"
+                            formControlName="birthDtCopy"
+                            (click)="dob.toggle()"
+                            readonly="readonly"
+                            id="#dob"
+                            class="form-control form-control-sm addTravelDate"
+                            autocomplete="new-birthDt"
+                            placeholder="Date Of Birth"
+                            name="dp"
+                            ngbDatepicker
+                            #dob="ngbDatepicker"
+                            style="
+                              border-top-left-radius: 0.2rem;
+                              border-bottom-left-radius: 0.2rem;
+                              cursor: pointer;
+                            "
+                          />
+                          <div class="input-group-append">
+                            <button
+                              class="btn btn-sm calendar"
+                              (click)="dob.toggle()"
+                              type="button"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                class="calendarSvg"
+                                width="18px"
+                                height="18px"
+                              >
+                                <path
+                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                              </svg>
+                            </button>
+                          </div>
                         </div>
                         <div
                           *ngIf="
-                            getControls[i]['controls'].relationCd
-                              .duplicatesError &&
-                            getControls[i]['controls'].relationCd.value != ''
+                            (getControls[i]['controls'].birthDt.invalid &&
+                              getControls[i]['controls'].birthDt.dirty) ||
+                            getControls[i]['controls'].birthDt.errors
+                              ?.valueErr ||
+                            (getControls[i]['controls'].birthDtCopy.pristine &&
+                              getControls[i]['controls'].birthDt.birthDtError)
                           "
                           class="invalid-feedback"
                           style="display: block"
                         >
-                          Details already exists
+                          Enter a valid date of birth*
                         </div>
-
-                        <!-- {{getControls[i]['controls'].relationCd
-                        .duplicatesError}}
-
-                        {{                      getControls[i]['controls'].relationCd.value != ''}}
-
-                        {{ getControls[i]['controls'].relationCd
-                        .duplicatesError &&
-                      getControls[i]['controls'].relationCd.value != ''}}
-
-                      {{getControls[i]['controls'].relationCd.value}} -->
                       </div>
+
+                      <div *ngIf="i == 2">
+                        <div class="input-group">
+                          <input hidden formControlName="birthDt" type="text" />
+                          <input
+                            [minDate]="minDate"
+                            [maxDate]="maxDateDob_2"
+                            formControlName="birthDtCopy"
+                            (click)="dob.toggle()"
+                            readonly="readonly"
+                            id="#dob"
+                            class="form-control form-control-sm addTravelDate"
+                            autocomplete="new-birthDt"
+                            placeholder="Date Of Birth"
+                            name="dp"
+                            ngbDatepicker
+                            #dob="ngbDatepicker"
+                            style="
+                              border-top-left-radius: 0.2rem;
+                              border-bottom-left-radius: 0.2rem;
+                              cursor: pointer;
+                            "
+                          />
+                          <div class="input-group-append">
+                            <button
+                              class="btn btn-sm calendar"
+                              (click)="dob.toggle()"
+                              type="button"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                class="calendarSvg"
+                                width="18px"
+                                height="18px"
+                              >
+                                <path
+                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="
+                            (getControls[i]['controls'].birthDt.invalid &&
+                              getControls[i]['controls'].birthDt.dirty) ||
+                            getControls[i]['controls'].birthDt.errors
+                              ?.valueErr ||
+                            (getControls[i]['controls'].birthDtCopy.pristine &&
+                              getControls[i]['controls'].birthDt.birthDtError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid date of birth*
+                        </div>
+                      </div>
+
+                      <div *ngIf="i == 3">
+                        <div class="input-group">
+                          <input hidden formControlName="birthDt" type="text" />
+                          <input
+                            [minDate]="minDate"
+                            [maxDate]="maxDateDob_3"
+                            formControlName="birthDtCopy"
+                            (click)="dob.toggle()"
+                            readonly="readonly"
+                            id="#dob"
+                            class="form-control form-control-sm addTravelDate"
+                            autocomplete="new-birthDt"
+                            placeholder="Date Of Birth"
+                            name="dp"
+                            ngbDatepicker
+                            #dob="ngbDatepicker"
+                            style="
+                              border-top-left-radius: 0.2rem;
+                              border-bottom-left-radius: 0.2rem;
+                              cursor: pointer;
+                            "
+                          />
+                          <div class="input-group-append">
+                            <button
+                              class="btn btn-sm calendar"
+                              (click)="dob.toggle()"
+                              type="button"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                class="calendarSvg"
+                                width="18px"
+                                height="18px"
+                              >
+                                <path
+                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="
+                            (getControls[i]['controls'].birthDt.invalid &&
+                              getControls[i]['controls'].birthDt.dirty) ||
+                            getControls[i]['controls'].birthDt.errors
+                              ?.valueErr ||
+                            (getControls[i]['controls'].birthDtCopy.pristine &&
+                              getControls[i]['controls'].birthDt.birthDtError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid date of birth*
+                        </div>
+                      </div>
+
+                      <div *ngIf="i == 4">
+                        <div class="input-group">
+                          <input hidden formControlName="birthDt" type="text" />
+                          <input
+                            [minDate]="minDate"
+                            [maxDate]="maxDateDob_4"
+                            formControlName="birthDtCopy"
+                            (click)="dob.toggle()"
+                            readonly="readonly"
+                            id="#dob"
+                            class="form-control form-control-sm addTravelDate"
+                            autocomplete="new-birthDt"
+                            placeholder="Date Of Birth"
+                            name="dp"
+                            ngbDatepicker
+                            #dob="ngbDatepicker"
+                            style="
+                              border-top-left-radius: 0.2rem;
+                              border-bottom-left-radius: 0.2rem;
+                              cursor: pointer;
+                            "
+                          />
+                          <div class="input-group-append">
+                            <button
+                              class="btn btn-sm calendar"
+                              (click)="dob.toggle()"
+                              type="button"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                class="calendarSvg"
+                                width="18px"
+                                height="18px"
+                              >
+                                <path
+                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="
+                            (getControls[i]['controls'].birthDt.invalid &&
+                              getControls[i]['controls'].birthDt.dirty) ||
+                            getControls[i]['controls'].birthDt.errors
+                              ?.valueErr ||
+                            (getControls[i]['controls'].birthDtCopy.pristine &&
+                              getControls[i]['controls'].birthDt.birthDtError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid date of birth*
+                        </div>
+                      </div>
+
+                      <div *ngIf="i == 5">
+                        <div class="input-group">
+                          <input hidden formControlName="birthDt" type="text" />
+                          <input
+                            [minDate]="minDate"
+                            [maxDate]="maxDateDob_5"
+                            formControlName="birthDtCopy"
+                            (click)="dob.toggle()"
+                            readonly="readonly"
+                            id="#dob"
+                            class="form-control form-control-sm addTravelDate"
+                            autocomplete="new-birthDt"
+                            placeholder="Date Of Birth"
+                            name="dp"
+                            ngbDatepicker
+                            #dob="ngbDatepicker"
+                            style="
+                              border-top-left-radius: 0.2rem;
+                              border-bottom-left-radius: 0.2rem;
+                              cursor: pointer;
+                            "
+                          />
+                          <div class="input-group-append">
+                            <button
+                              class="btn btn-sm calendar"
+                              (click)="dob.toggle()"
+                              type="button"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                class="calendarSvg"
+                                width="18px"
+                                height="18px"
+                              >
+                                <path
+                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="
+                            (getControls[i]['controls'].birthDt.invalid &&
+                              getControls[i]['controls'].birthDt.dirty) ||
+                            getControls[i]['controls'].birthDt.errors
+                              ?.valueErr ||
+                            (getControls[i]['controls'].birthDtCopy.pristine &&
+                              getControls[i]['controls'].birthDt.birthDtError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Enter a valid date of birth*
+                        </div>
+                      </div>
+
+                      
+
                     </div>
+                  </div>
                   </div>
 
                   <div class="form-row mt-2">
