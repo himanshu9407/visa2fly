@@ -70,8 +70,22 @@ export class PremiumFormComponent implements OnInit {
 
     this.titleService.setTitle(this.title);
 
-    console.log(this.countries);
+    // console.log(this.countries);
 
+    let routeLength = this.router.url.split('/').length;
+    let endRoute = this.router.url.split('/')[routeLength - 1];
+
+    if (endRoute == 'insurance') {
+      for (let i = 1; i <= 3; i++) {
+        let getPremiumForm: FormArray = this.getPremiumForm.get('ageOfTravellers') as FormArray;
+        getPremiumForm.push(
+          this.formBuilder.group({
+            memberAge: [''],
+          }),
+        );
+        this.count++;
+      }
+    }
   
   }
 
@@ -323,7 +337,7 @@ export class PremiumFormComponent implements OnInit {
           // tripFrequency: tripFrequency
         }
 
-        console.log(reqData);
+        // console.log(reqData);
 
         this.insuranceService.loadingSkeleton.next(true);
         this.insuranceService.getPremium(reqData).subscribe((res: any) => {
@@ -396,8 +410,8 @@ export class PremiumFormComponent implements OnInit {
       this.count++;
     }
 
-    console.log(this.controls);
-    console.log(this.getPremiumForm);
+    // console.log(this.controls);
+    // console.log(this.getPremiumForm);
   }
 
   onRemoveAgeOfTraveller(i) {
@@ -437,7 +451,7 @@ export class PremiumFormComponent implements OnInit {
 
   proceedBtn() {
     this.validatePremiumForm();
-    console.log(this.getPremiumForm);
+    // console.log(this.getPremiumForm);
 
     if (!this.getPremiumForm.valid) {
     } else {
@@ -483,7 +497,7 @@ export class PremiumFormComponent implements OnInit {
         // tripFrequency: tripFrequency
       }
 
-      console.log(reqData);
+      // console.log(reqData);
 
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
         // console.log(res);
@@ -512,7 +526,7 @@ export class PremiumFormComponent implements OnInit {
     let routeLength = this.router.url.split('/').length;
     let endRoute = this.router.url.split('/')[routeLength - 1];
 
-    console.log(endRoute);
+    // console.log(endRoute);/
 
 
     if (endRoute == 'plans') {
@@ -537,7 +551,7 @@ export class PremiumFormComponent implements OnInit {
         this.getPremiumForm.get('anyMedicalCondition').setValue(anyMedicalCondition);
 
         this.count = 0;
-        console.log(getPremiumForm);
+        // console.log(getPremiumForm);
         for (let i = 0; i < ageOfTravellers.length; i++) {
           getPremiumForm.push(
             this.formBuilder.group({
@@ -552,16 +566,6 @@ export class PremiumFormComponent implements OnInit {
       }
 
       // this.getPremiumForm.get('country').disable();
-    } else if (endRoute == 'insurance') {
-      for (let i = 1; i <= 3; i++) {
-        let getPremiumForm: FormArray = this.getPremiumForm.get('ageOfTravellers') as FormArray;
-        getPremiumForm.push(
-          this.formBuilder.group({
-            memberAge: [''],
-          }),
-        );
-        this.count++;
-      }
     }
   }
 

@@ -201,7 +201,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
 
     this.titleService.setTitle(this.title);
 
-    console.log(this.getControls[0]['controls'].partyQuestionDOList.controls);
+    // console.log(this.getControls[0]['controls'].partyQuestionDOList.controls);
 
     // ($(".pinCodeAutoComplete") as any).autocomplete({
     //   source: this.pinCodeArr
@@ -1209,13 +1209,13 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       this.insuranceForm.controls.proposer['controls'].nomineeDetail['controls'].nomineeRelation.nomineeRelationError = true :
       this.insuranceForm.controls.proposer['controls'].nomineeDetail['controls'].nomineeRelation.nomineeRelationError = false;
 
-    console.log(this.insuranceForm.controls.proposer['controls'].nomineeDetail['controls']);
+    // console.log(this.insuranceForm.controls.proposer['controls'].nomineeDetail['controls']);
 
     // Address Form
 
     for (let i = 0; i < this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'].length; i++) {
 
-      console.log(this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'].length);
+      // console.log(this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'].length);
       let addressLine1Lang1 = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][i].get('addressLine1Lang1').value;
       addressLine1Lang1 == "" || addressLine1Lang1 == null || addressLine1Lang1 == undefined ?
         this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][i]['controls'].addressLine1Lang1.addressLine1Lang1Error = true :
@@ -1585,8 +1585,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityNum").setValue(identityNum);
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityTypeCd").setValue(identityTypeCd);
 
-      console.log(this.getControls[i]['controls'].birthDtCopy);
-      console.log(this.getControls[i]['controls'].birthDt);
+      // console.log(this.getControls[i]['controls'].birthDtCopy);
+      // console.log(this.getControls[i]['controls'].birthDt);
 
       this.getControls[i]['controls'].firstName.firstNameError = false;
       this.getControls[i]['controls'].lastName.lastNameError = false;
@@ -1669,7 +1669,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     let yesterday = new Date();
 
     if (this.getControls[i].get("relationCd").value === "SON" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
-      console.log(typeof i);
+      // console.log(typeof i);
       switch (i) {
       
         case 0:
@@ -1722,9 +1722,9 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
           };
           break;
       }
-      console.log(this.maxDateDob_0);
+      // console.log(this.maxDateDob_0);
     } else if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "SELF") {
-      console.log("relatedCd 1");
+      // console.log("relatedCd 1");
       switch (i) {
         case 0:
           yesterday.setFullYear(yesterday.getFullYear() - 18);
