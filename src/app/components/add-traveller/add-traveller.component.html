@@ -452,6 +452,8 @@
                   <input (ngModelChange)="checkDateOfTravel()"
                     formControlName="dateOfTravel" id="#dot" class="form-control addTravelDate"
                     placeholder="Date Of Travel" name="dp" [minDate]="minDateOfTravel" ngbDatepicker
+                    (click)="dot.toggle()"
+                    readonly="readonly"
                     #dot="ngbDatepicker">
                   <div class="input-group-append">
                     <button class="btn calendar top-calendar" (click)="dot.toggle()" type="button">
@@ -477,6 +479,8 @@
                     [disabled]="travelDetails.get('dateOfTravel').invalid" formControlName="dateOfCollection" id="#doc"
                     class="form-control addTravelDate" placeholder="Date Of Collection of Documents" name="doc"
                     autocomplete="off" [minDate]="tomorrowDate" [maxDate]="minDateOfCollection" ngbDatepicker
+                    (click)="doc.toggle()"
+                    readonly="readonly"
                     #doc="ngbDatepicker">
                   <div class="input-group-append">
                     <button class="btn calendar top-calendar" (click)="doc.toggle()" type="button">
@@ -628,6 +632,8 @@
                       <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
                         formControlName="dateOfBirthCopy" id="#dob" class="form-control addTravelDate"
                         autocomplete="new-name" placeholder="Date Of Birth" name="dp" ngbDatepicker
+                        (click)="dob.toggle()"
+                        readonly="readonly"
                         #dob="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button">

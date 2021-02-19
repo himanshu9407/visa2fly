@@ -5,26 +5,18 @@ body {
   font-family: "Roboto", sans-serif !important;
 }
 
-.ng-select .ng-select-container .ng-value-container .ng-input>input::-webkit-input-placeholder,
-.ng-select .ng-select-container .ng-value-container .ng-input>input { /* Chrome/Opera/Safari */
-  font-size: 12px !important;
-}
-.ng-select .ng-select-container .ng-value-container .ng-input>input::-moz-placeholder,
-.ng-select .ng-select-container .ng-value-container .ng-input>input { /* Firefox 19+ */
-  font-size: 12px !important;
-}
-.ng-select .ng-select-container .ng-value-container .ng-input>input:-ms-input-placeholder,
-.ng-select .ng-select-container .ng-value-container .ng-input>input { /* IE 10+ */
-  font-size: 12px !important;
-}
-.ng-select .ng-select-container .ng-value-container .ng-input>input:-moz-placeholder,
-.ng-select .ng-select-container .ng-value-container .ng-input>input { /* Firefox 18- */
-  font-size: 12px !important;
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-placeholder {
+  z-index: 1;
+  font-size: 14px;
 }
 
 .form-control[readonly] {
   background-color: #fff !important;
   opacity: 1;
+  cursor: pointer;
 }
 
 .my-pagination .ngx-pagination .current {
