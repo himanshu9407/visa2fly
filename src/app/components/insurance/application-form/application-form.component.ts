@@ -133,6 +133,12 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   basicPremiumGSTCalculated: any;
   premiumGST: any;
   minDate: { year: number; month: number; day: number; };
+  minDate_0: { year: number; month: number; day: number; };
+  minDate_1: { year: number; month: number; day: number; };
+  minDate_2: { year: number; month: number; day: number; };
+  minDate_3: { year: number; month: number; day: number; };
+  minDate_4: { year: number; month: number; day: number; };
+  minDate_5: { year: number; month: number; day: number; };
 
   maxDateDobForProposal: { year: number; month: number; day: number; };
 
@@ -244,11 +250,21 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       month: today.getMonth() + 1,
       day: today.getDate(),
     };
+    this.minDate_0 = {
+      year: today.getFullYear() - 25,
+      month: today.getMonth() + 1,
+      day: today.getDate()
+    };
 
     this.maxDateDob_1 = {
       year: today.getFullYear(),
       month: today.getMonth() + 1,
       day: today.getDate(),
+    };
+    this.minDate_1 = {
+      year: today.getFullYear() - 25,
+      month: today.getMonth() + 1,
+      day: today.getDate()
     };
 
     this.maxDateDob_2 = {
@@ -256,11 +272,21 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       month: today.getMonth() + 1,
       day: today.getDate(),
     };
+    this.minDate_2 = {
+      year: today.getFullYear() - 25,
+      month: today.getMonth() + 1,
+      day: today.getDate()
+    };
 
     this.maxDateDob_3 = {
       year: today.getFullYear(),
       month: today.getMonth() + 1,
       day: today.getDate(),
+    };
+    this.minDate_3 = {
+      year: today.getFullYear() - 25,
+      month: today.getMonth() + 1,
+      day: today.getDate()
     };
 
     this.maxDateDob_4 = {
@@ -268,11 +294,21 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
       month: today.getMonth() + 1,
       day: today.getDate(),
     };
+    this.minDate_4 = {
+      year: today.getFullYear() - 25,
+      month: today.getMonth() + 1,
+      day: today.getDate()
+    };
 
     this.maxDateDob_5 = {
       year: today.getFullYear(),
       month: today.getMonth() + 1,
       day: today.getDate(),
+    };
+    this.minDate_5 = {
+      year: today.getFullYear() - 25,
+      month: today.getMonth() + 1,
+      day: today.getDate()
     };
 
     this.maxDateDobForProposal = {
@@ -1522,6 +1558,14 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     //   startWith = 0;
     // }
 
+    this.getControls[i]['controls'].birthDt.setValue('');
+    this.getControls[i]['controls'].birthDt.setValidators([Validators.nullValidator]);
+    this.getControls[i]['controls'].birthDt.updateValueAndValidity();
+    
+    this.getControls[i]['controls'].birthDtCopy.setValue('');
+    this.getControls[i]['controls'].birthDtCopy.setValidators([Validators.required]);
+    this.getControls[i]['controls'].birthDtCopy.updateValueAndValidity();
+
     for (
       let index = startWith;
       index < this.getControls.length;
@@ -1679,6 +1723,12 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
+          this.minDate_0 = {
+            year: yesterday.getFullYear() - 25,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
+          };
+          
           break;
         case 1:
           yesterday.setDate(yesterday.getDate() - 91);
@@ -1686,6 +1736,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             year: yesterday.getFullYear(),
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
+          };
+          this.minDate_1 = {
+            year: yesterday.getFullYear() - 25,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
           };
           break;
         case 2:
@@ -1696,6 +1751,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
+          this.minDate_2 = {
+            year: yesterday.getFullYear() - 25,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
+          };
           break;
         case 3:
           yesterday.setDate(yesterday.getDate() - 91);
@@ -1704,6 +1764,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
+          this.minDate_3 = {
+            year: yesterday.getFullYear() - 25,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
+          }; 
           break;
         case 4:
           yesterday.setDate(yesterday.getDate() - 91);
@@ -1711,6 +1776,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             year: yesterday.getFullYear(),
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
+          };
+          this.minDate_4 = {
+            year: yesterday.getFullYear() - 25,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
           };
           break;
         case 5:
@@ -1720,9 +1790,15 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
+          this.minDate_5 = {
+            year: yesterday.getFullYear() - 25,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
+          };
           break;
       }
       // console.log(this.maxDateDob_0);
+      console.log(this.minDate_0);
     } else if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "SELF") {
       // console.log("relatedCd 1");
       switch (i) {
@@ -1733,6 +1809,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
+          this.minDate_0= {
+            year: yesterday.getFullYear() - 60,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
+          };
           break;
         case 1:
           yesterday.setFullYear(yesterday.getFullYear() - 18);
@@ -1740,6 +1821,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             year: yesterday.getFullYear(),
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
+          };
+          this.minDate_0= {
+            year: yesterday.getFullYear() - 60,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
           };
           break;
         case 2:
@@ -1749,6 +1835,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
+          this.minDate_0= {
+            year: yesterday.getFullYear() - 60,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
+          };
           break;
         case 3:
           yesterday.setFullYear(yesterday.getFullYear() - 18);
@@ -1756,6 +1847,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             year: yesterday.getFullYear(),
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
+          };
+          this.minDate_0= {
+            year: yesterday.getFullYear() - 60,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
           };
           break;
         case 4:
@@ -1765,6 +1861,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
+          this.minDate_0= {
+            year: yesterday.getFullYear() - 60,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
+          };
           break;
         case 5:
           yesterday.setFullYear(yesterday.getFullYear() - 18);
@@ -1772,6 +1873,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             year: yesterday.getFullYear(),
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
+          };
+          this.minDate_0= {
+            year: yesterday.getFullYear() - 60,
+            month: yesterday.getMonth() + 1,
+            day: yesterday.getDate()
           };
           break;
       }
