@@ -1822,7 +1822,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_0= {
+          this.minDate_1 =  {
             year: yesterday.getFullYear() - 60,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1835,7 +1835,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_0= {
+          this.minDate_2= {
             year: yesterday.getFullYear() - 60,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1848,7 +1848,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_0= {
+          this.minDate_3= {
             year: yesterday.getFullYear() - 60,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1861,7 +1861,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_0= {
+          this.minDate_4= {
             year: yesterday.getFullYear() - 60,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1874,7 +1874,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_0= {
+          this.minDate_5= {
             year: yesterday.getFullYear() - 60,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1942,16 +1942,16 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     // console.log(event);
 
     if ((j == 6 || j == 8 || j == 10) && event == 'YES') {
-      document.getElementById("question_" + (j + 1)).style.display = 'block';
+      document.getElementById("question_" + (j + 1) + "_" + i).style.display = 'block';
     } else if ((j == 6 || j == 8 || j == 10) && event == 'NO') {
-      document.getElementById("question_" + (j + 1)).style.display = 'none';
+      document.getElementById("question_" + (j + 1) + "_" + i).style.display = 'none';
     }
   }
 
-  textCounterForQuestions(field: any, id: number, maxlimit: number) {
+  textCounterForQuestions(field: any, id: number, i: number, maxlimit: number) {
     var length: any = field.length;
     length = maxlimit - length;
-    $('#characterInfo_' + id).text(length + " characters remaining");
+    $('#characterInfo_' + id + '_' + i).text(length + " characters remaining");
   }
 
   setkjnkj() {

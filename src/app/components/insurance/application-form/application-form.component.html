@@ -51,7 +51,8 @@
               class="insurance-amount"
               style="font-weight: 600; font-size: 15px"
             >
-              ₹ {{ premiumCalculated + this.premiumGST }} <em>(including taxes)</em>
+              ₹ {{ premiumCalculated + this.premiumGST }}
+              <em>(including taxes)</em>
             </span>
           </div>
         </div>
@@ -623,7 +624,7 @@
                   "
                 >
                   <!-- <div class="form-row" > -->
-                    <!-- <div
+                  <!-- <div
                       class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
                     >
                       <div class="insurance-input_box">
@@ -647,97 +648,108 @@
                         </select>
                       </div>
                     </div> -->
-                    <!-- <div
+                  <!-- <div
                       class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                     > -->
-                      <div class="insurance-input_box" [formGroupName]="j" id=identityProposer_{{j}}>
-                        <label
-                          for="proposerIdentityNumber"
-                          class="insurance-label"
-                          >{{
-                            j == 0
-                              ? "Passport Number"
-                              : j == 1
-                              ? "PAN Number"
-                              : ""
-                          }}
-                          <span *ngIf="j == 0" class="astrisk">*</span>
-                          <button type="button"  *ngIf="j == 1" style="padding: 0px 0px 0px 2px;"
-                          class="btn" ngbPopover="Pan card is mandatory when premium calculated is greater than 50000">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="#000" class="bi bi-question-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                          </svg>
-                        </button>
-                          
-                        </label>
-                        <input
-                          type="text"
-                          id="proposerIdentityNumber"
-                          formControlName="identityNum"
-                          (ngModelChange)="
-                            onChangeProposal($event, 'identityNum')
-                          "
-                          autocomplete="new-identityNum"
-                          [pattern]="
+                  <div
+                    class="insurance-input_box"
+                    [formGroupName]="j"
+                    id="identityProposer_{{ j }}"
+                  >
+                    <label for="proposerIdentityNumber" class="insurance-label"
+                      >{{
+                        j == 0 ? "Passport Number" : j == 1 ? "PAN Number" : ""
+                      }}
+                      <span *ngIf="j == 0" class="astrisk">*</span>
+                      <button
+                        type="button"
+                        *ngIf="j == 1"
+                        style="padding: 0px 0px 0px 2px"
+                        class="btn"
+                        ngbPopover="Pan card is mandatory when premium calculated is greater than 50000"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="1em"
+                          height="1em"
+                          fill="#000"
+                          class="bi bi-question-circle"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                          />
+                        </svg>
+                      </button>
+                    </label>
+                    <input
+                      type="text"
+                      id="proposerIdentityNumber"
+                      formControlName="identityNum"
+                      (ngModelChange)="onChangeProposal($event, 'identityNum')"
+                      autocomplete="new-identityNum"
+                      [pattern]="
+                        insuranceForm.controls.proposer['controls']
+                          .partyIdentityDOList['controls'][j].controls
+                          .identityTypeCd.value === 'PAN'
+                          ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                          : '^[A-Za-z]{1}[0-9]{7}$'
+                      "
+                      #identityNum
+                      (input)="
+                        identityNum.value = $event.target.value.toUpperCase()
+                      "
+                      [ngClass]="{
+                        'is-invalid':
+                          insuranceForm.controls.proposer['controls']
+                            .partyIdentityDOList['controls'][j].controls
+                            .identityNum.invalid &&
+                          insuranceForm.controls.proposer['controls']
+                            .partyIdentityDOList['controls'][j].controls
+                            .identityNum.dirty,
+                        'is-valid':
+                          !(
                             insuranceForm.controls.proposer['controls']
-                              .partyIdentityDOList['controls'][j].controls
-                              .identityTypeCd.value === 'PAN'
-                              ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
-                              : '^[A-Za-z]{1}[0-9]{7}$'
-                          "
-                          #identityNum
-                          (input)="
-                            identityNum.value = $event.target.value.toUpperCase()
-                          "
-                          [ngClass]="{
-                            'is-invalid':
-                              insuranceForm.controls.proposer['controls']
-                                .partyIdentityDOList['controls'][j].controls
-                                .identityNum.invalid &&
-                              insuranceForm.controls.proposer['controls']
-                                .partyIdentityDOList['controls'][j].controls
-                                .identityNum.dirty,
-                            'is-valid':
-                              !(
-                                insuranceForm.controls.proposer['controls']
-                                  .partyIdentityDOList['controls'][j].controls
-                                  .identityNum.invalid &&
-                                insuranceForm.controls.proposer['controls']
-                                  .partyIdentityDOList['controls'][j].controls
-                                  .identityNum.dirty
-                              ) &&
-                              !insuranceForm.controls.proposer['controls']
-                                .partyIdentityDOList['controls'][j].controls
-                                .identityNum.pristine
-                          }"
-                          class="form-control-sm form-control insurance-input"
-                        />
-                        <div
-                          *ngIf="
-                            (insuranceForm.controls.proposer['controls']
                               .partyIdentityDOList['controls'][j].controls
                               .identityNum.invalid &&
-                              insuranceForm.controls.proposer['controls']
-                                .partyIdentityDOList['controls'][j].controls
-                                .identityNum.dirty) ||
                             insuranceForm.controls.proposer['controls']
                               .partyIdentityDOList['controls'][j].controls
-                              .identityNum.errors?.valueErr ||
-                            (insuranceForm.controls.proposer['controls']
-                              .partyIdentityDOList['controls'][j].controls
-                              .identityNum.pristine &&
-                              insuranceForm.controls.proposer['controls']
-                                .partyIdentityDOList['controls'][j].controls
-                                .identityNum.identityNumError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid identity number*
-                        </div>
-                      </div>
-                    <!-- </div>
+                              .identityNum.dirty
+                          ) &&
+                          !insuranceForm.controls.proposer['controls']
+                            .partyIdentityDOList['controls'][j].controls
+                            .identityNum.pristine
+                      }"
+                      class="form-control-sm form-control insurance-input"
+                    />
+                    <div
+                      *ngIf="
+                        (insuranceForm.controls.proposer['controls']
+                          .partyIdentityDOList['controls'][j].controls
+                          .identityNum.invalid &&
+                          insuranceForm.controls.proposer['controls']
+                            .partyIdentityDOList['controls'][j].controls
+                            .identityNum.dirty) ||
+                        insuranceForm.controls.proposer['controls']
+                          .partyIdentityDOList['controls'][j].controls
+                          .identityNum.errors?.valueErr ||
+                        (insuranceForm.controls.proposer['controls']
+                          .partyIdentityDOList['controls'][j].controls
+                          .identityNum.pristine &&
+                          insuranceForm.controls.proposer['controls']
+                            .partyIdentityDOList['controls'][j].controls
+                            .identityNum.identityNumError)
+                      "
+                      class="invalid-feedback"
+                      style="display: block"
+                    >
+                      Enter a valid identity number*
+                    </div>
+                  </div>
+                  <!-- </div>
                   </div> -->
                 </div>
               </div>
@@ -1484,62 +1496,62 @@
                       </div>
                     </div>
                     <div
-                    class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
-                  >
-                    <div class="insurance-input_box">
-                      <label for="relationCd{{ i }}" class="insurance-label"
-                        >Relation<span class="astrisk">*</span></label
-                      >
-                      <select
-                        name="relationCd{{ i }}"
-                        (change)="
-                          onRelationValueChange(
-                            $event.target.value,
-                            i,
-                            'partyDoList'
-                          )
-                        "
-                        id="relationCd{{ i }}"
-                        formControlName="relationCd"
-                        autocomplete="new-relationCd"
-                        class="form-control form-control-sm insurance-select"
-                      >
-                        <option value="">-- Relation --</option>
-                        <option
-                          *ngFor="let item of relationOptionArr"
-                          [value]="item"
+                      class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                    >
+                      <div class="insurance-input_box">
+                        <label for="relationCd{{ i }}" class="insurance-label"
+                          >Relation<span class="astrisk">*</span></label
                         >
-                          {{ item }}
-                        </option>
-                      </select>
-                      <div
-                        *ngIf="
-                          (getControls[i]['controls'].relationCd.invalid &&
-                            getControls[i]['controls'].relationCd.dirty) ||
-                          getControls[i]['controls'].relationCd.errors
-                            ?.valueErr ||
-                          (getControls[i]['controls'].relationCd.pristine &&
+                        <select
+                          name="relationCd{{ i }}"
+                          (change)="
+                            onRelationValueChange(
+                              $event.target.value,
+                              i,
+                              'partyDoList'
+                            )
+                          "
+                          id="relationCd{{ i }}"
+                          formControlName="relationCd"
+                          autocomplete="new-relationCd"
+                          class="form-control form-control-sm insurance-select"
+                        >
+                          <option value="">-- Relation --</option>
+                          <option
+                            *ngFor="let item of relationOptionArr"
+                            [value]="item"
+                          >
+                            {{ item }}
+                          </option>
+                        </select>
+                        <div
+                          *ngIf="
+                            (getControls[i]['controls'].relationCd.invalid &&
+                              getControls[i]['controls'].relationCd.dirty) ||
+                            getControls[i]['controls'].relationCd.errors
+                              ?.valueErr ||
+                            (getControls[i]['controls'].relationCd.pristine &&
+                              getControls[i]['controls'].relationCd
+                                .relationCdError)
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Select the valid option*
+                        </div>
+                        <div
+                          *ngIf="
                             getControls[i]['controls'].relationCd
-                              .relationCdError)
-                        "
-                        class="invalid-feedback"
-                        style="display: block"
-                      >
-                        Select the valid option*
-                      </div>
-                      <div
-                        *ngIf="
-                          getControls[i]['controls'].relationCd
-                            .duplicatesError &&
-                          getControls[i]['controls'].relationCd.value != ''
-                        "
-                        class="invalid-feedback"
-                        style="display: block"
-                      >
-                        Details already exists
-                      </div>
+                              .duplicatesError &&
+                            getControls[i]['controls'].relationCd.value != ''
+                          "
+                          class="invalid-feedback"
+                          style="display: block"
+                        >
+                          Details already exists
+                        </div>
 
-                      <!-- {{getControls[i]['controls'].relationCd
+                        <!-- {{getControls[i]['controls'].relationCd
                       .duplicatesError}}
 
                       {{                      getControls[i]['controls'].relationCd.value != ''}}
@@ -1549,8 +1561,8 @@
                     getControls[i]['controls'].relationCd.value != ''}}
 
                     {{getControls[i]['controls'].relationCd.value}} -->
+                      </div>
                     </div>
-                  </div>
                     <div
                       class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
                     >
@@ -1622,373 +1634,399 @@
                         </div>
                       </div>
                     </div>
-                 
 
                     <div
-                    class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
-                  >
-                    <div class="insurance-input_box">
-                      <label for="dateOfBirth{{ i }}" class="insurance-label"
-                        >Date Of Birth<span class="astrisk">*</span></label
-                      >
-                      <div *ngIf="i == 0">
-                        <div class="input-group">
-                          <input hidden formControlName="birthDt" type="text" />
-                          <input
-                            [minDate]="minDate_0"
-                            [maxDate]="maxDateDob_0"
-                            formControlName="birthDtCopy"
-                            (click)="dob.toggle()"
-                            readonly="readonly"
-                            id="#dob"
-                            class="form-control form-control-sm addTravelDate"
-                            autocomplete="new-birthDt"
-                            placeholder="Date Of Birth"
-                            name="dp"
-                            ngbDatepicker
-                            #dob="ngbDatepicker"
-                            style="
-                              border-top-left-radius: 0.2rem;
-                              border-bottom-left-radius: 0.2rem;
-                              cursor: pointer;
-                            "
-                          />
-                          <div class="input-group-append">
-                            <button
-                              class="btn btn-sm calendar"
+                      class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                    >
+                      <div class="insurance-input_box">
+                        <label for="dateOfBirth{{ i }}" class="insurance-label"
+                          >Date Of Birth<span class="astrisk">*</span></label
+                        >
+                        <div *ngIf="i == 0">
+                          <div class="input-group">
+                            <input
+                              hidden
+                              formControlName="birthDt"
+                              type="text"
+                            />
+                            <input
+                              [minDate]="minDate_0"
+                              [maxDate]="maxDateDob_0"
+                              formControlName="birthDtCopy"
                               (click)="dob.toggle()"
-                              type="button"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                class="calendarSvg"
-                                width="18px"
-                                height="18px"
+                              readonly="readonly"
+                              id="#dob"
+                              class="form-control form-control-sm addTravelDate"
+                              autocomplete="new-birthDt"
+                              placeholder="Date Of Birth"
+                              name="dp"
+                              ngbDatepicker
+                              #dob="ngbDatepicker"
+                              style="
+                                border-top-left-radius: 0.2rem;
+                                border-bottom-left-radius: 0.2rem;
+                                cursor: pointer;
+                              "
+                            />
+                            <div class="input-group-append">
+                              <button
+                                class="btn btn-sm calendar"
+                                (click)="dob.toggle()"
+                                type="button"
                               >
-                                <path
-                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                                />
-                                <path d="M0 0h24v24H0z" fill="none" />
-                              </svg>
-                            </button>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  class="calendarSvg"
+                                  width="18px"
+                                  height="18px"
+                                >
+                                  <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                  />
+                                  <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].birthDt.invalid &&
+                                getControls[i]['controls'].birthDt.dirty) ||
+                              getControls[i]['controls'].birthDt.errors
+                                ?.valueErr ||
+                              (getControls[i]['controls'].birthDtCopy
+                                .pristine &&
+                                getControls[i]['controls'].birthDt.birthDtError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid date of birth*
                           </div>
                         </div>
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].birthDt.invalid &&
-                              getControls[i]['controls'].birthDt.dirty) ||
-                            getControls[i]['controls'].birthDt.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].birthDtCopy.pristine &&
-                              getControls[i]['controls'].birthDt.birthDtError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid date of birth*
-                        </div>
-                      </div>
 
-                      <div *ngIf="i == 1">
-                        <div class="input-group">
-                          <input hidden formControlName="birthDt" type="text" />
-                          <input
-                            [minDate]="minDate_1"
-                            [maxDate]="maxDateDob_1"
-                            formControlName="birthDtCopy"
-                            (click)="dob.toggle()"
-                            readonly="readonly"
-                            id="#dob"
-                            class="form-control form-control-sm addTravelDate"
-                            autocomplete="new-birthDt"
-                            placeholder="Date Of Birth"
-                            name="dp"
-                            ngbDatepicker
-                            #dob="ngbDatepicker"
-                            style="
-                              border-top-left-radius: 0.2rem;
-                              border-bottom-left-radius: 0.2rem;
-                              cursor: pointer;
-                            "
-                          />
-                          <div class="input-group-append">
-                            <button
-                              class="btn btn-sm calendar"
+                        <div *ngIf="i == 1">
+                          <div class="input-group">
+                            <input
+                              hidden
+                              formControlName="birthDt"
+                              type="text"
+                            />
+                            <input
+                              [minDate]="minDate_1"
+                              [maxDate]="maxDateDob_1"
+                              formControlName="birthDtCopy"
                               (click)="dob.toggle()"
-                              type="button"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                class="calendarSvg"
-                                width="18px"
-                                height="18px"
+                              readonly="readonly"
+                              id="#dob"
+                              class="form-control form-control-sm addTravelDate"
+                              autocomplete="new-birthDt"
+                              placeholder="Date Of Birth"
+                              name="dp"
+                              ngbDatepicker
+                              #dob="ngbDatepicker"
+                              style="
+                                border-top-left-radius: 0.2rem;
+                                border-bottom-left-radius: 0.2rem;
+                                cursor: pointer;
+                              "
+                            />
+                            <div class="input-group-append">
+                              <button
+                                class="btn btn-sm calendar"
+                                (click)="dob.toggle()"
+                                type="button"
                               >
-                                <path
-                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                                />
-                                <path d="M0 0h24v24H0z" fill="none" />
-                              </svg>
-                            </button>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  class="calendarSvg"
+                                  width="18px"
+                                  height="18px"
+                                >
+                                  <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                  />
+                                  <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].birthDt.invalid &&
+                                getControls[i]['controls'].birthDt.dirty) ||
+                              getControls[i]['controls'].birthDt.errors
+                                ?.valueErr ||
+                              (getControls[i]['controls'].birthDtCopy
+                                .pristine &&
+                                getControls[i]['controls'].birthDt.birthDtError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid date of birth*
                           </div>
                         </div>
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].birthDt.invalid &&
-                              getControls[i]['controls'].birthDt.dirty) ||
-                            getControls[i]['controls'].birthDt.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].birthDtCopy.pristine &&
-                              getControls[i]['controls'].birthDt.birthDtError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid date of birth*
-                        </div>
-                      </div>
 
-                      <div *ngIf="i == 2">
-                        <div class="input-group">
-                          <input hidden formControlName="birthDt" type="text" />
-                          <input
-                            [minDate]="minDate_2"
-                            [maxDate]="maxDateDob_2"
-                            formControlName="birthDtCopy"
-                            (click)="dob.toggle()"
-                            readonly="readonly"
-                            id="#dob"
-                            class="form-control form-control-sm addTravelDate"
-                            autocomplete="new-birthDt"
-                            placeholder="Date Of Birth"
-                            name="dp"
-                            ngbDatepicker
-                            #dob="ngbDatepicker"
-                            style="
-                              border-top-left-radius: 0.2rem;
-                              border-bottom-left-radius: 0.2rem;
-                              cursor: pointer;
-                            "
-                          />
-                          <div class="input-group-append">
-                            <button
-                              class="btn btn-sm calendar"
+                        <div *ngIf="i == 2">
+                          <div class="input-group">
+                            <input
+                              hidden
+                              formControlName="birthDt"
+                              type="text"
+                            />
+                            <input
+                              [minDate]="minDate_2"
+                              [maxDate]="maxDateDob_2"
+                              formControlName="birthDtCopy"
                               (click)="dob.toggle()"
-                              type="button"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                class="calendarSvg"
-                                width="18px"
-                                height="18px"
+                              readonly="readonly"
+                              id="#dob"
+                              class="form-control form-control-sm addTravelDate"
+                              autocomplete="new-birthDt"
+                              placeholder="Date Of Birth"
+                              name="dp"
+                              ngbDatepicker
+                              #dob="ngbDatepicker"
+                              style="
+                                border-top-left-radius: 0.2rem;
+                                border-bottom-left-radius: 0.2rem;
+                                cursor: pointer;
+                              "
+                            />
+                            <div class="input-group-append">
+                              <button
+                                class="btn btn-sm calendar"
+                                (click)="dob.toggle()"
+                                type="button"
                               >
-                                <path
-                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                                />
-                                <path d="M0 0h24v24H0z" fill="none" />
-                              </svg>
-                            </button>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  class="calendarSvg"
+                                  width="18px"
+                                  height="18px"
+                                >
+                                  <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                  />
+                                  <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].birthDt.invalid &&
+                                getControls[i]['controls'].birthDt.dirty) ||
+                              getControls[i]['controls'].birthDt.errors
+                                ?.valueErr ||
+                              (getControls[i]['controls'].birthDtCopy
+                                .pristine &&
+                                getControls[i]['controls'].birthDt.birthDtError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid date of birth*
                           </div>
                         </div>
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].birthDt.invalid &&
-                              getControls[i]['controls'].birthDt.dirty) ||
-                            getControls[i]['controls'].birthDt.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].birthDtCopy.pristine &&
-                              getControls[i]['controls'].birthDt.birthDtError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid date of birth*
-                        </div>
-                      </div>
 
-                      <div *ngIf="i == 3">
-                        <div class="input-group">
-                          <input hidden formControlName="birthDt" type="text" />
-                          <input
-                            [minDate]="minDate_3"
-                            [maxDate]="maxDateDob_3"
-                            formControlName="birthDtCopy"
-                            (click)="dob.toggle()"
-                            readonly="readonly"
-                            id="#dob"
-                            class="form-control form-control-sm addTravelDate"
-                            autocomplete="new-birthDt"
-                            placeholder="Date Of Birth"
-                            name="dp"
-                            ngbDatepicker
-                            #dob="ngbDatepicker"
-                            style="
-                              border-top-left-radius: 0.2rem;
-                              border-bottom-left-radius: 0.2rem;
-                              cursor: pointer;
-                            "
-                          />
-                          <div class="input-group-append">
-                            <button
-                              class="btn btn-sm calendar"
+                        <div *ngIf="i == 3">
+                          <div class="input-group">
+                            <input
+                              hidden
+                              formControlName="birthDt"
+                              type="text"
+                            />
+                            <input
+                              [minDate]="minDate_3"
+                              [maxDate]="maxDateDob_3"
+                              formControlName="birthDtCopy"
                               (click)="dob.toggle()"
-                              type="button"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                class="calendarSvg"
-                                width="18px"
-                                height="18px"
+                              readonly="readonly"
+                              id="#dob"
+                              class="form-control form-control-sm addTravelDate"
+                              autocomplete="new-birthDt"
+                              placeholder="Date Of Birth"
+                              name="dp"
+                              ngbDatepicker
+                              #dob="ngbDatepicker"
+                              style="
+                                border-top-left-radius: 0.2rem;
+                                border-bottom-left-radius: 0.2rem;
+                                cursor: pointer;
+                              "
+                            />
+                            <div class="input-group-append">
+                              <button
+                                class="btn btn-sm calendar"
+                                (click)="dob.toggle()"
+                                type="button"
                               >
-                                <path
-                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                                />
-                                <path d="M0 0h24v24H0z" fill="none" />
-                              </svg>
-                            </button>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  class="calendarSvg"
+                                  width="18px"
+                                  height="18px"
+                                >
+                                  <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                  />
+                                  <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].birthDt.invalid &&
+                                getControls[i]['controls'].birthDt.dirty) ||
+                              getControls[i]['controls'].birthDt.errors
+                                ?.valueErr ||
+                              (getControls[i]['controls'].birthDtCopy
+                                .pristine &&
+                                getControls[i]['controls'].birthDt.birthDtError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid date of birth*
                           </div>
                         </div>
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].birthDt.invalid &&
-                              getControls[i]['controls'].birthDt.dirty) ||
-                            getControls[i]['controls'].birthDt.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].birthDtCopy.pristine &&
-                              getControls[i]['controls'].birthDt.birthDtError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid date of birth*
-                        </div>
-                      </div>
 
-                      <div *ngIf="i == 4">
-                        <div class="input-group">
-                          <input hidden formControlName="birthDt" type="text" />
-                          <input
-                            [minDate]="minDate_4"
-                            [maxDate]="maxDateDob_4"
-                            formControlName="birthDtCopy"
-                            (click)="dob.toggle()"
-                            readonly="readonly"
-                            id="#dob"
-                            class="form-control form-control-sm addTravelDate"
-                            autocomplete="new-birthDt"
-                            placeholder="Date Of Birth"
-                            name="dp"
-                            ngbDatepicker
-                            #dob="ngbDatepicker"
-                            style="
-                              border-top-left-radius: 0.2rem;
-                              border-bottom-left-radius: 0.2rem;
-                              cursor: pointer;
-                            "
-                          />
-                          <div class="input-group-append">
-                            <button
-                              class="btn btn-sm calendar"
+                        <div *ngIf="i == 4">
+                          <div class="input-group">
+                            <input
+                              hidden
+                              formControlName="birthDt"
+                              type="text"
+                            />
+                            <input
+                              [minDate]="minDate_4"
+                              [maxDate]="maxDateDob_4"
+                              formControlName="birthDtCopy"
                               (click)="dob.toggle()"
-                              type="button"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                class="calendarSvg"
-                                width="18px"
-                                height="18px"
+                              readonly="readonly"
+                              id="#dob"
+                              class="form-control form-control-sm addTravelDate"
+                              autocomplete="new-birthDt"
+                              placeholder="Date Of Birth"
+                              name="dp"
+                              ngbDatepicker
+                              #dob="ngbDatepicker"
+                              style="
+                                border-top-left-radius: 0.2rem;
+                                border-bottom-left-radius: 0.2rem;
+                                cursor: pointer;
+                              "
+                            />
+                            <div class="input-group-append">
+                              <button
+                                class="btn btn-sm calendar"
+                                (click)="dob.toggle()"
+                                type="button"
                               >
-                                <path
-                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                                />
-                                <path d="M0 0h24v24H0z" fill="none" />
-                              </svg>
-                            </button>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  class="calendarSvg"
+                                  width="18px"
+                                  height="18px"
+                                >
+                                  <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                  />
+                                  <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].birthDt.invalid &&
+                                getControls[i]['controls'].birthDt.dirty) ||
+                              getControls[i]['controls'].birthDt.errors
+                                ?.valueErr ||
+                              (getControls[i]['controls'].birthDtCopy
+                                .pristine &&
+                                getControls[i]['controls'].birthDt.birthDtError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid date of birth*
                           </div>
                         </div>
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].birthDt.invalid &&
-                              getControls[i]['controls'].birthDt.dirty) ||
-                            getControls[i]['controls'].birthDt.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].birthDtCopy.pristine &&
-                              getControls[i]['controls'].birthDt.birthDtError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid date of birth*
-                        </div>
-                      </div>
 
-                      <div *ngIf="i == 5">
-                        <div class="input-group">
-                          <input hidden formControlName="birthDt" type="text" />
-                          <input
-                            [minDate]="minDate_5"
-                            [maxDate]="maxDateDob_5"
-                            formControlName="birthDtCopy"
-                            (click)="dob.toggle()"
-                            readonly="readonly"
-                            id="#dob"
-                            class="form-control form-control-sm addTravelDate"
-                            autocomplete="new-birthDt"
-                            placeholder="Date Of Birth"
-                            name="dp"
-                            ngbDatepicker
-                            #dob="ngbDatepicker"
-                            style="
-                              border-top-left-radius: 0.2rem;
-                              border-bottom-left-radius: 0.2rem;
-                              cursor: pointer;
-                            "
-                          />
-                          <div class="input-group-append">
-                            <button
-                              class="btn btn-sm calendar"
+                        <div *ngIf="i == 5">
+                          <div class="input-group">
+                            <input
+                              hidden
+                              formControlName="birthDt"
+                              type="text"
+                            />
+                            <input
+                              [minDate]="minDate_5"
+                              [maxDate]="maxDateDob_5"
+                              formControlName="birthDtCopy"
                               (click)="dob.toggle()"
-                              type="button"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                class="calendarSvg"
-                                width="18px"
-                                height="18px"
+                              readonly="readonly"
+                              id="#dob"
+                              class="form-control form-control-sm addTravelDate"
+                              autocomplete="new-birthDt"
+                              placeholder="Date Of Birth"
+                              name="dp"
+                              ngbDatepicker
+                              #dob="ngbDatepicker"
+                              style="
+                                border-top-left-radius: 0.2rem;
+                                border-bottom-left-radius: 0.2rem;
+                                cursor: pointer;
+                              "
+                            />
+                            <div class="input-group-append">
+                              <button
+                                class="btn btn-sm calendar"
+                                (click)="dob.toggle()"
+                                type="button"
                               >
-                                <path
-                                  d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                                />
-                                <path d="M0 0h24v24H0z" fill="none" />
-                              </svg>
-                            </button>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  class="calendarSvg"
+                                  width="18px"
+                                  height="18px"
+                                >
+                                  <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                                  />
+                                  <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            *ngIf="
+                              (getControls[i]['controls'].birthDt.invalid &&
+                                getControls[i]['controls'].birthDt.dirty) ||
+                              getControls[i]['controls'].birthDt.errors
+                                ?.valueErr ||
+                              (getControls[i]['controls'].birthDtCopy
+                                .pristine &&
+                                getControls[i]['controls'].birthDt.birthDtError)
+                            "
+                            class="invalid-feedback"
+                            style="display: block"
+                          >
+                            Enter a valid date of birth*
                           </div>
                         </div>
-                        <div
-                          *ngIf="
-                            (getControls[i]['controls'].birthDt.invalid &&
-                              getControls[i]['controls'].birthDt.dirty) ||
-                            getControls[i]['controls'].birthDt.errors
-                              ?.valueErr ||
-                            (getControls[i]['controls'].birthDtCopy.pristine &&
-                              getControls[i]['controls'].birthDt.birthDtError)
-                          "
-                          class="invalid-feedback"
-                          style="display: block"
-                        >
-                          Enter a valid date of birth*
-                        </div>
                       </div>
-
-                      
-
                     </div>
-                  </div>
                   </div>
 
                   <div class="form-row mt-2">
@@ -2293,7 +2331,10 @@
                               'radio'
                             "
                           >
-                            <label for="question_{{j}}" class="insurance-label">
+                            <label
+                              for="question_{{ j }}"
+                              class="insurance-label"
+                            >
                               {{
                                 j == 0
                                   ? "Does any person(s) to be insured has any Pre-existing diseases?"
@@ -2323,71 +2364,110 @@
                               }}
                             </label>
                           </div>
-                          <div
+                       
+                            <div
                             class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex ques_ans_option_box"
-                            *ngIf="
-                            getControls[i]['controls'].partyQuestionDOList
-                              .controls[j].controls.questionType.value ==
-                            'radio'
-                          "
-                          >
-                            <div class="custom-control custom-radio">
-                              <input
-                                type="radio"
-                                id="question_{{ j }}_1"
-                                name="response_{{j}}"
-                                value="YES"
-                                (change)="handleQuestions($event.target.value, i, j, getControls[i]['controls'].partyQuestionDOList
-                                .controls[j].controls.questionType.value)" 
-                                formControlName="response_{{j}}"
-                                class="custom-control-input"
-                              />
-                              <label
-                                class="custom-control-label insurance-radio-label"
-                                for="question_{{ j }}_1"
-                                >Yes</label
+                              *ngIf="
+                                getControls[i]['controls'].partyQuestionDOList
+                                  .controls[j].controls.questionType.value ==
+                                'radio'
+                              "
+                            >
+                              <div class="custom-control custom-radio">
+                                <input
+                                  type="radio"
+                                  id="question_{{ j }}_1_{{i}}"
+                                  name="response_{{ j }}"
+                                  value="YES"
+                                  (change)="
+                                    handleQuestions(
+                                      $event.target.value,
+                                      i,
+                                      j,
+                                      getControls[i]['controls']
+                                        .partyQuestionDOList.controls[j]
+                                        .controls.questionType.value
+                                    )
+                                  "
+                                  formControlName="response_{{ j }}"
+                                  class="custom-control-input"
+                                />
+                                <label
+                                  class="custom-control-label insurance-radio-label"
+                                  for="question_{{ j }}_1_{{i}}"
+                                  >Yes</label
+                                >
+                              </div>
+                              <div
+                                class="custom-control custom-radio ques_ans_right_option"
                               >
+                                <input
+                                  type="radio"
+                                  id="question_{{ j }}_2_{{i}}"
+                                  name="response_{{ j }}"
+                                  value="NO"
+                                  (change)="
+                                    handleQuestions(
+                                      $event.target.value,
+                                      i,
+                                      j,
+                                      getControls[i]['controls']
+                                        .partyQuestionDOList.controls[j]
+                                        .controls.questionType.value
+                                    )
+                                  "
+                                  formControlName="response_{{ j }}"
+                                  class="custom-control-input"
+                                />
+                                <label
+                                  class="custom-control-label insurance-radio-label"
+                                  for="question_{{ j }}_2_{{i}}"
+                                  >No</label
+                                >
+                              </div>
                             </div>
-                            <div class="custom-control custom-radio ques_ans_right_option">
-                              <input
-                                type="radio"
-                                id="question_{{ j }}_2"
-                                name="response_{{j}}"
-                                value="NO"
-                                (change)="handleQuestions($event.target.value, i, j, getControls[i]['controls'].partyQuestionDOList
-                                .controls[j].controls.questionType.value)" 
-                                formControlName="response_{{j}}"
-                                class="custom-control-input"
-                              />
-                              <label
-                                class="custom-control-label insurance-radio-label"
-                                for="question_{{ j }}_2"
-                                >No</label
-                              >
-                            </div>
-                          </div>
 
                           <div
                             class="col-12 mb-2 ques_ans_textarea"
-                            style="display: none;"
-                            id="question_{{ j }}"
+                            style="display: none"
+                            id="question_{{ j }}_{{i}}"
                           >
                             <textarea
                               type="text"
                               maxlength="100"
                               formControlName="response"
                               autocomplete="new-addressLine1Lang1"
-                              id="textarea_question_{{j}}"
+                              id="textarea_question_{{ j }}_{{i}}"
                               pattern="^[ A-Za-z0-9-:./\n,]*$"
-                              (keydown)="textCounterForQuestions($event.target.value, j, 100)" 
-                              (change)="handleQuestions($event.target.value, i, j, getControls[i]['controls'].partyQuestionDOList
-                              .controls[j].controls.questionType.value)" 
-                              style="max-width: 500px;"
-                              [ngStyle]="{'height': j == 7 ? '32px' : '80px'}"
-                              placeholder="{{ j == 7 ? 'Disease Name' : 'Write here ...' }}"
+                              (keydown)="
+                                textCounterForQuestions(
+                                  $event.target.value,
+                                  j,
+                                  i,
+                                  100
+                                )
+                              "
+                              (change)="
+                                handleQuestions(
+                                  $event.target.value,
+                                  i,
+                                  j,
+                                  getControls[i]['controls'].partyQuestionDOList
+                                    .controls[j].controls.questionType.value
+                                )
+                              "
+                              style="max-width: 500px"
+                              [ngStyle]="{ height: j == 7 ? '32px' : '80px' }"
+                              placeholder="{{
+                                j == 7 ? 'Disease Name' : 'Write here ...'
+                              }}"
                               class="form-control-sm form-control"
                             ></textarea>
-                            <small class="form-text text-muted" id="characterInfo_{{j}}">0 characters remaining</small>
+                            <small
+                              class="form-text text-muted"
+                              id="characterInfo_{{ j }}_{{i }}"
+                              >0 characters remaining</small
+                            >
                           </div>
                         </div>
                       </div>
