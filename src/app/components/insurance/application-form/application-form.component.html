@@ -202,6 +202,64 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                   <div class="insurance-input_box">
+                    <label for="proposerRelation" class="insurance-label"
+                      >Relation<span class="astrisk">*</span></label
+                    >
+                    <select
+                      name="proposerRelation"
+                      id="proposerRelation"
+                      formControlName="relationCd"
+                      autocomplete="new-relationCd"
+                      class="form-control form-control-sm insurance-select"
+                    >
+                      <option value="">Select</option>
+                      <option value="SELF">SELF</option>
+                    </select>
+                  </div>
+
+                  <!-- {{ relationOptionArr.filter(element => disabledRelationOptionArr.includes(element)) }} -->
+                  <!-- array1.filter(element => array2.includes(element)) -->
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="gender" class="insurance-label"
+                      >Gender<span class="astrisk">*</span></label
+                    >
+                    <select
+                      name="proposerGender"
+                      id="proposerGender"
+                      formControlName="genderCd"
+                      (change)="
+                        validatingGender($event.target.value, null, 'proposal')
+                      "
+                      autocomplete="new-genderCd"
+                      class="form-control form-control-sm insurance-select"
+                    >
+                      <option selected value="MALE">Male</option>
+                      <option value="FEMALE">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
+                    <label for="proposerNationality" class="insurance-label"
+                      >Nationality<span class="astrisk">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="proposerNationality"
+                      formControlName="citizenshipCd"
+                      (ngModelChange)="
+                        onChangeProposal($event, 'citizenshipCd')
+                      "
+                      autocomplete="new-citizenshipCd"
+                      class="form-control-sm form-control insurance-input"
+                    />
+                  </div>
+                </div>
+               
+                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
+                  <div class="insurance-input_box">
                     <label for="proposerDateOfBirth" class="insurance-label"
                       >Date Of Birth<span class="astrisk">*</span></label
                     >
@@ -269,63 +327,6 @@
                       Enter a valid date of birth*
                     </div>
                   </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
-                  <div class="insurance-input_box">
-                    <label for="gender" class="insurance-label"
-                      >Gender<span class="astrisk">*</span></label
-                    >
-                    <select
-                      name="proposerGender"
-                      id="proposerGender"
-                      formControlName="genderCd"
-                      (change)="
-                        validatingGender($event.target.value, null, 'proposal')
-                      "
-                      autocomplete="new-genderCd"
-                      class="form-control form-control-sm insurance-select"
-                    >
-                      <option selected value="MALE">Male</option>
-                      <option value="FEMALE">Female</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
-                  <div class="insurance-input_box">
-                    <label for="proposerNationality" class="insurance-label"
-                      >Nationality<span class="astrisk">*</span></label
-                    >
-                    <input
-                      type="text"
-                      id="proposerNationality"
-                      formControlName="citizenshipCd"
-                      (ngModelChange)="
-                        onChangeProposal($event, 'citizenshipCd')
-                      "
-                      autocomplete="new-citizenshipCd"
-                      class="form-control-sm form-control insurance-input"
-                    />
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
-                  <div class="insurance-input_box">
-                    <label for="proposerRelation" class="insurance-label"
-                      >Relation<span class="astrisk">*</span></label
-                    >
-                    <select
-                      name="proposerRelation"
-                      id="proposerRelation"
-                      formControlName="relationCd"
-                      autocomplete="new-relationCd"
-                      class="form-control form-control-sm insurance-select"
-                    >
-                      <option value="">Select</option>
-                      <option value="SELF">SELF</option>
-                    </select>
-                  </div>
-
-                  <!-- {{ relationOptionArr.filter(element => disabledRelationOptionArr.includes(element)) }} -->
-                  <!-- array1.filter(element => array2.includes(element)) -->
                 </div>
               </div>
 
