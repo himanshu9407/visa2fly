@@ -40,7 +40,9 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
   showTouristMobileFirst: boolean = true;
   showBusinessMobileFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
-  visaType: string
+  visaType: string;
+  public selectedCountrytype = "Dubai";
+
   constructor() { }
 
   ngOnInit(): void {

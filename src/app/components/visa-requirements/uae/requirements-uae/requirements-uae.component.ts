@@ -56,6 +56,7 @@ export class RequirementsUaeComponent implements OnInit {
   showTouristMobileFirst: boolean = true;
   showBusinessMobileFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
+  public selectedCountrytype = "UAE";
 
   constructor() { }
 

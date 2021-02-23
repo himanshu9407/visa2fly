@@ -749,7 +749,26 @@
               <h1 class="requiredIconHeading">Passport</h1>
               <ul>
                 <li>
-                  Upload coloured copies of the first and last page of the
+                  Upload coloured copies of the
+                  <button
+                  type="button"
+                  class="btn toggleHelperBtn"
+                  data-toggle="modal"
+                  data-target="#samplePassportFront"
+
+                  >
+                  first page
+                  </button> and
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportBack"
+
+                  >
+                  last page
+                  </button>
+                   of the
                   passport.
                 </li>
                 <li>
@@ -767,26 +786,52 @@
               <ul>
                 <li>
                   Upload scanned colour copy of your passport-sized
-                  photograph.
+                  photograph
                 </li>
                 <li>
-                  Photo should be taken against a white background.
+
+                  <button type="button" class="btn toggleHelperBtn" data-toggle="modal" data-target="#samplePhotograph">
+                    Photo
+                  </button> should be taken against a white background.
                 </li>
-                <li>Dimensions should be 45mm x 35mm.</li>
+                <li>Dimensions should be 45mm height x 35mm width.</li>
               </ul>
             </div>
           </div>
         </div>
-        <!-- <div class="col-12">
+        <div class="col-12" *ngIf="visaType != 'Transit'">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Debit / Credit Card</h1>
+              <h1 class="requiredIconHeading">Hotel Booking Confirmation</h1>
               <p>
-                A valid debit/credit card is required for making the visa fee payment. For which reason, please make sure yours has more than/equivalent to the required amount.
+                This article is about the modern country in Southeast Asia. For the First Kingdom of Cambodia, see Cambodia (1953–1970). For the song, see Cambodia (song).
+                "Kampuchea" redirects here
               </p>
             </div>
           </div>
-        </div> -->
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Flight Ticket</h1>
+              <p>
+                This article is about the modern country in Southeast Asia. For the First Kingdom of Cambodia, see Cambodia (1953–1970). For the song, see Cambodia (song).
+                "Kampuchea" redirects here
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" *ngIf="visaType == 'Business'">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Business Invitation</h1>
+              <p>
+                This article is about the modern country in Southeast Asia. For the First Kingdom of Cambodia, see Cambodia (1953–1970). For the song, see Cambodia (song).
+                "Kampuchea" redirects here
+              </p>
+            </div>
+          </div>
+        </div>
         <div class="col-12" *ngIf="visaType == 'Business'">
           <div class="card requiredIcon">
             <div class="card-body">
@@ -801,3 +846,70 @@
     </div>
   </div>
 </section>
+
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

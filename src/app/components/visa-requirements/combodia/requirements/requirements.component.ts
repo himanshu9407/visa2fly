@@ -39,6 +39,7 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
   showBusinessMobileFirst: boolean = true;
   showTransitFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
+  public selectedCountrytype = "Cambodia";
 
   visaType: string;
 

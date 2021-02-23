@@ -54,6 +54,7 @@ export class RequirmentSrilankaComponent implements OnInit, AfterViewInit {
   showTransitFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
   visaType: string;
+  public selectedCountrytype = "Sri Lanka";
 
   constructor() {}
 
