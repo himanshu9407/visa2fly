@@ -261,30 +261,30 @@ export class GermanyComponent implements OnInit {
     );
   }
 
-  navigateTo(purpose: any) {
-    let purposeString: string = purpose.nextId;
-    let purposeUrl =
-      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-    this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-    if (purposeString == "Tourist") {
-      this.MyQuotation1 = this.touristArr;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.selectedVisaType = "Tourist";
-    } else if (purposeString == "Business") {
-      this.MyQuotation1 = this.businessArr;
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.selectedVisaType = "Business";
-    } else {
-      this.MyQuotation1 = this.transitArr;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.selectedVisaType = "Transit";
-    }
+  // navigateTo(purpose: any) {
+  //   let purposeString: string = purpose.nextId;
+  //   let purposeUrl =
+  //     purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+  //   this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
+  //   if (purposeString == "Tourist") {
+  //     this.MyQuotation1 = this.touristArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+  //     this.selectedVisaType = "Tourist";
+  //   } else if (purposeString == "Business") {
+  //     this.MyQuotation1 = this.businessArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+  //     this.selectedVisaType = "Business";
+  //   } else {
+  //     this.MyQuotation1 = this.transitArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+  //     this.selectedVisaType = "Transit";
+  //   }
 
-    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
+  //   this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
 
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imageCatogoryTemp)
-    );
-  }
+  //   this.userFlow.setUserFlowDetails(
+  //     "imageUploads",
+  //     JSON.stringify(this.imageCatogoryTemp)
+  //   );
+  // }
 }

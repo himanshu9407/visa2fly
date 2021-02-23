@@ -11,6 +11,7 @@ import { FaqComponent } from './faq/faq.component';
 import { RequirmentSrilankaComponent } from './requirment-srilanka/requirment-srilanka.component';
 import { ImportantPointsSrilankaComponent } from './important-points-srilanka/important-points-srilanka.component';
 import { QuotationSrilankaComponent } from './quotation-srilanka/quotation-srilanka.component';
+import { DescriptionComponent } from './description/description.component';
 
 const routes: Routes = [
   { path: "", component: SriLankaComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     FaqComponent,
     RequirmentSrilankaComponent,
     ImportantPointsSrilankaComponent,
-    QuotationSrilankaComponent
+    QuotationSrilankaComponent,
+    DescriptionComponent
   ],
   imports: [
     FormsModule,

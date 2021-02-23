@@ -42,6 +42,7 @@ export class RequirementRussiaComponent implements OnInit {
   @Input() selectedPurpose: Subject<any>;
 
   @Output() changedPurpose = new EventEmitter();
+  visaType: string
 
   constructor() { }
 
@@ -52,8 +53,11 @@ export class RequirementRussiaComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
+    setTimeout(() => {
+      this.visaType = this.selectedVisaType;
+    })
   }
+
 
   setActiveTourist(index: number, id: string) {
     this.selectedTourist = index;

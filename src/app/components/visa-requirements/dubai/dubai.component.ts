@@ -168,7 +168,7 @@ export class DubaiComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Dubai Visa | Apply For Dubai Visa Online for Indians- Visa2Fly");
-   
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -250,7 +250,7 @@ export class DubaiComponent implements OnInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    
+
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
@@ -272,6 +272,7 @@ export class DubaiComponent implements OnInit {
       JSON.stringify(this.imageCatogoryTemp)
     );
   }
+
 
   // navigateTo(purpose: any) {
   //   let purposeString: string = purpose.nextId;

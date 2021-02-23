@@ -53,17 +53,21 @@ export class RequirmentSrilankaComponent implements OnInit, AfterViewInit {
   showBusinessMobileFirst: boolean = true;
   showTransitFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
+  visaType: string;
 
   constructor() {}
 
   ngOnInit(): void {
     this.selectedPurpose.subscribe((res) => {
-      this.t.select(res);
+      this.visaType = res;
+      // console.log(this.visaType);
     });
   }
 
   ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
+    setTimeout(() => {
+      this.visaType = this.selectedVisaType;
+    })
   }
 
   setActiveTourist(index: number, id: string) {

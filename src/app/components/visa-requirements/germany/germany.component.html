@@ -26,13 +26,24 @@
           <div class="country-info">
             <h2 class="country-heading">{{ selectedCountrytype }}</h2>
             <p class="country-desc">
-              Many know of Germany’s knack for design and engineering. It is a
-              Western European country that has natural beauty as well, in the
-              form of rivers, forests, mountain ranges and the North Sea by its
-              side. Its bread, beer and music festival culture is one to not
-              miss whilst travelling; make sure to pass through Berlin, Munich,
-              Frankfurt and Hamburg while you're here.
+              Popularly known for its beer, Germany is world-famous for its castles, bread, cars and city-
+              wide festivals. Germany is the 8th most visited country in the world. It is a popular tourist
+              attraction due to German culture, the countryside and crazy festivals and activities that are
+              conducted all over the country. There are over 300 varieties of beers during their beer
+              festivals alone! Berlin is not only the capital and the largest city, it is also the most
+              visited city
+              in Germany.Germany’s Central and Southern regions are highlighted by forested hills and
+              mountains which offer some of the most breathtaking views on the planet. The East Frisian
+              and the North Frisian Islands, the Rhine Valley and the Bavarian Alps are also popular
+              attractions for tourists. It’s the best place for visitors who seek serene, breathtaking views
+              and attractions of historic importance. There’s a lot to explore in Germany!
             </p>
+            <!-- it is also the most visited city
+              in Germany. Germany’s Central and Southern regions are highlighted by forested hills and
+              mountains which offer some of the most breathtaking views on the planet. The East Frisian
+              and the North Frisian Islands, the Rhine Valley and the Bavarian Alps are also popular
+              attractions for tourists. It’s the best place for visitors who seek serene, breathtaking views
+              and attractions of historic importance. There’s a lot to explore in Germany! -->
           </div>
         </div>
       </div>
@@ -273,52 +284,39 @@
   <div class="row">
     <div class="col-12">
       <p class="country-desc">
-        Many know of Germany’s knack for design and engineering. It is a Western
-        European country that has natural beauty as well, in the form of rivers,
-        forests, mountain ranges and the North Sea by its side. Its bread, beer
-        and music festival culture is one to not miss whilst travelling; make
-        sure to pass through Berlin, Munich, Frankfurt and Hamburg while you're
-        here.
+          Popularly known for its beer, Germany is world-famous for its castles, bread, cars and city-
+          wide festivals. Germany is the 8th most visited country in the world. It is a popular tourist
+          attraction due to German culture, the countryside and crazy festivals and activities that are
+          conducted all over the country. There are over 300 varieties of beers during their beer
+          festivals alone! Berlin is not only the capital and the largest city, it is also the most visited city
+          in Germany. Germany’s Central and Southern regions are highlighted by forested hills and
+          mountains which offer some of the most breathtaking views on the planet. The East Frisian
+          and the North Frisian Islands, the Rhine Valley and the Bavarian Alps are also popular
+          attractions for tourists. It’s the best place for visitors who seek serene, breathtaking views
+          and attractions of historic importance. There’s a lot to explore in Germany!
       </p>
     </div>
   </div>
 </div>
 
-<div class="container-fluid wrapContainer mt-2" style="overflow: hidden">
+<div class="container-fluid wrapContainer mt-2" style="overflow: hidden;">
   <div class="row">
-    <app-quotation
-      class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3"
-      *ngFor="let quotation of MyQuotation1"
-      [quotation]="quotation"
-    >
+    <app-quotation class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1"
+      [quotation]="quotation">
     </app-quotation>
   </div>
 </div>
 
-<app-offline-process-steps
-  [country]="selectedCountrytype"
-  *ngIf="!onlinestatus"
-></app-offline-process-steps>
-<app-online-process-steps
-  [country]="selectedCountrytype"
-  *ngIf="onlinestatus"
-></app-online-process-steps>
-
-<app-requirements
-  (changedPurpose)="navigateTo($event)"
-  [selectedBusiness]="selectedBusiness"
-  [selectedTransit]="selectedTransit"
-  [selectedTourist]="selectedTourist"
-  [selectedMobileTourist]="selectedMobileTourist"
-  [selectedMobileBusiness]="selectedMobileBusiness"
-  [selectedMobileTransit]="selectedMobileTransit"
-  [selectedVisaType]="selectedVisaType"
-  [selectedPurpose]="selectedPurpose"
+<app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
+<app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
+<app-requirements [selectedPurpose]="selectedPurpose"  [selectedVisaType]="selectedVisaType"
 ></app-requirements>
 
 <app-important-points></app-important-points>
 
 <app-faq></app-faq>
+
+<app-description></app-description>
 
 <div class="container-fluid wrapContainer linkAddress">
   <div class="row">

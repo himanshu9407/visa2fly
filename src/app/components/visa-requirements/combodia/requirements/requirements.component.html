@@ -1,4 +1,4 @@
-<section id="requirement">
+<!-- <section id="requirement">
 <div class="container-fluid p-0">
   <div class="iconSection">
     <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
@@ -8,7 +8,7 @@
         <ng-template ngbTabContent>
 
           <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-            <!-- tourist -->
+
             <div class="row">
               <div class="col-12 text-center mgxTop">
                 <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -18,7 +18,7 @@
               </div>
             </div>
 
-            <!-- desktopContainer -->
+
             <div class="desktopContainer accordion" id="touristAccodion">
               <div class="row mt-2">
                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -108,7 +108,7 @@
                 </ngb-tabset>
               </div>
             </div>
-            <!-- mobileContainer -->
+
             <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
               <div class="row">
                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -218,12 +218,12 @@
           </div>
         </ng-template>
       </ngb-tab>
-      
+
       <ngb-tab id="Business" title="Business">
         <ng-template ngbTabContent>
 
           <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-            <!-- business -->
+
             <div class="row">
               <div class="col-12 text-center mgxTop">
                 <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
@@ -372,7 +372,7 @@
               </div>
             </div>
 
-            <!-- mobileContainer -->
+
             <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
               <div class="row">
                 <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -517,7 +517,7 @@
         <ng-template ngbTabContent>
 
           <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-            <!-- transit -->
+
             <div class="row">
               <div class="col-12 text-center mgxTop">
                 <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
@@ -730,4 +730,79 @@
     </ngb-tabset>
   </div>
 </div>
+</section> -->
+
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
+    <div class="iconSection">
+      <div class="row">
+        <!-- Heading -->
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for Cambodia {{ visaType }} visa
+          </h3>
+        </div>
+        <!-- Content -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Passport</h1>
+              <ul>
+                <li>
+                  Upload coloured copies of the first and last page of the
+                  passport.
+                </li>
+                <li>
+                  When you apply for a sri lanka e visa online, you must be in possession of a passport with
+                  at least 6 months’ validity.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Photograph</h1>
+              <ul>
+                <li>
+                  Upload scanned colour copy of your passport-sized
+                  photograph.
+                </li>
+                <li>
+                  Photo should be taken against a white background.
+                </li>
+                <li>Dimensions should be 45mm x 35mm.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Debit / Credit Card</h1>
+              <!-- <ul>
+                <li>
+                  A valid current email address is required, to which the ETA will be sent.
+                </li>
+              </ul> -->
+              <p>
+                A valid debit/credit card is required for making the visa fee payment. For which reason, please make sure yours has more than/equivalent to the required amount.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" *ngIf="visaType == 'Business'">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Employement Letter</h1>
+              <p>
+                A stamped letter verifying your employment in the Cambodian company must be shown.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
