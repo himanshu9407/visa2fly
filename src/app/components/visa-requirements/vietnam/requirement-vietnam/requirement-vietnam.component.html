@@ -4,9 +4,9 @@
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- tourist -->
               <div class="row">
@@ -17,7 +17,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
@@ -154,7 +154,7 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
@@ -225,7 +225,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -257,8 +257,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -295,14 +295,14 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- business -->
               <div class="row">
@@ -313,7 +313,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -343,7 +343,7 @@
                               <p>You must hold a passport valid for at least with an expiration date at least 6 months
                                 beyond your intended duration of stay in Vietnam.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -359,7 +359,7 @@
                           </div>
                           <h2 class="setFontSize">Application Form</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
@@ -381,7 +381,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <div class="makeIconCntr">
                             <div class="vr-photograph requiredIcons img-sprite"></div>
@@ -414,9 +414,8 @@
                     type="pills">
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
-                          data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4" 
+                        <div data-toggle="collapse" data-target="#business4" aria-expanded="false" aria-controls="business4"
+                          [class.showDiv]="selectedBusiness === 4"
                           (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                           <div class="makeIconCntr">
                             <div class="vr-authorization requiredIcons img-sprite"></div>
@@ -434,8 +433,8 @@
                                 this is handled by the Immigration Department (Ministry of Public Security) or the
                                 Consular Department in Ho Chi Minh city (Ministry of Foreign Affairs).
                               </p>
-  
-  
+
+
                             </div>
                           </div>
                         </div>
@@ -444,7 +443,7 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer accordion wrapContainer" id="businessAccodionMobile">
                 <div class="row">
@@ -475,7 +474,7 @@
                               <p>You must hold a passport valid for at least with an expiration date at least 6 months
                                 beyond your intended duration of stay in Vietnam.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -516,7 +515,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -548,8 +547,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -601,10 +600,10 @@
             </div>
           </ng-template>
         </ngb-tab>
-        
+
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- transit -->
               <div class="row">
@@ -615,7 +614,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -701,13 +700,13 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <div class="mobileContainer accordion wrapContainer" id="transitAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedTransit === 1"
@@ -731,7 +730,7 @@
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>You must hold a passport valid for at least 6 months after your intended date of travel.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -771,7 +770,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -802,7 +801,7 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>

@@ -1186,9 +1186,7 @@
 <div class="addPassengerForm">
   <div id="accordion">
     <form [formGroup]="travellerForm">
-      <div
-        formArrayName="travellers"
-        *ngFor="
+      <div formArrayName="travellers" *ngFor="
           let traveller of travellerForm.get('travellers').controls;
           let first = first;
           let i = index

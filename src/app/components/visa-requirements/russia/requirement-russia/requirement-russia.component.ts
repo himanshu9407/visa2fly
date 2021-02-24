@@ -35,6 +35,7 @@ export class RequirementRussiaComponent implements OnInit {
   @Input() selectedBusiness: number;
   @Input() selectedTransit: number;
   @Input() selectedTourist: number;
+  public selectedCountrytype="Russia";
   @Input() selectedMobileTourist: number;
   @Input() selectedMobileBusiness: number;
   @Input() selectedMobileTransit: number;
@@ -48,8 +49,9 @@ export class RequirementRussiaComponent implements OnInit {
 
   ngOnInit() {
     this.selectedPurpose.subscribe((res) => {
-      this.t.select(res);
-    })
+      this.visaType = res;
+      // console.log(this.visaType);
+    });
   }
 
   ngAfterViewInit() {

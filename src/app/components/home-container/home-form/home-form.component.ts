@@ -275,11 +275,11 @@ export class HomeFormComponent {
           break;
         }
 
-        // case "Russia": {
-        //   this.router.navigate(["visa/russia-visa-online"]);
-        //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
-        //   break;
-        // }
+        case "Russia": {
+          this.router.navigate(["visa/russia-visa-online"]);
+          this.userFlow.setCookie("selectedVisaPurpose", purpose);
+          break;
+        }
 
         case "Uzbekistan": {
           this.router.navigate(["visa/uzbekistan-visa-online"]);
