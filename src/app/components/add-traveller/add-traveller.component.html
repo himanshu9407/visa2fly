@@ -1,4 +1,4 @@
-<div class="imageContainer">
+<div class="imageContainer" id="travellerApplicationForm">
   <div class="breadcrumLinker">
     <p class="breadcrum">
       <span>
@@ -1194,7 +1194,7 @@
         class="card"
       >
         <form [formGroupName]="i">
-          <div class="card-header travelerHeading" id="dataSource[i].id">
+          <div class="card-header travelerHeading" [id]="dataSource[i].id">
             <button
               class="btn"
               data-toggle="collapse"
@@ -1202,7 +1202,7 @@
               attr.data-target="{{ dataSource[i].dataToggleHash }}"
               aria-expanded="false"
             >
-              {{ dataSource[i].id.substring(0, 10) }}
+              {{ dataSource[i].id.substring(0, 9) }}
             </button>
 
             <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
