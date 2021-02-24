@@ -1212,17 +1212,7 @@
           </h3>
         </div>
         <!-- Content -->
-        <div class="col-12">
-          <div class="card requiredIcon">
-            <div class="card-body">
-              <h1 class="requiredIconHeading">Application Form</h1>
-                <p>
-                  The online application form must be completed. Although it is available online,
-                  you will need to print and submit it offline.
-                </p>
-            </div>
-          </div>
-        </div>
+
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
@@ -1248,6 +1238,20 @@
             </div>
           </div>
         </div>
+         <div class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Business Invitation</h1>
+                <p>
+                  Applicant needs to provide Invitation from Russia to visit the country. In case of
+                  Tourist visa you can ask your tour operator or hotel that you have booked in Russia
+                  for the same. In case of business visa you need to provide invitation letter from the
+                  company that you are visiting. Please note that invitation must be provided in Russian
+                  language. Visa can't be processed in noraml English language only.
+                </p>
+            </div>
+          </div>
+        </div>
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
@@ -1260,7 +1264,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}">
+        <div class="col-12" >
           <div class="card requiredIcon">
             <div class="card-body">
               <h1 class="requiredIconHeading">Business Card</h1>
