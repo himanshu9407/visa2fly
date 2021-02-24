@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter, AfterViewInit } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from "@angular/core";
 import { Subject } from "rxjs";
 import { trigger, state, transition, style, animate } from "@angular/animations";
 

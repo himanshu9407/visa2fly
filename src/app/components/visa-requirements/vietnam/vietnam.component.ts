@@ -50,7 +50,6 @@ export class VietnamComponent implements OnInit {
   public imagefield1: Array<any> = [];
   public purposeChooseForm: FormGroup;
   public onlinestatus: boolean = false;
-  // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
   transitArr: Array<any> = [];
@@ -268,36 +267,36 @@ export class VietnamComponent implements OnInit {
     );
   }
 
-  navigateTo(purpose: any) {
-    let purposeString: string = purpose.nextId;
-    let purposeUrl =
-      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-    this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-    if (purposeString == "Tourist") {
-      this.MyQuotation1 = this.touristArr;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.selectedVisaType = "Tourist";
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
-    } else if (purposeString == "Business") {
-      this.MyQuotation1 = this.businessArr;
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.selectedVisaType = "Business";
-      this.selectedBusiness = 1;
-      this.selectedMobileBusiness = 1;
-    } else {
-      this.MyQuotation1 = this.transitArr;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.selectedVisaType = "Transit";
-      this.selectedTransit = 1;
-      this.selectedMobileTransit = 1;
-    }
+  // navigateTo(purpose: any) {
+  //   let purposeString: string = purpose.nextId;
+  //   let purposeUrl =
+  //     purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+  //   this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
+  //   if (purposeString == "Tourist") {
+  //     this.MyQuotation1 = this.touristArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+  //     this.selectedVisaType = "Tourist";
+  //     this.selectedTourist = 1;
+  //     this.selectedMobileTourist = 1;
+  //   } else if (purposeString == "Business") {
+  //     this.MyQuotation1 = this.businessArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+  //     this.selectedVisaType = "Business";
+  //     this.selectedBusiness = 1;
+  //     this.selectedMobileBusiness = 1;
+  //   } else {
+  //     this.MyQuotation1 = this.transitArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+  //     this.selectedVisaType = "Transit";
+  //     this.selectedTransit = 1;
+  //     this.selectedMobileTransit = 1;
+  //   }
 
-    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
+  //   this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
 
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imageCatogoryTemp)
-    );
-  }
+  //   this.userFlow.setUserFlowDetails(
+  //     "imageUploads",
+  //     JSON.stringify(this.imageCatogoryTemp)
+  //   );
+  // }
 }

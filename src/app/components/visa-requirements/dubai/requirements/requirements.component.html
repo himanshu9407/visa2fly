@@ -3,13 +3,8 @@
     <!-- mandatory -->
     <div class="iconSection">
       <!-- desktopContainer -->
-      <div class="row desktopContainer headingWrapContainer">
+      <div class="row  headingWrapContainer">
         <div class="col-12 text-center">
-          <!-- <h1 class="outerRequirement">
-            <span class="requirementContainer"
-              > Mandatory documents Required For Dubai Visa</span
-            >
-          </h1> -->
           <h3 class="requirement-main--heading">
             Document required for Dubai {{ visaType }} visa
           </h3>
@@ -84,7 +79,7 @@
           </div>
         </div>
 
-        <div class="col-12" *ngIf="visaType == 'Transit'">
+        <div class="col-12" [ngStyle]="{'display': visaType == 'Transit'? 'block' : 'none'}">
           <div class="card requiredIcon">
             <div class="card-body">
               <h1 class="requiredIconHeading">Flight Tickets</h1>

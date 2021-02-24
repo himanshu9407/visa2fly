@@ -1,6 +1,102 @@
-<section id="requirement">
-<div class="container-fluid p-0">
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
     <div class="iconSection">
+      <div class="row headingWrapContainer">
+        <!-- Heading -->
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for Vietnam {{ visaType }} visa
+          </h3>
+        </div>
+        <!-- Content -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Passport</h1>
+              <p>
+                A valid passport for 6 months beyond the last intended date of
+                departure from Vietnam. it should also contain at least 2 blank
+                visa pages.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Application Form</h1>
+              <!-- <ul>
+              <li>
+                A valid current email address is required, to which the ETA will be sent.
+              </li>
+            </ul> -->
+              <p>
+                The Vietnam application form must be duly filled and signed by
+                the traveler. This is the form:
+                <a target="_blank" href="https://vietnamvisa.govt.vn/form-on-arrival.pdf">https://vietnamvisa.govt.vn/form-on-arrival.pdf</a>. It must be
+                submitted in the same format (pdf).
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Photograph</h1>
+              <p>
+                2 recent color 4*6cm photograph must be submitted. This must be
+                taken on a white background. A neutral expression must be
+                maintained, and no sunglasses or caps must be worn. One picture
+                must be attached to the application, and the other must be
+                submitted upon arrival.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Authorization Document</h1>
+              <p>
+                This is handled by the Immigration Department (Ministry of
+                Public Security) or the Consular Department in Ho Chi Minh city
+                (Ministry of Foreign Affairs).
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12"
+          [ngStyle]="{ display: visaType == 'Transit' ? 'block' : 'none' }"
+        >
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Flight Tickets</h1>
+              <p>
+                Confirmed round-trip tickets must be shown upon application of
+                the visa. Please note, a return ticket is mandatory.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12"
+          [ngStyle]="{ display: visaType == 'Transit' ? 'block' : 'none' }"
+        >
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Visa For Final Destination</h1>
+              <p>
+                Any visa for your final destination (the country you will be
+                landing in after transit) may be asked for.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="iconSection">
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
@@ -8,7 +104,6 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -18,7 +113,6 @@
                 </div>
               </div>
 
-              <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -155,7 +249,6 @@
                 </div>
               </div>
 
-              <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -304,7 +397,6 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
@@ -459,7 +551,6 @@
                 </div>
               </div>
 
-              <!-- mobileContainer -->
               <div class="mobileContainer accordion wrapContainer" id="businessAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -620,7 +711,6 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
@@ -821,6 +911,6 @@
           </ng-template>
         </ngb-tab>
       </ngb-tabset>
-    </div>
+    </div> -->
   </div>
-  </section>
+</section>

@@ -1,4 +1,88 @@
-<section id="requirement">
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
+    <div class="iconSection">
+      <div class="row headingWrapContainer">
+        <!-- Heading -->
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for Turkey {{ visaType }} visa
+          </h3>
+        </div>
+        <!-- Content -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Passport</h1>
+                <p>
+                  You must hold a passport valid for at least with an expiration date at least 60 days beyond your intended duration of stay in Turkey
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Photograph</h1>
+             <p>A recent color passport-size photograph must be submitted. This must be taken on a white or cream-colored background. A neutral expression must be maintained.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Flight Tickets</h1>
+                <p>
+                  Confirmed round-trip tickets must be shown upon application of the visa. Please note, a return ticket is mandatory.
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Hotel Reservation</h1>
+                <p>
+                  Proof of hotel reservations are required for applying for a Turkish tourist e-visa.
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Proof Of Sufficient Funds</h1>
+                <p>
+                  Sufficient funding is required to guarantee entry into Azerbaijan, and proof of the same must be displayed (in the form of hard cash, or bank statements). The recommended amount is calculated at 50 USD per day.
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Supporting Document</h1>
+                <p>
+                  A valid visa, travel permit, or residence permit from one of the Schengen countries, USA, UK or Ireland is required. Without the submission of this, your e-visa is considered invalid. E-visas from any of these countries is not accepted.
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                <p>
+                  An invitation letter, either by the host company in Azerbaijan or the sponsoring company in your current county, must be shown. It should contain the name and passport details of the traveler, as well as the official sign/stamp of the company. It must be addressed to the respective authorities of the Republic of Azerbaijan.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section id="requirement">
 <div class="container-fluid p-0">
     <div class="iconSection">
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
@@ -8,7 +92,6 @@
           <ng-template ngbTabContent>
   
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -18,7 +101,6 @@
                 </div>
               </div>
   
-              <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -197,7 +279,6 @@
   
               </div>
   
-              <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -411,7 +492,6 @@
           <ng-template ngbTabContent>
   
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
@@ -666,7 +746,6 @@
   
                 </div>
   
-              <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -932,7 +1011,6 @@
           <ng-template ngbTabContent>
   
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
@@ -1139,4 +1217,4 @@
       </ngb-tabset>
     </div>
   </div>
-  </section>
+  </section> -->

@@ -57,7 +57,6 @@ export class DubaiComponent implements OnInit {
   public MyQuotation1: Array<any> = [];
   public imagefield1: Array<any> = [];
   public purposeChooseForm: FormGroup;
-  // public selectedPurpose = 'Tourist';
   businessArr: Array<any> = [];
   touristArr: Array<any> = [];
   transitArr: Array<any> = [];
@@ -250,7 +249,6 @@ export class DubaiComponent implements OnInit {
 
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {

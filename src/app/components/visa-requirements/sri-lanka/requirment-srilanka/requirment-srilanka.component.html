@@ -1083,7 +1083,7 @@
 <section id="ui_requirement" class="mgxTop">
     <div class="container-fluid">
       <div class="iconSection">
-        <div class="row">
+        <div class="row headingWrapContainer">
           <!-- Heading -->
           <div class="col-12 text-center">
             <h3 class="requirement-main--heading">
@@ -1142,7 +1142,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12" *ngIf="visaType == 'Business'">
+          <div class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}">
             <div class="card requiredIcon">
               <div class="card-body">
                 <h1 class="requiredIconHeading">Business Invitation</h1>
@@ -1152,7 +1152,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12" *ngIf="visaType == 'Transit'">
+          <div class="col-12" [ngStyle]="{'display': visaType == 'Transit'? 'block' : 'none'}">
             <div class="card requiredIcon">
               <div class="card-body">
                 <h1 class="requiredIconHeading">Flight Ticket</h1>

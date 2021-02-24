@@ -186,11 +186,7 @@
 <app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
 <app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
 
-<app-requirement-vietnam (changedPurpose)="navigateTo($event)" [selectedBusiness]="selectedBusiness"
-  [selectedTransit]="selectedTransit" [selectedTourist]="selectedTourist"
-  [selectedMobileTourist]="selectedMobileTourist" [selectedMobileBusiness]="selectedMobileBusiness"
-      [selectedMobileTransit]="selectedMobileTransit" [selectedVisaType]="selectedVisaType" [selectedPurpose]="selectedPurpose">
-</app-requirement-vietnam>
+<app-requirement-vietnam  [selectedPurpose]="selectedPurpose"  [selectedVisaType]="selectedVisaType"></app-requirement-vietnam>
 
 <app-important-points-vietnam></app-important-points-vietnam>
 
