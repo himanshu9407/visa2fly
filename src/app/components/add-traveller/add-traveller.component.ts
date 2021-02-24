@@ -1341,23 +1341,59 @@ export class AddTravellerComponent implements OnInit {
         this.toastr.warning("Please accept our terms and conditions");
       }
     } else {
-      this.toastr.warning("Some details missing !");
-      this.validateTravellerForm();
-
-      if (this.travellerForm.invalid && this.travelDetails.valid) {
-        let topPicker;
-        if (window.innerWidth > 600) {
-          topPicker = 350;
-        } else {
-          topPicker = 490;
+      if (this.imageUpload) {
+        if (this.travelDetails.get("dateOfTravel").invalid) {
+          this.toastr.warning('Travel date missing!');
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
         }
-        window.scrollTo({
-          top: topPicker + this.scrollBy,
-          left: 0,
-          behavior: "smooth",
-        });
+      } else {
+        if (this.travelDetails.get("dateOfTravel").invalid) {
+          this.toastr.warning('Travel date missing!');
+          if (this.travellerForm.invalid && this.travelDetails.valid) {
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+          }
+        } else if (this.travelDetails.get("dateOfCollection").invalid) {
+          this.toastr.warning('Collection date missing!');
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      for (
+        let i = 0;
+        i < this.travellerForm.get('travellers').controls.length;
+        i++
+      ) {
+        if (!this.travellerForm.controls.travellers.controls[i].valid && i == 0) {
+          this.toastr.warning('Some detail missing in Primary Traveller!');
+          if (this.travelDetails.valid) {
+            this.scrollToInvalid('Primary');
+          }
+        } else if (!this.travellerForm.controls.travellers.controls[i].valid && i > 0) {
+          this.toastr.warning('Some detail missing in Traveller ' + (i + 1));
+          if (this.travelDetails.valid) {
+            this.scrollToInvalid('Traveller' + (i + 1));
+          }
+        }
       }
     }
+  }
+
+  scrollToInvalid(id: string) {
+    $('html, body').animate({
+      scrollTop: $("#" + id).offset().top
+    }, 500);
   }
 
   goToHome() {
@@ -1493,7 +1529,7 @@ export class AddTravellerComponent implements OnInit {
           behavior: "smooth",
         });
         let temp = { id: "", dataToggle: "", dataToggleHash: "" };
-        temp.id = "Traveller " + this.count;
+        temp.id = "Traveller" + this.count;
         temp.dataToggle = "toogle" + this.count;
         temp.dataToggleHash = "#toogle" + this.count;
         this.dataSource.push(temp);
