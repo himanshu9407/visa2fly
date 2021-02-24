@@ -411,36 +411,51 @@
                 </div>
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4"
-                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
-                          <div class="makeIconCntr">
-                            <div class="vr-authorization requiredIcons img-sprite"></div>
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" id="#businessHeading4" class="collapsed" data-target="#business4"
+                          aria-expanded="false" aria-controls="business4"
+                            [class.showDiv]="selectedBusiness === 4"
+                            (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                            <div class="makeIconCntr">
+                              <div class="vr-authorization requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Authorization Document</h2>
                           </div>
-                          <h2 class="setFontSize">Authorization Document</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Authorization Document</h1>
-                              <p>
-                                this is handled by the Immigration Department (Ministry of Public Security) or the
-                                Consular Department in Ho Chi Minh city (Ministry of Foreign Affairs).
-                              </p>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Authorization Document</h1>
+                                <p>
+                                  this is handled by the Immigration Department (Ministry of Public Security) or the
+                                  Consular Department in Ho Chi Minh city (Ministry of Foreign Affairs).
+                                </p>
 
 
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        </ng-template>
+                      </ngb-tab>
+                   </ngb-tabset>
+
+
                 </div>
               </div>
 
