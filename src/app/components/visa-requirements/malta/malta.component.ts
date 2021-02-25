@@ -65,6 +65,9 @@ export class MaltaComponent implements OnInit {
 
   public selectedCountrytype = "Malta";
   public onlinestatus: boolean = false;
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(
     private router: Router,
@@ -115,10 +118,13 @@ export class MaltaComponent implements OnInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.isBusiness = true;
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.isTourist = true;
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.isTransit = true;
             }
           });
 

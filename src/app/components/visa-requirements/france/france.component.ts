@@ -4,13 +4,6 @@ import {
   OnInit,
   Inject,
 } from "@angular/core";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -28,17 +21,7 @@ export interface Food {
 @Component({
   selector: "app-france",
   templateUrl: "./france.component.html",
-  styleUrls: ["./france.component.css"],
-  animations: [
-    trigger("simpleFadeAnimation", [
-      state("in", style({ opacity: 1 })),
-      transition(":enter", [style({ opacity: 0 }), animate(800)]),
-      transition(
-        ":leave",
-        animate(800, style({ opacity: 0, background: "green" }))
-      ),
-    ]),
-  ],
+  styleUrls: ["./france.component.css"]
 })
 export class FranceComponent implements OnInit {
   ngbTabTitleClass;
@@ -71,6 +54,9 @@ export class FranceComponent implements OnInit {
   public selectedCountrytype = "France";
   public onlinestatus: boolean = false;
   activeTouristArr: Array<any> = [];
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(
     private router: Router,
@@ -121,10 +107,13 @@ export class FranceComponent implements OnInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.isBusiness = true;
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.isTourist = true;
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.isTransit = true;
             }
           });
 

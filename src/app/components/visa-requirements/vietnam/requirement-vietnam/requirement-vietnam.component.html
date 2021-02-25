@@ -14,22 +14,33 @@
             <div class="card-body">
               <h1 class="requiredIconHeading">Passport</h1>
               <p>
-                A valid passport for 6 months beyond the last intended date of
-                departure from Vietnam. it should also contain at least 2 blank
-                visa pages.
+                Upload colored copies of the 
+                <button
+                type="button"
+                class="btn toggleHelperBtn"
+                data-toggle="modal"
+                data-target="#samplePassportFront"
+                >
+                first page
+                </button> and
+                <button
+                  type="button"
+                  class="btn toggleHelperBtn"
+                  data-toggle="modal"
+                  data-target="#samplePassportBack"
+
+                >
+                last page
+                </button> of the passport.
+                When you apply for a Vietnam e visa online, you must be in possession of a passport with at least 6 months validity.
               </p>
             </div>
           </div>
         </div>
-        <div class="col-12">
+        <!-- <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
               <h1 class="requiredIconHeading">Application Form</h1>
-              <!-- <ul>
-              <li>
-                A valid current email address is required, to which the ETA will be sent.
-              </li>
-            </ul> -->
               <p>
                 The Vietnam application form must be duly filled and signed by
                 the traveler. This is the form:
@@ -38,22 +49,31 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
               <h1 class="requiredIconHeading">Photograph</h1>
-              <p>
-                2 recent color 4*6cm photograph must be submitted. This must be
+              <!-- <p>
+                2 recent color 35mm width by 45 mm height photograph must be submitted. This must be
                 taken on a white background. A neutral expression must be
                 maintained, and no sunglasses or caps must be worn. One picture
                 must be attached to the application, and the other must be
                 submitted upon arrival.
-              </p>
+              </p> -->
+              <ul>
+                <li>Upload scanned color copy of your passport-sized photograph</li>
+                <li>
+                  <button type="button" class="btn toggleHelperBtn" data-toggle="modal" data-target="#samplePhotograph">
+                    Photo
+                  </button>
+                   should be taken against a white background.</li>
+                <li>Dimensions should be 45mm height x 35mm width.</li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="col-12">
+        <!-- <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
               <h1 class="requiredIconHeading">Authorization Document</h1>
@@ -64,35 +84,44 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
         <div
           class="col-12"
-          [ngStyle]="{ display: visaType == 'Transit' ? 'block' : 'none' }"
         >
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Flight Tickets</h1>
+              <h1 class="requiredIconHeading">Air ticket</h1>
               <p>
-                Confirmed round-trip tickets must be shown upon application of
-                the visa. Please note, a return ticket is mandatory.
+                Applicant must provide both departure and arrival flight tickets.
               </p>
             </div>
           </div>
         </div>
         <div
           class="col-12"
-          [ngStyle]="{ display: visaType == 'Transit' ? 'block' : 'none' }"
         >
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Visa For Final Destination</h1>
+              <h1 class="requiredIconHeading">Hotel confirmation</h1>
               <p>
-                Any visa for your final destination (the country you will be
-                landing in after transit) may be asked for.
+                Applicant needs provide hotel booking confirmation or any other accommodation (if any).
               </p>
             </div>
           </div>
         </div>
+
+        <div
+        class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}"
+      >
+        <div class="card requiredIcon">
+          <div class="card-body">
+            <h1 class="requiredIconHeading">Business Invitation</h1>
+            <p>
+              Applicant needs to provide Invitation from the inviting company from Vietnam.
+            </p>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
 
@@ -914,3 +943,70 @@
     </div> -->
   </div>
 </section>
+
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

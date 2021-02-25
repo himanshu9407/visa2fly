@@ -1,12 +1,5 @@
 import { Component, OnInit,Inject, PLATFORM_ID, } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -15,6 +8,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
 import { Subject } from 'rxjs';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 
 export interface Food {
@@ -76,6 +70,9 @@ export class NewZealandComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
 
   constructor(private router: Router,
@@ -128,10 +125,13 @@ export class NewZealandComponent implements OnInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.isBusiness = true;
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.isTourist = true;
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.isTransit = true;
             }
           });
 

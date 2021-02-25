@@ -80,6 +80,9 @@ export class SriLankaComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(private router: Router,
     private requireQuotation: VisaRequirementService,
@@ -132,10 +135,13 @@ export class SriLankaComponent implements OnInit {
             this.MyQuotation.forEach((element) => {
               if (element.purpose == "Business") {
                 this.businessArr.push(element);
+                this.isBusiness = true;
               } else if (element.purpose == "Tourist") {
                 this.touristArr.push(element);
+                this.isTourist = true;
               } else if (element.purpose == "Transit") {
                 this.transitArr.push(element);
+                this.isTransit = true;
               }
             });
 

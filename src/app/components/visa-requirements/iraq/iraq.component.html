@@ -44,97 +44,43 @@
             <div class="col-lg-9 col-md-6 col-8 visaDropDown">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div
-                    class="select-box__current"
-                    tabindex="1"
-                    (change)="purposeChanged()"
-                  >
-                    <div class="select-box__value">
-                      <input
-                        class="select-box__input"
-                        type="radio"
-                        id="Tourist"
-                        value="Tourist"
-                        name="purposeSelected"
-                        formControlName="purposeSelected"
-                        checked="checked"
-                      />
+                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                    <div class="select-box__value" *ngIf="isTourist">
+                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                        formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
-                      <input
-                        class="select-box__input"
-                        type="radio"
-                        id="Business"
-                        value="Business"
-                        name="purposeSelected"
-                        formControlName="purposeSelected"
-                        checked="checked"
-                      />
+                    <div class="select-box__value" *ngIf="isBusiness">
+                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input
-                        class="select-box__input"
-                        type="radio"
-                        id="Transit"
-                        value="Transit"
-                        name="purposeSelected"
-                        formControlName="purposeSelected"
-                        checked="checked"
-                      />
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      height="15px"
-                      width="15px"
-                      class="select-box__icon"
-                      viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000"
-                      xml:space="preserve"
-                    >
-                      <metadata>
-                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
-                      </metadata>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000" xml:space="preserve">
+                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
                       <g>
-                        <path
-                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
-                        />
+                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
-                      <label
-                        class="select-box__option"
-                        style="margin-bottom: 0px"
-                        for="Tourist"
-                        aria-hidden="aria-hidden"
-                        >Tourist</label
-                      >
+                    <li *ngIf="isTourist">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                        aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
-                      <label
-                        class="select-box__option"
-                        style="margin-bottom: 0px"
-                        for="Business"
-                        aria-hidden="aria-hidden"
-                        >Business</label
-                      >
+                    <li *ngIf="isBusiness">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                        aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
-                      <label
-                        class="select-box__option"
-                        style="margin-bottom: 0px"
-                        for="Transit"
-                        aria-hidden="aria-hidden"
-                        >Transit</label
-                      >
+                    <li *ngIf="isTransit">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                        aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
                 </div>
@@ -186,76 +132,43 @@
             <div class="col-lg-9 col-md-6 col-8 visaDropDown p-0">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div
-                    class="select-box__current"
-                    tabindex="1"
-                    (change)="purposeChanged()"
-                  >
-                    <div class="select-box__value">
-                      <input
-                        class="select-box__input"
-                        type="radio"
-                        id="Tourist"
-                        value="Tourist"
-                        name="purposeSelected"
-                        formControlName="purposeSelected"
-                        checked="checked"
-                      />
+                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                    <div class="select-box__value" *ngIf="isTourist">
+                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
+                        formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
-                      <input
-                        class="select-box__input"
-                        type="radio"
-                        id="Business"
-                        value="Business"
-                        name="purposeSelected"
-                        formControlName="purposeSelected"
-                        checked="checked"
-                      />
+                    <div class="select-box__value" *ngIf="isBusiness">
+                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <svg
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      height="15px"
-                      width="15px"
-                      class="select-box__icon"
-                      viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000"
-                      xml:space="preserve"
-                    >
-                      <metadata>
-                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
-                      </metadata>
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <p class="select-box__input-text">Transit</p>
+                    </div>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000" xml:space="preserve">
+                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
                       <g>
-                        <path
-                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
-                        />
+                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
-                      <label
-                        class="select-box__option"
-                        style="margin-bottom: 0px"
-                        for="Tourist"
-                        aria-hidden="aria-hidden"
-                        >Tourist</label
-                      >
+                    <li *ngIf="isTourist">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
+                        aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
-                      <label
-                        class="select-box__option"
-                        style="margin-bottom: 0px"
-                        for="Business"
-                        aria-hidden="aria-hidden"
-                        >Business</label
-                      >
+                    <li *ngIf="isBusiness">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
+                        aria-hidden="aria-hidden">Business</label>
+                    </li>
+                    <li *ngIf="isTransit">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
+                        aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
                 </div>
