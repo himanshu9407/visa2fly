@@ -1,12 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, Inject } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -28,23 +21,7 @@ export interface Food {
 @Component({
   selector: 'app-behrain',
   templateUrl: './bahrain.component.html',
-  styleUrls: ['./bahrain.component.css'],
-  animations: [
-    // the fade-in/fade-out animation.
-    trigger("simpleFadeAnimation", [
-      // the "in" style determines the "resting" state of the element when it is visible.
-      state("in", style({ opacity: 1 })),
-
-      // fade in when created. this could also be written as transition('void => *')
-      transition(":enter", [style({ opacity: 0 }), animate(800)]),
-
-      // fade out when destroyed. this could also be written as transition('void => *')
-      transition(
-        ":leave",
-        animate(800, style({ opacity: 0, background: "green" }))
-      )
-    ])
-  ]
+  styleUrls: ['./bahrain.component.css']
 })
 export class BahrainComponent implements OnInit {
   ngbTabTitleClass;
@@ -79,6 +56,9 @@ export class BahrainComponent implements OnInit {
 
   public selectedCountrytype = "Bahrain";
   public onlinestatus: boolean = false;
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -133,10 +113,13 @@ export class BahrainComponent implements OnInit {
             this.MyQuotation.forEach((element) => {
               if (element.purpose == "Business") {
                 this.businessArr.push(element);
+                this.isBusiness = true;
               } else if (element.purpose == "Tourist") {
                 this.touristArr.push(element);
+                this.isTourist = true;
               } else if (element.purpose == "Transit") {
                 this.transitArr.push(element);
+                this.isTransit = true;
               }
             });
   

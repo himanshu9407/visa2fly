@@ -29,9 +29,7 @@ const routes: Routes = [
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    NgxPaginationModule,
     NgbModule,
-    
     SharedVisaModuleModule,
     RouterModule.forChild(routes)
   ]

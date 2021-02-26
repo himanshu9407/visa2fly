@@ -207,7 +207,7 @@
       <div
         *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first', totalItems: totalItems }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
+        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa', 'sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
               {{booking.booking.bookingType}}
@@ -730,11 +730,6 @@
                   </div>
                   <div class="col-md-12">
                     <textarea class="form-control" formControlName="FeedbackEdit" id="" cols="30" rows="4"></textarea>
-                    <div class="invalid-feedback" style="display: block; margin-bottom: 5px;">
-                      <div *ngIf="feedbackMsg && FeedbackForm.get('FeedbackEdit').invalid">
-                        *Please provide your rating
-                      </div>
-                    </div>
                   </div>
                   <div class="col-md-12 text-center mt-2">
                     <button type="button" class="btn text-white btn-submit btn-sm btn-block"

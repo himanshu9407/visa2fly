@@ -6,7 +6,6 @@ import {
   UrlTree,
   Router
 } from "@angular/router";
-import { RouterHistory } from "src/app/shared/router-history.service";
 import { AddTravellerComponent } from "../components/add-traveller/add-traveller.component";
 import { Observable } from "rxjs";
 
@@ -37,7 +36,6 @@ export class CanDeactivateGuard
         return this.showTransparentHeader = true;
       }
     } else {
-      // console.log("5");
       return true;
     }
   }

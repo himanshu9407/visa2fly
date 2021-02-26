@@ -11,6 +11,7 @@ import { FaqComponent } from './faq/faq.component';
 import { RequirementThailandComponent } from './requirement-thailand/requirement-thailand.component';
 import { ImportantPointsThailandComponent } from './important-points-thailand/important-points-thailand.component';
 import { QuotationThailandComponent } from './quotation-thailand/quotation-thailand.component';
+import { DescriptionComponent } from './description/description.component';
 
 const routes: Routes = [
   { path: "", component: ThailandComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     FaqComponent,
     RequirementThailandComponent,
     ImportantPointsThailandComponent,
-    QuotationThailandComponent
+    QuotationThailandComponent,
+    DescriptionComponent
   ],
   imports: [
     FormsModule,

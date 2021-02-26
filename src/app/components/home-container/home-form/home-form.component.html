@@ -1,46 +1,146 @@
-<div class="chkIn chkInSec1 removeradius shadow"
-    style="margin-top: -160px; padding: 0px !important; border-radius: 6px;">
-    <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
+<div
+  class="chkIn chkInSec1 removeradius shadow home-form"
+  style="margin-top: -160px; padding: 0px !important; border-radius: 6px"
+>
+  <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
     <div class="chkIp chkIp1 chkIp8">
-        <label class="chkLabel">Destination</label>
-        <div class="icon-s1-plane pull-left"></div>
-        <div class="img-loader ldr1" style="display: none;">
+      <label class="chkLabel">Destination</label>
+      <div class="icon-s1-plane pull-left"></div>
+      <div class="img-loader ldr1" style="display: none">
         <div class="icon-s1-small-loader" alt="apply visa online"></div>
-        </div>
-        <select (change)="countryChanged()" [(ngModel)]="selectedCountry" formControlName="country" required
+      </div>
+      <!-- <select (change)="countryChanged()" [(ngModel)]="selectedCountry" formControlName="country" required
         id="ddlCountry" class="form-control form-control-sm" name="country">
         <option style="height: 40px;" class="option" *ngFor="let country of homeFormData.data.countries"
             value="{{country}}">{{country}}</option>
-        </select>
+        </select> -->
+
+      <!-- <div class="ng-autocomplete" style="width: 100%;">
+            <ng-autocomplete 
+              [data]="data"
+              [searchKeyword]="keyword"
+              (selected)='selectEvent($event)'
+              (inputChanged)='onChangeSearch($event)'
+              (inputFocused)='onFocused($event)'
+              (change)="countryChanged()"
+              [itemTemplate]="itemTemplate"
+              formControlName="country"
+              placeholder="Search Country..."
+              [notFoundTemplate]="notFoundTemplate">                                 
+            </ng-autocomplete>
+            
+            <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+            </ng-template>
+            
+            <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+            </ng-template>
+            </div> -->
+
+      <!--Using ng-option and for loop-->
+      <ng-select
+        formControlName="country"
+        placeholder="Select Country"
+        required
+        (change)="countryChanged($event)"
+      >
+        <ng-option
+          *ngFor="let country of homeFormData.countries"
+          [value]="country"
+        >
+          {{ country }}
+        </ng-option>
+      </ng-select>
+      <div *ngIf="countryNotSelected" class="invalid-feedback">
+        Please choose a country.
+      </div>
     </div>
     <div class="chkIp chkIp2">
-        <label class="chkLabel">Visa Type</label>
-        <div class="icon-s1-calender pull-left"></div>
-        <select formControlName="purpose" [(ngModel)]="selectedPurpose" required name="purpose" id="ddlPurpose"
-        class=" form-control form-control-sm">
+      <label class="chkLabel">Visa Type</label>
+      <div class="icon-s1-calender pull-left"></div>
+      <!-- <select
+        formControlName="purpose"
+        [(ngModel)]="selectedPurpose"
+        required
+        name="purpose"
+        id="ddlPurpose"
+        class="form-control form-control-sm"
+      >
         <option value="select">Select</option>
-        <option class="purpose-opt" *ngFor="let visaType of homeFormData.data.data[this.selectedCountry]['purpose']"
-            value="{{visaType}}">{{visaType}}</option>
-        </select>
-        <div *ngIf="purposeNotSelected" class="invalid-feedback">
+        <option
+          class="purpose-opt"
+          *ngFor="let visaType of purposeArr"
+          value="{{ visaType }}"
+        >
+          {{ visaType }}
+        </option>
+      </select> -->
+      <ng-select
+        formControlName="purpose"
+        placeholder="Select Purpose"
+        required
+      >
+        <ng-option value=""> Select </ng-option>
+        <ng-option *ngFor="let purpose of purposeArr" [value]="purpose">
+          {{ purpose }}
+        </ng-option>
+      </ng-select>
+      <div *ngIf="purposeNotSelected" class="invalid-feedback">
         Please choose a Entry Type.
-        </div>
+      </div>
     </div>
 
     <div class="makeCenter">
-        <div class="chkIp chkIp3">
+      <div class="chkIp chkIp3">
         <label class="chkLabel">I Reside in </label>
         <div class="icon-s1-location pull-left"></div>
-        <div class="img-loader ldr3" style="display: none;">
-            <div class="icon-s1-small-loader" alt="apply visa online"></div>
+        <div class="img-loader ldr3" style="display: none">
+          <div class="icon-s1-small-loader" alt="apply visa online"></div>
         </div>
-        <select formControlName="livingin" [(ngModel)]="selectedResidenceOf" required name="livingin"
-            id="ddlJurisction" class=" form-control form-control-sm">
-            <option value="select" class="option">Select</option>
-            <option class="purpose-opt option"
-            *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">
-            {{livesin}}</option>
-        </select>
+        <!-- <select
+          formControlName="livingin"
+          [(ngModel)]="selectedResidenceOf"
+          required
+          name="livingin"
+          id="ddlJurisction"
+          class="form-control form-control-sm"
+        >
+          <option value="select" class="option">Select</option>
+          <option
+            class="purpose-opt option"
+            *ngFor="
+              let livesin of homeFormData.data.data[this.selectedCountry]
+                .residenceOf
+            "
+            value="{{ livesin }}"
+          >
+            {{ livesin }}
+          </option>
+        </select> -->
+
+        <!-- <ng-select
+          [(ngModel)]="selectedResidenceOf"
+          formControlName="livingin"
+          placeholder="Select Reside In"
+          required
+        >
+          <ng-option value="select"> Select </ng-option>
+          <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
+            {{ livesin }}
+          </ng-option>
+        </ng-select> -->
+
+        <ng-select
+          formControlName="livingin"
+          placeholder="Select Reside In"
+          required
+        >
+          <ng-option value=""> Select </ng-option>
+          <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
+            {{ livesin }}
+          </ng-option>
+        </ng-select>
 
         <!-- <select formControlName="livingin" onmousedown="if(this.options.length>7){this.size=7;}"
             onchange='this.size=0;' onblur="this.size=0;" [(ngModel)]="selectedResidenceOf" required name="livingin"
@@ -51,14 +151,26 @@
             {{livesin}}</option>
         </select> -->
         <div *ngIf="livesInNotSelected" class="invalid-feedback">
-            Please choose where you live.
+          Please choose where you live.
         </div>
-        </div>
+      </div>
     </div>
-    <div class="main-wrapper-button justify-content-center d-flex" style="padding: 0px !important">
-        <button class="chkIp chkSubmit serchcountrybtn" type="submit"
-        style="padding: 10px !important;  border-radius: 5px; width: 100px !important;"> Submit </button>
+    <div
+      class="main-wrapper-button justify-content-center d-flex"
+      style="padding: 0px !important"
+    >
+      <button
+        class="chkIp chkSubmit serchcountrybtn"
+        type="submit"
+        style="
+          padding: 10px !important;
+          border-radius: 5px;
+          width: 100px !important;
+        "
+      >
+        Submit
+      </button>
     </div>
-    </form>
-    <div class="clear"></div>
+  </form>
+  <div class="clear"></div>
 </div>

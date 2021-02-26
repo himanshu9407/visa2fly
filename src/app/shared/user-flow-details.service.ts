@@ -18,7 +18,6 @@ export class UserFlowDetails {
   ) { }
 
   setExpiry(rememberMe: boolean) {
-    // console.log(rememberMe);
     if (rememberMe) {
       const current = new Date();
       current.setDate(current.getDate() + 60);

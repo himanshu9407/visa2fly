@@ -35,70 +35,75 @@ export class RequirementsTurkeyComponent implements OnInit, AfterViewInit {
   desktopJustify = "justified";
   desktopOrientation = "horizontal";
 
-  @ViewChild("t") t;
+  selectedBusiness: number = 1;
+  selectedTransit: number = 1;
+  selectedMandatory: number = 1;
 
-  @Input() selectedBusiness: number;
-  @Input() selectedTransit: number;
-  @Input() selectedTourist: number;
-  @Input() selectedMobileTourist: number;
-  @Input() selectedMobileBusiness: number;
-  @Input() selectedMobileTransit: number;
+  selectedMobileMandatory: number = 1;
+  selectedMobileBusiness: number = 1;
+  selectedMobileTransit: number = 1;
+
   @Input() selectedVisaType: string;
   @Input() selectedPurpose: Subject<any>;
 
   @Output() changedPurpose = new EventEmitter();
-  showTouristFirst: boolean = true;
+  showMandatoryFirst: boolean = true;
   showBusinessFirst: boolean = true;
+  showTransitFirst: boolean = true;
+
   showTouristMobileFirst: boolean = true;
   showBusinessMobileFirst: boolean = true;
-  showTransitFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
+  visaType: string;
+  public selectedCountrytype = "Turkey";
 
   constructor() {}
 
   ngOnInit(): void {
     this.selectedPurpose.subscribe((res) => {
-      this.t.select(res);
+      this.visaType = res;
+      console.log(this.visaType);
     });
   }
 
   ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
+    setTimeout(() => {
+      this.visaType = this.selectedVisaType;
+    })
   }
 
-  setActiveTourist(index: number, id: string) {
-    this.selectedTourist = index;
-    let touristBool = true;
+  setActiveMandatory(index: number, id: string) {
+    this.selectedMandatory = index;
+    let mandatoryBool = true;
 
-    if (touristBool) {
-      this.showTouristFirst = false;
-      touristBool = false;
+    if (mandatoryBool) {
+      this.showMandatoryFirst = false;
+      mandatoryBool = false;
     }
 
-    if ($("#tourist" + index).hasClass("show")) {
+    if ($("#mandatory" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
     } else {
       $("#" + id).addClass("showDiv");
     }
   }
 
-  setActiveTouristMobile(index: number, id: string) {
-    this.selectedMobileTourist = index;
-    let touristMobileBool = true;
+  setActiveMandatoryMobile(index: number, id: string) {
+    this.selectedMobileMandatory = index;
+    let mandatoryMobileBool = true;
 
-    if (touristMobileBool) {
+    if (mandatoryMobileBool) {
       this.showTouristMobileFirst = false;
-      touristMobileBool = false;
+      mandatoryMobileBool = false;
     }
 
-    if ($("#touristMobile" + index).hasClass("show")) {
+    if ($("#mandatoryMobile" + index).hasClass("show")) {
       $("#" + id).removeClass("showDiv");
     } else {
       $("#" + id).addClass("showDiv");
     }
   }
 
-  
   setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;
     let businessBool = true;
@@ -132,7 +137,6 @@ export class RequirementsTurkeyComponent implements OnInit, AfterViewInit {
   }
 
   setActiveTransit(index: number, id: string) {
-    this.selectedTransit = index;
     let transitBool = true;
 
     if (transitBool) {
@@ -147,8 +151,7 @@ export class RequirementsTurkeyComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setActiveMobileTransit(index: number, id: string) {
-    this.selectedMobileTransit = index;
+  setActiveTransitMobile(index: number, id: string) {
     let transitMobileBool = true;
 
     if (transitMobileBool) {
@@ -163,15 +166,14 @@ export class RequirementsTurkeyComponent implements OnInit, AfterViewInit {
     }
   }
 
-
   changePurpose(event) {
     this.changedPurpose.emit(event);
 
     if (event.nextId == "Tourist") {
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
+      this.selectedMandatory = 1;
+      this.selectedMobileMandatory = 1;
 
-      this.showTouristFirst = true;
+      this.showMandatoryFirst = true;
       this.showTouristMobileFirst = true;
     } else if (event.nextId == "Business") {
       this.selectedBusiness = 1;

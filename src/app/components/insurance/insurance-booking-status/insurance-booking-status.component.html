@@ -13,7 +13,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 desktopView"></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
               <div class="booking-container text-center">
-                <h4 class="booking-container-heading">Booking {{status != 'Payment failed' ? 'Successfull' : 'Unsuccessfull'}}</h4>
+                <h4 class="booking-container-heading">Booking {{status != 'Payment failed' ? 'Successful' : 'Unsuccessful'}}</h4>
                 <div class="booking-details" *ngIf="status == 'Payment failed'">
                   <div class="row">
                     <div class="col-12 booking-details-input text-center">Due to {{message}}</div>
@@ -22,7 +22,7 @@
                     <div
                       class="col-12 text-center booking-details-button-container"
                     >
-                      <button class="btn booking-details-button">
+                      <button class="btn booking-details-button" (click)="navigateToBooking()">
                         My Booking
                       </button>
                     </div>
@@ -52,7 +52,7 @@
                     <div class="col-6 booking-details-label" style="text-align: left;">Country</div>
                     <div class="col-6 booking-details-input" style="text-align: left;">India</div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row mt-4">
                     <div
                       class="col-6 text-center booking-details-button-container"
                     >
@@ -63,7 +63,7 @@
                     <div
                       class="col-6 text-center booking-details-button-container"
                     >
-                      <button class="btn booking-details-button" (click)="navigationToMyBooking()">
+                      <button class="btn booking-details-button" (click)="navigateToBooking()()">
                         My Booking
                       </button>
                     </div>

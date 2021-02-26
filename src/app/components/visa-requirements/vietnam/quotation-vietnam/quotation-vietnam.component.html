@@ -1,78 +1,143 @@
-<div class="card planCard">
+<section id="quotation">
+  <div class="card planCard">
     <div class="card-header text-center font-weight-bold">
-      {{quotation.purpose}} ({{quotation.processingType}})
+      {{ quotation.purpose }} ({{ quotation.processingType }})
     </div>
     <div class="card-body planCardBody">
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
-        </div>
+        <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:</div>
         <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
-          {{quotation.processingTime}}
+          {{ quotation.processingTime }}
         </div>
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-6 planCardRow">Category:</div>
-        <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right planCardRow">{{quotation.category}}
+        <div
+          class="col-lg-6 col-md-6 col-6 font-weight-bold text-right planCardRow"
+        >
+          {{ quotation.category }}
         </div>
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
-        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
+        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+          {{ quotation.stayPeriod }}
         </div>
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
-        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
+        <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+          {{ quotation.validity }}
+        </div>
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
         <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
-          {{quotation.entryType}}
-  
-          <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;"
-            class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
-            <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
-              <path fill-rule="evenodd"
+          {{ quotation.entryType }}
+
+          <button
+            type="button"
+            *ngIf="quotation.entryType === 'Single Entry'"
+            style="padding: 0px 0px 0px 2px"
+            class="btn"
+            ngbPopover="Applicant is allowed to enter only once within specified validity period."
+          >
+            <svg
+              class="bi bi-question-circle-fill"
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              style="margin-top: -3px"
+            >
+              <path
+                fill-rule="evenodd"
                 d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                clip-rule="evenodd" />
+                clip-rule="evenodd"
+              />
             </svg>
           </button>
-  
-          <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;"
-            class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
-            <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
-              <path fill-rule="evenodd"
+
+          <button
+            type="button"
+            *ngIf="quotation.entryType === 'Double Entry'"
+            style="padding: 0px 0px 0px 2px"
+            class="btn"
+            ngbPopover="Applicant is allowed to enter only twice within specified validity period."
+          >
+            <svg
+              class="bi bi-question-circle-fill"
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              style="margin-top: -3px"
+            >
+              <path
+                fill-rule="evenodd"
                 d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                clip-rule="evenodd" />
+                clip-rule="evenodd"
+              />
             </svg>
           </button>
-  
-          <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;"
-            class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
-            <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
-              <path fill-rule="evenodd"
+
+          <button
+            type="button"
+            *ngIf="quotation.entryType === 'Multiple Entry'"
+            style="padding: 0px 0px 0px 2px"
+            class="btn"
+            ngbPopover="Applicant is allowed to enter multiple times within specified validity period."
+          >
+            <svg
+              class="bi bi-question-circle-fill"
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              style="margin-top: -3px"
+            >
+              <path
+                fill-rule="evenodd"
                 d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                clip-rule="evenodd" />
+                clip-rule="evenodd"
+              />
             </svg>
           </button>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-6 planCardRow
-                      ">Fees:</div>
-        <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
-                      planCardRow" style="color: #000080;">
-          INR {{quotation.basePrice + quotation.serviceTax}}</div>
+        <div class="col-lg-6 col-md-6 col-6 planCardRow">Fees:</div>
+        <div
+          class="col-lg-6 col-md-6 col-6 font-weight-bold text-right planCardRow"
+          style="color: #000080"
+        >
+          INR {{ quotation.basePrice + quotation.serviceTax }}
+        </div>
       </div>
       <div class="row mt-3">
         <div class="col-12 text-center">
-          <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
-            (click)="navigate(quotation.quoteId, quotation.purpose, quotation.category, quotation.minTravelDate, quotation.basePrice, quotation.serviceTax,quotation.stayPeriod, quotation.imageUpload)">Continue</button>
+          <button
+            class="btn btn-primary btn-sm font-weight-bold submitBtn"
+            (click)="
+              navigate(
+                quotation.quoteId,
+                quotation.purpose,
+                quotation.category,
+                quotation.minTravelDate,
+                quotation.basePrice,
+                quotation.serviceTax,
+                quotation.stayPeriod,
+                quotation.imageUpload
+              )
+            "
+          >
+            Continue
+          </button>
         </div>
       </div>
     </div>
   </div>
-  
+</section>

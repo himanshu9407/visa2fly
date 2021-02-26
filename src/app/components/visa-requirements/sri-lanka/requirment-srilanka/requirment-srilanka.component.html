@@ -1,13 +1,13 @@
+<!-- <section id="requirement">
 <div class="container-fluid p-0">
     <div class="iconSection">
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -16,8 +16,8 @@
                   </h1>
                 </div>
               </div>
-  
-              <!-- desktopContainer -->
+
+
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -139,19 +139,19 @@
                                 <p>These documents are enough to obtain an ETA.
                                   However, upon arrival, the below documents must
                                   be shown to guarantee entry into Sri Lanka:</p>
-    
+
                                 <p class="font-weight-bold">Printed Copy of ETA</p>
                                 <p>Regarding your Sri Lanka E-visa online, a printed
                                   copy of the approved ETA must be shown at
                                   the Immigration checkpoint.</p>
-    
+
                                 <p class="font-weight-bold">Proof of Sufficient Funding</p>
                                 <p>You must be able to guarantee that you are
                                   financially independent. This may be in the
                                   form of bank account statements, or any
                                   other acceptable form of proof.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Flight Tickets</p>
                                 <p>Flight tickets, especially return tickets, must
                                   be displayed upon asking. This could be a return
@@ -165,7 +165,7 @@
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-                          
+
                         </ng-template>
                         <ng-template ngbTabContent>
 
@@ -173,7 +173,7 @@
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-                          
+
                         </ng-template>
                         <ng-template ngbTabContent>
 
@@ -181,10 +181,10 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
               </div>
-  
-              <!-- mobileContainer -->
+
+
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -254,7 +254,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -285,8 +285,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -320,19 +320,19 @@
                                 <p>These documents are enough to obtain an ETA.
                                   However, upon arrival, the below documents must
                                   be shown to guarantee entry into Sri Lanka:</p>
-    
+
                                 <p class="font-weight-bold">Printed Copy of ETA</p>
                                 <p>Regarding your Sri Lanka E-visa online, a printed
                                   copy of the approved ETA must be shown at
                                   the Immigration checkpoint.</p>
-    
+
                                 <p class="font-weight-bold">Proof of Sufficient Funding</p>
                                 <p>You must be able to guarantee that you are
                                   financially independent. This may be in the
                                   form of bank account statements, or any
                                   other acceptable form of proof.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Flight Tickets</p>
                                 <p>Flight tickets, especially return tickets, must
                                   be displayed upon asking. This could be a return
@@ -346,19 +346,18 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
               </div>
-  
+
             </div>
-  
+
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
@@ -367,7 +366,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -400,7 +399,7 @@
                                 calculated as 6 months from the intended arrival
                                 date into Sri Lanka.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -416,7 +415,7 @@
                           </div>
                           <h2 class="setFontSize">Email Address</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
@@ -437,7 +436,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <div class="makeIconCntr">
                             <div class="vr-creditDebit requiredIcons img-sprite"></div>
@@ -470,7 +469,7 @@
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                             data-target="#business4" aria-expanded="false" aria-controls="business4"
-                            [class.showDiv]="selectedBusiness === 4" 
+                            [class.showDiv]="selectedBusiness === 4"
                             (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                             <div class="makeIconCntr">
                               <div class="vr-businessForm requiredIcons img-sprite"></div>
@@ -493,12 +492,12 @@
                                 <p>These documents are enough to obtain an ETA.
                                   However, upon arrival, the below documents must
                                   be shown to guarantee entry into Sri Lanka:</p>
-    
+
                                 <p class="font-weight-bold">Printed Copy of ETA</p>
                                 <p>Regarding your Sri Lanka E-visa online, a printed
                                   copy of the approved ETA must be shown at
                                   the Immigration checkpoint.</p>
-    
+
                                 <p class="font-weight-bold">Proof of Sufficient Funding</p>
                                 <p>You must be able to guarantee that you are
                                   financially independent when you apply for
@@ -506,20 +505,20 @@
                                   form of bank account statements, or any other
                                   acceptable form of proof.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Flight Tickets</p>
                                 <p>Flight tickets, especially return tickets, must
                                   be displayed upon asking. This could be a return
                                   ticket to your resident country or an onward
                                   ticket to a third country.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Supporting Documentation</p>
                                 <p>Supporting documentation that proves the
                                   intent of your visit to Sri Lanka. This is exclusively
                                   for those applying for a Sri Lanka business visa.
                                 </p>
-    
+
                               </div>
                             </div>
                           </div>
@@ -530,7 +529,7 @@
 
                         </ng-template>
                         <ng-template ngbTabContent>
-                          
+
                         </ng-template>
                       </ngb-tab>
                       <ngb-tab>
@@ -538,15 +537,14 @@
 
                         </ng-template>
                         <ng-template ngbTabContent>
-                          
+
                         </ng-template>
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
               </div>
-  
-              <!-- mobileContainer -->
+
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -579,7 +577,7 @@
                                 calculated as 6 months from the intended
                                 arrival date into Sri Lanka.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -618,7 +616,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -647,8 +645,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -682,12 +680,12 @@
                                 <p>These documents are enough to obtain an ETA.
                                   However, upon arrival, the below documents must
                                   be shown to guarantee entry into Sri Lanka:</p>
-    
+
                                 <p class="font-weight-bold">Printed Copy of ETA</p>
                                 <p>Regarding your Sri Lanka E-visa online, a printed
                                   copy of the approved ETA must be shown at
                                   the Immigration checkpoint.</p>
-    
+
                                 <p class="font-weight-bold">Proof of Sufficient Funding</p>
                                 <p>You must be able to guarantee that you are
                                   financially independent when you apply for
@@ -695,14 +693,14 @@
                                   form of bank account statements, or any other
                                   acceptable form of proof.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Flight Tickets</p>
                                 <p>Flight tickets, especially return tickets, must
                                   be displayed upon asking. This could be a return
                                   ticket to your resident country or an onward
                                   ticket to a third country.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Supporting Documentation</p>
                                 <p>Supporting documentation that proves the
                                   intent of your visit to Sri Lanka. This is exclusively
@@ -715,21 +713,20 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
               </div>
-  
-  
+
+
             </div>
-           
-  
+
+
           </ng-template>
         </ngb-tab>
-        
+
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
@@ -738,7 +735,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -856,12 +853,12 @@
                                 <p>These documents are enough to obtain an ETA.
                                   However, upon arrival, the below documents must
                                   be shown to guarantee entry into Sri Lanka:</p>
-    
+
                                 <p class="font-weight-bold">Printed Copy of ETA</p>
                                 <p>Regarding your Sri Lanka E-visa online, a printed
                                   copy of the approved ETA must be shown at
                                   the Immigration checkpoint.</p>
-    
+
                                 <p class="font-weight-bold">Proof of Sufficient Funding</p>
                                 <p>You must be able to guarantee that you are
                                   financially independent when you apply for
@@ -869,14 +866,14 @@
                                   form of bank account statements, or any other
                                   acceptable form of proof.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Flight Tickets</p>
                                 <p>Flight tickets, especially return tickets, must
                                   be displayed upon asking. This could be a return
                                   ticket to your resident country or an onward
                                   ticket to a third country.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Supporting Documentation</p>
                                 <p>Supporting documentation that proves the
                                   intent of your visit to Sri Lanka. This is exclusively
@@ -889,30 +886,30 @@
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
-                        
+
                         </ng-template>
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
-                        
+
                         </ng-template>
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
               </div>
-  
+
               <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
@@ -939,7 +936,7 @@
                                 least 6 months’ validity. This date is calculated
                                 as 6 months from the intended arrival date
                                 into Sri Lanka.</p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -982,7 +979,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1040,12 +1037,12 @@
                                 <p>These documents are enough to obtain an ETA.
                                   However, upon arrival, the below documents must
                                   be shown to guarantee entry into Sri Lanka:</p>
-    
+
                                 <p class="font-weight-bold">Printed Copy of ETA</p>
                                 <p>Regarding your Sri Lanka E-visa online, a printed
                                   copy of the approved ETA must be shown at
                                   the Immigration checkpoint.</p>
-    
+
                                 <p class="font-weight-bold">Proof of Sufficient Funding</p>
                                 <p>You must be able to guarantee that you are
                                   financially independent when you apply for
@@ -1053,14 +1050,14 @@
                                   form of bank account statements, or any other
                                   acceptable form of proof.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Flight Tickets</p>
                                 <p>Flight tickets, especially return tickets, must
                                   be displayed upon asking. This could be a return
                                   ticket to your resident country or an onward
                                   ticket to a third country.
                                 </p>
-    
+
                                 <p class="font-weight-bold">Supporting Documentation</p>
                                 <p>Supporting documentation that proves the
                                   intent of your visit to Sri Lanka. This is exclusively
@@ -1074,11 +1071,195 @@
                     </ngb-tabset>
                   </div>
               </div>
-  
+
             </div>
-  
+
           </ng-template>
         </ngb-tab>
       </ngb-tabset>
     </div>
   </div>
+  </section> -->
+<section id="ui_requirement" class="mgxTop">
+    <div class="container-fluid">
+      <div class="iconSection">
+        <div class="row headingWrapContainer">
+          <!-- Heading -->
+          <div class="col-12 text-center">
+            <h3 class="requirement-main--heading">
+              Document required for Sri Lanka {{ visaType }} visa
+            </h3>
+          </div>
+          <!-- Content -->
+          <div class="col-12">
+            <div class="card requiredIcon">
+              <div class="card-body">
+                <h1 class="requiredIconHeading">Passport</h1>
+                <ul>
+                  <li>
+                    Upload coloured copies of the
+                    <button
+                  type="button"
+                  class="btn toggleHelperBtn"
+                  data-toggle="modal"
+                  data-target="#samplePassportFront"
+
+                  >
+                  first page
+                    </button> and
+                    <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportBack"
+
+                  >
+                  last page
+                    </button>
+                    of the
+                    passport.
+                  </li>
+                  <li>
+                    When you apply for a sri lanka e visa online, you must be in possession of a passport with
+                    at least 6 months’ validity.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-12">
+            <div class="card requiredIcon">
+              <div class="card-body">
+                <h1 class="requiredIconHeading">Email Address</h1>
+                <p>
+                  A valid current email address is required, to which the ETA will be sent.
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}">
+            <div class="card requiredIcon">
+              <div class="card-body">
+                <h1 class="requiredIconHeading">Business Invitation</h1>
+                <p>
+                  Applicant needs to provide Invitation from the inviting company from Sri Lanka.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12" [ngStyle]="{'display': visaType == 'Transit'? 'block' : 'none'}">
+            <div class="card requiredIcon">
+              <div class="card-body">
+                <h1 class="requiredIconHeading">Flight Ticket</h1>
+                <p>
+                  In case of Transit visa applicant must upload both departure and arrival flight tickets.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-12">
+            <div class="card requiredIcon">
+              <div class="card-body">
+                <h1 class="requiredIconHeading">Completed ETA Form</h1>
+                <ul>
+                  <li>
+                    This form requires personal and passport
+                    information. This includes contact details,
+                    full name, passport number, issue, and expiry
+                    date, as well as the country of birth and citizenship.
+                  </li>
+                  <li>These documents are enough to obtain an ETA.
+                    However, upon arrival, the below documents must
+                    be shown to guarantee entry into Sri Lanka:</li>
+                </ul>
+                  <p><span style="font-weight: 600;">Printed Copy of ETA :</span>
+                    Regarding your Sri Lanka E-visa online, a printed
+                    copy of the approved ETA must be shown at
+                    the Immigration checkpoint.</p>
+                  <p><span style="font-weight: 600;">Proof of Sufficient Funding :</span>
+                    You must be able to guarantee that you are
+                    financially independent. This may be in the
+                    form of bank account statements, or any
+                    other acceptable form of proof.
+                  </p>
+                  <p><span style="font-weight: 600;">Flight Tickets :</span>
+                    Flight tickets, especially return tickets, must
+                    be displayed upon asking. This could be a return
+                    ticket to your resident country or an onward
+                    ticket to a third country.
+                  </p>
+
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+</section>
+
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

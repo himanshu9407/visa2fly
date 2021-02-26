@@ -50,6 +50,7 @@ export class BookingDetailsComponent implements OnInit {
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
     }, 2000);
+
   }
 
   ngOnInit() {

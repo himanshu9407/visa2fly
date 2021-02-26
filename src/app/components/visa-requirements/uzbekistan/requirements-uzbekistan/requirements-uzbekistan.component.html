@@ -1,78 +1,83 @@
-<div class="container-fluid p-0">
+<section id="requirement">
+  <div class="container-fluid p-0">
     <div class="iconSection">
-      <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
-        [orientation]="desktopOrientation">
+      <ngb-tabset
+        #t="ngbTabset"
+        (tabChange)="changePurpose($event)"
+        class="tabset"
+        type="pills"
+        [justify]="desktopJustify"
+        [orientation]="desktopOrientation"
+      >
         <ngb-tab id="Tourist" title="Tourist">
-  
           <ng-template ngbTabContent>
-  
-            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <div
+              class="container-fluid wrapContainer"
+              [@simpleFadeAnimation]="'in'"
+            >
               <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
-                      VISA REQUIREMENT FOR
-                      UZBEKISTAN</span>
+                  <h1 class="outerRequirement">
+                    <span class="requirementContainer text-uppercase"
+                      >TOURIST VISA REQUIREMENT FOR UZBEKISTAN</span
+                    >
                   </h1>
                 </div>
               </div>
-  
+
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true"
-                          aria-controls="tourist1" [class.showDiv]="selectedTourist === 1"
-                          (click)="setActiveTourist(1, 'setActiveTourist1')" id="setActiveTourist1">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#tourist1"
+                          aria-expanded="true"
+                          aria-controls="tourist1"
+                          [class.showDiv]="selectedTourist === 1"
+                          (click)="setActiveTourist(1, 'setActiveTourist1')"
+                          id="setActiveTourist1"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-visaApplicationForm requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-visaApplicationForm requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Visa Application Form</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="tourist1" class="collapse" [ngStyle]="{
-                          'display': showTouristFirst ? 'block' : '',
-                          'opacity': showTouristFirst ? '1' : '',
-                          'visibility': showTouristFirst ? 'visible' : '',
-                          'transition': showTouristFirst ? 'all .35s ease-in-out' : ''
-                          }" aria-labelledby="heading"
-                          data-parent="#touristAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="tourist1"
+                          class="collapse"
+                          [ngStyle]="{
+                            display: showTouristFirst ? 'block' : '',
+                            opacity: showTouristFirst ? '1' : '',
+                            visibility: showTouristFirst ? 'visible' : '',
+                            transition: showTouristFirst
+                              ? 'all .35s ease-in-out'
+                              : ''
+                          }"
+                          aria-labelledby="heading"
+                          data-parent="#touristAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
-                              <p>You will need to fill an application form online, on 
-                                  the official Uzbekistan e-visa application page.
-                                </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false"
-                          aria-controls="tourist2" [class.showDiv]="selectedTourist === 2"
-                          (click)="setActiveTourist(2, 'setActiveTourist2')" id="setActiveTourist2">
-                          <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Photograph</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
-                          <div class="card requiredIcon" >
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h1 class="requiredIconHeading">
+                                Visa Application Form
+                              </h1>
                               <p>
-                                You would need 2 passport-size photos with white or grey background with the dimensions of
-                                35X45mm.More details are mentioned in the FAQ section below.You will need a passport-sized 
-                                photograph available as well. Please include a digital copy, 
-                                as you might be asked to submit that along with your application.
+                                You will need to fill an application form
+                                online, on the official Uzbekistan e-visa
+                                application page.
                               </p>
                             </div>
                           </div>
@@ -81,26 +86,81 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false"
-                          aria-controls="tourist3" [class.showDiv]="selectedTourist === 3"
-                          (click)="setActiveTourist(3, 'setActiveTourist3')" id="setActiveTourist3">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#tourist2"
+                          aria-expanded="false"
+                          aria-controls="tourist2"
+                          [class.showDiv]="selectedTourist === 2"
+                          (click)="setActiveTourist(2, 'setActiveTourist2')"
+                          id="setActiveTourist2"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-photograph requiredIcons img-sprite"
+                            ></div>
+                          </div>
+                          <h2 class="setFontSize">Photograph</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div
+                          id="tourist2"
+                          class="collapse"
+                          aria-labelledby="heading2"
+                          data-parent="#touristAccodion"
+                        >
+                          <div class="card requiredIcon">
+                            <div class="card-body">
+                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <p>
+                                You would need 2 passport-size photos with white
+                                or grey background with the dimensions of
+                                35X45mm.More details are mentioned in the FAQ
+                                section below.You will need a passport-sized
+                                photograph available as well. Please include a
+                                digital copy, as you might be asked to submit
+                                that along with your application.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div
+                          data-toggle="collapse"
+                          data-target="#tourist3"
+                          aria-expanded="false"
+                          aria-controls="tourist3"
+                          [class.showDiv]="selectedTourist === 3"
+                          (click)="setActiveTourist(3, 'setActiveTourist3')"
+                          id="setActiveTourist3"
+                        >
+                          <div class="makeIconCntr">
+                            <div
+                              class="vr-creditDebit requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Credit Card</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="tourist3" class="collapse" aria-labelledby="heading3"
-                          data-parent="#touristAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="tourist3"
+                          class="collapse"
+                          aria-labelledby="heading3"
+                          data-parent="#touristAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Credit Card
-                              </h1>
+                              <h1 class="requiredIconHeading">Credit Card</h1>
                               <p>
-                                You will be asked to pay the visa application fees online, for 
-                                which you will need a accessable method of online payment, 
-                                i.e. a credit/debit card.  
+                                You will be asked to pay the visa application
+                                fees online, for which you will need a
+                                accessable method of online payment, i.e. a
+                                credit/debit card.
                               </p>
                             </div>
                           </div>
@@ -110,30 +170,47 @@
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#tourist4" aria-expanded="false"
-                          aria-controls="tourist4" [class.showDiv]="selectedTourist === 4"
-                          (click)="setActiveTourist(4, 'setActiveTourist4')" id="setActiveTourist4">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#tourist4"
+                          aria-expanded="false"
+                          aria-controls="tourist4"
+                          [class.showDiv]="selectedTourist === 4"
+                          (click)="setActiveTourist(4, 'setActiveTourist4')"
+                          id="setActiveTourist4"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-passport requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Passport</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="tourist4" class="collapse" aria-labelledby="heading4"
-                          data-parent="#touristAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="tourist4"
+                          class="collapse"
+                          aria-labelledby="heading4"
+                          data-parent="#touristAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>
-                                For this application form, you will need your passport, valid 
-                                for at least 6 months before entry into the country. 
-                                You will also need a scanned copy of both the first and 
-                                last pages, which they will ask you to submit on the form. 
+                                For this application form, you will need your
+                                passport, valid for at least 6 months before
+                                entry into the country. You will also need a
+                                scanned copy of both the first and last pages,
+                                which they will ask you to submit on the form.
                               </p>
                             </div>
                           </div>
@@ -141,54 +218,74 @@
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                       
-                      </ng-template>
+                      <ng-template ngbTabTitle> </ng-template>
+                      <ng-template ngbTabContent> </ng-template>
                     </ngb-tab>
                     <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        
-                      </ng-template>
+                      <ng-template ngbTabTitle> </ng-template>
+                      <ng-template ngbTabContent> </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <!-- mobileContainer -->
-              <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+              <div
+                class="mobileContainer wrapContainer accordion"
+                id="touristAccodionMobile"
+              >
                 <div class="row">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
-                          aria-controls="touristMobile1" [class.showDiv]="selectedTourist === 1"
-                          (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#touristMobile1"
+                          aria-expanded="true"
+                          aria-controls="touristMobile1"
+                          [class.showDiv]="selectedTourist === 1"
+                          (click)="
+                            setActiveTouristMobile(1, 'setActiveTouristMobile1')
+                          "
+                          id="setActiveTouristMobile1"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-visaApplicationForm requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-visaApplicationForm requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Visa Application Form</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobile1" class="collapse" [ngStyle]="{
-                          'display': showTouristMobileFirst ? 'block' : '',
-                          'opacity': showTouristMobileFirst ? '1' : '',
-                          'visibility': showTouristMobileFirst ? 'visible' : '',
-                          'transition': showTouristMobileFirst ? 'all .35s ease-in-out' : ''
-                          }" aria-labelledby="headingMobile1"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="touristMobile1"
+                          class="collapse"
+                          [ngStyle]="{
+                            display: showTouristMobileFirst ? 'block' : '',
+                            opacity: showTouristMobileFirst ? '1' : '',
+                            visibility: showTouristMobileFirst ? 'visible' : '',
+                            transition: showTouristMobileFirst
+                              ? 'all .35s ease-in-out'
+                              : ''
+                          }"
+                          aria-labelledby="headingMobile1"
+                          data-parent="#touristAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
-                              <p>You will need to fill an application form online, 
-                                on the official Uzbekistan e-visa application page.
+                              <h1 class="requiredIconHeading">
+                                Visa Application Form
+                              </h1>
+                              <p>
+                                You will need to fill an application form
+                                online, on the official Uzbekistan e-visa
+                                application page.
                               </p>
                             </div>
                           </div>
@@ -199,100 +296,156 @@
                 </div>
 
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
-                          aria-controls="touristMobile2" [class.showDiv]="selectedTourist === 2"
-                          (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#touristMobile2"
+                          aria-expanded="true"
+                          aria-controls="touristMobile2"
+                          [class.showDiv]="selectedTourist === 2"
+                          (click)="
+                            setActiveTouristMobile(2, 'setActiveTouristMobile2')
+                          "
+                          id="setActiveTouristMobile2"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-photograph requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="touristMobile2"
+                          class="collapse"
+                          aria-labelledby="headingMobile2"
+                          data-parent="#touristAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
                               <h1 class="requiredIconHeading">Photograph</h1>
                               <p>
-                                You would need 2 passport-size photos with white or grey background with the dimensions of
-                                35X45mm.More details are mentioned in the FAQ section below.You will need a passport-sized 
-                                photograph available as well. Please include a digital copy, as you might 
-                                be asked to submit that along with your application.
+                                You would need 2 passport-size photos with white
+                                or grey background with the dimensions of
+                                35X45mm.More details are mentioned in the FAQ
+                                section below.You will need a passport-sized
+                                photograph available as well. Please include a
+                                digital copy, as you might be asked to submit
+                                that along with your application.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset>
-                </div>
-  
-                <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
-                          aria-controls="touristMobile3" [class.showDiv]="selectedTourist === 3"
-                          (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
-                          <div class="makeIconCntr">
-                            <div class="vr-creditDebit requiredIcons img-sprite"></div>
-                          </div>
-                          <h2 class="setFontSize">Credit Card</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" >
-                            <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Credit Card
-                              </h1>
-                              <p>
-                                You will be asked to pay the visa application fees online, 
-                                for which you will need a accessable method of online 
-                                payment, i.e. a credit/debit card. 
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </ng-template>
-  
-  
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
 
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
-                          aria-controls="touristMobile4" [class.showDiv]="selectedTourist === 4"
-                          (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#touristMobile3"
+                          aria-expanded="true"
+                          aria-controls="touristMobile3"
+                          [class.showDiv]="selectedTourist === 3"
+                          (click)="
+                            setActiveTouristMobile(3, 'setActiveTouristMobile3')
+                          "
+                          id="setActiveTouristMobile3"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-creditDebit requiredIcons img-sprite"
+                            ></div>
+                          </div>
+                          <h2 class="setFontSize">Credit Card</h2>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbTabContent>
+                        <div
+                          id="touristMobile3"
+                          class="collapse"
+                          aria-labelledby="headingMobile3"
+                          data-parent="#touristAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
+                            <div class="card-body" style="padding: 10px">
+                              <h1 class="requiredIconHeading">Credit Card</h1>
+                              <p>
+                                You will be asked to pay the visa application
+                                fees online, for which you will need a
+                                accessable method of online payment, i.e. a
+                                credit/debit card.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+
+                <div class="row mt-4">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
+                    <ngb-tab>
+                      <ng-template ngbTabTitle>
+                        <div
+                          data-toggle="collapse"
+                          data-target="#touristMobile4"
+                          aria-expanded="true"
+                          aria-controls="touristMobile4"
+                          [class.showDiv]="selectedTourist === 4"
+                          (click)="
+                            setActiveTouristMobile(4, 'setActiveTouristMobile4')
+                          "
+                          id="setActiveTouristMobile4"
+                        >
+                          <div class="makeIconCntr">
+                            <div
+                              class="vr-passport requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Passport</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
-                          data-parent="#touristAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="touristMobile4"
+                          class="collapse"
+                          aria-labelledby="headingMobile4"
+                          data-parent="#touristAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>
-                                For this application form, you will need your passport, valid for 
-                                at least 6 months before entry into the country. You will also 
-                                need a scanned copy of both the first and last pages, which 
-                                they will ask you to submit on the form. 
+                                For this application form, you will need your
+                                passport, valid for at least 6 months before
+                                entry into the country. You will also need a
+                                scanned copy of both the first and last pages,
+                                which they will ask you to submit on the form.
                               </p>
                             </div>
                           </div>
@@ -303,57 +456,78 @@
                 </div>
               </div>
             </div>
-  
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
-            <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+            <div
+              class="container-fluid wrapContainer"
+              [@simpleFadeAnimation]="'in'"
+            >
               <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement">
-                    <span class="requirementContainer text-uppercase">BUSINESS
-                      VISA REQUIREMENT FOR
-                      UZBEKISTAN
+                    <span class="requirementContainer text-uppercase"
+                      >BUSINESS VISA REQUIREMENT FOR UZBEKISTAN
                     </span>
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
-                          aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
-                          (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                        <div
+                          data-toggle="collapse"
+                          id="#businessHeading1"
+                          data-target="#business1"
+                          aria-expanded="true"
+                          aria-controls="business1"
+                          [class.showDiv]="selectedBusiness === 1"
+                          (click)="setActiveBusiness(1, 'setActiveBusiness1')"
+                          id="setActiveBusiness1"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-passport requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Passport</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="business1" class="collapse" [ngStyle]="{
-                          'display': showBusinessFirst ? 'block' : '',
-                          'opacity': showBusinessFirst ? '1' : '',
-                          'visibility': showBusinessFirst ? 'visible' : '',
-                          'transition': showBusinessFirst ? 'all .35s ease-in-out' : ''
-                          }" aria-labelledby="businessHeading1"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="business1"
+                          class="collapse"
+                          [ngStyle]="{
+                            display: showBusinessFirst ? 'block' : '',
+                            opacity: showBusinessFirst ? '1' : '',
+                            visibility: showBusinessFirst ? 'visible' : '',
+                            transition: showBusinessFirst
+                              ? 'all .35s ease-in-out'
+                              : ''
+                          }"
+                          aria-labelledby="businessHeading1"
+                          data-parent="#businessAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>
-                                For this application form, you will need your passport, valid 
-                                for at least 6 months before entry into the country. You will 
-                                also need a scanned copy of both the first and last pages, which 
-                                they will ask you to submit on the form. 
+                                For this application form, you will need your
+                                passport, valid for at least 6 months before
+                                entry into the country. You will also need a
+                                scanned copy of both the first and last pages,
+                                which they will ask you to submit on the form.
                               </p>
                             </div>
                           </div>
@@ -362,26 +536,40 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
-                          aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
-                          (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                        <div
+                          class="collapsed"
+                          id="#businessHeading2"
+                          data-toggle="collapse"
+                          data-target="#business2"
+                          aria-expanded="false"
+                          aria-controls="business2"
+                          [class.showDiv]="selectedBusiness === 2"
+                          (click)="setActiveBusiness(2, 'setActiveBusiness2')"
+                          id="setActiveBusiness2"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-photograph requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
-  
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="business2" class="collapse" aria-labelledby="businessHeading2"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="business2"
+                          class="collapse"
+                          aria-labelledby="businessHeading2"
+                          data-parent="#businessAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
                               <h1 class="requiredIconHeading">Photograph</h1>
                               <p>
-                                You will need a passport-sized photograph available as well. Please 
-                                include a digital copy, as you might be asked to submit that 
-                                along with your application.
+                                You will need a passport-sized photograph
+                                available as well. Please include a digital
+                                copy, as you might be asked to submit that along
+                                with your application.
                               </p>
                             </div>
                           </div>
@@ -390,25 +578,41 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
-                          data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
-                          (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                        <div
+                          class="collapsed"
+                          id="#businessHeading3"
+                          data-toggle="collapse"
+                          data-target="#business3"
+                          aria-expanded="false"
+                          aria-controls="business3"
+                          [class.showDiv]="selectedBusiness === 3"
+                          (click)="setActiveBusiness(3, 'setActiveBusiness3')"
+                          id="setActiveBusiness3"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-applicationForm requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Application Form</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="business3" class="collapse" aria-labelledby="businessHeading3"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="business3"
+                          class="collapse"
+                          aria-labelledby="businessHeading3"
+                          data-parent="#businessAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Application Form
+                              <h1 class="requiredIconHeading">
+                                Application Form
                               </h1>
                               <p>
-                                You will need to fill an application form online, on the official Uzbekistan e-visa application page.
+                                You will need to fill an application form
+                                online, on the official Uzbekistan e-visa
+                                application page.
                               </p>
                             </div>
                           </div>
@@ -418,30 +622,50 @@
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
-                          data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4" 
-                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                        <div
+                          class="collapsed"
+                          id="#businessHeading4"
+                          data-toggle="collapse"
+                          data-target="#business4"
+                          aria-expanded="false"
+                          aria-controls="business4"
+                          [class.showDiv]="selectedBusiness === 4"
+                          (click)="setActiveBusiness(4, 'setActiveBusiness4')"
+                          id="setActiveBusiness4"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-employmentDoc requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-employmentDoc requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Employement Letter</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="business4"
+                          class="collapse"
+                          aria-labelledby="businessHeading4"
+                          data-parent="#businessAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Employement Letter</h1>
+                              <h1 class="requiredIconHeading">
+                                Employement Letter
+                              </h1>
                               <p>
-                                An employment letter from your company stating that you are 
-                                currently employed with them is needed. It must be on the official 
-                                letterhead and signed as well.
+                                An employment letter from your company stating
+                                that you are currently employed with them is
+                                needed. It must be on the official letterhead
+                                and signed as well.
                               </p>
                             </div>
                           </div>
@@ -450,28 +674,43 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div class="collapsed" data-toggle="collapse" id="#businessHeading5"
-                          data-target="#business5" aria-expanded="false" aria-controls="business5"
-                          [class.showDiv]="selectedBusiness === 5" 
-                          (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
+                        <div
+                          class="collapsed"
+                          data-toggle="collapse"
+                          id="#businessHeading5"
+                          data-target="#business5"
+                          aria-expanded="false"
+                          aria-controls="business5"
+                          [class.showDiv]="selectedBusiness === 5"
+                          (click)="setActiveBusiness(5, 'setActiveBusiness5')"
+                          id="setActiveBusiness5"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-invitationLetter requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Invitation Letter</h2>
                         </div>
-  
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="business5" class="collapse" aria-labelledby="businessHeading5"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="business5"
+                          class="collapse"
+                          aria-labelledby="businessHeading5"
+                          data-parent="#businessAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                              <h1 class="requiredIconHeading">
+                                Invitation Letter
+                              </h1>
                               <p>
-                                The company in Uzbekistan that you will be going to, will 
-                                need to submit a letter saying that you will be joining them. 
-                                Make sure that the date and personal details are matching 
-                                that of your passport. 
+                                The company in Uzbekistan that you will be going
+                                to, will need to submit a letter saying that you
+                                will be joining them. Make sure that the date
+                                and personal details are matching that of your
+                                passport.
                               </p>
                             </div>
                           </div>
@@ -480,24 +719,39 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div class="collapsed" id="#businessHeading6" data-toggle="collapse" data-target="#business6"
-                          aria-expanded="false" aria-controls="business6" [class.showDiv]="selectedBusiness === 6"
-                          (click)="setActiveBusiness(6, 'setActiveBusiness6')" id="setActiveBusiness6">
+                        <div
+                          class="collapsed"
+                          id="#businessHeading6"
+                          data-toggle="collapse"
+                          data-target="#business6"
+                          aria-expanded="false"
+                          aria-controls="business6"
+                          [class.showDiv]="selectedBusiness === 6"
+                          (click)="setActiveBusiness(6, 'setActiveBusiness6')"
+                          id="setActiveBusiness6"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-flightTickets requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Flight Ticket</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="business6" class="collapse" aria-labelledby="businessHeading6"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="business6"
+                          class="collapse"
+                          aria-labelledby="businessHeading6"
+                          data-parent="#businessAccodion"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body">
                               <h1 class="requiredIconHeading">Flight Ticket</h1>
                               <p>
-                                If you are obtaining a business visa on-arrival, you will 
-                                need to submit proof of your flight tickets as well.
+                                If you are obtaining a business visa on-arrival,
+                                you will need to submit proof of your flight
+                                tickets as well.
                               </p>
                             </div>
                           </div>
@@ -507,41 +761,70 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <!-- mobileContainer -->
-              <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
+              <div
+                class="mobileContainer wrapContainer accordion"
+                id="businessAccodionMobile"
+              >
                 <div class="row">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
-                          aria-controls="businessMobile1" [class.showDiv]="selectedMobileBusiness === 1"
-                          (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#businessMobile1"
+                          aria-expanded="true"
+                          aria-controls="businessMobile1"
+                          [class.showDiv]="selectedMobileBusiness === 1"
+                          (click)="
+                            setActiveBusinessMobile(
+                              1,
+                              'setActiveBusinessMobile1'
+                            )
+                          "
+                          id="setActiveBusinessMobile1"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-passport requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-passport requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Passport</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="businessMobile1" class="collapse" [ngStyle]="{
-                          'display': showBusinessMobileFirst ? 'block' : '',
-                          'opacity': showBusinessMobileFirst ? '1' : '',
-                          'visibility': showBusinessMobileFirst ? 'visible' : '',
-                          'transition': showBusinessMobileFirst ? 'all .35s ease-in-out' : ''
-                          }" aria-labelledby="headingMobile1"
-                          data-parent="#businessAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="businessMobile1"
+                          class="collapse"
+                          [ngStyle]="{
+                            display: showBusinessMobileFirst ? 'block' : '',
+                            opacity: showBusinessMobileFirst ? '1' : '',
+                            visibility: showBusinessMobileFirst
+                              ? 'visible'
+                              : '',
+                            transition: showBusinessMobileFirst
+                              ? 'all .35s ease-in-out'
+                              : ''
+                          }"
+                          aria-labelledby="headingMobile1"
+                          data-parent="#businessAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>
-                                For this application form, you will need your passport, 
-                                valid for at least 6 months before entry into the country. You will 
-                                also need a scanned copy of both the first and last pages, which 
-                                they will ask you to submit on the form.
+                                For this application form, you will need your
+                                passport, valid for at least 6 months before
+                                entry into the country. You will also need a
+                                scanned copy of both the first and last pages,
+                                which they will ask you to submit on the form.
                               </p>
-  
                             </div>
                           </div>
                         </div>
@@ -551,30 +834,53 @@
                 </div>
 
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
-                          aria-controls="businessMobile2" [class.showDiv]="selectedMobileBusiness === 2"
-                          (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#businessMobile2"
+                          aria-expanded="true"
+                          aria-controls="businessMobile2"
+                          [class.showDiv]="selectedMobileBusiness === 2"
+                          (click)="
+                            setActiveBusinessMobile(
+                              2,
+                              'setActiveBusinessMobile2'
+                            )
+                          "
+                          id="setActiveBusinessMobile2"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-photograph requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-photograph requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
-                          data-parent="#businessAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="businessMobile2"
+                          class="collapse"
+                          aria-labelledby="headingMobile2"
+                          data-parent="#businessAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
                               <h1 class="requiredIconHeading">Photograph</h1>
                               <p>
-                                You would need 2 passport-size photos with white or grey background with the dimensions of
-                                35X45mm.
-                                You will need a passport-sized photograph available as well. Please include a 
-                                digital copy, as you might be asked to submit that along with your application.
+                                You would need 2 passport-size photos with white
+                                or grey background with the dimensions of
+                                35X45mm. You will need a passport-sized
+                                photograph available as well. Please include a
+                                digital copy, as you might be asked to submit
+                                that along with your application.
                               </p>
                             </div>
                           </div>
@@ -583,64 +889,110 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
-                          aria-controls="businessMobile3" [class.showDiv]="selectedMobileBusiness === 3"
-                          (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#businessMobile3"
+                          aria-expanded="true"
+                          aria-controls="businessMobile3"
+                          [class.showDiv]="selectedMobileBusiness === 3"
+                          (click)="
+                            setActiveBusinessMobile(
+                              3,
+                              'setActiveBusinessMobile3'
+                            )
+                          "
+                          id="setActiveBusinessMobile3"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-applicationForm requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Application Form</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile3"
-                          data-parent="#businessAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="businessMobile3"
+                          class="collapse"
+                          aria-labelledby="headingMobile3"
+                          data-parent="#businessAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Application Form
+                              <h1 class="requiredIconHeading">
+                                Application Form
                               </h1>
                               <p>
-                                You will need to fill an application form online, on the official Uzbekistan e-visa application page. 
+                                You will need to fill an application form
+                                online, on the official Uzbekistan e-visa
+                                application page.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-  
-  
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
-                          aria-controls="businessMobile4" [class.showDiv]="selectedMobileBusiness === 4"
-                          (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#businessMobile4"
+                          aria-expanded="true"
+                          aria-controls="businessMobile4"
+                          [class.showDiv]="selectedMobileBusiness === 4"
+                          (click)="
+                            setActiveBusinessMobile(
+                              4,
+                              'setActiveBusinessMobile4'
+                            )
+                          "
+                          id="setActiveBusinessMobile4"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-employmentDoc requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-employmentDoc requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Employement Letter</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="businessMobile4" class="collapse" aria-labelledby="headingMobile4"
-                          data-parent="#businessAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="businessMobile4"
+                          class="collapse"
+                          aria-labelledby="headingMobile4"
+                          data-parent="#businessAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Employement Letter</h1>
+                              <h1 class="requiredIconHeading">
+                                Employement Letter
+                              </h1>
                               <p>
-                                An employment letter from your company stating that you are 
-                                currently employed with them is needed. It must be on the 
-                                official letterhead and signed as well.
+                                An employment letter from your company stating
+                                that you are currently employed with them is
+                                needed. It must be on the official letterhead
+                                and signed as well.
                               </p>
                             </div>
                           </div>
@@ -650,64 +1002,110 @@
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessMobile5" aria-expanded="true"
-                          aria-controls="businessMobile5" [class.showDiv]="selectedMobileBusiness === 5"
-                          (click)="setActiveBusinessMobile(5, 'setActiveBusinessMobile5')" id="setActiveBusinessMobile5">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#businessMobile5"
+                          aria-expanded="true"
+                          aria-controls="businessMobile5"
+                          [class.showDiv]="selectedMobileBusiness === 5"
+                          (click)="
+                            setActiveBusinessMobile(
+                              5,
+                              'setActiveBusinessMobile5'
+                            )
+                          "
+                          id="setActiveBusinessMobile5"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-coverLetter requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-coverLetter requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Invitation Letter</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="businessMobile5" class="collapse" aria-labelledby="headingMobile5"
-                          data-parent="#businessAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="businessMobile5"
+                          class="collapse"
+                          aria-labelledby="headingMobile5"
+                          data-parent="#businessAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Invitation Letter
+                              <h1 class="requiredIconHeading">
+                                Invitation Letter
                               </h1>
                               <p>
-                                The company in Uzbekistan that you will be going to, will 
-                                need to submit a letter saying that you will be joining them. 
-                                Make sure that the date and personal details are matching that of your passport. 
+                                The company in Uzbekistan that you will be going
+                                to, will need to submit a letter saying that you
+                                will be joining them. Make sure that the date
+                                and personal details are matching that of your
+                                passport.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-  
-  
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
-                  <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
+                  <ngb-tabset
+                    [justify]="desktopJustify"
+                    [orientation]="desktopOrientation"
+                    class="iconTabset"
+                    type="pills"
+                  >
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        <div data-toggle="collapse" data-target="#businessMobile6" aria-expanded="true"
-                          aria-controls="businessMobile6" [class.showDiv]="selectedMobileBusiness === 6"
-                          (click)="setActiveBusinessMobile(6, 'setActiveBusinessMobile6')" id="setActiveBusinessMobile6">
+                        <div
+                          data-toggle="collapse"
+                          data-target="#businessMobile6"
+                          aria-expanded="true"
+                          aria-controls="businessMobile6"
+                          [class.showDiv]="selectedMobileBusiness === 6"
+                          (click)="
+                            setActiveBusinessMobile(
+                              6,
+                              'setActiveBusinessMobile6'
+                            )
+                          "
+                          id="setActiveBusinessMobile6"
+                        >
                           <div class="makeIconCntr">
-                            <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                            <div
+                              class="vr-flightTicket requiredIcons img-sprite"
+                            ></div>
                           </div>
                           <h2 class="setFontSize">Flight Tickets</h2>
                         </div>
                       </ng-template>
                       <ng-template ngbTabContent>
-                        <div id="businessMobile6" class="collapse" aria-labelledby="headingMobile6"
-                          data-parent="#businessAccodionMobile">
-                          <div class="card requiredIcon" >
+                        <div
+                          id="businessMobile6"
+                          class="collapse"
+                          aria-labelledby="headingMobile6"
+                          data-parent="#businessAccodionMobile"
+                        >
+                          <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Tickets</h1>
+                              <h1 class="requiredIconHeading">
+                                Flight Tickets
+                              </h1>
                               <p>
-                                If you are obtaining a business visa on-arrival, you will need to submit proof of your flight tickets as well.
+                                If you are obtaining a business visa on-arrival,
+                                you will need to submit proof of your flight
+                                tickets as well.
                               </p>
-  
                             </div>
                           </div>
                         </div>
@@ -716,11 +1114,10 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
             </div>
-  
           </ng-template>
         </ngb-tab>
       </ngb-tabset>
     </div>
   </div>
+</section>

@@ -7,7 +7,6 @@ import {
   animate,
   group,
 } from "@angular/animations";
-import { Event } from "jquery";
 
 @Component({
   selector: "app-faq",

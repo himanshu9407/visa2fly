@@ -358,6 +358,129 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // finland
+  {
+    path: "visa/finland-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/finland/finland.module").then(
+        (m) => m.FinlandModule
+      ),
+    data: { preload: true },
+  },
+
+  // belgium
+  {
+    path: "visa/belgium-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/belgium/belgium.module").then(
+        (m) => m.BelgiumModule
+      ),
+    data: { preload: true },
+  },
+
+  // austria
+  {
+    path: "visa/austria-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/austria/austria.module").then(
+        (m) => m.AustriaModule
+      ),
+    data: { preload: true },
+  },
+
+  // canada
+  {
+    path: "visa/canada-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/canada/canada.module").then(
+        (m) => m.CanadaModule
+      ),
+    data: { preload: true },
+  },
+
+  // bhutan
+  {
+    path: "visa/bhutan-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/bhutan/bhutan.module").then(
+        (m) => m.BhutanModule
+      ),
+    data: { preload: true },
+  },
+
+  // estonia
+  {
+    path: "visa/estonia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/estonia/estonia.module").then(
+        (m) => m.EstoniaModule
+      ),
+    data: { preload: true },
+  },
+
+  // georgia
+  {
+    path: "visa/georgia-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/georgia/georgia.module").then(
+        (m) => m.GeorgiaModule
+      ),
+    data: { preload: true },
+  },
+
+
+  // germany
+  {
+    path: "visa/germany-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/germany/germany.module").then(
+        (m) => m.GermanyModule
+      ),
+    data: { preload: true },
+  },
+
+
+  // iraq
+  {
+    path: "visa/iraq-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/iraq/iraq.module").then(
+        (m) => m.IraqModule
+      ),
+    data: { preload: true },
+  },
+
+  // kenya
+  {
+    path: "visa/kenya-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/kenya/kenya.module").then(
+        (m) => m.KenyaModule
+      ),
+    data: { preload: true },
+  },
+
+  // malta
+  {
+    path: "visa/malta-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/malta/malta.module").then(
+        (m) => m.MaltaModule
+      ),
+    data: { preload: true },
+  },
+
+  // denmark
+  {
+    path: "visa/denmark-visa-online",
+    loadChildren: () =>
+      import("./components/visa-requirements/denmark/denmark.module").then(
+        (m) => m.DenmarkModule
+      ),
+    data: { preload: true },
+  },
+
+
   // Malaysia Page
   {
     path: "visa-requirements/apply-for-Malaysia-visa-online/:purpose",
@@ -770,4 +893,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: [],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

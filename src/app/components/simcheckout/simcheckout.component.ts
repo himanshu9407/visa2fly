@@ -39,6 +39,16 @@ export class SimcheckoutComponent implements OnInit {
   totalQty: number = 0;
   title: string = "Visa2fly | Sim Checkout";
   paymentUrl: any = "";
+  stateError: boolean;
+
+  stateListArr: Array<string> = [
+    "Andaman And Nicobar Islands",
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
+    "Dadar And Nagar Haveli", "Daman And Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal",
+    "Jammu And Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Puducherry", "Rajasthan", "Sikkim", "Tamil Nadu",
+    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+  ];
 
   constructor(
     private simCheckoutService: SimCheckoutService,
@@ -98,7 +108,7 @@ export class SimcheckoutComponent implements OnInit {
       cell: new FormControl("", [Validators.required]),
       emailId: new FormControl("", [Validators.required]),
       city: new FormControl("", [Validators.required]),
-      state: new FormControl("", [Validators.required]),
+      state: new FormControl("New Delhi", [Validators.required]),
       pinCode: new FormControl("", [Validators.required]),
       needInsurance: new FormControl(true, [Validators.required]),
       country: new FormControl("India")
@@ -132,6 +142,16 @@ export class SimcheckoutComponent implements OnInit {
       this.totalQty = this.totalQty + qty;
     });
     // return this.totalQty;
+  }
+
+  stateChanged(event: string) {
+    if (event == undefined || event == null || event == "") {
+      this.stateError = true;
+    } else {
+      this.stateError = false;
+    }
+
+    console.log(this.simCheckoutForm);
   }
 
   submitForm() {

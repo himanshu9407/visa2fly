@@ -1,0 +1,2543 @@
+<section id="requirement">
+    <div class="container-fluid p-0">
+      <div class="iconSection">
+        <ngb-tabset
+          #t="ngbTabset"
+          (tabChange)="changePurpose($event)"
+          class="tabset"
+          type="pills"
+          [justify]="desktopJustify"
+          [orientation]="desktopOrientation"
+        >
+          <ngb-tab id="Tourist" title="Tourist">
+            <ng-template ngbTabContent>
+              <div
+                class="container-fluid wrapContainer"
+                [@simpleFadeAnimation]="'in'"
+              >
+                <div class="row">
+                  <div class="col-12 text-center mgxTop">
+                    <h1 class="outerRequirement">
+                      <span class="requirementContainer text-uppercase"
+                        >TOURIST VISA REQUIREMENT FOR AUSTRIA</span
+                      >
+                    </h1>
+                  </div>
+                </div>
+  
+                <div class="desktopContainer accordion" id="touristAccodion">
+                  <div class="row mt-2">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist1"
+                            aria-expanded="true"
+                            aria-controls="tourist1"
+                            [class.showDiv]="selectedTourist === 1"
+                            (click)="setActiveTourist(1, 'setActiveTourist1')"
+                            id="setActiveTourist1"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-applicationForm requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist1"
+                            class="collapse"
+                            [ngStyle]="{
+                              display: showTouristFirst ? 'block' : '',
+                              opacity: showTouristFirst ? '1' : '',
+                              visibility: showTouristFirst ? 'visible' : '',
+                              transition: showTouristFirst
+                                ? 'all .35s ease-in-out'
+                                : ''
+                            }"
+                            aria-labelledby="heading1"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Application Form
+                                </h1>
+                                <p>
+                                    Kindly fill in the application form for the visa, and duly sign it as well.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            data-toggle="collapse"
+                            data-target="#tourist2"
+                            aria-expanded="false"
+                            aria-controls="tourist2"
+                            [class.showDiv]="selectedTourist === 2"
+                            (click)="setActiveTourist(2, 'setActiveTourist2')"
+                            id="setActiveTourist2"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Passport requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist2"
+                            class="collapse"
+                            aria-labelledby="heading2"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                    The validity of your passport should be more than 3 months from when you are planning to depart from Austria. It needs to contain 2 blank passport pages (at least), and have been issued in the past 10 years. The data page should be clean and legible, with no handwritten altercations or any other alterations. 
+                                </p>
+                                <p>
+                                    Along with the current passport information pages, you will need to provide photocopies of all the pages of the current passport of yours. 
+                                </p>
+                                <p>
+                                    You will need to submit originals of your previous passports, or show proof of their loss. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            data-toggle="collapse"
+                            data-target="#tourist3"
+                            aria-expanded="false"
+                            aria-controls="tourist3"
+                            [class.showDiv]="selectedTourist === 3"
+                            (click)="setActiveTourist(3, 'setActiveTourist3')"
+                            id="setActiveTourist3"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Photograph requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Photographs</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist3"
+                            class="collapse"
+                            aria-labelledby="heading3"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Photographs</h1>
+                                <p>
+                                    There should be 2 photographs of the applicant attached. These must be in accordance with the international standards that are set out in the International Civil Aviation Organization (ICAO). Size of photographs should be 35mmx45mm.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist4"
+                            aria-expanded="true"
+                            aria-controls="tourist4"
+                            [class.showDiv]="selectedTourist === 4"
+                            (click)="setActiveTourist(4, 'setActiveTourist4')"
+                            id="setActiveTourist4"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-visa requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Return Visa/Permit </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist4"
+                            class="collapse"
+                            aria-labelledby="heading4"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Return Visa/Permit </h1>
+                                <p>
+                                    You should have a valid return permit to any country you are entering after leaving from Austria (including your home country). This can be shown as a Residency Permit or a return visa.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist5"
+                            aria-expanded="true"
+                            aria-controls="tourist5"
+                            [class.showDiv]="selectedTourist === 5"
+                            (click)="setActiveTourist(5, 'setActiveTourist5')"
+                            id="setActiveTourist5"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Insurance requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Medical Insurance</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist5"
+                            class="collapse"
+                            aria-labelledby="heading5"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Medical Insurance</h1>
+                                <p>
+                                    You should have a valid travel medical insurance which is valid throughout the entire Schengen territory. The minimum coverage of the insurance should be EUR 30,000. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist6"
+                            aria-expanded="true"
+                            aria-controls="tourist6"
+                            [class.showDiv]="selectedTourist === 6"
+                            (click)="setActiveTourist(6, 'setActiveTourist6')"
+                            id="setActiveTourist6"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-coverLetter requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">
+                              Cover Letter
+                            </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist6"
+                            class="collapse"
+                            aria-labelledby="heading6"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Cover Letter
+                                </h1>
+                                <p>
+                                    You should be in possession of a cover letter that explains the purpose of the trip. This should include an itinerary with detailed location(s) of your travel and the duration of your stay in Austria. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist7"
+                            aria-expanded="true"
+                            aria-controls="tourist7"
+                            [class.showDiv]="selectedTourist === 7"
+                            (click)="setActiveTourist(7, 'setActiveTourist7')"
+                            id="setActiveTourist7"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-OtherDocuments requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">
+                              Occupational Information
+                            </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist7"
+                            class="collapse"
+                            aria-labelledby="heading7"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Occupational Information
+                                </h1>
+                                <p>
+                                    You will need to show evidence of your occupation/student status. Please check the FAQs below to know more about the exact documents required to be submitted.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist8"
+                            aria-expanded="true"
+                            aria-controls="tourist8"
+                            [class.showDiv]="selectedTourist === 8"
+                            (click)="setActiveTourist(8, 'setActiveTourist8')"
+                            id="setActiveTourist8"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-ITR  requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">ITR </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist8"
+                            class="collapse"
+                            aria-labelledby="heading8"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  ITR 
+                                </h1>
+                                <p>
+                                    You will need to submit your Income Tax Acknowledgement: ITR-V for the last 3 year’s.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist9"
+                            aria-expanded="true"
+                            aria-controls="tourist9"
+                            [class.showDiv]="selectedTourist === 9"
+                            (click)="setActiveTourist(9, 'setActiveTourist9')"
+                            id="setActiveTourist9"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-proofOfSufficientFunds requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">
+                              Proof of Sufficient Funding
+                            </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist9"
+                            class="collapse"
+                            aria-labelledby="heading9"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Proof of Sufficient Funding
+                                </h1>
+                                <p>
+                                    You will have to show that you have sufficient funds to travel. These can be submitted in the form of original bank statements of the last three (3) months and/or other funds available (such as pension).
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist10"
+                            aria-expanded="true"
+                            aria-controls="tourist10"
+                            [class.showDiv]="selectedTourist === 10"
+                            (click)="setActiveTourist(10, 'setActiveTourist10')"
+                            id="setActiveTourist10"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-flightTicket requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Return Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist10"
+                            class="collapse"
+                            aria-labelledby="heading10"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Return Flight Tickets</h1>
+                                <p>
+                                    When applying for the visa, you will need to show round-trip flight tickets for airline reservation. You will also need to show proof of how you will travel within Austria/EU. You can compile both these details in a travel itinerary which you can submit as one document. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#tourist11"
+                            aria-expanded="true"
+                            aria-controls="tourist11"
+                            [class.showDiv]="selectedTourist === 11"
+                            (click)="setActiveTourist(11, 'setActiveTourist11')"
+                            id="setActiveTourist11"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-accommodation requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Proof of Accommodation</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="tourist11"
+                            class="collapse"
+                            aria-labelledby="heading11"
+                            data-parent="#touristAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Proof of Accommodation</h1>
+                                <p>
+                                    You will need to provide proof of accommodation through the means of a hotel reservation in Austria. You will also need, in the case of travel to other EU states, reservations there as well.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle> </ng-template>
+                        <ng-template ngbTabContent> </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+                </div>
+  
+                <!-- mobileContainer -->
+                <div
+                  class="mobileContainer wrapContainer accordion"
+                  id="touristAccodionMobile"
+                >
+                  <div class="row">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile1"
+                            aria-expanded="true"
+                            aria-controls="touristMobile1"
+                            [class.showDiv]="selectedMobileTourist === 1"
+                            (click)="
+                              setActiveTouristMobile(1, 'setActiveTouristMobile1')
+                            "
+                            id="setActiveTouristMobile1"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-applicationForm requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile1"
+                            class="collapse"
+                            [ngStyle]="{
+                              display: showTouristMobileFirst ? 'block' : '',
+                              opacity: showTouristMobileFirst ? '1' : '',
+                              visibility: showTouristMobileFirst ? 'visible' : '',
+                              transition: showTouristMobileFirst
+                                ? 'all .35s ease-in-out'
+                                : ''
+                            }"
+                            aria-labelledby="headingMobile1"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Application Form
+                                </h1>
+                                <p>
+                                    Kindly fill in the application form for the visa, and duly sign it as well.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile2"
+                            aria-expanded="true"
+                            aria-controls="touristMobile2"
+                            [class.showDiv]="selectedTourist === 2"
+                            (click)="
+                              setActiveTouristMobile(2, 'setActiveTouristMobile2')
+                            "
+                            id="setActiveTouristMobile2"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Passport requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Passport </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile2"
+                            class="collapse"
+                            aria-labelledby="headingMobile2"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Passport </h1>
+                                <p>
+                                    The validity of your passport should be more than 3 months from when you are planning to depart from Austria. It needs to contain 2 blank passport pages (at least), and have been issued in the past 10 years. The data page should be clean and legible, with no handwritten altercations or any other alterations. 
+                                </p>
+                                <p>
+                                    Along with the current passport information pages, you will need to provide photocopies of all the pages of the current passport of yours. 
+                                </p>
+                                <p>
+                                    You will need to submit originals of your previous passports, or show proof of their loss. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile3"
+                            aria-expanded="true"
+                            aria-controls="touristMobile3"
+                            [class.showDiv]="selectedTourist === 3"
+                            (click)="
+                              setActiveTouristMobile(3, 'setActiveTouristMobile3')
+                            "
+                            id="setActiveTouristMobile3"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Photograph requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Photographs </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile3"
+                            class="collapse"
+                            aria-labelledby="headingMobile3"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Photographs </h1>
+                                <p>
+                                    There should be 2 photographs of the applicant attached. These must be in accordance with the international standards that are set out in the International Civil Aviation Organization (ICAO). Size of photographs should be 35mmx45mm.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile4"
+                            aria-expanded="true"
+                            aria-controls="touristMobile4"
+                            [class.showDiv]="selectedMobileTourist === 4"
+                            (click)="
+                              setActiveTouristMobile(4, 'setActiveTouristMobile4')
+                            "
+                            id="setActiveTouristMobile4"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-visa requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Return Visa/Permit</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile4"
+                            class="collapse"
+                            aria-labelledby="headingMobile4"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Return Visa/Permit</h1>
+                                <p>
+                                    You should have a valid return permit to any country you are entering after leaving from Austria (including your home country). This can be shown as a Residency Permit or a return visa. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile5"
+                            aria-expanded="true"
+                            aria-controls="touristMobile5"
+                            [class.showDiv]="selectedMobileTourist === 5"
+                            (click)="
+                              setActiveTouristMobile(5, 'setActiveTouristMobile5')
+                            "
+                            id="setActiveTouristMobile5"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Insurance requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Medical Insurance</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile5"
+                            class="collapse"
+                            aria-labelledby="headingMobile5"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Medical Insurance</h1>
+                                <p>
+                                    You should have a valid travel medical insurance which is valid throughout the entire Schengen territory. The minimum coverage of the insurance should be EUR 30,000. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile6"
+                            aria-expanded="true"
+                            aria-controls="touristMobile6"
+                            [class.showDiv]="selectedMobileTourist === 6"
+                            (click)="
+                              setActiveTouristMobile(6, 'setActiveTouristMobile6')
+                            "
+                            id="setActiveTouristMobile6"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-coverLetter requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">
+                              Cover Letter
+                            </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile6"
+                            class="collapse"
+                            aria-labelledby="headingMobile6"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Cover Letter
+                                </h1>
+                                <p>
+                                    You should be in possession of a cover letter that explains the purpose of the trip. This should include an itinerary with detailed location(s) of your travel and the duration of your stay in Austria.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile7"
+                            aria-expanded="true"
+                            aria-controls="touristMobile7"
+                            [class.showDiv]="selectedMobileTourist === 7"
+                            (click)="
+                              setActiveTouristMobile(7, 'setActiveTouristMobile7')
+                            "
+                            id="setActiveTouristMobile7"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-OtherDocuments requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">
+                              Occupational Information
+                            </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile7"
+                            class="collapse"
+                            aria-labelledby="headingMobile7"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Occupational Information
+                                </h1>
+                                <p>
+                                    You will need to show evidence of your occupation/student status. Please check the FAQs below to know more about the exact documents required to be submitted.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile8"
+                            aria-expanded="true"
+                            aria-controls="touristMobile8"
+                            [class.showDiv]="selectedMobileTourist === 8"
+                            (click)="
+                              setActiveTouristMobile(8, 'setActiveTouristMobile8')
+                            "
+                            id="setActiveTouristMobile8"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-ITR requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">ITR </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile8"
+                            class="collapse"
+                            aria-labelledby="headingMobile8"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  ITR 
+                                </h1>
+                                <p>
+                                    You will need to submit your Income Tax Acknowledgement: ITR-V for the last 3 year’s.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile9"
+                            aria-expanded="true"
+                            aria-controls="touristMobile9"
+                            [class.showDiv]="selectedMobileTourist === 9"
+                            (click)="
+                              setActiveTouristMobile(9, 'setActiveTouristMobile9')
+                            "
+                            id="setActiveTouristMobile9"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-proofOfSufficientFunds requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">
+                              Proof of Sufficient Funding
+                            </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile9"
+                            class="collapse"
+                            aria-labelledby="headingMobile9"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Proof of Sufficient Funding
+                                </h1>
+                                <p>
+                                    You will have to show that you have sufficient funds to travel. These can be submitted in the form of original bank statements of the last three (3) months and/or other funds available (such as pension).
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile10"
+                            aria-expanded="true"
+                            aria-controls="touristMobile10"
+                            [class.showDiv]="selectedMobileTourist === 10"
+                            (click)="
+                              setActiveTouristMobile(
+                                10,
+                                'setActiveTouristMobile10'
+                              )
+                            "
+                            id="setActiveTouristMobile10"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-flightTicket requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Return Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile10"
+                            class="collapse"
+                            aria-labelledby="headingMobile10"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Return Flight Tickets</h1>
+                                <p>
+                                    When applying for the visa, you will need to show round-trip flight tickets for airline reservation. You will also need to show proof of how you will travel within Austria/EU. You can compile both these details in a travel itinerary which you can submit as one document. 
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#touristMobile10"
+                            aria-expanded="true"
+                            aria-controls="touristMobile10"
+                            [class.showDiv]="selectedMobileTourist === 10"
+                            (click)="
+                              setActiveTouristMobile(
+                                10,
+                                'setActiveTouristMobile10'
+                              )
+                            "
+                            id="setActiveTouristMobile10"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-accommodation requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Proof of Accommodation</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="touristMobile10"
+                            class="collapse"
+                            aria-labelledby="headingMobile10"
+                            data-parent="#touristAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Proof of Accommodation</h1>
+                                <p>
+                                    You will need to provide proof of accommodation through the means of a hotel reservation in Austria. You will also need, in the case of travel to other EU states, reservations there as well.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+  
+          <ngb-tab id="Business" title="Business">
+            <ng-template ngbTabContent>
+              <div
+                class="container-fluid wrapContainer"
+                [@simpleFadeAnimation]="'in'"
+              >
+                <div class="row">
+                  <div class="col-12 text-center mgxTop">
+                    <h1 class="outerRequirement">
+                      <span class="requirementContainer text-uppercase"
+                        >BUSINESS VISA REQUIREMENT FOR AUSTRIA
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+  
+                <div class="desktopContainer accordion" id="businessAccodion">
+                  <div class="row mt-2">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            id="#businessHeading1"
+                            data-target="#business1"
+                            aria-expanded="true"
+                            aria-controls="business1"
+                            [class.showDiv]="selectedBusiness === 1"
+                            (click)="setActiveBusiness(1, 'setActiveBusiness1')"
+                            id="setActiveBusiness1"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-applicationForm requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business1"
+                            class="collapse"
+                            [ngStyle]="{
+                              display: showBusinessFirst ? 'block' : '',
+                              opacity: showBusinessFirst ? '1' : '',
+                              visibility: showBusinessFirst ? 'visible' : '',
+                              transition: showBusinessFirst
+                                ? 'all .35s ease-in-out'
+                                : ''
+                            }"
+                            aria-labelledby="businessHeading1"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Application Form
+                                </h1>
+                                <p>
+                                    Kindly fill in the application form for the visa, and duly sign it as well.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            id="#businessHeading2"
+                            data-toggle="collapse"
+                            data-target="#business2"
+                            aria-expanded="false"
+                            aria-controls="business2"
+                            [class.showDiv]="selectedBusiness === 2"
+                            (click)="setActiveBusiness(2, 'setActiveBusiness2')"
+                            id="setActiveBusiness2"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Passport requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Passport </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business2"
+                            class="collapse"
+                            aria-labelledby="businessHeading2"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Passport </h1>
+                                <p>
+                                    The validity of your passport should be more than 3 months from when you are planning to depart from Austria. It needs to contain 2 blank passport pages (at least), and have been issued in the past 10 years. The data page should be clean and legible, with no handwritten altercations or any other alterations. 
+                                </p>
+                                <p>
+                                    Along with the current passport information pages, you will need to provide photocopies of all the pages of the current passport of yours. 
+                                </p>
+                                <p>
+                                    You will need to submit originals of your previous passports, or show proof of their loss. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            id="#businessHeading3"
+                            data-toggle="collapse"
+                            data-target="#business3"
+                            aria-expanded="false"
+                            aria-controls="business3"
+                            [class.showDiv]="selectedBusiness === 3"
+                            (click)="setActiveBusiness(3, 'setActiveBusiness3')"
+                            id="setActiveBusiness3"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Photograph requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Photographs </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business3"
+                            class="collapse"
+                            aria-labelledby="businessHeading3"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Photographs 
+                                </h1>
+                                <p>
+                                    There should be 2 photographs of the applicant attached. These must be in accordance with the international standards that are set out in the International Civil Aviation Organization (ICAO). Size of photographs should be 35mmx45mm.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            id="#businessHeading4"
+                            data-toggle="collapse"
+                            data-target="#business4"
+                            aria-expanded="false"
+                            aria-controls="business4"
+                            [class.showDiv]="selectedBusiness === 4"
+                            (click)="setActiveBusiness(4, 'setActiveBusiness4')"
+                            id="setActiveBusiness4"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-visa requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Return Visa/Permit</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business4"
+                            class="collapse"
+                            aria-labelledby="businessHeading4"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Return Visa/Permit
+                                </h1>
+                                <p>
+                                    You should have a valid return permit to any country you are entering after leaving from Austria (including your home country). This can be shown as a Residency Permit or a return visa. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            data-toggle="collapse"
+                            id="#businessHeading5"
+                            data-target="#business5"
+                            aria-expanded="false"
+                            aria-controls="business5"
+                            [class.showDiv]="selectedBusiness === 5"
+                            (click)="setActiveBusiness(5, 'setActiveBusiness5')"
+                            id="setActiveBusiness5"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Insurance requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Medical Insurance</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business5"
+                            class="collapse"
+                            aria-labelledby="businessHeading5"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Medical Insurance
+                                </h1>
+                                <p>
+                                    You should have a valid travel medical insurance which is valid throughout the entire Schengen territory. The minimum coverage of the insurance should be EUR 30,000. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            id="#businessHeading6"
+                            data-toggle="collapse"
+                            data-target="#business6"
+                            aria-expanded="false"
+                            aria-controls="business6"
+                            [class.showDiv]="selectedBusiness === 6"
+                            (click)="setActiveBusiness(6, 'setActiveBusiness6')"
+                            id="setActiveBusiness6"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-coverLetter requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Cover Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business6"
+                            class="collapse"
+                            aria-labelledby="businessHeading6"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Cover Letter
+                                </h1>
+                                <p>
+                                    You should be in possession of a cover letter that explains the purpose of the trip. This should include the identity of applicant, place and length of intended stay. It should also explain your business relations with the Austrian business partner. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            id="#businessHeading7"
+                            data-toggle="collapse"
+                            data-target="#business7"
+                            aria-expanded="false"
+                            aria-controls="business7"
+                            [class.showDiv]="selectedBusiness === 7"
+                            (click)="setActiveBusiness(7, 'setActiveBusiness7')"
+                            id="setActiveBusiness7"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-invitationLetter requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Invitation Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business7"
+                            class="collapse"
+                            aria-labelledby="businessHeading7"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                    Invitation Letter
+                                </h1>
+                                <p>
+                                    An invitation letter from the Austrian company or business operation must be submitted. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            id="#businessHeading8"
+                            data-toggle="collapse"
+                            data-target="#business8"
+                            aria-expanded="false"
+                            aria-controls="business8"
+                            [class.showDiv]="selectedBusiness === 8"
+                            (click)="setActiveBusiness(8, 'setActiveBusiness8')"
+                            id="setActiveBusiness8"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-OtherDocuments requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Occupational Information</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business8"
+                            class="collapse"
+                            aria-labelledby="businessHeading8"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Occupational Information
+                                </h1>
+                                <p>
+                                    You will need to show evidence of your occupational status. Please check the FAQs below to know more about the exact documents required to be submitted.
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            data-toggle="collapse"
+                            id="#businessHeading9"
+                            data-target="#business9"
+                            aria-expanded="false"
+                            aria-controls="business9"
+                            [class.showDiv]="selectedBusiness === 9"
+                            (click)="setActiveBusiness(9, 'setActiveBusiness9')"
+                            id="setActiveBusiness9"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-PermissionbytheAustrianLaborMarketAuthority requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Permission by the Austrian Labor Market Authority</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business9"
+                            class="collapse"
+                            aria-labelledby="businessHeading9"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Permission by the Austrian Labor Market Authority
+                                </h1>
+                                <p>
+                                    In case your purpose of trip is anything other than meetings, (eg. training, voluntary or project work), you will need to get permission from the Austrian Labor Market Authority “AMS”(Entsendebewilligung, Anzeigebestätigung). This should be done by the inviting Austrian company.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            data-toggle="collapse"
+                            id="#businessHeading10"
+                            data-target="#business10"
+                            aria-expanded="false"
+                            aria-controls="business10"
+                            [class.showDiv]="selectedBusiness === 10"
+                            (click)="setActiveBusiness(10, 'setActiveBusiness10')"
+                            id="setActiveBusiness10"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-proofOfSufficientFunds requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Proof of Sufficient Funding</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business10"
+                            class="collapse"
+                            aria-labelledby="businessHeading10"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Proof of Sufficient Funding
+                                </h1>
+                                <p>
+                                    You will have to show that you have sufficient funds to travel. These can be submitted in the form of original bank statements of the last three (3) months and/or other funds available (such as pension).
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            class="collapsed"
+                            data-toggle="collapse"
+                            id="#businessHeading11"
+                            data-target="#business11"
+                            aria-expanded="false"
+                            aria-controls="business11"
+                            [class.showDiv]="selectedBusiness === 11"
+                            (click)="setActiveBusiness(11, 'setActiveBusiness11')"
+                            id="setActiveBusiness11"
+                          >
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTicket requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Return Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="business11"
+                            class="collapse"
+                            aria-labelledby="businessHeading11"
+                            data-parent="#businessAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Return Flight Tickets</h1>
+                                <p>
+                                    When applying for the visa, you will need to show round-trip flight tickets for airline reservation. You will also need to show proof of how you will travel within Austria/EU. You can compile both these details in a travel itinerary which you can submit as one document. 
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                          <ng-template ngbTabTitle>
+                            <div
+                              class="collapsed"
+                              data-toggle="collapse"
+                              id="#businessHeading12"
+                              data-target="#business12"
+                              aria-expanded="false"
+                              aria-controls="business12"
+                              [class.showDiv]="selectedBusiness === 12"
+                              (click)="setActiveBusiness(12, 'setActiveBusiness12')"
+                              id="setActiveBusiness12"
+                            >
+                              <div class="makeIconCntr">
+                                <div class="vr-accommodation requiredIcons img-sprite"></div>
+                              </div>
+                              <h2 class="setFontSize">Proof of Accommodation</h2>
+                            </div>
+                          </ng-template>
+                          <ng-template ngbTabContent>
+                            <div
+                              id="business12"
+                              class="collapse"
+                              aria-labelledby="businessHeading12"
+                              data-parent="#businessAccodion"
+                            >
+                              <div class="card requiredIcon">
+                                <div class="card-body">
+                                  <h1 class="requiredIconHeading">Proof of Accommodation</h1>
+                                  <p>
+                                    You will need to provide proof of accommodation through the means of a hotel reservation in Austria and, in the case of travel to other EU states, reservations there as well.
+
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+                </div>
+  
+                <div
+                  class="mobileContainer wrapContainer accordion"
+                  id="businessAccodionMobile"
+                >
+                  <div class="row">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile1"
+                            aria-expanded="true"
+                            aria-controls="businessMobile1"
+                            [class.showDiv]="selectedMobileBusiness === 1"
+                            (click)="
+                              setActiveBusinessMobile(
+                                1,
+                                'setActiveMobileBusiness1'
+                              )
+                            "
+                            id="setActiveMobileBusiness1"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Photograph Form requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Photographs </h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile1"
+                            class="collapse"
+                            [ngStyle]="{
+                              display: showBusinessMobileFirst ? 'block' : '',
+                              opacity: showBusinessMobileFirst ? '1' : '',
+                              visibility: showBusinessMobileFirst
+                                ? 'visible'
+                                : '',
+                              transition: showBusinessMobileFirst
+                                ? 'all .35s ease-in-out'
+                                : ''
+                            }"
+                            aria-labelledby="headingMobile1"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Photographs 
+                                </h1>
+                                <p>
+                                    There should be 2 photographs of the applicant attached. These must be in accordance with the international standards that are set out in the International Civil Aviation Organization (ICAO). Size of photographs should be 35mmx45mm.
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile2"
+                            aria-expanded="true"
+                            aria-controls="businessMobile2"
+                            [class.showDiv]="selectedMobileBusiness === 2"
+                            (click)="
+                              setActiveBusinessMobile(
+                                2,
+                                'setActiveMobileBusiness2'
+                              )
+                            "
+                            id="setActiveMobileBusiness2"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-visa requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Return Visa/Permit</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile2"
+                            class="collapse"
+                            aria-labelledby="headingMobile2"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Return Visa/Permit</h1>
+                                <p>
+                                    You should have a valid return permit to any country you are entering after leaving from Austria (including your home country). This can be shown as a Residency Permit or a return visa. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile3"
+                            aria-expanded="true"
+                            aria-controls="businessMobile3"
+                            [class.showDiv]="selectedMobileBusiness === 3"
+                            (click)="
+                              setActiveBusinessMobile(
+                                3,
+                                'setActiveMobileBusiness3'
+                              )
+                            "
+                            id="setActiveMobileBusiness3"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Insurance requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Medical Insurance</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile3"
+                            class="collapse"
+                            aria-labelledby="headingMobile3"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Medical Insurance
+                                </h1>
+                                <p>
+                                    You should have a valid travel medical insurance which is valid throughout the entire Schengen territory. The minimum coverage of the insurance should be EUR 30,000. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile4"
+                            aria-expanded="true"
+                            aria-controls="businessMobile4"
+                            [class.showDiv]="selectedMobileBusiness === 4"
+                            (click)="
+                              setActiveBusinessMobile(
+                                4,
+                                'setActiveMobileBusiness4'
+                              )
+                            "
+                            id="setActiveMobileBusiness4"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-coverLetter requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Cover Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile4"
+                            class="collapse"
+                            aria-labelledby="headingMobile4"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Cover Letter
+                                </h1>
+                                <p>
+                                    You should be in possession of a cover letter that explains the purpose of the trip. This should include the identity of applicant, place and length of intended stay. It should also explain your business relations with the Austrian business partner. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile5"
+                            aria-expanded="true"
+                            aria-controls="businessMobile5"
+                            [class.showDiv]="selectedMobileBusiness === 5"
+                            (click)="
+                              setActiveBusinessMobile(
+                                5,
+                                'setActiveMobileBusiness5'
+                              )
+                            "
+                            id="setActiveMobileBusiness5"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-invitationLetter requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Invitation Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile5"
+                            class="collapse"
+                            aria-labelledby="headingMobile5"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Invitation Letter
+                                </h1>
+                                <p>
+                                    An invitation letter from the Austrian company or business operation must be submitted. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile6"
+                            aria-expanded="true"
+                            aria-controls="businessMobile6"
+                            [class.showDiv]="selectedMobileBusiness === 6"
+                            (click)="
+                              setActiveBusinessMobile(
+                                6,
+                                'setActiveMobileBusiness6'
+                              )
+                            "
+                            id="setActiveMobileBusiness6"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-OtherDocuments requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Occupational Information</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile6"
+                            class="collapse"
+                            aria-labelledby="headingMobile6"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Occupational Information
+                                </h1>
+                                <p>
+                                    You will need to show evidence of your occupational status. Please check the FAQs below to know more about the exact documents required to be submitted.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile7"
+                            aria-expanded="true"
+                            aria-controls="businessMobile7"
+                            [class.showDiv]="selectedMobileBusiness === 7"
+                            (click)="
+                              setActiveBusinessMobile(
+                                7,
+                                'setActiveMobileBusiness7'
+                              )
+                            "
+                            id="setActiveMobileBusiness7"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-PermissionbytheAustrianLaborMarketAuthority requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Permission by the Austrian Labor Market Authority</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile7"
+                            class="collapse"
+                            aria-labelledby="headingMobile7"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Permission by the Austrian Labor Market Authority
+                                </h1>
+                                <p>
+                                    n case your purpose of trip is anything other than meetings, (eg. training, voluntary or project work), you will need to get permission from the Austrian Labor Market Authority “AMS”(Entsendebewilligung, Anzeigebestätigung). This should be done by the inviting Austrian company.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile8"
+                            aria-expanded="true"
+                            aria-controls="businessMobile8"
+                            [class.showDiv]="selectedMobileBusiness === 8"
+                            (click)="
+                              setActiveBusinessMobile(
+                                8,
+                                'setActiveMobileBusiness8'
+                              )
+                            "
+                            id="setActiveMobileBusiness8"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-proofOfSufficientFunds requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Proof of Sufficient Funding</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile8"
+                            class="collapse"
+                            aria-labelledby="headingMobile8"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Proof of Sufficient Funding
+                                </h1>
+                                <p>
+                                    You will have to show that you have sufficient funds to travel. These can be submitted in the form of original bank statements of the last three (3) months and/or other funds available (such as pension).
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile9"
+                            aria-expanded="true"
+                            aria-controls="businessMobile9"
+                            [class.showDiv]="selectedMobileBusiness === 9"
+                            (click)="
+                              setActiveBusinessMobile(
+                                9,
+                                'setActiveMobileBusiness9'
+                              )
+                            "
+                            id="setActiveMobileBusiness9"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-flightTicket requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Return Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile9"
+                            class="collapse"
+                            aria-labelledby="headingMobile9"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Return Flight Tickets
+                                </h1>
+                                <p>
+                                    When applying for the visa, you will need to show round-trip flight tickets for airline reservation. You will also need to show proof of how you will travel within Austria/EU. You can compile both these details in a travel itinerary which you can submit as one document. 
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#businessMobile10"
+                            aria-expanded="true"
+                            aria-controls="businessMobile10"
+                            [class.showDiv]="selectedMobileBusiness === 10"
+                            (click)="
+                              setActiveBusinessMobile(
+                                10,
+                                'setActiveMobileBusiness10'
+                              )
+                            "
+                            id="setActiveMobileBusiness10"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-accommodation requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Proof of Accommodation</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="businessMobile10"
+                            class="collapse"
+                            aria-labelledby="headingMobile10"
+                            data-parent="#businessAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">
+                                  Proof of Accommodation
+                                </h1>
+                                <p>
+                                    You will need to provide proof of accommodation through the means of a hotel reservation in Austria and, in the case of travel to other EU states, reservations there as well.
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+  
+          <ngb-tab id="Transit" title="Transit">
+            <ng-template ngbTabContent>
+              <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+                <div class="row">
+                  <div class="col-12 text-center mgxTop">
+                    <h1 class="outerRequirement">
+                      <span class="requirementContainer text-uppercase">
+                        TRANSIT VISA REQUIREMENT FOR AUSTRIA
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+  
+                <div class="desktopContainer accordion" id="transitAccodion">
+                  <div class="row mt-2">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#transit1"
+                            aria-expanded="true"
+                            aria-controls="transit1"
+                            [class.showDiv]="selectedTransit === 1"
+                            (click)="setActiveTransit(1, 'setActiveTransit1')"
+                            id="setActiveTransit1"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Passport requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+  
+                        <ng-template ngbTabContent>
+                          <div
+                            id="transit1"
+                            class="collapse"
+                            [ngStyle]="{
+                              display: showTransitFirst ? 'block' : '',
+                              opacity: showTransitFirst ? '1' : '',
+                              visibility: showTransitFirst ? 'visible' : '',
+                              transition: showTransitFirst
+                                ? 'all .35s ease-in-out'
+                                : ''
+                            }"
+                            aria-labelledby="transit1"
+                            data-parent="#transitAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                    This document must be valid for at least 6 months after the date of entry into Austria.
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+  
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#transit2"
+                            aria-expanded="true"
+                            aria-controls="transit2"
+                            [class.showDiv]="selectedTransit === 2"
+                            (click)="setActiveTransit(2, 'setActiveTransit2')"
+                            id="setActiveTransit2"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-flightTicket requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="transit2"
+                            class="collapse"
+                            aria-labelledby="transit2"
+                            data-parent="#transitAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Flight Tickets
+                                </h1>
+                                <p>
+                                    You must have proof of ongoing flight tickets to your next journey (after transiting from Austria).
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+  
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#transit3"
+                            aria-expanded="true"
+                            aria-controls="transit3"
+                            [class.showDiv]="selectedTransit === 3"
+                            (click)="setActiveTransit(3)"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-visa requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Onward Travel Visa</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div
+                            id="transit3"
+                            class="collapse"
+                            aria-labelledby="transit3"
+                            data-parent="#transitAccodion"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Onward Travel Visa
+                                </h1>
+                                <p>
+                                    You will also need the visas (if applicable) for your next destination (the one you will go to after transiting from Austria). 
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+                </div>
+  
+                <div
+                  class="mobileContainer wrapContainer accordion"
+                  id="transitAccodionMobile"
+                >
+                  <div class="row">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#transitMobile1"
+                            aria-expanded="true"
+                            aria-controls="transitMobile1"
+                            [class.showDiv]="selectedTransit === 1"
+                            (click)="
+                              setActiveMobileTransit(1, 'setActiveMobileTransit1')
+                            "
+                            id="setActiveMobileTransit1"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-Passport requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Passport </h2>
+                          </div>
+                        </ng-template>
+  
+                        <ng-template ngbTabContent>
+                          <div
+                            id="transitMobile1"
+                            class="collapse"
+                            [ngStyle]="{
+                              display: showTransitMobileFirst ? 'block' : '',
+                              opacity: showTransitMobileFirst ? '1' : '',
+                              visibility: showTransitMobileFirst ? 'visible' : '',
+                              transition: showTransitMobileFirst
+                                ? 'all .35s ease-in-out'
+                                : ''
+                            }"
+                            aria-labelledby="transitMobile1"
+                            data-parent="#transitAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Passport </h1>
+                                <p>
+                                    This document must be valid for at least 6 months after the date of entry into Austria.
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#transitMobile2"
+                            aria-expanded="true"
+                            aria-controls="transitMobile2"
+                            [class.showDiv]="selectedTransit === 2"
+                            (click)="
+                              setActiveMobileTransit(2, 'setActiveMobileTransit2')
+                            "
+                            id="setActiveMobileTransit2"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-flightTicket requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+  
+                        <ng-template ngbTabContent>
+                          <div
+                            id="transitMobile2"
+                            class="collapse"
+                            aria-labelledby="transitMobile2"
+                            data-parent="#transitAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Flight Tickets
+                                </h1>
+                                <p>
+                                    You must have proof of ongoing flight tickets to your next journey (after transiting from Austria).
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                  <div class="row mt-4">
+                    <ngb-tabset
+                      [justify]="desktopJustify"
+                      [orientation]="desktopOrientation"
+                      class="iconTabset"
+                      type="pills"
+                    >
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div
+                            data-toggle="collapse"
+                            data-target="#transitMobile3"
+                            aria-expanded="true"
+                            aria-controls="transitMobile3"
+                            [class.showDiv]="selectedTransit === 3"
+                            (click)="
+                              setActiveMobileTransit(3, 'setActiveMobileTransit3')
+                            "
+                            id="setActiveMobileTransit3"
+                          >
+                            <div class="makeIconCntr">
+                              <div
+                                class="vr-visa requiredIcons img-sprite"
+                              ></div>
+                            </div>
+                            <h2 class="setFontSize">Onward Travel Visa</h2>
+                          </div>
+                        </ng-template>
+  
+                        <ng-template ngbTabContent>
+                          <div
+                            id="transitMobile3"
+                            class="collapse"
+                            aria-labelledby="transitMobile3"
+                            data-parent="#transitAccodionMobile"
+                          >
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">
+                                  Onward Travel Visa
+                                </h1>
+                                <p>
+                                    You will also need the visas (if applicable) for your next destination (the one you will go to after transiting from Austria). 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+  
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </section>
+  

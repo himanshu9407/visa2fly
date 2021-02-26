@@ -415,7 +415,21 @@
                         </div>
                         <div class="col-md-6 managePadd stateInput">
                           <label for="exampleInputPassword1">State:</label>
-                          <select formControlName="state" id="inputState" class="form-control col form-control-sm">
+                           <ng-select formControlName="state" placeholder="Select State" (change)="stateChanged($event)">
+                            <ng-option *ngFor="let state of stateListArr" [value]="state">
+                                {{state}}
+                            </ng-option>
+                          </ng-select>
+                            <div
+                              *ngIf="
+                                simCheckoutForm.controls.state.errors?.valueErr || stateError
+                              "
+                              class="invalid-feedback"
+                              style="display: block"
+                            >
+                              Select a valid state
+                            </div>
+                          <!-- <select formControlName="state" id="inputState" class="form-control col form-control-sm">
                             <option selected value="select" [disabled]="true" [selected]="true">Select State</option>
                             <option value="Andaman And Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -453,7 +467,7 @@
                             <option value="Uttar">Uttar Pradesh</option>
                             <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>
-                          </select>
+                          </select> -->
                         </div>
                       </div>
                     </div>
@@ -468,7 +482,7 @@
                           <div *ngIf="simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty"
                             class="invalid-feedback" style="display: block;">
 
-                            <div>* Invalid City</div>
+                            <div>* Invalid Pin Code</div>
                           </div>
                         </div>
                         <div class="col-md-6 managePadd">

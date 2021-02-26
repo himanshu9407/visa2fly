@@ -59,7 +59,7 @@ export class InsuranceBookingStatusComponent implements OnInit {
     this.titleService.setTitle("Visa2fly | Booking " + this.status);
   }
 
-  navigationToMyBooking() {
+  navigateToBooking() {
     this.router.navigate(['/myBookings'])
   }
 
