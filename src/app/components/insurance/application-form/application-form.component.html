@@ -49,7 +49,7 @@
             <span class="insurance-label">Premium Calculated</span>
             <span
               class="insurance-amount"
-              style="font-weight: 600; font-size: 15px"
+              style="font-weight: 600; font-size: 15px;"
             >
               ₹ {{ premiumCalculated + this.premiumGST }}
               <em>(including taxes)</em>
@@ -71,7 +71,10 @@
             </h5>
           </div>
           <div id="proposerForm">
-            <div class="card-body" style="background-color: #fff">
+            <div
+              class="card-body card_body--application_form"
+              style="background-color: #fff;"
+            >
               <div class="form-row">
                 <div
                   class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
@@ -86,7 +89,7 @@
                       >First Name<span class="astrisk">*</span></label
                     >
                     <div class="input-group">
-                      <div class="input-group-prepend" style="width: 60px">
+                      <div class="input-group-prepend" style="width: 60px;">
                         <select
                           name="titleCd"
                           id="proposerTitle"
@@ -144,7 +147,7 @@
                             .firstNameError)
                       "
                       class="invalid-feedback"
-                      style="display: block"
+                      style="display: block;"
                     >
                       Enter a valid first name*
                     </div>
@@ -194,7 +197,7 @@
                             .lastNameError)
                       "
                       class="invalid-feedback"
-                      style="display: block"
+                      style="display: block;"
                     >
                       Enter a valid last name*
                     </div>
@@ -257,7 +260,7 @@
                     />
                   </div>
                 </div>
-               
+
                 <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
                   <div class="insurance-input_box">
                     <label for="proposerDateOfBirth" class="insurance-label"
@@ -322,7 +325,7 @@
                             .birthDtError)
                       "
                       class="invalid-feedback"
-                      style="display: block"
+                      style="display: block;"
                     >
                       Enter a valid date of birth*
                     </div>
@@ -330,8 +333,8 @@
                 </div>
               </div>
 
-              <div class="form-row mt-2">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="form-row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-2">
                   <div class="form-row">
                     <div
                       class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
@@ -410,7 +413,7 @@
                                 .contactNum.contactNumError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Enter a valid contact number*
                         </div>
@@ -483,7 +486,7 @@
                                 .emailAddress.emailAddressError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Enter a valid email address*
                         </div>
@@ -492,7 +495,7 @@
                   </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-2">
                   <div class="form-row">
                     <div
                       class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
@@ -551,7 +554,7 @@
                                 .nomineeNameError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Enter a valid nominee name*
                         </div>
@@ -596,7 +599,7 @@
                                 .nomineeRelationError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Enter a valid nominee name*
                         </div>
@@ -665,7 +668,7 @@
                       <button
                         type="button"
                         *ngIf="j == 1"
-                        style="padding: 0px 0px 0px 2px"
+                        style="padding: 0px 0px 0px 2px;"
                         class="btn"
                         ngbPopover="Pan card is mandatory when premium calculated is greater than 50000"
                       >
@@ -745,7 +748,7 @@
                             .identityNum.identityNumError)
                       "
                       class="invalid-feedback"
-                      style="display: block"
+                      style="display: block;"
                     >
                       Enter a valid identity number*
                     </div>
@@ -794,7 +797,7 @@
                         <label
                           class="form-check-label"
                           for="sameAsPermanentAddress_{{ j }}"
-                          style="font-size: 13px"
+                          style="font-size: 13px;"
                         >
                           Same as Permanent Address
                         </label>
@@ -862,7 +865,7 @@
                                     .addressLine1Lang1.addressLine1Lang1Error)
                               "
                               class="invalid-feedback"
-                              style="display: block"
+                              style="display: block;"
                             >
                               Enter a valid address 1*
                             </div>
@@ -928,7 +931,7 @@
                                     .addressLine2Lang1.addressLine2Lang1Error)
                               "
                               class="invalid-feedback"
-                              style="display: block"
+                              style="display: block;"
                             >
                               Enter a valid address 2*
                             </div>
@@ -1013,7 +1016,7 @@
                                     .areaCd.areaCdError)
                               "
                               class="invalid-feedback"
-                              style="display: block"
+                              style="display: block;"
                             >
                               Enter a valid area*
                             </div>
@@ -1026,7 +1029,7 @@
                             <label for="proposerPinCode" class="insurance-label"
                               >Pin Code<span class="astrisk">*</span></label
                             >
-                            <div style="position: relative">
+                            <div style="position: relative;">
                               <input
                                 type="text"
                                 id="proposerPinCode"
@@ -1067,7 +1070,7 @@
                                   width="1em"
                                   height="1em"
                                   viewBox="0 0 24 24"
-                                  style="fill: rgba(0, 0, 0, 1)"
+                                  style="fill: rgba(0, 0, 0, 1);"
                                 >
                                   <path
                                     d="M12,22c5.421,0,10-4.579,10-10h-2c0,4.337-3.663,8-8,8s-8-3.663-8-8c0-4.336,3.663-8,8-8V2C6.579,2,2,6.58,2,12 C2,17.421,6.579,22,12,22z"
@@ -1097,7 +1100,7 @@
                                       .controls.pinCode.pinCodeFetchError))
                               "
                               class="invalid-feedback"
-                              style="display: block"
+                              style="display: block;"
                             >
                               Enter a valid pin code*
                             </div>
@@ -1162,7 +1165,7 @@
                                   .cityCd.cityCdError
                               "
                               class="invalid-feedback"
-                              style="display: block"
+                              style="display: block;"
                             >
                               Enter a valid city*
                             </div>
@@ -1271,7 +1274,7 @@
                                     .countryCd.countryCdError)
                               "
                               class="invalid-feedback"
-                              style="display: block"
+                              style="display: block;"
                             >
                               Enter a valid country*
                             </div>
@@ -1373,8 +1376,8 @@
                 attr.aria-labelledby="{{ dataSource[i].id }}"
                 data-parent="#accordionInsurer"
               >
-                <div class="card-body">
-                  <div class="form-row mt-2">
+                <div class="card-body card_body--application_form">
+                  <div class="form-row">
                     <div
                       class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
                     >
@@ -1397,7 +1400,7 @@
                           >First Name<span class="astrisk">*</span></label
                         >
                         <div class="input-group">
-                          <div class="input-group-prepend" style="width: 60px">
+                          <div class="input-group-prepend" style="width: 60px;">
                             <select
                               name="titleCd"
                               id="titleCd{{ i }}"
@@ -1449,7 +1452,7 @@
                                 .firstNameError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Enter a valid first name*
                         </div>
@@ -1490,7 +1493,7 @@
                               getControls[i]['controls'].lastName.lastNameError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Enter a valid last name*
                         </div>
@@ -1536,7 +1539,7 @@
                                 .relationCdError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Select the valid option*
                         </div>
@@ -1547,7 +1550,7 @@
                             getControls[i]['controls'].relationCd.value != ''
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Details already exists
                         </div>
@@ -1629,7 +1632,7 @@
                                 .citizenshipCdError)
                           "
                           class="invalid-feedback"
-                          style="display: block"
+                          style="display: block;"
                         >
                           Enter a valid nationality*
                         </div>
@@ -1701,7 +1704,7 @@
                                 getControls[i]['controls'].birthDt.birthDtError)
                             "
                             class="invalid-feedback"
-                            style="display: block"
+                            style="display: block;"
                           >
                             Enter a valid date of birth*
                           </div>
@@ -1765,7 +1768,7 @@
                                 getControls[i]['controls'].birthDt.birthDtError)
                             "
                             class="invalid-feedback"
-                            style="display: block"
+                            style="display: block;"
                           >
                             Enter a valid date of birth*
                           </div>
@@ -1829,7 +1832,7 @@
                                 getControls[i]['controls'].birthDt.birthDtError)
                             "
                             class="invalid-feedback"
-                            style="display: block"
+                            style="display: block;"
                           >
                             Enter a valid date of birth*
                           </div>
@@ -1893,7 +1896,7 @@
                                 getControls[i]['controls'].birthDt.birthDtError)
                             "
                             class="invalid-feedback"
-                            style="display: block"
+                            style="display: block;"
                           >
                             Enter a valid date of birth*
                           </div>
@@ -1957,7 +1960,7 @@
                                 getControls[i]['controls'].birthDt.birthDtError)
                             "
                             class="invalid-feedback"
-                            style="display: block"
+                            style="display: block;"
                           >
                             Enter a valid date of birth*
                           </div>
@@ -2021,7 +2024,7 @@
                                 getControls[i]['controls'].birthDt.birthDtError)
                             "
                             class="invalid-feedback"
-                            style="display: block"
+                            style="display: block;"
                           >
                             Enter a valid date of birth*
                           </div>
@@ -2289,7 +2292,7 @@
                                         .controls.identityNum.identityNumError)
                                   "
                                   class="invalid-feedback"
-                                  style="display: block"
+                                  style="display: block;"
                                 >
                                   Enter a valid identity number*
                                 </div>
@@ -2301,7 +2304,7 @@
                     </div>
                   </div>
 
-                  <!-- 
+                  <!--
                     " -->
 
                   <!--  formArrayName="partyContactDOList"
@@ -2365,80 +2368,80 @@
                               }}
                             </label>
                           </div>
-                       
-                            <div
+
+                          <div
                             class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex ques_ans_option_box"
-                              *ngIf="
-                                getControls[i]['controls'].partyQuestionDOList
-                                  .controls[j].controls.questionType.value ==
-                                'radio'
-                              "
-                            >
-                              <div class="custom-control custom-radio">
-                                <input
-                                  type="radio"
-                                  id="question_{{ j }}_1_{{i}}"
-                                  name="response_{{ j }}"
-                                  value="YES"
-                                  (change)="
-                                    handleQuestions(
-                                      $event.target.value,
-                                      i,
-                                      j,
-                                      getControls[i]['controls']
-                                        .partyQuestionDOList.controls[j]
-                                        .controls.questionType.value
-                                    )
-                                  "
-                                  formControlName="response_{{ j }}"
-                                  class="custom-control-input"
-                                />
-                                <label
-                                  class="custom-control-label insurance-radio-label"
-                                  for="question_{{ j }}_1_{{i}}"
-                                  >Yes</label
-                                >
-                              </div>
-                              <div
-                                class="custom-control custom-radio ques_ans_right_option"
+                            *ngIf="
+                              getControls[i]['controls'].partyQuestionDOList
+                                .controls[j].controls.questionType.value ==
+                              'radio'
+                            "
+                          >
+                            <div class="custom-control custom-radio">
+                              <input
+                                type="radio"
+                                id="question_{{ j }}_1_{{ i }}"
+                                name="response_{{ j }}"
+                                value="YES"
+                                (change)="
+                                  handleQuestions(
+                                    $event.target.value,
+                                    i,
+                                    j,
+                                    getControls[i]['controls']
+                                      .partyQuestionDOList.controls[j].controls
+                                      .questionType.value
+                                  )
+                                "
+                                formControlName="response_{{ j }}"
+                                class="custom-control-input"
+                              />
+                              <label
+                                class="custom-control-label insurance-radio-label"
+                                for="question_{{ j }}_1_{{ i }}"
+                                >Yes</label
                               >
-                                <input
-                                  type="radio"
-                                  id="question_{{ j }}_2_{{i}}"
-                                  name="response_{{ j }}"
-                                  value="NO"
-                                  (change)="
-                                    handleQuestions(
-                                      $event.target.value,
-                                      i,
-                                      j,
-                                      getControls[i]['controls']
-                                        .partyQuestionDOList.controls[j]
-                                        .controls.questionType.value
-                                    )
-                                  "
-                                  formControlName="response_{{ j }}"
-                                  class="custom-control-input"
-                                />
-                                <label
-                                  class="custom-control-label insurance-radio-label"
-                                  for="question_{{ j }}_2_{{i}}"
-                                  >No</label
-                                >
-                              </div>
                             </div>
+                            <div
+                              class="custom-control custom-radio ques_ans_right_option"
+                            >
+                              <input
+                                type="radio"
+                                id="question_{{ j }}_2_{{ i }}"
+                                name="response_{{ j }}"
+                                value="NO"
+                                (change)="
+                                  handleQuestions(
+                                    $event.target.value,
+                                    i,
+                                    j,
+                                    getControls[i]['controls']
+                                      .partyQuestionDOList.controls[j].controls
+                                      .questionType.value
+                                  )
+                                "
+                                formControlName="response_{{ j }}"
+                                class="custom-control-input"
+                              />
+                              <label
+                                class="custom-control-label insurance-radio-label"
+                                for="question_{{ j }}_2_{{ i }}"
+                                >No</label
+                              >
+                            </div>
+                          </div>
 
                           <div
                             class="col-12 mb-2 ques_ans_textarea"
-                            style="display: none"
-                            id="question_{{ j }}_{{i}}"
+                            style="display: none;"
+                            id="question_{{ j }}_{{ i }}"
                           >
                             <textarea
                               type="text"
                               maxlength="100"
                               formControlName="response"
                               autocomplete="new-addressLine1Lang1"
-                              id="textarea_question_{{ j }}_{{i}}"
+                              id="textarea_question_{{ j }}_{{ i }}"
                               pattern="^[ A-Za-z0-9-:./\n,]*$"
                               (keydown)="
                                 textCounterForQuestions(
@@ -2457,7 +2460,7 @@
                                     .controls[j].controls.questionType.value
                                 )
                               "
-                              style="max-width: 500px"
+                              style="max-width: 500px;"
                               [ngStyle]="{ height: j == 7 ? '32px' : '80px' }"
                               placeholder="{{
                                 j == 7 ? 'Disease Name' : 'Write here ...'
@@ -2466,7 +2469,7 @@
                             ></textarea>
                             <small
                               class="form-text text-muted"
-                              id="characterInfo_{{ j }}_{{i }}"
+                              id="characterInfo_{{ j }}_{{ i }}"
                               >0 characters remaining</small
                             >
                           </div>
@@ -3188,7 +3191,7 @@
                 height="14px"
                 viewBox="0 0 512 512"
                 width="14px"
-                style="margin-top: -1px"
+                style="margin-top: -1px;"
                 class="hovered-paths"
               >
                 <g>
@@ -3216,7 +3219,7 @@
               <div class="form-check">
                 <div
                   class="custom-control custom-checkbox"
-                  style="padding-left: 0px !important; font-size: 14px"
+                  style="padding-left: 0px !important; font-size: 14px;"
                 >
                   <input
                     formControlName="tnc"
@@ -3227,7 +3230,7 @@
                   <label
                     class="custom-control-label tnc"
                     for="tnc"
-                    style="cursor: pointer"
+                    style="cursor: pointer;"
                     >I agree with the
                     <a
                       [routerLink]="['/tnc']"
@@ -3265,7 +3268,7 @@
           <span class="loading" *ngIf="loaderOnProceed">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              style="fill: #fff; height: 1em; width: 1em"
+              style="fill: #fff; height: 1em; width: 1em;"
               viewBox="0 0 24 24"
             >
               <g data-name="Layer 2">
@@ -3308,7 +3311,7 @@
   </div>
 </section>
 
-<div style="display: none">
+<div style="display: none;">
   <form name="paymentForm" [action]="actionUrl" method="POST">
     <input
       type="hidden"
@@ -3327,35 +3330,35 @@
   <!-- <form action="https://apiuat.religarehealthinsurance.com/portalui/PortalPayment.run" name="0.1_PAYMENTFORM" method="post" target="_blank" onsubmit="try {return window.confirm(&quot;This form may not function properly due to certain security constraints.\nContinue?&quot;);} catch (e) {return false;}">
     <div>
     <input type="hidden" name="proposalNum" value="1120002818106">
-	<input type="hidden" name="returnURL" value="http://13.127.24.123/vizzaweb/#/paymentSuccess">	
+	<input type="hidden" name="returnURL" value="http://13.127.24.123/vizzaweb/#/paymentSuccess">
 	</div>
-  	
+
     </form> -->
 </div>
 
 <div
   class="modal fade"
   id="warningModal"
-  style="top: 200px"
+  style="top: 200px;"
   data-backdrop="static"
   data-keyboard="false"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
-  style="display: none; background-color: rgba(0, 0, 0, 0.5)"
+  style="display: none; background-color: rgba(0, 0, 0, 0.5);"
 >
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div
         class="modal-header text-center"
-        style="padding: 4px 1rem; background: #ff3333"
+        style="padding: 4px 1rem; background: #ff3333;"
       >
         <h5 class="modal-title w-100 text-white" id="exampleModalLabel">
           Warning
         </h5>
       </div>
-      <div class="modal-body" style="padding: 1rem 10px; font-size: 14px">
+      <div class="modal-body" style="padding: 1rem 10px; font-size: 14px;">
         <p class="mb-2">
           Premium amount changed from Rs.{{ oldPremium }} to Rs.{{
             newPremium
@@ -3371,7 +3374,7 @@
             x="0px"
             y="0px"
             viewBox="0 0 286.614 286.614"
-            style="enable-background: new 0 0 286.614 286.614"
+            style="enable-background: new 0 0 286.614 286.614;"
             xml:space="preserve"
             width="16px"
             height="16px"
@@ -3405,7 +3408,7 @@
             x="0px"
             y="0px"
             viewBox="0 0 286.614 286.614"
-            style="enable-background: new 0 0 286.614 286.614"
+            style="enable-background: new 0 0 286.614 286.614;"
             xml:space="preserve"
             width="16px"
             height="16px"
@@ -3439,7 +3442,7 @@
             x="0px"
             y="0px"
             viewBox="0 0 286.614 286.614"
-            style="enable-background: new 0 0 286.614 286.614"
+            style="enable-background: new 0 0 286.614 286.614;"
             xml:space="preserve"
             width="16px"
             height="16px"
@@ -3473,7 +3476,7 @@
             x="0px"
             y="0px"
             viewBox="0 0 286.614 286.614"
-            style="enable-background: new 0 0 286.614 286.614"
+            style="enable-background: new 0 0 286.614 286.614;"
             xml:space="preserve"
             width="16px"
             height="16px"
@@ -3500,7 +3503,7 @@
       </div>
       <div
         class="modal-footer"
-        style="padding: 0px 10px 10px; border-top: none"
+        style="padding: 0px 10px 10px; border-top: none;"
       >
         <button class="btn btn-danger btn-sm" data-dismiss="modal">
           Cancel
