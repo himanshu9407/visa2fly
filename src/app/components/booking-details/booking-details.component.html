@@ -216,6 +216,134 @@
         </div>
       </div>
     </div>
+
+    <div class="container summaryContainer" *ngIf="selectedBooking.booking.bookingType == 'Insurance'">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 style="font-size: 24px; font-weight: 600;">Summary</h3>
+        </div>
+
+        <div class="col-md-7 pdLeft">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-12 col-sm-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING ID:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingId}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-6 pdLeft mgTop">
+                  <div class="labelText ">
+                    <b>TRANSACTION ID:</b>
+                    <div class="viewDetail">
+                      <li *ngIf="selectedBooking.booking.paymentId != null">{{selectedBooking.booking.paymentId}}</li>
+                      <li *ngIf="selectedBooking.booking.paymentId == null">NA</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>INSURANCE FOR :</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.insuranceBookings.country}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>PLAN TYPE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.insuranceBookings.planType}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>COVERAGE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.insuranceBookings.currency + ' ' +selectedBooking.insuranceBookings.coverage}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>NO OF INSURED PERSON:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.insuranceBookings.numberOfInsuredPerson}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5 pdLeft">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING DATE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingDate}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>POLICY COMMENCEMENT DATE:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.insuranceBookings.policyCommencementDt}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText firstChild">
+                    <b>BOOKING STATUS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.bookingStatus}}</li>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-6 pdLeft">
+                  <div class="labelText ">
+                    <b>PAYMENT STATUS:</b>
+                    <div class="viewDetail">
+                      <li>{{selectedBooking.booking.paymentStatus}}</li>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
   </section>
 </div>
 <section class="bookingDetail" style="margin-bottom: 40px;">
@@ -605,62 +733,80 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-              <div class="insurance">
+      <div *ngFor=" let insuranceItem of insuranceDetail" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2" >
+              <div class="insurance" *ngIf="insuranceItem != null">
                 <div class="card">
                   <div class="card-header priceHeading text-white">
-                    96 Hours Transit Visa
+                    Insurance Booking Detail
                   </div>
                   <div class="card-body">
                     <ul class="visa-type">
                       <li>
-                        Booking ID:
-                        <span class="fieldData">xxx</span>
+                        Policy Number:
+                        <span class="fieldData">{{insuranceItem.policyNum != null? insuranceItem.policyNum : 'null'}}</span>
                       </li>
                       <li>
-                        Transaction ID :
-                        <span class="fieldData">xxx</span>
+                        Country:
+                        <span class="fieldData">{{insuranceItem.country}}</span>
                       </li>
                       <li>
-                        Visa For :
-                        <span class="fieldData">Country</span>
+                        Coverage :
+                        <span class="fieldData">{{insuranceItem.currency + ' '+ insuranceItem.coverage}}</span>
                       </li>
                       <li>
-                        Visa Type:
-                        <span class="fieldData">Business</span>
+                        No Of Insured Person :
+                        <span class="fieldData">{{insuranceItem.numberOfInsuredPerson}}</span>
                       </li>
                       <li>
-                        Entry Type:
-                        <span class="fieldData">Single</span>
+                        Plan Type:
+                        <span class="fieldData">{{insuranceItem.planType}}</span>
                       </li>
                       <li>
-                        Total Travellers:
-                        <span class="fieldData">4</span>
+                        Policy Commencement Date:
+                        <span class="fieldData">{{insuranceItem.policyCommencementDt}}</span>
+                      </li>
+                      <li>
+                        Policy Maturity Date:
+                        <span class="fieldData">{{insuranceItem.policyMaturityDt}}</span>
                       </li>
                       <li>
                         Booking date:
-                        <span class="fieldData">24/12/1998</span>
+                        <span class="fieldData">{{selectedBooking.booking.bookingDate}}</span>
                       </li>
                       <li>
                         Date of journey:
-                        <span class="fieldData">24/12/1998</span>
+                        <span class="fieldData">{{insuranceItem.policyCommencementDt}}</span>
                       </li>
                       <li>
                         Booking Status:
-                        <span class="fieldData badge badge-warning">Pending</span>
+                        <span
+                        [ngClass]="{'badge-success':selectedBooking.booking.statusColor == 'g' ,'badge-danger':selectedBooking.booking.statusColor == 'r','badge-warning':selectedBooking.booking.statusColor == 'y' }"
+                         class="fieldData badge">{{selectedBooking.booking.bookingStatus}}</span>
                       </li>
                       <li>
                         Payment status:
-                        <span class="fieldData badge badge-success">Successfull</span>
+                        <span
+                        [ngClass]="{'badge-success':selectedBooking.booking.statusColor == 'g' ,'badge-danger':selectedBooking.booking.statusColor == 'r','badge-warning':selectedBooking.booking.statusColor == 'y' }"
+                         class="fieldData badge">{{selectedBooking.booking.paymentStatus}}</span>
                       </li>
 
-                      <li>Click the button below to receive your policy on your email (if you have not received it yet)</li>
+                      <li class="text-center mt-4">
+                        <button (click)="downloadPolicy(selectedBooking.insuranceBookings.policyNum,selectedBooking.booking.paymentColor, selectedBooking.booking.bookingId)"
+                        type="button" class="btn btn-outline-success btn-sm">
+                        Get Policy
+                      </button>
+                    </li>
                     </ul>
                   </div>
 
                 </div>
               </div>
-            </div> -->
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button class="btn btn-primary" [routerLink]="['/myBookings']">Go Back To Bookings</button>
+      </div>
     </div>
   </div>
 </section>

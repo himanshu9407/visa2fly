@@ -75,6 +75,9 @@ export class TurkeyComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(
     private router: Router,
@@ -126,10 +129,13 @@ export class TurkeyComponent implements OnInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.isBusiness = true;
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.isTourist = true;
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.isTransit = true;
             }
           });
 
@@ -273,36 +279,36 @@ export class TurkeyComponent implements OnInit {
     );
   }
 
-  navigateTo(purpose: any) {
-    let purposeString: string = purpose.nextId;
-    let purposeUrl =
-      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-    this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-    if (purposeString == "Tourist") {
-      this.MyQuotation1 = this.touristArr;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.selectedVisaType = "Tourist";
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
-    } else if (purposeString == "Business") {
-      this.MyQuotation1 = this.businessArr;
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.selectedVisaType = "Business";
-      this.selectedBusiness = 1;
-      this.selectedMobileBusiness = 1;
-    } else {
-      this.MyQuotation1 = this.transitArr;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.selectedVisaType = "Transit";
-      this.selectedTransit = 1;
-      this.selectedMobileTransit = 1;
-    }
+  // navigateTo(purpose: any) {
+  //   let purposeString: string = purpose.nextId;
+  //   let purposeUrl =
+  //     purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+  //   this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
+  //   if (purposeString == "Tourist") {
+  //     this.MyQuotation1 = this.touristArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+  //     this.selectedVisaType = "Tourist";
+  //     this.selectedTourist = 1;
+  //     this.selectedMobileTourist = 1;
+  //   } else if (purposeString == "Business") {
+  //     this.MyQuotation1 = this.businessArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+  //     this.selectedVisaType = "Business";
+  //     this.selectedBusiness = 1;
+  //     this.selectedMobileBusiness = 1;
+  //   } else {
+  //     this.MyQuotation1 = this.transitArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+  //     this.selectedVisaType = "Transit";
+  //     this.selectedTransit = 1;
+  //     this.selectedMobileTransit = 1;
+  //   }
 
-    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
+  //   this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
 
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imageCatogoryTemp)
-    );
-  }
+  //   this.userFlow.setUserFlowDetails(
+  //     "imageUploads",
+  //     JSON.stringify(this.imageCatogoryTemp)
+  //   );
+  // }
 }

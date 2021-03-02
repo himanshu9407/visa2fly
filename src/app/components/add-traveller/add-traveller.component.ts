@@ -44,7 +44,6 @@ export class AddTravellerComponent implements OnInit {
   checksum = "";
   primaryAddress = "";
   intialInfo = true;
-  dateOfTravelModel: any = "";
   modalWarnings: Array<any> = [];
   originalImageArr = [];
   selectedTravellerForm: number = 0;
@@ -153,13 +152,24 @@ export class AddTravellerComponent implements OnInit {
   collectionDateError = false;
   public errorMessage: Array<any> = [];
 
-  checkCity(i) {
-    let tempState = this.travellerForm.controls.travellers.controls[i].controls
-      .state.value;
-    this.travellerForm.controls.travellers.controls[i].controls.city.setValue(
-      this.list.cities[tempState][0]
-    );
-  }
+  stateList: string;
+
+  stateListArr: Array<string> = [
+    "Andaman And Nicobar Islands",
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
+    "Dadar And Nagar Haveli", "Daman And Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal",
+    "Jammu And Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Puducherry", "Rajasthan", "Sikkim", "Tamil Nadu",
+    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+  ];
+
+  // checkCity(i) {
+  //   let tempState = this.travellerForm.controls.travellers.controls[i].controls
+  //     .state.value;
+  //   this.travellerForm.controls.travellers.controls[i].controls.city.setValue(
+  //     this.list.cities[tempState][0]
+  //   );
+  // }
 
   checkDateOfExpiry(date: { year: any; day: any; month: any }) {
     //normal months
@@ -212,7 +222,7 @@ export class AddTravellerComponent implements OnInit {
         this.minDateOfTravel = {
           year: date.year,
           month: date.month + 1,
-          day: tempDay,
+          day: tempDay
         };
       }
     } else if (date.month == 2) {
@@ -222,7 +232,7 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfTravel = {
             year: date.year,
             month: date.month + 1,
-            day: tempDay,
+            day: tempDay
           };
         }
       } else {
@@ -231,9 +241,18 @@ export class AddTravellerComponent implements OnInit {
           this.minDateOfTravel = {
             year: date.year,
             month: date.month + 1,
-            day: tempDay,
+            day: tempDay
           };
         }
+      }
+    } else if (date.month == 12) {
+      if (date.day > 31) {
+        let tempDay = date.day - 30;
+        this.minDateOfTravel = {
+          year: date.year + 1,
+          month: 1,
+          day: tempDay,
+        };
       }
     } else {
       if (date.day > 31) {
@@ -245,6 +264,9 @@ export class AddTravellerComponent implements OnInit {
         };
       }
     }
+
+    // console.log(this.minDateOfTravel);
+
   }
 
   checkDateOfCollectionUnderFlow(date: { month: any; year: any; day: any }) {
@@ -279,6 +301,15 @@ export class AddTravellerComponent implements OnInit {
               year: date.year,
               month: prevMonth,
               day: 28,
+            };
+          }
+        } else if (date.month == 12) {
+          if (date.day > 31) {
+            let tempDay = date.day - 30;
+            this.minDateOfTravel = {
+              year: date.year + 1,
+              month: 1,
+              day: tempDay,
             };
           }
         } else {
@@ -328,9 +359,11 @@ export class AddTravellerComponent implements OnInit {
         }
       }
     }
+
+    // console.log(this.minDateOfCollection);
   }
 
-  checkDateOfDob(date: { month: any; day: any; year: any }) {}
+  checkDateOfDob(date: { month: any; day: any; year: any }) { }
 
   // public myInterval: number = 1500;
   // private _activeSlideIndex: number;
@@ -387,12 +420,17 @@ export class AddTravellerComponent implements OnInit {
 
     this.userFlowDetails = this.userFlow.getUserFlowDetails();
 
+    // console.log(this.userFlowDetails.minTravelDate);
+
     switch (this.userFlowDetails.country) {
+      case "Armenia":
+        this.breadcrumRouting = "/visa/armenia-visa-online";
+        break;
       case "Australia":
         this.breadcrumRouting = "/visa/australia-visa-online";
         break;
-      case "Armenia":
-        this.breadcrumRouting = "/visa/armenia-visa-online";
+      case "Austria":
+        this.breadcrumRouting = "/visa/austria-visa-online";
         break;
       case "Azerbaijan":
         this.breadcrumRouting = "/visa/azerbaijan-visa-online";
@@ -400,8 +438,17 @@ export class AddTravellerComponent implements OnInit {
       // case "Brazil":
       //   this.breadcrumRouting = "/visa/brazil-visa-online";
       //   break;
+      case "Canada":
+        this.breadcrumRouting = "/visa/canada-visa-online";
+        break;
       case "Bahrain":
         this.breadcrumRouting = "/visa/bahrain-visa-online";
+        break;
+      case "Belgium":
+        this.breadcrumRouting = "/visa/belgium-visa-online";
+        break;
+      case "Bhutan":
+        this.breadcrumRouting = "/visa/bhutan-visa-online";
         break;
       case "China":
         this.breadcrumRouting = "/visa/china-visa-online";
@@ -409,26 +456,44 @@ export class AddTravellerComponent implements OnInit {
       case "Cambodia":
         this.breadcrumRouting = "/visa/cambodia-visa-online";
         break;
+      case "Denmark":
+        this.breadcrumRouting = "/visa/denmark-visa-online";
+        break;
       case "Dubai":
         this.breadcrumRouting = "/visa/dubai-visa-online";
         break;
       case "Egypt":
         this.breadcrumRouting = "/visa/egypt-visa-online";
         break;
+      case "Estonia":
+        this.breadcrumRouting = "/visa/estonia-visa-online";
+        break;
       case "Ethiopia":
         this.breadcrumRouting = "/visa/ethiopia-visa-online";
+        break;
+      case "Finland":
+        this.breadcrumRouting = "/visa/finland-visa-online";
         break;
       case "France":
         this.breadcrumRouting = "/visa/france-visa-online";
         break;
+      case "Georgia":
+        this.breadcrumRouting = "/visa/georgia-visa-online";
+        break;
       case "Japan":
         this.breadcrumRouting = "/visa/japan-visa-online";
+        break;
+      case "Kenya":
+        this.breadcrumRouting = "/visa/kenya-visa-online";
         break;
       case "Malaysia":
         this.breadcrumRouting = "/visa/malaysia-visa-online";
         break;
       case "Maldives":
         this.breadcrumRouting = "/visa/maldives-visa-online";
+        break;
+      case "Malta":
+        this.breadcrumRouting = "/visa/malta-visa-online";
         break;
       case "New Zealand":
         this.breadcrumRouting = "/visa/new-zealand-visa-online";
@@ -797,6 +862,9 @@ export class AddTravellerComponent implements OnInit {
       let cellNumberValue = this.travellerForm.controls.travellers.controls[i]
         .controls.cellNumber.value;
 
+      let stateValue = this.travellerForm.controls.travellers.controls[i]
+        .controls.state.value;
+
       if (
         firstNameValue == "" ||
         firstNameValue == null ||
@@ -905,6 +973,22 @@ export class AddTravellerComponent implements OnInit {
         ].controls.cellNumber.cellError = false;
       }
 
+      if (this.imageUpload) {
+        if (
+          stateValue == "" ||
+          stateValue == null ||
+          stateValue == undefined
+        ) {
+          this.travellerForm.controls.travellers.controls[
+            i
+          ].controls.state.stateError = true;
+        } else {
+          this.travellerForm.controls.travellers.controls[
+            i
+          ].controls.state.stateError = false;
+        }
+      }
+
       // if (this.category == "sticker") {
       if (!this.imageUpload) {
         let addressValue = this.travellerForm.controls.travellers.controls[i]
@@ -943,10 +1027,15 @@ export class AddTravellerComponent implements OnInit {
     }
   }
 
-  validateImage() {}
+  stateChanged(event: string, i: number) {
+    if (event == undefined || event == null || event == "") {
+      this.travellerForm.controls.travellers.controls[i].controls.state.stateError = true;
+    } else {
+      this.travellerForm.controls.travellers.controls[i].controls.state.stateError = false;
+    }
+  }
 
   seeValues() {
-    this.validateImage();
     this.validateTravellerForm();
     this.validateDate();
     this.checkDateOfCollection();
@@ -1056,6 +1145,7 @@ export class AddTravellerComponent implements OnInit {
         ptdata["id"] = this.dataSource[0].id;
         ptdata.forEach((element: {}, index) => {
           element["id"] = this.dataSource[index].id;
+          element['primaryTraveller'] = index == 0? "true" : "false";
         });
 
         let dot: {
@@ -1252,23 +1342,59 @@ export class AddTravellerComponent implements OnInit {
         this.toastr.warning("Please accept our terms and conditions");
       }
     } else {
-      this.toastr.warning("Some details missing !");
-      this.validateTravellerForm();
-
-      if (this.travellerForm.invalid && this.travelDetails.valid) {
-        let topPicker;
-        if (window.innerWidth > 600) {
-          topPicker = 350;
-        } else {
-          topPicker = 490;
+      if (this.imageUpload) {
+        if (this.travelDetails.get("dateOfTravel").invalid) {
+          this.toastr.warning('Travel date missing!');
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
         }
-        window.scrollTo({
-          top: topPicker + this.scrollBy,
-          left: 0,
-          behavior: "smooth",
-        });
+      } else {
+        if (this.travelDetails.get("dateOfTravel").invalid) {
+          this.toastr.warning('Travel date missing!');
+          if (this.travellerForm.invalid && this.travelDetails.valid) {
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            });
+          }
+        } else if (this.travelDetails.get("dateOfCollection").invalid) {
+          this.toastr.warning('Collection date missing!');
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      for (
+        let i = 0;
+        i < this.travellerForm.get('travellers').controls.length;
+        i++
+      ) {
+        if (!this.travellerForm.controls.travellers.controls[i].valid && i == 0) {
+          this.toastr.warning('Some detail missing in Primary Traveller!');
+          if (this.travelDetails.valid) {
+            this.scrollToInvalid('Primary');
+          }
+        } else if (!this.travellerForm.controls.travellers.controls[i].valid && i > 0) {
+          this.toastr.warning('Some detail missing in Traveller ' + (i + 1));
+          if (this.travelDetails.valid) {
+            this.scrollToInvalid('Traveller' + (i + 1));
+          }
+        }
       }
     }
+  }
+
+  scrollToInvalid(id: string) {
+    $('html, body').animate({
+      scrollTop: $("#" + id).offset().top
+    }, 500);
   }
 
   goToHome() {
@@ -1353,7 +1479,7 @@ export class AddTravellerComponent implements OnInit {
   check() {
     let arr = (<FormArray>this.travellerForm.get("travellers")).controls;
 
-    arr.forEach((element: FormGroup) => {});
+    arr.forEach((element: FormGroup) => { });
   }
 
   onFileSelected(event, index, controlName) {
@@ -1377,16 +1503,16 @@ export class AddTravellerComponent implements OnInit {
     if (this.travellerForm.invalid) {
       this.toastr.warning("Please fill in existing traveller details first");
       let topPicker;
-        if (window.innerWidth > 600) {
-          topPicker = 350;
-        } else {
-          topPicker = 490;
-        }
-        window.scrollTo({
-          top: topPicker + this.scrollBy,
-          left: 0,
-          behavior: "smooth",
-        });
+      if (window.innerWidth > 600) {
+        topPicker = 350;
+      } else {
+        topPicker = 490;
+      }
+      window.scrollTo({
+        top: topPicker + this.scrollBy,
+        left: 0,
+        behavior: "smooth",
+      });
     } else {
       if (this.count <= 9) {
         this.selectedTravellerForm = this.count;
@@ -1404,7 +1530,7 @@ export class AddTravellerComponent implements OnInit {
           behavior: "smooth",
         });
         let temp = { id: "", dataToggle: "", dataToggleHash: "" };
-        temp.id = "Traveller " + this.count;
+        temp.id = "Traveller" + this.count;
         temp.dataToggle = "toogle" + this.count;
         temp.dataToggleHash = "#toogle" + this.count;
         this.dataSource.push(temp);

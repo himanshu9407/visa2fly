@@ -19,7 +19,7 @@ export class SimCheckoutService {
         if(token == null || token == undefined) {
             token = "";
         }
-        console.log(reqObj);
+        // console.log(reqObj);
         let headers = new HttpHeaders({'token':token,'visa-client':"0"});
         const base_url = this.userFlow.getBaseURL();
 

@@ -4,13 +4,6 @@ import {
   Inject,
 } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -23,19 +16,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: "app-combodia",
   templateUrl: "./combodia.component.html",
-  styleUrls: ["./combodia.component.css"],
-  animations: [
-    trigger("simpleFadeAnimation", [
-      state("in", style({ opacity: 1 })),
-
-      transition(":enter", [style({ opacity: 0 }), animate(800)]),
-
-      transition(
-        ":leave",
-        animate(800, style({ opacity: 0, background: "green" }))
-      ),
-    ]),
-  ],
+  styleUrls: ["./combodia.component.css"]
 })
 export class CombodiaComponent implements OnInit {
   ngbTabTitleClass;
@@ -71,6 +52,9 @@ export class CombodiaComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(
     private router: Router,
@@ -121,10 +105,13 @@ export class CombodiaComponent implements OnInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.isBusiness = true;
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.isTourist = true;
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.isTransit = true;
             }
           });
 
@@ -264,36 +251,36 @@ export class CombodiaComponent implements OnInit {
     );
   }
 
-  navigateTo(purpose: any) {
-    let purposeString: string = purpose.nextId;
-    let purposeUrl =
-      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-    this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-    if (purposeString == "Tourist") {
-      this.MyQuotation1 = this.touristArr;
-      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.selectedVisaType = "Tourist";
-      this.selectedTourist = 1;
-      this.selectedMobileTourist = 1;
-    } else if (purposeString == "Business") {
-      this.MyQuotation1 = this.businessArr;
-      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.selectedVisaType = "Business";
-      this.selectedBusiness = 1;
-      this.selectedMobileBusiness = 1;
-    } else {
-      this.MyQuotation1 = this.transitArr;
-      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.selectedVisaType = "Transit";
-      this.selectedTransit = 1;
-      this.selectedMobileTransit = 1;
-    }
+  // navigateTo(purpose: any) {
+  //   let purposeString: string = purpose.nextId;
+  //   let purposeUrl =
+  //     purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+  //   this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
+  //   if (purposeString == "Tourist") {
+  //     this.MyQuotation1 = this.touristArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+  //     this.selectedVisaType = "Tourist";
+  //     this.selectedTourist = 1;
+  //     this.selectedMobileTourist = 1;
+  //   } else if (purposeString == "Business") {
+  //     this.MyQuotation1 = this.businessArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+  //     this.selectedVisaType = "Business";
+  //     this.selectedBusiness = 1;
+  //     this.selectedMobileBusiness = 1;
+  //   } else {
+  //     this.MyQuotation1 = this.transitArr;
+  //     this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+  //     this.selectedVisaType = "Transit";
+  //     this.selectedTransit = 1;
+  //     this.selectedMobileTransit = 1;
+  //   }
 
-    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
+  //   this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
 
-    this.userFlow.setUserFlowDetails(
-      "imageUploads",
-      JSON.stringify(this.imageCatogoryTemp)
-    );
-  }
+  //   this.userFlow.setUserFlowDetails(
+  //     "imageUploads",
+  //     JSON.stringify(this.imageCatogoryTemp)
+  //   );
+  // }
 }

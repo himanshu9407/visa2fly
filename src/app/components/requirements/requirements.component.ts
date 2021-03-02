@@ -130,6 +130,9 @@ export class RequirementsComponent implements OnInit {
         case "Australia":
           this.router.navigate(["/visa", "australia-visa-online"]);
           break;
+        // case "Austria":
+        //   this.router.navigate(["/visa", "austria-visa-online"]);
+        //   break;
         case "Antigua & Barbuda":
           this.router.navigate(["/visa", "antigua & barbuda-visa-online"]);
           break;
@@ -139,9 +142,18 @@ export class RequirementsComponent implements OnInit {
         // case "Brazil":
         //   this.router.navigate(["/visa", "brazil-visa-online"]);
         //   break;
+        case "Canada":
+          this.router.navigate(["/visa", "canada-visa-online"]);
+          break;
         case "Bahrain":
           this.router.navigate(["/visa", "bahrain-visa-online"]);
           break;
+        case "Belgium":
+          this.router.navigate(["/visa", "belgium-visa-online"]);
+          break;
+        // case "Bhutan":
+        //   this.router.navigate(["/visa", "bhutan-visa-online"]);
+        //   break;
         case "China":
           this.router.navigate(["/visa", "china-visa-online"]);
           break;
@@ -151,23 +163,47 @@ export class RequirementsComponent implements OnInit {
         case "Dubai":
           this.router.navigate(["/visa", "dubai-visa-online"]);
           break;
+        case "Denmark":
+          this.router.navigate(["/visa", "denmark-visa-online"]);
+          break;
         case "Egypt":
           this.router.navigate(["/visa", "egypt-visa-online"]);
+          break;
+        case "Estonia":
+          this.router.navigate(["/visa", "estonia-visa-online"]);
           break;
         case "Ethiopia":
           this.router.navigate(["/visa", "ethiopia-visa-online"]);
           break;
+        case "Finland":
+          this.router.navigate(["/visa", "finland-visa-online"]);
+          break;
         case "France":
           this.router.navigate(["/visa", "france-visa-online"]);
           break;
+        case "Georgia":
+          this.router.navigate(["/visa", "georgia-visa-online"]);
+          break;
+        // case "Germany":
+        //   this.router.navigate(["/visa", "germany-visa-online"]);
+        //   break;
+        // case "Iraq":
+        //   this.router.navigate(["/visa", "iraq-visa-online"]);
+        //   break;
         case "Japan":
           this.router.navigate(["/visa", "japan-visa-online"]);
+          break;
+        case "Kenya":
+          this.router.navigate(["/visa", "Kenya-visa-online"]);
           break;
         case "Malaysia":
           this.router.navigate(["/visa", "malaysia-visa-online"]);
           break;
         case "Maldives":
           this.router.navigate(["/visa", "maldives-visa-online"]);
+          break;
+        case "Malta":
+          this.router.navigate(["/visa", "malta-visa-online"]);
           break;
         case "New Zealand":
           this.router.navigate(["/visa", "new-zealand-visa-online"]);
@@ -406,7 +442,7 @@ export class RequirementsComponent implements OnInit {
 
     this.makeUrl = 'https://static.visa2fly.com/country/v2/' + this.selectedCountrytype + '.jpg';
 
-    this.activateRoute.params.subscribe((params: any) => {});
+    this.activateRoute.params.subscribe((params: any) => { });
     let tempPurpose = this.selectedPurposeType;
     this.purposeChooseForm = new FormGroup({
       purposeSelected: new FormControl(tempPurpose),
@@ -416,7 +452,7 @@ export class RequirementsComponent implements OnInit {
       .getRequirementsData(this.selectedCountrytype)
       .then((data: any) => {
         // console.log(data);
-        
+
         if (isPlatformBrowser(this.platformId)) {
           if (data.code == "0") {
             this.requirementsData = data;

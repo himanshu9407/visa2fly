@@ -19,7 +19,19 @@
 
           <div class="country-info">
             <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">Dubai is a lively emirate that is part of the UAE (United Arab Emirates), and is known for its larger-than-life approach towards shopping, architecture and nightlife. The Burj Khalifa, The Dubai Mall, Ski Dubai, Wild Wadi Waterpark,Palm Jumeirah, Madinat Jumeirah and Dubai Gold Souk are some much-visited attractions. It is a Gulf city, and has a generally hot climate.</p>
+            <p class="country-desc">In 2019, in the glorious pre-pandemic times, Dubai was one of the top
+              tourist destinations in the world. In 2019 16.73 million people applied
+              for the Dubai Visa! Out of these Dubai Visa for Indians accounted for
+              almost 12% of the total visas. Thus a whopping 1.97 million Indian
+              tourists visited Dubai. With the roll-out of the Covid-19 vaccine
+              globally, Dubai tourism has got an immense boost. A record number of
+              tourists are flying into Dubai to celebrate Christmas and New Year after
+              a virtually travel-less year due to the pandemic. In fact the travel
+              rebound started from October 2020 onwards to Dubai which has been
+              further aided by the good news of the Covid-19 vaccine. The year 2021
+              shows even more potential with an anticipation of getting close to
+              pre-covid levels of tourists into the emirate by the winter season on
+              2021.</p>
           </div>
         </div>
       </div>
@@ -35,17 +47,17 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTourist">
                       <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isBusiness">
                       <input class="select-box__input" type="radio" id="Business" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTransit">
                       <input class="select-box__input" type="radio" id="Transit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
@@ -60,15 +72,15 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
+                    <li *ngIf="isTourist">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
+                    <li *ngIf="isBusiness">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
+                    <li *ngIf="isTransit">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
@@ -119,18 +131,18 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                    <div class="select-box__value" *ngIf="isTourist">
+                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                    <div class="select-box__value" *ngIf="isBusiness">
+                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
@@ -144,16 +156,16 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                    <li *ngIf="isTourist">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                    <li *ngIf="isBusiness">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                    <li *ngIf="isTransit">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
@@ -170,7 +182,19 @@
 <div class="container-fluid mt-4 mobileView">
   <div class="row">
     <div class="col-12">
-      <p class="country-desc">Dubai is a lively emirate that is part of the UAE (United Arab Emirates), and is known for its larger-than-life approach towards shopping, architecture and nightlife. The Burj Khalifa, The Dubai Mall, Ski Dubai, Wild Wadi Waterpark,Palm Jumeirah, Madinat Jumeirah and Dubai Gold Souk are some much-visited attractions. It is a Gulf city, and has a generally hot climate.</p>
+      <p class="country-desc">In 2019, in the glorious pre-pandemic times, Dubai was one of the top
+        tourist destinations in the world. In 2019 16.73 million people applied
+        for the Dubai Visa! Out of these Dubai Visa for Indians accounted for
+        almost 12% of the total visas. Thus a whopping 1.97 million Indian
+        tourists visited Dubai. With the roll-out of the Covid-19 vaccine
+        globally, Dubai tourism has got an immense boost. A record number of
+        tourists are flying into Dubai to celebrate Christmas and New Year after
+        a virtually travel-less year due to the pandemic. In fact the travel
+        rebound started from October 2020 onwards to Dubai which has been
+        further aided by the good news of the Covid-19 vaccine. The year 2021
+        shows even more potential with an anticipation of getting close to
+        pre-covid levels of tourists into the emirate by the winter season on
+        2021.</p>
     </div>
   </div>
 </div>
@@ -186,17 +210,15 @@
 <app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
 <app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
 
-<app-requirements (changedPurpose)="navigateTo($event)" [selectedBusiness]="selectedBusiness"
-  [selectedTransit]="selectedTransit" [selectedTourist]="selectedTourist"
-  [selectedMobileTourist]="selectedMobileTourist" [selectedMobileBusiness]="selectedMobileBusiness"
-  [selectedMobileTransit]="selectedMobileTransit" [selectedVisaType]="selectedVisaType"
-  [selectedPurpose]="selectedPurpose"></app-requirements>
+<app-requirements [selectedPurpose]="selectedPurpose"  [selectedVisaType]="selectedVisaType"></app-requirements>
 
 <app-important-points></app-important-points>
 
 <app-faq></app-faq>
 
 <app-blog-post></app-blog-post>
+
+<app-description></app-description>
 
 <div class="container-fluid wrapContainer linkAddress">
   <div class="row">

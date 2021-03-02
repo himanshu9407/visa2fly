@@ -1,0 +1,282 @@
+<section [ngClass]="{'successfull_page':  status != 'Payment failed', 'failure_page':  status == 'Payment failed' }">
+  <div class="mobile-successfull_page mobileView text-center pt-2" *ngIf="status != 'Payment failed'">
+    <img src="https://static.visa2fly.com/assets/success-mobile.png" alt="" class="img-fluid" />
+  </div>
+  <div class="mobile-failure_page mobileView text-center pt-2" *ngIf="status == 'Payment failed'">
+    <img src="https://static.visa2fly.com/assets/failure-mobile.png" alt="" class="img-fluid" />
+  </div>
+  <div class="container page-container">
+    <div class="row">
+      <div class="col-12">
+        <div class="mobilePage" style="margin-top: 150px;">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 desktopView"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="booking-container text-center">
+                <h4 class="booking-container-heading">Booking {{status != 'Payment failed' ? 'Successful' : 'Unsuccessful'}}</h4>
+                <div class="booking-details" *ngIf="status == 'Payment failed'">
+                  <div class="row">
+                    <div class="col-12 booking-details-input text-center">Due to {{message}}</div>
+                  </div>
+                  <div class="row mt-2">
+                    <div
+                      class="col-12 text-center booking-details-button-container"
+                    >
+                      <button class="btn booking-details-button" (click)="navigateToBooking()">
+                        My Booking
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="booking-details" *ngIf="status != 'Payment failed'">
+                  <div class="row">
+                    <div class="col-6 booking-details-label" style="text-align: left;">Policy No.</div>
+                    <div class="col-6 booking-details-input" style="text-align: left;">
+                      {{policyNum}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 booking-details-label" style="text-align: left;">Transaction Id.</div>
+                    <div class="col-6 booking-details-input" style="text-align: left;">{{bookingId}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 booking-details-label" style="text-align: left;">Amount Paid</div>
+                    <div class="col-6 booking-details-input" style="text-align: left;">₹  {{amount}} /-</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 booking-details-label" style="text-align: left;">Policy Date</div>
+                    <div class="col-6 booking-details-input" style="text-align: left;">{{date}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 booking-details-label" style="text-align: left;">Country</div>
+                    <div class="col-6 booking-details-input" style="text-align: left;">India</div>
+                  </div>
+                  <div class="row mt-4">
+                    <div
+                      class="col-6 text-center booking-details-button-container"
+                    >
+                      <button class="btn booking-details-button" (click)="downloadInvoiceOnSuccess(this.policyNum, this.bookingId)">
+                        Download Policy
+                      </button>
+                    </div>
+                    <div
+                      class="col-6 text-center booking-details-button-container"
+                    >
+                      <button class="btn booking-details-button" (click)="navigateToBooking()()">
+                        My Booking
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row mt-5" *ngIf="status == 'Payment failed'">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-12 desktopView"></div>
+            <div
+              class="col-lg-7 col-md-7 col-sm-12 col-12 text-center feedback-container-mobile"
+            >
+              <div class="feedback-container">
+                <h4 class="feedback-heading">Feedback Form</h4>
+                <p class="feedback-emphasized">
+                  Your Feedback Is Valuable For Us
+                </p>
+                <div
+                  class="row"
+                  style="
+                    background-color: #fff;
+                    border-radius: 10px;
+                    padding: 10px 5px;
+                  "
+                >
+                  <div class="col-12">
+                    <form class="form-row text-left" [formGroup]="feedbackForm" (ngSubmit)="onSubmitFeedbackForm()">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                        <div class="feed-box">
+                          <label for="" class="feedback-label"
+                            >How likely are you to recommend visa2fly to a
+                            friends or family?</label
+                          >
+                          <div class="star-rating">
+                            <input
+                              type="radio"
+                              id="f2-rating-5-stars"
+                              formControlName="f2-rating"
+                              name="f2-rating"
+                              value="5"
+                            />
+                            <label for="f2-rating-5-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f2-rating-4-stars"
+                              formControlName="f2-rating"
+                           name="f2-rating"
+                              value="4"
+                            />
+                            <label for="f2-rating-4-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f2-rating-3-stars"
+                              formControlName="f2-rating"
+                           name="f2-rating"
+                              value="3"
+                            />
+                            <label for="f2-rating-3-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f2-rating-2-stars"
+                              formControlName="f2-rating"
+                           name="f2-rating"
+                              value="2"
+                            />
+                            <label for="f2-rating-2-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f2-rating-1-star"
+                              formControlName="f2-rating"
+                           name="f2-rating"
+                              value="1"
+                            />
+                            <label for="f2-rating-1-star" class="star">&#9733;</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12 p-0">
+                        <div class="feed-box">
+                          <label for="" class="feedback-label"
+                            >Were you able to find the information you were
+                            looking for on our website?</label
+                          >
+                          <div class="star-rating">
+                            <input
+                              type="radio"
+                              id="f1-rating-5-stars"
+                              formControlName="f1-rating"
+                              name="f1-rating"
+                              value="5"
+                            />
+                            <label for="f1-rating-5-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f1-rating-4-stars"
+                              formControlName="f1-rating"
+                              name="f1-rating"
+                              value="4"
+                            />
+                            <label for="f1-rating-4-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f1-rating-3-stars"
+                              formControlName="f1-rating"
+                              name="f1-rating"
+                              value="3"
+                            />
+                            <label for="f1-rating-3-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f1-rating-2-stars"
+                              formControlName="f1-rating"
+                              name="f1-rating"
+                              value="2"
+                            />
+                            <label for="f1-rating-2-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f1-rating-1-star"
+                              formControlName="f1-rating"
+                              name="f1-rating"
+                              value="1"
+                            />
+                            <label for="f1-rating-1-star" class="star">&#9733;</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-0">
+                        <div class="feed-box">
+                          <label for="" class="feedback-label"
+                            >How well does our product meet your needs?</label
+                          >
+                          <div class="star-rating">
+                            <input
+                              type="radio"
+                              id="f3-rating-5-stars"
+                              formControlName="f3-rating"
+                              name="f3-rating"
+                              value="5"
+                            />
+                            <label for="f3-rating-5-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f3-rating-4-stars"
+                              formControlName="f3-rating"
+                              name="f3-rating"
+                              value="4"
+                            />
+                            <label for="f3-rating-4-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f3-rating-3-stars"
+                              formControlName="f3-rating"
+                              name="f3-rating"
+                              value="3"
+                            />
+                            <label for="f3-rating-3-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f3-rating-2-stars"
+                              formControlName="f3-rating"
+                              name="f3-rating"
+                              value="2"
+                            />
+                            <label for="f3-rating-2-stars" class="star">&#9733;</label>
+                            <input
+                              type="radio"
+                              id="f3-rating-1-star"
+                              formControlName="f3-rating"
+                              name="f3-rating"
+                              value="1"
+                            />
+                            <label for="f3-rating-1-star" class="star">&#9733;</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0">
+                        <div class="feed-box">
+                          <label for="feedbackcomment" class="feedback-label"
+                            >If you could change just one thing about our
+                            product,what would it be?</label
+                          >
+                          <textarea
+                            class="feedback-textarea"
+                            name="feedbackcomment"
+                            id="feedbackcomment"
+                            rows="4"
+                            formControlName="feedbackcomment"
+                          ></textarea>
+                        </div>
+                      </div>
+
+                      <div
+                        class="col-lg-3 col-md-3 col-sm-12 col-12 feedback-button-container"
+                      >
+                        <div class="feed-box-button">
+                          <button class="btn feedback-button text-center">
+                            Submit
+                          </button>
+                          <button class="btn feedback-button text-center">
+                            No,I'm Not Interested
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

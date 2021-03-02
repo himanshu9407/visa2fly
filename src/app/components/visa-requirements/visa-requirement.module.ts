@@ -1,3 +1,12 @@
+import { GermanyModule } from './germany/germany.module';
+import { GeorgiaModule } from './georgia/georgia.module';
+import { DenmarkModule } from './denmark/denmark.module';
+import { EstoniaModule } from './estonia/estonia.module';
+import { BhutanModule } from './bhutan/bhutan.module';
+import { AustriaModule } from './austria/austria.module';
+import { CanadaModule } from './canada/canada.module';
+import { BelgiumModule } from './belgium/belgium.module';
+import { FinlandModule } from './finland/finland.module';
 import { NgModule } from '@angular/core';
 import { AustraliaModule } from './australia/australia.module';
 import { VietnamModule } from './vietnam/vietnam.module';
@@ -34,48 +43,62 @@ import { UkraineModule } from './ukraine/ukraine.module';
 import { AntiguaModule } from './antigua/antigua.module';
 import { RussiaModule } from './russia/russia.module';
 import { BrazilModule } from './brazil/brazil.module';
-
+import { IraqModule } from './iraq/iraq.module';
+import { KenyaModule } from './kenya/kenya.module';
+import { MaltaModule } from './malta/malta.module';
 
 @NgModule({
   imports: [
+    AntiguaModule,
+    ArmeniaModule,
     AustraliaModule,
-    VietnamModule,
-    SrilankaModule,
+    AustriaModule,
     AzerbaijanModule,
+    BahrainModule,
+    BelgiumModule,
+    BhutanModule,
+    BrazilModule,
+    CanadaModule,
     ChinaModule,
     CombodiaModule,
+    DenmarkModule,
     DubaiModule,
+    EgyptModule,
+    EstoniaModule,
     EthopianModule,
+    FinlandModule,
     FranceModule,
+    GeorgiaModule,
+    GermanyModule,
+    IraqModule,
+    JapanModule,
+    KenyaModule,
     MalaysiaModule,
     MaldivesModule,
+    MaltaModule,
     NetherlandsModule,
+    NewZealandModule,
+    RussiaModule,
+    RwandaModule,
     SingaporeModule,
+    SouthAfricaModule,
     SpainModule,
     SrilankaModule,
     SwitzerlandModule,
+    TaiwanModule,
+    TajikistanModule,
     ThailandModule,
     TurkeyModule,
+    UAEModule,
+    UkraineModule,
     UnitedKingdomModule,
     USAModule,
-    ZambiaModule,
     UzbekistanModule,
-    TajikistanModule,
-    JapanModule,
-    RwandaModule,
-    EgyptModule,
-    ArmeniaModule,
-    NewZealandModule,
-    SouthAfricaModule,
-    TaiwanModule,
-    UAEModule,
-    BahrainModule,
-    UkraineModule,
-    AntiguaModule,
-    RussiaModule,
-    BrazilModule
+    VietnamModule,
+    ZambiaModule,
   ],
- 
+  declarations: [],
+
 })
 
-export class VisaRequirementModule {}
+export class VisaRequirementModule { }

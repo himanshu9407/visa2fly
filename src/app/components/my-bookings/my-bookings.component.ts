@@ -60,7 +60,7 @@ export class MyBookingsComponent implements OnInit {
   activeMobileBookingPage: Array<any> = [];
   public allBooking: any;
   AUTH_TOKEN = "";
-  feedbackMsg : boolean;
+  feedbackMsg: boolean;
   public bookingData: any;
   bookingStatus: boolean = false;
   FeedbackForm: FormGroup;
@@ -142,7 +142,6 @@ export class MyBookingsComponent implements OnInit {
   }
 
   desktopBooking(event) {
-    console.log(event);
     this.currentPage1 = event;
     let pageSize = 6;
 
@@ -150,7 +149,6 @@ export class MyBookingsComponent implements OnInit {
   }
 
   mobileBooking(event) {
-    console.log(event);
     this.currentPage2 = event;
     let pageSize = 4;
 
@@ -161,6 +159,7 @@ export class MyBookingsComponent implements OnInit {
     this.bookingService.fetchBooking(pageNo, pageSize).subscribe((res) => {
       if (res.code == 0) {
         this.allBooking = res;
+        
         this.bookings = this.allBooking.data.bookings;
         this.bookingsForLoop = this.allBooking.data.bookings;
         this.bookingService.allBookings = this.allBooking.data.bookings;
@@ -192,13 +191,13 @@ export class MyBookingsComponent implements OnInit {
             if (
               element.booking.bookingStatus == "Sim order confirmed" ||
               element.booking.bookingStatus == "Payment completed" ||
-              element.booking.bookingStatus == "Visa application approved"
+              element.booking.bookingStatus == "Visa application approved" ||
+              element.booking.bookingStatus == "Insurance policy generated"
             ) {
               element.booking.statusColor = "g";
             } else if (
-              (element.booking.bookingStatus =
-                "Payment failed" ||
-                element.booking.bookingStatus == "Visa application rejected")
+              element.booking.bookingStatus == "Payment failed" ||
+              element.booking.bookingStatus == "Visa application rejected"
             ) {
               element.booking.statusColor = "r";
             } else {
@@ -207,11 +206,13 @@ export class MyBookingsComponent implements OnInit {
 
             if (element.booking.paymentStatus == "Payment completed") {
               element.booking.paymentColor = "g";
-            } else if (element.booking.paymentStatus == "Payment completed") {
-              element.booking.paymentColor = "g";
             } else {
               element.booking.paymentColor = "y";
             }
+
+            // console.log('  ');
+            // console.log(element.booking.paymentStatus)
+            // console.log(element.booking.paymentColor)
           });
           let arr1 = [];
           this.bookings.forEach((booking) => {
@@ -253,7 +254,6 @@ export class MyBookingsComponent implements OnInit {
       this.downloadImageService
         .downloadInvoice(bookingId)
         .subscribe((response: any) => {
-          console.log(response);
           let dataType = response.type;
           let binaryData = [];
           binaryData.push(response);
@@ -275,10 +275,70 @@ export class MyBookingsComponent implements OnInit {
     }
   }
 
+  downloadPolicy(policyNumber: string, bookingStatus: string, bookingId: string) {
+    // console.log(policyNumber);
+    // if (bookingStatus == "y") {
+    //   this.downloadImageService
+    //     .getPolicy(policyNumber)
+    //     .subscribe((res: any) => {
+    //       console.log(res);
+    //       if (res.code == "0") {
+    //         this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
+    //           let dataType = response.type;
+    //           let binaryData = [];
+    //           binaryData.push(response);
+    //           var a = document.createElement("a");
+    //           document.body.appendChild(a);
+    //           a.style.display = "none";
+    //           let url = window.URL.createObjectURL(
+    //             new Blob(binaryData, { type: dataType })
+    //           );
+    //           a.href = url;
+    //           a.download = "Invoice" + policyNumber;
+    //           a.click();
+    //           window.URL.revokeObjectURL(url);
+    //         });
+    //       } else {
+    //         this.toastr.error(res.message);
+    //       }
+    //     });
+    // } else {
+    //   console.log(bookingStatus);
+    //   this.toastr.error(
+    //     "Policy could not be generated as the payment failed."
+    //   );
+    // }
+
+    this.downloadImageService
+      .getPolicy(policyNumber)
+      .subscribe((res: any) => {
+        // console.log(res);
+        if (res.code == "0") {
+          this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
+            let dataType = response.type;
+            let binaryData = [];
+            binaryData.push(response);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style.display = "none";
+            let url = window.URL.createObjectURL(
+              new Blob(binaryData, { type: dataType })
+            );
+            a.href = url;
+            a.download = "Invoice" + policyNumber;
+            a.click();
+            window.URL.revokeObjectURL(url);
+          });
+        } else {
+          this.toastr.error(res.message);
+        }
+      });
+  }
+
   setActiveBooking(booking: any) {
-    
+
     this.userflow.setCookie("activeBooking", JSON.stringify(booking));
-    
+
     this.bookingService.setActiveBooking(booking);
 
     this.router.navigate(["/bookingDetail"]);
@@ -293,25 +353,25 @@ export class MyBookingsComponent implements OnInit {
     let suggestion = this.FeedbackForm.get("FeedbackEdit").value;
     let notInterested = false;
 
-    if(this.FeedbackForm.get("f3-rating").value == null 
-    || this.FeedbackForm.get("f1-rating").value == null 
-    || this.FeedbackForm.get("f2-rating").value == null 
-    || this.FeedbackForm.get("FeedbackEdit").value == null){
+    if (this.FeedbackForm.get("f3-rating").value == null
+      || this.FeedbackForm.get("f1-rating").value == null
+      || this.FeedbackForm.get("f2-rating").value == null) {
       this.feedbackMsg = true;
-    }else{
+      this.toastr.error("Please fill the feedback form!");
+    } else {
 
-    this.bookingService
-      .postFeedback(
-        bookingid,
-        rateOne,
-        rateTwo,
-        rateThree,
-        suggestion,
-        notInterested
-      )
-      .subscribe((res) => {});
-    this.toastr.success("Feedback Submitted");
-    this.bookingStatus = false;
+      this.bookingService
+        .postFeedback(
+          bookingid,
+          rateOne,
+          rateTwo,
+          rateThree,
+          suggestion,
+          notInterested
+        )
+        .subscribe((res) => { });
+      this.toastr.success("Feedback Submitted");
+      this.bookingStatus = false;
     }
   }
 
@@ -479,7 +539,7 @@ export class MyBookingsComponent implements OnInit {
         suggestion,
         notInterested
       )
-      .subscribe((res) => {});
+      .subscribe((res) => { });
     this.bookingStatus = false;
   }
 

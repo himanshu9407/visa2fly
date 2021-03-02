@@ -1,18 +1,31 @@
 .insurance-banner {
-    background-image: url(../../../../assets/insurance-banner.png);
-    background-position: center;
-    background-size: cover;
-    height: 495px;
-    margin-top: 50px;
+  background-image: url(https://static.visa2fly.com/assets/insurance-banner-sm.png);
+  background-position: center;
+  background-size: cover;
+  height: 350px;
+  margin-top: 50px;
 }
 
 .insurance_application {
   background-color: #f4f8fb;
 }
 
+.address_heading_box {
+  display: flex;
+  align-items: center;
+}
+
+.ques_ans_option_box {
+  justify-content: space-around;
+}
+
 .insurance_application-header_box {
-    background-color: #D8CEDD;
-    padding: 10px 0px;
+  background-color: #d8cedd;
+  padding: 10px 0px;
+}
+
+.insurance-radio-label {
+  font-size: 14px;
 }
 
 .insurance_application-heading {
@@ -23,18 +36,19 @@
 }
 
 .insurance_application-container {
-    padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .insurance_application-subheading {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 5px 0;
-    color: #130654;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0;
+  color: #130654;
 }
 
 .insurance-input_box {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .insurance-label {
@@ -45,31 +59,428 @@
 }
 
 .insurance-input,
-.insurance-select {
+.insurance-select,
+.addTravelDate {
   /* border-color: #9c9c9c; */
-  border-color: #130654;
-  font-size: 14px;
+  border-color: #9c9c9c;
+  font-size: 13px;
+  padding: 4px 8px;
   height: 32px;
 }
 
+.astrisk {
+  color: red;
+}
+
+.titleSelect {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .insurance-input:focus,
-.insurance-select:focus {
-    outline: none;
-    box-shadow: none;
+.insurance-select:focus,
+.addTravelDate:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 @media screen and (max-width: 600px) {
-    .insurance-banner {
-        background-image: url(../../../../assets/insurance-banner-mobile.png);
-        background-position: center;
-        background-size: cover;
-        height: 250px;
-        margin-top: 105px;
-    }
-    
+  .insurance-banner {
+    background-image: url(https://static.visa2fly.com/assets/insurance-banner-mobile.png);
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    margin-top: 105px;
+  }
 
-    .insurance-box,
-    .insurance_application-subheader_box {
-        padding: 0 10px;
-    }
+  .insurance-box,
+  .insurance_application-subheader_box {
+    padding: 0 10px;
+  }
+
+  .policyDetailForm .insurance-box .insurance-input_box.right {
+    justify-content: flex-start !important;
+  }
+
+  .policyDetailForm .insurance-box .insurance-input_box.right .insurance-label {
+    width: 50% !important;
+  }
+
+  .address_heading_box {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 8px;
+  }
+
+  .address_heading-checkbox {
+    margin-left: 20px;
+  }
+
+  .ques_ans_option_box {
+    justify-content: unset;
+  }
+
+  .ques_ans_right_option {
+    margin-left: 50px;
+  }
+
+  .ques_ans_textarea {
+    margin-top: 5px;
+  }
+
+  .ques_ans_option_box {
+    margin-top: 5px;
+  }
+}
+
+.main__card-heading {
+  background: #000080;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.main__card-heading .btn,
+.main__card-heading .btn:disabled,
+.valueAddServices h5 {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  opacity: 1;
+}
+
+.main__card-heading .btn,
+.main__card-heading .btn:disabled {
+  color: #fff;
+}
+
+.main__card-heading .main__card-heading-form_statue {
+  margin-right: auto;
+  display: flex;
+}
+
+.proceedBtn {
+  background-color: navy;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.addInsurerBtn {
+  display: flex;
+  align-items: center;
+  border-radius: 25px !important;
+  padding: 4px 10px;
+  background-color: #000080;
+  font-weight: 600;
+}
+
+.addInsurerBtn svg {
+  margin-right: 10px;
+}
+
+.calendar {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.calendar .calendarSvg {
+  fill: currentColor;
+}
+
+.calendar:hover,
+.calendar:focus {
+  background-color: #6c757c;
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1280px !important;
+  }
+}
+
+.valueAddServices {
+  margin-top: 20px;
+}
+
+.valueAddServices h5 {
+  color: #000080;
+}
+
+.valueAddServices .wrapper-box {
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.termsAndConditions .wrapper-box {
+  padding: 10px 5px;
+}
+
+.valueAddServices .form-check {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+}
+
+.valueAddServices .custom-control-label {
+  position: static !important;
+  margin-bottom: 0;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+/* collapse */
+.collapse {
+  visibility: hidden;
+}
+.collapse.show {
+  visibility: visible;
+  display: block;
+}
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: auto;
+}
+
+.policyDetailForm .insurance-box .insurance-input_box {
+  display: flex;
+  align-items: center;
+}
+
+.policyDetailForm .insurance-box .insurance-input_box.right {
+  justify-content: flex-end;
+  margin-top: 7px;
+}
+
+.policyDetailForm .insurance-box .insurance-input_box.right .insurance-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #130654;
+  margin-bottom: 0px;
+}
+
+.policyDetailForm .insurance-box .insurance-input_box .insurance-label {
+  width: 30%;
+  display: inline-block;
+  letter-spacing: 0;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  color: #130654;
+}
+
+.policyDetailForm .insurance-box .insurance-input_box .styleSelectPlan,
+.policyDetailForm .insurance-box .insurance-input_box input {
+  width: 60%;
+  background: #eee;
+  padding: 0px 8px;
+  border-radius: 50px;
+  border: none;
+}
+
+.policyDetailForm .insurance-box .insurance-input_box .styleSelectPlan select {
+  background: transparent;
+  display: inline-block;
+  border: none;
+  border-radius: 0px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.loading svg {
+  animation: rotatingLoader 1.5s linear infinite;
+  -webkit-animation: rotatingLoader 1.5s linear infinite;
+  margin-left: 2px;
+}
+
+@keyframes rotatingLoader {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+.pinCodeLoader {
+  cursor: default;
+  position: absolute;
+  line-height: 1;
+  text-align: center;
+  top: 7px;
+  right: 0;
+  margin: 0;
+  height: 100%;
+  width: 2.67142857em;
+  opacity: 0.5;
+  border-radius: 0 0.28571429rem 0.28571429rem 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+/* START TOOLTIP STYLES */
+[tooltip] {
+  position: relative; /* opinion 1 */
+}
+
+/* Applies to all tooltips */
+[tooltip]::before,
+[tooltip]::after {
+  text-transform: none; /* opinion 2 */
+  font-size: 0.9em; /* opinion 3 */
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+[tooltip]::before {
+  content: "";
+  border: 5px solid transparent; /* opinion 4 */
+  z-index: 1001; /* absurdity 1 */
+}
+[tooltip]::after {
+  content: attr(tooltip); /* magic! */
+
+  /* most of the rest of this is opinion */
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+
+  /*
+    Let the content set the size of the tooltips
+    but this will also keep them from being obnoxious
+    */
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1ch 1.5ch;
+  border-radius: 0.3ch;
+  box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
+  background: #333;
+  color: #fff;
+  z-index: 1000; /* absurdity 2 */
+}
+
+/* Make the tooltips respond to hover */
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+}
+
+/* don't show empty tooltips */
+[tooltip=""]::before,
+[tooltip=""]::after {
+  display: none !important;
+}
+
+/* FLOW: RIGHT */
+[tooltip][flow^="right"]::before {
+  top: 50%;
+  border-left-width: 0;
+  border-right-color: #333;
+  right: calc(0em - 5px);
+  transform: translate(0.5em, -50%);
+}
+[tooltip][flow^="right"]::after {
+  top: 50%;
+  left: calc(100% + 5px);
+  transform: translate(0.5em, -50%);
+}
+
+/* KEYFRAMES */
+@keyframes tooltips-vert {
+  to {
+    opacity: 0.9;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: 0.9;
+    transform: translate(0, -50%);
+  }
+}
+
+[tooltip][flow^="right"]:hover::before,
+[tooltip][flow^="right"]:hover::after {
+  animation: tooltips-horz 300ms ease-out forwards;
+}
+
+@media screen and (max-width: 361px) {
+  .insurance-banner {
+    height: 210px;
+  }
+
+  .insurance_application-subheading {
+    font-size: 15px;
+  }
+
+  .policyDetailForm .insurance-box .insurance-input_box .insurance-label,
+  .policyDetailForm .insurance-box .insurance-input_box.right .insurance-label,
+  .insurance-label,
+  .insurance-radio-label {
+    font-size: 12px;
+  }
+
+  .insurance_application-subheading {
+    font-size: 14px;
+  }
+
+  .insurance_application-heading {
+    font-size: 16px;
+  }
+
+  .main__card-heading {
+    padding: 10px 10px;
+  }
+
+  .main__card-heading .btn,
+  .main__card-heading .btn:disabled,
+  .valueAddServices h5 {
+    font-size: 15px;
+  }
+
+  .card_body--application_form {
+    padding: 10px;
+  }
 }

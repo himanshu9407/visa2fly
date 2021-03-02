@@ -35,17 +35,17 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTourist">
                       <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isBusiness">
                       <input class="select-box__input" type="radio" id="Business" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTransit">
                       <input class="select-box__input" type="radio" id="Transit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
@@ -60,15 +60,15 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
+                    <li *ngIf="isTourist">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
+                    <li *ngIf="isBusiness">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
+                    <li *ngIf="isTransit">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
@@ -119,18 +119,18 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                    <div class="select-box__value" *ngIf="isTourist">
+                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                    <div class="select-box__value" *ngIf="isBusiness">
+                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
@@ -144,16 +144,16 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                    <li *ngIf="isTourist">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                    <li *ngIf="isBusiness">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                    <li *ngIf="isTransit">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
@@ -194,9 +194,9 @@
 
 <app-important-points-thailand></app-important-points-thailand>
 
-
-
 <app-faq></app-faq>
+
+<app-description></app-description>
 
 <div class="container-fluid wrapContainer linkAddress">
   <div class="row">

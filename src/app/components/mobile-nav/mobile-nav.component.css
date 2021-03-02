@@ -6,7 +6,7 @@
   right: 0;
   left: 0;
   z-index: 1000;
-  height: 70px;
+  height: 68px;
   /* margin-top: 50px; */
   border-bottom: 1px solid whitesmoke;
 }
@@ -96,15 +96,13 @@
   padding-top: 4px;
   display: flex;
   justify-content: center;
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 3px;
 }
 
 .selectedItem {
   border-bottom: 2px solid navy;
   color: navy;
-  margin-left: 5px;
-  margin-right: 5px;
   margin-bottom: 0px;
   transition-duration: 0.1s;
   transition-timing-function: linear;
@@ -218,5 +216,25 @@
     top: 5px;
     right: 63px;
     position: absolute;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .topNavContainer {
+    height: 67px;
+  }
+
+  .topNavItemContent {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .topNavContainer {
+    height: 65px;
+  }
+
+  .topNavItemContent {
+    font-size: 10px;
   }
 }

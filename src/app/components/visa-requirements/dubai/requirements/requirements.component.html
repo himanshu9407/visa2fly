@@ -1,1011 +1,783 @@
-<div class="container-fluid p-0">
-  <div class="iconSection">
-    <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
-      [justify]="desktopJustify" [orientation]="desktopOrientation">
-      <ngb-tab id="Tourist" title="Tourist">
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
+    <!-- mandatory -->
+    <div class="iconSection">
+      <!-- desktopContainer -->
+      <div class="row  headingWrapContainer">
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for Dubai {{ visaType }} visa
+          </h3>
+        </div>
 
-        <ng-template ngbTabContent>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Passport</h1>
+              <ul>
+                <li>
+                  Upload coloured copies of the
+                  <button
+                  type="button"
+                  class="btn toggleHelperBtn"
+                  data-toggle="modal"
+                  data-target="#samplePassportFront"
 
-          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-            <!-- tourist -->
-            <div class="row">
-              <div class="col-12 text-center mgxTop">
-                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
-                    VISA REQUIREMENT FOR
-                    Dubai</span>
-                </h1>
-              </div>
+                  >
+                  first page
+                  </button> and
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportBack"
+
+                  >
+                  last page
+                  </button>
+                  of the
+                  passport.
+                </li>
+                <li>
+                  Ensure that passport should be valid for 6 months from the
+                  date of entry to the UAE.
+                </li>
+              </ul>
             </div>
-
-            <!-- desktopContainer -->
-            <div class="desktopContainer accordion" id="touristAccodion">
-              <div class="row mt-2">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true" aria-controls="tourist1"
-                        [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1, 'setActiveTourist1')"
-                        id="setActiveTourist1">
-                        <div class="makeIconCntr">
-                          <div class="vr-passport requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Passport</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="tourist1" class="collapse" [ngStyle]="{
-                        'display': showTouristFirst ? 'block' : '',
-                        'opacity': showTouristFirst ? '1' : '',
-                        'visibility': showTouristFirst ? 'visible' : '',
-                        'transition': showTouristFirst ? 'all .35s ease-in-out' : ''
-                        }" aria-labelledby="heading1" data-parent="#touristAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory when you apply for a Dubai e-visa online. A passport or a
-                              travel document, with at least 6 months validity beyond the date of departure from the
-                              country must be submitted.
-                              It should also contain 2 blank pages.
-                            </p>
-
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false" aria-controls="tourist2"
-                        [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2, 'setActiveTourist2')"
-                        id="setActiveTourist2">
-                        <div class="makeIconCntr">
-                          <div class="vr-photograph requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Photograph</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Photograph</h1>
-                            <p>
-                              Recent color photographs with a white background - Preferably the photo should not be
-                              cropped from the passport; black and white photographs will not be entertained.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false" aria-controls="tourist3"
-                        [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3, 'setActiveTourist3')"
-                        id="setActiveTourist3">
-                        <div class="makeIconCntr">
-                          <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Proof Of Residence</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="tourist3" class="collapse" aria-labelledby="heading3" data-parent="#touristAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Proof Of Residence
-                            </h1>
-                            <p>
-                              In case of a Dubai visa for Indians, if the client’s current nationality and current
-                              country of permanent residency are not the same, proof of residence must be submitted in
-                              the form of a residency visa in the passport.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist4" aria-expanded="true" aria-controls="tourist4"
-                      [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
-                      id="setActiveTourist4">
-                        <div class="makeIconCntr">
-                          <div class="vr-visa requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Visa</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="tourist4" class="collapse" aria-labelledby="heading4" data-parent="#touristAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Visa
-                            </h1>
-                            <p>
-                              A valid visa for (or evidence of travel too) UAE, UK, USA, Australia, Canada, New Zealand,
-                              or a Schengen country may be shown.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true" aria-controls="tourist5"
-                        [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5, 'setActiveTourist5')"
-                        id="setActiveTourist5">
-                        <div class="makeIconCntr">
-                          <div class="vr-financialDocs requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Financial Documents</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="tourist5" class="collapse" aria-labelledby="heading5" data-parent="#touristAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Financial Documents
-                            </h1>
-                            <p>
-                              If a visa to any of the aforementioned
-                              countries is not procurable, documents
-                              that show that you have investments
-                              (or local income tax papers showing an
-                              annual income of) USD 8000 or more
-                              must be produced.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#tourist6" aria-expanded="true" aria-controls="tourist6"
-                        [class.showDiv]="selectedTourist === 6" (click)="setActiveTourist(6, 'setActiveTourist6')"
-                        id="setActiveTourist6">
-                        <div class="makeIconCntr">
-                          <div class="vr-nonMandatoryDocs requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Non-Mandatory Documents</h2>
-                      </div>
-
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Non-Mandatory Documents
-                            </h1>
-                            <p>
-                              These include an observation page in the
-                              passport (if any), or a child endorsed
-                              page (if any), to support your case.
-                              This must be attached in the Non-Mandatory
-                              Documents field.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Photograph</h1>
+              <ul>
+                <li>
+                  Upload scanned colour copy of your passport-sized
+                  photograph.
+                </li>
+                <li>
+                  <button type="button" class="btn toggleHelperBtn" data-toggle="modal" data-target="#samplePhotograph">
+                    Photo
+                  </button> should be taken against a white background.
+                </li>
+                <li>Dimensions should be 45mm height x 35mm width.</li>
+              </ul>
             </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Covid Medical Insurance</h1>
+              <p>
+                International Travel Insurance and COVID Insurance is advisable
+                to be taken by anyone travelling to Dubai/UAE. This is
+                especially important as the cost of healthcare service and
+                hospital admission can be very high in Dubai/UAE.
+              </p>
+            </div>
+          </div>
+        </div>
 
-            <!-- mobileContainer -->
-            <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
-              <div class="row">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
-                        aria-controls="touristMobile1" [class.showDiv]="selectedMobileTourist === 1"
-                        (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
-                        <div class="makeIconCntr">
-                          <div class="vr-passport requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Passport</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobile1" class="collapse" [ngStyle]="{
-                        'display': showTouristMobileFirst ? 'block' : '',
-                        'opacity': showTouristMobileFirst ? '1' : '',
-                        'visibility': showTouristMobileFirst ? 'visible' : '',
-                        'transition': showTouristMobileFirst ? 'all .35s ease-in-out' : ''
-                        }" aria-labelledby="headingMobile1"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory when you
-                              apply for a Dubai e-visa online. A passport
-                              or a travel document, with at least 6 months
-                              validity beyond the date of departure from
-                              the country must be submitted. It should
-                              also contain 2 blank pages.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+        <div class="col-12" [ngStyle]="{'display': visaType == 'Transit'? 'block' : 'none'}">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Flight Tickets</h1>
+              <ul>
+                <li>
+                  Flight tickets are mandatory to book Dubai transit e-visa.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
-                        aria-controls="touristMobile2" [class.showDiv]="selectedMobileTourist === 2"
-                        (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
-                        <div class="makeIconCntr">
-                          <div class="vr-photograph requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Photograph</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Photograph</h1>
-                            <p>
-                              Recent color photographs with a white
-                              background - Preferably the photo should
-                              not be cropped from the passport; black and
-                              white photographs will not be entertained.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+      <!-- <div class="desktopContainer wrapContainer accordion" id="mandatoryAccodion">
+        <div class="row mt-2">
+          <ngb-tabset
+            [justify]="desktopJustify"
+            [orientation]="desktopOrientation"
+            class="iconTabset"
+            type="pills"
+          >
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatory1"
+                  aria-expanded="true"
+                  aria-controls="mandatory1"
+                  [class.showDiv]="selectedMandatory === 1"
+                  (click)="setActiveMandatory(1, 'setActiveMandatory1')"
+                  id="setActiveMandatory1"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-passport requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Passport</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatory1"
+                  class="collapse"
+                  [ngStyle]="{
+                    display: showMandatoryFirst ? 'block' : '',
+                    opacity: showMandatoryFirst ? '1' : '',
+                    visibility: showMandatoryFirst ? 'visible' : '',
+                    transition: showMandatoryFirst ? 'all .35s ease-in-out' : ''
+                  }"
+                  aria-labelledby="heading1"
+                  data-parent="#mandatoryAccodion"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body">
+                      <h1 class="requiredIconHeading">Passport</h1>
+                      <ul>
+                        <li>
+                          Upload coloured copies of the first and last page of
+                          the passport.
+                        </li>
+                        <li>
+                          Ensure that passport should be valid for 6 months from
+                          the date of entry to the UAE.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatory2"
+                  aria-expanded="false"
+                  aria-controls="mandatory2"
+                  [class.showDiv]="selectedMandatory === 2"
+                  (click)="setActiveMandatory(2, 'setActiveMandatory2')"
+                  id="setActiveMandatory2"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Photograph</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatory2"
+                  class="collapse"
+                  aria-labelledby="heading2"
+                  data-parent="#mandatoryAccodion"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body">
+                      <h1 class="requiredIconHeading">Photograph</h1>
+                      <ul>
+                        <li>
+                          Upload scanned colour copy of your passport-sized
+                          photograph.
+                        </li>
+                        <li>
+                          Photo should be taken against a white background.
+                        </li>
+                        <li>Dimensions should be 45mm x 35mm.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatory3"
+                  aria-expanded="false"
+                  aria-controls="mandatory3"
+                  [class.showDiv]="selectedMandatory === 3"
+                  (click)="setActiveMandatory(3, 'setActiveMandatory3')"
+                  id="setActiveMandatory3"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-panCard requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Pan Card</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatory3"
+                  class="collapse"
+                  aria-labelledby="heading3"
+                  data-parent="#mandatoryAccodion"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body">
+                      <h1 class="requiredIconHeading">Pan Card</h1>
+                      <p>Upload scanned copy of your PAN Card</p>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatory5"
+                  aria-expanded="true"
+                  aria-controls="mandatory5"
+                  [class.showDiv]="selectedMandatory === 5"
+                  (click)="setActiveMandatory(5, 'setActiveMandatory5')"
+                  id="setActiveMandatory5"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-Insurance requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Covid Medical Insurance</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatory5"
+                  class="collapse"
+                  aria-labelledby="heading5"
+                  data-parent="#mandatoryAccodion"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body">
+                      <h1 class="requiredIconHeading">
+                        Covid Medical Insurance
+                      </h1>
+                      <p>
+                        International Travel Insurance and COVID Insurance is
+                        advisable to be taken by anyone travelling to Dubai/UAE.
+                        This is especially important as the cost of healthcare
+                        service and hospital admission can be very high in
+                        Dubai/UAE.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle> </ng-template>
+              <ng-template ngbTabContent> </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div> -->
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
-                        aria-controls="touristMobile3" [class.showDiv]="selectedMobileTourist === 3"
-                        (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
-                        <div class="makeIconCntr">
-                          <div class="vr-proofOfResidence requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Proof Of Residence</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Proof Of Residence
-                            </h1>
-                            <p>
-                              In case of a Dubai visa for Indians, if the
-                              client’s current nationality and current
-                              country of permanent residency are not
-                              the same, proof of residence must be
-                              submitted in the form of a residency
-                              visa in the passport.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+      <!-- mobileContainer -->
+      <!-- <div class="row mobileContainer headingWrapContainer">
+        <div class="col-12 mgxTop">
+          <h1 class="outerRequirement">
+            <span class="d-block text-uppercase mobheadtext">
+              Mandatory documents Required
+            </span>
+            <span class="requirementContainer text-uppercase"
+              > For Dubai Visa</span
+            >
+          </h1>
+        </div>
+      </div> -->
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
-                        aria-controls="touristMobile4" [class.showDiv]="selectedMobileTourist === 4"
-                        (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
-                        <div class="makeIconCntr">
-                          <div class="vr-visa requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Visa</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Visa
-                            </h1>
-                            <p>
-                              A valid visa for (or evidence of travel too) UAE, UK, USA, Australia, Canada, New
-                              Zealand,
-                              or a Schengen country may be shown.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+      <!-- <div
+        class="mobileContainer wrapContainer accordion"
+        id="mandatoryAccodionMobile"
+      >
+        <div class="row">
+          <ngb-tabset
+            [justify]="desktopJustify"
+            [orientation]="desktopOrientation"
+            class="iconTabset"
+            type="pills"
+          >
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatoryMobile1"
+                  aria-expanded="true"
+                  aria-controls="mandatoryMobile1"
+                  [class.showDiv]="selectedMobileMandatory === 1"
+                  (click)="
+                    setActiveMandatoryMobile(1, 'setActiveMandatoryMobile1')
+                  "
+                  id="setActiveMandatoryMobile1"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-passport requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Passport</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatoryMobile1"
+                  class="collapse"
+                  [ngStyle]="{
+                    display: showTouristMobileFirst ? 'block' : '',
+                    opacity: showTouristMobileFirst ? '1' : '',
+                    visibility: showTouristMobileFirst ? 'visible' : '',
+                    transition: showTouristMobileFirst
+                      ? 'all .35s ease-in-out'
+                      : ''
+                  }"
+                  aria-labelledby="headingMobile1"
+                  data-parent="#mandatoryAccodionMobile"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body" style="padding: 10px">
+                      <h1 class="requiredIconHeading">Passport</h1>
+                      <ul>
+                        <li>
+                          Upload coloured copies of the first and last page of
+                          the passport.
+                        </li>
+                        <li>
+                          Ensure that passport should be valid for 6 months from
+                          the date of entry to the UAE.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
-                        aria-controls="touristMobile5" [class.showDiv]="selectedMobileTourist === 5"
-                        (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
-                        <div class="makeIconCntr">
-                          <div class="vr-financialDocs requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Financial Documents</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Financial Documents
-                            </h1>
-                            <p>
-                              If a visa to any of the aforementioned
-                              countries is not procurable, documents
-                              that show that you have investments (or
-                              local income tax papers showing an annual
-                              income of) USD 8000 or more must be
-                              produced.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+        <div class="row mt-4">
+          <ngb-tabset
+            [justify]="desktopJustify"
+            [orientation]="desktopOrientation"
+            class="iconTabset"
+            type="pills"
+          >
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatoryMobile2"
+                  aria-expanded="true"
+                  aria-controls="mandatoryMobile2"
+                  [class.showDiv]="selectedMobileMandatory === 2"
+                  (click)="
+                    setActiveMandatoryMobile(2, 'setActiveMandatoryMobile2')
+                  "
+                  id="setActiveMandatoryMobile2"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-photograph requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Photograph</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatoryMobile2"
+                  class="collapse"
+                  aria-labelledby="headingMobile2"
+                  data-parent="#mandatoryAccodionMobile"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body" style="padding: 10px">
+                      <h1 class="requiredIconHeading">Photograph</h1>
+                      <ul>
+                        <li>
+                          Upload scanned colour copy of your passport-sized
+                          photograph.
+                        </li>
+                        <li>
+                          Photo should be taken against a white background.
+                        </li>
+                        <li>Dimensions should be 45mm x 35mm.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
-                        aria-controls="touristMobile6" [class.showDiv]="selectedMobileTourist === 6"
-                        (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
-                        <div class="makeIconCntr">
-                          <div class="vr-nonMandatoryDocs requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Non-Mandatory</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
-                        data-parent="#touristAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Non-Mandatory Documents
-                            </h1>
-                            <p>
-                              These include an observation page in the
-                              passport (if any), or a child endorsed page
-                              (if any), to support your case. This must
-                              be attached in the Non-Mandatory Documents
-                              field.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
+        <div class="row mt-4">
+          <ngb-tabset
+            [justify]="desktopJustify"
+            [orientation]="desktopOrientation"
+            class="iconTabset"
+            type="pills"
+          >
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatoryMobile3"
+                  aria-expanded="true"
+                  aria-controls="mandatoryMobile3"
+                  [class.showDiv]="selectedMobileMandatory === 3"
+                  (click)="
+                    setActiveMandatoryMobile(3, 'setActiveMandatoryMobile3')
+                  "
+                  id="setActiveMandatoryMobile3"
+                >
+                  <div class="makeIconCntr">
+                    <div
+                      class="vr-panCard requiredIcons img-sprite"
+                    ></div>
+                  </div>
+                  <h2 class="setFontSize">Pan Card</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatoryMobile3"
+                  class="collapse"
+                  aria-labelledby="headingMobile3"
+                  data-parent="#mandatoryAccodionMobile"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body" style="padding: 10px">
+                      <h1 class="requiredIconHeading">Pan Card</h1>
+                      <p>Upload scanned copy of your PAN Card</p>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+
+        <div class="row mt-4">
+          <ngb-tabset
+            [justify]="desktopJustify"
+            [orientation]="desktopOrientation"
+            class="iconTabset"
+            type="pills"
+          >
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#mandatoryMobile4"
+                  aria-expanded="true"
+                  aria-controls="mandatoryMobile4"
+                  [class.showDiv]="selectedMobileMandatory === 4"
+                  (click)="
+                    setActiveMandatoryMobile(4, 'setActiveMandatoryMobile4')
+                  "
+                  id="setActiveMandatoryMobile4"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-Insurance requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Covid Medical Insurance</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="mandatoryMobile4"
+                  class="collapse"
+                  aria-labelledby="headingMobile4"
+                  data-parent="#mandatoryAccodionMobile"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body" style="padding: 10px">
+                      <h1 class="requiredIconHeading">
+                        Covid Medical Insurance
+                      </h1>
+                      <p>
+                        International Travel Insurance and COVID Insurance is
+                        advisable to be taken by anyone travelling to Dubai/UAE.
+                        This is especially important as the cost of healthcare
+                        service and hospital admission can be very high in
+                        Dubai/UAE.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- business -->
+    <!-- <div class="iconSection"> -->
+    <!-- desktopContainer -->
+    <!-- <div class="row desktopContainer headingWrapContainer">
+        <div class="col-12 mgxTop">
+          <h1 class="outerRequirement">
+            <span class="requirementContainer text-uppercase"
+              > Additional documents required for dubai business visa</span
+            >
+          </h1>
+        </div>
+      </div>
+
+      <div class="desktopContainer wrapContainer accordion" id="mandatoryAccodion">
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="card requiredIcon mt-0">
+              <div class="card-body">
+                <p class="mb-0">No Additional Documents required for Dubai business e-visa. Only above mentioned mandatory documents are required to apply for dubai business e-visa.</p>
               </div>
             </div>
           </div>
-        </ng-template>
-      </ngb-tab>
+        </div>
+      </div> -->
 
-      <ngb-tab id="Business" title="Business">
-        <ng-template ngbTabContent>
+    <!-- mobileContainer -->
+    <!-- <div class="row mobileContainer headingWrapContainer">
+        <div class="col-12 mgxTop">
+          <h1 class="outerRequirement">
+            <span class="d-block text-uppercase mobheadtext">
+              Additional documents required
+            </span>
+            <span class="requirementContainer text-uppercase"
+              > for dubai business visa</span
+            >
+          </h1>
+        </div>
+      </div>
 
-          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-            <!-- business -->
-            <div class="row">
-              <div class="col-12 text-center mgxTop">
-                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
-                    VISA REQUIREMENT FOR
-                    Dubai</span>
-                </h1>
-              </div>
-            </div>
-
-            <div class="desktopContainer accordion" id="businessAccodion">
-              <div class="row mt-2">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
-                        aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
-                        (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
-                        <div class="makeIconCntr">
-                          <div class="vr-passport requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Passport</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="business1" class="collapse" [ngStyle]="{
-                        'display': showBusinessFirst ? 'block' : '',
-                        'opacity': showBusinessFirst ? '1' : '',
-                        'visibility': showBusinessFirst ? 'visible' : '',
-                        'transition': showBusinessFirst ? 'all .35s ease-in-out' : ''
-                        }" aria-labelledby="businessHeading1"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory when you apply
-                              for a Dubai e-visa online. A passport or
-                              a travel document, with at least 6 months
-                              validity beyond the date of departure from
-                              the country must be submitted. It should
-                              also contain 2 blank pages.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
-                        aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
-                        (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
-                        <div class="makeIconCntr">
-                          <div class="vr-photograph requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Photograph</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="business2" class="collapse" aria-labelledby="businessHeading2"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Photograph</h1>
-                            <p>
-                              Recent color photographs with a white background - Preferably the photo should not be
-                              cropped from the passport; black and white photographs will not be entertained.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
-                        data-target="#business3" aria-expanded="false" aria-controls="business3"
-                        [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
-                        <div class="makeIconCntr">
-                          <div class="vr-letterFromEventOrganizer requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Letter From Event Organizer</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="business3" class="collapse" aria-labelledby="businessHeading3"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Letter From Event Organizer
-                            </h1>
-                            <p>
-                              If going for any specific professional purpose, eg. Conference, exhibition, festival, a
-                              letter from the organizer is mandatory.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
-                        data-target="#business4" aria-expanded="false" aria-controls="business4"
-                        [class.showDiv]="selectedBusiness === 4" (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
-                        <div class="makeIconCntr">
-                          <div class="vr-houseRentalContract requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">House Rental Contract</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="business4" class="collapse" aria-labelledby="businessHeading4"
-                        data-parent="#businessAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">House Rental Contract
-                            </h1>
-                            <p>
-                              Proof of residence outside the UAE must be submitted.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-            </div>
-
-            <!-- mobileContainer -->
-            <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
-              <div class="row">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
-                        aria-controls="businessMobile1" [class.showDiv]="selectedMobileBusiness === 1"
-                        (click)="setActiveBusinessMobile(1, 'setActiveBusinessMobile1')" id="setActiveBusinessMobile1">
-                        <div class="makeIconCntr">
-                          <div class="vr-passport requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Passport</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessMobile1" class="collapse" [ngStyle]="{
-                        'display': showBusinessMobileFirst ? 'block' : '',
-                        'opacity': showBusinessMobileFirst ? '1' : '',
-                        'visibility': showBusinessMobileFirst ? 'visible' : '',
-                        'transition': showBusinessMobileFirst ? 'all .35s ease-in-out' : ''
-                        }" aria-labelledby="headingMobile1"
-                        data-parent="#businessAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory when you apply for a Dubai e-visa online. A passport or a
-                              travel document, with at least 6 months validity beyond the date of departure from the
-                              country must be submitted. It should also contain 2 blank pages.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
-                        aria-controls="businessMobile2" [class.showDiv]="selectedMobileBusiness === 2"
-                        (click)="setActiveBusinessMobile(2, 'setActiveBusinessMobile2')" id="setActiveBusinessMobile2">
-                        <div class="makeIconCntr">
-                          <div class="vr-photograph requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Photograph</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
-                        data-parent="#businessAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Photograph</h1>
-                            <p>
-                              Recent color photographs with a white background - Preferably the photo should not be
-                              cropped from the passport; black and white photographs will not be entertained.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
-                        aria-controls="businessMobile3" [class.showDiv]="selectedMobileBusiness === 3"
-                        (click)="setActiveBusinessMobile(3, 'setActiveBusinessMobile3')" id="setActiveBusinessMobile3">
-                        <div class="makeIconCntr">
-                          <div class="vr-letterFromEventOrganizer requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Letter From Event Organizer</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile4"
-                        data-parent="#businessAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Letter From Event Organizer
-                            </h1>
-                            <p>
-                              If going for any specific professional purpose, eg. Conference, exhibition, festival, a
-                              letter from the organizer is mandatory.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
-                        aria-controls="businessMobile4" [class.showDiv]="selectedMobileBusiness === 4"
-                        (click)="setActiveBusinessMobile(4, 'setActiveBusinessMobile4')" id="setActiveBusinessMobile4">
-                        <div class="makeIconCntr">
-                          <div class="vr-houseRentalContract requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">House Rental Contract</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="businessMobile4" class="collapse" aria-labelledby="headingMobile4"
-                        data-parent="#businessAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">House Rental Contract
-                            </h1>
-                            <p>
-                              Proof of residence outside the UAE must be submitted.
-                            </p>
-
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
+      <div
+        class="mobileContainer wrapContainer accordion"
+        id="mandatoryAccodionMobile"
+      >
+        <div class="row">
+          <div class="col-12">
+            <div class="card requiredIcon mt-0">
+              <div class="card-body">
+                <p class="mb-0 pdpy">No Additional Documents required for Dubai business e-visa. Only above mentioned mandatory documents are required to apply for dubai business e-visa.</p>
               </div>
             </div>
           </div>
-        </ng-template>
-      </ngb-tab>
+        </div>
+      </div> -->
+    <!-- </div> -->
 
-      <ngb-tab id="Transit" title="Transit">
-        <ng-template ngbTabContent>
+    <!-- transit -->
+    <!-- <div class="iconSection"> -->
+    <!-- desktopContainer -->
+    <!-- <div class="row desktopContainer headingWrapContainer">
+        <div class="col-12 mgxTop">
+          <h1 class="outerRequirement">
+            <span class="requirementContainer text-uppercase"
+              >additional documents required for dubai transit visa</span
+            >
+          </h1>
+        </div>
+      </div>
 
-          <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-            <div class="row">
-              <div class="col-12 text-center mgxTop">
-                <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
-                    VISA REQUIREMENT FOR
-                    Dubai</span>
-                </h1>
-              </div>
-            </div>
+      <div class="desktopContainer wrapContainer accordion" id="transitAccodion">
+        <div class="row mt-2">
+          <ngb-tabset
+            [justify]="desktopJustify"
+            [orientation]="desktopOrientation"
+            class="iconTabset"
+            type="pills"
+          >
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#transit1"
+                  aria-expanded="true"
+                  aria-controls="transit1"
+                  (click)="setActiveTransit(1, 'setActivetransit1')"
+                  id="setActivetransit1"
+                >
+                  <div class="makeIconCntr">
+                    <div
+                      class="vr-flightTickets requiredIcons img-sprite"
+                    ></div>
+                  </div>
+                  <h2 class="setFontSize">Flight Tickets</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="transit1"
+                  class="collapse"
+                  aria-labelledby="heading1"
+                  data-parent="#transitAccodion"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body">
+                      <h1 class="requiredIconHeading">Flight Tickets</h1>
+                      <ul>
+                        <li>
+                          Flight tickets are mandatory to book Dubai transit
+                          e-visa.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle> </ng-template>
+              <ng-template ngbTabContent> </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle> </ng-template>
+              <ng-template ngbTabContent> </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle> </ng-template>
+              <ng-template ngbTabContent> </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+              <ng-template ngbTabTitle> </ng-template>
+              <ng-template ngbTabContent> </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div> -->
 
-            <div class="desktopContainer accordion" id="transitAccodion">
-              <div class="row mt-2">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transit1" aria-expanded="true"
-                        aria-controls="transit1" [class.showDiv]="selectedTransit === 1"
-                        (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
-                        <div class="makeIconCntr">
-                          <div class="vr-passport requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Passport</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transit1" class="collapse" [ngStyle]="{
-                        'display': showTransitFirst ? 'block' : '',
-                        'opacity': showTransitFirst ? '1' : '',
-                        'visibility': showTransitFirst ? 'visible' : '',
-                        'transition': showTransitFirst ? 'all .35s ease-in-out' : ''
-                        }"  aria-labelledby="transit1"
-                        data-parent="#transitAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory when you
-                              apply for a Dubai e-visa online. A passport
-                              or a travel document, with at least 6 months
-                              validity beyond the date of departure from
-                              the country must be submitted. It should also
-                              contain 2 blank pages.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transit2" aria-expanded="true"
-                        aria-controls="transit2" [class.showDiv]="selectedTransit === 2"
-                        (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
-                        <div class="makeIconCntr">
-                          <div class="vr-photograph requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Photograph</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Photograph</h1>
-                            <p>
-                              Recent color photographs with a white background - Preferably the photo should not be
-                              cropped from the passport; black and white photographs will not be entertained.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transit3" aria-expanded="true"
-                        aria-controls="transit3" [class.showDiv]="selectedTransit === 3"
-                        (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
-                        <div class="makeIconCntr">
-                          <div class="vr-flightTicket requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Flight</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transit3" class="collapse" aria-labelledby="transit3"
-                        data-parent="#transitAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">Flight
-                            </h1>
-                            <p>Applicant must provide both departure and arrival flight tickets.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+    <!-- mobileContainer -->
+    <!-- <div class="row mobileContainer headingWrapContainer">
+        <div class="col-12 mgxTop">
+          <h1 class="outerRequirement">
+            <span class="d-block text-uppercase mobheadtext">
+              Additional documents required
+            </span>
+            <span class="requirementContainer text-uppercase"
+              > for dubai transit visa</span
+            >
+          </h1>
+        </div>
+      </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transit4" aria-expanded="true"
-                        aria-controls="transit4" [class.showDiv]="selectedTransit === 4"
-                        (click)="setActiveTransit(4, 'setActiveTransit4')" id="setActiveTransit4">
-                        <div class="makeIconCntr">
-                          <div class="vr-panCard requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">PAN Card</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transit4" class="collapse" aria-labelledby="transit4"
-                        data-parent="#transitAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">PAN Card
-                            </h1>
-                            <p>Applicant have to provide Pan card if applicant is employed / self employed.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                    </ng-template>
-                  </ngb-tab>
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-            </div>
+      <div
+        class="mobileContainer wrapContainer accordion"
+        id="TransitAccodionMobile"
+      >
+        <div class="row">
+          <ngb-tabset
+            [justify]="desktopJustify"
+            [orientation]="desktopOrientation"
+            class="iconTabset"
+            type="pills"
+          >
+            <ngb-tab>
+              <ng-template ngbTabTitle>
+                <div
+                  data-toggle="collapse"
+                  data-target="#transitMobile1"
+                  aria-expanded="true"
+                  aria-controls="transitMobile1"
+                  (click)="
+                  setActiveTransitMobile(1, 'setActiveTransitMobile1')
+                  "
+                  id="setActiveTransitMobile1"
+                >
+                  <div class="makeIconCntr">
+                    <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                  </div>
+                  <h2 class="setFontSize">Flight Tickets</h2>
+                </div>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div
+                  id="transitMobile1"
+                  class="collapse"
+                  aria-labelledby="headingMobile1"
+                  data-parent="#mandatoryAccodionMobile"
+                >
+                  <div class="card requiredIcon">
+                    <div class="card-body" style="padding: 10px">
+                      <h1 class="requiredIconHeading">Flight Tickets</h1>
+                      <ul>
+                        <li>
+                          Flight tickets are mandatory to book Dubai transit
+                          e-visa.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div> -->
+    <!-- </div> -->
+  </div>
+</section>
 
-            <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
-              <div class="row">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
-                        aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
-                        (click)="setActiveTransitMobile(1, 'setActiveTransitMobile1')" id="setActiveTransitMobile1">
-                        <div class="makeIconCntr">
-                          <div class="vr-passport requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Passport</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transitMobile1" class="collapse" [ngStyle]="{
-                        'display': showTransitMobileFirst ? 'block' : '',
-                        'opacity': showTransitMobileFirst ? '1' : '',
-                        'visibility': showTransitMobileFirst ? 'visible' : '',
-                        'transition': showTransitMobileFirst ? 'all .35s ease-in-out' : ''
-                        }"  aria-labelledby="transitMobile1"
-                        data-parent="#transitAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Passport</h1>
-                            <p>Passport details are mandatory when you
-                              apply for a Dubai e-visa online. A passport
-                              or a travel document, with at least 6
-                              months validity beyond the date of
-                              departure from the country must be
-                              submitted. It should also contain 2
-                              blank pages.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
-                        aria-controls="transitMobile2" [class.showDiv]="selectedMobileTransit === 2"
-                        (click)="setActiveTransitMobile(2, 'setActiveTransitMobile2')" id="setActiveTransitMobile2">
-                        <div class="makeIconCntr">
-                          <div class="vr-photograph requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Photograph</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transitMobile2" class="collapse" aria-labelledby="transitMobile2"
-                        data-parent="#transitAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Photograph</h1>
-                            <p>
-                              Recent color photographs with a white background - Preferably the photo should not be
-                              cropped from the passport; black and white photographs will not be entertained.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
-                        aria-controls="transitMobile3" [class.showDiv]="selectedMobileTransit === 3"
-                        (click)="setActiveTransitMobile(3, 'setActiveTransitMobile3')" id="setActiveTransitMobile3">
-                        <div class="makeIconCntr">
-                          <div class="vr-flightTicket requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">Flight</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transitMobile3" class="collapse" aria-labelledby="transitMobile3"
-                        data-parent="#transitAccodionMobile">
-                        <div class="card requiredIcon">
-                          <div class="card-body" style="padding: 10px">
-                            <h1 class="requiredIconHeading">Flight
-                            </h1>
-                            <p>Applicant must provide both departure and arrival flight tickets.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-
-              <div class="row mt-4">
-                <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                  type="pills">
-                  <ngb-tab>
-                    <ng-template ngbTabTitle>
-                      <div data-toggle="collapse" data-target="#transitMobile4" aria-expanded="true"
-                        aria-controls="transitMobile4" [class.showDiv]="selectedMobileTransit === 4"
-                        (click)="setActiveTransitMobile(4, 'setActiveTransitMobile4')" id="setActiveTransitMobile4">
-                        <div class="makeIconCntr">
-                          <div class="vr-panCard requiredIcons img-sprite"></div>
-                        </div>
-                        <h2 class="setFontSize">PAN Card</h2>
-                      </div>
-                    </ng-template>
-                    <ng-template ngbTabContent>
-                      <div id="transitMobile4" class="collapse" aria-labelledby="transitMobile4"
-                        data-parent="#transitAccodion">
-                        <div class="card requiredIcon">
-                          <div class="card-body">
-                            <h1 class="requiredIconHeading">PAN Card
-                            </h1>
-                            <p>Applicant have to provide Pan card if applicant is employed / self employed.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </ng-template>
-                  </ngb-tab>
-                </ngb-tabset>
-              </div>
-            </div>
-          </div>
-        </ng-template>
-      </ngb-tab>
-    </ngb-tabset>
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>

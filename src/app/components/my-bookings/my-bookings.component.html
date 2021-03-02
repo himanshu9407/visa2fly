@@ -207,10 +207,10 @@
       <div
         *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first', totalItems: totalItems }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa', 'sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
+              {{booking.booking.bookingType}}
             </div>
             <div class="card-body">
               <ul class="visa-type">
@@ -220,21 +220,55 @@
                 </li>
                 <li>
                   Transaction ID :
-                  <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId != null">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId == null">NA</span>
                 </li>
-                <li>
-                  {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}} For :
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
+                  Visa For :
                   <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim For :
+                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Insurance For :
+                  <span class="fieldData">{{booking.insuranceBookings.country}}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
                   <span class="fieldData">{{booking.booking.visaType}}</span>
                 </li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim Type:
+                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Plan Type:
+                  <span class="fieldData">{{booking.insuranceBookings.planType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Number:
+                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum != null">{{booking.insuranceBookings.policyNum}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.insuranceBookings.policyNum == null">NA</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Coverage:
+                  <span class="fieldData">{{booking.insuranceBookings.currency + ' ' + booking.insuranceBookings.coverage }}</span>
+                </li>
+                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Commencement Date:
+                  <span class="fieldData">{{booking.insuranceBookings.policyCommencementDt}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Number Of Insured Person:
+                  <span class="fieldData">{{booking.insuranceBookings.numberOfInsuredPerson}}</span>
+                </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
                   <span class="fieldData">{{booking.booking.entryType}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Total Travellers:
                   <span class="fieldData">{{booking.booking.totalTravellers}}</span>
                 </li>
@@ -249,6 +283,10 @@
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
                   <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                </li>
+                <li>
+                  Booking Amount:
+                  <span class="fieldData">{{booking.booking.bookingAmount}}</span>
                 </li>
                 <li>
                   Booking Status:
@@ -273,9 +311,17 @@
                 </div>
 
                 <div class="col-6 button">
-                  <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                  <button *ngIf="booking.booking.bookingType == 'Visa'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Sim'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor, booking.booking.bookingId)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Policy
                   </button>
                 </div>
               </div>
@@ -335,10 +381,10 @@
       <div
         *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second', totalItems: totalItems }"
         class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa','sim-card':booking.booking.bookingType == 'Sim'}">
+        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa', 'sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType == 'Visa' ? 'Visa' : 'Sim'}}
+              {{booking.booking.bookingType}}
             </div>
             <div class="card-body">
               <!-- <h5 class="card-title">Special title treatment</h5>
@@ -351,17 +397,51 @@
                 </li>
                 <li>
                   Transaction ID :
-                  <span class="fieldData breakWord">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId != null">{{booking.booking.paymentId}}</span>
+                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId == null">NA</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa For :
                   <span class="fieldData">{{booking.booking.visaForCountry}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim For :
+                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Insurance For :
+                  <span class="fieldData">{{booking.insuranceBookings.country}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
                   <span class="fieldData">{{booking.booking.visaType}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim Type:
+                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Plan Type:
+                  <span class="fieldData">{{booking.insuranceBookings.planType}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Number:
+                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum != null">{{booking.insuranceBookings.policyNum}}</span>
+                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum == null">NA</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Coverage:
+                  <span class="fieldData">{{booking.insuranceBookings.currency + ' '+ booking.insuranceBookings.coverage}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Policy Commencement Date:
+                  <span class="fieldData">{{booking.insuranceBookings.policyCommencementDt}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                  Number Of Insured Person:
+                  <span class="fieldData">{{booking.insuranceBookings.numberOfInsuredPerson}}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
                   <span class="fieldData">{{booking.booking.entryType}}</span>
                 </li>
@@ -373,11 +453,11 @@
                   Booking date:
                   <span class="fieldData">{{booking.booking.bookingDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Document Collection Date:
                   <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
                 </li>
-                <li>
+                <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
                   <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
                 </li>
@@ -406,9 +486,17 @@
                 </div>
 
                 <div class="col-6 button">
-                  <button (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                  <button *ngIf="booking.booking.bookingType == 'Visa'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
                     type="button" class="btn btn-outline-success btn-sm">
                     Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Sim'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Invoice
+                  </button>
+                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor, booking.booking.bookingId)"
+                    type="button" class="btn btn-outline-success btn-sm">
+                    Get Policy
                   </button>
                 </div>
               </div>
@@ -560,34 +648,17 @@
                         </g>
                       </svg>
                       How well does our product meet your needs ?</p>
-                    <!-- <fieldset class="rating" id="customCheck1">
-                      <input type="radio" id="f3-star5" formControlName="f3-rating" value="5" /><label class="full"
-                        for="f3-star5"></label>
-                      <input type="radio" id="f3-star4" formControlName="f3-rating" value="4" /><label class="full"
-                        for="f3-star4"></label>
-                      <input type="radio" id="f3-star3" formControlName="f3-rating" value="3" /><label class="full"
-                        for="f3-star3"></label>
-                      <input type="radio" id="f3-star2" formControlName="f3-rating" value="2" /><label class="full"
-                        for="f3-star2"></label>
-                      <input type="radio" id="f3-star1" formControlName="f3-rating" value="1" /><label class="full"
-                        for="f3-star1"></label>
-                      <div class="invalid-feedback" style="display: block; margin-top: -10px; margin-bottom: 5px;">
-                        <div *ngIf="feedbackMsg && FeedbackForm.get('f3-rating').invalid">
-                          *Please provide your rating
-                        </div> 
-                      </div>
-                    </fieldset> -->
                     <div class="star-rating">
-                      <input type="radio" id="5-stars" formControlName="f3-rating" name="f3-rating" value="5" />
-                      <label for="5-stars" class="star">&#9733;</label>
-                      <input type="radio" id="4-stars" formControlName="f3-rating" name="f3-rating" value="4" />
-                      <label for="4-stars" class="star">&#9733;</label>
-                      <input type="radio" id="3-stars" formControlName="f3-rating" name="f3-rating" value="3" />
-                      <label for="3-stars" class="star">&#9733;</label>
-                      <input type="radio" id="2-stars" formControlName="f3-rating" name="f3-rating" value="2" />
-                      <label for="2-stars" class="star">&#9733;</label>
-                      <input type="radio" id="1-star" formControlName="f3-rating" name="f3-rating" value="1" />
-                      <label for="1-star" class="star">&#9733;</label>
+                      <input type="radio" id="f3-rating-star_5" formControlName="f3-rating" name="f3-rating" value="5" />
+                      <label for="f3-rating-star_5" class="star">&#9733;</label>
+                      <input type="radio" id="f3-rating-star_4" formControlName="f3-rating" name="f3-rating" value="4" />
+                      <label for="f3-rating-star_4" class="star">&#9733;</label>
+                      <input type="radio" id="f3-rating-star_3" formControlName="f3-rating" name="f3-rating" value="3" />
+                      <label for="f3-rating-star_3" class="star">&#9733;</label>
+                      <input type="radio" id="f3-rating-star_2" formControlName="f3-rating" name="f3-rating" value="2" />
+                      <label for="f3-rating-star_2" class="star">&#9733;</label>
+                      <input type="radio" id="f3-rating-star_1" formControlName="f3-rating" name="f3-rating" value="1" />
+                      <label for="f3-rating-star_1" class="star">&#9733;</label>
                     </div>
 
                   </div>
@@ -610,34 +681,17 @@
                       </svg> Were you able to find the information
                       you were looking for on our website ?
                     </p>
-                    <!-- <fieldset class="rating" id="customCheck1">
-                      <input type="radio" id="f1-star5" formControlName="f1-rating" value="5" /><label class="full"
-                        for="f1-star5"></label>
-                      <input type="radio" id="f1-star4" formControlName="f1-rating" value="4" /><label class="full"
-                        for="f1-star4"></label>
-                      <input type="radio" id="f1-star3" formControlName="f1-rating" value="3" /><label class="full"
-                        for="f1-star3"></label>
-                      <input type="radio" id="f1-star2" formControlName="f1-rating" value="2" /><label class="full"
-                        for="f1-star2"></label>
-                      <input type="radio" id="f1-star1" formControlName="f1-rating" value="1" /><label class="full"
-                        for="f1-star1"></label>
-                      <div class="invalid-feedback" style="display: block; margin-top: -10px; margin-bottom: 5px;">
-                        <div *ngIf="feedbackMsg && FeedbackForm.get('f1-rating').invalid">
-                          *Please provide your rating
-                        </div>
-                      </div>
-                    </fieldset> -->
                     <div class="star-rating">
-                      <input type="radio" id="5-stars" formControlName="f1-rating" name="f1-rating" value="5" />
-                      <label for="5-stars" class="star">&#9733;</label>
-                      <input type="radio" id="4-stars" formControlName="f1-rating" name="f1-rating" value="4" />
-                      <label for="4-stars" class="star">&#9733;</label>
-                      <input type="radio" id="3-stars" formControlName="f1-rating" name="f1-rating" value="3" />
-                      <label for="3-stars" class="star">&#9733;</label>
-                      <input type="radio" id="2-stars" formControlName="f1-rating" name="f1-rating" value="2" />
-                      <label for="2-stars" class="star">&#9733;</label>
-                      <input type="radio" id="1-star" formControlName="f1-rating" name="f1-rating" value="1" />
-                      <label for="1-star" class="star">&#9733;</label>
+                      <input type="radio" id="f1-rating-star_5" formControlName="f1-rating" name="f1-rating" value="5" />
+                      <label for="f1-rating-star_5" class="star">&#9733;</label>
+                      <input type="radio" id="f1-rating-star_4" formControlName="f1-rating" name="f1-rating" value="4" />
+                      <label for="f1-rating-star_4" class="star">&#9733;</label>
+                      <input type="radio" id="f1-rating-star_3" formControlName="f1-rating" name="f1-rating" value="3" />
+                      <label for="f1-rating-star_3" class="star">&#9733;</label>
+                      <input type="radio" id="f1-rating-star_2" formControlName="f1-rating" name="f1-rating" value="2" />
+                      <label for="f1-rating-star_2" class="star">&#9733;</label>
+                      <input type="radio" id="f1-rating-star_1" formControlName="f1-rating" name="f1-rating" value="1" />
+                      <label for="f1-rating-star_1" class="star">&#9733;</label>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -657,34 +711,17 @@
                         </g>
                       </svg> How likely are you to recommend
                       visa2fly to a friends or family ?</p>
-                    <!-- <fieldset class="rating" id="customCheck1">
-                      <input type="radio" id="f2-star5" formControlName="f2-rating" value="5" /><label class="full"
-                        for="f2-star5"></label>
-                      <input type="radio" id="f2-star4" formControlName="f2-rating" value="4" /><label class="full"
-                        for="f2-star4"></label>
-                      <input type="radio" id="f2-star3" formControlName="f2-rating" value="3" /><label class="full"
-                        for="f2-star3"></label>
-                      <input type="radio" id="f2-star2" formControlName="f2-rating" value="2" /><label class="full"
-                        for="f2-star2"></label>
-                      <input type="radio" id="f2-star1" formControlName="f2-rating" value="1" /><label class="full"
-                        for="f2-star1"></label>
-                      <div class="invalid-feedback" style="display: block; margin-top: -10px; margin-bottom: 5px;">
-                        <div *ngIf="feedbackMsg && FeedbackForm.get('f2-rating').invalid">
-                          *Please provide your rating
-                        </div>
-                      </div>
-                    </fieldset> -->
                     <div class="star-rating">
-                      <input type="radio" id="5-stars" formControlName="f2-rating" name="f2-rating" value="5" />
-                      <label for="5-stars" class="star">&#9733;</label>
-                      <input type="radio" id="4-stars" formControlName="f2-rating" name="f2-rating" value="4" />
-                      <label for="4-stars" class="star">&#9733;</label>
-                      <input type="radio" id="3-stars" formControlName="f2-rating" name="f2-rating" value="3" />
-                      <label for="3-stars" class="star">&#9733;</label>
-                      <input type="radio" id="2-stars" formControlName="f2-rating" name="f2-rating" value="2" />
-                      <label for="2-stars" class="star">&#9733;</label>
-                      <input type="radio" id="1-star" formControlName="f2-rating" name="f2-rating" value="1" />
-                      <label for="1-star" class="star">&#9733;</label>
+                      <input type="radio" id="f2-rating-star_5" formControlName="f2-rating" name="f2-rating" value="5" />
+                      <label for="f2-rating-star_5" class="star">&#9733;</label>
+                      <input type="radio" id="f2-rating-star_4" formControlName="f2-rating" name="f2-rating" value="4" />
+                      <label for="f2-rating-star_4" class="star">&#9733;</label>
+                      <input type="radio" id="f2-rating-star_3" formControlName="f2-rating" name="f2-rating" value="3" />
+                      <label for="f2-rating-star_3" class="star">&#9733;</label>
+                      <input type="radio" id="f2-rating-star_2" formControlName="f2-rating" name="f2-rating" value="2" />
+                      <label for="f2-rating-star_2" class="star">&#9733;</label>
+                      <input type="radio" id="f2-rating-star_1" formControlName="f2-rating" name="f2-rating" value="1" />
+                      <label for="f2-rating-star_1" class="star">&#9733;</label>
                     </div>
                   </div>
                   <div class="col-md-12 textField">
@@ -693,11 +730,6 @@
                   </div>
                   <div class="col-md-12">
                     <textarea class="form-control" formControlName="FeedbackEdit" id="" cols="30" rows="4"></textarea>
-                    <div class="invalid-feedback" style="display: block; margin-bottom: 5px;">
-                      <div *ngIf="feedbackMsg && FeedbackForm.get('FeedbackEdit').invalid">
-                        *Please provide your rating
-                      </div>
-                    </div>
                   </div>
                   <div class="col-md-12 text-center mt-2">
                     <button type="button" class="btn text-white btn-submit btn-sm btn-block"

@@ -1,0 +1,348 @@
+.setPadding {
+  font-weight: 600;
+  padding-right: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.visaDropDown {
+  padding: 0px;
+  padding-right: 15px;
+}
+
+p,
+li {
+  font-size: 14px;
+}
+
+.mobileView,
+.mobileContainer {
+  display: none;
+}
+
+.desktopView,
+.desktopContainer {
+  display: block;
+}
+
+.wrapContainer {
+  padding: 10px 40px 10px;
+}
+
+.imageContainer {
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 45, 75, 0),
+    rgba(0, 0, 0, 0.4)
+  ), url(https://static.visa2fly.com/country/v2/Qatar.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  }
+
+.imageContainer.desktopView {
+  margin-top: 50px;
+  padding: 0px 0px 10px 40px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.imageContainer .breadcrum {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.imageContainer .breadcrum span {
+  background-color: rgba(19, 6, 84, 0.4);
+  padding: 5px 20px;
+}
+
+.imageContainer .breadcrum a {
+  font-weight: 500;
+  color: #fff;
+}
+
+.imageContainer .countryFlag {
+  height: 100px;
+  max-width: 170px;
+}
+
+.imageContainer .country-info {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.imageContainer .country-info .country-heading {
+  font-size: 20px;
+}
+
+.imageContainer .country-info .country-desc {
+  font-size: 15px;
+  width: 650px;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  .imageContainer {
+    margin-top: 50px;
+    padding: 0px 30px 10px;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .desktopView {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 500px) {
+
+  .mobileView {
+    display: block;
+  }
+
+  .desktopView {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 767px) {
+
+  .mobileView {
+    display: block;
+  }
+
+  .desktopView {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 480px) {
+  .desktopContainer {
+    display: none;
+  }
+
+  .mat-form-field-infix {
+    width: 100px !important;
+  }
+
+  .mobileContainer {
+    display: block;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .desktopView {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+
+  .mat-form-field-infix {
+    width: 100px !important;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .desktopView {
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 350px) {
+
+  .changingPurpose {
+    width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mobileView,
+  .mobileContainer {
+    display: block;
+  }
+
+  .desktopView,
+  .desktopContainer {
+    display: none;
+  }
+
+  .wrapContainer {
+    padding: 10px 15px 10px;
+  }
+
+}
+
+.changingPurpose {
+  width: 450px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.select-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #60666d;
+}
+
+.select-box__current {
+  position: relative;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: none;
+}
+.select-box__current:focus + .select-box__list {
+  opacity: 1;
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+.select-box__current:focus + .select-box__list .select-box__option {
+  cursor: pointer;
+}
+.select-box__current:focus .select-box__icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
+}
+.select-box__icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 15px;
+  opacity: 0.8;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.select-box__value {
+  display: -webkit-box;
+  display: flex;
+}
+.select-box__input {
+  display: none;
+}
+.select-box__input:checked + .select-box__input-text {
+  display: block;
+}
+.select-box__input-text {
+  display: none;
+  width: 100%;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
+  padding: 5px 10px;
+  background-color: #000080;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.select-box__list {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  -webkit-animation-name: HideList;
+  animation-name: HideList;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+  animation-timing-function: step-start;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.select-box__option {
+  display: block;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.select-box__option:hover,
+.select-box__option:focus {
+  color: #546c84;
+  background-color: #fbfbfb;
+}
+
+.select-box svg {
+  fill: #fff;
+}
+
+@-webkit-keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .imageContainer {
+    padding: 0px 0px 10px 10px;
+    margin-top: 107px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .imageContainer .container-fluid {
+    padding: 0;
+  }
+
+  .changingPurpose {
+    width: 280px;
+    padding: 5px 7px;
+  }
+
+  .country-desc {
+    font-size: 14px;
+    border-left: 2px solid dodgerblue;
+    padding-left: 5px;
+    margin-bottom: 0px;
+  }
+
+  .imageContainer {
+    height: 225px;
+  }
+
+  .imageContainer .countryFlag {
+    height: 60px;
+    max-width: 110px;
+  }
+
+  .imageContainer .country-info .country-heading {
+    font-size: 16px;
+  }
+}

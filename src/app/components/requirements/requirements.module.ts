@@ -24,7 +24,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedVisaModuleModule,
     NgbModule,
-    
     RouterModule.forChild(routes)
   ]
 })

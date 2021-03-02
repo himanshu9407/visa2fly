@@ -1,7 +1,24 @@
 @import "~ngx-toastr/toastr";
+@import "visa-requirement.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 body {
-  font-family: "Roboto", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-placeholder {
+  z-index: 1;
+  font-size: 14px;
+}
+
+.form-control[readonly] {
+  background-color: #fff !important;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .my-pagination .ngx-pagination .current {
@@ -73,7 +90,7 @@ button:hover {
 }
 
 .img-sprite {
-  background: url("assets/image-sprite.png");
+  background: url("./assets/image-sprite.png");
 }
 
 .logo {
@@ -656,7 +673,7 @@ button:hover {
 .requiredIcons {
   height: 45px;
   width: 45px;
-  margin-bottom: 10px;
+  zoom: 0.8;
 }
 
 .vr-accommodation,
@@ -846,7 +863,8 @@ button:hover {
 }
 
 .vr-incomeTaxReturn,
-.vr-IncomeTaxReturns {
+.vr-IncomeTaxReturns,
+.vr-ITR {
   background-position: -1665px -530px !important;
 }
 
@@ -954,7 +972,8 @@ button:hover {
 }
 
 .vr-otherSupportDocs,
-.vr-OtherSupportingDocuments {
+.vr-OtherSupportingDocuments,
+.vr-Socio-ProfessionalSituation {
   background-position: -765px -575px !important;
 }
 
@@ -1052,6 +1071,26 @@ button:hover {
 .vr-yellowFever,
 .vr-Yellow-Fever {
   background-position: -1620px -575px !important;
+}
+
+.vr-purposeOfTravel {
+  background-position: -1665px -575px !important;
+}
+
+.vr-immigration {
+  background-position: -1710px -575px !important;
+}
+
+.vr-contactDetails {
+  background-position: -1755px -575px !important;
+}
+
+.vr-feeReceipt {
+  background-position: -1800px -575px !important;
+}
+
+.vr-enrolment {
+  background-position: -1845px -575px !important;
 }
 
 .vrStep-payOnline {
@@ -1453,7 +1492,7 @@ a {
 
 .carousel-caption:focus,
 .carousel-inner:focus,
-ngb-carousel:focus{
+ngb-carousel:focus {
   outline: none !important;
   box-shadow: none !important;
 }
@@ -1523,7 +1562,7 @@ ngb-carousel {
   }
 }
 
-#blogPostCarousel .carousel-control-next, 
+#blogPostCarousel .carousel-control-next,
 #blogPostCarousel .carousel-control-prev {
   position: absolute;
   top: 0;
@@ -1538,7 +1577,7 @@ ngb-carousel {
   opacity: 0;
   height: 150px;
   top: 18%;
-  transition: all .15s ease;
+  transition: all 0.15s ease;
   background-color: #fff;
   box-shadow: 0 1px 3px #888;
 }
@@ -1554,8 +1593,8 @@ ngb-carousel {
 }
 
 #blogPostCarousel .carousel-control-prev {
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* #blogPostCarousel .carousel-control-next:focus, */
@@ -1567,7 +1606,7 @@ border-bottom-right-radius: 10px;
   opacity: 1;
 }
 
-#MobileblogPostCarousel .carousel-control-next, 
+#MobileblogPostCarousel .carousel-control-next,
 #MobileblogPostCarousel .carousel-control-prev {
   position: absolute;
   bottom: 0;
@@ -1581,7 +1620,7 @@ border-bottom-right-radius: 10px;
   opacity: 0.5;
   height: 100px;
   top: 20%;
-  transition: all .15s ease;
+  transition: all 0.15s ease;
   background-color: #fff;
   box-shadow: 0 1px 3px #888;
 }
@@ -1593,9 +1632,9 @@ border-bottom-right-radius: 10px;
 }
 
 #MobileblogPostCarousel .carousel-control-prev {
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;
-left: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  left: 5px;
 }
 
 #MobileblogPostCarousel .carousel-control-next:focus,
@@ -1607,4 +1646,71 @@ left: 5px;
   opacity: 0.5;
 }
 
+.home-form .ng-select-container .ng-clear-wrapper.ng-star-inserted {
+  display: none !important;
+}
 
+.home-form .ng-select-container {
+  border: none !important;
+}
+
+.home-form .ng-select {
+  border: none !important;
+  font-size: 16px !important;
+  font-weight: 550 !important;
+  padding-left: 0px !important;
+  color: #5b6167 !important;
+}
+
+.home-form
+  .ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container {
+  padding: 0 !important;
+}
+
+#sim .ng-select-container {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+#sim .ng-select-container .ng-clear-wrapper,
+.addPassengerForm .ng-select-container .ng-clear-wrapper,
+.TrvDetail .ng-select-container .ng-clear-wrapper {
+  display: none !important;
+}
+
+#sim ng-select .ng-select-container .ng-value-container .ng-input > input {
+  color: #fff;
+}
+
+.addPassengerForm .ng-select-container,
+.TrvDetail .ng-select-container {
+  font-size: 14px;
+}
+
+.addPassengerForm .ng-select.ng-select-single .ng-select-container,
+.TrvDetail .ng-select.ng-select-single .ng-select-container {
+  min-height: 32px;
+  height: 32px;
+}
+
+ng-select:focus,
+ng-select > *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.home-form
+  .ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container
+  .ng-input {
+  padding: 0;
+}
+
+.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+  border-color: none !important;
+  box-shadow: none !important;
+}

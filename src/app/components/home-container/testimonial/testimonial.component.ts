@@ -26,10 +26,7 @@ export class TestimonialComponent implements OnInit {
         if (!res) {
           // assign dummy res
         } else if (res.code == "0") {
-          console.log(res);
           this.testimonialData = res.data;
-      console.log(typeof this.testimonialData);
-
           this.firstTestimonialArr = this.testimonialData.slice(0, 3);
           this.secondTestimonialArr = this.testimonialData.slice(3, 6);
 

@@ -55,8 +55,6 @@ export class MyBookingsService {
     }
   }
 
-
-
   postFeedback(
     bookingid: string,
     rateOne: string,

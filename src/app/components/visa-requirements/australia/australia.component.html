@@ -3,8 +3,9 @@
     <div class="col-12 text-right">
       <p class="breadcrum">
         <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
-            Details</b>
+          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+            >{{ selectedCountrytype }} Visa Details</b
+          >
         </span>
       </p>
     </div>
@@ -14,12 +15,24 @@
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
-          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-            alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
+          <img
+            data-src="https://static.visa2fly.com/flag/{{
+              selectedCountrytype
+            }}.png"
+            alt="{{ selectedCountrytype }} flag image"
+            class="img-fluid countryFlag rounded lazyload"
+          />
 
           <div class="country-info">
-            <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">Australia makes up a large part of the geographic region Oceania. Its current architecture encompasses the collaboration between indigenous culture and urban landscape. Tourists often visit the magnificent Uluru and the natural wonder that is the Great Barrier Reef - as well as the modern masterpiece that is the Sydney Opera House and the bustling Bondi beach.</p>
+            <h2 class="country-heading">{{ selectedCountrytype }}</h2>
+            <p class="country-desc">
+              Australia makes up a large part of the geographic region Oceania.
+              Its current architecture encompasses the collaboration between
+              indigenous culture and urban landscape. Tourists often visit the
+              magnificent Uluru and the natural wonder that is the Great Barrier
+              Reef - as well as the modern masterpiece that is the Sydney Opera
+              House and the bustling Bondi beach.
+            </p>
           </div>
         </div>
       </div>
@@ -28,24 +41,22 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTourist">
                       <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isBusiness">
                       <input class="select-box__input" type="radio" id="Business" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTransit">
                       <input class="select-box__input" type="radio" id="Transit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
@@ -60,15 +71,15 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
+                    <li *ngIf="isTourist">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
+                    <li *ngIf="isBusiness">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
+                    <li *ngIf="isTransit">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
@@ -88,8 +99,9 @@
     <div class="col-12 text-right p-0">
       <p class="breadcrum">
         <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
-            Details</b>
+          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+            >{{ selectedCountrytype }} Visa Details</b
+          >
         </span>
       </p>
     </div>
@@ -99,11 +111,16 @@
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
-          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-            alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
+          <img
+            data-src="https://static.visa2fly.com/flag/{{
+              selectedCountrytype
+            }}.png"
+            alt="{{ selectedCountrytype }} flag image"
+            class="img-fluid countryFlag rounded lazyload"
+          />
 
           <div class="country-info">
-            <h2 class="country-heading">{{selectedCountrytype}}</h2>
+            <h2 class="country-heading">{{ selectedCountrytype }}</h2>
           </div>
         </div>
       </div>
@@ -112,25 +129,23 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding p-0">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding p-0">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown p-0">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                    <div class="select-box__value" *ngIf="isTourist">
+                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                    <div class="select-box__value" *ngIf="isBusiness">
+                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
@@ -144,16 +159,16 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                    <li *ngIf="isTourist">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                    <li *ngIf="isBusiness">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                    <li *ngIf="isTransit">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
@@ -170,27 +185,49 @@
 <div class="container-fluid mt-4 mobileView">
   <div class="row">
     <div class="col-12">
-      <p class="country-desc">Australia makes up a large part of the geographic region Oceania. Its current architecture encompasses the collaboration between indigenous culture and urban landscape. Tourists often visit the magnificent Uluru and the natural wonder that is the Great Barrier Reef - as well as the modern masterpiece that is the Sydney Opera House and the bustling Bondi beach.</p>
+      <p class="country-desc">
+        Australia makes up a large part of the geographic region Oceania. Its
+        current architecture encompasses the collaboration between indigenous
+        culture and urban landscape. Tourists often visit the magnificent Uluru
+        and the natural wonder that is the Great Barrier Reef - as well as the
+        modern masterpiece that is the Sydney Opera House and the bustling Bondi
+        beach.
+      </p>
     </div>
   </div>
 </div>
 
-<div class="container-fluid wrapContainer mt-2" style="overflow: hidden;">
+<div class="container-fluid wrapContainer mt-2" style="overflow: hidden">
   <div class="row">
-    <app-quotation class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1"
-      [quotation]="quotation">
+    <app-quotation
+      class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3"
+      *ngFor="let quotation of MyQuotation1"
+      [quotation]="quotation"
+    >
     </app-quotation>
   </div>
 </div>
 
-<app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
-<app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
+<app-offline-process-steps
+  [country]="selectedCountrytype"
+  *ngIf="!onlinestatus"
+></app-offline-process-steps>
+<app-online-process-steps
+  [country]="selectedCountrytype"
+  *ngIf="onlinestatus"
+></app-online-process-steps>
 
-<app-requirements (changedPurpose)="navigateTo($event)" [selectedBusiness]="selectedBusiness"
-  [selectedTransit]="selectedTransit" [selectedTourist]="selectedTourist"
-  [selectedMobileTourist]="selectedMobileTourist" [selectedMobileBusiness]="selectedMobileBusiness"
-  [selectedMobileTransit]="selectedMobileTransit" [selectedVisaType]="selectedVisaType"
-  [selectedPurpose]="selectedPurpose"></app-requirements>
+<app-requirements
+  (changedPurpose)="navigateTo($event)"
+  [selectedBusiness]="selectedBusiness"
+  [selectedTransit]="selectedTransit"
+  [selectedTourist]="selectedTourist"
+  [selectedMobileTourist]="selectedMobileTourist"
+  [selectedMobileBusiness]="selectedMobileBusiness"
+  [selectedMobileTransit]="selectedMobileTransit"
+  [selectedVisaType]="selectedVisaType"
+  [selectedPurpose]="selectedPurpose"
+></app-requirements>
 
 <app-important-points></app-important-points>
 

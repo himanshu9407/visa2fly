@@ -19,7 +19,12 @@
 
           <div class="country-info">
             <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">Singapore lies below Malaysia on the global map, and is a small island nation. But don't be fooled by its size - it has a highly developed economy, with well above average standards of living. Its airport - Changi - is also the best in the World! Apart from a worthwhile visit to the airport, other places of interest include Marina Bay Sands, Sentosa, the Merlion and Universal Studios. </p>
+            <p class="country-desc">The Russian Federation is not only the largest country in the world; it is home to over 23
+              UNESCO World Heritage Sites, over a hundred Nature Reserves , and serene landscapes.
+              Being such a vast country with rich culture, it has a lot to offer! Russia has a varied
+              geography and climate with scarcely populated regions and some ecosystems untouched even
+              by humans, making it the perfect place to explore the wilderness or even go for a shopping
+              spree at the high-end retailers.</p>
           </div>
         </div>
       </div>
@@ -35,17 +40,17 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTourist">
                       <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isBusiness">
                       <input class="select-box__input" type="radio" id="Business" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTransit">
                       <input class="select-box__input" type="radio" id="Transit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
@@ -60,15 +65,15 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
+                    <li *ngIf="isTourist">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
+                    <li *ngIf="isBusiness">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
+                    <li *ngIf="isTransit">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
@@ -119,18 +124,18 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                    <div class="select-box__value" *ngIf="isTourist">
+                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                    <div class="select-box__value" *ngIf="isBusiness">
+                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
@@ -144,16 +149,16 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                    <li *ngIf="isTourist">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                    <li *ngIf="isBusiness">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                    <li *ngIf="isTransit">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
@@ -170,7 +175,12 @@
 <div class="container-fluid mt-4 mobileView">
   <div class="row">
     <div class="col-12">
-      <p class="country-desc">Singapore lies below Malaysia on the global map, and is a small island nation. But don't be fooled by its size - it has a highly developed economy, with well above average standards of living. Its airport - Changi - is also the best in the World! Apart from a worthwhile visit to the airport, other places of interest include Marina Bay Sands, Sentosa, the Merlion and Universal Studios. </p>
+      <p class="country-desc">The Russian Federation is not only the largest country in the world; it is home to over 23
+        UNESCO World Heritage Sites, over a hundred Nature Reserves , and serene landscapes.
+        Being such a vast country with rich culture, it has a lot to offer! Russia has a varied
+        geography and climate with scarcely populated regions and some ecosystems untouched even
+        by humans, making it the perfect place to explore the wilderness or even go for a shopping
+        spree at the high-end retailers.</p>
     </div>
   </div>
 </div>
@@ -197,6 +207,8 @@
 
 
 <app-faq></app-faq>
+
+<app-description></app-description>
 
 <div class="container-fluid wrapContainer linkAddress">
   <div class="row">

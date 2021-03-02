@@ -1,13 +1,138 @@
-<div class="container-fluid p-0">
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
     <div class="iconSection">
+      <div class="row headingWrapContainer">
+        <!-- Heading -->
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for Vietnam {{ visaType }} visa
+          </h3>
+        </div>
+        <!-- Content -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Passport</h1>
+              <p>
+                Upload colored copies of the 
+                <button
+                type="button"
+                class="btn toggleHelperBtn"
+                data-toggle="modal"
+                data-target="#samplePassportFront"
+                >
+                first page
+                </button> and
+                <button
+                  type="button"
+                  class="btn toggleHelperBtn"
+                  data-toggle="modal"
+                  data-target="#samplePassportBack"
+
+                >
+                last page
+                </button> of the passport.
+                When you apply for a Vietnam e visa online, you must be in possession of a passport with at least 6 months validity.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Application Form</h1>
+              <p>
+                The Vietnam application form must be duly filled and signed by
+                the traveler. This is the form:
+                <a target="_blank" href="https://vietnamvisa.govt.vn/form-on-arrival.pdf">https://vietnamvisa.govt.vn/form-on-arrival.pdf</a>. It must be
+                submitted in the same format (pdf).
+              </p>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Photograph</h1>
+              <!-- <p>
+                2 recent color 35mm width by 45 mm height photograph must be submitted. This must be
+                taken on a white background. A neutral expression must be
+                maintained, and no sunglasses or caps must be worn. One picture
+                must be attached to the application, and the other must be
+                submitted upon arrival.
+              </p> -->
+              <ul>
+                <li>Upload scanned color copy of your passport-sized photograph</li>
+                <li>
+                  <button type="button" class="btn toggleHelperBtn" data-toggle="modal" data-target="#samplePhotograph">
+                    Photo
+                  </button>
+                   should be taken against a white background.</li>
+                <li>Dimensions should be 45mm height x 35mm width.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Authorization Document</h1>
+              <p>
+                This is handled by the Immigration Department (Ministry of
+                Public Security) or the Consular Department in Ho Chi Minh city
+                (Ministry of Foreign Affairs).
+              </p>
+            </div>
+          </div>
+        </div> -->
+        <div
+          class="col-12"
+        >
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Air ticket</h1>
+              <p>
+                Applicant must provide both departure and arrival flight tickets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12"
+        >
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Hotel confirmation</h1>
+              <p>
+                Applicant needs provide hotel booking confirmation or any other accommodation (if any).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+        class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}"
+      >
+        <div class="card requiredIcon">
+          <div class="card-body">
+            <h1 class="requiredIconHeading">Business Invitation</h1>
+            <p>
+              Applicant needs to provide Invitation from the inviting company from Vietnam.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- <div class="iconSection">
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -16,8 +141,7 @@
                   </h1>
                 </div>
               </div>
-  
-              <!-- desktopContainer -->
+
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -153,8 +277,7 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
-              <!-- mobileContainer -->
+
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -224,7 +347,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -256,8 +379,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -294,16 +417,15 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
@@ -312,7 +434,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -342,7 +464,7 @@
                               <p>You must hold a passport valid for at least with an expiration date at least 6 months
                                 beyond your intended duration of stay in Vietnam.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -358,7 +480,7 @@
                           </div>
                           <h2 class="setFontSize">Application Form</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
@@ -380,7 +502,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <div class="makeIconCntr">
                             <div class="vr-photograph requiredIcons img-sprite"></div>
@@ -410,41 +532,54 @@
                 </div>
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
-                    type="pills">
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
-                          data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4" 
-                          (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
-                          <div class="makeIconCntr">
-                            <div class="vr-authorization requiredIcons img-sprite"></div>
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" id="#businessHeading4" class="collapsed" data-target="#business4"
+                          aria-expanded="false" aria-controls="business4"
+                            [class.showDiv]="selectedBusiness === 4"
+                            (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                            <div class="makeIconCntr">
+                              <div class="vr-authorization requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Authorization Document</h2>
                           </div>
-                          <h2 class="setFontSize">Authorization Document</h2>
-                        </div>
-                      </ng-template>
-                      <ng-template ngbTabContent>
-                        <div id="business4" class="collapse" aria-labelledby="businessHeading4"
-                          data-parent="#businessAccodion">
-                          <div class="card requiredIcon">
-                            <div class="card-body">
-                              <h1 class="requiredIconHeading">Authorization Document</h1>
-                              <p>
-                                this is handled by the Immigration Department (Ministry of Public Security) or the
-                                Consular Department in Ho Chi Minh city (Ministry of Foreign Affairs).
-                              </p>
-  
-  
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Authorization Document</h1>
+                                <p>
+                                  this is handled by the Immigration Department (Ministry of Public Security) or the
+                                  Consular Department in Ho Chi Minh city (Ministry of Foreign Affairs).
+                                </p>
+
+
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        </ng-template>
+                      </ngb-tab>
+                   </ngb-tabset>
+
+
                 </div>
               </div>
-  
-              <!-- mobileContainer -->
+
               <div class="mobileContainer accordion wrapContainer" id="businessAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -474,7 +609,7 @@
                               <p>You must hold a passport valid for at least with an expiration date at least 6 months
                                 beyond your intended duration of stay in Vietnam.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -515,7 +650,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -547,8 +682,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -600,12 +735,11 @@
             </div>
           </ng-template>
         </ngb-tab>
-        
+
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
@@ -614,7 +748,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -700,13 +834,13 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <div class="mobileContainer accordion wrapContainer" id="transitAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedTransit === 1"
@@ -730,7 +864,7 @@
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>You must hold a passport valid for at least 6 months after your intended date of travel.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -770,7 +904,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -801,10 +935,78 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>
       </ngb-tabset>
+    </div> -->
+  </div>
+</section>
+
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
     </div>
   </div>
+
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

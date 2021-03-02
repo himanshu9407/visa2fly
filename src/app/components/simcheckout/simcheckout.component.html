@@ -314,8 +314,10 @@
                 <div class="col-md-6">
                   <div class="input-group">
                     <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
+                     
                       formControlName="dateOfBirth" autocomplete="new-name" id="#dob" class="form-control form-control-sm addTravelDate"
-                      placeholder="Date of Birth" name="dob" ngbDatepicker #dob="ngbDatepicker">
+                      placeholder="Date of Birth" name="dob" ngbDatepicker #dob="ngbDatepicker"  (click)="dob.toggle()"
+                        readonly="readonly">
                     <div class="input-group-append">
                       <button class="btn btn-sm btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
@@ -339,7 +341,8 @@
                   <div class="input-group">
                     <input formControlName="simActivationDate" id="#activated" class="form-control form-control-sm"
                       placeholder="Select Date" autocomplete="new-name" name="activated" [minDate]="minDate" [maxDate]="maxTravelDate"
-                      ngbDatepicker #activated="ngbDatepicker">
+                      ngbDatepicker #activated="ngbDatepicker" (click)="activated.toggle()"
+                        readonly="readonly">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary calendar" (click)="activated.toggle()" type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px"
@@ -412,7 +415,21 @@
                         </div>
                         <div class="col-md-6 managePadd stateInput">
                           <label for="exampleInputPassword1">State:</label>
-                          <select formControlName="state" id="inputState" class="form-control col form-control-sm">
+                           <ng-select formControlName="state" placeholder="Select State" (change)="stateChanged($event)">
+                            <ng-option *ngFor="let state of stateListArr" [value]="state">
+                                {{state}}
+                            </ng-option>
+                          </ng-select>
+                            <div
+                              *ngIf="
+                                simCheckoutForm.controls.state.errors?.valueErr || stateError
+                              "
+                              class="invalid-feedback"
+                              style="display: block"
+                            >
+                              Select a valid state
+                            </div>
+                          <!-- <select formControlName="state" id="inputState" class="form-control col form-control-sm">
                             <option selected value="select" [disabled]="true" [selected]="true">Select State</option>
                             <option value="Andaman And Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -450,7 +467,7 @@
                             <option value="Uttar">Uttar Pradesh</option>
                             <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>
-                          </select>
+                          </select> -->
                         </div>
                       </div>
                     </div>
@@ -465,7 +482,7 @@
                           <div *ngIf="simCheckoutForm.get('pinCode').invalid && simCheckoutForm.get('pinCode').dirty"
                             class="invalid-feedback" style="display: block;">
 
-                            <div>* Invalid City</div>
+                            <div>* Invalid Pin Code</div>
                           </div>
                         </div>
                         <div class="col-md-6 managePadd">

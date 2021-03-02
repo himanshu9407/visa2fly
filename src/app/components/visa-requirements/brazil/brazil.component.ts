@@ -1,12 +1,5 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
@@ -60,6 +53,9 @@ export class BrazilComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   public imageUpload1: Array<any> = [];
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -104,10 +100,13 @@ export class BrazilComponent implements OnInit {
           this.MyQuotation.forEach((element) => {
             if (element.purpose == "Business") {
               this.businessArr.push(element);
+              this.isBusiness = true;
             } else if (element.purpose == "Tourist") {
               this.touristArr.push(element);
+              this.isTourist = true;
             } else if (element.purpose == "Transit") {
               this.transitArr.push(element);
+              this.isTransit = true;
             }
           });
 

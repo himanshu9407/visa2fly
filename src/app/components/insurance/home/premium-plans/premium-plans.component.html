@@ -1,0 +1,95 @@
+<section class="plans_details">
+  <div class="card_wrapper mt__4">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-12 col-12 xyz__0 pre_plan_pr">
+        <form class="plans-filter" [formGroup]="filterPlanForm">
+          <span>Premium Plan:</span>
+          <span class="premiumSkeleton" *ngIf="loadingSkeleton">
+            <div class="bar"></div>
+          </span>
+          <div class="styleSelectFilter" *ngIf="!loadingSkeleton">
+            <select
+              name="plan"
+              id="plan"
+              class="form-control-sm form-control"
+              formControlName="planFilter"
+              (change)="onChangePlan($event)"
+            >
+              <option *ngFor="let item of planType" [value]="item">
+                {{ item }}
+              </option>
+            </select>
+            <div class="bar-short"></div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-7 col-md-7 col-sm-12 col-12 xyz__0 pdtp__02">
+        <div class="plans-filter">
+          <span>Premium Calculated:</span>
+          <span class="premiumSkeleton" *ngIf="loadingSkeleton">
+            <div class="bar"></div>
+          </span>
+          <span style="font-weight: 600; font-size: 13px;" *ngIf="!loadingSkeleton">
+            ₹ {{ premiumCalculated + premiumGST}} <em style="font-size: 12px;">(including taxes)</em>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card_wrapper mt-2 pb__04">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb__00">
+        <div class="plans_details">
+          <table width="100%" class="table-striped">
+            <thead style="font-size: 14px">
+              <tr>
+                <th
+                  width="40%"
+                  style="
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                  "
+                >
+                  Benefits
+                </th>
+                <th width="30%" style="text-align: right">Coverage</th>
+                <th
+                  width="30%"
+                  style="
+                    text-align: right;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                  "
+                >
+                  Deductible
+                </th>
+              </tr>
+            </thead>
+            <tbody style="font-size: 13px" *ngIf="loadingSkeleton">
+              <tr *ngFor="let number of numbers">
+                <td class="loading">
+                  <div class="bar"></div>
+                  <div class="bar-short"></div>
+                </td>
+                <td class="loading"><div class="bar"></div></td>
+                <td class="loading"><div class="bar"></div></td>
+              </tr>
+            </tbody>
+
+            <tbody style="font-size: 13px" *ngIf="!loadingSkeleton">
+              <tr *ngFor="let item of policyBenefits">
+                <td style="padding: 5px 0px 5px 5px">{{ item.benefit }}</td>
+                <td style="text-align: right; padding: 5px 5px 5px 0px">
+                  {{ item.coverage }}
+                </td>
+                <td style="text-align: right; padding: 5px 5px 5px 0px">
+                  {{ item.deductible }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

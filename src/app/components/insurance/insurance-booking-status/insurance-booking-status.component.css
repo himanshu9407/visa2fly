@@ -1,0 +1,213 @@
+.successfull_page {
+  min-height: calc(100vh - 50px);
+  background-image: url(https://static.visa2fly.com/assets/success-page.png);
+  background-position: center center;
+  background-size: cover;
+  margin-top: 50px;
+  background-color: #f4f8fb;
+}
+
+.failure_page {
+  min-height: calc(100vh - 50px);
+  background-image: url(https://static.visa2fly.com/assets/failure-page.png);
+  background-position: center center;
+  background-size: cover;
+  margin-top: 50px;
+  background-color: #f4f8fb;
+}
+
+/* [ngStyle]="{'background-image': bookingStatus ? 'url(../../../assets/Group 1806.png)' : 'url(../../../assets/success-page.png)'}" */
+
+.desktopView {
+  display: block;
+}
+
+.mobileView {
+  display: none;
+}
+
+.page-container {
+  padding: 25px 0px 20px;
+}
+
+.booking-container-heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.booking-details-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.booking-details-input {
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.booking-details-button {
+  background-color: #1d8899;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 3px 12px;
+  width: 150px;
+  font-size: 14px;
+}
+
+.feedback-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.feedback-emphasized {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.feedback-label {
+  color: #b00000;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.feedback-textarea {
+  width: 96%;
+  margin-top: 5px;
+  margin-left: 1px;
+}
+
+.feedback-button-container {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-button {
+  background-color: #1d8899;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 3px 12px;
+  width: 100%;
+  font-size: 13px;
+}
+
+.feedback-button:nth-child(1) {
+  margin-bottom: 5px;
+}
+
+.star-rating {
+  /* border: solid 1px #ccc; */
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 1.5em;
+  justify-content: space-around;
+  /* padding: 0 0.2em; */
+  text-align: center;
+  width: 6em;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+
+.star-rating :checked ~ label {
+  color: #f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #fc0;
+}
+
+@media screen and (max-width: 600px) {
+  .successfull_page,
+  .failure_page {
+    background-image: unset;
+    background-position: unset;
+    background-size: unset;
+    margin-top: 105px;
+    background-color: #f4f8fb;
+  }
+
+  .mobilePage {
+    background: #fff;
+    padding-top: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .feedback-container-mobile {
+    padding: 0px;
+  }
+
+  .booking-details-button {
+    width: 95% !important;
+  }
+
+  .desktopView {
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .successfull_page-container {
+    padding: 20px 0px 20px;
+    margin-top: -50px;
+  }
+
+  .booking-details-label {
+    padding-left: 0px;
+  }
+
+  .booking-details-input {
+    padding-right: 0px;
+  }
+
+  .booking-details-button {
+    background-color: #1d8899;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 3px 12px;
+    width: 150px;
+    font-size: 14px;
+  }
+
+  .booking-details-button-container {
+    padding: 0;
+  }
+
+  .feedback-button-container {
+    display: unset;
+    justify-content: unset;
+    align-items: unset;
+    margin-top: 5px;
+  }
+
+  .feed-box-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feedback-button:nth-child(1) {
+    padding-bottom: 0px;
+    margin-right: 5px;
+  }
+}

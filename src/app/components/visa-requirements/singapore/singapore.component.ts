@@ -76,6 +76,9 @@ export class SingaporeComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
   
   
   constructor(private router: Router,
@@ -90,7 +93,6 @@ export class SingaporeComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
     ) {
       this.activatedRoute.params.subscribe((params) => {
-        console.log(params);
         if (params["purpose"]) {
           this.router.navigate(['visa','singapore-visa-online']);
         }
@@ -113,7 +115,6 @@ export class SingaporeComponent implements OnInit {
       this.requireQuotation
         .getRequireQuotation(this.selectedCountrytype)
         .subscribe((res: any) => {
-          console.log(res);
           if (res.code == 0) {
             this.MyQuotation = res.data.quotations;
             this.imageCatogory.push(res.data.imageUploadInfo);
@@ -129,10 +130,13 @@ export class SingaporeComponent implements OnInit {
             this.MyQuotation.forEach((element) => {
               if (element.purpose == "Business") {
                 this.businessArr.push(element);
+                this.isBusiness = true;
               } else if (element.purpose == "Tourist") {
                 this.touristArr.push(element);
+                this.isTourist = true;
               } else if (element.purpose == "Transit") {
                 this.transitArr.push(element);
+                this.isTransit = true;
               }
             });
   

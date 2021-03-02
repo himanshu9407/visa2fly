@@ -19,7 +19,19 @@
 
           <div class="country-info">
             <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">Cambodia is a part of South-East Asia, whose capital is Phnom Penh. Its landscape is vast and varied, comprising deltas, plains, mountains and even a coastline. It is also the home of Angkor Wat, a famous stone temple complex. While visiting, make sure to visit the ancient ruins of majestic temples such as Bayon Temple, Prasat Beng Mealea and Ta Prohm Temple. Palaces and scuba diving are also high on the to-do list!</p>
+            <p class="country-desc">
+              Tucked between Vietnam and Thailand, Cambodia is a quaint and serene paradise
+              fir for nature-lovers and explorers. Cambodia has a rich blend of history
+              and culture due to its historical past and these elements are reflected
+              in modern-day culture, society and architecture. The 20 culturally distinct
+              tribes that reside in Cambodia too contribute to this
+              cultural diversity. The country is home to 3 world heritage
+              sites, 3 museums, over 6 National Parks and magnificent beaches.
+              Lonely beach is considered to be one of the best
+              beaches in Southeast Asia. Angkor Wat is the largest
+              religious monument in the world and is also one of
+              the main reasons why tourists visit Cambodia!
+            </p>
           </div>
         </div>
       </div>
@@ -35,19 +47,19 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isTourist">
                       <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
+                    <div class="select-box__value" *ngIf="isBusiness">
                       <input class="select-box__input" type="radio" id="Business" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -60,15 +72,15 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
+                    <li *ngIf="isTourist">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
+                    <li *ngIf="isBusiness">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
+                    <li *ngIf="isTransit">
                       <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
@@ -119,19 +131,19 @@
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
                   <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
+                    <div class="select-box__value" *ngIf="isTourist">
+                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
                         formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
+                    <div class="select-box__value" *ngIf="isBusiness">
+                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
                         name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Business</p>
                     </div>
-                    <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                    <div class="select-box__value" *ngIf="isTransit">
+                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
+                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
                       <p class="select-box__input-text">Transit</p>
                     </div>
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -144,16 +156,16 @@
                     </svg>
                   </div>
                   <ul class="select-box__list">
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
+                    <li *ngIf="isTourist">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
                         aria-hidden="aria-hidden">Tourist</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
+                    <li *ngIf="isBusiness">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
                         aria-hidden="aria-hidden">Business</label>
                     </li>
-                    <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
+                    <li *ngIf="isTransit">
+                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
                         aria-hidden="aria-hidden">Transit</label>
                     </li>
                   </ul>
@@ -167,10 +179,18 @@
   </div>
 </div>
 
+
 <div class="container-fluid mt-4 mobileView">
   <div class="row">
     <div class="col-12">
-      <p class="country-desc">Cambodia is a part of South-East Asia, whose capital is Phnom Penh. Its landscape is vast and varied, comprising deltas, plains, mountains and even a coastline. It is also the home of Angkor Wat, a famous stone temple complex. While visiting, make sure to visit the ancient ruins of majestic temples such as Bayon Temple, Prasat Beng Mealea and Ta Prohm Temple. Palaces and scuba diving are also high on the to-do list!</p>
+      <p class="country-desc">Tucked between Vietnam and Thailand, Cambodia is a quaint and serene paradise fir for
+        nature-lovers and explorers. Cambodia has a rich blend of history and culture due to its
+        historical past and these elements are reflected in modern-day culture, society and
+        architecture. The 20 culturally distinct tribes that reside in Cambodia too contribute to this
+        cultural diversity. The country is home to 3 world heritage sites, 3 museums, over 6 National
+        Parks and magnificent beaches. Lonely beach is considered to be one of the best beaches in
+        Southeast Asia. Angkor Wat is the largest religious monument in the world and is also one of
+        the main reasons why tourists visit Cambodia!</p>
     </div>
   </div>
 </div>
@@ -186,15 +206,13 @@
 <app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
 <app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
 
-<app-requirements (changedPurpose)="navigateTo($event)" [selectedBusiness]="selectedBusiness"
-  [selectedTransit]="selectedTransit" [selectedTourist]="selectedTourist"
-  [selectedMobileTourist]="selectedMobileTourist" [selectedMobileBusiness]="selectedMobileBusiness"
-  [selectedMobileTransit]="selectedMobileTransit" [selectedVisaType]="selectedVisaType"
-  [selectedPurpose]="selectedPurpose"></app-requirements>
+<app-requirements [selectedPurpose]="selectedPurpose"  [selectedVisaType]="selectedVisaType"></app-requirements>
 
 <app-important-points></app-important-points>
 
 <app-faq></app-faq>
+
+<app-description></app-description>
 
 <div class="container-fluid wrapContainer linkAddress">
   <div class="row">

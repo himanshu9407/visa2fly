@@ -1,0 +1,1539 @@
+<section id="requirement">
+    <div class="container-fluid p-0">
+      <div class="iconSection">
+        <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
+          [justify]="desktopJustify" [orientation]="desktopOrientation">
+          <ngb-tab id="Tourist" title="Tourist">
+    
+            <ng-template ngbTabContent>
+    
+              <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+                <div class="row">
+                  <div class="col-12 text-center mgxTop">
+                    <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                        VISA REQUIREMENT FOR
+                        AFGHANISTAN</span>
+                    </h1>
+                  </div>
+                </div>
+    
+                <!-- desktopContainer -->
+                <div class="desktopContainer accordion" id="touristAccodion">
+                  <div class="row mt-2">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#tourist1" aria-expanded="true" aria-controls="tourist1"
+                            [class.showDiv]="selectedTourist === 1" (click)="setActiveTourist(1, 'setActiveTourist1')"
+                            id="setActiveTourist1">
+                            <div class="makeIconCntr">
+                              <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Visa Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="tourist1" class="collapse" [ngStyle]="{
+                            'display': showTouristFirst ? 'block' : '',
+                            'opacity': showTouristFirst ? '1' : '',
+                            'visibility': showTouristFirst ? 'visible' : '',
+                            'transition': showTouristFirst ? 'all .35s ease-in-out' : ''
+                            }" aria-labelledby="heading1"
+                            data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <p>
+                                  The original application form must be submitted. It must be duly 
+                                  filled and signed by the applicant.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#tourist2" aria-expanded="false" aria-controls="tourist2"
+                            [class.showDiv]="selectedTourist === 2" (click)="setActiveTourist(2, 'setActiveTourist2')"
+                            id="setActiveTourist2">
+                            <div class="makeIconCntr">
+                              <div class="vr-photograph requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Photograph</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <p>
+                                  One 2×2 inch, standard passport size photo with a white background. Please 
+                                  make sure this photograph is taken within the last 6 months, so as to 
+                                  reflect your current appearance. The photo will need to be in full-face 
+                                  view, while directly facing the camera. The applicant must keep a neutral 
+                                  facial expression and both eyes open.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#tourist3" aria-expanded="false" aria-controls="tourist3"
+                            [class.showDiv]="selectedTourist === 3" (click)="setActiveTourist(3, 'setActiveTourist3')"
+                            id="setActiveTourist3">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Ticket</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="tourist3" class="collapse" aria-labelledby="heading3" data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Flight Ticket
+                                </h1>
+                                <p>
+                                  You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#tourist4" aria-expanded="true" aria-controls="tourist4"
+                            [class.showDiv]="selectedTourist === 4" (click)="setActiveTourist(4, 'setActiveTourist4')"
+                            id="setActiveTourist4">
+                            <div class="makeIconCntr">
+                              <div class="vr-passport requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="tourist4" class="collapse" aria-labelledby="heading4" data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                  Enclose a passport with at least 6 months validity remaining and two blank visa pages.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#tourist5" aria-expanded="true" aria-controls="tourist5"
+                            [class.showDiv]="selectedTourist === 5" (click)="setActiveTourist(5, 'setActiveTourist5')"
+                            id="setActiveTourist5">
+                            <div class="makeIconCntr">
+                              <div class="vr-bankStatement requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Bank Statements</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="tourist5" class="collapse" aria-labelledby="heading5" data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Bank Statements
+                                </h1>
+                                <p>
+                                  You will need to submit your bank statements of the last 3 months. This is to show proof of sufficient finances to fund your trip.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                      
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <!-- <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#tourist7" aria-expanded="true" aria-controls="tourist7"
+                            [class.showDiv]="selectedTourist === 7" (click)="setActiveTourist(7, 'setActiveTourist7')"
+                            id="setActiveTourist7">
+                            <div class="makeIconCntr">
+                              <div class="vr-employmentDoc requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Employment Documents</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="tourist7" class="collapse" aria-labelledby="heading7" data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Employment Documents
+                                </h1>
+                                <p>
+                                  Depending on your state of employment, you will be required to prepare and display certain
+                                  documents when you apply for an Australia e-visa online. Please check the FAQs at the
+                                  bottom of the page for more information on what to supply.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#tourist8" aria-expanded="true" aria-controls="tourist8"
+                            [class.showDiv]="selectedTourist === 8" (click)="setActiveTourist(8, 'setActiveTourist8')"
+                            id="setActiveTourist8">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="tourist8" class="collapse" aria-labelledby="heading8" data-parent="#touristAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Flight Tickets
+                                </h1>
+                                <p>
+                                  these are confirmed return flight tickets to your home country/ the country from which you
+                                  traveled to Australia. A travel itinerary can also be presented instead of this - either
+                                  way, you would need to book return flight tickets for both options.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div> -->
+                </div>
+    
+                <!-- mobileContainer -->
+                <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
+                  <div class="row">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile1" aria-expanded="true"
+                            aria-controls="touristMobile1" [class.showDiv]="selectedMobileTourist === 1"
+                            (click)="setActiveTouristMobile(1, 'setActiveTouristMobile1')" id="setActiveTouristMobile1">
+                            <div class="makeIconCntr">
+                              <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Visa Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile1" class="collapse" [ngStyle]="{
+                            'display': showTouristMobileFirst ? 'block' : '',
+                            'opacity': showTouristMobileFirst ? '1' : '',
+                            'visibility': showTouristMobileFirst ? 'visible' : '',
+                            'transition': showTouristMobileFirst ? 'all .35s ease-in-out' : ''
+                            }" aria-labelledby="headingMobile1"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <p>
+                                  The original application form must be submitted. It must be 
+                                  duly filled and signed by the applicant. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile2" aria-expanded="true"
+                            aria-controls="touristMobile2" [class.showDiv]="selectedMobileTourist === 2"
+                            (click)="setActiveTouristMobile(2, 'setActiveTouristMobile2')" id="setActiveTouristMobile2">
+                            <div class="makeIconCntr">
+                              <div class="vr-photograph requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Photograph</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile2" class="collapse" aria-labelledby="headingMobile2"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <p>
+                                  One 2×2 inch, standard passport size photo with a white background. 
+                                  Please make sure this photograph is taken within the last 6 months, 
+                                  so as to reflect your current appearance. The photo will need to be 
+                                  in full-face view, while directly facing the camera. The applicant must 
+                                  keep a neutral facial expression and both eyes open.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile3" aria-expanded="true"
+                            aria-controls="touristMobile3" [class.showDiv]="selectedMobileTourist === 3"
+                            (click)="setActiveTouristMobile(3, 'setActiveTouristMobile3')" id="setActiveTouristMobile3">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Ticket</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile3" class="collapse" aria-labelledby="headingMobile3"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Flight Ticket
+                                </h1>
+                                <p>
+                                  You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+    
+    
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile4" aria-expanded="true"
+                            aria-controls="touristMobile4" [class.showDiv]="selectedMobileTourist === 4"
+                            (click)="setActiveTouristMobile(4, 'setActiveTouristMobile4')" id="setActiveTouristMobile4">
+                            <div class="makeIconCntr">
+                              <div class="vr-passport requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile4" class="collapse" aria-labelledby="headingMobile4"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                  Enclose a passport with at least 6 months validity remaining and two blank visa pages.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile5" aria-expanded="true"
+                            aria-controls="touristMobile5" [class.showDiv]="selectedMobileTourist === 5"
+                            (click)="setActiveTouristMobile(5, 'setActiveTouristMobile5')" id="setActiveTouristMobile5">
+                            <div class="makeIconCntr">
+                              <div class="vr-bankStatement requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Bank Statements</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile5" class="collapse" aria-labelledby="headingMobile5"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Bank Statements
+                                </h1>
+                                <p>
+                                  You will need to submit your bank statements of the last 3 months. This is to show proof of sufficient finances to fund your trip.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <!-- <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile6" aria-expanded="true"
+                            aria-controls="touristMobile6" [class.showDiv]="selectedMobileTourist === 6"
+                            (click)="setActiveTouristMobile(6, 'setActiveTouristMobile6')" id="setActiveTouristMobile6">
+                            <div class="makeIconCntr">
+                              <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Hotel Reservation</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile6" class="collapse" aria-labelledby="headingMobile6"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Hotel Reservation
+                                </h1>
+                                <p>
+                                  A copy of your hotel reservations for the entirety of your trip is required.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile7" aria-expanded="true"
+                            aria-controls="touristMobile7" [class.showDiv]="selectedMobileTourist === 7"
+                            (click)="setActiveTouristMobile(7, 'setActiveTouristMobile7')" id="setActiveTouristMobile7">
+                            <div class="makeIconCntr">
+                              <div class="vr-employmentDoc requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Employment Documents</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile7" class="collapse" aria-labelledby="headingMobile7"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Employment Documents
+                                </h1>
+                                <p>
+                                  Depending on your state of employment, you will be required to prepare and display certain
+                                  documents when you apply for an Australia e-visa online. Please check the FAQs at the
+                                  bottom of the page for more information on what to supply.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#touristMobile8" aria-expanded="true"
+                            aria-controls="touristMobile8" [class.showDiv]="selectedMobileTourist === 8"
+                            (click)="setActiveTouristMobile(8, 'setActiveTouristMobile8')" id="setActiveTouristMobile8">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="touristMobile8" class="collapse" aria-labelledby="headingMobile8"
+                            data-parent="#touristAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Flight Tickets
+                                </h1>
+                                <p>
+                                  these are confirmed return flight tickets to your home country/ the country from which you
+                                  traveled to Australia. A travel itinerary can also be presented instead of this - either
+                                  way, you would need to book return flight tickets for both options.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div> -->
+    
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+    
+          <ngb-tab id="Business" title="Business">
+            <ng-template ngbTabContent>
+    
+              <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+                <!-- business -->
+                <div class="row">
+                  <div class="col-12 text-center mgxTop">
+                    <h1 class="outerRequirement">
+                      <span class="requirementContainer text-uppercase">BUSINESS
+                        VISA REQUIREMENT FOR
+                        AFGHANISTAN
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+    
+                <div class="desktopContainer accordion" id="businessAccodion">
+                  <div class="row mt-2">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" id="#businessHeading1" data-target="#business1"
+                            aria-expanded="true" aria-controls="business1" [class.showDiv]="selectedBusiness === 1"
+                            (click)="setActiveBusiness(1, 'setActiveBusiness1')" id="setActiveBusiness1">
+                            <div class="makeIconCntr">
+                              <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Visa Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business1" class="collapse" [ngStyle]="{
+                            'display': showBusinessFirst ? 'block' : '',
+                            'opacity': showBusinessFirst ? '1' : '',
+                            'visibility': showBusinessFirst ? 'visible' : '',
+                            'transition': showBusinessFirst ? 'all .35s ease-in-out' : ''
+                            }" aria-labelledby="businessHeading1"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <p>
+                                  The original application form must be submitted. It must be duly filled and signed by the applicant. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
+                            aria-expanded="false" aria-controls="business2" [class.showDiv]="selectedBusiness === 2"
+                            (click)="setActiveBusiness(2, 'setActiveBusiness2')" id="setActiveBusiness2">
+                            <div class="makeIconCntr">
+                              <div class="vr-photograph requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Photograph</h2>
+                          </div>
+    
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business2" class="collapse" aria-labelledby="businessHeading2"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <p>
+                                  One 2×2 inch, standard passport size photo with a white background. Please 
+                                  make sure this photograph is taken within the last 6 months, so as to 
+                                  reflect your current appearance. The photo will need to be in full-face view, 
+                                  while directly facing the camera. The applicant must keep a neutral facial 
+                                  expression and both eyes open.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
+                            data-target="#business3" aria-expanded="false" aria-controls="business3"
+                            [class.showDiv]="selectedBusiness === 3" (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
+                            <div class="makeIconCntr">
+                              <div class="vr-otherSupportDocs requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Recommendation Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business3" class="collapse" aria-labelledby="businessHeading3"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Recommendation Letter
+                                </h1>
+                                <p>
+                                  You will need to obtain an introduction/recommendation letter from either 
+                                  (a) one of the Chambers of Commerce and Industries, government of India; 
+                                  (b) Ministry of Commerce and Industry of India; or 
+                                  (c)  Export Promotion Council of India; Or Reference number from Ministry of 
+                                  Foreign Affairs, Afghanistan.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
+                            data-target="#business4" aria-expanded="false" aria-controls="business4"
+                            [class.showDiv]="selectedBusiness === 4" 
+                            (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
+                            <div class="makeIconCntr">
+                              <div class="vr-passport requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business4" class="collapse" aria-labelledby="businessHeading4"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                  Enclose a passport with at least 6 months validity remaining and two blank visa pages.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" data-toggle="collapse" id="#businessHeading5"
+                            data-target="#business5" aria-expanded="false" aria-controls="business5"
+                            [class.showDiv]="selectedBusiness === 5" (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Ticket</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business5" class="collapse" aria-labelledby="businessHeading5"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Flight Ticket</h1>
+                                <p>
+                                  You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading6" data-toggle="collapse" data-target="#business6"
+                            aria-expanded="false" aria-controls="business6" [class.showDiv]="selectedBusiness === 6"
+                            (click)="setActiveBusiness(6, 'setActiveBusiness6')" id="setActiveBusiness6">
+                            <div class="makeIconCntr">
+                              <div class="vr-hotelReservation requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Registration Certificate</h2>
+                          </div>
+    
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business6" class="collapse" aria-labelledby="businessHeading6"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Registration Certificate</h1>
+                                <p>
+                                  You will need to submit the company’s registration certificate from the Ministry of Commerce and Industry of India.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading7" data-toggle="collapse"
+                            data-target="#business7" aria-expanded="false" aria-controls="business7"
+                            [class.showDiv]="selectedBusiness === 7" (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
+                            <div class="makeIconCntr">
+                              <div class="vr-ITR requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">ITR</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business7" class="collapse" aria-labelledby="businessHeading7"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">ITR</h1>
+                                <p>
+                                  You will need to submit your income tax documents of the last three years
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading8" data-toggle="collapse"
+                            data-target="#business8" aria-expanded="false" aria-controls="business8"
+                            [class.showDiv]="selectedBusiness === 8" (click)="setActiveBusiness(8, 'setActiveBusiness8')" id="setActiveBusiness8">
+                            <div class="makeIconCntr">
+                              <div class="vr-employmentDoc requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Company Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business8" class="collapse" aria-labelledby="businessHeading8"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Company Letter</h1>
+                                <p>
+                                  Your company will need to issue a letter addressed to the embassy, which introduces the applicant for visa issuance. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" data-toggle="collapse" id="#businessHeading9"
+                            data-target="#business9" aria-expanded="false" aria-controls="business9"
+                            [class.showDiv]="selectedBusiness === 9" (click)="setActiveBusiness(9, 'setActiveBusiness9')" id="setActiveBusiness9">
+                            <div class="makeIconCntr">
+                              <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Invitation Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business9" class="collapse" aria-labelledby="businessHeading9"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Invitation Letter</h1>
+                                <p>
+                                  You will need an invitation letter from the local (Afghani) partner or prospect partner company in Afghanistan.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div class="collapsed" id="#businessHeading10" data-toggle="collapse" data-target="#business10"
+                            aria-expanded="false" aria-controls="business10" [class.showDiv]="selectedBusiness === 10"
+                            (click)="setActiveBusiness(10, 'setActiveBusiness10')" id="setActiveBusiness10">
+                            <div class="makeIconCntr">
+                              <div class="vr-Business-RegistrationLicense requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Company Licence</h2>
+                          </div>
+    
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="business10" class="collapse" aria-labelledby="businessHeading10"
+                            data-parent="#businessAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Company Licence</h1>
+                                <p>
+                                  A copy of the license (JAWAZ) of the local partner or prospect local partner company in Afghanistan is also necessary for processing the visa.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+    
+                        </ng-template>
+                        <ng-template ngbTabContent>
+    
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+    
+                        </ng-template>
+                        <ng-template ngbTabContent>
+    
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                </div>
+    
+                <!-- mobileContainer -->
+                <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
+                  <div class="row">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile1" aria-expanded="true"
+                            aria-controls="businessMobile1" [class.showDiv]="selectedMobileBusiness === 1"
+                            (click)="setActiveBusinessMobile(1, 'setActiveMobileBusiness')" id="setActiveMobileBusiness">
+                            <div class="makeIconCntr">
+                              <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Visa Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile1" class="collapse" [ngStyle]="{
+                            'display': showBusinessMobileFirst ? 'block' : '',
+                            'opacity': showBusinessMobileFirst ? '1' : '',
+                            'visibility': showBusinessMobileFirst ? 'visible' : '',
+                            'transition': showBusinessMobileFirst ? 'all .35s ease-in-out' : ''
+                            }" aria-labelledby="headingMobile1"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <p>
+                                  The original application form must be submitted. It must be duly filled and signed by the applicant.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile2" aria-expanded="true"
+                            aria-controls="businessMobile2" [class.showDiv]="selectedMobileBusiness === 2"
+                            (click)="setActiveBusinessMobile(2, 'setActiveMobileBusiness2')" id="setActiveMobileBusiness2">
+                            <div class="makeIconCntr">
+                              <div class="vr-photograph requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Photograph</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile2" class="collapse" aria-labelledby="headingMobile2"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <p>
+                                  One 2×2 inch, standard passport size photo with a white background. Please make sure this photograph is taken within the last 6 months, so as to reflect your current appearance. The photo will need to be in full-face view, while directly facing the camera. The applicant must keep a neutral facial expression and both eyes open.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile3" aria-expanded="true"
+                            aria-controls="businessMobile3" [class.showDiv]="selectedMobileBusiness === 3"
+                            (click)="setActiveBusinessMobile(3, 'setActiveMobileBusiness3')" id="setActiveMobileBusiness3">
+                            <div class="makeIconCntr">
+                              <div class="vr-otherSupportDocs requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Recommendation Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile3" class="collapse" aria-labelledby="headingMobile3"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Recommendation Letter
+                                </h1>
+                                <p>
+                                  You will need to obtain an introduction/recommendation letter from either 
+                                  (a)  one of the Chambers of Commerce and Industries, government of India; 
+                                  (b) Ministry of Commerce and Industry of India; or 
+                                  (c)  Export Promotion Council of India; Or Reference number from Ministry of 
+                                  Foreign Affairs, Afghanistan.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile4" aria-expanded="true"
+                            aria-controls="businessMobile4" [class.showDiv]="selectedMobileBusiness === 4"
+                            (click)="setActiveBusinessMobile(4, 'setActiveMobileBusiness4')" id="setActiveMobileBusiness4">
+                            <div class="makeIconCntr">
+                              <div class="vr-passport requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile4" class="collapse" aria-labelledby="headingMobile4"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                  Enclose a passport with at least 6 months validity remaining and two blank visa pages.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile5" aria-expanded="true"
+                            aria-controls="businessMobile5" [class.showDiv]="selectedMobileBusiness === 5"
+                            (click)="setActiveBusinessMobile(5, 'setActiveMobileBusiness5')" id="setActiveMobileBusiness5">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile5" class="collapse" aria-labelledby="headingMobile5"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Flight Tickets
+                                </h1>
+                                <p>
+                                  You will need to book your tickets before you apply for your visa. 
+                                  Please book both onward and return flight tickets.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile6" aria-expanded="true"
+                            aria-controls="businessMobile6" [class.showDiv]="selectedMobileBusiness === 6"
+                            (click)="setActiveBusinessMobile(6, 'setActiveMobileBusiness6')" id="setActiveMobileBusiness6">
+                            <div class="makeIconCntr">
+                              <div class="vr-Business-RegistrationLicense requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Registration Certificate</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile6" class="collapse" aria-labelledby="headingMobile6"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Registration Certificate</h1>
+                                <p>
+                                  A copy of your hotel reservations for the entirety of your trip is required.
+                                </p>
+    
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile7" aria-expanded="true"
+                            aria-controls="businessMobile7" [class.showDiv]="selectedMobileBusiness === 7"
+                            (click)="setActiveBusinessMobile(7, 'setActiveMobileBusiness7')" id="setActiveMobileBusiness7">
+                            <div class="makeIconCntr">
+                              <div class="vr-ITR requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">ITR</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile7" class="collapse" aria-labelledby="headingMobile7"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">ITR
+                                </h1>
+                                <p>
+                                  You will need to submit your income tax documents of the last three years.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+    
+    
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile8" aria-expanded="true"
+                            aria-controls="businessMobile8" [class.showDiv]="selectedMobileBusiness === 8"
+                            (click)="setActiveBusinessMobile(8, 'setActiveMobileBusiness8')" id="setActiveMobileBusiness8">
+                            <div class="makeIconCntr">
+                              <div class="vr-employmentDoc requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Company Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile8" class="collapse" aria-labelledby="headingMobile8"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Company Letter</h1>
+                                <p>
+                                  Your company will need to issue a letter addressed to the embassy, which introduces the applicant for visa issuance.
+                                </p>
+    
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile9" aria-expanded="true"
+                            aria-controls="businessMobile9" [class.showDiv]="selectedMobileBusiness === 9"
+                            (click)="setActiveBusinessMobile(9, 'setActiveMobileBusiness9')" id="setActiveMobileBusiness9">
+                            <div class="makeIconCntr">
+                              <div class="vr-invitationLetter requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Invitation Letter</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile9" class="collapse" aria-labelledby="headingMobile9"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Invitation Letter
+                                </h1>
+                                <p>
+                                  You will need an invitation letter from the local (Afghani) partner or prospect partner company in Afghanistan.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#businessMobile10" aria-expanded="true"
+                            aria-controls="businessMobile10" [class.showDiv]="selectedMobileBusiness === 10"
+                            (click)="setActiveBusinessMobile(10, 'setActiveMobileBusiness10')" id="setActiveMobileBusiness10">
+                            <div class="makeIconCntr">
+                              <div class="vr-Business-RegistrationLicense requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Company Licence</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="businessMobile10" class="collapse" aria-labelledby="headingMobile10"
+                            data-parent="#businessAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Company Licence</h1>
+                                <p>
+                                  A copy of the license (JAWAZ) of the local partner or prospect local 
+                                  partner company in Afghanistan is also necessary for processing the visa.
+                                </p>
+    
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+    
+          <ngb-tab id="Transit" title="Transit">
+            <ng-template ngbTabContent>
+    
+              <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
+                <!-- transit -->
+                <div class="row">
+                  <div class="col-12 text-center mgxTop">
+                    <h1 class="outerRequirement">
+                      <span class="requirementContainer text-uppercase">TRANSIT
+                        VISA REQUIREMENT FOR
+                        AFGHANISTAN
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+    
+                <div class="desktopContainer accordion" id="transitAccodion">
+                  <div class="row mt-2">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transit1" aria-expanded="true"
+                            aria-controls="transit1" [class.showDiv]="selectedTransit === 1"
+                            (click)="setActiveTransit(1, 'setActiveTransit1')" id="setActiveTransit1">
+                            <div class="makeIconCntr">
+                              <div class="vr-passport requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transit1" class="collapse" [ngStyle]="{
+                            'display': showTransitFirst ? 'block' : '',
+                            'opacity': showTransitFirst ? '1' : '',
+                            'visibility': showTransitFirst ? 'visible' : '',
+                            'transition': showTransitFirst ? 'all .35s ease-in-out' : ''
+                            }" aria-labelledby="transit1"
+                            data-parent="#transitAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                  Enclose a passport with at least 6 months validity remaining and two blank visa pages.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transit2" aria-expanded="true"
+                            aria-controls="transit2" [class.showDiv]="selectedTransit === 2"
+                            (click)="setActiveTransit(2, 'setActiveTransit2')" id="setActiveTransit2">
+                            <div class="makeIconCntr">
+                              <div class="vr-applicationForm requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Application Form</h1>
+                                <p>
+                                  The original application form (which you have filled in manually) must be submitted. It must be duly filled and signed by the applicant. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transit3" aria-expanded="true"
+                            aria-controls="transit3" [class.showDiv]="selectedTransit === 3"
+                            (click)="setActiveTransit(3, 'setActiveTransit3')" id="setActiveTransit3">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transit3" class="collapse" aria-labelledby="transit3"
+                            data-parent="#transitAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Flight Tickets</h1>
+                                <p>
+                                  You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+                  <div class="row mt-2">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transit1" aria-expanded="true"
+                            aria-controls="transit4" [class.showDiv]="selectedTransit === 4"
+                            (click)="setActiveTransit(4, 'setActiveTransit4')" id="setActiveTransit4">
+                            <div class="makeIconCntr">
+                              <div class="vr-photograph requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Photograph</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transit4" class="collapse" [ngStyle]="{
+                            'display': showTransitFirst ? 'block' : '',
+                            'opacity': showTransitFirst ? '1' : '',
+                            'visibility': showTransitFirst ? 'visible' : '',
+                            'transition': showTransitFirst ? 'all .35s ease-in-out' : ''
+                            }" aria-labelledby="transit4"
+                            data-parent="#transitAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <p>
+                                  One 2×2 inch, standard passport size photo with a white background. Please make 
+                                  sure this photograph is taken within the last 6 months, so as to reflect your 
+                                  current appearance. The photo will need to be in full-face view, while directly 
+                                  facing the camera. The applicant must keep a neutral facial expression and both 
+                                  eyes open.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transit5" aria-expanded="true"
+                            aria-controls="transit5" [class.showDiv]="selectedTransit === 5"
+                            (click)="setActiveTransit(5, 'setActiveTransit5')" id="setActiveTransit5">
+                            <div class="makeIconCntr">
+                              <div class="vr-visa requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Onward Visa</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transit5" class="collapse" aria-labelledby="transit5" data-parent="#transitAccodion">
+                            <div class="card requiredIcon">
+                              <div class="card-body">
+                                <h1 class="requiredIconHeading">Onward Visa</h1>
+                                <p>
+                                  You will need to submit a copy of the valid visa for your destination country. 
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+    
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+                </div>
+    
+                <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
+                  <div class="row">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
+                            aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
+                            (click)="setActiveTransitMobile(1, 'setActiveTransitMobile1')" id="setActiveTransitMobile1">
+                            <div class="makeIconCntr">
+                              <div class="vr-passport requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Passport</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transitMobile1" class="collapse" [ngStyle]="{
+                            'display': showTransitMobileFirst ? 'block' : '',
+                            'opacity': showTransitMobileFirst ? '1' : '',
+                            'visibility': showTransitMobileFirst ? 'visible' : '',
+                            'transition': showTransitMobileFirst ? 'all .35s ease-in-out' : ''
+                            }" aria-labelledby="transitMobile1"
+                            data-parent="#transitAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Passport</h1>
+                                <p>
+                                  Enclose a passport with at least 6 months validity remaining and two blank visa pages.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transitMobile2" aria-expanded="true"
+                            aria-controls="transitMobile2" [class.showDiv]="selectedMobileTransit === 2"
+                            (click)="setActiveTransitMobile(2, 'setActiveTransitMobile2')" id="setActiveTransitMobile2">
+                            <div class="makeIconCntr">
+                              <div class="vr-applicationForm img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Application Form</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transitMobile2" class="collapse" aria-labelledby="transitMobile2"
+                            data-parent="#transitAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Application Form</h1>
+                                <p>
+                                  The original application form (which you have filled in manually) must be 
+                                  submitted. It must be duly filled and signed by the applicant.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transitMobile3" aria-expanded="true"
+                            aria-controls="transitMobile3" [class.showDiv]="selectedMobileTransit === 3"
+                            (click)="setActiveTransitMobile(3, 'setActiveTransitMobile3')" id="setActiveTransitMobile3">
+                            <div class="makeIconCntr">
+                              <div class="vr-flightTickets requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Flight Tickets</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transitMobile3" class="collapse" aria-labelledby="transitMobile3"
+                            data-parent="#transitAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Flight Tickets</h1>
+                                <p>
+                                  You will need to book your tickets before you apply for your visa.
+                                   Please book both onward and return flight tickets.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transitMobile4" aria-expanded="true"
+                            aria-controls="transitMobile4" [class.showDiv]="selectedMobileTransit === 4"
+                            (click)="setActiveTransitMobile(4, 'setActiveTransitMobile4')" id="setActiveTransitMobile4">
+                            <div class="makeIconCntr">
+                              <div class="vr-photograph requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Photograph</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transitMobile4" class="collapse" aria-labelledby="transitMobile4"
+                            data-parent="#transitAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <p>
+                                  One 2×2 inch, standard passport size photo with a white background. 
+                                  Please make sure this photograph is taken within the last 6 months, 
+                                  so as to reflect your current appearance. The photo will need to be 
+                                  in full-face view, while directly facing the camera. The applicant must 
+                                  keep a neutral facial expression and both eyes open.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+
+                  <div class="row mt-4">
+                    <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
+                      type="pills">
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          <div data-toggle="collapse" data-target="#transitMobile5" aria-expanded="true"
+                            aria-controls="transitMobile5" [class.showDiv]="selectedMobileTransit === 5"
+                            (click)="setActiveTransitMobile(5, 'setActiveTransitMobile5')" id="setActiveTransitMobile5">
+                            <div class="makeIconCntr">
+                              <div class="vr-visa requiredIcons img-sprite"></div>
+                            </div>
+                            <h2 class="setFontSize">Onward Visa</h2>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+                          <div id="transitMobile5" class="collapse" aria-labelledby="transitMobile5"
+                            data-parent="#transitAccodionMobile">
+                            <div class="card requiredIcon">
+                              <div class="card-body" style="padding: 10px">
+                                <h1 class="requiredIconHeading">Onward Visa</h1>
+                                <p>
+                                  You will need to submit a copy of the valid visa for your destination country.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+    
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+    </section>
