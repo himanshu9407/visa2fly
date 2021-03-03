@@ -14,6 +14,7 @@ import { HomeStepComponent } from './home-step/home-step.component';
 import { SiteBriefComponent } from './site-brief/site-brief.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { OfferBannerComponent } from './offer-banner/offer-banner.component';
 
 const routes: Routes = [
   { path: "", component: HomeContainerComponent, pathMatch: "full" }
@@ -30,7 +31,8 @@ const routes: Routes = [
     WorldComponent,
     TestimonialComponent,
     HomeStepComponent,
-    SiteBriefComponent
+    SiteBriefComponent,
+    OfferBannerComponent
   ],
   imports: [
     CommonModule,

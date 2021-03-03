@@ -55,6 +55,16 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+  // Offers Page
+  {
+    path: "offers",
+    loadChildren: () =>
+      import(
+        "./components/offers/offers.module"
+      ).then((m) => m.OffersModule),
+    data: { preload: true },
+  },
+
   // Addtraveller Page
   {
     path: "addTraveller",

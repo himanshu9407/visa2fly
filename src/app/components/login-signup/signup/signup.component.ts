@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
     private loginStatus: LoginStatusService,
     private titleService: Title,
     private meta: Meta
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.titleService.setTitle("Visa2fly | SignUp");
@@ -195,10 +195,7 @@ export class SignupComponent implements OnInit {
             });
           } else if (this.prevRoute == "fail-login-sim") {
             this.router.navigate(["/sim/checkout"]);
-
-            this.toastr.error(data.message.toString());
           } else {
-            this.toastr.error(data.message.toString());
             this.router.navigate(["visa"]);
           }
         } else {

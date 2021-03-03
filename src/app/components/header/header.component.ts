@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
     private deactivate: CanDeactivateGuard,
     private routerHistory: RouterHistory,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -61,6 +61,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "cancellationPolicy" ||
           arr[1] == "page-not-found" ||
           arr[1] == "aboutUs" ||
+          arr[1] == "offers" ||
           arr[1] == "insurance" ||
           arr[2] == "australia-visa-online" ||
           arr[2] == "austria-visa-online" ||
@@ -108,7 +109,7 @@ export class HeaderComponent implements OnInit {
           arr[2] == "usa-visa-online" ||
           arr[2] == "uzbekistan-visa-online" ||
           arr[2] == "vietnam-visa-online" ||
-          arr[2] == "zambia-visa-online" 
+          arr[2] == "zambia-visa-online"
         ) {
           this.showTransparentNavbar = false;
         } else {
@@ -166,7 +167,7 @@ export class HeaderComponent implements OnInit {
           }
         },
 
-        (err) => {}
+        (err) => { }
       );
     }
   }

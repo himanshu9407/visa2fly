@@ -47,6 +47,7 @@ import { VisaRequirementModule } from './components/visa-requirements/visa-requi
 import { BookingDetailsModule } from './components/booking-details/booking-details.module';
 import { BookingStatusModule } from './components/booking-status/booking-status.module';
 import { InsuranceModule } from './components/insurance/insurance.module';
+import { OffersModule } from "./components/offers/offers.module";
 
 @NgModule({
   declarations: [
@@ -100,10 +101,11 @@ import { InsuranceModule } from './components/insurance/insurance.module';
     VisaRequirementModule,
     BookingDetailsModule,
     InsuranceModule,
+    OffersModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
