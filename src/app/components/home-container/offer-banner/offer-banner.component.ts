@@ -10,6 +10,7 @@ export class OfferBannerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
