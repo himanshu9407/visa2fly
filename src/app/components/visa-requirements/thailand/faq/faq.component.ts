@@ -84,6 +84,7 @@ export class FaqComponent implements OnInit {
   showFaqs: boolean = false;
   animationState = "in";
   @ViewChild('ElementRefName') element: ElementRef;
+  public selectedCountrytype = "Thailand";
 
   constructor() {}
 
