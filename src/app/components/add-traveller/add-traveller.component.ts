@@ -1145,7 +1145,7 @@ export class AddTravellerComponent implements OnInit {
         ptdata["id"] = this.dataSource[0].id;
         ptdata.forEach((element: {}, index) => {
           element["id"] = this.dataSource[index].id;
-          element['primaryTraveller'] = index == 0? "true" : "false";
+          element['primaryTraveller'] = index == 0 ? "true" : "false";
         });
 
         let dot: {
