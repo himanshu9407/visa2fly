@@ -85,7 +85,7 @@ export class UserFlowDetails {
     this.insuranceObject[name] = value;
 
     // console.log(this.insuranceObject);
-    
+
 
     if (isPlatformBrowser(this.platformId)) {
       this.cookies.put("insuranceDetails", JSON.stringify(this.insuranceObject), {
@@ -98,7 +98,7 @@ export class UserFlowDetails {
     this.insurancePlanObject[name] = value;
 
     // console.log(this.insurancePlanObject);
-    
+
 
     if (isPlatformBrowser(this.platformId)) {
       this.cookies.put("insurancePlanDetails", JSON.stringify(this.insurancePlanObject), {

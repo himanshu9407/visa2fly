@@ -18,6 +18,7 @@ export class SimcheckoutComponent implements OnInit {
   simCart: Array<any> = [];
   totalPrice: number = 0;
   simCheckoutForm: FormGroup;
+  gstOption : FormGroup;
   selectedCountry: string = "";
   simReqObj: any;
   public paymentForm: any = {};
@@ -40,6 +41,7 @@ export class SimcheckoutComponent implements OnInit {
   title: string = "Visa2fly | Sim Checkout";
   paymentUrl: any = "";
   stateError: boolean;
+  errorMessage: boolean;
 
   stateListArr: Array<string> = [
     "Andaman And Nicobar Islands",
@@ -95,6 +97,10 @@ export class SimcheckoutComponent implements OnInit {
 
     // console.log(this.simCart);
 
+    this.gstOption = new FormGroup({
+      gstOptionResult : new FormControl(false, [Validators.required])
+    })
+
     this.simCheckoutForm = new FormGroup({
       firstName: new FormControl("", [Validators.required]),
       lastName: new FormControl("", [Validators.required]),
@@ -113,6 +119,8 @@ export class SimcheckoutComponent implements OnInit {
       needInsurance: new FormControl(true, [Validators.required]),
       country: new FormControl("India")
     });
+
+    // console.log(this.gstOption.get('gstOptionResult').value);
 
     this.titleService.setTitle(this.title);
     this.meta.addTags([
@@ -155,8 +163,11 @@ export class SimcheckoutComponent implements OnInit {
   }
 
   submitForm() {
+    if(this.simCheckoutForm.invalid) {
+      this.errorMessage = true;
+    } else {
     let formValueObj = this.simCheckoutForm.value;
-
+    // console.log(formValueObj);
     let tempDob = "";
     let dob = this.simCheckoutForm.get("dateOfBirth").value;
     if (dob.month < 10 && dob.day < 10) {
@@ -226,7 +237,7 @@ export class SimcheckoutComponent implements OnInit {
             this.currency = data1.currency;
             this.merchantIdentifier = data1.merchantIdentifier;
             this.returnUrl = data1.returnUrl;
-            this.checksum = data1.checksum; 
+            this.checksum = data1.checksum;
 
             setTimeout(() => {
               this.preloaderService.showPreloader(false);
@@ -239,6 +250,8 @@ export class SimcheckoutComponent implements OnInit {
           this.router.navigate(["/sim/checkout"]);
         }
       });
+
+    }
   }
 
   expand() {

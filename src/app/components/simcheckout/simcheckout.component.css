@@ -3,7 +3,41 @@ select:focus,
 textarea:focus {
   outline: none;
   box-shadow: none !important;
+
   /* height: 30px; */
+}
+
+input {
+  border-radius: 5px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  position: relative;
+  line-height: 18px;
+}
+
+.forRow {
+  margin-top: -10px;
+}
+
+.btn-dark {
+  background-color: #03203C;
+  border: none;
+  color: #fff;
+  font-weight: 550;
+  border-radius: 25px;
+  padding: 4px 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+select {
+  border-radius: 5px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  position: relative;
+  line-height: 18px;
 }
 
 label {
@@ -20,6 +54,12 @@ label {
 
 .invalid-feedback {
   font-size: 13px;
+}
+
+.form-control.is-invalid {
+  background-color: #FCE3E9!important;
+  color: #a94442!important;
+  border: 1px solid #9B0000!important;
 }
 
 .padTop {
@@ -62,11 +102,10 @@ label {
 }
 
 select {
-  /* border: none; */
-  font-size: 16px;
-  /* font-weight: 550; */
-  padding-left: 0px;
+  font-size: 14px;
+  padding-left: 3px;
 }
+
 
 table,
 th,
@@ -74,7 +113,7 @@ td {
   border: none !important;
   border-collapse: collapse;
   padding: 5px;
-  background: #e2e2e2;
+  background: #f1f1f1;
   font-size: 14px;
 }
 
@@ -102,7 +141,7 @@ textarea {
 /* } */
 
 button.calendar {
-  padding: 2px 10px;
+  padding: 2px 7px;
   height: 30px;
 }
 .grandLabel {
@@ -131,20 +170,32 @@ button.calendar {
   margin-left: 20px;
 }
 
+.formHeading {
+  display: inline-flex;
+}
+
+.personalIcon {
+  height: 22px;
+  width: 25px;
+}
+
 #insrSummary {
   margin-top: 60px;
 }
 
 #insrSummary .container {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: #e2e2e2;
-  border-radius: 10px;
+  /* #f1f1f1 */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  background-color: #f1f1f1;
+  border:1px solid #ddd;
+  border-radius: 5px;
   padding: 10px 20px;
   margin-top: 20px;
 }
 
 .headTitle {
   color: #000080;
+  /* margin-left: 5px; */
   font-size: 16px !important;
 }
 
@@ -167,10 +218,15 @@ section {
   padding-bottom: 10px;
 }
 
+/* .addressHeading {
+  background-color: #CAD5E2
+} */
+
 .TrvDetail .container {
-  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
-  background-color: #e2e2e2;
-  border-radius: 10px;
+  /* box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4); */
+  background-color: #f1f1f1;
+  border:1px solid #ddd;
+  border-radius: 5px;
   padding: 10px 20px 0px;
   margin-top: 20px;
 }
@@ -181,8 +237,12 @@ section {
 
 .TrvDetail label {
   color: #000;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.form-check-inline {
+  padding-left: 15px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -378,6 +438,18 @@ section {
     /* margin-right: 10px; */
     width: 382px;
   }
+  .addressHeading {
+    margin-left: 14px;
+  }
+
+  .forMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .forMobileUseOnly {
+    margin-left: 10px;
+  }
 }
 
 @media (min-width: 351px) and (max-width: 379px) {
@@ -388,6 +460,19 @@ section {
     /* margin-right: 10px; */
     width: 332px;
   }
+
+  .addressHeading {
+    margin-left: 13px;
+  }
+
+  .forMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .forMobileUseOnly {
+    margin-left: 10px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 350px) {
@@ -397,6 +482,18 @@ section {
     margin-left: 17px;
     /* margin-right: 10px; */
     width: 285px;
+  }
+
+  .addressHeading {
+    margin-left: 12px;
+  }
+  .forMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .forMobileUseOnly {
+    margin-left: 10px;
   }
 }
 
@@ -437,6 +534,13 @@ section {
   .padTop {
     margin-top: 10px;
   }
+  .forMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .forMobileUseOnly {
+    margin-left: 10px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -453,10 +557,25 @@ section {
   .totalPrice {
     font-size: 15px !important;
   }
+  .forMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .forMobileUseOnly {
+    margin-left: 10px;
+  }
 }
 
 @media screen and (width: 600px) {
   #insrSummary .container {
     border-radius: 10px;
+  }
+  .forMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .forMobileUseOnly {
+    margin-left: 10px;
   }
 }
