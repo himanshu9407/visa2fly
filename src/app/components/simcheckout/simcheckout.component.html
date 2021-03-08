@@ -179,7 +179,7 @@
       <div class="col-md-12 paddReq">
         <form [formGroup]="simCheckoutForm">
           <div class="form-row form-group forRow forMobile">
-            <div class="col-md-3">
+            <div class="col-md-3 field_space">
               <label for="" class="">First Name:</label>
               <input formControlName="firstName" pattern="[A-Za-z]{3,32}" type="text" autocomplete="new-name"
                     [ngClass]="{
@@ -211,7 +211,7 @@
               </div> -->
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 field_space">
               <label for="" class="">Last Name:</label>
               <input formControlName="lastName" pattern="[A-Za-z]{3,32}" type="text" autocomplete="new-name"
                     class="form-control form-control-sm trvName" placeholder="Last name"
@@ -241,14 +241,14 @@
               </div> -->
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 field_space">
               <label for="" class="">Gender:</label>
               <select formControlName="gender" class="form-control form-control-sm">
                 <option selected value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 field_space">
               <label for="" class="">Passport No:</label>
               <input formControlName="passport" pattern="^[A-Za-z]{1}[0-9]{7}$" type="text" autocomplete="new-name"
                     [ngClass]="{
@@ -260,7 +260,7 @@
             </div>
           </div>
 
-          <div class="form-row form-group forMobile">
+          <div class="form-row form-group forRow forMobile">
             <div class="col-md-3">
               <label for="" class="">Mobile:</label>
               <input formControlName="cell" pattern="^[4-9][0-9]{9}$" autocomplete="new-name"
@@ -292,7 +292,7 @@
               </div> -->
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 field_space">
               <label for="" class="">Email:</label>
               <input formControlName="emailId" autocomplete="new-name"
               pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
@@ -328,7 +328,7 @@
               </div> -->
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 field_space">
               <label for="" class="">Date of Birth:</label>
               <div class="input-group">
                 <input [minDate]="{year: 1930, month: 1, day: 1}" [maxDate]="maxDateDob"
@@ -359,7 +359,7 @@
               </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 field_space">
               <label for="" class="">Sim To Be Activated On:</label>
               <div class="input-group">
                 <input formControlName="simActivationDate" id="#activated" class="form-control form-control-sm"

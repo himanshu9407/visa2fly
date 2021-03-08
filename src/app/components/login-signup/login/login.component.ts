@@ -122,8 +122,10 @@ export class LoginComponent implements OnInit {
 
   setFormForUser() {
     this.showOtpField = false;
-    this.loginForm.enable();
+    // this.loginForm.enable();
     this.showLoader = false;
+    this.loginForm.get('userId').enable();
+    this.loginForm.get('otp').disable();
     this.loginForm.markAsPristine();
     this.loginForm.markAsUntouched();
     this.loginForm.setValue({ userId: "", otp: "", rememberMe: false });
@@ -201,9 +203,9 @@ export class LoginComponent implements OnInit {
         let otp = this.loginForm.get("otp").value;
         let rememberMe = this.loginForm.get("rememberMe").value;
         let temp = this.checkUserId();
-    
+
         this.userFlowService.setExpiry(rememberMe);
-    
+
         this.getIP.getClientIP().subscribe(
           (data1: { ip: string }) => {
             this.ipAddress = data1.ip;
@@ -211,7 +213,7 @@ export class LoginComponent implements OnInit {
               .loginUser(userId, otp, rememberMe, this.ipAddress, temp)
               .subscribe(
                 (data: LoginResponseModel) => {
-    
+
                   if (!data) {
                     this.toastr.error(
                       "Something Went wrong! Please try again later."
@@ -236,7 +238,7 @@ export class LoginComponent implements OnInit {
                         // req-and-quotere use in req page
                         let quoteId = this.userFlowService.getUserFlowDetails()
                           .quoteId;
-    
+
                         this.reqService
                           .verifyQuotation(quoteId)
                           .subscribe((data: any) => {
@@ -258,7 +260,7 @@ export class LoginComponent implements OnInit {
                       this.toastr.error(data.message);
                       this.showLoader = false;
                       // console.log('kjh');
-                      
+
                       this.showLoginButton = true;
                       // this.showOtpField = false;
                       this.otpSentCount = 0;
