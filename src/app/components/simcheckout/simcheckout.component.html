@@ -336,7 +336,12 @@
                   formControlName="dateOfBirth" autocomplete="new-name" id="#dob"
                   class="form-control form-control-sm addTravelDate"
                   placeholder="Date of Birth" name="dob" ngbDatepicker #dob="ngbDatepicker"  (click)="dob.toggle()"
-                    readonly="readonly">
+                    readonly="readonly"
+                    [ngClass]="{
+                      'is-invalid':(simCheckoutForm.get('dateOfBirth').invalid && simCheckoutForm.get('dateOfBirth').dirty)
+                      || (simCheckoutForm.get('dateOfBirth').pristine && errorMessage),
+                      'is-valid':!(simCheckoutForm.get('dateOfBirth').invalid && simCheckoutForm.get('dateOfBirth').dirty)
+                       && !simCheckoutForm.get('dateOfBirth').pristine}">
                 <div class="input-group-append">
                   <button class="btn btn-sm btn-outline-secondary calendar" (click)="dob.toggle()" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
@@ -360,7 +365,12 @@
                 <input formControlName="simActivationDate" id="#activated" class="form-control form-control-sm"
                   placeholder="Select Date" autocomplete="new-name" name="activated" [minDate]="minDate" [maxDate]="maxTravelDate"
                   ngbDatepicker #activated="ngbDatepicker" (click)="activated.toggle()"
-                    readonly="readonly">
+                    readonly="readonly"
+                    [ngClass]="{
+                      'is-invalid':(simCheckoutForm.get('simActivationDate').invalid && simCheckoutForm.get('simActivationDate').dirty)
+                      || (simCheckoutForm.get('simActivationDate').pristine && errorMessage),
+                      'is-valid':!(simCheckoutForm.get('simActivationDate').invalid && simCheckoutForm.get('simActivationDate').dirty)
+                       && !simCheckoutForm.get('simActivationDate').pristine}">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary calendar" (click)="activated.toggle()" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px"
