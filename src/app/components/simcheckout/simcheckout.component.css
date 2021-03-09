@@ -602,3 +602,112 @@ section {
     margin-bottom: 10px;
   }
 }
+
+.feature-list {
+  margin: 5px auto 30px;
+  position: relative !important;
+  box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+  background-color: #fff;
+  border-radius: 10px;
+  width: 900px;
+}
+
+.feature-list .feature-banner.active-link {
+  display: block;
+  min-height: 100px;
+  line-height: 0;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.feature-list .feature-banner.active-link:focus {
+  outline: none;
+  border: none;
+}
+
+.feature-list .feature-banner.active-link img {
+  width: 900px;
+  border-radius: 10px;
+}
+
+.desktopBanner {
+  display: block;
+}
+
+.mobileBanner {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .feature-list {
+    margin: 5px auto 30px;
+    position: relative !important;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    background-color: #fff;
+    border-radius: 10px;
+    width: 320px;
+  }
+
+  .feature-list .feature-banner.active-link {
+    display: block;
+    min-height: 87px;
+    line-height: 0;
+    cursor: pointer;
+  }
+
+  .feature-list .feature-banner.active-link img {
+    width: 320px;
+    border-radius: 10px;
+  }
+
+  .desktopBanner {
+    display: none;
+  }
+
+  .mobileBanner {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .feature-list {
+    margin: 5px auto 30px;
+    position: relative !important;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    background-color: #fff;
+    border-radius: 10px;
+    width: 280px;
+  }
+
+  .feature-list .feature-banner.active-link {
+    display: block;
+    min-height: 87px;
+    line-height: 0;
+    cursor: pointer;
+  }
+
+  .feature-list .feature-banner.active-link img {
+    width: 280px;
+    border-radius: 10px;
+  }
+
+  .imageContainer {
+    margin-top: 102px;
+  }
+
+  .visaPriceHeading {
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .visaPrice,
+  .visaType {
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 5px;
+  }
+
+  .visaPrice span {
+    font-size: 11px;
+  }
+}
