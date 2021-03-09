@@ -1,16 +1,16 @@
 export interface testimonialsData {
-    code:    string;
-    status:  string;
+    code: string;
+    status: string;
     message: string;
-    data:    reviewDetail[];
+    data: reviewDetail[];
 }
 
 export interface reviewDetail {
-    fullName:  string;
-    review:    string;
-    country:   string;
-    state:     string;
-    stars:     number;
-    emailID:   string;
+    fullName: string;
+    review: string;
+    country: string;
+    state: string;
+    stars: number;
+    emailID: string;
     createdAt: Date;
 }
