@@ -4,20 +4,20 @@
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                  <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                       VISA REQUIREMENT FOR
                       UNITED STATE OF AMERICA</span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-4">
@@ -44,7 +44,7 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Form DS-160</h1>
+                              <h4 class="requiredIconHeading">Form DS-160</h4>
                               <p>
                                 This form, the Online Nonimmigrant Visa Application, ( ceac.state.gov/genniv/ ) must be
                                 filled out and submitted to us – we will assist you in making it reach the nearest U.S.
@@ -71,7 +71,7 @@
                         <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 1 passport-size photo, either in a digital or hard copy format.
                               </p>
@@ -96,8 +96,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Interview
-                              </h1>
+                              <h4 class="requiredIconHeading">Interview
+                              </h4>
                               <p>
                                 An interview at the U.S Embassy would need to be scheduled well in advance for your trip.
                                 You will need to attend this interview and answer the questions presented to you.
@@ -109,7 +109,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -129,7 +129,7 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 Your current passport, with a minimum of six months’ validity (from the date of departure
                                 from USA) must be submitted. All of your old passports must also be shown when you apply
@@ -156,8 +156,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Appointment Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Appointment Letter
+                              </h4>
                               <p>
                                 You require a printout of the US Interview appointment letter as well.
                               </p>
@@ -181,8 +181,8 @@
                         <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Supporting Documents
-                              </h1>
+                              <h4 class="requiredIconHeading">Supporting Documents
+                              </h4>
                               <p>
                                 These may include tax returns, a travel itinerary, proof of funds (in the form of bank
                                 statements, copy of passbook, any other proof of cash), PAN card, or a business card (if
@@ -196,7 +196,7 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
@@ -223,7 +223,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Form DS-160</h1>
+                              <h4 class="requiredIconHeading">Form DS-160</h4>
                               <p>
                                 This form, the Online Nonimmigrant Visa Application, ( ceac.state.gov/genniv/ ) must be
                                 filled out and submitted to us – we will assist you in making it reach the nearest U.S.
@@ -257,7 +257,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 1 passport-size photo, either in a digital or hard copy format.
                               </p>
@@ -268,7 +268,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -288,8 +288,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Interview
-                              </h1>
+                              <h4 class="requiredIconHeading">Interview
+                              </h4>
                               <p>
                                 An interview at the U.S Embassy would need to be scheduled well in advance for your trip.
                                 You will need to attend this interview and answer the questions presented to you.
@@ -298,8 +298,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -323,7 +323,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 Your current passport, with a minimum of six months’ validity (from the date of departure
                                 from USA) must be submitted. All of your old passports must also be shown when you apply
@@ -336,7 +336,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -356,8 +356,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Appointment Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Appointment Letter
+                              </h4>
                               <p>
                                 You require a printout of the US Interview appointment letter as well.
                               </p>
@@ -387,8 +387,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Supporting Documents
-                              </h1>
+                              <h4 class="requiredIconHeading">Supporting Documents
+                              </h4>
                               <p>
                                 These may include tax returns, a travel itinerary, proof of funds (in the form of bank
                                 statements, copy of passbook, any other proof of cash), PAN card, or a business card (if
@@ -401,29 +401,29 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">BUSINESS
                       VISA REQUIREMENT FOR
                       UNITED STATE OF AMERICA
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -449,7 +449,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Form DS-160</h1>
+                              <h4 class="requiredIconHeading">Form DS-160</h4>
                               <p>
                                 This form, the Online Nonimmigrant Visa Application, ( ceac.state.gov/genniv/ ) must be
                                 filled out and submitted to us – we will assist you in making it reach the nearest U.S.
@@ -471,14 +471,14 @@
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 1 passport-size photo, either in a digital or hard copy format
                               </p>
@@ -491,7 +491,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="businessThree"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <div class="makeIconCntr">
                             <div class="vr-interview requiredIcons img-sprite"></div>
@@ -504,8 +504,8 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Interview
-                              </h1>
+                              <h4 class="requiredIconHeading">Interview
+                              </h4>
                               <p>
                                 An interview at the U.S Embassy would need to be scheduled well in advance for your trip.
                                 You will need to attend this interview and answer the questions presented to you.
@@ -525,7 +525,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                           data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4" 
+                          [class.showDiv]="selectedBusiness === 4"
                           (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                           <div class="makeIconCntr">
                             <div class="vr-passport requiredIcons img-sprite"></div>
@@ -538,7 +538,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 Your current passport, with a minimum of six months’ validity (from the date of departure
                                 from the USA) must be submitted. All of your old passports must also be shown when you
@@ -553,21 +553,21 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" data-toggle="collapse" id="#businessHeading5"
                           data-target="#business5" aria-expanded="false" aria-controls="business5"
-                          [class.showDiv]="selectedBusiness === 5" 
+                          [class.showDiv]="selectedBusiness === 5"
                           (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
                           <div class="makeIconCntr">
                             <div class="vr-appointment requiredIcons img-sprite"></div>
                           </div>
                           <h2 class="setFontSize">Appointment Letter</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business5" class="collapse" aria-labelledby="businessHeading5"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Appointment Letter</h1>
+                              <h4 class="requiredIconHeading">Appointment Letter</h4>
                               <p>
                                 You will require a printout of the US Interview appointment letter as well.
                               </p>
@@ -592,7 +592,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Supporting Documents</h1>
+                              <h4 class="requiredIconHeading">Supporting Documents</h4>
                               <p>
                                 These may include tax returns, a travel itinerary, proof of funds (in the form of bank
                                 statements, copy of passbook, any other proof of cash), PAN card, or a business card (if
@@ -607,7 +607,7 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row">
@@ -634,14 +634,14 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Form DS-160</h1>
+                              <h4 class="requiredIconHeading">Form DS-160</h4>
                               <p>
                                 This form, the Online Nonimmigrant Visa Application, ( ceac.state.gov/genniv/ ) must be
                                 filled out and submitted to us – we will assist you in making it reach the nearest U.S.
                                 Embassy. The confirmed visa application must then be stamped at the Visa Application
                                 Centre (VAC).
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -669,7 +669,7 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 1 passport-size photo, either in a digital or hard copy format.
                               </p>
@@ -680,7 +680,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -700,8 +700,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Interview
-                              </h1>
+                              <h4 class="requiredIconHeading">Interview
+                              </h4>
                               <p>
                                 An interview at the U.S Embassy would need to be scheduled well in advance for your trip.
                                 You will need to attend this interview and answer the questions presented to you.
@@ -710,8 +710,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -734,7 +734,7 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 Your current passport, with a minimum of six months’ validity (from the date of departure
                                 from the USA) must be submitted. All of your old passports must also be shown when you
@@ -766,8 +766,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Appointment Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Appointment Letter
+                              </h4>
                               <p>
                                 You will require a printout of the US Interview appointment letter as well.
                               </p>
@@ -775,8 +775,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -799,11 +799,11 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Supporting Documents</h1>
+                              <h4 class="requiredIconHeading">Supporting Documents</h4>
                               <p>
                                 A copy of your hotel reservations for the entirety of your trip is required.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -811,29 +811,29 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">TRANSIT
                       VISA REQUIREMENT FOR
                       UNITED STATE OF AMERICA
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -859,7 +859,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Form DS-160</h1>
+                              <h4 class="requiredIconHeading">Form DS-160</h4>
                               <p>This form, the Online Nonimmigrant Visa Application, ( ceac.state.gov/genniv/ ) must be
                                 filled out and submitted to us – we will assist you in making it reach the nearest U.S.
                                 Embassy. The confirmed visa application must then be stamped at the Visa Application
@@ -884,7 +884,7 @@
                         <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 1 passport-size photo, either in a digital or hard copy format.
                               </p>
@@ -909,7 +909,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Interview</h1>
+                              <h4 class="requiredIconHeading">Interview</h4>
                               <p>An interview at the U.S Embassy would need to be scheduled well in advance for your trip.
                                 You will need to attend this interview and answer the questions presented to you.</p>
                             </div>
@@ -938,7 +938,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>Your current passport, with a minimum of six months’ validity (from the date of departure
                                 from USA) must be submitted. When you apply for US visa online, all of your old passports
                                 must also be shown.</p>
@@ -963,7 +963,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Appointment Letter</h1>
+                              <h4 class="requiredIconHeading">Appointment Letter</h4>
                               <p>You require a printout of the US Interview appointment letter as well.</p>
                             </div>
                           </div>
@@ -985,7 +985,7 @@
                         <div id="transit6" class="collapse" aria-labelledby="transit6" data-parent="#transitAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Supporting Documents</h1>
+                              <h4 class="requiredIconHeading">Supporting Documents</h4>
                               <p>
                                 These may include tax returns, a travel itinerary,proof of funds (in the form of bank
                                 statements, copy of passbook, any other proof of cash), PAN card, or a business card (if
@@ -1017,7 +1017,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon" >
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Tickets</h1>
+                              <h4 class="requiredIconHeading">Flight Tickets</h4>
                               <p>Visas and flight tickets to your next destination (after transit) are required when you
                                 apply for US visa online. Please make sure you have these BEFORE you apply for a transit
                                 visa.</p>
@@ -1028,31 +1028,31 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
               <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
@@ -1073,7 +1073,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Form DS-160</h1>
+                              <h4 class="requiredIconHeading">Form DS-160</h4>
                               <p>
                                 This form, the Online Nonimmigrant Visa Application, ( ceac.state.gov/genniv/ ) must be
                                 filled out and submitted to us – we will assist you in making it reach the nearest U.S.
@@ -1107,7 +1107,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 1 passport-size photo, either in a digital or hard copy format.
                               </p>
@@ -1118,7 +1118,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1138,7 +1138,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Interview</h1>
+                              <h4 class="requiredIconHeading">Interview</h4>
                               <p>
                                 An interview at the U.S Embassy would need to be scheduled well in advance for your trip.
                                 You will need to attend this interview and answer the questions presented to you.
@@ -1170,7 +1170,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 Your current passport, with a minimum of six months’ validity (from the date of departure
                                 from USA) must be submitted. When you apply for US visa online, all of your old passports
@@ -1183,7 +1183,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1203,7 +1203,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Appointment Letter</h1>
+                              <h4 class="requiredIconHeading">Appointment Letter</h4>
                               <p>
                                 You require a printout of the US Interview appointment letter as well.
                               </p>
@@ -1233,7 +1233,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Supporting Letter</h1>
+                              <h4 class="requiredIconHeading">Supporting Letter</h4>
                               <p>
                                 These may include tax returns, a travel itinerary,proof of funds (in the form of bank
                                 statements, copy of passbook, any other proof of cash), PAN card, or a business card (if
@@ -1265,7 +1265,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon" >
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Tickets</h1>
+                              <h4 class="requiredIconHeading">Flight Tickets</h4>
                               <p>
                                 Visas and flight tickets to your next destination (after transit) are required when you
                                 apply for US visa online. Please make sure you have these BEFORE you apply for a transit
@@ -1278,11 +1278,11 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
             </div>
-  
+
           </ng-template>
         </ngb-tab>
       </ngb-tabset>

@@ -4,20 +4,20 @@
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                  <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                       VISA REQUIREMENT FOR
                       NEW ZEALAND</span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
@@ -45,13 +45,13 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                You will need a valid passport or travel document to 
-                                show proof of identity. This could either be a passport 
-                                copy (if digital) or the original (if manually). You will have 
-                                to show proof of any old passport pages as well. Please note, you 
-                                will need to show all your travel history, not just your biodata 
+                                You will need a valid passport or travel document to
+                                show proof of identity. This could either be a passport
+                                copy (if digital) or the original (if manually). You will have
+                                to show proof of any old passport pages as well. Please note, you
+                                will need to show all your travel history, not just your biodata
                                 pages. Any declined visa applications will also need to be shown.
                               </p>
                             </div>
@@ -75,7 +75,7 @@
                         <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
@@ -101,13 +101,13 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
-                                This is a travel ticket to a country after your stay in 
-                                New Zealand. It could be your home country, or another third 
-                                country. The date of departure on this ticket must be before 
-                                the expected expiration date of your visa. 
+                                This is a travel ticket to a country after your stay in
+                                New Zealand. It could be your home country, or another third
+                                country. The date of departure on this ticket must be before
+                                the expected expiration date of your visa.
                               </p>
                             </div>
                           </div>
@@ -116,7 +116,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -137,13 +137,13 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
+                              <h4 class="requiredIconHeading">Sufficient Funding</h4>
                               <p>
-                                You must be able to show sufficient funding for your entire 
-                                stay in New Zealand. If not, you will be at risk of being 
-                                deported or held back. These could be in the form of bank 
-                                statements, the last 3 months’ salary slips, etc. In monetary 
-                                value, this amounts to NZ $1000 per month.  You must also agree 
+                                You must be able to show sufficient funding for your entire
+                                stay in New Zealand. If not, you will be at risk of being
+                                deported or held back. These could be in the form of bank
+                                statements, the last 3 months’ salary slips, etc. In monetary
+                                value, this amounts to NZ $1000 per month.  You must also agree
                                 to pay all your healthcare costs.
                               </p>
                             </div>
@@ -168,8 +168,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Medical Acceptance
-                              </h1>
+                              <h4 class="requiredIconHeading">Medical Acceptance
+                              </h4>
                               <p>
                                 You must show proof of a medical x ray/examination to show you are in good enough health to travel.
                               </p>
@@ -189,14 +189,14 @@
                           </div>
                           <h2 class="setFontSize">Proof Of Character</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof Of Character
-                              </h1>
+                              <h4 class="requiredIconHeading">Proof Of Character
+                              </h4>
                               <p>
                                 You may need to provide proof that you are in good character. This may include any police records that you have.
                               </p>
@@ -228,8 +228,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">NOC
-                              </h1>
+                              <h4 class="requiredIconHeading">NOC
+                              </h4>
                               <p>
                                 This stands for “No-Objection Certificate”. It may be from your employer (if you are working), or your school/college (if you are studying), or your guardians (if you are a minor). It should state that the institution has no problem with your leave.
                               </p>
@@ -240,25 +240,25 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
               </div>
-  
-              <!-- mobileContainer --> 
+
+              <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -285,9 +285,9 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown. 
+                                You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.
                               </p>
                             </div>
                           </div>
@@ -317,7 +317,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
@@ -328,7 +328,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -349,17 +349,17 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
-                                This is a travel ticket to a country after your stay in New Zealand. It could be your home country, or another third country. The date of departure on this ticket must be before the expected expiration date of your visa. 
+                                This is a travel ticket to a country after your stay in New Zealand. It could be your home country, or another third country. The date of departure on this ticket must be before the expected expiration date of your visa.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -384,7 +384,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
+                              <h4 class="requiredIconHeading">Sufficient Funding</h4>
                               <p>
                                 You must be able to show sufficient funding for your entire stay in New Zealand. If not, you will be at risk of being deported or held back. These could be in the form of bank statements, the last 3 months’ salary slips, etc. In monetary value, this amounts to NZ $1000 per month.  You must also agree to pay all your healthcare costs.
                               </p>
@@ -395,7 +395,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -416,8 +416,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Medical Acceptance
-                              </h1>
+                              <h4 class="requiredIconHeading">Medical Acceptance
+                              </h4>
                               <p>
                                 You must show proof of a medical x ray/examination to show you are in good enough health to travel.
                               </p>
@@ -449,10 +449,10 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof Of Character
-                              </h1>
+                              <h4 class="requiredIconHeading">Proof Of Character
+                              </h4>
                               <p>
-                                You may need to provide proof that you are in good character. This may include any police records that you have. 
+                                You may need to provide proof that you are in good character. This may include any police records that you have.
                               </p>
                             </div>
                           </div>
@@ -481,8 +481,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">NOC
-                              </h1>
+                              <h4 class="requiredIconHeading">NOC
+                              </h4>
                               <p>
                                 This stands for “No-Objection Certificate”. It may be from your employer (if you are working), or your school/college (if you are studying), or your guardians (if you are a minor). It should state that the institution has no problem with your leave.
                               </p>
@@ -493,32 +493,32 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
-  
+
+
               </div>
-  
+
             </div>
-            
-  
+
+
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">BUSINESS
                       VISA REQUIREMENT FOR
                       NEW ZEALAND
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -545,7 +545,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.
                               </p>
@@ -565,14 +565,14 @@
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
@@ -585,7 +585,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -599,8 +599,8 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
                                 This is a travel ticket to a country after your stay in New Zealand. It could be your home country, or another third country. The date of departure on this ticket must be before the expected expiration date of your visa.
                               </p>
@@ -609,7 +609,7 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
-                    
+
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
@@ -619,7 +619,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                           data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4" 
+                          [class.showDiv]="selectedBusiness === 4"
                           (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -633,7 +633,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
+                              <h4 class="requiredIconHeading">Sufficient Funding</h4>
                               <p>
                                 You must be able to show sufficient funding for your entire stay in New Zealand. If not, you will be at risk of being deported or held back. These could be in the form of bank statements, the last 3 months’ salary slips, etc. In monetary value, this amounts to NZ $1000 per month. You must also agree to pay all your healthcare costs.
                               </p>
@@ -646,7 +646,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" data-toggle="collapse" id="#businessHeading5"
                           data-target="#business5" aria-expanded="false" aria-controls="business5"
-                          [class.showDiv]="selectedBusiness === 5" 
+                          [class.showDiv]="selectedBusiness === 5"
                           (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="NEW ZEALAND business visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -660,7 +660,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Medical Acceptance</h1>
+                              <h4 class="requiredIconHeading">Medical Acceptance</h4>
                               <p>
                                 You must show proof of a medical x ray/examination to show you are in good enough health to travel.
                               </p>
@@ -680,14 +680,14 @@
                           </div>
                           <h2 class="setFontSize">Proof Of Character</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business6" class="collapse" aria-labelledby="businessHeading6"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof Of Character</h1>
+                              <h4 class="requiredIconHeading">Proof Of Character</h4>
                               <p>
                                 You may need to provide proof that you are in good character. This may include any police records that you have.
                               </p>
@@ -705,7 +705,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading7" data-toggle="collapse"
                           data-target="#business7" aria-expanded="false" aria-controls="business7"
-                          [class.showDiv]="selectedBusiness === 7" 
+                          [class.showDiv]="selectedBusiness === 7"
                           (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="NEW ZEALAND e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -719,7 +719,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Business Letter</h1>
+                              <h4 class="requiredIconHeading">Business Letter</h4>
                               <p>
                                 You must provide a letter from your employer, or your New Zealand company that states your employment and the business reasons for which you are visiting.
                               </p>
@@ -730,25 +730,25 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row">
@@ -776,11 +776,11 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -809,7 +809,7 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You must show a passport-size photo online (if you apply for an e-visa) or two actual passport-sized photos (if applying manually).
                               </p>
@@ -820,7 +820,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -841,8 +841,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
                                 This is a travel ticket to a country after your stay in New Zealand. It could be your home country, or another third country. The date of departure on this ticket must be before the expected expiration date of your visa.
                               </p>
@@ -850,8 +850,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -876,7 +876,7 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Sufficient Funding</h1>
+                              <h4 class="requiredIconHeading">Sufficient Funding</h4>
                               <p>
                                 You must be able to show sufficient funding for your entire stay in New Zealand. If not, you will be at risk of being deported or held back. These could be in the form of bank statements, the last 3 months’ salary slips, etc. In monetary value, this amounts to NZ $1000 per month. You must also agree to pay all your healthcare costs.
                               </p>
@@ -907,8 +907,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Medical Acceptance
-                              </h1>
+                              <h4 class="requiredIconHeading">Medical Acceptance
+                              </h4>
                               <p>
                                 You must show proof of a medical x ray/examination to show you are in good enough health to travel.
                               </p>
@@ -916,8 +916,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -942,11 +942,11 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Proof OF Character</h1>
+                              <h4 class="requiredIconHeading">Proof OF Character</h4>
                               <p>
                                 You may need to provide proof that you are in good character. This may include any police records that you have.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -974,8 +974,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Business Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Business Letter
+                              </h4>
                               <p>
                                 You must provide a letter from your employer, or your New Zealand company that states your employment and the business reasons for which you are visiting.
                               </p>
@@ -983,33 +983,33 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-                
+
               </div>
             </div>
           </ng-template>
         </ngb-tab>
-        
+
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">TRANSIT
                       VISA REQUIREMENT FOR
                       NEW ZEALAND
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -1036,7 +1036,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.</p>
                             </div>
                           </div>
@@ -1059,7 +1059,7 @@
                         <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Onward Ticket</h1>
+                              <h4 class="requiredIconHeading">Onward Ticket</h4>
                               <p>
                                 You will need to have onward tickets to your destination country when you apply for the transit visa.
                               </p>
@@ -1085,7 +1085,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Destination Visa</h1>
+                              <h4 class="requiredIconHeading">Destination Visa</h4>
                               <p>You will need to have a visa for the country you will be finally visiting, i.e. the country you will be going to after transit. If this country does not require a visa, then this document is not necessary.</p>
                             </div>
                           </div>
@@ -1114,7 +1114,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Travel Itinerary</h1>
+                              <h4 class="requiredIconHeading">Travel Itinerary</h4>
                               <p>This travel itinerary must show your New Zealand arrival and departure times clearly.</p>
                             </div>
                           </div>
@@ -1123,30 +1123,30 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-              
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                  
+
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-              
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                  
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
@@ -1168,7 +1168,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>You will need a valid passport or travel document to show proof of identity. This could either be a passport copy (if digital) or the original (if manually). You will have to show proof of any old passport pages as well. Please note, you will need to show all your travel history, not just your biodata pages. Any declined visa applications will also need to be shown.
                               </p>
                             </div>
@@ -1199,7 +1199,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Onward Ticket</h1>
+                              <h4 class="requiredIconHeading">Onward Ticket</h4>
                               <p>
                                 You will need to have onward tickets to your destination country when you apply for the transit visa.
                               </p>
@@ -1210,7 +1210,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1231,7 +1231,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Destination Visa</h1>
+                              <h4 class="requiredIconHeading">Destination Visa</h4>
                               <p>You will need to have a visa for the country you will be finally visiting, i.e. the country you will be going to after transit. If this country does not require a visa, then this document is not necessary.
                               </p>
                             </div>
@@ -1261,7 +1261,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Travel Itinerary</h1>
+                              <h4 class="requiredIconHeading">Travel Itinerary</h4>
                               <p>
                                   This travel itinerary must show your New Zealand arrival and departure times clearly.
                               </p>
@@ -1273,9 +1273,9 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
-  
+
           </ng-template>
         </ngb-tab>
       </ngb-tabset>

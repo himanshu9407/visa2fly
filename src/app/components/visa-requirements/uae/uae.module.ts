@@ -11,13 +11,14 @@ import { FaqComponent } from './faq/faq.component';
 import { RequirementsUaeComponent } from './requirements-uae/requirements-uae.component';
 import { QuotationUaeComponent } from './quotation-uae/quotation-uae.component';
 import { ImportantPointsUaeComponent } from './important-points-uae/important-points-uae.component';
+import { DescriptionComponent } from './description/description.component';
 
 const routes: Routes = [
   { path: "", component: UAEComponent },
 ]
 
 @NgModule({
-  declarations: [UAEComponent, FaqComponent, RequirementsUaeComponent, QuotationUaeComponent, ImportantPointsUaeComponent],
+  declarations: [UAEComponent, FaqComponent, RequirementsUaeComponent, QuotationUaeComponent, ImportantPointsUaeComponent, DescriptionComponent],
   imports: [
     FormsModule,
     CommonModule,

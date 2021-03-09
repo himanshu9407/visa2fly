@@ -12,7 +12,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Passport</h1>
+              <h3 class="requiredIconHeading">Passport</h3>
                 <ul>
                   <li>The original passport should be issued less than 10 years with a minimum validity of 6 months from the date of entry to Turkey.</li>
                   <li>Your passport must have at least 2 empty pages.</li>
@@ -24,7 +24,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Photograph</h1>
+              <h3 class="requiredIconHeading">Photograph</h3>
              <p>Two biometric photos with white background that were taken within the last 6 months depicting the full face including ears and all hair, clearly and completely visible without shadow, in 2.5 inch x 2.5 inch size.</p>
             </div>
           </div>
@@ -32,7 +32,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Flight Tickets</h1>
+              <h3 class="requiredIconHeading">Flight Tickets</h3>
                 <p>
                   Confirmed round-trip tickets must be shown upon application of the visa. Please note, a return ticket is mandatory.
                 </p>
@@ -42,7 +42,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Hotel Reservation</h1>
+              <h3 class="requiredIconHeading">Hotel Reservation</h3>
                 <p>
                   Proof of hotel reservations are required for applying for a Turkish tourist e-visa.
                 </p>
@@ -52,7 +52,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Proof Of Sufficient Funds</h1>
+              <h3 class="requiredIconHeading">Proof Of Sufficient Funds</h3>
                 <p>
                   Sufficient funding is required to guarantee entry into Azerbaijan, and proof of the same must be displayed (in the form of hard cash, or bank statements). The recommended amount is calculated at 50 USD per day.
                 </p>
@@ -62,7 +62,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Supporting Document</h1>
+              <h3 class="requiredIconHeading">Supporting Document</h3>
                 <p>
                   A valid visa, travel permit, or residence permit from one of the Schengen countries, USA, UK or Ireland is required. Without the submission of this, your e-visa is considered invalid. E-visas from any of these countries is not accepted.
                 </p>
@@ -72,7 +72,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Travel Health Insurance</h1>
+              <h3 class="requiredIconHeading">Travel Health Insurance</h3>
                 <ul>
                   <li>Travel insurance should cover at least duration of the trip in Turkey</li>
                   <li>Travel Insurance is mandatory requirement which should fulfill the below requirements</li>
@@ -91,7 +91,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Occupation Proof</h1>
+              <h3 class="requiredIconHeading">Occupation Proof</h3>
               <p>If applicant is employed,</p>
               <ul>
                 <li>If the applicant is employed leave letter form employer/ covering letter in personal business letter head (if self-employed) with authorized signatory, name and designation with company seal</li>
@@ -123,7 +123,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Proof of financial</h1>
+              <h3 class="requiredIconHeading">Proof of financial</h3>
               <p>Personal bank statement for the last 3 months , in original or copies attested by bank</p>
             </div>
           </div>
@@ -131,7 +131,7 @@
         <div class="col-12" [ngStyle]="{'display': visaType == 'Transit'? 'none' : 'block'}">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Accommodation Documents</h1>
+              <h3 class="requiredIconHeading">Accommodation Documents</h3>
                 <ul>
                   <li>Hotel Reservation if staying in a hotel.</li>
                   <li>Tour Itinerary (Optional)</li>
@@ -143,7 +143,7 @@
         <div class="col-12">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Mandatory documents for the Minors</h1>
+              <h3 class="requiredIconHeading">Mandatory documents for the Minors</h3>
                 <p>Minors need consent letter from both parents in all cases (even though minor is traveling with both parents). The consent NOC must be on stamp paper with photos of parents and applicant and notarized. If you need any sample please feel to reach out to us on our support number.</p>
             </div>
           </div>
@@ -151,7 +151,7 @@
         <div class="col-12" [ngStyle]="{'display': visaType == 'Business'? 'block' : 'none'}">
           <div class="card requiredIcon">
             <div class="card-body">
-              <h1 class="requiredIconHeading">Business Invitation </h1>
+              <h3 class="requiredIconHeading">Business Invitation </h3>
                 <p>Invitation from the Invitee company from Turkey or personal along with their ID proof</p>
             </div>
           </div>
@@ -167,9 +167,9 @@
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <div class="row">
                 <div class="col-12 text-center mgxTop">
@@ -179,7 +179,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -268,7 +268,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -352,12 +352,12 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
-                    
+
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -426,7 +426,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -456,8 +456,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -490,7 +490,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -559,17 +559,17 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
             </div>
-          
+
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <div class="row">
                 <div class="col-12 text-center mgxTop">
@@ -579,7 +579,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -610,7 +610,7 @@
                                 with an expiration date at least 60 days beyond
                                 your intended duration of stay in Turkey.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -626,7 +626,7 @@
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
@@ -649,7 +649,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id= "setActiveBusiness3">
                           <div class="makeIconCntr">
                             <div class="vr-flightTicket requiredIcons img-sprite"></div>
@@ -676,7 +676,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -684,7 +684,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                           data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4" 
+                          [class.showDiv]="selectedBusiness === 4"
                           (click)="setActiveBusiness(4, 'setActiveBusiness4')" id= "setActiveBusiness4">
                           <div class="makeIconCntr">
                             <div class="vr-hotelReservation requiredIcons img-sprite"></div>
@@ -806,25 +806,25 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 </div>
-  
+
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -855,7 +855,7 @@
                                 with an expiration date at least 60 days beyond
                                 your intended duration of stay in Turkey.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -897,7 +897,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -928,8 +928,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -965,7 +965,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1037,7 +1037,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1075,20 +1075,20 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 </div>
-  
-  
+
+
             </div>
-            
-         
-  
+
+
+
           </ng-template>
         </ngb-tab>
-        
+
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <div class="row">
                 <div class="col-12 text-center mgxTop">
@@ -1098,7 +1098,7 @@
                   </h1>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -1182,17 +1182,17 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
-                    
+
                   </ngb-tabset>
                 </div>
               </div>
-  
+
               <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
@@ -1216,7 +1216,7 @@
                               <h1 class="requiredIconHeading">Passport</h1>
                               <p>You must hold a passport valid for at least 3 months after your intended date of travel.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -1256,7 +1256,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1287,10 +1287,10 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
-            
-         
+
+
           </ng-template>
         </ngb-tab>
       </ngb-tabset>

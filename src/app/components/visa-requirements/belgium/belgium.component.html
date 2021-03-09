@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-  
+
     <div class="container-fluid mt-4">
       <div class="row">
         <div class="col-12">
@@ -19,10 +19,10 @@
               data-src="https://static.visa2fly.com/flag/{{
                 selectedCountrytype
               }}.png"
-              alt="{{ selectedCountrytype }} flag image"
+              alt="belgium visa online"
               class="img-fluid countryFlag rounded lazyload"
             />
-  
+
             <div class="country-info">
               <h2 class="country-heading">{{ selectedCountrytype }}</h2>
               <p class="country-desc">
@@ -89,7 +89,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="imageContainer mobileView">
     <div class="row">
       <div class="col-12 text-right p-0">
@@ -102,7 +102,7 @@
         </p>
       </div>
     </div>
-  
+
     <div class="container-fluid mt-2">
       <div class="row">
         <div class="col-12">
@@ -111,10 +111,10 @@
               data-src="https://static.visa2fly.com/flag/{{
                 selectedCountrytype
               }}.png"
-              alt="{{ selectedCountrytype }} flag image"
+              alt="belgium visa online"
               class="img-fluid countryFlag rounded lazyload"
             />
-  
+
             <div class="country-info">
               <h2 class="country-heading">{{ selectedCountrytype }}</h2>
             </div>
@@ -177,7 +177,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="container-fluid mt-4 mobileView">
     <div class="row">
       <div class="col-12">
@@ -188,7 +188,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="container-fluid wrapContainer mt-2" style="overflow: hidden">
     <div class="row">
       <app-quotation
@@ -199,7 +199,7 @@
       </app-quotation>
     </div>
   </div>
-  
+
   <app-offline-process-steps
     [country]="selectedCountrytype"
     *ngIf="!onlinestatus"
@@ -208,7 +208,7 @@
     [country]="selectedCountrytype"
     *ngIf="onlinestatus"
   ></app-online-process-steps>
-  
+
   <app-requirements
     (changedPurpose)="navigateTo($event)"
     [selectedBusiness]="selectedBusiness"
@@ -220,14 +220,13 @@
     [selectedVisaType]="selectedVisaType"
     [selectedPurpose]="selectedPurpose"
   ></app-requirements>
-  
+
   <app-important-points></app-important-points>
-  
+
   <app-faq></app-faq>
-  
+
   <div class="container-fluid wrapContainer linkAddress">
     <div class="row">
       <app-country-address></app-country-address>
     </div>
   </div>
-  

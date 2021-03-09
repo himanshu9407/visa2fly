@@ -9,19 +9,19 @@
         </p>
       </div>
     </div>
-  
+
     <div class="container-fluid mt-4">
       <div class="row">
         <div class="col-12">
           <div class="country-img__box">
             <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-              alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
-  
+              alt="myanmar visa online" class="img-fluid countryFlag rounded lazyload">
+
             <div class="country-info">
               <h2 class="country-heading">{{selectedCountrytype}}</h2>
-              <p class="country-desc">Myanmar is situated to the right of India - and is considered part of 
-                South-East Asia. The country has a heavy Buddhist influence, which seeps into daily life, 
-                rituals and even tourist destinations. It has a large expanse of untouched greenery, and is 
+              <p class="country-desc">Myanmar is situated to the right of India - and is considered part of
+                South-East Asia. The country has a heavy Buddhist influence, which seeps into daily life,
+                rituals and even tourist destinations. It has a large expanse of untouched greenery, and is
                 famous for its sand paintings, gems and much more.</p>
             </div>
           </div>
@@ -85,7 +85,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="imageContainer mobileView">
     <div class="row">
       <div class="col-12 text-right p-0">
@@ -97,14 +97,14 @@
         </p>
       </div>
     </div>
-  
+
     <div class="container-fluid mt-2">
       <div class="row">
         <div class="col-12">
           <div class="country-img__box">
             <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-              alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
-  
+              alt="myanmar visa online" class="img-fluid countryFlag rounded lazyload">
+
             <div class="country-info">
               <h2 class="country-heading">{{selectedCountrytype}}</h2>
             </div>
@@ -169,19 +169,19 @@
       </div>
     </div>
   </div>
-  
+
   <div class="container-fluid mt-4 mobileView">
     <div class="row">
       <div class="col-12">
-        <p class="country-desc">Myanmar is situated to the right of India - and is considered part of 
-          South-East Asia. The country has a heavy Buddhist influence, which seeps into daily life, 
-          rituals and even tourist destinations. It has a large expanse of untouched greenery, and is 
+        <p class="country-desc">Myanmar is situated to the right of India - and is considered part of
+          South-East Asia. The country has a heavy Buddhist influence, which seeps into daily life,
+          rituals and even tourist destinations. It has a large expanse of untouched greenery, and is
           famous for its sand paintings, gems and much more.
         </p>
       </div>
     </div>
   </div>
-  
+
   <div class="container-fluid wrapContainer mt-2" style="overflow: hidden;">
     <div class="row">
       <app-quotation-myanmar class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1"
@@ -189,23 +189,22 @@
       </app-quotation-myanmar>
     </div>
   </div>
-  
+
   <app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
   <app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
-  
+
   <app-requirement-myanmar (changedPurpose)="navigateTo($event)" [selectedBusiness]="selectedBusiness"
     [selectedTransit]="selectedTransit" [selectedTourist]="selectedTourist"
     [selectedMobileTourist]="selectedMobileTourist" [selectedMobileBusiness]="selectedMobileBusiness"
     [selectedMobileTransit]="selectedMobileTransit" [selectedVisaType]="selectedVisaType"
     [selectedPurpose]="selectedPurpose"></app-requirement-myanmar>
-  
+
   <app-important-points-myanmar></app-important-points-myanmar>
-  
+
   <app-faq></app-faq>
-  
+
   <div class="container-fluid wrapContainer linkAddress">
     <div class="row">
       <app-country-address></app-country-address>
     </div>
   </div>
-  

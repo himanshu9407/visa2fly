@@ -4,20 +4,20 @@
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                  <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                       VISA REQUIREMENT FOR
                       TAIWAN</span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
@@ -39,7 +39,7 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Application Form</h1>
+                              <h4 class="requiredIconHeading">Application Form</h4>
                               <p>
                                 You will need to fill in the application form for the ETA online. It is recommended to use a Google Chrome browser to complete this.
                               </p>
@@ -65,11 +65,11 @@
                         <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                This document must be valid for at least 6 months after the 
-                                date of entry into Taiwan. You will be asked to submit a PDF 
-                                copy of the first and last pages of your 
+                                This document must be valid for at least 6 months after the
+                                date of entry into Taiwan. You will be asked to submit a PDF
+                                copy of the first and last pages of your
                                 passport (the biodata pages).
                               </p>
                             </div>
@@ -95,8 +95,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph
-                              </h1>
+                              <h4 class="requiredIconHeading">Photograph
+                              </h4>
                               <p>
                                 You will be asked to submit a JPG copy of a photograph of the applicant. This photograph must be in line with passport size and requirements.
                               </p>
@@ -107,7 +107,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -129,11 +129,11 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Ticket</h1>
+                              <h4 class="requiredIconHeading">Flight Ticket</h4>
                               <p>
-                                You will need return tickets to be able to start 
-                                filling in the application form. Please make sure 
-                                you are in possession of these before starting 
+                                You will need return tickets to be able to start
+                                filling in the application form. Please make sure
+                                you are in possession of these before starting
                                 your application process.
                               </p>
                             </div>
@@ -159,10 +159,10 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Credit Card
-                              </h1>
+                              <h4 class="requiredIconHeading">Credit Card
+                              </h4>
                               <p>
-                                You will need a credit card to pay visa fees online. This must be a Mastercard or Visa. 
+                                You will need a credit card to pay visa fees online. This must be a Mastercard or Visa.
                               </p>
                             </div>
                           </div>
@@ -171,21 +171,21 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
-  
+
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
-                
+
+
               </div>
-  
-  
-  
+
+
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
@@ -207,11 +207,11 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Application Form</h1>
-                              <p> 
+                              <h4 class="requiredIconHeading">Application Form</h4>
+                              <p>
                                 You will need to fill in the application form for the ETA online. It is recommended to use a Google Chrome browser to complete this.
                               </p>
-            
+
                             </div>
                           </div>
                         </div>
@@ -239,11 +239,11 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                This document must be valid for at least 6 months 
-                                after the date of entry into Taiwan. You will be asked 
-                                to submit a PDF copy of the first and last pages of 
+                                This document must be valid for at least 6 months
+                                after the date of entry into Taiwan. You will be asked
+                                to submit a PDF copy of the first and last pages of
                                 your passport (the biodata pages).
                               </p>
                             </div>
@@ -253,7 +253,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -273,8 +273,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph
-                              </h1>
+                              <h4 class="requiredIconHeading">Photograph
+                              </h4>
                               <p>
                                 You will be asked to submit a JPG copy of a photograph of the applicant. This photograph must be in line with passport size and requirements.
                               </p>
@@ -282,8 +282,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -307,7 +307,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Ticket</h1>
+                              <h4 class="requiredIconHeading">Flight Ticket</h4>
                               <p>
                                 You will need return tickets to be able to start filling in the application form. Please make sure you are in possession of these before starting your application process.
                               </p>
@@ -318,7 +318,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -338,8 +338,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Credit Card
-                              </h1>
+                              <h4 class="requiredIconHeading">Credit Card
+                              </h4>
                               <p>
                                 You will need a credit card to pay visa fees online. This must be a Mastercard or Visa.
                               </p>
@@ -351,24 +351,24 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
+                  <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
                       VISA REQUIREMENT FOR
                       TAIWAN</span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -391,11 +391,11 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Application Form</h1>
+                              <h4 class="requiredIconHeading">Application Form</h4>
                               <p>
-                                You will need to apply online on the official visa website. 
-                                Any fields marked with ‘*’ are mandatory, you can choose to leave 
-                                out any of those that are marked without this ‘*’. We recommend 
+                                You will need to apply online on the official visa website.
+                                Any fields marked with ‘*’ are mandatory, you can choose to leave
+                                out any of those that are marked without this ‘*’. We recommend
                                 filling all form details. You will also need to sign on it.
                               </p>
                             </div>
@@ -415,16 +415,16 @@
                           </div>
                           <h2 class="setFontSize">Passport</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                You will need a passport that will be valid for at least 
+                                You will need a passport that will be valid for at least
                                 6 months from your intended date of departure.
                               </p>
                             </div>
@@ -436,7 +436,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Photograph.png" alt="apply for france e-visa"
                             style="height: 45px; margin-bottom: 10px;" /> -->
@@ -451,11 +451,11 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph
-                              </h1>
+                              <h4 class="requiredIconHeading">Photograph
+                              </h4>
                               <p>
-                                Two passport-sized photos with a white background must be 
-                                submitted. A minimum of 60% of the photo must be of 
+                                Two passport-sized photos with a white background must be
+                                submitted. A minimum of 60% of the photo must be of
                                 the applicant’s face.
                               </p>
                             </div>
@@ -463,10 +463,10 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
-                   
+
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -474,7 +474,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                           data-target="#business4" aria-expanded="false" aria-controls="business4"
-                          [class.showDiv]="selectedBusiness === 4" 
+                          [class.showDiv]="selectedBusiness === 4"
                           (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Proof of Funds.png"
                             alt="apply for france visa online" style="height: 45px; margin-bottom: 10px;" /> -->
@@ -489,11 +489,11 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof Of Funds</h1>
+                              <h4 class="requiredIconHeading">Proof Of Funds</h4>
                               <p>
-                                The applicant needs to provide proof of sufficient funding. 
-                                This could be in the form of their personal salary account 
-                                statement for the last 3 months. This statement 
+                                The applicant needs to provide proof of sufficient funding.
+                                This could be in the form of their personal salary account
+                                statement for the last 3 months. This statement
                                 should have the official, original bank stamp.
                               </p>
                             </div>
@@ -519,8 +519,8 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Tickets
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Tickets
+                              </h4>
                               <p>
                                 Proof of flight bookings, both to and fro tmust be shown. That includes any stops in-between.
                               </p>
@@ -547,21 +547,21 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Reservation
-                              </h1>
+                              <h4 class="requiredIconHeading">Hotel Reservation
+                              </h4>
                               <p>
-                                Proof of your confirmed accommodation for your entire 
-                                stay in Taiwan must be shown. This could be rental 
+                                Proof of your confirmed accommodation for your entire
+                                stay in Taiwan must be shown. This could be rental
                                 agreements, hotel reservations, etc.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-                    </ngb-tab> 
+                    </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -583,8 +583,8 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Income Tax Return/Form 16
-                              </h1>
+                              <h4 class="requiredIconHeading">Income Tax Return/Form 16
+                              </h4>
                               <p>
                                 The applicant’s ITR or Form 16 (either one) for the last year must be supplied.
                               </p>
@@ -613,13 +613,13 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Registration Certificate</h1>
+                              <h4 class="requiredIconHeading">Registration Certificate</h4>
                               <p>
-                                A copy of the Indian company’s registration certificate 
-                                (that is issued by the Indian government) must 
+                                A copy of the Indian company’s registration certificate
+                                (that is issued by the Indian government) must
                                 also be attached.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -644,10 +644,10 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Credit Card</h1>
+                              <h4 class="requiredIconHeading">Credit Card</h4>
                               <p>
-                                You will need a credit card to pay the visa fees. Please ensure 
-                                this card is either MasterCard,Visa or JCB. After paying the fees, 
+                                You will need a credit card to pay the visa fees. Please ensure
+                                this card is either MasterCard,Visa or JCB. After paying the fees,
                                 you will need to collect the payment slip for submission later.
                               </p>
                             </div>
@@ -655,7 +655,7 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
-                    
+
                   </ngb-tabset>
                 </div>
 
@@ -678,10 +678,10 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                              <h4 class="requiredIconHeading">Invitation Letter</h4>
                               <p>
-                                The company/institution in Taiwan must issue a letter that states 
-                                the purpose of the applicant’s visit, as well as the applicant’s 
+                                The company/institution in Taiwan must issue a letter that states
+                                the purpose of the applicant’s visit, as well as the applicant’s
                                 name and passport details. This must be on the official letterhead.
                               </p>
                             </div>
@@ -705,11 +705,11 @@
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Cover Letter</h1>
+                            <h4 class="requiredIconHeading">Cover Letter</h4>
                             <p>
-                                The Indian company must issue a cover letter that mentions 
-                                the purpose of visit, designation of the visitor, and the intended 
-                                duration and days of stay. If the applicant needs a multiple-entry visa, 
+                                The Indian company must issue a cover letter that mentions
+                                the purpose of visit, designation of the visitor, and the intended
+                                duration and days of stay. If the applicant needs a multiple-entry visa,
                                 tentative dates must be mentioned.
                             </p>
                           </div>
@@ -733,11 +733,11 @@
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Supporting Document</h1>
+                            <h4 class="requiredIconHeading">Supporting Document</h4>
                             <p>
-                                You will be requested for different documents based on your 
-                                purpose of visit and nationality. These will be informed to you 
-                                through email, after you have completed the 
+                                You will be requested for different documents based on your
+                                purpose of visit and nationality. These will be informed to you
+                                through email, after you have completed the
                                 application form online.
                             </p>
                           </div>
@@ -770,11 +770,11 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Bank Statement</h1>
+                                <h4 class="requiredIconHeading">Bank Statement</h4>
                                 <p>
-                                    The Indian companies bank statements for the last 3 months 
-                                    must also be attached. The original bank stamp must be 
-                                    present on this, and the individual’s ITR for the 
+                                    The Indian companies bank statements for the last 3 months
+                                    must also be attached. The original bank stamp must be
+                                    present on this, and the individual’s ITR for the
                                     last 1 year needs to be attached as well.
                                 </p>
                               </div>
@@ -798,10 +798,10 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Proof Of Transaction</h1>
+                                <h4 class="requiredIconHeading">Proof Of Transaction</h4>
                                 <p>
-                                    If there is any proof of transaction/trading between the Taiwanese 
-                                    and Indian companies (eg. LC/remittance receipts/business correspondence), 
+                                    If there is any proof of transaction/trading between the Taiwanese
+                                    and Indian companies (eg. LC/remittance receipts/business correspondence),
                                     these must be submitted as well.
                                 </p>
                               </div>
@@ -811,16 +811,16 @@
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-                          
+
                         </ng-template>
                         <ng-template ngbTabContent>
-                          
+
                         </ng-template>
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row mt-4">
@@ -844,14 +844,14 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Application Form</h1>
+                              <h4 class="requiredIconHeading">Application Form</h4>
                               <p>
-                                You will need to apply online on the official visa website. Any 
-                                fields marked with ‘*’ are mandatory, you can choose to leave 
-                                out any of those that are marked without this ‘*’. We recommend 
+                                You will need to apply online on the official visa website. Any
+                                fields marked with ‘*’ are mandatory, you can choose to leave
+                                out any of those that are marked without this ‘*’. We recommend
                                 filling all form details. You will also need to sign on it.
                               </p>
-                              
+
                             </div>
                           </div>
                         </div>
@@ -881,10 +881,10 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                You will need a passport that will be valid for at least 
-                                6 months from your intended date of departure. 
+                                You will need a passport that will be valid for at least
+                                6 months from your intended date of departure.
                               </p>
                             </div>
                           </div>
@@ -893,7 +893,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -915,8 +915,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph
-                              </h1>
+                              <h4 class="requiredIconHeading">Photograph
+                              </h4>
                               <p>
                                 Two passport-sized photos with a white background must be submitted. A minimum of 60% of the photo must be of the applicant’s face.
                               </p>
@@ -924,8 +924,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -951,11 +951,11 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Proof Of Funds</h1>
+                              <h4 class="requiredIconHeading">Proof Of Funds</h4>
                               <p>
-                                The applicant needs to provide proof of sufficient funding. 
-                                This could be in the form of their personal salary account 
-                                statement for the last 3 months. This statement should 
+                                The applicant needs to provide proof of sufficient funding.
+                                This could be in the form of their personal salary account
+                                statement for the last 3 months. This statement should
                                 have the official, original bank stamp.
                               </p>
                             </div>
@@ -965,7 +965,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -987,8 +987,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Return Tickets
-                              </h1>
+                              <h4 class="requiredIconHeading">Return Tickets
+                              </h4>
                               <p>
                                 Proof of flight bookings, both to and fro tmust be shown. That includes any stops in-between.
                               </p>
@@ -1021,11 +1021,11 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Reservation
-                              </h1>
+                              <h4 class="requiredIconHeading">Hotel Reservation
+                              </h4>
                               <p>
-                                Proof of your confirmed accommodation for your entire stay in 
-                                Taiwan must be shown. This could be rental agreements, 
+                                Proof of your confirmed accommodation for your entire stay in
+                                Taiwan must be shown. This could be rental agreements,
                                 hotel reservations, etc.
                               </p>
                             </div>
@@ -1035,7 +1035,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1057,8 +1057,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Income Tax Return/Form 16
-                              </h1>
+                              <h4 class="requiredIconHeading">Income Tax Return/Form 16
+                              </h4>
                               <p>
                                 The applicant’s ITR or Form 16 (either one) for the last year must be supplied.
                               </p>
@@ -1091,11 +1091,11 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Registration Certificate</h1>
+                              <h4 class="requiredIconHeading">Registration Certificate</h4>
                               <p>
                                 A copy of the Indian company’s registration certificate (that is issued by the Indian government) must also be attached.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -1103,7 +1103,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1126,13 +1126,13 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Credit Card</h1>
+                              <h4 class="requiredIconHeading">Credit Card</h4>
                               <p>
-                                You will need a credit card to pay the visa fees. Please ensure this 
-                                card is either MasterCard,Visa or JCB. After paying the fees, you 
-                                will need to collect the payment slip for submission later. 
+                                You will need a credit card to pay the visa fees. Please ensure this
+                                card is either MasterCard,Visa or JCB. After paying the fees, you
+                                will need to collect the payment slip for submission later.
                               </p>
-                             
+
                             </div>
                           </div>
                         </div>
@@ -1163,13 +1163,13 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                              <h4 class="requiredIconHeading">Invitation Letter</h4>
                               <p>
-                                The company/institution in Taiwan must issue a letter that 
-                                states the purpose of the applicant’s visit, as well as the applicant’s 
+                                The company/institution in Taiwan must issue a letter that
+                                states the purpose of the applicant’s visit, as well as the applicant’s
                                 name and passport details. This must be on the official letterhead.
                               </p>
-                              
+
                             </div>
                           </div>
                         </div>
@@ -1199,13 +1199,13 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Supporting Document</h1>
+                                <h4 class="requiredIconHeading">Supporting Document</h4>
                                 <p>
-                                    You will be requested for different documents based on your purpose 
-                                    of visit and nationality. These will be informed to you through 
-                                    email, after you have completed the application form online. 
+                                    You will be requested for different documents based on your purpose
+                                    of visit and nationality. These will be informed to you through
+                                    email, after you have completed the application form online.
                                </p>
-                               
+
                               </div>
                             </div>
                           </div>
@@ -1236,14 +1236,14 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Cover Letter</h1>
+                              <h4 class="requiredIconHeading">Cover Letter</h4>
                               <p>
-                                  The Indian company must issue a cover letter that mentions the purpose 
-                                  of visit, designation of the visitor, and the intended duration and 
-                                  days of stay. If the applicant needs a multiple-entry visa, 
-                                  tentative dates must be mentioned. 
+                                  The Indian company must issue a cover letter that mentions the purpose
+                                  of visit, designation of the visitor, and the intended duration and
+                                  days of stay. If the applicant needs a multiple-entry visa,
+                                  tentative dates must be mentioned.
                              </p>
-                             
+
                             </div>
                           </div>
                         </div>
@@ -1273,14 +1273,14 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Bank Statement</h1>
+                                <h4 class="requiredIconHeading">Bank Statement</h4>
                                 <p>
-                                    The Indian companies bank statements for the last 3 months must 
-                                    also be attached. The original bank stamp must be present on this, 
-                                    and the individual’s ITR for the last 1 year needs 
-                                    to be attached as well. 
+                                    The Indian companies bank statements for the last 3 months must
+                                    also be attached. The original bank stamp must be present on this,
+                                    and the individual’s ITR for the last 1 year needs
+                                    to be attached as well.
                                </p>
-                               
+
                               </div>
                             </div>
                           </div>
@@ -1311,11 +1311,11 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Proof Of Transaction</h1>
+                              <h4 class="requiredIconHeading">Proof Of Transaction</h4>
                               <p>
                                   If there is any proof of transaction/trading between the Taiwanese and Indian companies (eg. LC/remittance receipts/business correspondence), these must be submitted as well.
                               </p>
-                             
+
                             </div>
                           </div>
                         </div>
@@ -1324,8 +1324,8 @@
                   </ngb-tabset>
               </div>
               </div>
-  
-  
+
+
             </div>
           </ng-template>
         </ngb-tab>

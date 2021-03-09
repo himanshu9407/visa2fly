@@ -4,20 +4,20 @@
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                  <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                       VISA REQUIREMENT FOR
                       JAPAN</span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
@@ -46,8 +46,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
-                              <p>The Japan visa application form needs to be 
+                              <h4 class="requiredIconHeading">Visa Application Form</h4>
+                              <p>The Japan visa application form needs to be
                                 completely filled by you. It must also be duly signed.
                               </p>
                             </div>
@@ -73,7 +73,7 @@
                         <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 2 passport-size photos with white or grey background with the dimensions of
                                 35X45mm.You  must submit one photograph that has been taken within the last 6 months.
@@ -100,12 +100,12 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Cover Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Cover Letter
+                              </h4>
                               <p>
-                                A Covering letter that states the purpose of visit and day 
-                                to day details must also be submitted. This is only if you 
-                                are staying for more than a day, and leaving the 
+                                A Covering letter that states the purpose of visit and day
+                                to day details must also be submitted. This is only if you
+                                are staying for more than a day, and leaving the
                                 airport during your stay.
                               </p>
                             </div>
@@ -115,7 +115,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -138,11 +138,11 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                A valid Passport of the applicant is necessary. It should have 
-                                more than two blank pages. You should also submit a photocopy 
-                                of the biodata page (both first and last pages) of 
+                                A valid Passport of the applicant is necessary. It should have
+                                more than two blank pages. You should also submit a photocopy
+                                of the biodata page (both first and last pages) of
                                 your current passport.
                               </p>
                             </div>
@@ -163,18 +163,18 @@
                           </div>
                           <h2 class="setFontSize">Flight Ticket</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="tourist5" class="collapse" aria-labelledby="heading5"
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
-                                You will need to book your flight tickets (including return tickets) 
-                                before you apply for the visa. 
+                                You will need to book your flight tickets (including return tickets)
+                                before you apply for the visa.
                               </p>
                             </div>
                           </div>
@@ -197,10 +197,10 @@
                           <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Hotel Booking
-                                </h1>
+                                <h4 class="requiredIconHeading">Hotel Booking
+                                </h4>
                                 <p>
-                                  You will need to show proof of a hotel reservation 
+                                  You will need to show proof of a hotel reservation
                                   before you have applied for the visa.
                                 </p>
                               </div>
@@ -231,10 +231,10 @@
                                 data-parent="#touristAccodion">
                                 <div class="card requiredIcon">
                                     <div class="card-body">
-                                    <h1 class="requiredIconHeading">Itinerary
-                                    </h1>
+                                    <h4 class="requiredIconHeading">Itinerary
+                                    </h4>
                                     <p>
-                                        A scheduled itinerary day-wise must also be submitted, 
+                                        A scheduled itinerary day-wise must also be submitted,
                                         for all days that you are in Japan.
                                     </p>
                                     </div>
@@ -253,20 +253,20 @@
                             </div>
                             <h2 class="setFontSize">Income Tax Return</h2>
                           </div>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
                           <div id="tourist8" class="collapse" aria-labelledby="heading8"
                                 data-parent="#touristAccodion">
                                 <div class="card requiredIcon">
                                     <div class="card-body">
-                                    <h1 class="requiredIconHeading">Income Tax Return
-                                    </h1>
+                                    <h4 class="requiredIconHeading">Income Tax Return
+                                    </h4>
                                     <p>
-                                        Your Income Tax returns for the last year must also 
-                                        be submitted to show that you have a job that ties you 
-                                        to your country. If someone in Japan is inviting you to visit, 
-                                        and this is your reason for traveling, they must 
+                                        Your Income Tax returns for the last year must also
+                                        be submitted to show that you have a job that ties you
+                                        to your country. If someone in Japan is inviting you to visit,
+                                        and this is your reason for traveling, they must
                                         submit tax returns as well.
                                     </p>
                                     </div>
@@ -291,10 +291,10 @@
                             data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">NOC(No Objection Certificate)
-                                </h1>
+                                <h4 class="requiredIconHeading">NOC(No Objection Certificate)
+                                </h4>
                                 <p>
-                                    This is a No-Objection Certificate (if you are a dependant/student - from the 
+                                    This is a No-Objection Certificate (if you are a dependant/student - from the
                                     guardian/educational institution, respectively)
                                 </p>
                               </div>
@@ -321,18 +321,18 @@
                           </div>
                         </ng-template>
                         <ng-template ngbTabContent>
-                          <div id="tourist10" class="collapse" 
-                          aria-labelledby="heading10" 
+                          <div id="tourist10" class="collapse"
+                          aria-labelledby="heading10"
                           data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Invitation Letter
-                                </h1>
+                                <h4 class="requiredIconHeading">Invitation Letter
+                                </h4>
                                 <p>
-                                    If you are being invited from someone living in Japan, or 
-                                    are going to visit someone there (relatives/acquaintances), you 
-                                    will need to support your visa application with an invitation 
-                                    letter. This invitation letter must be from the person who 
+                                    If you are being invited from someone living in Japan, or
+                                    are going to visit someone there (relatives/acquaintances), you
+                                    will need to support your visa application with an invitation
+                                    letter. This invitation letter must be from the person who
                                     is in Japan, and addressed to the applicant.
                                 </p>
                               </div>
@@ -357,11 +357,11 @@
                                   data-parent="#touristAccodion">
                                   <div class="card requiredIcon">
                                       <div class="card-body">
-                                      <h1 class="requiredIconHeading">Supplementary Documents
-                                      </h1>
+                                      <h4 class="requiredIconHeading">Supplementary Documents
+                                      </h4>
                                       <p>
-                                        If you are married/accompanied by a dependant, you will need to show 
-                                        proof of the same, eg. passport copy, marriage 
+                                        If you are married/accompanied by a dependant, you will need to show
+                                        proof of the same, eg. passport copy, marriage
                                         certificate/birth certificate.
                                       </p>
                                       </div>
@@ -386,13 +386,13 @@
                                   data-parent="#touristAccodion">
                                   <div class="card requiredIcon">
                                       <div class="card-body">
-                                      <h1 class="requiredIconHeading">Proof Of Financial Capability
-                                      </h1>
+                                      <h4 class="requiredIconHeading">Proof Of Financial Capability
+                                      </h4>
                                       <p>
-                                        You will need to show proof of a sufficient financial capability, 
-                                        such as income tax returns. Other documents, if necessary, include 
-                                        a certificate of deposit balance, stock dividend, pension, retirement 
-                                        allowance, inheritance, lease agreement, real estate register, 
+                                        You will need to show proof of a sufficient financial capability,
+                                        such as income tax returns. Other documents, if necessary, include
+                                        a certificate of deposit balance, stock dividend, pension, retirement
+                                        allowance, inheritance, lease agreement, real estate register,
                                         deed of property, etc
                                       </p>
                                       </div>
@@ -422,14 +422,14 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof Of Eligibility
-                              </h1>
+                              <h4 class="requiredIconHeading">Proof Of Eligibility
+                              </h4>
                               <p>
-                                  From the FAQ no. 11 below, you will see the eligibility requirements 
-                                  for this visa. You will need to show proof of the same through 
-                                  certain documents, which differ based on which eligibility category 
-                                  you fall under. These may include passport proof of having 
-                                  a temporary visitor visa and entry stamp of Japan/a G7 country 
+                                  From the FAQ no. 11 below, you will see the eligibility requirements
+                                  for this visa. You will need to show proof of the same through
+                                  certain documents, which differ based on which eligibility category
+                                  you fall under. These may include passport proof of having
+                                  a temporary visitor visa and entry stamp of Japan/a G7 country
                                   in the last three years.
                               </p>
                             </div>
@@ -439,23 +439,23 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
                         <ng-template ngbTabTitle>
-                          
+
                         </ng-template>
                         <ng-template ngbTabContent>
-                          
+
                         </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
               </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
@@ -483,9 +483,9 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
+                              <h4 class="requiredIconHeading">Visa Application Form</h4>
                               <p>
-                                  The Japan visa application form needs to be completely 
+                                  The Japan visa application form needs to be completely
                                   filled by you. It must also be duly signed.
                               </p>
                             </div>
@@ -516,7 +516,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 2 passport-size photos with white or grey background with the dimensions of
                                 35X45mm. You must submit one photograph that has been taken within the last 6 months.
@@ -528,7 +528,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -549,20 +549,20 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Cover Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Cover Letter
+                              </h4>
                               <p>
-                                A Covering letter that states the purpose of visit and day to 
-                                day details must also be submitted. This is only if you are 
-                                staying for more than a day, and leaving the airport 
+                                A Covering letter that states the purpose of visit and day to
+                                day details must also be submitted. This is only if you are
+                                staying for more than a day, and leaving the airport
                                 during your stay.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -587,11 +587,11 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                A valid Passport of the applicant is necessary. It should 
-                                have more than two blank pages. You should also submit a 
-                                photocopy of the biodata page (both first and last pages) 
+                                A valid Passport of the applicant is necessary. It should
+                                have more than two blank pages. You should also submit a
+                                photocopy of the biodata page (both first and last pages)
                                 of your current passport.
                               </p>
                             </div>
@@ -601,7 +601,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -623,10 +623,10 @@
                           (click)="setActiveTourist(5)">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
-                                You will need to book your flight tickets (including return tickets) 
+                                You will need to book your flight tickets (including return tickets)
                                 before you apply for the visa.
                               </p>
                             </div>
@@ -657,10 +657,10 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Booking
-                              </h1>
+                              <h4 class="requiredIconHeading">Hotel Booking
+                              </h4>
                               <p>
-                                You will need to show proof of a hotel 
+                                You will need to show proof of a hotel
                                 reservation before you have applied for the visa.
                               </p>
                             </div>
@@ -692,10 +692,10 @@
                             (click)="setActiveTourist(7)">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Itinerary
-                                </h1>
+                                <h4 class="requiredIconHeading">Itinerary
+                                </h4>
                                 <p>
-                                    A scheduled itinerary day-wise must also be submitted, 
+                                    A scheduled itinerary day-wise must also be submitted,
                                     for all days that you are in Japan.
                                 </p>
                               </div>
@@ -726,13 +726,13 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Income Tax Return
-                              </h1>
+                              <h4 class="requiredIconHeading">Income Tax Return
+                              </h4>
                               <p>
-                                  Your Income Tax returns for the last year must also be 
-                                  submitted to show that you have a job that ties you to your 
-                                  country. If someone in Japan is inviting you to visit, and 
-                                  this is your reason for traveling, they must submit 
+                                  Your Income Tax returns for the last year must also be
+                                  submitted to show that you have a job that ties you to your
+                                  country. If someone in Japan is inviting you to visit, and
+                                  this is your reason for traveling, they must submit
                                   tax returns as well.
                               </p>
                             </div>
@@ -764,10 +764,10 @@
                             (click)="setActiveTourist(9)">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">NOC(No Objection Certificate)
-                                </h1>
+                                <h4 class="requiredIconHeading">NOC(No Objection Certificate)
+                                </h4>
                                 <p>
-                                    This is a No-Objection Certificate (if you are a dependant/student - from 
+                                    This is a No-Objection Certificate (if you are a dependant/student - from
                                     the guardian/educational institution, respectively)
                                 </p>
                               </div>
@@ -798,13 +798,13 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Invitation Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Invitation Letter
+                              </h4>
                               <p>
-                                  If you are being invited from someone living in Japan, 
-                                  or are going to visit someone there (relatives/acquaintances), 
-                                  you will need to support your visa application with an 
-                                  invitation letter. This invitation letter must be from the 
+                                  If you are being invited from someone living in Japan,
+                                  or are going to visit someone there (relatives/acquaintances),
+                                  you will need to support your visa application with an
+                                  invitation letter. This invitation letter must be from the
                                   person who is in Japan, and addressed to the applicant.
                               </p>
                             </div>
@@ -836,11 +836,11 @@
                             (click)="setActiveTourist(11)">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Supplementary Documents
-                                </h1>
+                                <h4 class="requiredIconHeading">Supplementary Documents
+                                </h4>
                                 <p>
-                                    If you are married/accompanied by a dependant, you will need 
-                                    to show proof of the same, eg. passport copy, marriage 
+                                    If you are married/accompanied by a dependant, you will need
+                                    to show proof of the same, eg. passport copy, marriage
                                     certificate/birth certificate.
                                 </p>
                               </div>
@@ -871,13 +871,13 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof of Financial Capability
-                              </h1>
+                              <h4 class="requiredIconHeading">Proof of Financial Capability
+                              </h4>
                               <p>
-                                  You will need to show proof of a sufficient financial 
-                                  capability, such as income tax returns. Other documents, if 
-                                  necessary, include a certificate of deposit balance, stock dividend, 
-                                  pension, retirement allowance, inheritance, lease agreement, 
+                                  You will need to show proof of a sufficient financial
+                                  capability, such as income tax returns. Other documents, if
+                                  necessary, include a certificate of deposit balance, stock dividend,
+                                  pension, retirement allowance, inheritance, lease agreement,
                                   real estate register, deed of property, etc
                               </p>
                             </div>
@@ -909,8 +909,8 @@
                             (click)="setActiveTourist(13)">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Proof Of Eligibility
-                                </h1>
+                                <h4 class="requiredIconHeading">Proof Of Eligibility
+                                </h4>
                                 <p>
                                     From the FAQ no. 11 below, you will see the eligibility requirements for this visa. You will need to show proof of the same through certain documents, which differ based on which eligibility category you fall under. These may include passport proof of having a temporary visitor visa and entry stamp of Japan/a G7 country in the last three years.
                                 </p>
@@ -922,27 +922,27 @@
                     </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
           </ng-template>
         </ngb-tab>
 
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">BUSINESS
                       VISA REQUIREMENT FOR
                       JAPAN
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -969,10 +969,10 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                A valid Passport of the applicant is necessary. It should 
-                                have more than two blank pages. You should also submit a photocopy 
+                                A valid Passport of the applicant is necessary. It should
+                                have more than two blank pages. You should also submit a photocopy
                                 of the biodata page (both first and last pages) of your current passport.
                               </p>
                             </div>
@@ -991,16 +991,16 @@
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
-                                You  must submit one photograph that has been taken within the last 6 months. 
+                                You  must submit one photograph that has been taken within the last 6 months.
                               </p>
                             </div>
                           </div>
@@ -1011,7 +1011,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <div class="makeIconCntr">
                             <div class="vr-applicationForm requiredIcons img-sprite"></div>
@@ -1024,8 +1024,8 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Visa Application Form
-                              </h1>
+                              <h4 class="requiredIconHeading">Visa Application Form
+                              </h4>
                               <p>
                                 The Japan visa application form needs to be completely filled by you. It must also be duly signed.
                               </p>
@@ -1043,7 +1043,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                         data-target="#business4" aria-expanded="false" aria-controls="business4"
-                        [class.showDiv]="selectedBusiness === 4" 
+                        [class.showDiv]="selectedBusiness === 4"
                         (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                         <div class="makeIconCntr">
                           <div class="vr-FlightTickets requiredIcons img-sprite"></div>
@@ -1056,7 +1056,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Tickets</h1>
+                              <h4 class="requiredIconHeading">Flight Tickets</h4>
                               <p>
                                 You will need to book your flight tickets (including return tickets) before you apply for the visa.
                               </p>
@@ -1075,16 +1075,16 @@
                         </div>
                         <h2 class="setFontSize">Proof Of Funds</h2>
                       </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business5" class="collapse" aria-labelledby="businessHeading5"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof Of Funds</h1>
+                              <h4 class="requiredIconHeading">Proof Of Funds</h4>
                               <p>
-                                These could include travel requisition by your employer, or a 
+                                These could include travel requisition by your employer, or a
                                 letter of mission, or similar documents to the above.
                               </p>
                             </div>
@@ -1108,9 +1108,9 @@
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Employement Certification</h1>
+                            <h4 class="requiredIconHeading">Employement Certification</h4>
                             <p>
-                              A certificate of employment from your company will 
+                              A certificate of employment from your company will
                               be needed as well, to show that you are employed to them.
                             </p>
                           </div>
@@ -1128,7 +1128,7 @@
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading7" data-toggle="collapse"
                           data-target="#business7" aria-expanded="false" aria-controls="business7"
-                          [class.showDiv]="selectedBusiness === 7" 
+                          [class.showDiv]="selectedBusiness === 7"
                           (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="australia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -1142,9 +1142,9 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                              <h4 class="requiredIconHeading">Invitation Letter</h4>
                               <p>
-                                An invitation letter from the centre in Japan that 
+                                An invitation letter from the centre in Japan that
                                 invites you to partake in their activities is needed as well.
                               </p>
                             </div>
@@ -1156,23 +1156,23 @@
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading8" data-toggle="collapse"
                         data-target="#business8" aria-expanded="false" aria-controls="business8"
-                        [class.showDiv]="selectedBusiness === 8" 
+                        [class.showDiv]="selectedBusiness === 8"
                         (click)="setActiveBusiness(8, 'setActiveBusiness8')" id="setActiveBusiness8">
                         <div class="makeIconCntr">
                           <div class="vr-Itinerary requiredIcons img-sprite"></div>
                         </div>
                         <h2 class="setFontSize">Itinerary</h2>
                         </div>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
                           <div id="business8" class="collapse" aria-labelledby="businessHeading8"
                         data-parent="#businessAccodion">
                         <div class="card requiredIcon">
                           <div class="card-body">
-                            <h1 class="requiredIconHeading">Itinerary</h1>
+                            <h4 class="requiredIconHeading">Itinerary</h4>
                             <p>
-                                A scheduled itinerary day-wise must also be 
+                                A scheduled itinerary day-wise must also be
                                 submitted, for all days that you are in Japan.
                             </p>
                           </div>
@@ -1196,10 +1196,10 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Letter Of Guarantee</h1>
+                                <h4 class="requiredIconHeading">Letter Of Guarantee</h4>
                                 <p>
-                                    If your trip is being sponsored by your company/ the person 
-                                    who is inviting you, you need a letter of guarantee that 
+                                    If your trip is being sponsored by your company/ the person
+                                    who is inviting you, you need a letter of guarantee that
                                     displays this is necessary.
                                 </p>
                               </div>
@@ -1209,7 +1209,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                 </div>
-                
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1230,7 +1230,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Company Registration</h1>
+                              <h4 class="requiredIconHeading">Company Registration</h4>
                               <p>
                                   For example, a certified copy of the incorporation register or An overview of Company/Organization.
                               </p>
@@ -1241,7 +1241,7 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                         <div class="collapsed" id="#businessHeading11" data-toggle="collapse"
                           data-target="#business11" aria-expanded="false" aria-controls="business11"
                           [class.showDiv]="selectedBusiness === 11"
@@ -1257,11 +1257,11 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Invitation Letter</h1>
+                              <h4 class="requiredIconHeading">Invitation Letter</h4>
                               <p>
-                                  These documents are to prove that you fall into at least 
-                                  one of the categories mentioned in FAQ no.1 (“eligibility requirements”, 
-                                  on this page below). These could be old passports showing travel 
+                                  These documents are to prove that you fall into at least
+                                  one of the categories mentioned in FAQ no.1 (“eligibility requirements”,
+                                  on this page below). These could be old passports showing travel
                                   records, or an employment certificate, etc.)
                               </p>
                             </div>
@@ -1271,16 +1271,16 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
               </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer accordion wrapContainer" id="businessAccodionMobile">
                 <div class="row">
@@ -1307,14 +1307,14 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                A valid Passport of the applicant is necessary. It should have 
-                                more than two blank pages. You should also submit a photocopy of 
-                                the biodata page (both first and last pages) of 
+                                A valid Passport of the applicant is necessary. It should have
+                                more than two blank pages. You should also submit a photocopy of
+                                the biodata page (both first and last pages) of
                                 your current passport.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -1342,7 +1342,7 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 2 passport-size photos with white or grey background with the dimensions of
                                 35X45mm.
@@ -1355,7 +1355,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1375,18 +1375,18 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Visa Application Form
-                              </h1>
+                              <h4 class="requiredIconHeading">Visa Application Form
+                              </h4>
                               <p>
-                                The Japan visa application form needs to be completely 
-                                filled by you. It must also be duly signed. 
+                                The Japan visa application form needs to be completely
+                                filled by you. It must also be duly signed.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -1410,10 +1410,10 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Tickets</h1>
+                              <h4 class="requiredIconHeading">Flight Tickets</h4>
                               <p>
-                                You will need to book your flight tickets (including return tickets) 
-                                before you apply for the visa. 
+                                You will need to book your flight tickets (including return tickets)
+                                before you apply for the visa.
                               </p>
                             </div>
                           </div>
@@ -1442,18 +1442,18 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Proof Of Funds
-                              </h1>
+                              <h4 class="requiredIconHeading">Proof Of Funds
+                              </h4>
                               <p>
-                                These could include travel requisition by your employer, or a 
-                                letter of mission, or similar documents to the above. 
+                                These could include travel requisition by your employer, or a
+                                letter of mission, or similar documents to the above.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -1477,12 +1477,12 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Employement Certificate</h1>
+                              <h4 class="requiredIconHeading">Employement Certificate</h4>
                               <p>
-                                A certificate of employment from your company will be 
+                                A certificate of employment from your company will be
                                 needed as well, to show that you are employed to them.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -1511,18 +1511,18 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Invitation Letter
-                              </h1>
+                              <h4 class="requiredIconHeading">Invitation Letter
+                              </h4>
                               <p>
-                                An invitation letter from the centre in Japan that invites 
+                                An invitation letter from the centre in Japan that invites
                                 you to partake in their activities is needed as well.
                               </p>
                             </div>
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -1546,10 +1546,10 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Itinerary
-                                </h1>
+                                <h4 class="requiredIconHeading">Itinerary
+                                </h4>
                                 <p>
-                                    A scheduled itinerary day-wise must also be submitted, for all days that you are in Japan. 
+                                    A scheduled itinerary day-wise must also be submitted, for all days that you are in Japan.
                                 </p>
                           </div>
                         </div>
@@ -1579,20 +1579,20 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Letter Of Guarantee
-                                </h1>
+                                <h4 class="requiredIconHeading">Letter Of Guarantee
+                                </h4>
                                 <p>
-                                    If your trip is being sponsored by your company/ the person who 
+                                    If your trip is being sponsored by your company/ the person who
                                     is inviting you, you need a letter of guarantee that displays this is necessary.
                                 </p>
                               </div>
                             </div>
                           </div>
                         </ng-template>
-    
-    
+
+
                       </ngb-tab>
-                      
+
                     </ngb-tabset>
                 </div>
 
@@ -1616,10 +1616,10 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Company Registration
-                                </h1>
+                                <h4 class="requiredIconHeading">Company Registration
+                                </h4>
                                 <p>
-                                  For example, a certified copy of the incorporation register or An overview of Company/Organization.  
+                                  For example, a certified copy of the incorporation register or An overview of Company/Organization.
                                 </p>
                           </div>
                         </div>
@@ -1647,48 +1647,48 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Supplementary Documents
-                                </h1>
+                                <h4 class="requiredIconHeading">Supplementary Documents
+                                </h4>
                                 <p>
-                                    These documents are to prove that you fall into at least one 
-                                    of the categories mentioned in FAQ no.1 (“eligibility requirements”, 
-                                    on this page below). These could be old passports showing travel 
+                                    These documents are to prove that you fall into at least one
+                                    of the categories mentioned in FAQ no.1 (“eligibility requirements”,
+                                    on this page below). These could be old passports showing travel
                                     records, or an employment certificate, etc.)
                                 </p>
                               </div>
                             </div>
                           </div>
                         </ng-template>
-    
-    
+
+
                       </ngb-tab>
                     </ngb-tabset>
                 </div>
               </div>
-  
-  
+
+
             </div>
-  
-  
+
+
           </ng-template>
         </ngb-tab>
-        
+
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">TRANSIT
                       VISA REQUIREMENT FOR
                       JAPAN
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -1714,11 +1714,11 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                  A valid Passport of the applicant is necessary. It should have 
-                                  more than two blank pages. You should also submit a photocopy 
-                                  of the biodata page (both first and last pages) of your 
+                                  A valid Passport of the applicant is necessary. It should have
+                                  more than two blank pages. You should also submit a photocopy
+                                  of the biodata page (both first and last pages) of your
                                   current passport.
                               </p>
                             </div>
@@ -1741,7 +1741,7 @@
                         <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You  must submit one photograph that has been taken within the last 6 months.
                               </p>
@@ -1766,9 +1766,9 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
+                              <h4 class="requiredIconHeading">Visa Application Form</h4>
                               <p>
-                                  The Japan visa application form needs to be completely filled by you. It must also be duly signed. 
+                                  The Japan visa application form needs to be completely filled by you. It must also be duly signed.
                               </p>
                             </div>
                           </div>
@@ -1777,7 +1777,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-                
+
                 <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1797,12 +1797,12 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Next Cuntry Visa</h1>
+                              <h4 class="requiredIconHeading">Next Cuntry Visa</h4>
                               <p>
-                                If applicable, a copy of visa to the main destination 
-                                country is required. Some countries do not need a pre-attained 
-                                visa, and can get a visa on arrival. For these countries, you 
-                                will need to show a document/ proof that you will receive 
+                                If applicable, a copy of visa to the main destination
+                                country is required. Some countries do not need a pre-attained
+                                visa, and can get a visa on arrival. For these countries, you
+                                will need to show a document/ proof that you will receive
                                 these visas upon reaching there.
                             </p>
                             </div>
@@ -1827,7 +1827,7 @@
                             data-parent="#transitAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Cover Letter</h1>
+                                <h4 class="requiredIconHeading">Cover Letter</h4>
                                 <p>
                                     A Covering letter that states the purpose of visit and day to day details must also be submitted. This is only if you are staying for more than a day, and leaving the airport during your stay.
                                 </p>
@@ -1852,9 +1852,9 @@
                           <div id="transit6" class="collapse" aria-labelledby="transit6" data-parent="#transitAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Travel Booking</h1>
+                                <h4 class="requiredIconHeading">Travel Booking</h4>
                                 <p>
-                                    This includes a Travel itinerary, flight bookings (to the next country) and a hotel booking, if you are staying for more than a day. 
+                                    This includes a Travel itinerary, flight bookings (to the next country) and a hotel booking, if you are staying for more than a day.
                                 </p>
                               </div>
                             </div>
@@ -1883,10 +1883,10 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Bank Statement</h1>
+                              <h4 class="requiredIconHeading">Bank Statement</h4>
                               <p>
-                                  The original bank statement of the applicant must 
-                                  be submitted. This should be the last six months’ bank statements. 
+                                  The original bank statement of the applicant must
+                                  be submitted. This should be the last six months’ bank statements.
                                   In the case of bank passbooks, kindly submit the original version.
                               </p>
                             </div>
@@ -1896,30 +1896,30 @@
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                     <ngb-tab>
                       <ng-template ngbTabTitle>
-                        
+
                       </ng-template>
                       <ng-template ngbTabContent>
-                        
+
                       </ng-template>
                     </ngb-tab>
                   </ngb-tabset>
               </div>
               </div>
-  
+
               <div class="mobileContainer accordion wrapContainer" id="transitAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
@@ -1940,11 +1940,11 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
-                                  A valid Passport of the applicant is necessary. It 
-                                  should have more than two blank pages. You should also 
-                                  submit a photocopy of the biodata page (both first and last 
+                                  A valid Passport of the applicant is necessary. It
+                                  should have more than two blank pages. You should also
+                                  submit a photocopy of the biodata page (both first and last
                                   pages) of your current passport.
                               </p>
                             </div>
@@ -1974,7 +1974,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You  must submit one photograph that has been taken within the last 6 months.
                               </p>
@@ -1985,7 +1985,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -2005,7 +2005,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
+                              <h4 class="requiredIconHeading">Visa Application Form</h4>
                               <p>
                                   The Japan visa application form needs to be completely filled by you. It must also be duly signed.
                               </p>
@@ -2037,12 +2037,12 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Next Country Visa</h1>
+                              <h4 class="requiredIconHeading">Next Country Visa</h4>
                               <p>
-                                If applicable, a copy of visa to the main destination 
-                                country is required. Some countries do not need a 
-                                pre-attained visa, and can get a visa on arrival. For 
-                                these countries, you will need to show a document/ proof 
+                                If applicable, a copy of visa to the main destination
+                                country is required. Some countries do not need a
+                                pre-attained visa, and can get a visa on arrival. For
+                                these countries, you will need to show a document/ proof
                                 that you will receive these visas upon reaching there.
                               </p>
                             </div>
@@ -2073,11 +2073,11 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Cover Letter</h1>
+                                <h4 class="requiredIconHeading">Cover Letter</h4>
                                 <p>
-                                    A Covering letter that states the purpose of visit 
-                                    and day to day details must also be submitted. This is only 
-                                    if you are staying for more than a day, and leaving 
+                                    A Covering letter that states the purpose of visit
+                                    and day to day details must also be submitted. This is only
+                                    if you are staying for more than a day, and leaving
                                     the airport during your stay.
                                 </p>
                               </div>
@@ -2108,10 +2108,10 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Travel Booking</h1>
+                              <h4 class="requiredIconHeading">Travel Booking</h4>
                               <p>
-                                  This includes a Travel itinerary, flight bookings (to the 
-                                  next country) and a hotel booking, if you are 
+                                  This includes a Travel itinerary, flight bookings (to the
+                                  next country) and a hotel booking, if you are
                                   staying for more than a day.
                               </p>
                             </div>
@@ -2121,7 +2121,7 @@
                     </ngb-tab>
                   </ngb-tabset>
               </div>
-                
+
                 <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -2142,10 +2142,10 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Bank Statement</h1>
+                                <h4 class="requiredIconHeading">Bank Statement</h4>
                                 <p>
-                                    The original bank statement of the applicant must be submitted. This 
-                                    should be the last six months’ bank statements. In the case 
+                                    The original bank statement of the applicant must be submitted. This
+                                    should be the last six months’ bank statements. In the case
                                     of bank passbooks, kindly submit the original version.
                                 </p>
                               </div>
@@ -2156,9 +2156,9 @@
                     </ngb-tabset>
                 </div>
               </div>
-  
+
             </div>
-  
+
           </ng-template>
         </ngb-tab>
       </ngb-tabset>

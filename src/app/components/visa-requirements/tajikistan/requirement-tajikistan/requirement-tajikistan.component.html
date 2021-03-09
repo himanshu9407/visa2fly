@@ -4,20 +4,20 @@
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
         [orientation]="desktopOrientation">
         <ngb-tab id="Tourist" title="Tourist">
-  
+
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                  <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                       VISA REQUIREMENT FOR
                       TAJIKISTAN</span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <!-- desktopContainer -->
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
@@ -40,7 +40,7 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
+                              <h4 class="requiredIconHeading">Visa Application Form</h4>
                               <p>You will need to fill an application
                                 form for the Tajikistan visa.
                               </p>
@@ -65,7 +65,7 @@
                         <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You would need 2 passport-size photos with white or grey background with the dimensions of
                                 35X45mm.You will need two passport-sized photographs available as well.
@@ -94,8 +94,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Reservation
-                              </h1>
+                              <h4 class="requiredIconHeading">Hotel Reservation
+                              </h4>
                               <p>
                                 Proof of your confirmed hotel reservation must be shown.
                               </p>
@@ -106,7 +106,7 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -127,7 +127,7 @@
                             data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   For this application form, you will need your passport, valid
                                   for at least 6 months before entry into the country. You will
@@ -156,8 +156,8 @@
                           data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
                                 Proof of flight bookings, both to and fro tmust be shown.
                                 That includes any stops in-between.
@@ -178,14 +178,14 @@
                           </div>
                           <h2 class="setFontSize">Proof Of Funding</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="tourist6" class="collapse" aria-labelledby="heading6" data-parent="#touristAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Proof Of Funding
-                              </h1>
+                              <h4 class="requiredIconHeading">Proof Of Funding
+                              </h4>
                               <p>
                                 Proof of sufficient funds for the duration of their stay.
                                 This can be in the form of income tax returns of the last
@@ -201,9 +201,9 @@
                   </ngb-tabset>
                 </div>
               </div>
-  
-  
-  
+
+
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
@@ -226,7 +226,7 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Visa Application Form</h1>
+                              <h4 class="requiredIconHeading">Visa Application Form</h4>
                               <p>You will need to fill an application
                                 form for the Tajikistan visa.
                               </p>
@@ -258,7 +258,7 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
                                   You will need two passport-sized photographs available as well.
                                   Please include a digital copy, as you might be asked to submit
@@ -271,7 +271,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -292,8 +292,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Hotel Reservation
-                              </h1>
+                              <h4 class="requiredIconHeading">Hotel Reservation
+                              </h4>
                               <p>
                                 Proof of your confirmed hotel reservation must be shown.
                               </p>
@@ -301,8 +301,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -327,7 +327,7 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   For this application form, you will need your passport,
                                   valid for at least 6 months before entry into the country.
@@ -341,7 +341,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -362,8 +362,8 @@
                           data-parent="#touristAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Ticket
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Ticket
+                              </h4>
                               <p>
                                 Proof of flight bookings, both to and fro tmust be shown. That includes any stops
                                 in-between.
@@ -396,8 +396,8 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Proof Of Funding
-                                </h1>
+                                <h4 class="requiredIconHeading">Proof Of Funding
+                                </h4>
                                 <p>
                                   Proof of sufficient funds for the duration of their stay.
                                   This can be in the form of income tax returns of the last
@@ -413,27 +413,27 @@
                     </ngb-tabset>
                   </div>
               </div>
-  
+
             </div>
-            
+
           </ng-template>
         </ngb-tab>
         <ngb-tab id="Business" title="Business">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- business -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">BUSINESS
                       VISA REQUIREMENT FOR
                       TAJIKISTAN
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="businessAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -455,7 +455,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 For this application form, you will need your passport,
                                 valid for at least 6 months before entry into the country.
@@ -478,14 +478,14 @@
                           </div>
                           <h2 class="setFontSize">Photograph</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business2" class="collapse" aria-labelledby="businessHeading2"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Photograph</h1>
+                              <h4 class="requiredIconHeading">Photograph</h4>
                               <p>
                                 You will need two passport-sized photographs available as well.
                                 Please include a digital copy, as you might be asked to
@@ -500,7 +500,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
                           data-target="#business3" aria-expanded="false" aria-controls="business3"
-                          [class.showDiv]="selectedBusiness === 3" 
+                          [class.showDiv]="selectedBusiness === 3"
                           (click)="setActiveBusiness(3, 'setActiveBusiness3')" id="setActiveBusiness3">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Pan Card.png" alt="australia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -514,8 +514,8 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Hotel Reservation
-                              </h1>
+                              <h4 class="requiredIconHeading">Hotel Reservation
+                              </h4>
                               <p>
                                 Proof of your confirmed hotel reservation must be shown.
                               </p>
@@ -524,7 +524,7 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
-                   
+
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
@@ -534,7 +534,7 @@
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                             data-target="#business4" aria-expanded="false" aria-controls="business4"
-                            [class.showDiv]="selectedBusiness === 4" 
+                            [class.showDiv]="selectedBusiness === 4"
                             (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                             <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Passport.png" alt="australia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                             <div class="makeIconCntr">
@@ -548,7 +548,7 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Application Form</h1>
+                                <h4 class="requiredIconHeading">Application Form</h4>
                                 <p>
                                   You will need to fill an application form for the Tajikistan visa.
                                 </p>
@@ -561,7 +561,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" data-toggle="collapse" id="#businessHeading5"
                           data-target="#business5" aria-expanded="false" aria-controls="business5"
-                          [class.showDiv]="selectedBusiness === 5" 
+                          [class.showDiv]="selectedBusiness === 5"
                           (click)="setActiveBusiness(5, 'setActiveBusiness5')" id="setActiveBusiness5">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="australia business visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -575,7 +575,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Flight Bookings</h1>
+                              <h4 class="requiredIconHeading">Flight Bookings</h4>
                               <p>
                                 Proof of flight bookings, both to and fro tmust be shown. That includes any stops
                                 in-between.
@@ -596,14 +596,14 @@
                           </div>
                           <h2 class="setFontSize">Cover Letter</h2>
                         </div>
-  
+
                       </ng-template>
                       <ng-template ngbTabContent>
                         <div id="business6" class="collapse" aria-labelledby="businessHeading6"
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Cover Letter</h1>
+                              <h4 class="requiredIconHeading">Cover Letter</h4>
                               <p>
                                 A covering letter that is from representations of the foreign companies,
                                 organizations and the legal persons is require. This is irrespective
@@ -615,7 +615,7 @@
                         </div>
                       </ng-template>
                     </ngb-tab>
-                    
+
                   </ngb-tabset>
                 </div>
                 <div class="row mt-4">
@@ -625,7 +625,7 @@
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading7" data-toggle="collapse"
                             data-target="#business7" aria-expanded="false" aria-controls="business7"
-                            [class.showDiv]="selectedBusiness === 7" 
+                            [class.showDiv]="selectedBusiness === 7"
                             (click)="setActiveBusiness(7, 'setActiveBusiness7')" id="setActiveBusiness7">
                             <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="australia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                             <div class="makeIconCntr">
@@ -639,7 +639,7 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Letter Of Invitation</h1>
+                                <h4 class="requiredIconHeading">Letter Of Invitation</h4>
                                 <p>
                                   A Letter of Invitation from the company hosting you in
                                   Tajikistan is also necessary to obtain a visa. This letter
@@ -656,7 +656,7 @@
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading8" data-toggle="collapse"
                             data-target="#business8" aria-expanded="false" aria-controls="business8"
-                            [class.showDiv]="selectedBusiness === 8" 
+                            [class.showDiv]="selectedBusiness === 8"
                             (click)="setActiveBusiness(8, 'setActiveBusiness8')" id="setActiveBusiness8">
                             <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Employment Document.png" alt="australia e visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                             <div class="makeIconCntr">
@@ -670,7 +670,7 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Income Tax Return</h1>
+                                <h4 class="requiredIconHeading">Income Tax Return</h4>
                                 <p>
                                   These include income tax documents of the last three years.
                                 </p>
@@ -683,7 +683,7 @@
                       <ng-template ngbTabTitle>
                         <div class="collapsed" data-toggle="collapse" id="#businessHeading9"
                           data-target="#business9" aria-expanded="false" aria-controls="business9"
-                          [class.showDiv]="selectedBusiness === 9" 
+                          [class.showDiv]="selectedBusiness === 9"
                           (click)="setActiveBusiness(9, 'setActiveBusiness9')" id="setActiveBusiness9">
                           <!-- <img class="img-fluid" src="https://static.visa2fly.com/icon/Bank Statement.png" alt="australia business visa online" style="height: 45px; margin-bottom: 10px;" /> -->
                           <div class="makeIconCntr">
@@ -697,7 +697,7 @@
                           data-parent="#businessAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Licence Copy</h1>
+                              <h4 class="requiredIconHeading">Licence Copy</h4>
                               <p>
                                 If you are self-employed, you will need to show the copy of your company licence.
                               </p>
@@ -722,14 +722,14 @@
                             </div>
                             <h2 class="setFontSize">Proof Of Funding</h2>
                           </div>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
                           <div id="business10" class="collapse" aria-labelledby="businessHeading10"
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Proof Of Funding</h1>
+                                <h4 class="requiredIconHeading">Proof Of Funding</h4>
                                 <p>
                                   Proof of sufficient funds for the duration of their stay.
                                   This can be in the form of income tax returns of the
@@ -744,24 +744,24 @@
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
-    
+
                         </ng-template>
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
-    
+
                         </ng-template>
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
               </div>
-  
+
               <!-- mobileContainer -->
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row">
@@ -784,14 +784,14 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>
                                 For this application form, you will need your passport,
                                 valid for at least 6 months before entry into the country.
                                 You will also need a scanned copy of both the first and
                                 last pages, which they will ask you to submit on the form.
                               </p>
-  
+
                             </div>
                           </div>
                         </div>
@@ -820,7 +820,7 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
                                   You would need 2 passport-size photos with white or grey background with the dimensions of
                                   35X45mm.
@@ -835,7 +835,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -856,8 +856,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Application Form
-                              </h1>
+                              <h4 class="requiredIconHeading">Application Form
+                              </h4>
                               <p>
                                 You will need to fill an application form for the Tajikistan visa.
                               </p>
@@ -865,8 +865,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -890,7 +890,7 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Hotel Reservation</h1>
+                                <h4 class="requiredIconHeading">Hotel Reservation</h4>
                                 <p>
                                   Proof of your confirmed hotel reservation must be shown.
                                 </p>
@@ -921,8 +921,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Flight Bookings
-                              </h1>
+                              <h4 class="requiredIconHeading">Flight Bookings
+                              </h4>
                               <p>
                                 Proof of flight bookings, both to and fro tmust be shown. That includes any stops
                                 in-between.
@@ -931,8 +931,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -956,13 +956,13 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Cover Letter</h1>
+                                <h4 class="requiredIconHeading">Cover Letter</h4>
                                 <p>
                                   A covering letter that is from representations of the foreign companies, organizations and
                                   the legal persons is require. This is irrespective of their form of ownership, i.e whether
                                   you own the company, or someone else does.
                                 </p>
-    
+
                               </div>
                             </div>
                           </div>
@@ -990,8 +990,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Letter Of Invitation
-                              </h1>
+                              <h4 class="requiredIconHeading">Letter Of Invitation
+                              </h4>
                               <p>
                                 A Letter of Invitation from the company hosting you in
                                 Tajikistan is also necessary to obtain a visa. This letter
@@ -1003,8 +1003,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -1028,8 +1028,8 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Income Tax Return
-                                </h1>
+                                <h4 class="requiredIconHeading">Income Tax Return
+                                </h4>
                                 <p>
                                   These include income tax documents of the last three years.
                                 </p>
@@ -1060,8 +1060,8 @@
                           data-parent="#businessAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Licence Copy
-                              </h1>
+                              <h4 class="requiredIconHeading">Licence Copy
+                              </h4>
                               <p>
                                 If you are self-employed, you will need to show the copy of your company licence.
                               </p>
@@ -1069,8 +1069,8 @@
                           </div>
                         </div>
                       </ng-template>
-  
-  
+
+
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
@@ -1094,8 +1094,8 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Proof Of Funding
-                                </h1>
+                                <h4 class="requiredIconHeading">Proof Of Funding
+                                </h4>
                                 <p>
                                   Proof of sufficient funds for the duration of their stay.
                                   This can be in the form of income tax returns of the last
@@ -1111,27 +1111,27 @@
                     </ngb-tabset>
                   </div>
               </div>
-  
-  
+
+
             </div>
           </ng-template>
         </ngb-tab>
         <ngb-tab id="Transit" title="Transit">
           <ng-template ngbTabContent>
-  
+
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
               <!-- transit -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
-                  <h1 class="outerRequirement">
+                  <h3 class="outerRequirement">
                     <span class="requirementContainer text-uppercase">TRANSIT
                       VISA REQUIREMENT FOR
                       TAJIKISTAN
                     </span>
-                  </h1>
+                  </h3>
                 </div>
               </div>
-  
+
               <div class="desktopContainer accordion" id="transitAccodion">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -1153,7 +1153,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>You must have a valid passport that stays valid for 6 months
                                 after your designated travel to the destination country.
                               </p>
@@ -1178,7 +1178,7 @@
                         <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Onward Ticket</h1>
+                              <h4 class="requiredIconHeading">Onward Ticket</h4>
                               <p>
                                 You must be able to produce onward tickets to your destination country.
                               </p>
@@ -1204,7 +1204,7 @@
                           data-parent="#transitAccodion">
                           <div class="card requiredIcon">
                             <div class="card-body">
-                              <h1 class="requiredIconHeading">Visa Requirement</h1>
+                              <h4 class="requiredIconHeading">Visa Requirement</h4>
                               <p>If the destination country requires a visa, you must be able to produce this if asked.
                               </p>
                             </div>
@@ -1214,16 +1214,16 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
-  
+
+
               <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
                     <ngb-tab>
-  
+
                       <ng-template ngbTabTitle>
                         <div data-toggle="collapse" data-target="#transitMobile1" aria-expanded="true"
                           aria-controls="transitMobile1" [class.showDiv]="selectedMobileTransit === 1"
@@ -1240,7 +1240,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Passport</h1>
+                              <h4 class="requiredIconHeading">Passport</h4>
                               <p>You must have a valid passport that stays valid for 6 months
                                 after your designated travel to the destination country.
                               </p>
@@ -1272,7 +1272,7 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Onward Ticket</h1>
+                                <h4 class="requiredIconHeading">Onward Ticket</h4>
                                 <p>
                                   You must be able to produce onward tickets to your destination country.
                                 </p>
@@ -1283,7 +1283,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-  
+
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                     type="pills">
@@ -1304,7 +1304,7 @@
                           data-parent="#transitAccodionMobile">
                           <div class="card requiredIcon">
                             <div class="card-body" style="padding: 10px">
-                              <h1 class="requiredIconHeading">Visa Requirements</h1>
+                              <h4 class="requiredIconHeading">Visa Requirements</h4>
                               <p>If the destination country requires a visa, you must be able to produce this if asked.
                               </p>
                             </div>
@@ -1314,9 +1314,9 @@
                     </ngb-tab>
                   </ngb-tabset>
                 </div>
-  
+
               </div>
-  
+
             </div>
 
           </ng-template>

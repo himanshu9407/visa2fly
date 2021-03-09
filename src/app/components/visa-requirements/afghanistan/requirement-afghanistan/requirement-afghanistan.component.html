@@ -4,19 +4,19 @@
         <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills"
           [justify]="desktopJustify" [orientation]="desktopOrientation">
           <ngb-tab id="Tourist" title="Tourist">
-    
+
             <ng-template ngbTabContent>
-    
+
               <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
                 <div class="row">
                   <div class="col-12 text-center mgxTop">
-                    <h1 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
+                    <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
                         VISA REQUIREMENT FOR
                         AFGHANISTAN</span>
-                    </h1>
+                    </h3>
                   </div>
                 </div>
-    
+
                 <!-- desktopContainer -->
                 <div class="desktopContainer accordion" id="touristAccodion">
                   <div class="row mt-2">
@@ -43,9 +43,9 @@
                             data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <h4 class="requiredIconHeading">Visa Application Form</h4>
                                 <p>
-                                  The original application form must be submitted. It must be duly 
+                                  The original application form must be submitted. It must be duly
                                   filled and signed by the applicant.
                                 </p>
                               </div>
@@ -68,12 +68,12 @@
                           <div id="tourist2" class="collapse" aria-labelledby="heading2" data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
-                                  One 2×2 inch, standard passport size photo with a white background. Please 
-                                  make sure this photograph is taken within the last 6 months, so as to 
-                                  reflect your current appearance. The photo will need to be in full-face 
-                                  view, while directly facing the camera. The applicant must keep a neutral 
+                                  One 2×2 inch, standard passport size photo with a white background. Please
+                                  make sure this photograph is taken within the last 6 months, so as to
+                                  reflect your current appearance. The photo will need to be in full-face
+                                  view, while directly facing the camera. The applicant must keep a neutral
                                   facial expression and both eyes open.
                                 </p>
                               </div>
@@ -96,8 +96,8 @@
                           <div id="tourist3" class="collapse" aria-labelledby="heading3" data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Flight Ticket
-                                </h1>
+                                <h4 class="requiredIconHeading">Flight Ticket
+                                </h4>
                                 <p>
                                   You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
                                 </p>
@@ -108,7 +108,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -127,7 +127,7 @@
                           <div id="tourist4" class="collapse" aria-labelledby="heading4" data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   Enclose a passport with at least 6 months validity remaining and two blank visa pages.
                                 </p>
@@ -151,8 +151,8 @@
                           <div id="tourist5" class="collapse" aria-labelledby="heading5" data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Bank Statements
-                                </h1>
+                                <h4 class="requiredIconHeading">Bank Statements
+                                </h4>
                                 <p>
                                   You will need to submit your bank statements of the last 3 months. This is to show proof of sufficient finances to fund your trip.
                                 </p>
@@ -163,14 +163,14 @@
                       </ngb-tab>
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-                      
+
                         </ng-template>
                         <ng-template ngbTabContent>
                         </ng-template>
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <!-- <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -189,8 +189,8 @@
                           <div id="tourist7" class="collapse" aria-labelledby="heading7" data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Employment Documents
-                                </h1>
+                                <h4 class="requiredIconHeading">Employment Documents
+                                </h4>
                                 <p>
                                   Depending on your state of employment, you will be required to prepare and display certain
                                   documents when you apply for an Australia e-visa online. Please check the FAQs at the
@@ -216,8 +216,8 @@
                           <div id="tourist8" class="collapse" aria-labelledby="heading8" data-parent="#touristAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Flight Tickets
-                                </h1>
+                                <h4 class="requiredIconHeading">Flight Tickets
+                                </h4>
                                 <p>
                                   these are confirmed return flight tickets to your home country/ the country from which you
                                   traveled to Australia. A travel itinerary can also be presented instead of this - either
@@ -237,7 +237,7 @@
                     </ngb-tabset>
                   </div> -->
                 </div>
-    
+
                 <!-- mobileContainer -->
                 <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                   <div class="row">
@@ -264,10 +264,10 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <h4 class="requiredIconHeading">Visa Application Form</h4>
                                 <p>
-                                  The original application form must be submitted. It must be 
-                                  duly filled and signed by the applicant. 
+                                  The original application form must be submitted. It must be
+                                  duly filled and signed by the applicant.
                                 </p>
                               </div>
                             </div>
@@ -276,7 +276,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -296,12 +296,12 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
-                                  One 2×2 inch, standard passport size photo with a white background. 
-                                  Please make sure this photograph is taken within the last 6 months, 
-                                  so as to reflect your current appearance. The photo will need to be 
-                                  in full-face view, while directly facing the camera. The applicant must 
+                                  One 2×2 inch, standard passport size photo with a white background.
+                                  Please make sure this photograph is taken within the last 6 months,
+                                  so as to reflect your current appearance. The photo will need to be
+                                  in full-face view, while directly facing the camera. The applicant must
                                   keep a neutral facial expression and both eyes open.
                                 </p>
                               </div>
@@ -311,7 +311,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -331,8 +331,8 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Flight Ticket
-                                </h1>
+                                <h4 class="requiredIconHeading">Flight Ticket
+                                </h4>
                                 <p>
                                   You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
                                 </p>
@@ -340,12 +340,12 @@
                             </div>
                           </div>
                         </ng-template>
-    
-    
+
+
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -365,7 +365,7 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   Enclose a passport with at least 6 months validity remaining and two blank visa pages.
                                 </p>
@@ -376,7 +376,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -396,8 +396,8 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Bank Statements
-                                </h1>
+                                <h4 class="requiredIconHeading">Bank Statements
+                                </h4>
                                 <p>
                                   You will need to submit your bank statements of the last 3 months. This is to show proof of sufficient finances to fund your trip.
                                 </p>
@@ -408,7 +408,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <!-- <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -428,8 +428,8 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Hotel Reservation
-                                </h1>
+                                <h4 class="requiredIconHeading">Hotel Reservation
+                                </h4>
                                 <p>
                                   A copy of your hotel reservations for the entirety of your trip is required.
                                 </p>
@@ -440,7 +440,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -460,8 +460,8 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Employment Documents
-                                </h1>
+                                <h4 class="requiredIconHeading">Employment Documents
+                                </h4>
                                 <p>
                                   Depending on your state of employment, you will be required to prepare and display certain
                                   documents when you apply for an Australia e-visa online. Please check the FAQs at the
@@ -474,7 +474,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -494,8 +494,8 @@
                             data-parent="#touristAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Flight Tickets
-                                </h1>
+                                <h4 class="requiredIconHeading">Flight Tickets
+                                </h4>
                                 <p>
                                   these are confirmed return flight tickets to your home country/ the country from which you
                                   traveled to Australia. A travel itinerary can also be presented instead of this - either
@@ -508,28 +508,28 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div> -->
-    
+
                 </div>
               </div>
             </ng-template>
           </ngb-tab>
-    
+
           <ngb-tab id="Business" title="Business">
             <ng-template ngbTabContent>
-    
+
               <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
                 <!-- business -->
                 <div class="row">
                   <div class="col-12 text-center mgxTop">
-                    <h1 class="outerRequirement">
+                    <h3 class="outerRequirement">
                       <span class="requirementContainer text-uppercase">BUSINESS
                         VISA REQUIREMENT FOR
                         AFGHANISTAN
                       </span>
-                    </h1>
+                    </h3>
                   </div>
                 </div>
-    
+
                 <div class="desktopContainer accordion" id="businessAccodion">
                   <div class="row mt-2">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -555,16 +555,16 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <h4 class="requiredIconHeading">Visa Application Form</h4>
                                 <p>
-                                  The original application form must be submitted. It must be duly filled and signed by the applicant. 
+                                  The original application form must be submitted. It must be duly filled and signed by the applicant.
                                 </p>
                               </div>
                             </div>
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading2" data-toggle="collapse" data-target="#business2"
@@ -575,19 +575,19 @@
                             </div>
                             <h2 class="setFontSize">Photograph</h2>
                           </div>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
                           <div id="business2" class="collapse" aria-labelledby="businessHeading2"
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
-                                  One 2×2 inch, standard passport size photo with a white background. Please 
-                                  make sure this photograph is taken within the last 6 months, so as to 
-                                  reflect your current appearance. The photo will need to be in full-face view, 
-                                  while directly facing the camera. The applicant must keep a neutral facial 
+                                  One 2×2 inch, standard passport size photo with a white background. Please
+                                  make sure this photograph is taken within the last 6 months, so as to
+                                  reflect your current appearance. The photo will need to be in full-face view,
+                                  while directly facing the camera. The applicant must keep a neutral facial
                                   expression and both eyes open.
                                 </p>
                               </div>
@@ -595,7 +595,7 @@
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading3" data-toggle="collapse"
@@ -612,13 +612,13 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Recommendation Letter
-                                </h1>
+                                <h4 class="requiredIconHeading">Recommendation Letter
+                                </h4>
                                 <p>
-                                  You will need to obtain an introduction/recommendation letter from either 
-                                  (a) one of the Chambers of Commerce and Industries, government of India; 
-                                  (b) Ministry of Commerce and Industry of India; or 
-                                  (c)  Export Promotion Council of India; Or Reference number from Ministry of 
+                                  You will need to obtain an introduction/recommendation letter from either
+                                  (a) one of the Chambers of Commerce and Industries, government of India;
+                                  (b) Ministry of Commerce and Industry of India; or
+                                  (c)  Export Promotion Council of India; Or Reference number from Ministry of
                                   Foreign Affairs, Afghanistan.
                                 </p>
                               </div>
@@ -628,7 +628,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -636,7 +636,7 @@
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading4" data-toggle="collapse"
                             data-target="#business4" aria-expanded="false" aria-controls="business4"
-                            [class.showDiv]="selectedBusiness === 4" 
+                            [class.showDiv]="selectedBusiness === 4"
                             (click)="setActiveBusiness(4, 'setActiveBusiness4')" id="setActiveBusiness4">
                             <div class="makeIconCntr">
                               <div class="vr-passport requiredIcons img-sprite"></div>
@@ -649,7 +649,7 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   Enclose a passport with at least 6 months validity remaining and two blank visa pages.
                                 </p>
@@ -658,7 +658,7 @@
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div class="collapsed" data-toggle="collapse" id="#businessHeading5"
@@ -675,7 +675,7 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Flight Ticket</h1>
+                                <h4 class="requiredIconHeading">Flight Ticket</h4>
                                 <p>
                                   You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
                                 </p>
@@ -684,7 +684,7 @@
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading6" data-toggle="collapse" data-target="#business6"
@@ -695,14 +695,14 @@
                             </div>
                             <h2 class="setFontSize">Registration Certificate</h2>
                           </div>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
                           <div id="business6" class="collapse" aria-labelledby="businessHeading6"
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Registration Certificate</h1>
+                                <h4 class="requiredIconHeading">Registration Certificate</h4>
                                 <p>
                                   You will need to submit the company’s registration certificate from the Ministry of Commerce and Industry of India.
                                 </p>
@@ -713,7 +713,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -733,7 +733,7 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">ITR</h1>
+                                <h4 class="requiredIconHeading">ITR</h4>
                                 <p>
                                   You will need to submit your income tax documents of the last three years
                                 </p>
@@ -742,7 +742,7 @@
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div class="collapsed" id="#businessHeading8" data-toggle="collapse"
@@ -759,16 +759,16 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Company Letter</h1>
+                                <h4 class="requiredIconHeading">Company Letter</h4>
                                 <p>
-                                  Your company will need to issue a letter addressed to the embassy, which introduces the applicant for visa issuance. 
+                                  Your company will need to issue a letter addressed to the embassy, which introduces the applicant for visa issuance.
                                 </p>
                               </div>
                             </div>
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div class="collapsed" data-toggle="collapse" id="#businessHeading9"
@@ -785,7 +785,7 @@
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Invitation Letter</h1>
+                                <h4 class="requiredIconHeading">Invitation Letter</h4>
                                 <p>
                                   You will need an invitation letter from the local (Afghani) partner or prospect partner company in Afghanistan.
                                 </p>
@@ -796,7 +796,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -810,14 +810,14 @@
                             </div>
                             <h2 class="setFontSize">Company Licence</h2>
                           </div>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
                           <div id="business10" class="collapse" aria-labelledby="businessHeading10"
                             data-parent="#businessAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Company Licence</h1>
+                                <h4 class="requiredIconHeading">Company Licence</h4>
                                 <p>
                                   A copy of the license (JAWAZ) of the local partner or prospect local partner company in Afghanistan is also necessary for processing the visa.
                                 </p>
@@ -826,29 +826,29 @@
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
-    
+
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
-    
+
                         </ng-template>
                         <ng-template ngbTabContent>
-    
+
                         </ng-template>
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                 </div>
-    
+
                 <!-- mobileContainer -->
                 <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                   <div class="row">
@@ -875,7 +875,7 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Visa Application Form</h1>
+                                <h4 class="requiredIconHeading">Visa Application Form</h4>
                                 <p>
                                   The original application form must be submitted. It must be duly filled and signed by the applicant.
                                 </p>
@@ -886,7 +886,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -906,7 +906,7 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
                                   One 2×2 inch, standard passport size photo with a white background. Please make sure this photograph is taken within the last 6 months, so as to reflect your current appearance. The photo will need to be in full-face view, while directly facing the camera. The applicant must keep a neutral facial expression and both eyes open.
                                 </p>
@@ -917,7 +917,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -937,13 +937,13 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Recommendation Letter
-                                </h1>
+                                <h4 class="requiredIconHeading">Recommendation Letter
+                                </h4>
                                 <p>
-                                  You will need to obtain an introduction/recommendation letter from either 
-                                  (a)  one of the Chambers of Commerce and Industries, government of India; 
-                                  (b) Ministry of Commerce and Industry of India; or 
-                                  (c)  Export Promotion Council of India; Or Reference number from Ministry of 
+                                  You will need to obtain an introduction/recommendation letter from either
+                                  (a)  one of the Chambers of Commerce and Industries, government of India;
+                                  (b) Ministry of Commerce and Industry of India; or
+                                  (c)  Export Promotion Council of India; Or Reference number from Ministry of
                                   Foreign Affairs, Afghanistan.
                                 </p>
                               </div>
@@ -953,7 +953,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -973,7 +973,7 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   Enclose a passport with at least 6 months validity remaining and two blank visa pages.
                                 </p>
@@ -984,7 +984,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1004,10 +1004,10 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Flight Tickets
-                                </h1>
+                                <h4 class="requiredIconHeading">Flight Tickets
+                                </h4>
                                 <p>
-                                  You will need to book your tickets before you apply for your visa. 
+                                  You will need to book your tickets before you apply for your visa.
                                   Please book both onward and return flight tickets.
                                 </p>
                               </div>
@@ -1017,7 +1017,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1037,11 +1037,11 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Registration Certificate</h1>
+                                <h4 class="requiredIconHeading">Registration Certificate</h4>
                                 <p>
                                   A copy of your hotel reservations for the entirety of your trip is required.
                                 </p>
-    
+
                               </div>
                             </div>
                           </div>
@@ -1049,7 +1049,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1069,8 +1069,8 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">ITR
-                                </h1>
+                                <h4 class="requiredIconHeading">ITR
+                                </h4>
                                 <p>
                                   You will need to submit your income tax documents of the last three years.
                                 </p>
@@ -1078,12 +1078,12 @@
                             </div>
                           </div>
                         </ng-template>
-    
-    
+
+
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1103,11 +1103,11 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Company Letter</h1>
+                                <h4 class="requiredIconHeading">Company Letter</h4>
                                 <p>
                                   Your company will need to issue a letter addressed to the embassy, which introduces the applicant for visa issuance.
                                 </p>
-    
+
                               </div>
                             </div>
                           </div>
@@ -1115,7 +1115,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1135,8 +1135,8 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Invitation Letter
-                                </h1>
+                                <h4 class="requiredIconHeading">Invitation Letter
+                                </h4>
                                 <p>
                                   You will need an invitation letter from the local (Afghani) partner or prospect partner company in Afghanistan.
                                 </p>
@@ -1147,7 +1147,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1167,12 +1167,12 @@
                             data-parent="#businessAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Company Licence</h1>
+                                <h4 class="requiredIconHeading">Company Licence</h4>
                                 <p>
-                                  A copy of the license (JAWAZ) of the local partner or prospect local 
+                                  A copy of the license (JAWAZ) of the local partner or prospect local
                                   partner company in Afghanistan is also necessary for processing the visa.
                                 </p>
-    
+
                               </div>
                             </div>
                           </div>
@@ -1180,28 +1180,28 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                 </div>
               </div>
             </ng-template>
           </ngb-tab>
-    
+
           <ngb-tab id="Transit" title="Transit">
             <ng-template ngbTabContent>
-    
+
               <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
                 <!-- transit -->
                 <div class="row">
                   <div class="col-12 text-center mgxTop">
-                    <h1 class="outerRequirement">
+                    <h3 class="outerRequirement">
                       <span class="requirementContainer text-uppercase">TRANSIT
                         VISA REQUIREMENT FOR
                         AFGHANISTAN
                       </span>
-                    </h1>
+                    </h3>
                   </div>
                 </div>
-    
+
                 <div class="desktopContainer accordion" id="transitAccodion">
                   <div class="row mt-2">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -1227,7 +1227,7 @@
                             data-parent="#transitAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   Enclose a passport with at least 6 months validity remaining and two blank visa pages.
                                 </p>
@@ -1236,7 +1236,7 @@
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div data-toggle="collapse" data-target="#transit2" aria-expanded="true"
@@ -1252,16 +1252,16 @@
                           <div id="transit2" class="collapse" aria-labelledby="transit2" data-parent="#transitAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Application Form</h1>
+                                <h4 class="requiredIconHeading">Application Form</h4>
                                 <p>
-                                  The original application form (which you have filled in manually) must be submitted. It must be duly filled and signed by the applicant. 
+                                  The original application form (which you have filled in manually) must be submitted. It must be duly filled and signed by the applicant.
                                 </p>
                               </div>
                             </div>
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div data-toggle="collapse" data-target="#transit3" aria-expanded="true"
@@ -1278,7 +1278,7 @@
                             data-parent="#transitAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Flight Tickets</h1>
+                                <h4 class="requiredIconHeading">Flight Tickets</h4>
                                 <p>
                                   You will need to book your tickets before you apply for your visa. Please book both onward and return flight tickets.
                                 </p>
@@ -1313,12 +1313,12 @@
                             data-parent="#transitAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
-                                  One 2×2 inch, standard passport size photo with a white background. Please make 
-                                  sure this photograph is taken within the last 6 months, so as to reflect your 
-                                  current appearance. The photo will need to be in full-face view, while directly 
-                                  facing the camera. The applicant must keep a neutral facial expression and both 
+                                  One 2×2 inch, standard passport size photo with a white background. Please make
+                                  sure this photograph is taken within the last 6 months, so as to reflect your
+                                  current appearance. The photo will need to be in full-face view, while directly
+                                  facing the camera. The applicant must keep a neutral facial expression and both
                                   eyes open.
                                 </p>
                               </div>
@@ -1326,7 +1326,7 @@
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                           <div data-toggle="collapse" data-target="#transit5" aria-expanded="true"
@@ -1342,16 +1342,16 @@
                           <div id="transit5" class="collapse" aria-labelledby="transit5" data-parent="#transitAccodion">
                             <div class="card requiredIcon">
                               <div class="card-body">
-                                <h1 class="requiredIconHeading">Onward Visa</h1>
+                                <h4 class="requiredIconHeading">Onward Visa</h4>
                                 <p>
-                                  You will need to submit a copy of the valid visa for your destination country. 
+                                  You will need to submit a copy of the valid visa for your destination country.
                                 </p>
                               </div>
                             </div>
                           </div>
                         </ng-template>
                       </ngb-tab>
-    
+
                       <ngb-tab>
                         <ng-template ngbTabTitle>
                         </ng-template>
@@ -1361,7 +1361,7 @@
                     </ngb-tabset>
                   </div>
                 </div>
-    
+
                 <div class="mobileContainer wrapContainer accordion" id="transitAccodionMobile">
                   <div class="row">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -1387,7 +1387,7 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Passport</h1>
+                                <h4 class="requiredIconHeading">Passport</h4>
                                 <p>
                                   Enclose a passport with at least 6 months validity remaining and two blank visa pages.
                                 </p>
@@ -1398,7 +1398,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1418,9 +1418,9 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Application Form</h1>
+                                <h4 class="requiredIconHeading">Application Form</h4>
                                 <p>
-                                  The original application form (which you have filled in manually) must be 
+                                  The original application form (which you have filled in manually) must be
                                   submitted. It must be duly filled and signed by the applicant.
                                 </p>
                               </div>
@@ -1430,7 +1430,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                   <div class="row mt-4">
                     <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
                       type="pills">
@@ -1450,7 +1450,7 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Flight Tickets</h1>
+                                <h4 class="requiredIconHeading">Flight Tickets</h4>
                                 <p>
                                   You will need to book your tickets before you apply for your visa.
                                    Please book both onward and return flight tickets.
@@ -1482,12 +1482,12 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Photograph</h1>
+                                <h4 class="requiredIconHeading">Photograph</h4>
                                 <p>
-                                  One 2×2 inch, standard passport size photo with a white background. 
-                                  Please make sure this photograph is taken within the last 6 months, 
-                                  so as to reflect your current appearance. The photo will need to be 
-                                  in full-face view, while directly facing the camera. The applicant must 
+                                  One 2×2 inch, standard passport size photo with a white background.
+                                  Please make sure this photograph is taken within the last 6 months,
+                                  so as to reflect your current appearance. The photo will need to be
+                                  in full-face view, while directly facing the camera. The applicant must
                                   keep a neutral facial expression and both eyes open.
                                 </p>
                               </div>
@@ -1517,7 +1517,7 @@
                             data-parent="#transitAccodionMobile">
                             <div class="card requiredIcon">
                               <div class="card-body" style="padding: 10px">
-                                <h1 class="requiredIconHeading">Onward Visa</h1>
+                                <h4 class="requiredIconHeading">Onward Visa</h4>
                                 <p>
                                   You will need to submit a copy of the valid visa for your destination country.
                                 </p>
@@ -1528,7 +1528,7 @@
                       </ngb-tab>
                     </ngb-tabset>
                   </div>
-    
+
                 </div>
               </div>
             </ng-template>
