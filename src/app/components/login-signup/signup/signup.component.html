@@ -1,43 +1,109 @@
 <form class="form-body" [formGroup]="signupForm">
-  <div class="row" [ngClass]="{'hide': showOtpBox, 'show': !showOtpBox }">
+  <div class="row" [ngClass]="{ hide: showOtpBox, show: !showOtpBox }">
     <div class="col-6 input-group pr-1">
       <!-- <label for="firstName">First Name <span class="astrisk">*</span></label> -->
-      <input pattern="[A-Za-z]{3,32}" formControlName="firstName" autocomplete="off" class="form-control" type="text"
-        name="firstName" id="firstName" (keydown.enter)="signUpDetail($event)"
-        [ngClass]="{'is-invalid':signupForm.get('firstName').invalid && signupForm.get('firstName').dirty,'is-valid':!(signupForm.get('firstName').invalid && signupForm.get('firstName').dirty) && !signupForm.get('firstName').pristine}"
-        placeholder="First Name" />
+      <input
+        pattern="[A-Za-z]{3,32}"
+        formControlName="firstName"
+        autocomplete="off"
+        class="form-control"
+        type="text"
+        name="firstName"
+        id="firstName"
+        (keydown.enter)="signUpDetail($event)"
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('firstName').invalid &&
+            signupForm.get('firstName').dirty,
+          'is-valid':
+            !(
+              signupForm.get('firstName').invalid &&
+              signupForm.get('firstName').dirty
+            ) && !signupForm.get('firstName').pristine
+        }"
+        placeholder="First Name"
+      />
     </div>
 
     <div class="col-6 input-group pl-1">
       <!-- <label for="lastName">Last Name <span class="astrisk">*</span></label> -->
-      <input pattern="[A-Za-z]{3,32}" formControlName="lastName" autocomplete="off" type="text" name="lastName"
-        id="lastName" class="form-control" (keydown.enter)="signUpDetail($event)"
-        [ngClass]="{'is-invalid':signupForm.get('lastName').invalid && signupForm.get('lastName').dirty,'is-valid':!(signupForm.get('lastName').invalid && signupForm.get('lastName').dirty) && !signupForm.get('lastName').pristine}"
-        placeholder="Last Name" />
+      <input
+        pattern="[A-Za-z]{3,32}"
+        formControlName="lastName"
+        autocomplete="off"
+        type="text"
+        name="lastName"
+        id="lastName"
+        class="form-control"
+        (keydown.enter)="signUpDetail($event)"
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('lastName').invalid &&
+            signupForm.get('lastName').dirty,
+          'is-valid':
+            !(
+              signupForm.get('lastName').invalid &&
+              signupForm.get('lastName').dirty
+            ) && !signupForm.get('lastName').pristine
+        }"
+        placeholder="Last Name"
+      />
     </div>
 
     <div class="col-6">
-      <div class="invalid-feedback pr-1" style="display: block;">
-        <div *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').dirty ">Enter a valid First
-          Name*</div>
+      <div class="invalid-feedback pr-1" style="display: block">
+        <div
+          *ngIf="
+            signupForm.get('firstName').invalid &&
+            signupForm.get('firstName').dirty
+          "
+        >
+          Enter a valid First Name*
+        </div>
       </div>
     </div>
 
     <div class="col-6">
-      <div class="invalid-feedback pl-1" style="display: block;">
-        <div *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').dirty ">Enter a valid Last Name*
+      <div class="invalid-feedback pl-1" style="display: block">
+        <div
+          *ngIf="
+            signupForm.get('lastName').invalid &&
+            signupForm.get('lastName').dirty
+          "
+        >
+          Enter a valid Last Name*
         </div>
       </div>
     </div>
 
     <div class="col-12 input-group">
       <!-- <label for="email">Email <span class="astrisk">*</span></label> -->
-      <input pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" autocomplete="off" formControlName="email"
-        class="form-control" type="email" name="email" id="email" (keydown.enter)="signUpDetail($event)"
-        [ngClass]="{'is-invalid':signupForm.get('email').invalid && signupForm.get('email').dirty,'is-valid':!(signupForm.get('email').invalid && signupForm.get('email').dirty) && !signupForm.get('email').pristine}"
-        placeholder="Email Id" />
-      <div class="invalid-feedback" style="display: block;">
-        <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').dirty ">Enter a valid email address*
+      <input
+        pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
+        autocomplete="off"
+        formControlName="email"
+        class="form-control"
+        type="email"
+        name="email"
+        id="email"
+        (keydown.enter)="signUpDetail($event)"
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('email').invalid && signupForm.get('email').dirty,
+          'is-valid':
+            !(
+              signupForm.get('email').invalid && signupForm.get('email').dirty
+            ) && !signupForm.get('email').pristine
+        }"
+        placeholder="Email Id"
+      />
+      <div class="invalid-feedback" style="display: block">
+        <div
+          *ngIf="
+            signupForm.get('email').invalid && signupForm.get('email').dirty
+          "
+        >
+          Enter a valid email address*
         </div>
       </div>
     </div>
@@ -45,170 +111,294 @@
     <div class="col-12 input-group">
       <!-- <label for="cellNo">Cell Number <span class="astrisk">*</span></label> -->
       <input
-        [ngClass]="{'is-invalid':signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,'is-valid':!(signupForm.get('mobile').invalid && signupForm.get('mobile').dirty) && !signupForm.get('mobile').pristine}"
-        (keydown.enter)="signUpDetail($event)" formControlName="mobile" pattern="^[4-9][0-9]{9}$" type="tel"
-        autocomplete="off" name="cellNo" id="cellNo" class="form-control" placeholder="Mobile" />
-      <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').dirty" class="invalid-feedback"
-        style="display: block;">
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,
+          'is-valid':
+            !(
+              signupForm.get('mobile').invalid && signupForm.get('mobile').dirty
+            ) && !signupForm.get('mobile').pristine
+        }"
+        (keydown.enter)="signUpDetail($event)"
+        formControlName="mobile"
+        pattern="^[4-9][0-9]{9}$"
+        type="tel"
+        autocomplete="off"
+        name="cellNo"
+        id="cellNo"
+        class="form-control"
+        placeholder="Mobile"
+      />
+      <div
+        *ngIf="
+          signupForm.get('mobile').invalid && signupForm.get('mobile').dirty
+        "
+        class="invalid-feedback"
+        style="display: block"
+      >
         <div>Invalid Mobile Number*</div>
       </div>
     </div>
 
-    <div class="col-12 mt-3">
+    <div class="col-12 mt-3 agreeBox">
       <div class="form-group mb-0 tnc">
-        <input type="checkbox" formControlName="tnc" id="tnc">
-        <label for="tnc">I Agree to <a [routerLink]="['/tnc']" style="text-decoration: none;">Terms and
-            Conditions</a></label>
+        <input type="checkbox" formControlName="tnc" id="tnc" />
+        <label for="tnc"
+          >I Agree to
+          <a [routerLink]="['/tnc']" style="text-decoration: none"
+            >Terms and Conditions</a
+          ></label
+        >
       </div>
     </div>
 
     <!-- *ngIf="showSendOtpButton" -->
     <!-- {{showSendOtpButton}} -->
     <div class="col-12 button-group" *ngIf="showSendOtpButton">
-      <button [type]="showOtpBox ? 'button' : 'submit'" (click)="onSubmit()" value="VerifyOTP"
-        class="scale-transition btn float-right login_btn">
-        Send OTP</button>
+      <button
+        [type]="showOtpBox ? 'button' : 'submit'"
+        (click)="onSubmit()"
+        value="VerifyOTP"
+        class="scale-transition btn float-right login_btn"
+      >
+        Send OTP
+      </button>
     </div>
 
     <div class="col-12 button-group loading py-1" *ngIf="showRotatingLoader">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        height="20" width="20" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-        xml:space="preserve">
-        <path style="fill:#2D50A7;" d="M267.636,0c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
-	c12.853,0,23.273-10.42,23.273-23.273V23.273C290.909,10.42,280.489,0,267.636,0z" />
-        <path style="fill:#73A1FB;" d="M267.638,372.364c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
-	c12.853,0,23.273-10.42,23.273-23.273v-93.091C290.911,382.784,280.491,372.364,267.638,372.364z" />
-        <path style="fill:#355EC9;" d="M185.355,140.808L119.529,74.98c-9.086-9.089-23.822-9.089-32.912,0
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        height="20"
+        width="20"
+        x="0px"
+        y="0px"
+        viewBox="0 0 512 512"
+        style="enable-background: new 0 0 512 512"
+        xml:space="preserve"
+      >
+        <path
+          style="fill: #2d50a7"
+          d="M267.636,0c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273V23.273C290.909,10.42,280.489,0,267.636,0z"
+        />
+        <path
+          style="fill: #73a1fb"
+          d="M267.638,372.364c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273v-93.091C290.911,382.784,280.491,372.364,267.638,372.364z"
+        />
+        <path
+          style="fill: #355ec9"
+          d="M185.355,140.808L119.529,74.98c-9.086-9.089-23.822-9.089-32.912,0
 	c-9.089,9.089-9.089,23.824,0,32.912l65.826,65.828c4.544,4.544,10.501,6.817,16.455,6.817c5.955,0,11.913-2.273,16.455-6.817
-	C194.444,164.631,194.444,149.897,185.355,140.808z" />
+	C194.444,164.631,194.444,149.897,185.355,140.808z"
+        />
         <g>
-          <path style="fill:#C4D9FD;" d="M477.091,232.727h-46.545c-12.853,0-23.273,10.42-23.273,23.273
+          <path
+            style="fill: #c4d9fd"
+            d="M477.091,232.727h-46.545c-12.853,0-23.273,10.42-23.273,23.273
 		c0,12.853,10.42,23.273,23.273,23.273h46.545c12.853,0,23.273-10.42,23.273-23.273
-		C500.364,243.147,489.944,232.727,477.091,232.727z" />
-          <path style="fill:#C4D9FD;" d="M382.83,338.283c-9.087-9.089-23.823-9.087-32.912,0c-9.089,9.089-9.087,23.823,0,32.912
+		C500.364,243.147,489.944,232.727,477.091,232.727z"
+          />
+          <path
+            style="fill: #c4d9fd"
+            d="M382.83,338.283c-9.087-9.089-23.823-9.087-32.912,0c-9.089,9.089-9.087,23.823,0,32.912
 		l65.828,65.825c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.273,16.455-6.816c9.089-9.089,9.089-23.824,0-32.912
-		L382.83,338.283z" />
+		L382.83,338.283z"
+          />
         </g>
-        <path style="fill:#3D6DEB;" d="M151.273,256c0-12.853-10.42-23.273-23.273-23.273H34.909c-12.853,0-23.273,10.42-23.273,23.273
-	c0,12.853,10.42,23.273,23.273,23.273H128C140.853,279.273,151.273,268.853,151.273,256z" />
-        <path style="fill:#5286FA;" d="M185.355,338.283c-9.087-9.089-23.824-9.089-32.912,0l-65.825,65.825
+        <path
+          style="fill: #3d6deb"
+          d="M151.273,256c0-12.853-10.42-23.273-23.273-23.273H34.909c-12.853,0-23.273,10.42-23.273,23.273
+	c0,12.853,10.42,23.273,23.273,23.273H128C140.853,279.273,151.273,268.853,151.273,256z"
+        />
+        <path
+          style="fill: #5286fa"
+          d="M185.355,338.283c-9.087-9.089-23.824-9.089-32.912,0l-65.825,65.825
 	c-9.089,9.087-9.089,23.824,0,32.912c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.271,16.455-6.816l65.825-65.825
-	C194.444,362.108,194.444,347.372,185.355,338.283z" />
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
+	C194.444,362.108,194.444,347.372,185.355,338.283z"
+        />
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
       </svg>
     </div>
   </div>
 
-  <div class="row"  [ngClass]="{'show': showOtpBox, 'hide': !showOtpBox }">
+  <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }">
     <!-- *ngIf="showOtpFields" -->
     <div class="form-group w-100">
-      <div class="col-12" style="text-align: center; height: 110px; padding-top: 25px;">
+      <div
+        class="col-12"
+        style="text-align: center; height: 110px; padding-top: 25px"
+      >
         <label for="digit1">Enter OTP</label>
         <div class="otp-box">
-          <input id="digit1" type="tel" class="box productkey1" pattern="^[0-9]*$" size="1" max="9"
-            formControlName="digit1" maxlength="1" autocomplete="off">
-          <input id="digit2" type="tel" class="box productkey1" pattern="^[0-9]*$" size="1" max="9"
-            formControlName="digit2" maxlength="1" autocomplete="off">
-          <input id="digit3" type="tel" class="box productkey1" pattern="^[0-9]*$" size="1" max="9"
-            formControlName="digit3" maxlength="1" autocomplete="off">
-          <input id="digit4" type="tel" class="box productkey1" pattern="^[0-9]*$" size="1" max="9"
-            formControlName="digit4" maxlength="1" autocomplete="off">
-          <input id="digit5" type="tel" class="box productkey1" pattern="^[0-9]*$" size="1" max="9"
-            formControlName="digit5" maxlength="1" autocomplete="off">
-          <input id="digit6" type="tel" class="box productkey1" pattern="^[0-9]*$" size="1" max="9"
-            formControlName="digit6" maxlength="1" autocomplete="off">
+          <input
+            id="digit1"
+            type="tel"
+            class="box productkey1"
+            pattern="^[0-9]*$"
+            size="1"
+            max="9"
+            formControlName="digit1"
+            maxlength="1"
+            autocomplete="off"
+          />
+          <input
+            id="digit2"
+            type="tel"
+            class="box productkey1"
+            pattern="^[0-9]*$"
+            size="1"
+            max="9"
+            formControlName="digit2"
+            maxlength="1"
+            autocomplete="off"
+          />
+          <input
+            id="digit3"
+            type="tel"
+            class="box productkey1"
+            pattern="^[0-9]*$"
+            size="1"
+            max="9"
+            formControlName="digit3"
+            maxlength="1"
+            autocomplete="off"
+          />
+          <input
+            id="digit4"
+            type="tel"
+            class="box productkey1"
+            pattern="^[0-9]*$"
+            size="1"
+            max="9"
+            formControlName="digit4"
+            maxlength="1"
+            autocomplete="off"
+          />
+          <input
+            id="digit5"
+            type="tel"
+            class="box productkey1"
+            pattern="^[0-9]*$"
+            size="1"
+            max="9"
+            formControlName="digit5"
+            maxlength="1"
+            autocomplete="off"
+          />
+          <input
+            id="digit6"
+            type="tel"
+            class="box productkey1"
+            pattern="^[0-9]*$"
+            size="1"
+            max="9"
+            formControlName="digit6"
+            maxlength="1"
+            autocomplete="off"
+          />
         </div>
       </div>
     </div>
 
     <div class="col-12 button-group" *ngIf="showSignUpButton">
-      <button (click)="createUser()" [type]="showOtpBox ? 'submit' : 'button'" value="Signup"
-        class="btn float-right login_btn scale-transition">Signup</button>
+      <button
+        (click)="createUser()"
+        [type]="showOtpBox ? 'submit' : 'button'"
+        value="Signup"
+        class="btn float-right login_btn scale-transition"
+      >
+        Signup
+      </button>
     </div>
 
     <div class="col-12 button-group loading py-1" *ngIf="showRotatingLoader">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        height="20" width="20" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-        xml:space="preserve">
-        <path style="fill:#2D50A7;" d="M267.636,0c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
-	c12.853,0,23.273-10.42,23.273-23.273V23.273C290.909,10.42,280.489,0,267.636,0z" />
-        <path style="fill:#73A1FB;" d="M267.638,372.364c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
-	c12.853,0,23.273-10.42,23.273-23.273v-93.091C290.911,382.784,280.491,372.364,267.638,372.364z" />
-        <path style="fill:#355EC9;" d="M185.355,140.808L119.529,74.98c-9.086-9.089-23.822-9.089-32.912,0
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        height="20"
+        width="20"
+        x="0px"
+        y="0px"
+        viewBox="0 0 512 512"
+        style="enable-background: new 0 0 512 512"
+        xml:space="preserve"
+      >
+        <path
+          style="fill: #2d50a7"
+          d="M267.636,0c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273V23.273C290.909,10.42,280.489,0,267.636,0z"
+        />
+        <path
+          style="fill: #73a1fb"
+          d="M267.638,372.364c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273v-93.091C290.911,382.784,280.491,372.364,267.638,372.364z"
+        />
+        <path
+          style="fill: #355ec9"
+          d="M185.355,140.808L119.529,74.98c-9.086-9.089-23.822-9.089-32.912,0
 	c-9.089,9.089-9.089,23.824,0,32.912l65.826,65.828c4.544,4.544,10.501,6.817,16.455,6.817c5.955,0,11.913-2.273,16.455-6.817
-	C194.444,164.631,194.444,149.897,185.355,140.808z" />
+	C194.444,164.631,194.444,149.897,185.355,140.808z"
+        />
         <g>
-          <path style="fill:#C4D9FD;" d="M477.091,232.727h-46.545c-12.853,0-23.273,10.42-23.273,23.273
+          <path
+            style="fill: #c4d9fd"
+            d="M477.091,232.727h-46.545c-12.853,0-23.273,10.42-23.273,23.273
 		c0,12.853,10.42,23.273,23.273,23.273h46.545c12.853,0,23.273-10.42,23.273-23.273
-		C500.364,243.147,489.944,232.727,477.091,232.727z" />
-          <path style="fill:#C4D9FD;" d="M382.83,338.283c-9.087-9.089-23.823-9.087-32.912,0c-9.089,9.089-9.087,23.823,0,32.912
+		C500.364,243.147,489.944,232.727,477.091,232.727z"
+          />
+          <path
+            style="fill: #c4d9fd"
+            d="M382.83,338.283c-9.087-9.089-23.823-9.087-32.912,0c-9.089,9.089-9.087,23.823,0,32.912
 		l65.828,65.825c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.273,16.455-6.816c9.089-9.089,9.089-23.824,0-32.912
-		L382.83,338.283z" />
+		L382.83,338.283z"
+          />
         </g>
-        <path style="fill:#3D6DEB;" d="M151.273,256c0-12.853-10.42-23.273-23.273-23.273H34.909c-12.853,0-23.273,10.42-23.273,23.273
-	c0,12.853,10.42,23.273,23.273,23.273H128C140.853,279.273,151.273,268.853,151.273,256z" />
-        <path style="fill:#5286FA;" d="M185.355,338.283c-9.087-9.089-23.824-9.089-32.912,0l-65.825,65.825
+        <path
+          style="fill: #3d6deb"
+          d="M151.273,256c0-12.853-10.42-23.273-23.273-23.273H34.909c-12.853,0-23.273,10.42-23.273,23.273
+	c0,12.853,10.42,23.273,23.273,23.273H128C140.853,279.273,151.273,268.853,151.273,256z"
+        />
+        <path
+          style="fill: #5286fa"
+          d="M185.355,338.283c-9.087-9.089-23.824-9.089-32.912,0l-65.825,65.825
 	c-9.089,9.087-9.089,23.824,0,32.912c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.271,16.455-6.816l65.825-65.825
-	C194.444,362.108,194.444,347.372,185.355,338.283z" />
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
+	C194.444,362.108,194.444,347.372,185.355,338.283z"
+        />
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
       </svg>
     </div>
 
@@ -217,26 +407,42 @@
       <div class="resendBtn changeBtn">
         <button (click)="onSubmit()" [disabled]="disableResend">
           <span class="agree">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000080" width="18px" height="18px" *ngIf="!disableResend">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="#000080"
+              width="18px"
+              height="18px"
+              *ngIf="!disableResend"
+            >
               <path
-                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
-              <path d="M0 0h24v24H0z" fill="none" /></svg>
-              {{ resendBtnText }}
+                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"
+              />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+            {{ resendBtnText }}
           </span>
         </button>
       </div>
       <div class="resendBtn">
         <button (click)="changeUserNumber()">
           <span class="agree">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000080" width="18px" height="18px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="#000080"
+              width="18px"
+              height="18px"
+            >
               <path
-                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
-              <path d="M0 0h24v24H0z" fill="none" /></svg>
+                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"
+              />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
             Change Detail
           </span>
         </button>
       </div>
     </div>
-
   </div>
 </form>
