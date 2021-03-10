@@ -191,6 +191,11 @@ li {
   font-size: 18px;
   color: #60666d;
 }
+
+.select-box p {
+  font-size: 14px;
+}
+
 .select-box__current {
   position: relative;
   box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
@@ -263,16 +268,19 @@ li {
   animation-timing-function: step-start;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .select-box__option {
   display: block;
   padding: 10px;
   background-color: #fff;
 }
+
 .select-box__option:hover,
 .select-box__option:focus {
   color: #546c84;
   background-color: #fbfbfb;
 }
+
 .select-box svg {
   fill: #fff;
 }
@@ -302,7 +310,6 @@ li {
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .imageContainer {
     padding: 0px 0px 10px 10px;
-    margin-top: 107px;
   }
 }
 
@@ -325,6 +332,7 @@ li {
 
   .imageContainer {
     height: 225px;
+    margin-top: 105px;
   }
 
   .imageContainer .countryFlag {
@@ -334,5 +342,23 @@ li {
 
   .imageContainer .country-info .country-heading {
     font-size: 16px;
+  }
+
+  .setPadding {
+    font-weight: 600;
+    padding-right: 0px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .select-box p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .imageContainer {
+    margin-top: 102px;
   }
 }

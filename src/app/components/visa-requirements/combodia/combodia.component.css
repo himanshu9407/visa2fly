@@ -3,6 +3,7 @@
   padding-right: 0px;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .visaDropDown {
@@ -18,6 +19,7 @@ li {
 .mobileView,
 .mobileContainer {
   display: none;
+  position: relative;
 }
 
 .desktopView,
@@ -33,26 +35,28 @@ li {
   background-image: linear-gradient(
       to left,
       rgba(0, 45, 75, 0),
-      rgba(77, 1, 1, 0.4)
+      rgba(0, 0, 0, 0.4)
     ),
     url(https://static.visa2fly.com/country/v2/Cambodia.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-/* https://static.visa2fly.com/country/v2/Cambodia.jpg */
 
 .imageContainer.desktopView {
   margin-top: 50px;
-  padding: 0px 0px 10px 40px;
+  padding: 40px 0px 10px 40px;
   height: 500px;
-  overflow: hidden;
+  position: relative;
 }
 
 .imageContainer .breadcrum {
   font-size: 12px;
   margin-bottom: 10px;
   color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .imageContainer .breadcrum span {
@@ -153,11 +157,19 @@ li {
   .desktopView {
     display: none;
   }
+
+  .imageContainer {
+    margin-top: 105px;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 350px) {
   .changingPurpose {
     width: 250px !important;
+  }
+
+  .imageContainer {
+    margin-top: 105px;
   }
 }
 
@@ -175,6 +187,30 @@ li {
   .wrapContainer {
     padding: 10px 15px 10px;
   }
+
+  .setPadding {
+    font-weight: 600;
+    padding-right: 0px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .select-box p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .imageContainer {
+    margin-top: 102px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 480px) {
+  .imageContainer {
+    margin-top: 105px;
+  }
 }
 
 .changingPurpose {
@@ -189,8 +225,12 @@ li {
   display: block;
   width: 100%;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 15px;
   color: #60666d;
+}
+
+.select-box p {
+  font-size: 14px;
 }
 
 .select-box__current {
@@ -306,8 +346,7 @@ li {
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .imageContainer {
-    padding: 0px 0px 10px 10px;
-    margin-top: 107px;
+    padding: 25px 0px 10px 10px;
   }
 }
 

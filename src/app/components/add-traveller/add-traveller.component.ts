@@ -796,17 +796,6 @@ export class AddTravellerComponent implements OnInit {
         this.travelDetails.get("dateOfCollection").value == ""
       ) {
         this.collectionDateError = true;
-        let topPicker;
-        if (window.innerWidth > 600) {
-          topPicker = 0;
-        } else {
-          topPicker = 490;
-        }
-        window.scrollTo({
-          top: topPicker + this.scrollBy,
-          left: 0,
-          behavior: "smooth",
-        });
       } else {
         this.collectionDateError = false;
       }

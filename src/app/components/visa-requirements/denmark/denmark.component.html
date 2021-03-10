@@ -1,17 +1,12 @@
 <div class="imageContainer desktopView">
-  <div class="row">
-    <div class="col-12 text-right">
-      <p class="breadcrum">
-        <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
-            >{{ selectedCountrytype }} Visa Details</b
-          >
-        </span>
-      </p>
-    </div>
-  </div>
-
-  <div class="container-fluid mt-4">
+  <div class="container-fluid">
+    <p class="breadcrum">
+      <span>
+        <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+          >{{ selectedCountrytype }} Visa Details</b
+        >
+      </span>
+    </p>
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
@@ -26,7 +21,13 @@
           <div class="country-info">
             <h2 class="country-heading">{{ selectedCountrytype }}</h2>
             <p class="country-desc">
-                Denmark is a Scandinavian country comprising 406 islands - 70 of which are inhabited. It is famous for its arts and design connoisseurs, who have come up with the likes of Bang & Olufsen, Royal Copenhagen porcelain and even the Sydney Opera House. People who come here generally visit Copenhagen (its capital), the cobblestoned alleyways of Odense (home of Hans Christian Andersen), Aarhus and Aalborg.
+              Denmark is a Scandinavian country comprising 406 islands - 70 of
+              which are inhabited. It is famous for its arts and design
+              connoisseurs, who have come up with the likes of Bang & Olufsen,
+              Royal Copenhagen porcelain and even the Sydney Opera House. People
+              who come here generally visit Copenhagen (its capital), the
+              cobblestoned alleyways of Odense (home of Hans Christian
+              Andersen), Aarhus and Aalborg.
             </p>
           </div>
         </div>
@@ -40,43 +41,97 @@
             <div class="col-lg-9 col-md-6 col-8 visaDropDown">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value" *ngIf="isTourist">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Tourist"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value" *ngIf="isBusiness">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Business"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value" *ngIf="isTransit">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Transit"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li *ngIf="isTourist">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Tourist"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li *ngIf="isBusiness">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Business"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li *ngIf="isTransit">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Transit"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -90,19 +145,14 @@
 </div>
 
 <div class="imageContainer mobileView">
-  <div class="row">
-    <div class="col-12 text-right p-0">
-      <p class="breadcrum">
-        <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
-            >{{ selectedCountrytype }} Visa Details</b
-          >
-        </span>
-      </p>
-    </div>
-  </div>
-
   <div class="container-fluid mt-2">
+    <p class="breadcrum">
+      <span>
+        <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+          >{{ selectedCountrytype }} Visa Details</b
+        >
+      </span>
+    </p>
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
@@ -128,43 +178,97 @@
             <div class="col-lg-9 col-md-6 col-8 visaDropDown p-0">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value" *ngIf="isTourist">
-                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mTourist"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value" *ngIf="isBusiness">
-                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mBusiness"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value" *ngIf="isTransit">
-                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mTransit"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li *ngIf="isTourist">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mTourist"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li *ngIf="isBusiness">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mBusiness"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li *ngIf="isTransit">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mTransit"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -181,7 +285,12 @@
   <div class="row">
     <div class="col-12">
       <p class="country-desc">
-        Denmark is a Scandinavian country comprising 406 islands - 70 of which are inhabited. It is famous for its arts and design connoisseurs, who have come up with the likes of Bang & Olufsen, Royal Copenhagen porcelain and even the Sydney Opera House. People who come here generally visit Copenhagen (its capital), the cobblestoned alleyways of Odense (home of Hans Christian Andersen), Aarhus and Aalborg.
+        Denmark is a Scandinavian country comprising 406 islands - 70 of which
+        are inhabited. It is famous for its arts and design connoisseurs, who
+        have come up with the likes of Bang & Olufsen, Royal Copenhagen
+        porcelain and even the Sydney Opera House. People who come here
+        generally visit Copenhagen (its capital), the cobblestoned alleyways of
+        Odense (home of Hans Christian Andersen), Aarhus and Aalborg.
       </p>
     </div>
   </div>

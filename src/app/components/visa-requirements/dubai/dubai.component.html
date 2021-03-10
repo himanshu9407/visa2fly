@@ -1,37 +1,41 @@
 <div class="imageContainer desktopView">
-  <div class="row">
-    <div class="col-12 text-right">
-      <p class="breadcrum">
-        <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
-            Details</b>
-        </span>
-      </p>
-    </div>
-  </div>
-
-  <div class="container-fluid mt-4">
+  <div class="container-fluid">
+    <p class="breadcrum">
+      <span>
+        <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+          >{{ selectedCountrytype }} Visa Details</b
+        >
+      </span>
+    </p>
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
-          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-            alt="dubai visa online" class="img-fluid countryFlag rounded lazyload">
+          <img
+            data-src="https://static.visa2fly.com/flag/{{
+              selectedCountrytype
+            }}.png"
+            alt="dubai visa online"
+            class="img-fluid countryFlag rounded lazyload"
+          />
 
           <div class="country-info">
-            <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">In 2019, in the glorious pre-pandemic times, Dubai was one of the top
-              tourist destinations in the world. In 2019 16.73 million people applied
-              for the Dubai Visa! Out of these Dubai Visa for Indians accounted for
-              almost 12% of the total visas. Thus a whopping 1.97 million Indian
-              tourists visited Dubai. With the roll-out of the Covid-19 vaccine
-              globally, Dubai tourism has got an immense boost. A record number of
-              tourists are flying into Dubai to celebrate Christmas and New Year after
-              a virtually travel-less year due to the pandemic. In fact the travel
-              rebound started from October 2020 onwards to Dubai which has been
-              further aided by the good news of the Covid-19 vaccine. The year 2021
+            <h2 class="country-heading">{{ selectedCountrytype }}</h2>
+            <p class="country-desc">
+              In 2019, in the glorious pre-pandemic times, Dubai was one of the
+              top tourist destinations in the world. In 2019 16.73 million
+              people applied for the Dubai Visa! Out of these Dubai Visa for
+              Indians accounted for almost 12% of the total visas. Thus a
+              whopping 1.97 million Indian tourists visited Dubai. With the
+              roll-out of the Covid-19 vaccine globally, Dubai tourism has got
+              an immense boost. A record number of tourists are flying into
+              Dubai to celebrate Christmas and New Year after a virtually
+              travel-less year due to the pandemic. In fact the travel rebound
+              started from October 2020 onwards to Dubai which has been further
+              aided by the good news of the Covid-19 vaccine. The year 2021
               shows even more potential with an anticipation of getting close to
-              pre-covid levels of tourists into the emirate by the winter season on
-              2021.</p>
+              pre-covid levels of tourists into the emirate by the winter season
+              on 2021.
+            </p>
           </div>
         </div>
       </div>
@@ -40,49 +44,101 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value" *ngIf="isTourist">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Tourist"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value" *ngIf="isBusiness">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Business"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value" *ngIf="isTransit">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Transit"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li *ngIf="isTourist">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Tourist"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li *ngIf="isBusiness">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Business"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li *ngIf="isTransit">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Transit"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -96,26 +152,27 @@
 </div>
 
 <div class="imageContainer mobileView">
-  <div class="row">
-    <div class="col-12 text-right p-0">
-      <p class="breadcrum">
-        <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
-            Details</b>
-        </span>
-      </p>
-    </div>
-  </div>
-
   <div class="container-fluid mt-2">
+    <p class="breadcrum">
+      <span>
+        <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+          >{{ selectedCountrytype }} Visa Details</b
+        >
+      </span>
+    </p>
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
-          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-            alt="dubai visa online" class="img-fluid countryFlag rounded lazyload">
+          <img
+            data-src="https://static.visa2fly.com/flag/{{
+              selectedCountrytype
+            }}.png"
+            alt="dubai visa online"
+            class="img-fluid countryFlag rounded lazyload"
+          />
 
           <div class="country-info">
-            <h2 class="country-heading">{{selectedCountrytype}}</h2>
+            <h2 class="country-heading">{{ selectedCountrytype }}</h2>
           </div>
         </div>
       </div>
@@ -124,49 +181,101 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding p-0">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding p-0">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown p-0">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value" *ngIf="isTourist">
-                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mTourist"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value" *ngIf="isBusiness">
-                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mBusiness"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value" *ngIf="isTransit">
-                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mTransit"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li *ngIf="isTourist">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mTourist"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li *ngIf="isBusiness">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mBusiness"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li *ngIf="isTransit">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mTransit"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -182,7 +291,8 @@
 <div class="container-fluid mt-4 mobileView">
   <div class="row">
     <div class="col-12">
-      <p class="country-desc">In 2019, in the glorious pre-pandemic times, Dubai was one of the top
+      <p class="country-desc">
+        In 2019, in the glorious pre-pandemic times, Dubai was one of the top
         tourist destinations in the world. In 2019 16.73 million people applied
         for the Dubai Visa! Out of these Dubai Visa for Indians accounted for
         almost 12% of the total visas. Thus a whopping 1.97 million Indian
@@ -194,23 +304,36 @@
         further aided by the good news of the Covid-19 vaccine. The year 2021
         shows even more potential with an anticipation of getting close to
         pre-covid levels of tourists into the emirate by the winter season on
-        2021.</p>
+        2021.
+      </p>
     </div>
   </div>
 </div>
 
-<div class="container-fluid wrapContainer mt-2" style="overflow: hidden;">
+<div class="container-fluid wrapContainer mt-2" style="overflow: hidden">
   <div class="row">
-    <app-quotation class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3" *ngFor="let quotation of MyQuotation1"
-      [quotation]="quotation">
+    <app-quotation
+      class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3"
+      *ngFor="let quotation of MyQuotation1"
+      [quotation]="quotation"
+    >
     </app-quotation>
   </div>
 </div>
 
-<app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
-<app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
+<app-offline-process-steps
+  [country]="selectedCountrytype"
+  *ngIf="!onlinestatus"
+></app-offline-process-steps>
+<app-online-process-steps
+  [country]="selectedCountrytype"
+  *ngIf="onlinestatus"
+></app-online-process-steps>
 
-<app-requirements [selectedPurpose]="selectedPurpose"  [selectedVisaType]="selectedVisaType"></app-requirements>
+<app-requirements
+  [selectedPurpose]="selectedPurpose"
+  [selectedVisaType]="selectedVisaType"
+></app-requirements>
 
 <app-important-points></app-important-points>
 
