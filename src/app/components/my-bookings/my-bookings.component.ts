@@ -73,6 +73,7 @@ export class MyBookingsComponent implements OnInit {
   totalItems: number;
   currentPage1: number = 1;
   currentPage2: number = 1;
+  scrollBy: number = 0;
 
   constructor(
     private router: Router,
@@ -146,6 +147,17 @@ export class MyBookingsComponent implements OnInit {
     let pageSize = 6;
 
     this.getAllBookings(this.currentPage1, pageSize);
+    let topPicker;
+      if (window.innerWidth > 600) {
+        topPicker = 250;
+      } else {
+        topPicker = 550;
+      }
+      window.scrollTo({
+        top: topPicker + this.scrollBy,
+        left: 0,
+        behavior: "smooth",
+      });
   }
 
   mobileBooking(event) {
@@ -153,13 +165,24 @@ export class MyBookingsComponent implements OnInit {
     let pageSize = 4;
 
     this.getAllBookings(this.currentPage2, pageSize);
+    let topPicker;
+      if (window.innerWidth > 600) {
+        topPicker = 150;
+      } else {
+        topPicker = 450;
+      }
+      window.scrollTo({
+        top: topPicker + this.scrollBy,
+        left: 0,
+        behavior: "smooth",
+      });
   }
 
   getAllBookings(pageNo: number, pageSize: number) {
     this.bookingService.fetchBooking(pageNo, pageSize).subscribe((res) => {
       if (res.code == 0) {
         this.allBooking = res;
-        
+
         this.bookings = this.allBooking.data.bookings;
         this.bookingsForLoop = this.allBooking.data.bookings;
         this.bookingService.allBookings = this.allBooking.data.bookings;
