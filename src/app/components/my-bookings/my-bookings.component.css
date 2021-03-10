@@ -247,7 +247,6 @@ input[type="radio"]:checked + .filterLabel:after {
   font-weight: 600;
 }
 
-
 .radio1 {
   margin-left: 10px;
 }
@@ -275,6 +274,10 @@ input[type="radio"]:checked + .filterLabel:after {
     border-radius: 50px;
     height: 30px;
     width: 30px;
+  }
+
+  .bookingCard {
+    padding: 0;
   }
 }
 
@@ -391,8 +394,10 @@ input[type="radio"]:checked + .filterLabel:after {
 
 .visa-type li {
   padding: 3px 0;
-  float: left;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .fieldData {
@@ -404,16 +409,11 @@ input[type="radio"]:checked + .filterLabel:after {
 }
 
 .breakWord {
-  font-size: 13px;
-  width: 220px;
   word-break: break-all;
   text-align: right;
 }
 
 @media screen and (min-width: 360px) and (max-width: 480px) {
-  .breakWord {
-    width: 172px !important;
-  }
   .detailsSetting {
     margin-top: 20px;
   }
@@ -427,15 +427,10 @@ input[type="radio"]:checked + .filterLabel:after {
 }
 
 @media screen and (max-width: 359px) {
-  .breakWord {
-    width: 129px !important;
-  }
   .btn {
     font-size: 10px;
   }
   .breakWord {
-    font-size: 12px;
-    width: 220px;
     word-break: break-all;
     text-align: right;
   }
@@ -458,8 +453,6 @@ input[type="radio"]:checked + .filterLabel:after {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .breakWord {
-    font-size: 13px;
-    width: 200px;
     word-break: break-all;
     text-align: right;
   }
@@ -945,7 +938,6 @@ label {
   }
 }
 
-
 .star-rating {
   /* border: solid 1px #ccc; */
   display: flex;
@@ -975,4 +967,56 @@ label {
 .star-rating label:hover,
 .star-rating label:hover ~ label {
   color: #fc0;
+}
+
+@media screen and (max-width: 321px) {
+  .fieldData {
+    font-size: 11px;
+  }
+
+  .containerHeading {
+    font-size: 15px;
+    font-weight: 550;
+  }
+
+  .title-box h2 {
+    font-size: 16px;
+  }
+
+  .title-box {
+    background: #000080;
+    color: #fff;
+    width: 220px;
+    padding: 4px 10px;
+    height: 30px;
+    margin-bottom: 30px;
+    display: flex;
+  }
+
+  .title-box::after {
+    content: "";
+    border-top: 30px solid #000080;
+    border-right: 25px solid transparent;
+    position: absolute;
+    display: flex;
+    margin-top: -4px;
+    margin-left: 209px;
+  }
+
+  .filterLabel {
+    font-size: 13px;
+  }
+
+  .radio {
+    position: relative;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ngx-pagination {
+    padding-left: 0px;
+  }
 }

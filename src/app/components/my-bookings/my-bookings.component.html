@@ -378,7 +378,7 @@
     <div class="row mt-4">
       <div
         *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second', totalItems: totalItems }"
-        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
+        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 bookingCard">
         <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa', 'sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
           <div class="card">
             <div class="card-header priceHeading text-white">
