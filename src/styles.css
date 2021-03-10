@@ -1710,7 +1710,13 @@ ng-select > *:focus {
   padding: 0;
 }
 
-.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+.ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
   border-color: none !important;
   box-shadow: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .ngx-pagination {
+    padding-left: 0px;
+  }
 }
