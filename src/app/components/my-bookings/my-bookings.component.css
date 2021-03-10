@@ -13,8 +13,18 @@
   font-size: 15px;
 }
 
+.searchForDate {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
 .modal {
   z-index: 1400;
+}
+
+.btn {
+  font-size: 13px;
 }
 
 .myFeedbackMsg {
@@ -316,6 +326,11 @@ input[type="radio"]:checked + .filterLabel:after {
   .noPadd {
     padding: 0px;
   }
+  .searchForDate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .modal-body .container-fluid {
     padding-right: 0px !important;
     padding-left: 0px !important;
@@ -371,7 +386,7 @@ input[type="radio"]:checked + .filterLabel:after {
 
 .visa-type {
   padding: 0px !important;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .visa-type li {
@@ -416,7 +431,18 @@ input[type="radio"]:checked + .filterLabel:after {
     width: 129px !important;
   }
   .btn {
-    font-size: 11px;
+    font-size: 10px;
+  }
+  .breakWord {
+    font-size: 12px;
+    width: 220px;
+    word-break: break-all;
+    text-align: right;
+  }
+
+  .visa-type {
+    padding: 0px !important;
+    font-size: 12px;
   }
 }
 
@@ -437,6 +463,13 @@ input[type="radio"]:checked + .filterLabel:after {
     word-break: break-all;
     text-align: right;
   }
+
+  .searchForDate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .cross-times button {
     position: absolute;
     top: -7px;
@@ -516,11 +549,13 @@ ul {
   background-color: transparent;
   background-image: none;
   border-color: navy;
+  /* font-size: 13px; */
 }
 
 .btn-outline-navy:hover {
   color: white;
   background-color: navy;
+  /* font-size: 13px; */
 }
 
 .card .card-header {
