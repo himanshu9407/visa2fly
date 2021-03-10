@@ -74,6 +74,7 @@ export class MyBookingsComponent implements OnInit {
   currentPage1: number = 1;
   currentPage2: number = 1;
   scrollBy: number = 0;
+  bookingIdInputError: boolean = false;
 
   constructor(
     private router: Router,
@@ -148,16 +149,16 @@ export class MyBookingsComponent implements OnInit {
 
     this.getAllBookings(this.currentPage1, pageSize);
     let topPicker;
-      if (window.innerWidth > 600) {
-        topPicker = 250;
-      } else {
-        topPicker = 550;
-      }
-      window.scrollTo({
-        top: topPicker + this.scrollBy,
-        left: 0,
-        behavior: "smooth",
-      });
+    if (window.innerWidth > 600) {
+      topPicker = 250;
+    } else {
+      topPicker = 550;
+    }
+    window.scrollTo({
+      top: topPicker + this.scrollBy,
+      left: 0,
+      behavior: "smooth",
+    });
   }
 
   mobileBooking(event) {
@@ -166,16 +167,16 @@ export class MyBookingsComponent implements OnInit {
 
     this.getAllBookings(this.currentPage2, pageSize);
     let topPicker;
-      if (window.innerWidth > 600) {
-        topPicker = 150;
-      } else {
-        topPicker = 450;
-      }
-      window.scrollTo({
-        top: topPicker + this.scrollBy,
-        left: 0,
-        behavior: "smooth",
-      });
+    if (window.innerWidth > 600) {
+      topPicker = 150;
+    } else {
+      topPicker = 450;
+    }
+    window.scrollTo({
+      top: topPicker + this.scrollBy,
+      left: 0,
+      behavior: "smooth",
+    });
   }
 
   getAllBookings(pageNo: number, pageSize: number) {
@@ -463,14 +464,14 @@ export class MyBookingsComponent implements OnInit {
         this.bookingsForLoop = arr;
         found = true;
         this.isButtonVisible = true;
-        this.toastr.success("Booking find by ID !");
+        this.bookingIdInputError = false;
       }
     });
     if (!found) {
       this.bookingsForLoop = [];
       this.filteredBookingsEmpty = true;
       this.isButtonVisible = true;
-      this.toastr.error("Please Check Booking ID !");
+      this.bookingIdInputError = true;
     }
   }
 
@@ -573,6 +574,7 @@ export class MyBookingsComponent implements OnInit {
     this.bookingFilterForm.reset();
     this.filterdDateArr = [];
     this.bookingsForLoop = this.bookings;
+    this.bookingIdInputError = false;
     if (this.bookings.length != 0) {
       this.filteredBookingsEmpty = false;
       this.isButtonVisible = false;

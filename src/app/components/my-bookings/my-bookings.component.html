@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="title-box">
-        <h2>Order History ({{totalItems}})</h2>
+        <h2>Order History ({{ totalItems }})</h2>
       </div>
     </div>
   </div>
@@ -11,55 +11,113 @@
     <div class="col-md-12">
       <h3 class="containerHeading">Search For Booking</h3>
     </div>
-    <form [formGroup]="bookingSearchForm" style="width: 100%;">
+    <form [formGroup]="bookingSearchForm" style="width: 100%">
       <div class="col-md-12 mt-2 form-inline">
         <label for="" class="filterLabel">Search By</label>
         <label for="opt1" class="radio inputTop">
-          <input (change)="clearFilters()" type="radio" name="searchBy" id="opt1" formControlName="searchBy"
-            value="byDate" class="hidden" />
+          <input
+            (change)="clearFilters()"
+            type="radio"
+            name="searchBy"
+            id="opt1"
+            formControlName="searchBy"
+            value="byDate"
+            class="hidden"
+          />
           <span class="filterLabel"></span>By Date Range
         </label>
 
         <label for="opt2" class="radio radio2 inputTop">
-          <input (change)="clearFilters()" type="radio" name="searchBy" id="opt2" formControlName="searchBy"
-            value="byBookingId" class="hidden" />
+          <input
+            (change)="clearFilters()"
+            type="radio"
+            name="searchBy"
+            id="opt2"
+            formControlName="searchBy"
+            value="byBookingId"
+            class="hidden"
+          />
           <span class="filterLabel"></span>By Booking Id
         </label>
       </div>
-      <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'">
+      <div
+        class="col-md-12 mt-2 inputTop"
+        *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'"
+      >
         <div class="form-row">
           <div class="col-md-12 col-lg-8">
             <div class="row">
               <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
                 <label for="" class="filterLabel">From Date</label>
                 <div class="input-group">
-                  <input (ngModelChange)="fromDateChanged()" formControlName="fromDate"
-                    class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
-                    #d="ngbDatepicker" [maxDate]="maxDate" />
+                  <input
+                    (ngModelChange)="fromDateChanged()"
+                    formControlName="fromDate"
+                    class="form-control form-control-sm dateInput"
+                    placeholder="yyyy-mm-dd"
+                    name="dp"
+                    ngbDatepicker
+                    #d="ngbDatepicker"
+                    [maxDate]="maxDate"
+                  />
                   <div class="input-group-append">
-                    <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
-                        height="18px">
+                    <button
+                      class="btn btn-sm btn-outline-secondary calendar"
+                      (click)="d.toggle()"
+                      type="button"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        class="calendarSvg"
+                        width="18px"
+                        height="18px"
+                      >
                         <path
-                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-                        <path d="M0 0h24v24H0z" fill="none" /></svg>
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                        />
+                        <path d="M0 0h24v24H0z" fill="none" />
+                      </svg>
                     </button>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
+              <div
+                class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10"
+              >
                 <label for="" class="filterLabel">To Date</label>
                 <div class="input-group">
-                  <input [disabled]="this.bookingSearchForm.get('fromDate').value == null" formControlName="toDate"
-                    class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="tp" ngbDatepicker
-                    #tp="ngbDatepicker" [minDate]="minDateOfTo" [maxDate]="maxDate" />
+                  <input
+                    [disabled]="
+                      this.bookingSearchForm.get('fromDate').value == null
+                    "
+                    formControlName="toDate"
+                    class="form-control form-control-sm dateInput"
+                    placeholder="yyyy-mm-dd"
+                    name="tp"
+                    ngbDatepicker
+                    #tp="ngbDatepicker"
+                    [minDate]="minDateOfTo"
+                    [maxDate]="maxDate"
+                  />
                   <div class="input-group-append">
-                    <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="calendarSvg" width="18px"
-                        height="18px">
+                    <button
+                      class="btn btn-sm btn-outline-secondary calendar"
+                      (click)="tp.toggle()"
+                      type="button"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        class="calendarSvg"
+                        width="18px"
+                        height="18px"
+                      >
                         <path
-                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-                        <path d="M0 0h24v24H0z" fill="none" /></svg>
+                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                        />
+                        <path d="M0 0h24v24H0z" fill="none" />
+                      </svg>
                     </button>
                   </div>
                 </div>
@@ -69,9 +127,15 @@
           <div class="col-md-12 col-lg-4 marginTop">
             <div class="row searchForDate">
               <div class="noPadd">
-                <button (click)="searchBookingsByDate()"
-                  [disabled]="this.bookingSearchForm.get('toDate').value == null || this.bookingSearchForm.get('fromDate').value == null "
-                  class="btn btn-sm roundedBorder" type="submit">
+                <button
+                  (click)="searchBookingsByDate()"
+                  [disabled]="
+                    this.bookingSearchForm.get('toDate').value == null ||
+                    this.bookingSearchForm.get('fromDate').value == null
+                  "
+                  class="btn btn-sm roundedBorder"
+                  type="submit"
+                >
                   Search
                 </button>
               </div>
@@ -163,162 +227,291 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'">
+      <div
+        class="col-md-12 mt-2 inputTop"
+        *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'"
+      >
         <div class="form-row">
-          <div class="col-md-6 col-lg-8">
+          <div class="col-md-6 col-lg-4">
             <div class="row inputTop">
-              <div class="col-md-12 form-inline inputpad10">
+              <div
+                class="col-md-12 form-inline inputpad10 bookingId_input_box"
+              >
                 <label for="" class="mr-2 filterLabel">Booking Id </label>
-                <input formControlName="bookingId" type="text" class="form-control form-control-sm mr-2 ml-2"
-                  placeholder="Enter Booking Id" />
+                <div>
+                  <input
+                    formControlName="bookingId"
+                    type="text"
+                    class="form-control form-control-sm bookingId_input"
+                    placeholder="Enter Booking Id"
+                  />
+                  <div
+                    *ngIf="bookingIdInputError"
+                    class="invalid-feedback"
+                    style="display: block"
+                  >
+                    Enter a valid booking Id
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 bookMargin ">
-            <div class="row">
-              <div class="col-6 noPadd text-center">
-                <button (click)="searchBookingsByBookingId()"
-                  [disabled]="this.bookingSearchForm.get('bookingId').value == null"
-                  class="btn btn-sm btn-primary roundedBorder">
-                  Search
-                </button>
-              </div>
+          <div
+            class="col-md-6 col-lg-4 col-sm-12 col-12 bookMargin searchBooking"
+          >
+            <button
+              (click)="searchBookingsByBookingId()"
+              [disabled]="this.bookingSearchForm.get('bookingId').value == null"
+              class="btn btn-sm btn-primary roundedBorder"
+            >
+              Search
+            </button>
+            <!-- <div class="row">
+
               <div class="col-6 noPadd text-center">
                 <button (click)="clearFilters()" class="btn btn-sm showAll" *ngIf="this.isButtonVisible"
                   style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
                   View All
                 </button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </form>
   </div>
-
 </div>
 
 <div class="pcOnly">
-  <div *ngIf="totalCount > 0" class="container myBooking" [@simpleFadeAnimation]="'in'">
+  <div
+    *ngIf="totalCount > 0"
+    class="container myBooking"
+    [@simpleFadeAnimation]="'in'"
+  >
     <div class="row">
       <div
-        *ngFor="let booking of bookingsForLoop | paginate: { itemsPerPage: 6, currentPage: currentPage1, id:'first', totalItems: totalItems }"
-        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa', 'sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
+        *ngFor="
+          let booking of bookingsForLoop
+            | paginate
+              : {
+                  itemsPerPage: 6,
+                  currentPage: currentPage1,
+                  id: 'first',
+                  totalItems: totalItems
+                }
+        "
+        class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2"
+      >
+        <div
+          [ngClass]="{
+            visa: booking.booking.bookingType == 'Visa',
+            'sim-card': booking.booking.bookingType == 'Sim',
+            insurance: booking.booking.bookingType == 'Insurance'
+          }"
+        >
           <div class="card">
             <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType}}
+              {{ booking.booking.bookingType }}
             </div>
             <div class="card-body">
               <ul class="visa-type">
                 <li>
                   Booking ID:
-                  <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
+                  <span class="fieldData breakWord">{{
+                    booking.booking.bookingId
+                  }}</span>
                 </li>
                 <li>
                   Transaction ID :
-                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId != null">{{booking.booking.paymentId}}</span>
-                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId == null">NA</span>
+                  <span
+                    class="fieldData breakWord"
+                    *ngIf="booking.booking.paymentId != null"
+                    >{{ booking.booking.paymentId }}</span
+                  >
+                  <span
+                    class="fieldData breakWord"
+                    *ngIf="booking.booking.paymentId == null"
+                    >NA</span
+                  >
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa For :
-                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.visaForCountry
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Sim'">
                   Sim For :
-                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.visaForCountry
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Insurance For :
-                  <span class="fieldData">{{booking.insuranceBookings.country}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.country
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
-                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                  <span class="fieldData">{{ booking.booking.visaType }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Sim'">
                   Sim Type:
-                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                  <span class="fieldData">{{ booking.booking.visaType }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Plan Type:
-                  <span class="fieldData">{{booking.insuranceBookings.planType}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.planType
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Policy Number:
-                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum != null">{{booking.insuranceBookings.policyNum}}</span>
-                  <span class="fieldData breakWord" *ngIf="booking.insuranceBookings.policyNum == null">NA</span>
+                  <span
+                    class="fieldData"
+                    *ngIf="booking.insuranceBookings.policyNum != null"
+                    >{{ booking.insuranceBookings.policyNum }}</span
+                  >
+                  <span
+                    class="fieldData breakWord"
+                    *ngIf="booking.insuranceBookings.policyNum == null"
+                    >NA</span
+                  >
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Coverage:
-                  <span class="fieldData">{{booking.insuranceBookings.currency + ' ' + booking.insuranceBookings.coverage }}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.currency +
+                      " " +
+                      booking.insuranceBookings.coverage
+                  }}</span>
                 </li>
-                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
+                <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Policy Commencement Date:
-                  <span class="fieldData">{{booking.insuranceBookings.policyCommencementDt}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.policyCommencementDt
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Number Of Insured Person:
-                  <span class="fieldData">{{booking.insuranceBookings.numberOfInsuredPerson}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.numberOfInsuredPerson
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
-                  <span class="fieldData">{{booking.booking.entryType}}</span>
+                  <span class="fieldData">{{ booking.booking.entryType }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Total Travellers:
-                  <span class="fieldData">{{booking.booking.totalTravellers}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.totalTravellers
+                  }}</span>
                 </li>
                 <li>
                   Booking date:
-                  <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.bookingDate
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Document Collection Date:
-                  <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.documentCollectionDate
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
-                  <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.dateOfTravel
+                  }}</span>
                 </li>
                 <li>
                   Booking Amount:
-                  <span class="fieldData">{{booking.booking.bookingAmount}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.bookingAmount
+                  }}</span>
                 </li>
                 <li>
                   Booking Status:
                   <!-- <span class="fieldData">123</span> -->
                   <span
-                    [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }"
-                    class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
+                    [ngClass]="{
+                      'badge-success': booking.booking.statusColor == 'g',
+                      'badge-danger': booking.booking.statusColor == 'r',
+                      'badge-warning': booking.booking.statusColor == 'y'
+                    }"
+                    class="fieldData badge"
+                    >{{ booking.booking.bookingStatus }}</span
+                  >
                 </li>
                 <li>
                   Payment status:
-                  <span class="fieldData badge "
-                    [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
+                  <span
+                    class="fieldData badge"
+                    [ngClass]="{
+                      'badge-success': booking.booking.paymentColor == 'g',
+                      'badge-danger': booking.booking.paymentColor == 'r',
+                      'badge-warning': booking.booking.paymentColor == 'y'
+                    }"
+                    >{{ booking.booking.paymentStatus }}</span
+                  >
                 </li>
               </ul>
             </div>
             <div class="card-footer">
               <div class="row">
                 <div class="col-6 button">
-                  <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
+                  <button
+                    (click)="setActiveBooking(booking)"
+                    type="button"
+                    class="btn btn-outline-navy btn-sm"
+                  >
                     View Details
                   </button>
                 </div>
 
                 <div class="col-6 button">
-                  <button *ngIf="booking.booking.bookingType == 'Visa'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
-                    type="button" class="btn btn-outline-success btn-sm">
+                  <button
+                    *ngIf="booking.booking.bookingType == 'Visa'"
+                    (click)="
+                      downloadInvoice(
+                        booking.booking.bookingId,
+                        booking.booking.paymentColor
+                      )
+                    "
+                    type="button"
+                    class="btn btn-outline-success btn-sm"
+                  >
                     Get Invoice
                   </button>
-                  <button *ngIf="booking.booking.bookingType == 'Sim'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
-                    type="button" class="btn btn-outline-success btn-sm">
+                  <button
+                    *ngIf="booking.booking.bookingType == 'Sim'"
+                    (click)="
+                      downloadInvoice(
+                        booking.booking.bookingId,
+                        booking.booking.paymentColor
+                      )
+                    "
+                    type="button"
+                    class="btn btn-outline-success btn-sm"
+                  >
                     Get Invoice
                   </button>
-                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor, booking.booking.bookingId)"
-                    type="button" class="btn btn-outline-success btn-sm">
+                  <button
+                    *ngIf="booking.booking.bookingType == 'Insurance'"
+                    (click)="
+                      downloadPolicy(
+                        booking.insuranceBookings.policyNum,
+                        booking.booking.paymentColor,
+                        booking.booking.bookingId
+                      )
+                    "
+                    type="button"
+                    class="btn btn-outline-success btn-sm"
+                  >
                     Get Policy
                   </button>
                 </div>
@@ -331,10 +524,19 @@
 
     <div class="row" *ngIf="!filteredBookingsEmpty">
       <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="desktopBooking($event)" maxSize="6" id="first"
-          class="my-pagination text-center" responsive="true" autoHide="true" previousLabel="Previous" nextLabel="Next"
-          screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
-          screenReaderCurrentLabel="You're on page">
+        <pagination-controls
+          (pageChange)="desktopBooking($event)"
+          maxSize="6"
+          id="first"
+          class="my-pagination text-center"
+          responsive="true"
+          autoHide="true"
+          previousLabel="Previous"
+          nextLabel="Next"
+          screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page"
+        >
         </pagination-controls>
       </div>
     </div>
@@ -343,31 +545,55 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 p-0 text-center emptyBanner">
-            <img data-src="https://static.visa2fly.com/assets/emptycart.png" class="img-fluid lazyload"
-              alt="empty cart image">
+            <img
+              data-src="https://static.visa2fly.com/assets/emptycart.png"
+              class="img-fluid lazyload"
+              alt="empty cart image"
+            />
           </div>
-          <div class="col-md-12 text-center" style="vertical-align: middle;">
-            <button class="btn" (click)="seeBooking()"
-              style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View All</button>
+          <div class="col-md-12 text-center" style="vertical-align: middle">
+            <button
+              class="btn"
+              (click)="seeBooking()"
+              style="
+                background: #000080;
+                color: #fff;
+                font-weight: 600;
+                font-size: 16px;
+              "
+            >
+              View All
+            </button>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
   <div class="container" *ngIf="totalCount < 1">
     <div class="row">
       <div class="col-md-12 emptyBanner text-center">
-        <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="lazyload img-fluid mt-3"
-          alt="empty cart image">
+        <img
+          data-src="https://static.visa2fly.com/assets/emptycart.webp"
+          class="lazyload img-fluid mt-3"
+          alt="empty cart image"
+        />
       </div>
       <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 10px;">
         <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
        </div> -->
-      <div class="col-md-12 text-center" style="vertical-align: middle;">
-        <button class="btn" style="background: #000080; color: #fff; font-weight: 600; font-size: 16px;">View
-          All</button>
+      <div class="col-md-12 text-center" style="vertical-align: middle">
+        <button
+          class="btn"
+          style="
+            background: #000080;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+          "
+        >
+          View All
+        </button>
       </div>
     </div>
   </div>
@@ -377,12 +603,28 @@
   <div *ngIf="totalCount > 0" class="container myBooking">
     <div class="row mt-4">
       <div
-        *ngFor="let booking of  bookingsForLoop | paginate: { itemsPerPage: 4, currentPage: currentPage2, id: 'second', totalItems: totalItems }"
-        class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 bookingCard">
-        <div [ngClass]="{'visa':booking.booking.bookingType == 'Visa', 'sim-card':booking.booking.bookingType == 'Sim', 'insurance':booking.booking.bookingType == 'Insurance'}">
+        *ngFor="
+          let booking of bookingsForLoop
+            | paginate
+              : {
+                  itemsPerPage: 4,
+                  currentPage: currentPage2,
+                  id: 'second',
+                  totalItems: totalItems
+                }
+        "
+        class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-2 bookingCard"
+      >
+        <div
+          [ngClass]="{
+            visa: booking.booking.bookingType == 'Visa',
+            'sim-card': booking.booking.bookingType == 'Sim',
+            insurance: booking.booking.bookingType == 'Insurance'
+          }"
+        >
           <div class="card">
             <div class="card-header priceHeading text-white">
-              {{booking.booking.bookingType}}
+              {{ booking.booking.bookingType }}
             </div>
             <div class="card-body">
               <!-- <h5 class="card-title">Special title treatment</h5>
@@ -391,109 +633,196 @@
               <ul class="visa-type">
                 <li>
                   Booking ID:
-                  <span class="fieldData breakWord">{{booking.booking.bookingId}}</span>
+                  <span class="fieldData breakWord">{{
+                    booking.booking.bookingId
+                  }}</span>
                 </li>
                 <li>
                   Transaction ID :
-                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId != null">{{booking.booking.paymentId}}</span>
-                  <span class="fieldData breakWord" *ngIf="booking.booking.paymentId == null">NA</span>
+                  <span
+                    class="fieldData breakWord"
+                    *ngIf="booking.booking.paymentId != null"
+                    >{{ booking.booking.paymentId }}</span
+                  >
+                  <span
+                    class="fieldData breakWord"
+                    *ngIf="booking.booking.paymentId == null"
+                    >NA</span
+                  >
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa For :
-                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.visaForCountry
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Sim'">
                   Sim For :
-                  <span class="fieldData">{{booking.booking.visaForCountry}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.visaForCountry
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Insurance For :
-                  <span class="fieldData">{{booking.insuranceBookings.country}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.country
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
-                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                  <span class="fieldData">{{ booking.booking.visaType }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Sim'">
                   Sim Type:
-                  <span class="fieldData">{{booking.booking.visaType}}</span>
+                  <span class="fieldData">{{ booking.booking.visaType }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Plan Type:
-                  <span class="fieldData">{{booking.insuranceBookings.planType}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.planType
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Policy Number:
-                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum != null">{{booking.insuranceBookings.policyNum}}</span>
-                  <span class="fieldData" *ngIf="booking.insuranceBookings.policyNum == null">NA</span>
+                  <span
+                    class="fieldData"
+                    *ngIf="booking.insuranceBookings.policyNum != null"
+                    >{{ booking.insuranceBookings.policyNum }}</span
+                  >
+                  <span
+                    class="fieldData"
+                    *ngIf="booking.insuranceBookings.policyNum == null"
+                    >NA</span
+                  >
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Coverage:
-                  <span class="fieldData">{{booking.insuranceBookings.currency + ' '+ booking.insuranceBookings.coverage}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.currency +
+                      " " +
+                      booking.insuranceBookings.coverage
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Policy Commencement Date:
-                  <span class="fieldData">{{booking.insuranceBookings.policyCommencementDt}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.policyCommencementDt
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
                   Number Of Insured Person:
-                  <span class="fieldData">{{booking.insuranceBookings.numberOfInsuredPerson}}</span>
+                  <span class="fieldData">{{
+                    booking.insuranceBookings.numberOfInsuredPerson
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Entry Type:
-                  <span class="fieldData">{{booking.booking.entryType}}</span>
+                  <span class="fieldData">{{ booking.booking.entryType }}</span>
                 </li>
                 <li>
                   Total Travellers:
-                  <span class="fieldData">{{booking.booking.totalTravellers}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.totalTravellers
+                  }}</span>
                 </li>
                 <li>
                   Booking date:
-                  <span class="fieldData">{{booking.booking.bookingDate}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.bookingDate
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Document Collection Date:
-                  <span class="fieldData">{{booking.booking.documentCollectionDate}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.documentCollectionDate
+                  }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Date of travel:
-                  <span class="fieldData">{{booking.booking.dateOfTravel}}</span>
+                  <span class="fieldData">{{
+                    booking.booking.dateOfTravel
+                  }}</span>
                 </li>
                 <li>
                   Booking Status:
                   <!-- <span class="fieldData">123</span> -->
                   <span
-                    [ngClass]="{'badge-success':booking.booking.statusColor == 'g' ,'badge-danger':booking.booking.statusColor == 'r','badge-warning':booking.booking.statusColor == 'y' }"
-                    class="fieldData badge ">{{booking.booking.bookingStatus}}</span>
+                    [ngClass]="{
+                      'badge-success': booking.booking.statusColor == 'g',
+                      'badge-danger': booking.booking.statusColor == 'r',
+                      'badge-warning': booking.booking.statusColor == 'y'
+                    }"
+                    class="fieldData badge"
+                    >{{ booking.booking.bookingStatus }}</span
+                  >
                 </li>
                 <li>
                   Payment status:
                   <!-- <span class="fieldData"></span> -->
                   <!-- <span class="fieldData badge badge-danger">Failed</span> -->
-                  <span class="fieldData badge "
-                    [ngClass]="{'badge-success':booking.booking.paymentColor == 'g' ,'badge-danger':booking.booking.paymentColor == 'r','badge-warning':booking.booking.paymentColor == 'y' }">{{booking.booking.paymentStatus}}</span>
+                  <span
+                    class="fieldData badge"
+                    [ngClass]="{
+                      'badge-success': booking.booking.paymentColor == 'g',
+                      'badge-danger': booking.booking.paymentColor == 'r',
+                      'badge-warning': booking.booking.paymentColor == 'y'
+                    }"
+                    >{{ booking.booking.paymentStatus }}</span
+                  >
                 </li>
               </ul>
             </div>
             <div class="card-footer">
               <div class="row">
                 <div class="col-6 button">
-                  <button (click)="setActiveBooking(booking)" type="button" class="btn btn-outline-navy btn-sm">
+                  <button
+                    (click)="setActiveBooking(booking)"
+                    type="button"
+                    class="btn btn-outline-navy btn-sm"
+                  >
                     View Details
                   </button>
                 </div>
 
                 <div class="col-6 button">
-                  <button *ngIf="booking.booking.bookingType == 'Visa'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
-                    type="button" class="btn btn-outline-success btn-sm">
+                  <button
+                    *ngIf="booking.booking.bookingType == 'Visa'"
+                    (click)="
+                      downloadInvoice(
+                        booking.booking.bookingId,
+                        booking.booking.paymentColor
+                      )
+                    "
+                    type="button"
+                    class="btn btn-outline-success btn-sm"
+                  >
                     Get Invoice
                   </button>
-                  <button *ngIf="booking.booking.bookingType == 'Sim'" (click)="downloadInvoice(booking.booking.bookingId,booking.booking.paymentColor)"
-                    type="button" class="btn btn-outline-success btn-sm">
+                  <button
+                    *ngIf="booking.booking.bookingType == 'Sim'"
+                    (click)="
+                      downloadInvoice(
+                        booking.booking.bookingId,
+                        booking.booking.paymentColor
+                      )
+                    "
+                    type="button"
+                    class="btn btn-outline-success btn-sm"
+                  >
                     Get Invoice
                   </button>
-                  <button *ngIf="booking.booking.bookingType == 'Insurance'" (click)="downloadPolicy(booking.insuranceBookings.policyNum,booking.booking.paymentColor, booking.booking.bookingId)"
-                    type="button" class="btn btn-outline-success btn-sm">
+                  <button
+                    *ngIf="booking.booking.bookingType == 'Insurance'"
+                    (click)="
+                      downloadPolicy(
+                        booking.insuranceBookings.policyNum,
+                        booking.booking.paymentColor,
+                        booking.booking.bookingId
+                      )
+                    "
+                    type="button"
+                    class="btn btn-outline-success btn-sm"
+                  >
                     Get Policy
                   </button>
                 </div>
@@ -506,10 +835,19 @@
 
     <div class="row" *ngIf="!filteredBookingsEmpty">
       <div class="col-12 mt-3">
-        <pagination-controls (pageChange)="mobileBooking($event);" id="second" maxSize="3"
-          class="my-pagination text-center" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
-          screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
-          screenReaderCurrentLabel="You're on page">
+        <pagination-controls
+          (pageChange)="mobileBooking($event)"
+          id="second"
+          maxSize="3"
+          class="my-pagination text-center"
+          autoHide="true"
+          responsive="true"
+          previousLabel="Previous"
+          nextLabel="Next"
+          screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page"
+        >
         </pagination-controls>
       </div>
     </div>
@@ -518,37 +856,60 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <img data-src="https://static.visa2fly.com/assets/emptycart.webp" class="lazyload img-fluid"
-              alt="empty cart image">
+            <img
+              data-src="https://static.visa2fly.com/assets/emptycart.webp"
+              class="lazyload img-fluid"
+              alt="empty cart image"
+            />
           </div>
           <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 15px;">
             <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
            </div> -->
-          <div class="col-md-12 text-center" style="vertical-align: middle;">
-            <button class="btn btn-sm" (click)="seeBooking()"
-              style="background: #000080; color: #fff; font-weight: 600; font-size: 14px;">View All</button>
+          <div class="col-md-12 text-center" style="vertical-align: middle">
+            <button
+              class="btn btn-sm"
+              (click)="seeBooking()"
+              style="
+                background: #000080;
+                color: #fff;
+                font-weight: 600;
+                font-size: 14px;
+              "
+            >
+              View All
+            </button>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
-  <div *ngIf="totalCount < 1" class="container d-flex justify-content-center" style="margin-top: 140px 0px 40px;">
+  <div
+    *ngIf="totalCount < 1"
+    class="container d-flex justify-content-center"
+    style="margin-top: 140px 0px 40px"
+  >
     <div class="row">
       <div class="col-md-12">
         <div class="emptyBanner">
-          <img data-src="https://static.visa2fly.com/assets/emptycart.png" class="lazyload img-fluid"
-            alt="empty cart image">
+          <img
+            data-src="https://static.visa2fly.com/assets/emptycart.png"
+            class="lazyload img-fluid"
+            alt="empty cart image"
+          />
         </div>
       </div>
       <div class="col-md-12">
-        <button class="btn btn-primary text-center mb-4 mt-2" [routerLink]="['/home']" style="width: 100%">Shop
-          Now</button>
+        <button
+          class="btn btn-primary text-center mb-4 mt-2"
+          [routerLink]="['/home']"
+          style="width: 100%"
+        >
+          Shop Now
+        </button>
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="feedback-popup" id="myId">
@@ -558,12 +919,18 @@
 
   <!-- Modal -->
 
-  <div class="modal fade show" tabindex="-1" role="dialog" data-backdrop="false" aria-hidden="true"
-  [ngStyle]="{'display': bookingStatus ? 'block' : 'none'}"
-    style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;">
+  <div
+    class="modal fade show"
+    tabindex="-1"
+    role="dialog"
+    data-backdrop="false"
+    aria-hidden="true"
+    [ngStyle]="{ display: bookingStatus ? 'block' : 'none' }"
+    style="background-color: rgba(0, 0, 0, 0.7); overflow-y: scroll !important"
+  >
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-body" style="padding: 0px;">
+        <div class="modal-body" style="padding: 0px">
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-6 wrap-left p-4">
@@ -574,35 +941,61 @@
                     </button>
                   </div>
                   <div class="col-md-12">
-                    <h4 class="feedHeading text-center text-uppercase">Booking Details</h4>
+                    <h4 class="feedHeading text-center text-uppercase">
+                      Booking Details
+                    </h4>
                   </div>
                   <div class="col-md-12">
                     <svg height="210" width="500">
-                      <line class="lineArrange" x1="0" y1="0" x2="350" y2="0"
-                        style="stroke:rgb(0,0,0);stroke-width:2" />
+                      <line
+                        class="lineArrange"
+                        x1="0"
+                        y1="0"
+                        x2="350"
+                        y2="0"
+                        style="stroke: rgb(0, 0, 0); stroke-width: 2"
+                      />
                     </svg>
                   </div>
-                  <div class="col-md-12 detailsSetting" *ngFor="let item of feedbackBookingDetail">
+                  <div
+                    class="col-md-12 detailsSetting"
+                    *ngFor="let item of feedbackBookingDetail"
+                  >
                     <ul class="listSet">
-                      <li>Booking Id :
-                        <span class="fieldData">{{item.booking.bookingId}}</span>
+                      <li>
+                        Booking Id :
+                        <span class="fieldData">{{
+                          item.booking.bookingId
+                        }}</span>
                       </li>
-                      <li>Visa For :
-                        <span class="fieldData">{{item.booking.visaForCountry}}</span>
+                      <li>
+                        Visa For :
+                        <span class="fieldData">{{
+                          item.booking.visaForCountry
+                        }}</span>
                       </li>
-                      <li>Visa Type
-                        <span class="fieldData">{{item.booking.visaType}}</span>
+                      <li>
+                        Visa Type
+                        <span class="fieldData">{{
+                          item.booking.visaType
+                        }}</span>
                       </li>
-                      <li>Booking Date :
-                        <span class="fieldData">{{item.booking.bookingDate}}</span>
+                      <li>
+                        Booking Date :
+                        <span class="fieldData">{{
+                          item.booking.bookingDate
+                        }}</span>
                       </li>
                     </ul>
                   </div>
 
                   <div class="col-md-12">
                     <h1>
-                      <img data-src="https://static.visa2fly.com/assets/feedback.png" alt=""
-                        class="img-fluid feedImage lazyload">
+                      <img
+                        data-src="https://static.visa2fly.com/assets/feedback.png"
+                        alt=""
+                        class="img-fluid feedImage lazyload"
+                      />
                     </h1>
                   </div>
                 </div>
@@ -615,10 +1008,14 @@
                     </button>
                   </div>
                   <div class="col-md-12">
-                    <h4 class="feedHeading text-center text-uppercase">Feedback Form</h4>
+                    <h4 class="feedHeading text-center text-uppercase">
+                      Feedback Form
+                    </h4>
                   </div>
                   <div class="col-md-12">
-                    <p class="value text-capitalize">Your feedback is valuable to us.</p>
+                    <p class="value text-capitalize">
+                      Your feedback is valuable to us.
+                    </p>
                   </div>
                   <!-- <div class="col-md-12 myFeedbackMsg" *ngIf="feedbackMsg">
                     <p style="font-size: 15px; margin-bottom: 0px; font-weight: 600;">Please Fill the Feedback Form.</p>
@@ -627,115 +1024,285 @@
                     <h6>Please provide your feedback on following topics:</h6>
                   </div>
                 </div>
-                <form class="form-row" [formGroup]="FeedbackForm" (ngSubmit)="onSubmit()">
+                <form
+                  class="form-row"
+                  [formGroup]="FeedbackForm"
+                  (ngSubmit)="onSubmit()"
+                >
                   <div class="col-md-12">
                     <p>
-                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                        id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
-                        style="enable-background:new 0 0 286.614 286.614; margin-right: 8px;" xml:space="preserve"
-                        width="16px" height="16px">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                        id="Capa_1"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 286.614 286.614"
+                        style="
+                          enable-background: new 0 0 286.614 286.614;
+                          margin-right: 8px;
+                        "
+                        xml:space="preserve"
+                        width="16px"
+                        height="16px"
+                      >
                         <g>
                           <g>
                             <path
                               d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
-                              data-original="#000000" class="active-path" fill="#000" />
+                              data-original="#000000"
+                              class="active-path"
+                              fill="#000"
+                            />
                             <path
                               d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
-                              data-original="#000000" class="active-path" fill="#000" />
+                              data-original="#000000"
+                              class="active-path"
+                              fill="#000"
+                            />
                           </g>
                         </g>
                       </svg>
-                      How well does our product meet your needs ?</p>
+                      How well does our product meet your needs ?
+                    </p>
                     <div class="star-rating">
-                      <input type="radio" id="f3-rating-star_5" formControlName="f3-rating" name="f3-rating" value="5" />
+                      <input
+                        type="radio"
+                        id="f3-rating-star_5"
+                        formControlName="f3-rating"
+                        name="f3-rating"
+                        value="5"
+                      />
                       <label for="f3-rating-star_5" class="star">&#9733;</label>
-                      <input type="radio" id="f3-rating-star_4" formControlName="f3-rating" name="f3-rating" value="4" />
+                      <input
+                        type="radio"
+                        id="f3-rating-star_4"
+                        formControlName="f3-rating"
+                        name="f3-rating"
+                        value="4"
+                      />
                       <label for="f3-rating-star_4" class="star">&#9733;</label>
-                      <input type="radio" id="f3-rating-star_3" formControlName="f3-rating" name="f3-rating" value="3" />
+                      <input
+                        type="radio"
+                        id="f3-rating-star_3"
+                        formControlName="f3-rating"
+                        name="f3-rating"
+                        value="3"
+                      />
                       <label for="f3-rating-star_3" class="star">&#9733;</label>
-                      <input type="radio" id="f3-rating-star_2" formControlName="f3-rating" name="f3-rating" value="2" />
+                      <input
+                        type="radio"
+                        id="f3-rating-star_2"
+                        formControlName="f3-rating"
+                        name="f3-rating"
+                        value="2"
+                      />
                       <label for="f3-rating-star_2" class="star">&#9733;</label>
-                      <input type="radio" id="f3-rating-star_1" formControlName="f3-rating" name="f3-rating" value="1" />
+                      <input
+                        type="radio"
+                        id="f3-rating-star_1"
+                        formControlName="f3-rating"
+                        name="f3-rating"
+                        value="1"
+                      />
                       <label for="f3-rating-star_1" class="star">&#9733;</label>
                     </div>
-
                   </div>
                   <div class="col-md-12">
                     <p>
-                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                        id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
-                        style="enable-background:new 0 0 286.614 286.614; margin-right: 8px;" xml:space="preserve"
-                        width="16px" height="16px">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                        id="Capa_1"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 286.614 286.614"
+                        style="
+                          enable-background: new 0 0 286.614 286.614;
+                          margin-right: 8px;
+                        "
+                        xml:space="preserve"
+                        width="16px"
+                        height="16px"
+                      >
                         <g>
                           <g>
                             <path
                               d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
-                              data-original="#000000" class="active-path" fill="#000" />
+                              data-original="#000000"
+                              class="active-path"
+                              fill="#000"
+                            />
                             <path
                               d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
-                              data-original="#000000" class="active-path" fill="#000" />
+                              data-original="#000000"
+                              class="active-path"
+                              fill="#000"
+                            />
                           </g>
                         </g>
-                      </svg> Were you able to find the information
-                      you were looking for on our website ?
+                      </svg>
+                      Were you able to find the information you were looking for
+                      on our website ?
                     </p>
                     <div class="star-rating">
-                      <input type="radio" id="f1-rating-star_5" formControlName="f1-rating" name="f1-rating" value="5" />
+                      <input
+                        type="radio"
+                        id="f1-rating-star_5"
+                        formControlName="f1-rating"
+                        name="f1-rating"
+                        value="5"
+                      />
                       <label for="f1-rating-star_5" class="star">&#9733;</label>
-                      <input type="radio" id="f1-rating-star_4" formControlName="f1-rating" name="f1-rating" value="4" />
+                      <input
+                        type="radio"
+                        id="f1-rating-star_4"
+                        formControlName="f1-rating"
+                        name="f1-rating"
+                        value="4"
+                      />
                       <label for="f1-rating-star_4" class="star">&#9733;</label>
-                      <input type="radio" id="f1-rating-star_3" formControlName="f1-rating" name="f1-rating" value="3" />
+                      <input
+                        type="radio"
+                        id="f1-rating-star_3"
+                        formControlName="f1-rating"
+                        name="f1-rating"
+                        value="3"
+                      />
                       <label for="f1-rating-star_3" class="star">&#9733;</label>
-                      <input type="radio" id="f1-rating-star_2" formControlName="f1-rating" name="f1-rating" value="2" />
+                      <input
+                        type="radio"
+                        id="f1-rating-star_2"
+                        formControlName="f1-rating"
+                        name="f1-rating"
+                        value="2"
+                      />
                       <label for="f1-rating-star_2" class="star">&#9733;</label>
-                      <input type="radio" id="f1-rating-star_1" formControlName="f1-rating" name="f1-rating" value="1" />
+                      <input
+                        type="radio"
+                        id="f1-rating-star_1"
+                        formControlName="f1-rating"
+                        name="f1-rating"
+                        value="1"
+                      />
                       <label for="f1-rating-star_1" class="star">&#9733;</label>
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                        id="Capa_1" x="0px" y="0px" viewBox="0 0 286.614 286.614"
-                        style="enable-background:new 0 0 286.614 286.614; margin-right: 8px;" xml:space="preserve"
-                        width="16px" height="16px">
+                    <p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                        id="Capa_1"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 286.614 286.614"
+                        style="
+                          enable-background: new 0 0 286.614 286.614;
+                          margin-right: 8px;
+                        "
+                        xml:space="preserve"
+                        width="16px"
+                        height="16px"
+                      >
                         <g>
                           <g>
                             <path
                               d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
-                              data-original="#000000" class="active-path" fill="#000" />
+                              data-original="#000000"
+                              class="active-path"
+                              fill="#000"
+                            />
                             <path
                               d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
-                              data-original="#000000" class="active-path" fill="#000" />
+                              data-original="#000000"
+                              class="active-path"
+                              fill="#000"
+                            />
                           </g>
                         </g>
-                      </svg> How likely are you to recommend
-                      visa2fly to a friends or family ?</p>
+                      </svg>
+                      How likely are you to recommend visa2fly to a friends or
+                      family ?
+                    </p>
                     <div class="star-rating">
-                      <input type="radio" id="f2-rating-star_5" formControlName="f2-rating" name="f2-rating" value="5" />
+                      <input
+                        type="radio"
+                        id="f2-rating-star_5"
+                        formControlName="f2-rating"
+                        name="f2-rating"
+                        value="5"
+                      />
                       <label for="f2-rating-star_5" class="star">&#9733;</label>
-                      <input type="radio" id="f2-rating-star_4" formControlName="f2-rating" name="f2-rating" value="4" />
+                      <input
+                        type="radio"
+                        id="f2-rating-star_4"
+                        formControlName="f2-rating"
+                        name="f2-rating"
+                        value="4"
+                      />
                       <label for="f2-rating-star_4" class="star">&#9733;</label>
-                      <input type="radio" id="f2-rating-star_3" formControlName="f2-rating" name="f2-rating" value="3" />
+                      <input
+                        type="radio"
+                        id="f2-rating-star_3"
+                        formControlName="f2-rating"
+                        name="f2-rating"
+                        value="3"
+                      />
                       <label for="f2-rating-star_3" class="star">&#9733;</label>
-                      <input type="radio" id="f2-rating-star_2" formControlName="f2-rating" name="f2-rating" value="2" />
+                      <input
+                        type="radio"
+                        id="f2-rating-star_2"
+                        formControlName="f2-rating"
+                        name="f2-rating"
+                        value="2"
+                      />
                       <label for="f2-rating-star_2" class="star">&#9733;</label>
-                      <input type="radio" id="f2-rating-star_1" formControlName="f2-rating" name="f2-rating" value="1" />
+                      <input
+                        type="radio"
+                        id="f2-rating-star_1"
+                        formControlName="f2-rating"
+                        name="f2-rating"
+                        value="1"
+                      />
                       <label for="f2-rating-star_1" class="star">&#9733;</label>
                     </div>
                   </div>
                   <div class="col-md-12 textField">
-                    <h6>If you could change just one thing about our product, what would it be ?
+                    <h6>
+                      If you could change just one thing about our product, what
+                      would it be ?
                     </h6>
                   </div>
                   <div class="col-md-12">
-                    <textarea class="form-control" formControlName="FeedbackEdit" id="" cols="30" rows="4"></textarea>
+                    <textarea
+                      class="form-control"
+                      formControlName="FeedbackEdit"
+                      id=""
+                      cols="30"
+                      rows="4"
+                    ></textarea>
                   </div>
                   <div class="col-md-12 text-center mt-2">
-                    <button type="button" class="btn text-white btn-submit btn-sm btn-block"
-                      (click)="onSubmit()">Submit</button>
+                    <button
+                      type="button"
+                      class="btn text-white btn-submit btn-sm btn-block"
+                      (click)="onSubmit()"
+                    >
+                      Submit
+                    </button>
                   </div>
                   <div class="col-md-12 text-center mt-2">
-                    <button type="button" class="btn btn btn-outline-info btn-sm btn-block" (click)="closeFeed()">No,
-                      I'm not interested</button>
+                    <button
+                      type="button"
+                      class="btn btn btn-outline-info btn-sm btn-block"
+                      (click)="closeFeed()"
+                    >
+                      No, I'm not interested
+                    </button>
                   </div>
                 </form>
               </div>
