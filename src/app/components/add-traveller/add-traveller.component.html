@@ -934,7 +934,11 @@
                   class="col-md-2 mb-3"
                 >
                   <label>State <span class="astrisk">*</span></label>
-                  <select formControlName="state" class="form-control">
+                  <select
+                    formControlName="state"
+                    class="form-control"
+                    (change)="checkCity(i)"
+                  >
                     <option
                       *ngFor="let state of list.states; let first = first"
                       value="{{ state }}"

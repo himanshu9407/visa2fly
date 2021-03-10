@@ -163,13 +163,13 @@ export class AddTravellerComponent implements OnInit {
     "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
   ];
 
-  // checkCity(i) {
-  //   let tempState = this.travellerForm.controls.travellers.controls[i].controls
-  //     .state.value;
-  //   this.travellerForm.controls.travellers.controls[i].controls.city.setValue(
-  //     this.list.cities[tempState][0]
-  //   );
-  // }
+  checkCity(i: number) {
+    let tempState = this.travellerForm.controls.travellers.controls[i].controls
+      .state.value;
+    this.travellerForm.controls.travellers.controls[i].controls.city.setValue(
+      this.list.cities[tempState][0]
+    );
+  }
 
   checkDateOfExpiry(date: { year: any; day: any; month: any }) {
     //normal months
