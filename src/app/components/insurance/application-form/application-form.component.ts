@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-application-form',
@@ -20,7 +21,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     { id: "Member", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
   ];
   selectedTravellerForm: number = 0;
-  
+
   formData: any;
   termsAndConditionForm: FormGroup;
 
@@ -28,8 +29,16 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
   insuranceDetails: {
     country: string,
     ageOfTravellers: Array<number>[],
-    tripStartDate: string,
-    tripEndDate: string,
+    tripStartDate: {
+      year: number,
+      month: number,
+      day: number,
+    },
+    tripEndDate: {
+      year: number,
+      month: number,
+      day: number,
+    },
     anyMedicalCondition: boolean
   };
   insurancePlan: {
@@ -978,16 +987,35 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
         let proposerData: any = this.insuranceForm.get("proposer").value || [];
         ptdata["id"] = this.dataSource[0].id;
 
-        let tripStartDateDay = this.insuranceDetails.tripStartDate.split('-')[2];
-        let tripStartDateMonth = this.insuranceDetails.tripStartDate.split('-')[1];
-        let tripStartDateYear = this.insuranceDetails.tripStartDate.split('-')[0];
+        let tripStartDate = this.insuranceDetails.tripStartDate;
+        let tripEndDate = this.insuranceDetails.tripEndDate;
 
-        let tripEndDateDay = this.insuranceDetails.tripEndDate.split('-')[2];
-        let tripEndDateMonth = this.insuranceDetails.tripEndDate.split('-')[1];
-        let tripEndDateYear = this.insuranceDetails.tripEndDate.split('-')[0];
 
-        let tripStartDate = tripStartDateDay + "/" + tripStartDateMonth + "/" + tripStartDateYear // 10/01/2021
-        let tripEndDate = tripEndDateDay + "/" + tripEndDateMonth + "/" + tripEndDateYear // 10/01/2021
+        let tempTripStartDate: any;
+        let tempTripEndDate: any;
+
+        if (tripStartDate.month < 10 && tripStartDate.day < 10) {
+          tempTripStartDate = "0" + tripStartDate.day + "/0" + tripStartDate.month + "/" + tripStartDate.year;
+        } else if (tripStartDate.day < 10) {
+          tempTripStartDate = "0" + tripStartDate.day + "/" + tripStartDate.month + "/" + tripStartDate.year;
+        } else if (tripStartDate.month < 10) {
+          tempTripStartDate = tripStartDate.day + "/0" + tripStartDate.month + "/" + tripStartDate.year;
+        } else {
+          tempTripStartDate = tripStartDate.day + "/" + tripStartDate.month + "/" + tripStartDate.year;
+        }
+
+        if (tripEndDate.month < 10 && tripEndDate.day < 10) {
+          tempTripEndDate = "0" + tripEndDate.day + "/0" + tripEndDate.month + "/" + tripEndDate.year;
+        } else if (tripEndDate.day < 10) {
+          tempTripEndDate = "0" + tripEndDate.day + "/" + tripEndDate.month + "/" + tripEndDate.year;
+        } else if (tripEndDate.month < 10) {
+          tempTripEndDate = tripEndDate.day + "/0" + tripEndDate.month + "/" + tripEndDate.year;
+        } else {
+          tempTripEndDate = tripEndDate.day + "/" + tripEndDate.month + "/" + tripEndDate.year;
+        }
+
+        // let tripStartDate = tripStartDateDay + "/" + tripStartDateMonth + "/" + tripStartDateYear // 10/01/2021
+        // let tripEndDate = tripEndDateDay + "/" + tripEndDateMonth + "/" + tripEndDateYear // 10/01/2021
 
         let country = this.insuranceDetails.country;
         let planType = this.userflowDetails.getInsurancePlanDetails().planType;
@@ -997,8 +1025,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
         // });
         fd["partyDOList"] = ptdata;
         fd["proposerDetail"] = proposerData;
-        fd["policyCommencementDt"] = tripStartDate;
-        fd["policyMaturityDt"] = tripEndDate;
+        fd["policyCommencementDt"] = tempTripStartDate;
+        fd["policyMaturityDt"] = tempTripEndDate;
         fd["country"] = country;
         fd["planType"] = planType;
         // fd["maxTripPeriod"] = "45",
@@ -1563,7 +1591,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     this.getControls[i]['controls'].birthDt.setValue('');
     this.getControls[i]['controls'].birthDt.setValidators([Validators.nullValidator]);
     this.getControls[i]['controls'].birthDt.updateValueAndValidity();
-    
+
     this.getControls[i]['controls'].birthDtCopy.setValue('');
     this.getControls[i]['controls'].birthDtCopy.setValidators([Validators.required]);
     this.getControls[i]['controls'].birthDtCopy.updateValueAndValidity();
@@ -1717,7 +1745,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     if (this.getControls[i].get("relationCd").value === "SON" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
       // console.log(typeof i);
       switch (i) {
-      
+
         case 0:
           yesterday.setDate(yesterday.getDate() - 91);
           this.maxDateDob_0 = {
@@ -1730,7 +1758,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
           };
-          
+
           break;
         case 1:
           yesterday.setDate(yesterday.getDate() - 91);
@@ -1746,7 +1774,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
           };
           break;
         case 2:
-       
+
           yesterday.setDate(yesterday.getDate() - 91);
           this.maxDateDob_2 = {
             year: yesterday.getFullYear(),
@@ -1770,7 +1798,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             year: yesterday.getFullYear() - 25,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
-          }; 
+          };
           break;
         case 4:
           yesterday.setDate(yesterday.getDate() - 91);
@@ -1811,7 +1839,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_0= {
+          this.minDate_0 = {
             year: yesterday.getFullYear() - 42,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1824,7 +1852,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_1 =  {
+          this.minDate_1 = {
             year: yesterday.getFullYear() - 42,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1837,7 +1865,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_2= {
+          this.minDate_2 = {
             year: yesterday.getFullYear() - 42,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1850,7 +1878,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_3= {
+          this.minDate_3 = {
             year: yesterday.getFullYear() - 42,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1863,7 +1891,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_4= {
+          this.minDate_4 = {
             year: yesterday.getFullYear() - 42,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1876,7 +1904,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate(),
           };
-          this.minDate_5= {
+          this.minDate_5 = {
             year: yesterday.getFullYear() - 42,
             month: yesterday.getMonth() + 1,
             day: yesterday.getDate()
@@ -1961,5 +1989,67 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     document.getElementById('identityProposer_1').style.display = 'block';
     this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.setValidators([Validators.required]);
     this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.updateValueAndValidity();
+  }
+
+  avoidSpace(event: any) {
+    var k = event ? event.which : event.keyCode;
+
+    if (k == 32) return false;
+  }
+
+  allowAlphabetOnly(event: any) {
+    return (event.keyCode > 64 && event.keyCode < 91) ||
+      (event.keyCode > 96 && event.keyCode < 123)
+  }
+
+  validateNumber(event: any) {
+    var key = window.event ? event.keyCode : event.which;
+    if (event.keyCode === 8 || event.keyCode === 46) {
+      return true;
+    } else if (key < 48 || key > 57) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  validateIdentityType(event: any, identityInput: HTMLInputElement, identityType: string): boolean {
+
+    if (identityType == 'PAN') {
+      var inp = String.fromCharCode(event.keyCode);
+
+      if (
+        ((identityInput.value.length <= 4) || (identityInput.value.length == 9)) &&
+        (/[A-Za-z]/.test(inp))
+      ) {
+        return true;
+      } else if (
+        ((identityInput.value.length >= 5) && (identityInput.value.length <= 8)) &&
+        (/[0-9]/.test(inp))
+      ) {
+        return true;
+      } else {
+        event.preventDefault();
+        return false;
+      }
+    } else if (identityType == 'PASSPORT') {
+      var inp = String.fromCharCode(event.keyCode);
+
+      if (
+        identityInput.value.length === 0 &&
+        (/[A-Za-z]/.test(inp))
+      ) {
+        return true;
+      } else if (
+        ((identityInput.value.length > 0) && (identityInput.value.length < 8)) &&
+        (/[0-9]/.test(inp))
+      ) {
+        return true;
+      } else {
+        event.preventDefault();
+        return false;
+      }
+    }
+
   }
 }

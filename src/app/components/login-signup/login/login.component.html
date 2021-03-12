@@ -2,29 +2,70 @@
   <div class="row">
     <div class="col-12 input-group">
       <!-- <label for="username">Email/Cell Number <span class="astrisk">*</span></label> -->
-      <input minlength="6" id="username" class="form-control"
-        pattern="^([6-9][0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$" (keydown.enter)="onUserPress()"
-        formControlName="userId" placeholder="Enter Email/Cell Number" type="text" autocomplete="off" name="userId"
-        [ngClass]="{'is-invalid':loginForm.get('userId').invalid && loginForm.get('userId').dirty,'is-valid':!(loginForm.get('userId').invalid && loginForm.get('userId').dirty) && !loginForm.get('userId').pristine}">
+      <input
+        minlength="6"
+        id="username"
+        class="form-control"
+        pattern="^([6-9][0-9]{9})|([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
+        (keydown.enter)="onUserPress()"
+        formControlName="userId"
+        placeholder="Enter Email/Cell Number"
+        type="text"
+        autocomplete="off"
+        name="userId"
+        [ngClass]="{
+          'is-invalid':
+            loginForm.get('userId').invalid && loginForm.get('userId').dirty,
+          'is-valid':
+            !(
+              loginForm.get('userId').invalid && loginForm.get('userId').dirty
+            ) && !loginForm.get('userId').pristine
+        }"
+      />
 
-      <div class="invalid-feedback" style="display: block;">
-        <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').dirty ">Enter a valid email address or
-          mobile number *</div>
+      <div class="invalid-feedback" style="display: block">
+        <div
+          *ngIf="
+            loginForm.get('userId').invalid && loginForm.get('userId').dirty
+          "
+        >
+          Enter a valid email address or mobile number *
+        </div>
       </div>
     </div>
 
     <div class="col-12 input-group">
       <!-- <label for="otp">OTP <span class="astrisk">*</span></label> -->
-      <input class="form-control"
-        [ngClass]="{'is-invalid':loginForm.get('otp').invalid && loginForm.get('otp').dirty,'is-valid':!(loginForm.get('otp').invalid && loginForm.get('otp').dirty) && !loginForm.get('otp').pristine}"
-        (keydown.enter)="onOTPPress()" pattern="^[0,1-9][0-9]{5}$" autocomplete="off" name="otp"
-        formControlName="otp" type="text" placeholder="Enter OTP" />
-      <div class="invalid-feedback" style="display: block;">
-        <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty ">Enter a valid otp *</div>
+      <input
+        class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            loginForm.get('otp').invalid && loginForm.get('otp').dirty,
+          'is-valid':
+            !(loginForm.get('otp').invalid && loginForm.get('otp').dirty) &&
+            !loginForm.get('otp').pristine
+        }"
+        (keydown.enter)="onOTPPress()"
+        pattern="^[0,1-9][0-9]{5}$"
+        autocomplete="off"
+        name="otp"
+        formControlName="otp"
+        type="text"
+        placeholder="Enter OTP"
+      />
+      <div class="invalid-feedback" style="display: block">
+        <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').dirty">
+          Enter a valid otp *
+        </div>
       </div>
     </div>
     <div class="col-12 rememberMeBox" *ngIf="showOtpField">
-      <input type="checkbox" name="rememberMe" formControlName="rememberMe" id="rememberMe">
+      <input
+        type="checkbox"
+        name="rememberMe"
+        formControlName="rememberMe"
+        id="rememberMe"
+      />
       <label for="rememberMe" class="staySignedIn">Stay Signed In</label>
     </div>
 
@@ -33,86 +74,118 @@
     </div>
 
     <div class="col-12 button-group loading py-1" *ngIf="showLoader">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="20" width="20"
-        x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-        <path style="fill:#2D50A7;" d="M267.636,0c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
-	c12.853,0,23.273-10.42,23.273-23.273V23.273C290.909,10.42,280.489,0,267.636,0z" />
-        <path style="fill:#73A1FB;" d="M267.638,372.364c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
-	c12.853,0,23.273-10.42,23.273-23.273v-93.091C290.911,382.784,280.491,372.364,267.638,372.364z" />
-        <path style="fill:#355EC9;" d="M185.355,140.808L119.529,74.98c-9.086-9.089-23.822-9.089-32.912,0
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        height="20"
+        width="20"
+        x="0px"
+        y="0px"
+        viewBox="0 0 512 512"
+        style="enable-background: new 0 0 512 512"
+        xml:space="preserve"
+      >
+        <path
+          style="fill: #2d50a7"
+          d="M267.636,0c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273V23.273C290.909,10.42,280.489,0,267.636,0z"
+        />
+        <path
+          style="fill: #73a1fb"
+          d="M267.638,372.364c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273v-93.091C290.911,382.784,280.491,372.364,267.638,372.364z"
+        />
+        <path
+          style="fill: #355ec9"
+          d="M185.355,140.808L119.529,74.98c-9.086-9.089-23.822-9.089-32.912,0
 	c-9.089,9.089-9.089,23.824,0,32.912l65.826,65.828c4.544,4.544,10.501,6.817,16.455,6.817c5.955,0,11.913-2.273,16.455-6.817
-	C194.444,164.631,194.444,149.897,185.355,140.808z" />
+	C194.444,164.631,194.444,149.897,185.355,140.808z"
+        />
         <g>
-          <path style="fill:#C4D9FD;" d="M477.091,232.727h-46.545c-12.853,0-23.273,10.42-23.273,23.273
+          <path
+            style="fill: #c4d9fd"
+            d="M477.091,232.727h-46.545c-12.853,0-23.273,10.42-23.273,23.273
 		c0,12.853,10.42,23.273,23.273,23.273h46.545c12.853,0,23.273-10.42,23.273-23.273
-		C500.364,243.147,489.944,232.727,477.091,232.727z" />
-          <path style="fill:#C4D9FD;" d="M382.83,338.283c-9.087-9.089-23.823-9.087-32.912,0c-9.089,9.089-9.087,23.823,0,32.912
+		C500.364,243.147,489.944,232.727,477.091,232.727z"
+          />
+          <path
+            style="fill: #c4d9fd"
+            d="M382.83,338.283c-9.087-9.089-23.823-9.087-32.912,0c-9.089,9.089-9.087,23.823,0,32.912
 		l65.828,65.825c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.273,16.455-6.816c9.089-9.089,9.089-23.824,0-32.912
-		L382.83,338.283z" />
+		L382.83,338.283z"
+          />
         </g>
-        <path style="fill:#3D6DEB;" d="M151.273,256c0-12.853-10.42-23.273-23.273-23.273H34.909c-12.853,0-23.273,10.42-23.273,23.273
-	c0,12.853,10.42,23.273,23.273,23.273H128C140.853,279.273,151.273,268.853,151.273,256z" />
-        <path style="fill:#5286FA;" d="M185.355,338.283c-9.087-9.089-23.824-9.089-32.912,0l-65.825,65.825
+        <path
+          style="fill: #3d6deb"
+          d="M151.273,256c0-12.853-10.42-23.273-23.273-23.273H34.909c-12.853,0-23.273,10.42-23.273,23.273
+	c0,12.853,10.42,23.273,23.273,23.273H128C140.853,279.273,151.273,268.853,151.273,256z"
+        />
+        <path
+          style="fill: #5286fa"
+          d="M185.355,338.283c-9.087-9.089-23.824-9.089-32.912,0l-65.825,65.825
 	c-9.089,9.087-9.089,23.824,0,32.912c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.271,16.455-6.816l65.825-65.825
-	C194.444,362.108,194.444,347.372,185.355,338.283z" />
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
+	C194.444,362.108,194.444,347.372,185.355,338.283z"
+        />
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
       </svg>
     </div>
 
     <div class="col-12 button-group" *ngIf="showLoginButton">
-      <button (click)="onSubmit()"
-        type="button" class="btn">Submit</button>
+      <button (click)="onSubmit()" type="button" class="btn">Submit</button>
     </div>
 
     <!-- *ngIf="changeNumber" -->
     <div class="col-12 mt-3 change-group" *ngIf="changeNumber">
       <div class="resendBtn changeBtn">
-        <a (click)="sendOtp()" style="cursor: pointer;color: navy;">
+        <a (click)="sendOtp()" style="cursor: pointer; color: navy">
           <span class="agree">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000080" width="18px" height="18px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="#000080"
+              width="18px"
+              height="18px"
+            >
               <path
-                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
-              <path d="M0 0h24v24H0z" fill="none" /></svg>
+                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"
+              />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
             Resend OTP
           </span>
         </a>
       </div>
       <div class="resendBtn">
-        <a (click)="changeUserNumber()" style="cursor: pointer;color: navy;">
+        <a (click)="changeUserNumber()" style="cursor: pointer; color: navy">
           <span class="agree">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000080" width="18px" height="18px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="#000080"
+              width="18px"
+              height="18px"
+            >
               <path
-                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
-              <path d="M0 0h24v24H0z" fill="none" /></svg>
+                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"
+              />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
             Change Detail
           </span>
         </a>

@@ -59,6 +59,8 @@
                     ngbDatepicker
                     #d="ngbDatepicker"
                     [maxDate]="maxDate"
+                    (click)="d.toggle()"
+                    readonly="readonly"
                   />
                   <div class="input-group-append">
                     <button
@@ -99,6 +101,8 @@
                     #tp="ngbDatepicker"
                     [minDate]="minDateOfTo"
                     [maxDate]="maxDate"
+                    readonly="readonly"
+                    (click)="tp.toggle()"
                   />
                   <div class="input-group-append">
                     <button
@@ -234,9 +238,7 @@
         <div class="form-row">
           <div class="col-md-6 col-lg-4">
             <div class="row inputTop">
-              <div
-                class="col-md-12 form-inline inputpad10 bookingId_input_box"
-              >
+              <div class="col-md-12 form-inline inputpad10 bookingId_input_box">
                 <label for="" class="mr-2 filterLabel">Booking Id </label>
                 <div>
                   <input
@@ -458,6 +460,49 @@
                     }"
                     >{{ booking.booking.paymentStatus }}</span
                   >
+                </li>
+                <li
+                  *ngIf="
+                    booking.booking.bookingType == 'Visa' &&
+                    booking.booking.bookingStatus == 'Visa application approved'
+                  "
+                >
+                  Download E-visa:
+                  <span
+                    class="fieldData"
+                    id="evisa_download"
+                    (click)="
+                      downloadEvisa(
+                        booking.booking.bookingId,
+                        booking.booking.bookingFrom
+                      )
+                    "
+                    >Download
+                    <svg
+                      class="bi bi-download"
+                      width="1em"
+                      height="1em"
+                      style="margin-left: 2px"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                        clip-rule="evenodd"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                        clip-rule="evenodd"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                        clip-rule="evenodd"
+                      /></svg
+                  ></span>
                 </li>
               </ul>
             </div>
@@ -770,6 +815,49 @@
                     >{{ booking.booking.paymentStatus }}</span
                   >
                 </li>
+                <li
+                  *ngIf="
+                    booking.booking.bookingType == 'Visa' &&
+                    booking.booking.bookingStatus == 'Visa application approved'
+                  "
+                >
+                  Download E-visa:
+                  <span
+                    class="fieldData"
+                    id="evisa_download"
+                    (click)="
+                      downloadEvisa(
+                        booking.booking.bookingId,
+                        booking.booking.bookingFrom
+                      )
+                    "
+                    >Download
+                    <svg
+                      class="bi bi-download"
+                      width="1em"
+                      height="1em"
+                      style="margin-left: 2px"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                        clip-rule="evenodd"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                        clip-rule="evenodd"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                        clip-rule="evenodd"
+                      /></svg
+                  ></span>
+                </li>
               </ul>
             </div>
             <div class="card-footer">
@@ -862,9 +950,6 @@
               alt="empty cart image"
             />
           </div>
-          <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 15px;">
-            <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
-           </div> -->
           <div class="col-md-12 text-center" style="vertical-align: middle">
             <button
               class="btn btn-sm"
@@ -913,10 +998,6 @@
 </div>
 
 <div class="feedback-popup" id="myId">
-  <!-- <button type="button" class="btn btn-primary" style="margin-top: 80px;" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button> -->
-
   <!-- Modal -->
 
   <div

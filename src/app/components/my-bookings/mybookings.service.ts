@@ -15,13 +15,13 @@ export class MyBookingsService {
   allBookings: Array<any> = [];
   verifytokendetails: Array<any> = [];
   totalItems: number;
-  
+
   constructor(
     private router: Router,
     private loginService: LoginService,
     private http: HttpClient,
     private userFlow: UserFlowDetails
-  ) {}
+  ) { }
 
   getBookingsFromServer(): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
@@ -94,5 +94,31 @@ export class MyBookingsService {
 
   getActiveBooking() {
     return this.activeBooking;
+  }
+
+  getCreateEvisaFromServicer(bookingId: string, bookingFrom: string): Observable<any> {
+    let AUTH_TOKEN = this.loginService.getAuthToken();
+    if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
+      // this.router.navigateByUrl["/visa"];
+    } else {
+      const base_url = this.userFlow.getBaseURL();
+      const headers = new HttpHeaders({ 'bookingFrom': bookingFrom, 'token': AUTH_TOKEN });
+
+      return this.http.get(base_url + "confirmation/e-visa/" + bookingId, { headers: headers });
+    }
+    //  console.log(AUTH_TOKEN);
+  }
+
+  getEvisaFromServicer(bookingId: string, bookingFrom: string): Observable<any> {
+    let AUTH_TOKEN = this.loginService.getAuthToken();
+    if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
+      // this.router.navigateByUrl["/visa"];
+    } else {
+      const base_url = this.userFlow.getBaseURL();
+      const headers = new HttpHeaders({ 'bookingFrom': bookingFrom, 'token': AUTH_TOKEN });
+
+      return this.http.get(base_url + "download/e-visa/" + bookingId, { headers: headers, responseType: 'blob' as 'json' });
+    }
+    //  console.log(AUTH_TOKEN);
   }
 }

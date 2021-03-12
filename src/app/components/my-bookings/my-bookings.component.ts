@@ -582,4 +582,38 @@ export class MyBookingsComponent implements OnInit {
       this.filteredBookingsEmpty = true;
     }
   }
+
+  downloadEvisa(bookingId: string, bookingFrom: string) {
+    document.getElementById('evisa_download').classList.add('progress_loader');
+    this.bookingService.getCreateEvisaFromServicer(bookingId, bookingFrom).
+      subscribe(res => {
+        if (res.data.evisaFound) {
+          this.bookingService.getEvisaFromServicer(bookingId, bookingFrom)
+            .subscribe((response: any) => {
+              document.getElementById('evisa_download').classList.remove('progress_loader');
+              let dataType = response.type;
+              let binaryData = [];
+              binaryData.push(response);
+              var a = document.createElement("a");
+              document.body.appendChild(a);
+              a.style.display = "none";
+              let url = window.URL.createObjectURL(
+                new Blob(binaryData, { type: 'application/pdf' })
+              );
+              a.href = url;
+              a.download = bookingId + " " + "evisa";
+              a.click();
+              window.URL.revokeObjectURL(url);
+            }, err => {
+              document.getElementById('evisa_download').classList.remove('progress_loader');
+            })
+        } else {
+          this.toastr.error(res.message);
+          document.getElementById('evisa_download').classList.remove('progress_loader');
+        }
+      }, err => {
+        document.getElementById('evisa_download').classList.remove('progress_loader');
+      });
+
+  }
 }

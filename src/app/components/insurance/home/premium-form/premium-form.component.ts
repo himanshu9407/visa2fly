@@ -1,5 +1,5 @@
 import { LoginStatusService } from 'src/app/shared/login-status.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -16,9 +16,9 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './premium-form.component.html',
   styleUrls: ['./premium-form.component.css']
 })
-export class PremiumFormComponent implements OnInit {
+export class PremiumFormComponent implements OnInit, OnDestroy {
   getPremiumForm: FormGroup;
-  minDate: any;
+  minTripEndDate: { year: number; month: number; day: number };
   today: Date;
   travellersAge: FormArray;
   count: number = 1;
@@ -33,6 +33,7 @@ export class PremiumFormComponent implements OnInit {
   // selectedCountry: string;
 
   title: string = "Visa2fly | Insurance";
+  tripStartMinDate: { year: number; month: number; day: number };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,7 +66,17 @@ export class PremiumFormComponent implements OnInit {
       // tripFrequency: [30, [Validators.required]]
     });
 
-    this.today = new Date();
+    let today = new Date();
+
+    this.tripStartMinDate = {
+      year: today.getFullYear(),
+      month: today.getMonth() + 1,
+      day: today.getDate(),
+    };
+
+    console.log(this.tripStartMinDate);
+
+
     this.enableReviewPremiumForm();
 
     this.titleService.setTitle(this.title);
@@ -86,7 +97,13 @@ export class PremiumFormComponent implements OnInit {
         this.count++;
       }
     }
-  
+
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.getPremiumForm.reset();
   }
 
   countryChanged(country: string) {
@@ -301,66 +318,86 @@ export class PremiumFormComponent implements OnInit {
 
       if (!this.getPremiumForm.valid) {
       } else {
-        let country = this.getPremiumForm.get("country").value;
-        // if (typeof country === 'object' && country !== null) {
-        //   country = country.name
-        // }
+        if (this.getPremiumForm.get('tripEndDate').value != '') {
+          let country = this.getPremiumForm.get("country").value;
+          let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
+          let ageOfTravellersList = []
 
-        // if (this.checkParenthesis(country)) {
-        //   country = country.replace(/ *\([^)]*\) */g, "");
-        // } else {
-        //   country = country;
-        // }
-        let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
-        let ageOfTravellersList = []
-        let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
-        let tripEndDate = this.getPremiumForm.get('tripEndDate').value;
-        let anyMedicalCondition = this.getPremiumForm.get('anyMedicalCondition').value;
-        // let frequentTraveller = this.getPremiumForm.get('frequentTraveller').value;
-        // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
+          let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
+          let tripEndDate = this.getPremiumForm.get('tripEndDate').value;
 
-        for (let i = 0; i < ageOfTravellers.length; i++) {
-          if (ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== '') {
-            ageOfTravellersList.push(ageOfTravellers[i].memberAge);
-            // console.log(ageOfTravellers[i]);
+          console.log(tripStartDate);
+          console.log(tripEndDate);
 
-          }
-        }
+          let tempTripStartDate: any;
+          let tempTripEndDate: any;
 
-        let reqData = {
-          country: country,
-          ageOfTravellers: ageOfTravellersList,
-          tripStartDate: tripStartDate,
-          tripEndDate: tripEndDate,
-          anyMedicalCondition: anyMedicalCondition,
-          // frequentTraveller: frequentTraveller,
-          // tripFrequency: tripFrequency
-        }
-
-        // console.log(reqData);
-
-        this.insuranceService.loadingSkeleton.next(true);
-        this.insuranceService.getPremium(reqData).subscribe((res: any) => {
-          // console.log(res);
-
-          if (res.code === '0') {
-            this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
-            this.userflowDetails.setInsuranceDetails('country', country);
-            this.userflowDetails.setInsuranceDetails('ageOfTravellers', JSON.stringify(ageOfTravellersList));
-            this.userflowDetails.setInsuranceDetails('tripStartDate', tripStartDate);
-            this.userflowDetails.setInsuranceDetails('tripEndDate', tripEndDate);
-            this.userflowDetails.setInsuranceDetails('anyMedicalCondition', anyMedicalCondition);
-
-            this.insuranceService.permiumCalculated.next(res.data.premiumAsPerPlan);
-            this.insuranceService.loadingSkeleton.next(false);
-
-            this.enableReviewPremiumForm();
-            this.enableCheckoutBtn = true;
+          if (tripStartDate.month < 10 && tripStartDate.day < 10) {
+            tempTripStartDate = tripStartDate.year + "-0" + tripStartDate.month + "-0" + tripStartDate.day;
+          } else if (tripStartDate.day < 10) {
+            tempTripStartDate = tripStartDate.year + "-" + tripStartDate.month + "-0" + tripStartDate.day;
+          } else if (tripStartDate.month < 10) {
+            tempTripStartDate = tripStartDate.year + "-0" + tripStartDate.month + "-" + tripStartDate.day;
           } else {
-            this.toastr.error(res.message);
+            tempTripStartDate = tripStartDate.year + "-" + tripStartDate.month + "-" + tripStartDate.day;
           }
-        });
 
+          if (tripEndDate.month < 10 && tripEndDate.day < 10) {
+            tempTripEndDate = tripEndDate.year + "-0" + tripEndDate.month + "-0" + tripEndDate.day;
+          } else if (tripEndDate.day < 10) {
+            tempTripEndDate = tripEndDate.year + "-" + tripEndDate.month + "-0" + tripEndDate.day;
+          } else if (tripEndDate.month < 10) {
+            tempTripEndDate = tripEndDate.year + "-0" + tripEndDate.month + "-" + tripEndDate.day;
+          } else {
+            tempTripEndDate = tripEndDate.year + "-" + tripEndDate.month + "-" + tripEndDate.day;
+          }
+
+          let anyMedicalCondition = this.getPremiumForm.get('anyMedicalCondition').value;
+          // let frequentTraveller = this.getPremiumForm.get('frequentTraveller').value;
+          // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
+
+          for (let i = 0; i < ageOfTravellers.length; i++) {
+            if (ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== '') {
+              ageOfTravellersList.push(ageOfTravellers[i].memberAge);
+              // console.log(ageOfTravellers[i]);
+            }
+          }
+
+          let reqData = {
+            country: country,
+            ageOfTravellers: ageOfTravellersList,
+            tripStartDate: tempTripStartDate,
+            tripEndDate: tempTripEndDate,
+            anyMedicalCondition: anyMedicalCondition,
+            // frequentTraveller: frequentTraveller,
+            // tripFrequency: tripFrequency
+          }
+
+          console.log(reqData);
+
+          this.insuranceService.loadingSkeleton.next(true);
+          this.insuranceService.getPremium(reqData).subscribe((res: any) => {
+            // console.log(res);
+
+            if (res.code === '0') {
+              this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
+              this.userflowDetails.setInsuranceDetails('country', country);
+              this.userflowDetails.setInsuranceDetails('ageOfTravellers', JSON.stringify(ageOfTravellersList));
+              this.userflowDetails.setInsuranceDetails('tripStartDate', tripStartDate);
+              this.userflowDetails.setInsuranceDetails('tripEndDate', tripEndDate);
+              this.userflowDetails.setInsuranceDetails('anyMedicalCondition', anyMedicalCondition);
+
+              this.insuranceService.permiumCalculated.next(res.data.premiumAsPerPlan);
+              this.insuranceService.loadingSkeleton.next(false);
+
+              this.enableReviewPremiumForm();
+              this.enableCheckoutBtn = true;
+            } else {
+              this.toastr.error(res.message);
+            }
+          });
+
+        }
       }
     }
   }
@@ -390,7 +427,9 @@ export class PremiumFormComponent implements OnInit {
   }
 
   onChangeDate(event) {
-    this.minDate = event.target.value;
+    console.log(event);
+
+    this.minTripEndDate = event;
     this.getPremiumForm.get('tripEndDate').setValue('');
   }
 
@@ -466,15 +505,39 @@ export class PremiumFormComponent implements OnInit {
 
       let country = this.getPremiumForm.get('country').value;
 
-      let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value
-      let ageOfTravellersList = []
+      let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value;
+      let ageOfTravellersList = [];
+
       let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
       let tripEndDate = this.getPremiumForm.get('tripEndDate').value;
+
+      let tempTripStartDate: any;
+      let tempTripEndDate: any;
+
+      if (tripStartDate.month < 10 && tripStartDate.day < 10) {
+        tempTripStartDate = tripStartDate.year + "-0" + tripStartDate.month + "-0" + tripStartDate.day;
+      } else if (tripStartDate.day < 10) {
+        tempTripStartDate = tripStartDate.year + "-" + tripStartDate.month + "-0" + tripStartDate.day;
+      } else if (tripStartDate.month < 10) {
+        tempTripStartDate = tripStartDate.year + "-0" + tripStartDate.month + "-" + tripStartDate.day;
+      } else {
+        tempTripStartDate = tripStartDate.year + "-" + tripStartDate.month + "-" + tripStartDate.day;
+      }
+
+      if (tripEndDate.month < 10 && tripEndDate.day < 10) {
+        tempTripEndDate = tripEndDate.year + "-0" + tripEndDate.month + "-0" + tripEndDate.day;
+      } else if (tripEndDate.day < 10) {
+        tempTripEndDate = tripEndDate.year + "-" + tripEndDate.month + "-0" + tripEndDate.day;
+      } else if (tripEndDate.month < 10) {
+        tempTripEndDate = tripEndDate.year + "-0" + tripEndDate.month + "-" + tripEndDate.day;
+      } else {
+        tempTripEndDate = tripEndDate.year + "-" + tripEndDate.month + "-" + tripEndDate.day;
+      }
+
       let anyMedicalCondition = this.getPremiumForm.get('anyMedicalCondition').value;
       // let frequentTraveller = this.getPremiumForm.get('frequentTraveller').value;
       // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
 
-      // if (ageOfTravellers.length < 0) {
       for (let i = 0; i < ageOfTravellers.length; i++) {
         if (ageOfTravellers[i].memberAge !== "" && ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== undefined) {
           ageOfTravellersList.push(ageOfTravellers[i].memberAge);
@@ -490,14 +553,14 @@ export class PremiumFormComponent implements OnInit {
       let reqData = {
         country: country,
         ageOfTravellers: ageOfTravellersList,
-        tripStartDate: tripStartDate,
-        tripEndDate: tripEndDate,
+        tripStartDate: tempTripStartDate,
+        tripEndDate: tempTripEndDate,
         anyMedicalCondition: anyMedicalCondition,
         // frequentTraveller: frequentTraveller,
         // tripFrequency: tripFrequency
       }
 
-      // console.log(reqData);
+      console.log(reqData);
 
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
         // console.log(res);
@@ -603,8 +666,10 @@ export class PremiumFormComponent implements OnInit {
       if (string[i] === "(") {
         return true;
       }
-
-
     }
+  }
+
+  reformatingTripDate() {
+
   }
 }

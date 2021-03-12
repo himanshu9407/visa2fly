@@ -1590,4 +1590,68 @@ export class AddTravellerComponent implements OnInit {
       $event.returnValue = true;
     }
   }
+
+  avoidSpace(event: any) {
+    var k = event ? event.which : event.keyCode;
+    console.log(k);
+
+    if (k == 32) return false;
+  }
+
+  allowAlphabetOnly(event: any) {
+    return (event.keyCode > 64 && event.keyCode < 91) ||
+      (event.keyCode > 96 && event.keyCode < 123)
+  }
+
+  validateNumber(event: any) {
+    var key = window.event ? event.keyCode : event.which;
+    if (event.keyCode === 8 || event.keyCode === 46) {
+      return true;
+    } else if (key < 48 || key > 57) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+
+  validatePassport(event: any, passport: HTMLInputElement): boolean {
+    var inp = String.fromCharCode(event.keyCode);
+
+    if (
+      passport.value.length === 0 &&
+      (/[A-Za-z]/.test(inp))
+    ) {
+      return true;
+    } else if (
+      ((passport.value.length > 0) && (passport.value.length < 8)) &&
+      (/[0-9]/.test(inp))
+    ) {
+      return true;
+    } else {
+      event.preventDefault();
+      return false;
+    }
+
+  }
+
+  validatePanCard(event: any, panCard: HTMLInputElement): boolean {
+    var inp = String.fromCharCode(event.keyCode);
+
+    if (
+      ((panCard.value.length <= 4) || (panCard.value.length == 9)) &&
+      (/[A-Za-z]/.test(inp))
+    ) {
+      return true;
+    } else if (
+      ((panCard.value.length >= 5) && (panCard.value.length <= 8)) &&
+      (/[0-9]/.test(inp))
+    ) {
+      return true;
+    } else {
+      event.preventDefault();
+      return false;
+    }
+  }
+
 }

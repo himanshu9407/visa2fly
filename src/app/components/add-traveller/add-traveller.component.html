@@ -229,12 +229,16 @@
     <h5>Passenger Details</h5>
     <ul>
       <li>
-        <div class="success-Icon img-sprite"></div>
+        <svg class="success-Icon">
+          <use xlink:href="assets/sprites/sprite.svg#correct"></use>
+        </svg>
         <p class="messageLead">Corresponding Traveller Details are complete.</p>
       </li>
 
       <li>
-        <div class="error-Icon img-sprite"></div>
+        <svg class="error-Icon">
+          <use xlink:href="assets/sprites/sprite.svg#error"></use>
+        </svg>
         <p class="messageLead">Corresponding Traveller Details are missing.</p>
       </li>
     </ul>
@@ -266,11 +270,15 @@
             </button>
 
             <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
-              <div class="error-formIcon img-sprite"></div>
+              <svg class="error-Icon">
+          <use xlink:href="assets/sprites/sprite.svg#error"></use>
+        </svg>
             </span>
 
             <span *ngIf="travellerForm.controls.travellers.controls[i].valid">
-              <div class="success-formIcon img-sprite"></div>
+              <svg class="error-Icon">
+          <use xlink:href="assets/sprites/sprite.svg#correct"></use>
+        </svg>
             </span>
             <button
               *ngIf="!first"
@@ -326,6 +334,7 @@
                 <div class="col-md-2 mb-3">
                   <label>First Name <span class="astrisk">*</span></label>
                   <input
+                    (keypress)="allowAlphabetOnly($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -373,6 +382,7 @@
                 <div class="col-md-2 mb-3">
                   <label>Middle Name</label>
                   <input
+                    (keypress)="allowAlphabetOnly($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -416,6 +426,7 @@
                 <div class="col-md-2 mb-3">
                   <label>Last Name <span class="astrisk">*</span></label>
                   <input
+                    (keypress)="allowAlphabetOnly($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -520,6 +531,11 @@
                   <label>Passport Number <span class="astrisk">*</span></label>
                   <div class="input-group">
                     <input
+                      #passport
+                      (keypress)="validatePassport($event, passport)"
+                      (input)="
+                        passport.value = $event.target.value.toUpperCase()
+                      "
                       [ngClass]="{
                         'is-invalid':
                           travellerForm.controls.travellers.controls[i].controls
@@ -629,6 +645,7 @@
                   <label>Email <span class="astrisk">*</span></label>
                   <div class="input-group">
                     <input
+                      (keypress)="avoidSpace($event)"
                       pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
                       [ngClass]="{
                         'is-invalid':
@@ -722,6 +739,8 @@
                 <div class="col-md-2 mb-3">
                   <label>Mobile Number <span class="astrisk">*</span></label>
                   <input
+                    maxlength="10"
+                    (keypress)="validateNumber($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -997,8 +1016,10 @@
                   "
                   class="col-md-2 mb-3"
                 >
-                  <label>PinCode <span class="astrisk">*</span></label>
+                  <label>Pin Code <span class="astrisk">*</span></label>
                   <input
+                    (keypress)="validateNumber($event)"
+                    maxlength="6"
                     formControlName="pinCode"
                     [ngClass]="{
                       'is-invalid':

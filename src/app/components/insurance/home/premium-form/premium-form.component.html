@@ -15,38 +15,6 @@
       <div class="form-row">
         <div class="col-12 pb-2">
           <span class="label-sty">Destination*</span>
-          <!-- <input
-            type="text"
-            name="country"
-            formControlName="country"
-            class="form-control input-sty"
-            id="country"
-            placeholder="Please input all countries"
-          /> -->
-          <!-- <div class="ng-autocomplete">
-            <ng-autocomplete
-              [data]="countries"
-              [searchKeyword]="keyword"
-              placeHolder="Enter the Country Name"
-              (selected)="selectEvent($event)"
-              (inputChanged)="onChangeSearch($event)"
-              (inputFocused)="onFocused($event)"
-              historyIdentifier="countries"
-              [itemTemplate]="itemTemplate"
-              [notFoundTemplate]="notFoundTemplate"
-              formControlName="country"
-            >
-            </ng-autocomplete>
-
-            <ng-template #itemTemplate let-item>
-              <a [innerHTML]="item.name"></a>
-            </ng-template>
-
-            <ng-template #notFoundTemplate let-notFound>
-              <div [innerHTML]="notFound"></div>
-            </ng-template>
-          </div> -->
-
           <ng-select
             [multiple]="true"
             formControlName="country"
@@ -128,22 +96,40 @@
         <div class="col-12 pb-2">
           <div class="float_left date_input">
             <span class="label-sty">Trip Start Date*</span>
-            <input
-              type="date"
-              (change)="onChangeDate($event)"
-              [min]="today | date: 'yyyy-MM-dd'"
-              formControlName="tripStartDate"
-              name="tripStartDate"
-              id="tripStartDate"
-              placeholder="Trip Start Date"
-              class="form-control form-control-sm"
-              data-datepicker="separateRange"
-              [ngStyle]="{
-                border: tripStartDateNotSelected
-                  ? '1px solid red'
-                  : '1px solid #ced4da'
-              }"
-            />
+            <!-- <input type="date" /> -->
+
+            <div class="input-group">
+              <input
+                (ngModelChange)="onChangeDate($event)"
+                [minDate]="tripStartMinDate"
+                formControlName="tripStartDate"
+                name="tripStartDate"
+                id="tripStartDate"
+                placeholder="Trip Start Date"
+                class="form-control form-control-sm"
+                ngbDatepicker
+                readonly="readonly"
+                [ngStyle]="{
+                  border: tripStartDateNotSelected
+                    ? '1px solid red'
+                    : '1px solid #ced4da'
+                }"
+                #tripStart="ngbDatepicker"
+                (click)="tripStart.toggle()"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary calender"
+                  (click)="tripStart.toggle()"
+                  type="button"
+                >
+                  <svg class="calenderSvg">
+                    <use xlink:href="assets/sprites/sprite.svg#calender"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
             <div
               *ngIf="
                 tripStartDateNotSelected &&
@@ -156,21 +142,38 @@
           </div>
           <div class="float_right date_input">
             <span class="label-sty">Trip End Date*</span>
-            <input
-              type="date"
-              (change)="onChangePlan()"
-              [min]="minDate | date: 'yyyy-MM-dd'"
-              formControlName="tripEndDate"
-              name="tripEndDate"
-              id="tripEndDate"
-              placeholder="Trip End Date"
-              class="form-control form-control-sm"
-              [ngStyle]="{
-                border: tripEndDateNotSelected
-                  ? '1px solid red'
-                  : '1px solid #ced4da'
-              }"
-            />
+            <div class="input-group">
+              <input
+                (ngModelChange)="onChangePlan()"
+                [minDate]="minTripEndDate"
+                formControlName="tripEndDate"
+                name="tripEndDate"
+                id="tripEndDate"
+                placeholder="Trip End Date"
+                class="form-control form-control-sm"
+                ngbDatepicker
+                [ngStyle]="{
+                  border: tripEndDateNotSelected
+                    ? '1px solid red'
+                    : '1px solid #ced4da'
+                }"
+                #tripEnd="ngbDatepicker"
+                readonly="readonly"
+                (click)="tripEnd.toggle()"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary calender"
+                  (click)="tripEnd.toggle()"
+                  type="button"
+                >
+                  <svg class="calenderSvg">
+                    <use xlink:href="assets/sprites/sprite.svg#calender"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
             <div
               *ngIf="
                 tripEndDateNotSelected &&

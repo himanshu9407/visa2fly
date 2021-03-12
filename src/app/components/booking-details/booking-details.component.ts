@@ -25,7 +25,7 @@ export class BookingDetailsComponent implements OnInit {
   redirectTo: any;
   bookingStatus: boolean = false;
   title: string = "Visa2fly | Booking Details";
-  insuranceDetail : Array<any> = [];
+  insuranceDetail: Array<any> = [];
   constructor(
     private myBookingService: MyBookingsService,
     // private toastService: ToastService,
@@ -91,54 +91,88 @@ export class BookingDetailsComponent implements OnInit {
   }
 
   downloadPolicy(policyNumber: string, bookingStatus: string, bookingId: string) {
-  //   if (bookingStatus == "g") {
-  //     this.downloadImageService
-  //       .downloadPolicy(policyNumber)
-  //       .subscribe((response: any) => {
-  //         // console.log(response);
-  //         let dataType = response.type;
-  //         let binaryData = [];
-  //         binaryData.push(response);
-  //         var a = document.createElement("a");
-  //         document.body.appendChild(a);
-  //         a.style.display = "none";
-  //         let url = window.URL.createObjectURL(
-  //           new Blob(binaryData, { type: dataType })
-  //         );
-  //         a.href = url;
-  //         a.download = "Invoice" + policyNumber;
-  //         a.click();
-  //         window.URL.revokeObjectURL(url);
-  //       });
-  //   } else {
-  //     this.toastr.error(
-  //       "Policy could not be generated as the payment failed."
-  //     );
-  //   }
+    //   if (bookingStatus == "g") {
+    //     this.downloadImageService
+    //       .downloadPolicy(policyNumber)
+    //       .subscribe((response: any) => {
+    //         // console.log(response);
+    //         let dataType = response.type;
+    //         let binaryData = [];
+    //         binaryData.push(response);
+    //         var a = document.createElement("a");
+    //         document.body.appendChild(a);
+    //         a.style.display = "none";
+    //         let url = window.URL.createObjectURL(
+    //           new Blob(binaryData, { type: dataType })
+    //         );
+    //         a.href = url;
+    //         a.download = "Invoice" + policyNumber;
+    //         a.click();
+    //         window.URL.revokeObjectURL(url);
+    //       });
+    //   } else {
+    //     this.toastr.error(
+    //       "Policy could not be generated as the payment failed."
+    //     );
+    //   }
 
-  this.downloadImageService
-  .getPolicy(policyNumber)
-  .subscribe((res: any) => {
-    console.log(res);
-    if (res.code == "0") {
-      this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
-        let dataType = response.type;
-        let binaryData = [];
-        binaryData.push(response);
-        var a = document.createElement("a");
-        document.body.appendChild(a);
-        a.style.display = "none";
-        let url = window.URL.createObjectURL(
-          new Blob(binaryData, { type: dataType })
-        );
-        a.href = url;
-        a.download = "Invoice" + policyNumber;
-        a.click();
-        window.URL.revokeObjectURL(url);
+    this.downloadImageService
+      .getPolicy(policyNumber)
+      .subscribe((res: any) => {
+        console.log(res);
+        if (res.code == "0") {
+          this.downloadImageService.downloadPolicy(bookingId).subscribe((response: any) => {
+            let dataType = response.type;
+            let binaryData = [];
+            binaryData.push(response);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style.display = "none";
+            let url = window.URL.createObjectURL(
+              new Blob(binaryData, { type: dataType })
+            );
+            a.href = url;
+            a.download = "Invoice" + policyNumber;
+            a.click();
+            window.URL.revokeObjectURL(url);
+          });
+        } else {
+          this.toastr.error(res.message);
+        }
       });
-    } else {
-      this.toastr.error(res.message);
-    }
-  });
+  }
+
+  downloadEvisa(bookingId: string, bookingFrom: string) {
+    document.getElementById('evisa_download').classList.add('progress_loader');
+    this.myBookingService.getCreateEvisaFromServicer(bookingId, bookingFrom).
+      subscribe(res => {
+        if (res.data.evisaFound) {
+          this.myBookingService.getEvisaFromServicer(bookingId, bookingFrom)
+            .subscribe((response: any) => {
+              document.getElementById('evisa_download').classList.remove('progress_loader');
+              let dataType = response.type;
+              let binaryData = [];
+              binaryData.push(response);
+              var a = document.createElement("a");
+              document.body.appendChild(a);
+              a.style.display = "none";
+              let url = window.URL.createObjectURL(
+                new Blob(binaryData, { type: 'application/pdf' })
+              );
+              a.href = url;
+              a.download = bookingId + " " + "evisa";
+              a.click();
+              window.URL.revokeObjectURL(url);
+            }, err => {
+              document.getElementById('evisa_download').classList.remove('progress_loader');
+            })
+        } else {
+          this.toastr.error(res.message);
+          document.getElementById('evisa_download').classList.remove('progress_loader');
+        }
+      }, err => {
+        document.getElementById('evisa_download').classList.remove('progress_loader');
+      });
+
   }
 }
