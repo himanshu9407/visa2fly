@@ -2,10 +2,9 @@ import {
   Component,
   OnInit,
   HostListener,
-  ViewChild,
-  ElementRef,
   Inject,
   PLATFORM_ID,
+  OnDestroy,
 } from "@angular/core";
 import {
   FormBuilder,
@@ -20,20 +19,19 @@ import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { requiredFileType } from "../../shared/Custom-Image.validator";
 import { AddTravellerService } from "./addTraveller.service";
 import { LoginService } from "../login-signup/login/login.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
-import { from } from "rxjs";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { Title, Meta } from "@angular/platform-browser";
-import { isPlatformBrowser, LowerCasePipe } from "@angular/common";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-add-traveller",
   templateUrl: "./add-traveller.component.html",
   styleUrls: ["./add-traveller.component.css"],
 })
-export class AddTravellerComponent implements OnInit {
+export class AddTravellerComponent implements OnInit, OnDestroy {
   public paymentForm: any = {};
   buyerEmail = "";
   orderId = "";
@@ -687,6 +685,10 @@ export class AddTravellerComponent implements OnInit {
 
       element.updateValueAndValidity();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.travellerForm.reset();
   }
 
   selectAllFn() {

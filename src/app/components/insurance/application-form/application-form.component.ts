@@ -3,16 +3,15 @@ import { InsuranceService } from './../insurance.service';
 import { PreloaderService } from './../../../shared/preloader.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-application-form',
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css']
 })
-export class ApplicationFormComponent implements OnInit, AfterContentInit {
+export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDestroy {
   insuranceForm: FormGroup;
   insurer: FormArray;
   birthDtError: boolean;
@@ -329,6 +328,10 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit {
     };
 
 
+  }
+
+  ngOnDestroy(): void {
+    this.insuranceForm.reset();
   }
 
   ngAfterContentInit() {

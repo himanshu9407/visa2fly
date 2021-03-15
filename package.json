@@ -14,7 +14,8 @@
     "serve:ssr": "node dist/visa-App-server/main.js",
     "build:ssr": "ng build --prod && ng run visa-App:server:production",
     "prerender": "ng run visa-App:prerender --routesFile routes.txt",
-    "serve:prerender": "http-server ./dist/visa-App/browser"
+    "serve:prerender": "http-server ./dist/visa-App/browser",
+    "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs id"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +55,7 @@
     "popper.js": "^1.16.1",
     "rxjs": "^6.5.3",
     "safe-buffer": "^5.2.0",
+    "svg2sprite-cli": "^2.0.1",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.2"
   },
