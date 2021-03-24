@@ -110,7 +110,7 @@
                       <input
                         type="text"
                         id="proposerFirstName"
-                        (keypress)="allowAlphabetOnly($event)"
+                        (keydown)="allowAlphabetOnly($event)"
                         formControlName="firstName"
                         (ngModelChange)="onChangeProposal($event, 'firstName')"
                         autocomplete="new-name"
@@ -162,7 +162,7 @@
                     <input
                       type="text"
                       id="proposerLastName"
-                      (keypress)="allowAlphabetOnly($event)"
+                      (keydown)="allowAlphabetOnly($event)"
                       (ngModelChange)="onChangeProposal($event, 'lastName')"
                       formControlName="lastName"
                       autocomplete="new-lastName"
@@ -366,7 +366,7 @@
                           <input
                             type="tel"
                             maxlength="10"
-                            (keypress)="validateNumber($event)"
+                            (keydown)="validateNumber($event)"
                             id="proposerContactNum"
                             formControlName="contactNum"
                             (ngModelChange)="
@@ -443,7 +443,7 @@
                           type="email"
                           id="proposerEmailAddress"
                           formControlName="emailAddress"
-                          (keypress)="avoidSpace($event)"
+                          (keydown)="avoidSpace($event)"
                           (ngModelChange)="
                             onChangeProposal($event, 'emailAddress')
                           "
@@ -699,7 +699,7 @@
                       type="text"
                       id="proposerIdentityNumber"
                       formControlName="identityNum"
-                      (keypress)="
+                      (keydown)="
                         validateIdentityType(
                           $event,
                           identityNum,
@@ -1051,7 +1051,7 @@
                                 type="text"
                                 id="proposerPinCode"
                                 maxlength="6"
-                                (keypress)="validateNumber($event)"
+                                (keydown)="validateNumber($event)"
                                 (ngModelChange)="
                                   onChangePinCodeForProposer($event, j)
                                 "
@@ -1441,7 +1441,7 @@
                             type="text"
                             id="firstName"
                             formControlName="firstName"
-                            (keypress)="allowAlphabetOnly($event)"
+                            (keydown)="allowAlphabetOnly($event)"
                             autocomplete="off"
                             pattern="[A-Za-z]{3,32}"
                             [ngClass]="{
@@ -1489,7 +1489,7 @@
                           type="text"
                           id="lastName{{ i }}"
                           formControlName="lastName"
-                          (keypress)="allowAlphabetOnly($event)"
+                          (keydown)="allowAlphabetOnly($event)"
                           autocomplete="new-lastName"
                           pattern="[A-Za-z]{3,32}"
                           [ngClass]="{
@@ -2257,7 +2257,7 @@
                                 >
                                 <input
                                   type="text"
-                                  (keypress)="
+                                  (keydown)="
                                     validateIdentityType(
                                       $event,
                                       identityNum,

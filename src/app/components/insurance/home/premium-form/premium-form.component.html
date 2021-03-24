@@ -66,6 +66,9 @@
                 <div [formGroupName]="i">
                   <input
                     min="0"
+                    max="60"
+                    #travellerAge
+                    (keydown)="validateTravellerAge($event)"
                     type="number"
                     formControlName="memberAge"
                     placeholder="{{ i === 0 ? 'Self' : 'Member ' + i }}"

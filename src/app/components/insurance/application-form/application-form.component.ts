@@ -1996,39 +1996,44 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
 
   avoidSpace(event: any) {
     var k = event ? event.which : event.keyCode;
+    console.log(k);
 
     if (k == 32) return false;
   }
 
   allowAlphabetOnly(event: any) {
-    return (event.keyCode > 64 && event.keyCode < 91) ||
-      (event.keyCode > 96 && event.keyCode < 123)
+    if (event.keyCode > 64 && event.keyCode < 91) {
+      return true;
+    } else if (event.keyCode == 8 || event.keyCode == 46) {
+      return true;
+    } else if (event.keyCode > 36 && event.keyCode < 41) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   validateNumber(event: any) {
-    var key = window.event ? event.keyCode : event.which;
     if (event.keyCode === 8 || event.keyCode === 46) {
       return true;
-    } else if (key < 48 || key > 57) {
-      return false;
-    } else {
+    } else if (/[0-9]/.test(event.key)) {
       return true;
+    } else {
+      return false;
     }
   }
 
   validateIdentityType(event: any, identityInput: HTMLInputElement, identityType: string): boolean {
 
     if (identityType == 'PAN') {
-      var inp = String.fromCharCode(event.keyCode);
-
       if (
         ((identityInput.value.length <= 4) || (identityInput.value.length == 9)) &&
-        (/[A-Za-z]/.test(inp))
+        (/[A-Za-z]/.test(event.key))
       ) {
         return true;
       } else if (
         ((identityInput.value.length >= 5) && (identityInput.value.length <= 8)) &&
-        (/[0-9]/.test(inp))
+        (/[0-9]/.test(event.key))
       ) {
         return true;
       } else {
@@ -2036,16 +2041,16 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
         return false;
       }
     } else if (identityType == 'PASSPORT') {
-      var inp = String.fromCharCode(event.keyCode);
-
-      if (
+      if (event.keyCode == 8 || event.keyCode == 46) {
+        return true;
+      } else if (
         identityInput.value.length === 0 &&
-        (/[A-Za-z]/.test(inp))
+        (/[A-Za-z]/.test(event.key))
       ) {
         return true;
       } else if (
         ((identityInput.value.length > 0) && (identityInput.value.length < 8)) &&
-        (/[0-9]/.test(inp))
+        (/[0-9]/.test(event.key))
       ) {
         return true;
       } else {

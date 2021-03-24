@@ -74,7 +74,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
       day: today.getDate(),
     };
 
-    console.log(this.tripStartMinDate);
+    // console.log(this.tripStartMinDate);
 
 
     this.enableReviewPremiumForm();
@@ -91,7 +91,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
         let getPremiumForm: FormArray = this.getPremiumForm.get('ageOfTravellers') as FormArray;
         getPremiumForm.push(
           this.formBuilder.group({
-            memberAge: [''],
+            memberAge: ['', [Validators.maxLength(2)]],
           }),
         );
         this.count++;
@@ -326,8 +326,8 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
           let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
           let tripEndDate = this.getPremiumForm.get('tripEndDate').value;
 
-          console.log(tripStartDate);
-          console.log(tripEndDate);
+          // console.log(tripStartDate);
+          // console.log(tripEndDate);
 
           let tempTripStartDate: any;
           let tempTripEndDate: any;
@@ -373,7 +373,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
             // tripFrequency: tripFrequency
           }
 
-          console.log(reqData);
+          // console.log(reqData);
 
           this.insuranceService.loadingSkeleton.next(true);
           this.insuranceService.getPremium(reqData).subscribe((res: any) => {
@@ -427,7 +427,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
   }
 
   onChangeDate(event) {
-    console.log(event);
+    // console.log(event);
 
     this.minTripEndDate = event;
     this.getPremiumForm.get('tripEndDate').setValue('');
@@ -560,7 +560,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
         // tripFrequency: tripFrequency
       }
 
-      console.log(reqData);
+      // console.log(reqData);
 
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
         // console.log(res);
@@ -659,7 +659,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
     });
   }
 
-  checkParenthesis(string) {
+  checkParenthesis(string: string) {
     // console.log(string);
 
     for (let i = 0; i < string.length; i++) {
@@ -670,6 +670,19 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
   }
 
   reformatingTripDate() {
+
+  }
+
+  validateTravellerAge(event: any) {
+    if (
+      (event.keyCode === 8 || event.keyCode === 46) ||
+      (event.target.value.length <= 1) &&
+      (/[0-9]/.test(event.key))
+    ) {
+      return true;
+    } else {
+      return false;
+    }
 
   }
 }

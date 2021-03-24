@@ -25,6 +25,7 @@ import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { isPlatformBrowser } from "@angular/common";
+import { event } from "jquery";
 
 @Component({
   selector: "app-add-traveller",
@@ -1601,33 +1602,39 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
   }
 
   allowAlphabetOnly(event: any) {
-    return (event.keyCode > 64 && event.keyCode < 91) ||
-      (event.keyCode > 96 && event.keyCode < 123)
-  }
-
-  validateNumber(event: any) {
-    var key = window.event ? event.keyCode : event.which;
-    if (event.keyCode === 8 || event.keyCode === 46) {
+    if (event.keyCode > 64 && event.keyCode < 91) {
       return true;
-    } else if (key < 48 || key > 57) {
-      return false;
+    } else if (event.keyCode == 8 || event.keyCode == 46) {
+      return true;
+    } else if (event.keyCode > 36 && event.keyCode < 41) {
+      return true;
     } else {
-      return true;
+      return false;
     }
   }
 
+  validateNumber(event: any) {
+    if (event.keyCode === 8 || event.keyCode === 46) {
+      return true;
+    } else if (/[0-9]/.test(event.key)) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
 
   validatePassport(event: any, passport: HTMLInputElement): boolean {
-    var inp = String.fromCharCode(event.keyCode);
-
-    if (
+    if (event.keyCode == 8 || event.keyCode == 46) {
+      return true;
+    } else if (
       passport.value.length === 0 &&
-      (/[A-Za-z]/.test(inp))
+      (/[A-Za-z]/.test(event.key))
     ) {
       return true;
     } else if (
       ((passport.value.length > 0) && (passport.value.length < 8)) &&
-      (/[0-9]/.test(inp))
+      (/[0-9]/.test(event.key))
     ) {
       return true;
     } else {
@@ -1638,16 +1645,15 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
   }
 
   validatePanCard(event: any, panCard: HTMLInputElement): boolean {
-    var inp = String.fromCharCode(event.keyCode);
 
     if (
       ((panCard.value.length <= 4) || (panCard.value.length == 9)) &&
-      (/[A-Za-z]/.test(inp))
+      (/[A-Za-z]/.test(event.key))
     ) {
       return true;
     } else if (
       ((panCard.value.length >= 5) && (panCard.value.length <= 8)) &&
-      (/[0-9]/.test(inp))
+      (/[0-9]/.test(event.key))
     ) {
       return true;
     } else {

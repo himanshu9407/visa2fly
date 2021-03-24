@@ -271,14 +271,14 @@
 
             <span *ngIf="!travellerForm.controls.travellers.controls[i].valid">
               <svg class="error-Icon">
-          <use xlink:href="assets/sprites/sprite.svg#error"></use>
-        </svg>
+                <use xlink:href="assets/sprites/sprite.svg#error"></use>
+              </svg>
             </span>
 
             <span *ngIf="travellerForm.controls.travellers.controls[i].valid">
               <svg class="error-Icon">
-          <use xlink:href="assets/sprites/sprite.svg#correct"></use>
-        </svg>
+                <use xlink:href="assets/sprites/sprite.svg#correct"></use>
+              </svg>
             </span>
             <button
               *ngIf="!first"
@@ -334,7 +334,7 @@
                 <div class="col-md-2 mb-3">
                   <label>First Name <span class="astrisk">*</span></label>
                   <input
-                    (keypress)="allowAlphabetOnly($event)"
+                    (keydown)="allowAlphabetOnly($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -382,7 +382,7 @@
                 <div class="col-md-2 mb-3">
                   <label>Middle Name</label>
                   <input
-                    (keypress)="allowAlphabetOnly($event)"
+                    (keydown)="allowAlphabetOnly($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -426,7 +426,7 @@
                 <div class="col-md-2 mb-3">
                   <label>Last Name <span class="astrisk">*</span></label>
                   <input
-                    (keypress)="allowAlphabetOnly($event)"
+                    (keydown)="allowAlphabetOnly($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -532,7 +532,7 @@
                   <div class="input-group">
                     <input
                       #passport
-                      (keypress)="validatePassport($event, passport)"
+                      (keydown)="validatePassport($event, passport)"
                       (input)="
                         passport.value = $event.target.value.toUpperCase()
                       "
@@ -645,7 +645,7 @@
                   <label>Email <span class="astrisk">*</span></label>
                   <div class="input-group">
                     <input
-                      (keypress)="avoidSpace($event)"
+                      (keydown)="avoidSpace($event)"
                       pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
                       [ngClass]="{
                         'is-invalid':
@@ -740,7 +740,7 @@
                   <label>Mobile Number <span class="astrisk">*</span></label>
                   <input
                     maxlength="10"
-                    (keypress)="validateNumber($event)"
+                    (keydown)="validateNumber($event)"
                     [ngClass]="{
                       'is-invalid':
                         travellerForm.controls.travellers.controls[i].controls
@@ -1018,7 +1018,7 @@
                 >
                   <label>Pin Code <span class="astrisk">*</span></label>
                   <input
-                    (keypress)="validateNumber($event)"
+                    (keydown)="validateNumber($event)"
                     maxlength="6"
                     formControlName="pinCode"
                     [ngClass]="{
