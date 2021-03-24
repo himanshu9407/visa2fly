@@ -7,12 +7,10 @@ import {
   FormBuilder
 } from "@angular/forms";
 import { requiredFileType } from "src/app/shared/Custom-Image.validator";
-// import { ToastService } from "src/app/shared/toast.service";
 import { HttpClient } from "@angular/common/http";
 import { ToastrService } from 'ngx-toastr';
 import { Router } from "@angular/router";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
-// import { AddTravellerService } from '../../add-traveller/addTraveller.service';
 import { LoginService } from "../../login-signup/login/login.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
@@ -26,11 +24,9 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ["./b2b-add-trv.component.css"]
 })
 export class B2bAddTrvComponent implements OnInit {
-  // model: NgbDateStruct;
   public paymentForm: any = {};
   buyerEmail = "";
   orderId = "";
-  // amount = "";
   currency = "";
   merchantIdentifier = "";
   returnUrl = "";
@@ -133,6 +129,21 @@ export class B2bAddTrvComponent implements OnInit {
   country: string = "";
   collectionDateError = false;
   public errorMessage: Array<any> = [];
+
+  markupForm: FormGroup;
+
+  stateListArr: Array<string> = [
+    "Andaman And Nicobar Islands",
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
+    "Dadar And Nagar Haveli", "Daman And Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal",
+    "Jammu And Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Puducherry", "Rajasthan", "Sikkim", "Tamil Nadu",
+    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+  ];
+  enableMarkupBool: boolean = true;
+  isMarkupUpdate: boolean = false;
+  visaSetMarkup: number = 0;
+  selectDOCFirst: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -341,12 +352,12 @@ export class B2bAddTrvComponent implements OnInit {
     }
   }
 
-  checkDateOfDob(date: { month: any; day: any; year: any }) {}
+  checkDateOfDob(date: { month: any; day: any; year: any }) { }
 
-  
+
   onSlide(event) {
     console.log(event);
-    
+
     if (isPlatformBrowser(this.platformId)) {
 
       for (let i = 0; i < 6; i++) {
@@ -494,12 +505,9 @@ export class B2bAddTrvComponent implements OnInit {
       tnc: new FormControl(false, [Validators.requiredTrue])
     });
 
-    // this.valueAddedService = new FormGroup({
-    //   selectAll: new FormControl(false, []),
-    //   sim: new FormControl(false, []),
-    //   insurance: new FormControl(false, []),
-    //   forex: new FormControl(false, [])
-    // });
+    this.markupForm = new FormGroup({
+      markup: new FormControl(0)
+    })
 
     this.travellerForm = this.formBuilder.group({
       travellers: this.formBuilder.array([this.createTraveller()])
@@ -526,6 +534,7 @@ export class B2bAddTrvComponent implements OnInit {
 
       element.updateValueAndValidity();
     });
+
   }
 
   // selectAllFn() {
@@ -975,6 +984,7 @@ export class B2bAddTrvComponent implements OnInit {
         // console.log("hell world");
         ptdata.forEach((element: {}, index) => {
           element["id"] = this.dataSource[index].id;
+          element['primaryTraveller'] = index == 0 ? "true" : "false";
           // console.log(element);
         });
 
@@ -1020,6 +1030,7 @@ export class B2bAddTrvComponent implements OnInit {
         fd["primaryTraveller"] = ptdata[0];
         fd["otherTravellers"] = other;
         fd["dateOfTravel"] = finalDot;
+        fd['markup'] = this.markupForm.get('markup').value;
         if (!this.imageUpload) {
           fd["dateOfDocumentCollection"] = finalDoc;
         }
@@ -1052,7 +1063,7 @@ export class B2bAddTrvComponent implements OnInit {
 
         // console.log(tempData.values());
 
-        // console.log(this.travellerForm.get('travellers').value);
+        console.log(this.travellerForm.get('travellers').value);
 
         this.travellerService
           .submitForm(this.formData1)
@@ -1069,7 +1080,7 @@ export class B2bAddTrvComponent implements OnInit {
               this.status = data.status;
               this.message = data.message;
               this.extraParams = JSON.stringify(data.data.extraParams);
-              
+
               setTimeout(() => {
                 this.preloaderService.showPreloader(false);
                 document.forms["paymentForm"].submit();
@@ -1254,13 +1265,13 @@ export class B2bAddTrvComponent implements OnInit {
 
       this.travellerService.submitWarningForm().subscribe((data1: any) => {
         if (data1.code == 0) {
-          
+
           this.bookingId = data1.data.bookingId;
           this.collectPayment = data1.data.collectPayment;
           this.amount = data1.data.amount;
           this.hash = data1.data.hash;
           this.redirect = data1.data.redirectUrl;
-          
+
           this.code = data1.code;
           this.status = data1.status;
           this.message = data1.message;
@@ -1431,5 +1442,10 @@ export class B2bAddTrvComponent implements OnInit {
     if (this.canDeactivate()) {
       $event.returnValue = true;
     }
+  }
+
+  onSelectDOCFirst() {
+    this.selectDOCFirst = !this.selectDOCFirst;
+    console.log(this.selectDOCFirst);
   }
 }

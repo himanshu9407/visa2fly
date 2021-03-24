@@ -445,6 +445,10 @@ export class B2bReqComponent implements OnInit {
             }
           }
 
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 500);
+
           let purposeMain = this.selectedPurposeType;
           let purposeUrl =
             purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
@@ -561,11 +565,14 @@ export class B2bReqComponent implements OnInit {
           if (lastArr.length == 2) {
             lastArr.push(falseObject);
           }
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            const ID = this.userFlow.getB2BUserFlowDetails().id;
+            this.router.navigate(["b2b/home"], { queryParams: { id: ID } });
+          }, 2000);
+          this.toastr.error("Country Not Found");
         }
-
-        setTimeout(() => {
-          this.preloaderService.showPreloader(false);
-        }, 1000);
       });
   }
 
@@ -659,7 +666,7 @@ export class B2bReqComponent implements OnInit {
     if (
       this.mobileShowRequirementsDetailArr[i] == true &&
       this.mobileSelectedDataArr[i].fieldName ==
-        this.mobileMainArr[i][j].fieldName
+      this.mobileMainArr[i][j].fieldName
     ) {
       this.mobileShowRequirementsDetailArr[i] = false;
     } else if (
