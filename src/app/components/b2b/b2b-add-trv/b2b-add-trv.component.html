@@ -282,6 +282,7 @@
                     <button
                       class="btn calendar top-calendar"
                       (click)="doc.toggle()"
+                      (click)="onSelectDOCFirst()"
                       type="button"
                     >
                       <svg
@@ -309,12 +310,12 @@
                   Select Travel Date first.
                 </div>
                 <div
-                  *ngIf="collectionDateError"
+                  *ngIf="collectionDateError && !selectDOCFirst"
                   class="invalid-feedback"
                   style="display: block; font-size: 80%"
                 >
-                  Please select Date of Documents<br />
-                  Collection  .
+                  Please select Date of Documents <br />
+                  Collection.
                 </div>
               </div>
             </div>
