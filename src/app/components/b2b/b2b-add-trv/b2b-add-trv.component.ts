@@ -1452,6 +1452,6 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
 
   onSelectDOCFirst() {
     this.selectDOCFirst = !this.selectDOCFirst;
-    console.log(this.selectDOCFirst);
+    // console.log(this.selectDOCFirst);
   }
 }

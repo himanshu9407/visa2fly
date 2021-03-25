@@ -47,6 +47,7 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
   originalImageArr = [];
   selectedTravellerForm: number = 0;
   breadcrumRouting: string;
+  selectDOCFirst: boolean = false;
 
   list = {
     states: ["Delhi", "Haryana", "Uttar Pradesh"],
@@ -1660,6 +1661,11 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
       event.preventDefault();
       return false;
     }
+  }
+
+  onSelectDOCFirst() {
+    this.selectDOCFirst = !this.selectDOCFirst;
+    // console.log(this.selectDOCFirst);
   }
 
 }

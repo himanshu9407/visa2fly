@@ -149,7 +149,7 @@
                   class="invalid-feedback"
                   style="display: block"
                 >
-                  Please select Date of Travel .
+                  Select Date of Travel .
                 </div>
               </div>
             </div>
@@ -183,6 +183,7 @@
                     <button
                       class="btn calendar top-calendar"
                       (click)="doc.toggle()"
+                      (click)="onSelectDOCFirst()"
                       type="button"
                     >
                       <svg
@@ -201,19 +202,21 @@
                   </div>
                 </div>
                 <div
-                  *ngIf="travelDetails.get('dateOfTravel').invalid"
+                  *ngIf="
+                    travelDetails.get('dateOfTravel').invalid && selectDOCFirst
+                  "
                   class="invalid-feedback"
                   style="display: block"
                 >
-                  Please select Date of Travel first.
+                  Select Date of Travel first.
                 </div>
                 <div
-                  *ngIf="collectionDateError"
+                  *ngIf="collectionDateError && !selectDOCFirst"
                   class="invalid-feedback"
                   style="display: block; font-size: 80%"
                 >
-                  Please select Date of Collection <br />
-                  of Documents .
+                  Select Date of Documents<br />
+                  Collection
                 </div>
               </div>
             </div>
