@@ -6,11 +6,13 @@ import { CookiesService } from "@ngx-utils/cookies/src/cookies.service";
   providedIn: "root",
 })
 export class UserFlowDetails {
+
   public userObject: object = {};
   expiry: string;
   expiryDate: { year: number; month: number; day: number };
   insuranceObject: object = {};
   insurancePlanObject: object = {};
+  b2bExpiryDate: { year: number; month: number; day: number; };
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -69,6 +71,10 @@ export class UserFlowDetails {
     }
   }
 
+  setB2bTokenExpiry() {
+
+  }
+
   setUserFlowDetails(name: string, value: string) {
     this.userObject[name] = value;
 
@@ -110,8 +116,26 @@ export class UserFlowDetails {
   setB2BUserFlowDetails(name: string, value: string) {
     this.userObject[name] = value;
 
+    const current = new Date();
+    current.setDate(current.getDate() + 15);
+    this.b2bExpiryDate = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate(),
+    };
+
+    console.log(this.b2bExpiryDate);
+
+    let expiry = [
+      this.b2bExpiryDate.year,
+      this.b2bExpiryDate.month < 10 ? "0" + this.b2bExpiryDate.month : this.b2bExpiryDate.month,
+      this.b2bExpiryDate.day < 10 ? "0" + this.b2bExpiryDate.day : this.b2bExpiryDate.day,
+    ].join("-");
+
     if (isPlatformBrowser(this.platformId)) {
-      this.cookies.put("b2bUserFlowDetails", JSON.stringify(this.userObject));
+      this.cookies.put("b2bUserFlowDetails", JSON.stringify(this.userObject), {
+        expires: expiry,
+      });
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from "@angular/core";
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject, OnDestroy } from "@angular/core";
 import {
   FormArray,
   FormGroup,
@@ -23,7 +23,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: "./b2b-add-trv.component.html",
   styleUrls: ["./b2b-add-trv.component.css"]
 })
-export class B2bAddTrvComponent implements OnInit {
+export class B2bAddTrvComponent implements OnInit, OnDestroy {
   public paymentForm: any = {};
   buyerEmail = "";
   orderId = "";
@@ -40,6 +40,7 @@ export class B2bAddTrvComponent implements OnInit {
   code = "";
   status = "";
   message = "";
+  markup = "";
 
   extraParams = <any>{};
   extraParamsObject: Array<any> = [];
@@ -535,6 +536,10 @@ export class B2bAddTrvComponent implements OnInit {
       element.updateValueAndValidity();
     });
 
+  }
+
+  ngOnDestroy(): void {
+    this.travellerForm.reset();
   }
 
   // selectAllFn() {
@@ -1075,6 +1080,7 @@ export class B2bAddTrvComponent implements OnInit {
               this.amount = data.data.amount;
               this.hash = data.data.hash;
               this.redirect = data.data.redirectUrl;
+              this.markup = data.data.markup;
 
               this.code = data.code;
               this.status = data.status;
