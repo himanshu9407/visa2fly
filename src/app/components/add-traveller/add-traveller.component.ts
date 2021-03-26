@@ -1605,7 +1605,7 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
   allowAlphabetOnly(event: any) {
     if (event.keyCode > 64 && event.keyCode < 91) {
       return true;
-    } else if (event.keyCode == 8 || event.keyCode == 46) {
+    } else if (event.keyCode == 8 || event.keyCode == 46 || event.keyCode == 9) {
       return true;
     } else if (event.keyCode > 36 && event.keyCode < 41) {
       return true;
@@ -1615,7 +1615,7 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
   }
 
   validateNumber(event: any) {
-    if (event.keyCode === 8 || event.keyCode === 46) {
+    if (event.keyCode === 8 || event.keyCode === 46 || event.keyCode == 9) {
       return true;
     } else if (/[0-9]/.test(event.key)) {
       return true;
@@ -1626,7 +1626,7 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
   }
 
   validatePassport(event: any, passport: HTMLInputElement): boolean {
-    if (event.keyCode == 8 || event.keyCode == 46) {
+    if (event.keyCode == 8 || event.keyCode == 46 || event.keyCode == 9) {
       return true;
     } else if (
       passport.value.length === 0 &&
