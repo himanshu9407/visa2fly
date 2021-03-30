@@ -142,13 +142,28 @@ export class UserFlowDetails {
     }
   }
 
+  setb2bSimCookie(key: string, value: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.cookies.put(key, value, {
+        expires: this.expiry,
+      });
+    }
+  }
+
   getCookie(key: string) {
     if (isPlatformBrowser(this.platformId)) {
       return this.cookies.get(key);
     }
   }
 
+  getb2bSimCookie(key: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      return this.cookies.get(key);
+    }
+  }
+
+
   getBaseURL() {
-    return "https://visa2fly.com/api/";
+    return "https://test.visa2fly.com/api/";
   }
 }

@@ -28,7 +28,8 @@ export class AppComponent implements OnInit {
   users: object;
   showVisaHeader : boolean;
   showB2BHeader: boolean;
-  showB2BSimHeader : boolean;
+  showB2BSimHeader: boolean;
+  showB2bSimFooter: boolean;
   hideFooter: boolean;
   activeRoute: string;
   constructor(
@@ -56,19 +57,21 @@ export class AppComponent implements OnInit {
           this.showB2BHeader = true;
           this.showVisaHeader = false;
           this.showB2BSimHeader = false;
-          
-        } else if(arr[1] == "b2bSim") {
+          this.showB2bSimFooter = false;
+        } else if(arr[2] == "b2b/sim") {
           this.showB2BSimHeader = true;
           this.showVisaHeader = false;
           this.showB2BHeader = false;
+          this.showB2bSimFooter = true;
           // this.showB2BHeader = false;
         } else {
-          // this.showB2BSimHeader = 
+          // this.showB2BSimHeader =
           this.showVisaHeader = true;
           this.showB2BSimHeader = true;
           this.showB2BHeader = false;
+          this.showB2bSimFooter = false;
         }
-          
+
           // this.showB2BSimHeader = false;
 
       }

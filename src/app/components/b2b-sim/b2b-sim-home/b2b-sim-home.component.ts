@@ -33,7 +33,7 @@ export class B2bSimHomeComponent implements OnInit {
     private route: ActivatedRoute,) {
       this.preloaderService.showPreloader(true);
       this.id = this.route.snapshot.queryParamMap.get("id");
-      this.userFlow.setB2BUserFlowDetails("id", this.id);
+      this.userFlow.setB2BSimUserFlowDetails("id", this.id);
 
     // console.log(this.id);
 
@@ -43,27 +43,29 @@ export class B2bSimHomeComponent implements OnInit {
     } else {
       this.isIdExist = true;
     }
+
+    this.simService.getSimcountries(this.id).subscribe((data: any) => {
+      if (data.code == "0") {
+        // console.log(data);
+        this.simCountries = data.data;
+        setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+        }, 2000);
+      } else {
+        setTimeout(() => {
+          this.preloaderService.showPreloader(false);
+        }, 2000);
+      }
+    });
     }
 
     ngOnInit() {
       this.simHomeForm = new FormGroup({
         simSelect: new FormControl("", [Validators.required]),
       });
-  
-      this.simService.getSimcountries().subscribe((data: any) => {
-        if (data.code == "0") {
-          // console.log(data);
-          this.simCountries = data.data;
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-          }, 2000);
-        } else {
-          setTimeout(() => {
-            this.preloaderService.showPreloader(false);
-          }, 2000);
-        }
-      });
-  
+
+
+
       this.titleService.setTitle(this.title);
       this.meta.addTags([
         { name: "keywords", content: "" },
@@ -73,20 +75,21 @@ export class B2bSimHomeComponent implements OnInit {
         },
       ]);
     }
-  
+
     onSimCountrySelected() {
       this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
       if (this.selectedSimCountry === "") {
         this.toastr.error("Please select a country.");
       } else {
-        this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
-        this.router.navigate(["b2bSim/simplans"]);
+        this.userFlow.setb2bSimCookie("simSelectedCountry", this.selectedSimCountry);
+        this.router.navigate(["b2b/sim/simplans/plans"]);
       }
     }
-  
+
     proceedToPlans(country: string) {
-      this.userFlow.setCookie("simSelectedCountry", country);
-      this.router.navigate(["b2bSim/simplans"]);
+      this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
+      this.userFlow.setb2bSimCookie("simSelectedCountry", country);
+      this.router.navigate(["b2b/sim/simplans/plans"]);
     }
 
 }

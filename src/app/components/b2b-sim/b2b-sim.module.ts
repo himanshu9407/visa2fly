@@ -11,12 +11,12 @@ import { B2bSimSimplansComponent } from './b2b-sim-simplans/b2b-sim-simplans.com
 import { SomethingWrongComponent } from 'src/app/shared/components/something-wrong/something-wrong.component';
 
 const routes : Routes = [
-  {path : "", redirectTo: 'home', pathMatch : "full"},
-  {path: "home", component: B2bSimHomeComponent, children : [
-    { path: ":id", component: B2bSimHomeComponent}
+  {path : "", redirectTo: 'b2b/sim', pathMatch : "full"},
+  {path: "", component: B2bSimHomeComponent, children : [
+    { path: ":id", component: B2bSimHomeComponent},
   ]},
-  { path: "simplans", component: B2bSimSimplansComponent},
-  { path: "simcheckout", component: B2bSimSimcheckoutComponent},
+  { path: "simplans/plans", component: B2bSimSimplansComponent},
+  { path: "simcheckout/applicationForm", component: B2bSimSimcheckoutComponent},
   {
     path: "something-went-wrong",
     component:  SomethingWrongComponent
@@ -33,7 +33,7 @@ const routes : Routes = [
     NgxPaginationModule,
     NgbModule,
     SharedVisaModuleModule,
-    
+
     RouterModule.forChild(routes)
   ]
 })

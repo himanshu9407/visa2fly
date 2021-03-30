@@ -12,23 +12,23 @@ export class B2bSimcheckoutService {
   constructor(private http : HttpClient, private userFlow : UserFlowDetails, private loginService: LoginService,
     private loginStatus : LoginStatusService) { }
 
-  proceedToPayment(reqObj : any) {
+  proceedToPayment(reqObj : any, id: string) {
     // console.log(reqObj);
      let token = this.loginService.getAuthToken();
      if(token == null || token == undefined) {
          token = "";
      }
      console.log(reqObj);
-     let headers = new HttpHeaders({'token':token,'visa-client':"0"});
+     let headers = new HttpHeaders({'id' : id,'visa-client':"0"});
      const base_url = this.userFlow.getBaseURL();
 
-     return this.http.post(base_url +'sim/select/plans',reqObj,{headers : headers});
+     return this.http.post(base_url +'b2b/redirect/sim/select/plans',reqObj,{headers : headers});
 
 
  }
 
  hitPaymentApi () {
-     
+
      let base_url = this.userFlow.getBaseURL();
      let AUTH_TOKEN = this.loginService.getAuthToken();
      let headers = new HttpHeaders({'token':AUTH_TOKEN,'visa-client':"0"});

@@ -38,6 +38,7 @@ export class B2bSimSimcheckoutComponent implements OnInit {
   title: string = "Visa2fly | Sim Checkout";
   paymentUrl: any = "";
   markUp : FormGroup;
+  id: any;
 
   constructor(private simCheckoutService: SimCheckoutService,
     private router: Router,
@@ -48,14 +49,17 @@ export class B2bSimSimcheckoutComponent implements OnInit {
     private meta: Meta,
     private userFlow: UserFlowDetails) {
 
-      this.simCart = JSON.parse(this.userFlow.getCookie("simCart"));
+      this.simCart = JSON.parse(this.userFlow.getb2bSimCookie("simCart"));
+      // console.log(this.simCart);
       this.updateTotal();
       this.totalQuantity();
-      this.selectedCountry = this.userFlow.getCookie("simSelectedCountry");
+      this.selectedCountry = this.userFlow.getb2bSimCookie("simSelectedCountry");
 
       this.markUp = new FormGroup({
         price : new FormControl('', [Validators.required])
       })
+
+      this.id = this.userFlow.getB2BSimUserFlowDetails().id;
 
      }
 
@@ -219,7 +223,7 @@ export class B2bSimSimcheckoutComponent implements OnInit {
         } else {
           this.preloaderService.showPreloader(false);
           this.toastr.error(data.message);
-          this.router.navigate(["/sim/checkout"]);
+          this.router.navigate(["b2b/sim/checkout"]);
         }
       });
   }

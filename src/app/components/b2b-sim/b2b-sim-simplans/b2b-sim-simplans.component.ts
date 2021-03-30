@@ -10,6 +10,7 @@ import { RouterHistory } from 'src/app/shared/router-history.service';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { LoginService } from '../../login-signup/login/login.service';
 import { SimService } from '../../sim/sim.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-b2b-sim-simplans',
@@ -35,6 +36,8 @@ export class B2bSimSimplansComponent implements OnInit {
   showMobileCart : boolean  = false;
   buttonLabel : string = "View Cart";
   title: string = "Visa2fly | Sim Plans";
+  id: any;
+  // selectedCountryOnDropdown: Subject<any> = new Subject();
 
   constructor(private simService: B2bSimService,
     private router: Router,
@@ -56,8 +59,10 @@ export class B2bSimSimplansComponent implements OnInit {
       this.simHomeForm = new FormGroup({
         simSelect: new FormControl("this.", [Validators.required])
       });
-  
-      this.simService.getSimcountries().subscribe((data: any) => {
+
+      this.id = this.userFlow.getB2BSimUserFlowDetails().id;
+
+      this.simService.getSimcountries(this.id).subscribe((data: any) => {
         if (data.code == "0") {
           // console.log(data);
           // this.preloaderService.showPreloader(true);
@@ -66,14 +71,15 @@ export class B2bSimSimplansComponent implements OnInit {
             this.preloaderService.showPreloader(false);
           }, 6000);
         } else {
-          this.router.navigate(["/sim"]);
+          // console.log("Himanshu");
+          this.router.navigate(["b2b/sim"]);
           setTimeout(() => {
             this.preloaderService.showPreloader(false);
           }, 4000);
           this.toastr.error(data.message);
         }
       });
-  
+
       if (
         this.selectedCountry == "" ||
         this.selectedCountry == undefined ||
@@ -83,14 +89,14 @@ export class B2bSimSimplansComponent implements OnInit {
         this.router.navigate(["sim"]);
       } else {
         this.simService
-          .getSimPlans(this.selectedCountry)
+          .getSimPlans(this.selectedCountry, this.id)
           .subscribe((data: any) => {
-            console.log(data);
-            
+            // console.log(data);
+
             if (data.code == "0" && data.data.length > 0) {
               this.selectedSimCountryData = data.data;
               // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
-  
+
               this.selectedSimCountryData.forEach((element: any) => {
                 element.quantity = 0;
               });
@@ -102,7 +108,7 @@ export class B2bSimSimplansComponent implements OnInit {
             }
           });
       }
-  
+
       this.titleService.setTitle(this.title);
       this.meta.addTags([
         { name: "keywords", content: "" },
@@ -114,7 +120,7 @@ export class B2bSimSimplansComponent implements OnInit {
         // { name: "robots", content: "index, follow" }
       ]);
     }
-  
+
     onClickSelect() {
       this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
       this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
@@ -125,12 +131,12 @@ export class B2bSimSimplansComponent implements OnInit {
         this.selectedCountry == null
       ) {
         // this.preloaderService.showPreloader(true);
-        this.router.navigate(["b2bSim/home"]);
+        this.router.navigate(["b2b/sim"]);
       } else {
         this.selectedCountry = this.simHomeForm.get("simSelect").value;
         // console.log(this.revertCountry);
         this.simService
-          .getSimPlans(this.selectedCountry)
+          .getSimPlans(this.selectedCountry,this.id)
           .subscribe((data: any) => {
             if (data.code == "0" && data.data.length > 0) {
               this.selectedSimCountryData = data.data;
@@ -139,7 +145,7 @@ export class B2bSimSimplansComponent implements OnInit {
               // setTimeout(() => {
               this.preloaderService.showPreloader(false);
               // }, 4000);
-  
+
               this.selectedSimCountryData.forEach((element: any) => {
                 element.quantity = 0;
               });
@@ -153,7 +159,7 @@ export class B2bSimSimplansComponent implements OnInit {
               this.toastr.error(data.message);
               // console.log(this.selectedRevertCountry);
               this.simService
-                .getSimPlans(this.selectedRevertCountry)
+                .getSimPlans(this.selectedRevertCountry,this.id)
                 .subscribe((data: any) => {
                   this.selectedSimCountryData = data.data;
                   // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
@@ -161,7 +167,7 @@ export class B2bSimSimplansComponent implements OnInit {
                   // setTimeout(() => {
                   this.preloaderService.showPreloader(false);
                   // }, 4000);
-  
+
                   this.selectedSimCountryData.forEach((element: any) => {
                     element.quantity = 0;
                   });
@@ -173,7 +179,7 @@ export class B2bSimSimplansComponent implements OnInit {
         // this.userFlow.setCookie("simSelectedCountry",this.selectedCountry);
       }
     }
-  
+
     checkIfCartEmpty(): boolean {
       if (this.simCart.length == 0) {
         return true;
@@ -181,24 +187,24 @@ export class B2bSimSimplansComponent implements OnInit {
         return false;
       }
     }
-  
+
     increaseItemCount(item: any) {
       //console.log(item);
       let totalQuantity = 0;
       this.simCart.forEach(element => {
         totalQuantity = totalQuantity + element.quantity;
       });
-  
+
       if (totalQuantity == 10) {
         this.toastr.warning("Maximum Cart Limit Reached !");
       } else {
         let found = false;
         // {name : "sarga",roll: 46}
-  
+
         for (let index = 0; index < this.simCart.length; index++) {
           // this.simCart.forEach((element : any) => {
           let element = this.simCart[index];
-  
+
           if (element.planId == item.planId) {
             element.quantity = element.quantity + 1;
             // console.log("hello");
@@ -209,37 +215,37 @@ export class B2bSimSimplansComponent implements OnInit {
           }
           // });
         }
-  
+
         if (!found) {
           item.quantity = item.quantity + 1;
           this.simCart.push(item);
         }
-  
+
         if (this.checkIfCartEmpty()) {
           this.simCartEmpty = true;
         } else {
           this.simCartEmpty = false;
         }
       }
-  
+
       //console.log(this.simCart);
       this.updateTotal();
     }
-  
+
     decreaseItemCount(item: any) {
       let totalQuantity = 0;
       this.simCart.forEach(element => {
         totalQuantity = totalQuantity + element.quantity;
       });
-  
+
       let found = false;
-  
+
       this.simCart.forEach((element: any, index) => {
         if (element.planId == item.planId) {
           element.quantity = element.quantity - 1;
           // console.log(element);
           found = true;
-  
+
           if (element.quantity == 0) {
             //  this.simCart.
             this.simCart.splice(index, 1);
@@ -248,60 +254,66 @@ export class B2bSimSimplansComponent implements OnInit {
           found = false;
         }
       });
-  
+
       // if (!found) {
-  
+
       //   item.quantity = item.quantity +1;
       //   this.simCart.push(item);
       // }
-  
+
       if (this.checkIfCartEmpty()) {
         this.simCartEmpty = true;
       } else {
         this.simCartEmpty = false;
       }
-  
+
       //console.log(this.simCart);
       this.updateTotal();
     }
-  
+
     updateTotal() {
       this.totalPrice = 0;
       this.displayTotal = 0;
-  
+
       this.simCart.forEach((item: any) => {
         let temp =
           item.quantity *
           (item.price + item.convenienceFee + item.convenienceFeeTAX);
         this.totalPrice = this.totalPrice + temp;
       });
-  
+
       this.simCart.forEach((item: any) => {
         let temp1 = item.quantity * item.priceWithoutGST;
         this.displayTotal = this.displayTotal + temp1;
       });
     }
-  
+
     checkOut() {
+      // console.log(this.simCart);
       this.preloaderService.showPreloader(true);
-      this.userFlow.setCookie("simCart", JSON.stringify(this.simCart));
-      let token = this.loginService.getAuthToken();
-      if (token == null || token == undefined) {
-        token = "";
-      }
-  
-      this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
-        if (data.code == "0") {
-          //do payment post
-          this.router.navigate(["/b2bSim/simcheckout"]);
-          this.preloaderService.showPreloader(false);
-        } else {
-          this.routerHistory.pushHistory("fail-login-sim");
-          this.router.navigate(["slcontainer/login"]);
-          this.preloaderService.showPreloader(false);
-        }
-      });
-  
+      // this.id = this.userFlow.getB2BUserFlowDetails().id;
+      // console.log(this.id);
+      // this.userFlow.setB2BUserFlowDetail("id", this.id);
+      this.userFlow.setb2bSimCookie("simCart", JSON.stringify(this.simCart));
+      this.router.navigate(["/b2b/sim/simcheckout/applicationForm"]);
+      this.preloaderService.showPreloader(false);
+      // let token = this.loginService.getAuthToken();
+      // if (token == null || token == undefined) {
+      //   token = "";
+      // }
+
+      // this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
+      //   if (data.code == "0") {
+      //     //do payment post
+      //
+      //     this.preloaderService.showPreloader(false);
+      //   } else {
+      //     this.routerHistory.pushHistory("fail-login-sim");
+      //     this.router.navigate(["slcontainer/login"]);
+      //     this.preloaderService.showPreloader(false);
+      //   }
+      // });
+
     }
     toogleCartMobile() {
       this.showMobileCart = !this.showMobileCart;

@@ -13,7 +13,7 @@
   </div>
   <app-footer class="pcOnly" *ngIf="this.activeRoute !== 'slcontainer' && showVisaHeader "></app-footer>
   <app-b2b-footer class="pcOnly" *ngIf="showB2BHeader"></app-b2b-footer>
-  <app-b2b-sim-footer class="pcOnly"></app-b2b-sim-footer>
+  <app-b2b-sim-footer class="pcOnly" *ngIf="showB2bSimFooter"></app-b2b-sim-footer>
 </div>
 
 <div class="preloader" [ngClass]="{'show':showPreloader,'hide':!showPreloader}">
