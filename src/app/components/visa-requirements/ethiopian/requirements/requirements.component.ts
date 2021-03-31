@@ -61,17 +61,22 @@ export class RequirementsComponent implements OnInit, AfterViewInit {
   showTransitMobileFirst: boolean = true;
   showBusinessVisaFirst: boolean = true;
   showBusinessVisaMobileFirst: boolean = true;
+  visaType: string;
+  public selectedCountrytype = "Ethiopia";
 
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.selectedPurpose.subscribe((res) => {
-      this.t.select(res);
+      this.visaType = res;
+      // console.log(this.visaType);
     });
   }
 
   ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
+    setTimeout(() => {
+      this.visaType = this.selectedVisaType;
+    })
   }
 
   setActiveTourist(index: number, id: string) {

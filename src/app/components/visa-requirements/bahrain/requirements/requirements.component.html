@@ -1,4 +1,4 @@
-<section id="requirement">
+<!-- <section id="requirement">
   <div class="container-fluid p-0">
     <div class="iconSection">
       <ngb-tabset
@@ -15,7 +15,7 @@
               class="container-fluid wrapContainer"
               [@simpleFadeAnimation]="'in'"
             >
-              <!-- tourist -->
+
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement">
@@ -26,7 +26,7 @@
                 </div>
               </div>
 
-              <!-- desktopContainer -->
+
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
                   <ngb-tabset
@@ -304,7 +304,7 @@
                 </div>
               </div>
 
-              <!-- mobileContainer -->
+
               <div
                 class="mobileContainer wrapContainer accordion"
                 id="touristAccodionMobile"
@@ -645,7 +645,7 @@
               class="container-fluid wrapContainer"
               [@simpleFadeAnimation]="'in'"
             >
-              <!-- business -->
+
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h1 class="outerRequirement">
@@ -1036,7 +1036,7 @@
                 </div>
               </div>
 
-              <!-- mobileContainer -->
+
               <div
                 class="mobileContainer wrapContainer accordion"
                 id="touristAccodionMobile"
@@ -1506,4 +1506,208 @@
       </ngb-tabset>
     </div>
   </div>
+</section> -->
+
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
+    <div class="iconSection">
+      <div class="row headingWrapContainer">
+        <!-- Heading -->
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for Bahrain {{ visaType }} visa
+          </h3>
+        </div>
+        <!-- Content -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h6 class="requiredIconHeading">Passport</h6>
+              <ul>
+                <li>
+                  Upload coloured copies of the
+                  <button
+                  type="button"
+                  class="btn toggleHelperBtn"
+                  data-toggle="modal"
+                  data-target="#samplePassportFront"
+
+                  >
+                  first page
+                  </button> and
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportBack"
+
+                  >
+                  last page
+                  </button>
+                   of the
+                  passport.
+                </li>
+                <li>
+                  When you apply for a bahrain e visa online, you must be in possession of a passport with
+                  at least 6 months’ validity.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" *ngIf="visaType == 'Business'">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h6 class="requiredIconHeading">Photograph</h6>
+              <ul>
+                <li>
+                  Upload scanned colour copy of your passport-sized
+                  photograph
+                </li>
+                <li>
+
+                  <button type="button" class="btn toggleHelperBtn" data-toggle="modal" data-target="#samplePhotograph">
+                    Photo
+                  </button> should be taken against a white background.
+                </li>
+                <li>Dimensions should be 45mm height x 35mm width.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h6 class="requiredIconHeading">Hotel Booking Confirmation</h6>
+              <p>
+                Your copy of a hotel booking in Bahrain must be submitted. Alternatively, in case you are staying with a relative, you should provide a copy of their CPR Reader’s printout.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h6 class="requiredIconHeading">Flight Ticket</h6>
+              <p>
+                Applicant must provide both departure and arrival flight tickets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" *ngIf="visaType == 'Business'">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h6 class="requiredIconHeading">Business Invitation</h6>
+              <p>
+                The company/institution in Bahrain must issue a letter that states the purpose of the
+                applicant’s visit, as well as the applicant’s name and passport details. This must be on the official letterhead.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Bank Statement</h1>
+              <p>
+                A copy of a stamped bank statement under the visitor’s name must be submitted. It should
+                cover the last three months, with an ending balance of minimum BD 300.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Cover Letter</h1>
+              <p>
+                The Indian individual must issue a cover letter that mentions the purpose of visit,
+                designation of the visitor, and the intended duration, place and days of stay. It must
+                also contain the individual’s passport details. In case of not being able to obtain a cover
+                letter, other documents that prove valid objectives for travelling to Bahrain must be shown, eg. itinerary.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h1 class="requiredIconHeading">Supporting Document</h1>
+              <p>
+                If applicable, you may attach a copy of a GCC/USA/Schengen/UK/European/Canadian visa obtained that is still valid.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt="bahrain visa online"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt="bahrain visa online"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt="bahrain visa online"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

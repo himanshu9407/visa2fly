@@ -11,6 +11,7 @@ import { FaqComponent } from './faq/faq.component';
 import { ImportantPointsComponent } from './important-points/important-points.component';
 import { QuotationComponent } from './quotation/quotation.component';
 import { RequirementsComponent } from './requirements/requirements.component';
+import { DescriptionComponent } from './description/description.component';
 
 const routes: Routes = [
   { path: "", component: EthiopianComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     FaqComponent,
     ImportantPointsComponent,
     QuotationComponent,
-    RequirementsComponent
+    RequirementsComponent,
+    DescriptionComponent
   ],
 
   imports: [
