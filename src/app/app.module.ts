@@ -1,3 +1,6 @@
+import { B2bSimMobileNavComponent } from './components/b2b-sim/b2b-sim-mobile-nav/b2b-sim-mobile-nav.component';
+import { B2bSimHeaderComponent } from './components/b2b-sim/b2b-sim-header/b2b-sim-header.component';
+import { B2bSimFooterComponent } from './components/b2b-sim/b2b-sim-footer/b2b-sim-footer.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -48,6 +51,7 @@ import { BookingDetailsModule } from './components/booking-details/booking-detai
 import { BookingStatusModule } from './components/booking-status/booking-status.module';
 import { InsuranceModule } from './components/insurance/insurance.module';
 import { OffersModule } from "./components/offers/offers.module";
+import { B2bSimModule } from './components/b2b-sim/b2b-sim.module';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,10 @@ import { OffersModule } from "./components/offers/offers.module";
     SomethingWrongComponent,
     B2bHeaderComponent,
     B2bFooterComponent,
-    B2bMobileNavComponent
+    B2bMobileNavComponent,
+    B2bSimFooterComponent,
+    B2bSimHeaderComponent,
+    B2bSimMobileNavComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -101,7 +108,8 @@ import { OffersModule } from "./components/offers/offers.module";
     VisaRequirementModule,
     BookingDetailsModule,
     InsuranceModule,
-    OffersModule
+    OffersModule,
+    B2bSimModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

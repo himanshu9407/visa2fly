@@ -124,7 +124,7 @@ export class UserFlowDetails {
       day: current.getDate(),
     };
 
-    console.log(this.b2bExpiryDate);
+    // console.log(this.b2bExpiryDate);
 
     let expiry = [
       this.b2bExpiryDate.year,
@@ -136,6 +136,14 @@ export class UserFlowDetails {
       this.cookies.put("b2bUserFlowDetails", JSON.stringify(this.userObject), {
         expires: expiry,
       });
+    }
+  }
+
+  setB2BSimUserFlowDetails(name: string, value: string) {
+    this.userObject[name] = value;
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.cookies.put("b2bSimUserFlowDetails", JSON.stringify(this.userObject));
     }
   }
 
@@ -186,7 +194,21 @@ export class UserFlowDetails {
     }
   }
 
+  getB2BSimUserFlowDetails() {
+    if (isPlatformBrowser(this.platformId)) {
+      return JSON.parse(this.cookies.get("b2bSimUserFlowDetails"));
+    }
+  }
+
   setCookie(key: string, value: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.cookies.put(key, value, {
+        expires: this.expiry,
+      });
+    }
+  }
+
+  setb2bSimCookie(key: string, value: string) {
     if (isPlatformBrowser(this.platformId)) {
       this.cookies.put(key, value, {
         expires: this.expiry,
@@ -211,6 +233,13 @@ export class UserFlowDetails {
       return localStorage.getItem(key);
     }
   }
+
+  getb2bSimCookie(key: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      return this.cookies.get(key);
+    }
+  }
+
 
   getBaseURL() {
     return "https://test.visa2fly.com/api/";

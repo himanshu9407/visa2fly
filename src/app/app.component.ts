@@ -1,20 +1,12 @@
 import {
   Component,
-  AfterViewInit,
   OnInit,
-  AfterContentChecked,
-  AfterViewChecked,
 } from "@angular/core";
-import { HomeServiceService } from "./home-service.service";
 import { PreloaderService } from "./shared/preloader.service";
 import { LoginStatusService } from "./shared/login-status.service";
 import { LoginService } from "./components/login-signup/login/login.service";
-import { SignupResponseModel } from "./components/login-signup/signup/SignupResponse.model";
 import { UserFlowDetails } from "./shared/user-flow-details.service";
-import { AuthGuard } from "./auth/auth.guard";
-import { AuthenticationGuard } from "./shared/AuthenticationGuard.service";
 import { Router, NavigationStart } from "@angular/router";
-import { CookiesService } from "@ngx-utils/cookies/src/cookies.service";
 
 @Component({
   selector: "app-root",
@@ -26,7 +18,10 @@ export class AppComponent implements OnInit {
   title = "visa-App";
   public showPreloader: boolean = false;
   users: object;
+  showVisaHeader: boolean;
   showB2BHeader: boolean;
+  showB2BSimHeader: boolean;
+  showB2bSimFooter: boolean;
   hideFooter: boolean;
   activeRoute: string;
   constructor(
@@ -48,12 +43,42 @@ export class AppComponent implements OnInit {
         let url: string = event.url;
         let arr = url.split("/");
 
+        arr[arr.length - 1] = arr[arr.length - 1].split("?")[0];
+
+        // if (arr[1] == "b2b") {
+        //   this.showB2BHeader = true;
+        //   this.showVisaHeader = false;
+        //   this.showB2BSimHeader = false;
+        //   this.showB2bSimFooter = false;
+        // } else if (arr[2] == "b2b/sim") {
+        //   this.showB2BSimHeader = true;
+        //   this.showVisaHeader = false;
+        //   this.showB2BHeader = false;
+        //   this.showB2bSimFooter = true;
+        //   // this.showB2BHeader = false;
+        // } else {
+        //   // this.showB2BSimHeader =
+        //   this.showVisaHeader = true;
+        //   this.showB2BSimHeader = true;
+        //   this.showB2BHeader = false;
+        //   this.showB2bSimFooter = false;
+        // }
+
         this.activeRoute = arr[1];
 
-        if (arr[1] == "b2b") {
+        if (arr[1] == "b2b" &&
+          ((arr[2] == "home") ||
+            (arr[2] == "visa-requirement") ||
+            (arr[2] == "b2b-add-traveller"))) {
           this.showB2BHeader = true;
+        } else if (arr[1] == "b2b" &&
+          ((arr[2] == "sim") ||
+            (arr[2] == "plans") ||
+            (arr[2] == "application-form"))) {
+          this.showB2BSimHeader = true;
         } else {
           this.showB2BHeader = false;
+          this.showB2BSimHeader = false;
         }
 
       }

@@ -20,7 +20,7 @@ export class B2bAddTrvService {
     const headers = new HttpHeaders({ id: b2bUserFlowDetail_id, "visa-client": "0" });
 
     const base_url = this.userFlow.getBaseURL();
-    console.log(b2bUserFlowDetail_id);
+    // console.log(b2bUserFlowDetail_id);
 
     return this.http.post(base_url + "b2b/redirect/visa/apply", reqData, {
       headers: headers

@@ -130,14 +130,13 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
   country: string = "";
   collectionDateError = false;
   public errorMessage: Array<any> = [];
-
   markupForm: FormGroup;
 
   stateListArr: Array<string> = [
-    "Andaman And Nicobar Islands",
-    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
-    "Dadar And Nagar Haveli", "Daman And Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal",
-    "Jammu And Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Andaman and Nicobar Islands", "Andhra Pradesh",
+    "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
+    "Dadar and Nagar Haveli", "Daman and Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh",
+    "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
     "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Puducherry", "Rajasthan", "Sikkim", "Tamil Nadu",
     "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
   ];
@@ -165,6 +164,7 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
     }, 2000);
 
     this.today = new Date();
+    // console.log(this.userFlow.getB2BUserFlowDetails());
     this.tomorrow = new Date(this.today);
     this.tomorrow.setDate(this.tomorrow.getDate() + 1);
     this.tomorrowDate = {
@@ -173,10 +173,12 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
       day: this.tomorrow.getDate()
     };
 
-    this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
+
+
+
   }
 
-  checkCity(i) {
+  checkCity(i: number) {
     let tempState = this.travellerForm.controls.travellers.controls[i].controls
       .state.value;
     this.travellerForm.controls.travellers.controls[i].controls.city.setValue(
@@ -258,6 +260,15 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
           };
         }
       }
+    } else if (date.month == 12) {
+      if (date.day > 31) {
+        let tempDay = date.day - 30;
+        this.minDateOfTravel = {
+          year: date.year + 1,
+          month: 1,
+          day: tempDay,
+        };
+      }
     } else {
       if (date.day > 31) {
         let tempDay = date.day - 31;
@@ -302,6 +313,15 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
               year: date.year,
               month: prevMonth,
               day: 28
+            };
+          }
+        } else if (date.month == 12) {
+          if (date.day > 31) {
+            let tempDay = date.day - 30;
+            this.minDateOfTravel = {
+              year: date.year + 1,
+              month: 1,
+              day: tempDay,
             };
           }
         } else {
@@ -356,8 +376,9 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
   checkDateOfDob(date: { month: any; day: any; year: any }) { }
 
 
+
   onSlide(event) {
-    console.log(event);
+    // console.log(event);
 
     if (isPlatformBrowser(this.platformId)) {
 
@@ -540,6 +561,8 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.travellerForm.reset();
+    this.markupForm.reset();
+    this.travelDetails.reset();
   }
 
   // selectAllFn() {
@@ -871,6 +894,7 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
     this.validateDate();
     this.checkDateOfCollection();
 
+    this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
     this.formData1.set("images", "");
     // console.log(this.formData1);
 
@@ -993,6 +1017,7 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
           // console.log(element);
         });
 
+
         // console.log(ptdata[0]);
         // console.log("himanshu");
 
@@ -1048,6 +1073,7 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
         fd["totalPayableAmount"] =
           (this.serviceTax + this.basePrice) * totalTraveller;
 
+
         // this.formData1.append('totalPayableAmount',""+(this.serviceTax+this.basePrice)*totalTraveller);
 
         // this.formData1.append('needSim',this.valueAddedService.get('sim').value);
@@ -1068,11 +1094,12 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
 
         // console.log(tempData.values());
 
-        console.log(this.travellerForm.get('travellers').value);
-
+        // console.log(this.travellerForm.get('travellers').value);
+        // console.log(this.formData1);
         this.travellerService
           .submitForm(this.formData1)
           .subscribe((data: any) => {
+            // console.log(data);
             if (data.code == "0") {
 
               this.bookingId = data.data.bookingId;
@@ -1453,5 +1480,13 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
   onSelectDOCFirst() {
     this.selectDOCFirst = !this.selectDOCFirst;
     // console.log(this.selectDOCFirst);
+  }
+
+  stateChanged(event: string, i: number) {
+    if (event == undefined || event == null || event == "") {
+      this.travellerForm.controls.travellers.controls[i].controls.state.stateError = true;
+    } else {
+      this.travellerForm.controls.travellers.controls[i].controls.state.stateError = false;
+    }
   }
 }

@@ -155,10 +155,10 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
   stateList: string;
 
   stateListArr: Array<string> = [
-    "Andaman And Nicobar Islands",
-    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
-    "Dadar And Nagar Haveli", "Daman And Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal",
-    "Jammu And Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Andaman and Nicobar Islands", "Andhra Pradesh",
+    "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Chandigarh",
+    "Dadar and Nagar Haveli", "Daman and Diu", "Delhi", "New Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh",
+    "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur",
     "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Puducherry", "Rajasthan", "Sikkim", "Tamil Nadu",
     "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
   ];
@@ -1597,7 +1597,7 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
 
   avoidSpace(event: any) {
     var k = event ? event.which : event.keyCode;
-    console.log(k);
+    // console.log(k);
 
     if (k == 32) return false;
   }

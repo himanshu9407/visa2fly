@@ -847,6 +847,14 @@ const routes: Routes = [
     data: { preload: true },
   },
 
+   // B2b Sim Home Page
+   {
+    path: "b2b/sim",
+    loadChildren: () =>
+      import("./components/b2b-sim/b2b-sim.module").then((m) => m.B2bSimModule),
+    data: { preload: true },
+  },
+
   // B2b Home Page
   {
     path: "b2b",
@@ -854,6 +862,8 @@ const routes: Routes = [
       import("./components/b2b/b2b.module").then((m) => m.B2BModule),
     data: { preload: true },
   },
+
+
 
   // insurance
   {

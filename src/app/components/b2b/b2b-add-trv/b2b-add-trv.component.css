@@ -73,6 +73,7 @@ button.enableMarkup {
 
 .wrapper-info {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 input,
@@ -110,8 +111,8 @@ textarea:focus,
 .dateOfTravelContainer {
   margin-bottom: 5px;
   margin-top: 5px;
-  display: flex;
-  text-align: right;
+  /* display: flex; */
+  /* text-align: right; */
 }
 
 .dateOfTravelContainer label {
@@ -202,6 +203,21 @@ textarea:focus,
 .visaTypeHeading {
   font-size: 13px;
   font-weight: 600;
+}
+
+.detailsContent {
+  margin-left: 0px;
+  margin-right: -60px;
+}
+
+.markUpField {
+  width: 50%;
+  margin-left: 52px;
+  /* background-im/age: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='85px'><text x='2' y='13' fill='gray' font-size='12' font-family='arial'>$</text></svg>"); */
+}
+
+.dollarSign {
+  padding: 0px 11px;
 }
 
 .visaPrice,
@@ -424,6 +440,28 @@ textarea:focus,
     display: none !important;
   }
 
+  .dateOfTravelContainer .form-group {
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .dateOfTravelContainer {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    text-align: left;
+  }
+
+  .markUpField {
+    width: 50%;
+    margin-left: 0px;
+  }
+
+  .wrapper-info {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
   .tabletView {
     display: flex;
   }
@@ -489,6 +527,11 @@ textarea:focus,
   .onMobileFlex .markupContainer {
     display: flex;
     justify-content: space-between;
+  }
+
+  .markUpField {
+    width: 65%;
+    margin-left: 0px;
   }
 
   .addPassengerForm {
@@ -563,6 +606,12 @@ textarea:focus,
     margin-left: 0px;
   }
 
+  .visaPriceForMobile {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: -20px;
+  }
+
   .addPassengerHeading {
     flex-direction: column;
     justify-content: unset;
@@ -632,6 +681,11 @@ textarea:focus,
   .slide-content p {
     font-size: 15px;
   }
+
+  .wrapper-info {
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }
 
 @media (min-width: 1281px) {
@@ -656,6 +710,10 @@ textarea:focus,
   .addTravelDate {
     max-width: 102px !important;
   }
+  .markUpField {
+    width: 50%;
+    margin-left: 0px;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -665,10 +723,11 @@ textarea:focus,
 }
 
 .carousel-inner > .carousel-item {
-  -webkit-transition: 0.9s ease-in-out left;
+  -webkit-transition: 0.9s, ease-in-out, left;
   transition: 0.9s ease-in-out left;
   -webkit-transition: 0.9s, ease-in-out, left;
   -moz-transition: 0.9s, ease-in-out, left;
   -o-transition: 0.9s, ease-in-out, left;
   transition: 0.9s, ease-in-out, left;
+  -ms-transition: 0.9s, ease-in-out, left;
 }

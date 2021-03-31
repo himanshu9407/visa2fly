@@ -13,20 +13,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SomethingWrongComponent } from 'src/app/shared/components/something-wrong/something-wrong.component';
 import { B2bRemovespacePipe } from './b2b-removespace.pipe';
 import { SharedVisaModuleModule } from '../shared-visa-module/shared-visa-module.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 const routes: Routes = [
-  { path: "", redirectTo: 'home', pathMatch: "full" } ,
-  {path: "home", component: B2bHomeComponent, children : [
-    { path: ":id", component: B2bHomeComponent } 
-  ]},
-  { path: "visa-requirement/:country/:purpose", component: B2bReqComponent},
-  { path: "b2b-add-traveller", component: B2bAddTrvComponent},
-  { path: "page-not-found", component: PageNotFoundComponent},
+  { path: "home", component: B2bHomeComponent },
+  { path: "visa-requirement/:country/:purpose", component: B2bReqComponent },
+  { path: "b2b-add-traveller", component: B2bAddTrvComponent },
+  { path: "page-not-found", component: PageNotFoundComponent },
   {
     path: "something-went-wrong",
-    component:  SomethingWrongComponent
+    component: SomethingWrongComponent
   },
-  { path: "**", redirectTo: "page-not-found", pathMatch: "prefix"}
+  { path: "**", redirectTo: "page-not-found", pathMatch: "prefix" }
 ]
 
 @NgModule({
@@ -45,8 +43,8 @@ const routes: Routes = [
     NgxPaginationModule,
     NgbModule,
     SharedVisaModuleModule,
-    
+    NgSelectModule,
     RouterModule.forChild(routes)
   ]
 })
-export class B2BModule {}
+export class B2BModule { }
