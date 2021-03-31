@@ -9,6 +9,7 @@ import { SharedVisaModuleModule } from '../shared-visa-module/shared-visa-module
 import { B2bSimSimcheckoutComponent } from './b2b-sim-simcheckout/b2b-sim-simcheckout.component';
 import { B2bSimSimplansComponent } from './b2b-sim-simplans/b2b-sim-simplans.component';
 import { SomethingWrongComponent } from 'src/app/shared/components/something-wrong/something-wrong.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 const routes: Routes = [
   { path: "", component: B2bSimHomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule,
+    NgSelectModule,
     SharedVisaModuleModule,
 
     RouterModule.forChild(routes)
