@@ -164,7 +164,6 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
     }, 2000);
 
     this.today = new Date();
-    // console.log(this.userFlow.getB2BUserFlowDetails());
     this.tomorrow = new Date(this.today);
     this.tomorrow.setDate(this.tomorrow.getDate() + 1);
     this.tomorrowDate = {
@@ -422,7 +421,8 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
     this.userFlowDetails = this.userFlow.getB2BUserFlowDetails();
 
     this.imageUploads = JSON.parse(this.userFlowDetails.imageUploads);
-    // console.log(this.userFlowDetails);
+    this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
+
     if (this.imageUploads == "null") {
       this.imageUploads = [];
     }
@@ -529,7 +529,14 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
 
     this.markupForm = new FormGroup({
       markup: new FormControl(0)
-    })
+    });
+
+    let markupVal = this.userFlow.getB2BUserFlowDetails().markup == null ||
+      this.userFlow.getB2BUserFlowDetails().markup == undefined ||
+      this.userFlow.getB2BUserFlowDetails().markup == "" ?
+      0 : this.userFlow.getB2BUserFlowDetails().markup;
+
+    this.markupForm.get('markup').setValue(markupVal);
 
     this.travellerForm = this.formBuilder.group({
       travellers: this.formBuilder.array([this.createTraveller()])
@@ -893,8 +900,6 @@ export class B2bAddTrvComponent implements OnInit, OnDestroy {
     this.validateTravellerForm();
     this.validateDate();
     this.checkDateOfCollection();
-
-    this.uniqueId = this.userFlow.getB2BUserFlowDetails().id;
     this.formData1.set("images", "");
     // console.log(this.formData1);
 

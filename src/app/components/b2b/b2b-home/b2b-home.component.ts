@@ -12,7 +12,6 @@ import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { isPlatformBrowser } from "@angular/common";
 import { HomeFormService } from '../../home-container/home-form/home-form.service';
-// import { ToastService } from 'src/app/shared/toast.service';
 
 @Component({
   selector: "app-b2b-home",
@@ -39,12 +38,10 @@ export class B2bHomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private httpClient: HttpClient,
     private titleService: Title,
     private meta: Meta,
     private toastr: ToastrService,
     private homeFormService: HomeFormService,
-    // private toastService: ToastService,
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
     private route: ActivatedRoute,
@@ -52,8 +49,6 @@ export class B2bHomeComponent implements OnInit {
   ) {
     this.id = this.route.snapshot.queryParamMap.get("id");
     this.userFlow.setB2BUserFlowDetails("id", this.id);
-
-    // console.log(this.id);
 
     if (this.id == "" || this.id == null || this.id == undefined) {
       this.isIdExist = false;
