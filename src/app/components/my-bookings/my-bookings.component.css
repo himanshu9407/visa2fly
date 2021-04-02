@@ -12,10 +12,6 @@
   cursor: pointer;
 }
 
-#evisa_download.progress_loader:hover {
-  cursor: progress;
-}
-
 .headingSet {
   margin-top: 12px;
   font-size: 15px;
@@ -259,10 +255,6 @@ input[type="radio"]:checked + .filterLabel:after {
   font-weight: 600;
 }
 
-.radio1 {
-  margin-left: 10px;
-}
-
 .radio2 {
   margin-left: 25px;
 }
@@ -271,7 +263,7 @@ input[type="radio"]:checked + .filterLabel:after {
   .radio {
     width: 100%;
   }
-  .radio1,
+
   .radio2 {
     margin-left: 0px;
   }
@@ -501,17 +493,6 @@ input[type="radio"]:checked + .filterLabel:after {
   font-size: 16px;
 }
 
-.visa-price {
-  color: navy;
-  font-weight: 700;
-}
-
-.continueBtn {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5px;
-}
-
 .card-body {
   padding: 10px;
   min-height: 360px;
@@ -521,18 +502,6 @@ input[type="radio"]:checked + .filterLabel:after {
   margin-top: 10px !important;
 }
 
-.btn-continue {
-  color: #fff !important;
-  background-color: navy !important;
-  border-color: navy !important;
-}
-
-.btn-continue :hover {
-  color: navy;
-  background-color: white;
-  border-color: navy;
-}
-
 li {
   display: list-item;
   text-align: -webkit-match-parent;
@@ -540,11 +509,6 @@ li {
 
 ul {
   list-style: none;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
 }
 
 .btn-outline-navy {
@@ -621,74 +585,6 @@ ul {
   .historyContainer {
     margin-top: 120px !important;
   }
-}
-
-.pagination .active a {
-  color: #143361;
-  background-color: transparent;
-  font-weight: 600;
-}
-
-.pagination .active a:hover {
-  background-color: transparent;
-  color: #143361;
-  border: 0px;
-}
-
-.pagination .active a:active {
-  background-color: transparent;
-  color: #143361;
-  border: 0px;
-}
-
-.pagination .active a:focus {
-  background-color: transparent;
-  color: #143361;
-  outline: none;
-}
-
-.pagination li a {
-  border: 1px;
-  margin-left: 0px;
-  color: #707070;
-  padding: 7px 2px;
-  margin: 0px 20px;
-}
-
-.pagination li a:hover {
-  background-color: transparent;
-  color: #4a90e2;
-  padding-bottom: 2px;
-  border-bottom: 1px solid;
-}
-
-.pagination li a:focus {
-  outline: none;
-  background-color: transparent;
-  /*color:#707070;*/
-}
-
-.pagination li:first-child a,
-.pagination li:last-child a {
-  border: 2px solid #143361 !important;
-  border-radius: 6px;
-  margin: 0px;
-  padding: 6px 12px;
-  border: 2px solid;
-  font-size: 14px;
-  color: #143361;
-}
-
-.pagination li:first-child a:hover,
-.pagination li:last-child a:hover {
-  text-decoration: none !important;
-  color: #fff;
-  background-color: #143361;
-}
-
-.pagination li:first-child a:focus,
-.pagination li:last-child a:focus {
-  outline: none;
 }
 
 @media (min-width: 1281px) {
@@ -855,7 +751,7 @@ textarea:focus,
   background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
 }
 
-fieldset,
+
 label {
   margin: 0;
   padding: 0;
@@ -863,61 +759,9 @@ label {
 
 /****** Style Star Rating Widget *****/
 
-.rating {
-  border: none;
-  float: left;
-}
-
-.rating > input {
-  display: none;
-}
-
-.rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
-
-.rating > .half:before {
-  content: "\f089";
-  position: absolute;
-}
-
-.rating > label {
-  color: #ddd;
-  float: right;
-}
-
 /***** CSS Magic to Highlight Stars on Hover *****/
 
-.rating>input:checked~label,
-
-/* show gold star when clicked */
-
-.rating:not(:checked)>label:hover,
-
-/* hover current star */
-
-.rating:not(:checked)>label:hover~label {
-  color: #ffcc33;
-}
-
 /* hover previous stars in list */
-
-.rating>input:checked+label:hover,
-
-/* hover current star when changing rating */
-
-.rating>input:checked~label:hover,
-.rating>label:hover~input:checked~label,
-
-/* lighten current selection */
-
-.rating>input:checked~label:hover~label {
-  color: #ffcc33;
-}
 
 @media screen and (max-width: 990px) {
   .cross-times {
@@ -1034,9 +878,6 @@ label {
 }
 
 @media screen and (max-width: 600px) {
-  .ngx-pagination {
-    padding-left: 0px;
-  }
 
   .searchBooking {
     text-align: center;
