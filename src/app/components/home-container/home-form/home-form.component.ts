@@ -2,6 +2,8 @@ import {
   Component,
   PLATFORM_ID,
   Inject,
+  ViewChild,
+  ElementRef,
 } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { Router } from "@angular/router";
@@ -14,6 +16,7 @@ import { HomeFormService } from "./home-form.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { element } from "protractor";
+import { visaFormData } from "src/app/interfaces/visa-form";
 
 @Component({
   selector: "app-home-form",
@@ -21,19 +24,23 @@ import { element } from "protractor";
   styleUrls: ["./home-form.component.css"],
 })
 export class HomeFormComponent {
-  homeForm: FormGroup;
-  selectedCar: number;
-  public homeFormData: any = "";
-  public country: AbstractControl;
-  public purpose: AbstractControl;
-  public livesIn: AbstractControl;
+  homeFormData: visaFormData;
 
-  public purposeNotSelected: boolean = false;
-  public livesInNotSelected: boolean = false;
-  staticPagesArr: Array<any> = ["United Kingdom"];
-  purposeArr: Array<string> = [];
   resideInArr: Array<string> = [];
+  purposeArr: Array<string> = [];
+
+  homeForm: FormGroup;
+
+  country: AbstractControl;
+  purpose: AbstractControl;
+  livesIn: AbstractControl;
+
+  purposeNotSelected: boolean = false;
+  livesInNotSelected: boolean = false;
+
   countryNotSelected: boolean;
+  countryList: string[];
+  tempCountryList: string[];
 
   constructor(
     private router: Router,
@@ -45,20 +52,22 @@ export class HomeFormComponent {
     this.preloaderService.showPreloader(true);
 
     this.homeForm = new FormGroup({
-      country: new FormControl("Sri Lanka"),
-      purpose: new FormControl(""),
-      livingin: new FormControl(""),
+      country: new FormControl("Armenia"),
+      purpose: new FormControl(),
+      livingin: new FormControl(),
     });
 
     this.country = this.homeForm.get("country");
     this.purpose = this.homeForm.get("purpose");
     this.livesIn = this.homeForm.get("livingin");
 
-    // console.log(this.homeFormData.data.countries);
+    this.homeFormService.homeFormData.subscribe((res: visaFormData) => {
+      // console.log(res);
+      this.homeFormData = res;
+      this.countryList = this.homeFormData.countries;
+      // this.tempCountryList = this.homeFormData.countries;
 
-    this.homeFormService.getHomeFormDataFromServer().subscribe((res) => {
       if (isPlatformBrowser(this.platformId)) {
-        this.homeFormData = res.data;
         let activeCountry: string = this.userFlow.getCookie("activeCountry");
         let popularCountry: string = this.userFlow.getCookie("popularCountry");
         if (
@@ -81,7 +90,6 @@ export class HomeFormComponent {
           popularCountry == null
         ) {
           this.country.setValue(this.homeFormData.countries[0]);
-
           this.homeForm.get('country').setValue(this.homeFormData.countries[0]);
           this.sortPurposeArr(this.homeFormData.data[this.homeForm.get('country').value]['purpose'])
           this.resideInArr = this.homeFormData.data[this.homeForm.get('country').value]['residenceOf'];
@@ -90,12 +98,28 @@ export class HomeFormComponent {
           this.userFlow.setCookie("popularCountry", "");
         }
 
-        this.userFlow.setCookie(
-          "countryList",
-          JSON.stringify(res.countries)
-        );
-        this.preloaderService.showPreloader(false);
+        // this.userFlow.setCookie(
+        //   "countryList",
+        //   JSON.stringify(res.countries)
+        // );
       }
+    });
+
+    this.preloaderService.showPreloader(false);
+
+    this.homeFormService.countryInputModel.subscribe((res: string) => {
+      // console.log(res);
+      this.country.setValue(res);
+      this.homeForm.get('country').setValue(res);
+      this.countryChanged(res);
+    });
+
+    this.homeFormService.visaTypeInputModel.subscribe((res: string) => {
+      this.purpose.setValue(res);
+    });
+
+    this.homeFormService.resideInInputModel.subscribe((res: string) => {
+      this.livesIn.setValue(res);
     });
   }
 
@@ -510,5 +534,42 @@ export class HomeFormComponent {
     purposeCustomArr.forEach(element => {
       this.purposeArr.push(element.purpose);
     })
+  }
+
+  @ViewChild('countryInput') countryInput: ElementRef;
+  @ViewChild('visaTypeInput') visaTypeInput: ElementRef;
+  @ViewChild('resideInInput') resideInInput: ElementRef;
+
+  focusInputField(input: string) {
+    setTimeout(() => {
+      if (input == 'country') {
+        this.countryInput.nativeElement.focus()
+      } else if (input == 'visaType') {
+        this.visaTypeInput.nativeElement.focus()
+      } else if (input == 'resideIn') {
+        this.resideInInput.nativeElement.focus()
+      }
+    }, 10)
+  }
+
+  inputSearchFn(term: string, item: any) {
+    console.log(term);
+    console.log(item);
+    term = term.toLocaleLowerCase();
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
+  }
+
+  visaTypeSearchFn(term: string, item: any) {
+    console.log(term);
+    console.log(item);
+    term = term.toLocaleLowerCase();
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
+  }
+
+  resideInSearchFn(term: string, item: any) {
+    console.log(term);
+    console.log(item);
+    term = term.toLocaleLowerCase();
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }
 }

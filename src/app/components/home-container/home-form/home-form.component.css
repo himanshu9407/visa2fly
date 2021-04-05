@@ -16,6 +16,27 @@ select {
   height: 35px !important;
 }
 
+.onMobileInput {
+  height: 36px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.mobileInput {
+  display: none;
+}
+
+.desktopInput {
+  display: block;
+}
+
 select:focus {
   outline: none;
   font-size: 16px !important;
@@ -768,4 +789,14 @@ select {
 
 .autocomplete-container {
   box-shadow: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .mobileInput {
+    display: flex;
+  }
+
+  .desktopInput {
+    display: none;
+  }
 }

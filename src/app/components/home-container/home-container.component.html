@@ -10,4 +10,58 @@
   <app-world></app-world>
   <app-testimonial></app-testimonial>
   <app-site-brief></app-site-brief>
+
+    <div id="countryInputContainer">
+    <h5 class="label_text">
+      <span>
+        <svg id="backBtn" class="backBtn_icon" (click)="onBackButton()">
+          <use xlink:href="assets/sprites/sprite.svg#arrow-left"></use>
+        </svg>
+      </span>
+      <span class="label" id="homeform_label"> Destination </span>
+    </h5>
+
+    <form [formGroup]="homeForm">
+      <ng-select
+        placeholder="Select Country"
+        id="countryInput_homeform"
+        [isOpen]="true"
+        (change)="countryChanged($event)"
+      >
+        <ng-option *ngFor="let country of countryList" [value]="country">
+          {{ country }}
+        </ng-option>
+      </ng-select>
+
+      <ng-select
+        formControlName="purpose"
+        placeholder="Select Purpose"
+        id="purposeInput_homeform"
+        [isOpen]="true"
+        (change)="visaTypeChanged($event)"
+      >
+        <ng-option value="" aria-disabled="true" disabled="disabled">
+          Select
+        </ng-option>
+        <ng-option *ngFor="let purpose of purposeArr" [value]="purpose">
+          {{ purpose }}
+        </ng-option>
+      </ng-select>
+
+      <ng-select
+        formControlName="livingin"
+        placeholder="Select Reside In"
+        id="liveInInput_homeform"
+        [isOpen]="true"
+        (change)="resideInChanged($event)"
+      >
+        <ng-option value="" aria-disabled="true" disabled="disabled">
+          Select
+        </ng-option>
+        <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
+          {{ livesin }}
+        </ng-option>
+      </ng-select>
+    </form>
+  </div>
 </div>

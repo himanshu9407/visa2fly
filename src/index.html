@@ -35,7 +35,7 @@
         transition: all ease 1s;
       }
 
-      .labels {
+      .loader-box .labels {
         list-style-type: none;
         margin: 0 auto;
         display: inline-block;
@@ -45,7 +45,7 @@
         overflow: hidden;
       }
 
-      .label {
+      .loader-box .label {
         float: left;
         height: 30px;
         line-height: 30px;
@@ -76,7 +76,7 @@
         /*IE 10+*/
       }
 
-      .loader {
+      .loader-box .loader {
         width: 100px;
         height: 100px;
         background-color: #ffffff;
@@ -110,17 +110,17 @@
         /*IE 10+*/
       }
 
-      .loaded.loader-box,
-      .loaded .loader,
-      .loaded .labels {
+      .loader-box .loaded.loader-box,
+      .loader-box .loaded .loader,
+      .loader-box .loaded .labels {
         opacity: 0;
       }
 
-      .hidden {
+      .loader-box .hidden {
         display: none;
       }
 
-      .element-animation {
+      .loader-box .element-animation {
         bottom: 10px;
         animation: animationFrames ease-in 3s;
         animation-iteration-count: infinite;
@@ -143,7 +143,7 @@
         /*IE 10+*/
       }
 
-      .element-animation .preloader {
+      .loader-box .element-animation .preloader {
         bottom: 18px;
         position: relative;
         right: 16px;

@@ -8,20 +8,15 @@ import { OtherCountryService } from 'src/app/shared/OtherCountry.service';
 })
 export class MiniCarouselComponent implements OnInit {
 
-  
-
   @Output() messageEvent = new EventEmitter<string>();
 
-  constructor(private otherCountryService : OtherCountryService) { }
+  constructor(private otherCountryService: OtherCountryService) { }
 
   ngOnInit() {
   }
-  
 
-
-
-  proceedToHome (countryName : string) {
-    // console.log(countryName);
+  proceedToHome(countryName: string) {
+    console.log(countryName);
     this.otherCountryService.validateCountryPopular(countryName);
   }
 }

@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-12 mt-2">
                       <label for="destination">Destination</label>
-                      <select (change)="countryChanged()" [(ngModel)]="selectedCountry" formControlName="country"
+                      <select (change)="countryChanged($event)" [(ngModel)]="selectedCountry" formControlName="country"
                         required id="ddlCountry" class="form-control form-control-sm" name="country">
                         <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}
                         </option>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col-12">
                       <label for="destination">Destination</label>
-                      <select (change)="countryChanged()" [(ngModel)]="selectedCountry" formControlName="country"
+                      <select (change)="countryChanged($event)" [(ngModel)]="selectedCountry" formControlName="country"
                         required id="ddlCountry" class="form-control form-control-sm" name="country">
                         <!-- <option value="0">Select</option> -->
                         <option *ngFor="let country of homeFormData.data.countries" value="{{country}}">{{country}}

@@ -15,3 +15,58 @@
     margin-top: 65px !important;
   }
 }
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1200;
+  padding: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+#countryInput_homeform,
+#purposeInput_homeform,
+#liveInInput_homeform {
+  display: none;
+  visibility: visible;
+}
+
+.show_select {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.overlay .label_text {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-start;
+  top: 15px;
+}
+
+.overlay .backBtn_icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+}
+
+.overlay .label {
+  font-size: 15px;
+  font-weight: 600;
+}
