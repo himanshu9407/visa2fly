@@ -65,17 +65,6 @@ label {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.disabled {
-  background-color: grey;
-  color: white;
-  /* display: none; */
-}
-
-.disabled:hover {
-  background-color: grey;
-  color: white;
-  border: none;
-}
 
 .invalid-feedback {
   display: block;
@@ -181,15 +170,11 @@ label {
 }
 
 /*for FireFox*/
-input[type="submit"]::-moz-focus-inner,
-input[type="button"]::-moz-focus-inner,
 select::-moz-focus-inner,
 a::-moz-focus-inner {
   border: 0px !important;
 }
 /*for IE8 */
-input[type="submit"]:focus,
-input[type="button"]:focus,
 select:focus,
 a:focus {
   outline: none !important;
@@ -220,22 +205,9 @@ a:focus {
   z-index: 10;
 }
 
-.homeDate input {
-  border: 0;
-  outline: none;
-  padding: 0;
-  color: #000000;
-  font-size: 12px;
-  font-weight: 700;
-  height: 23px;
-}
 /*may end */
 /*14 may */
 /*end here*/
-.bagcalendar {
-  /* background: #ffffff url('../../Contents/Images/pink-calander.png') right no-repeat; */
-  cursor: pointer;
-}
 /*End 01-02-2018*/
 a {
   text-decoration: none !important;
@@ -249,7 +221,6 @@ a {
 a:hover {
   text-decoration: none !important;
 }
-input[type="submit"],
 button {
   transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -295,7 +266,7 @@ button {
   /*Edit 31-01-2018*/
 }
 
-/*@media (min-width: 480px) and (max-width: 768px) { 
+/*@media (min-width: 480px) and (max-width: 768px) {
 .chkIn .chkIp {
   float: left;
   border-right: 1px solid #e1e1e1;
@@ -312,23 +283,6 @@ button {
   width: 100%;
   text-transform: uppercase;
   margin-bottom: 10px;
-}
-
-.chkIn .chkIp .chkselect {
-  background-color: white;
-  width: calc(100% - 35px);
-  float: left;
-  margin-left: 10px;
-  border: 1px solid #aaa;
-  display: inline-block;
-  vertical-align: middle;
-  color: #000000;
-  font-size: 12px;
-  font-weight: 600;
-  /* border: 0; */
-  outline: 0;
-  height: 23px;
-  /*end*/
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -374,71 +328,9 @@ button {
   color: navy;
   background-color: white;
 }
-.chkIn .chkIpBack {
-  width: 20px !important;
-  border: 0;
-  outline: 0;
-  /*.chkIpBack{ width: 20px; border: 0; outline: 0; */
-}
-.chkIn .chkIpBack span {
-  transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  background: #eee;
-  color: navy;
-  height: 85px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-transform: uppercase;
-  width: 40px;
-  cursor: pointer;
-  font-size: 24px;
-  line-height: 85px;
-  text-align: center;
-}
-.chkIn .chkIpBack span:hover {
-  background: #999;
-}
-.chkIn.chkInSec2 {
-  position: relative;
-  bottom: 100%;
-  transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-}
+
 /*.chkIn.chkInSec2.nextFieldsIn { bottom: 0; }*/
-.chkIn.chkInSec2.nextFieldsIn {
-  bottom: 0;
-  width: 100%;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.input-group-addon {
-  display: none;
-}
-.homeDate input {
-  border: 0;
-  outline: none;
-  padding: 0;
-  color: #000000;
-  font-size: 12px;
-  font-weight: 700;
-  height: 23px;
-}
-.homeDate input:focus {
-  outline: none;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-}
+
 
 @keyframes toggle {
   0% {
@@ -447,19 +339,6 @@ input[type="number"]::-webkit-outer-spin-button {
   100% {
     opacity: 1;
   }
-}
-
-.date .input-group-addon {
-  display: table-cell;
-}
-.date .input-group-addon {
-  position: absolute;
-  opacity: 0;
-}
-
-.removeradius {
-  border-radius: 0px;
-  margin-top: 10px;
 }
 
 select {
@@ -487,17 +366,13 @@ select {
 }
 
 @media all and (max-width: 1024px) {
-  .chkIn .chkIp .chkselect {
-    font-size: 11px;
-  }
   .chkIn .chkIp .chkLabel {
     font-size: 12px;
   }
 }
 
 @media (max-width: 768px) {
-  .chkIn .chkIp .chkLabel,
-  .chkIn .chkIp .chkselect {
+  .chkIn .chkIp .chkLabel {
     font-size: 14px;
   }
 
@@ -517,33 +392,7 @@ select {
     margin-bottom: 0px;
     position: relative;
   }
-  .chkIp.chkIpBack {
-    padding: 0;
-    margin: 0;
-    position: relative;
-    float: right;
-    z-index: 99999999 !important;
-  }
-  .chkIn .chkIpBack span {
-    height: 32px;
-    left: -12px;
-    width: 42px;
-    font-size: 24px;
-    line-height: 28px;
-    background: #522583 !important;
-    color: #fff !important;
-  }
-  .chkIn .chkIpBack span:hover {
-    background: #ec008c !important;
-    color: #fff !important;
-  }
-  .chkIn .chkIpBack span i {
-    margin-left: -5px;
-    margin-top: 3px;
-  }
-  .mobile {
-    display: block !important;
-  }
+
   .main-wrapper-button {
     float: left;
     width: 100%;
@@ -573,9 +422,7 @@ select {
 		 border: 1px solid @purple;
 		 bottom: -45px;
 	 }*/
-  .chkIp.chkIpBack {
-    display: none;
-  }
+
   /*.visaNews-button-next,.visaNews-button-prev{
 		 display: none;
 	 }*/
@@ -642,50 +489,8 @@ select {
  /*Safari css*/
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  ::i-block-chrome,
-  input {
-    line-height: 10px !important;
-  }
-  ::i-block-chrome {
-    width: 55.5% !important;
-  }
-
-  ::i-block-chrome {
-    width: auto;
-    float: right;
-  }
-  ::i-block-chrome {
-    position: absolute;
-    right: 10px;
-  }
-  ::i-block-chrome {
-    clear: both;
-    width: 100%;
-    float: left;
-    text-align: center;
-    margin-bottom: 10px;
-    position: relative;
-    display: inline;
-  }
-  ::i-block-chrome {
-    display: inline-block;
-    margin: 0 5%;
-    float: none !important;
-  }
-  ::i-block-chrome,
-  ::i-block-chrome,
-  .chkIn .chkIp .chkselect {
-    width: 85% !important;
-  }
-  ::i-block-chrome,
   .chkIn .chkSubmit {
     width: 10% !important;
-  }
-  ::i-block-chrome {
-    width: 50%;
-  }
-  ::i-block-chrome {
-    padding: 10px;
   }
 }
 
@@ -760,12 +565,4 @@ select {
     margin-bottom: 7px !important;
     position: relative;
   }
-}
-
-.autocomplete-container .input-container input {
-  padding: 0px 0px !important;
-}
-
-.autocomplete-container {
-  box-shadow: none !important;
 }
