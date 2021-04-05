@@ -15,13 +15,11 @@ li {
   font-size: 14px;
 }
 
-.mobileView,
-.mobileContainer {
+.mobileView {
   display: none;
 }
 
-.desktopView,
-.desktopContainer {
+.desktopView {
   display: block;
 }
 
@@ -118,17 +116,6 @@ li {
 }
 
 @media screen and (min-width: 360px) and (max-width: 480px) {
-  .desktopContainer {
-    display: none;
-  }
-
-  .mat-form-field-infix {
-    width: 100px !important;
-  }
-
-  .mobileContainer {
-    display: block;
-  }
 
   .mobileView {
     display: block;
@@ -140,9 +127,6 @@ li {
 }
 
 @media screen and (min-width: 320px) and (max-width: 359px) {
-  .mat-form-field-infix {
-    width: 100px !important;
-  }
 
   .mobileView {
     display: block;
@@ -160,13 +144,11 @@ li {
 }
 
 @media screen and (max-width: 600px) {
-  .mobileView,
-  .mobileContainer {
+  .mobileView {
     display: block;
   }
 
-  .desktopView,
-  .desktopContainer {
+  .desktopView {
     display: none;
   }
 
@@ -285,10 +267,6 @@ li {
 }
 
 @-webkit-keyframes HideList {
-  from {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
   to {
     -webkit-transform: scaleY(0);
     transform: scaleY(0);

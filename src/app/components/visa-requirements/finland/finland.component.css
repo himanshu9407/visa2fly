@@ -3,6 +3,7 @@
   padding-right: 0px;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .visaDropDown {
@@ -15,13 +16,12 @@ li {
   font-size: 14px;
 }
 
-.mobileView,
-.mobileContainer {
+.mobileView {
   display: none;
+  position: relative;
 }
 
-.desktopView,
-.desktopContainer {
+.desktopView {
   display: block;
 }
 
@@ -42,16 +42,19 @@ li {
 }
 
 .imageContainer.desktopView {
-  margin-top: 50px;
-  padding: 0px 0px 10px 40px;
+  margin-top: 15px;
+  padding: 40px 0px 10px 40px;
   height: 500px;
-  overflow: hidden;
+  position: relative;
 }
 
 .imageContainer .breadcrum {
   font-size: 12px;
   margin-bottom: 10px;
   color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .imageContainer .breadcrum span {
@@ -119,17 +122,6 @@ li {
 }
 
 @media screen and (min-width: 360px) and (max-width: 480px) {
-  .desktopContainer {
-    display: none;
-  }
-
-  .mat-form-field-infix {
-    width: 100px !important;
-  }
-
-  .mobileContainer {
-    display: block;
-  }
 
   .mobileView {
     display: block;
@@ -141,9 +133,6 @@ li {
 }
 
 @media screen and (min-width: 320px) and (max-width: 359px) {
-  .mat-form-field-infix {
-    width: 100px !important;
-  }
 
   .mobileView {
     display: block;
@@ -152,27 +141,57 @@ li {
   .desktopView {
     display: none;
   }
+
+  .imageContainer {
+    margin-top: 105px;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 350px) {
   .changingPurpose {
     width: 250px !important;
   }
+
+  .imageContainer {
+    margin-top: 105px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .mobileView,
-  .mobileContainer {
+  .mobileView {
     display: block;
   }
 
-  .desktopView,
-  .desktopContainer {
+  .desktopView {
     display: none;
   }
 
   .wrapContainer {
     padding: 10px 15px 10px;
+  }
+
+  .setPadding {
+    font-weight: 600;
+    padding-right: 0px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .select-box p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .imageContainer {
+    margin-top: 102px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 480px) {
+  .imageContainer {
+    margin-top: 105px;
   }
 }
 
@@ -188,7 +207,7 @@ li {
   display: block;
   width: 100%;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 15px;
   color: #60666d;
 }
 
@@ -286,10 +305,6 @@ li {
 }
 
 @-webkit-keyframes HideList {
-  from {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
   to {
     -webkit-transform: scaleY(0);
     transform: scaleY(0);
@@ -309,7 +324,7 @@ li {
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .imageContainer {
-    padding: 0px 0px 10px 10px;
+    padding: 25px 0px 10px 10px;
   }
 }
 
@@ -332,7 +347,6 @@ li {
 
   .imageContainer {
     height: 225px;
-    margin-top: 105px;
   }
 
   .imageContainer .countryFlag {
@@ -342,23 +356,5 @@ li {
 
   .imageContainer .country-info .country-heading {
     font-size: 16px;
-  }
-
-  .setPadding {
-    font-weight: 600;
-    padding-right: 0px;
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-  }
-
-  .select-box p {
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width: 321px) {
-  .imageContainer {
-    margin-top: 102px;
   }
 }
