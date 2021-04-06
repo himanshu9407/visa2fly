@@ -60,7 +60,7 @@ export class UAEComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -90,6 +90,9 @@ export class UAEComponent implements OnInit {
   isBusiness: boolean = false;
   isTourist: boolean = false;
   isTransit: boolean = false;
+  loadText: string = "more";
+  showData: boolean = false;
+  animationState = "in";
 
   constructor(
     private router: Router,
@@ -187,7 +190,7 @@ export class UAEComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("UAE Visa | Apply For UAE Visa Online for Indians- Visa2Fly");
-   
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -267,10 +270,10 @@ export class UAEComponent implements OnInit {
     );
   }
 
-  
+
   purposeChanged() {
     var purpose = this.purposeChooseForm.get("purposeSelected").value;
-    
+
     this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
     if (purpose == "Tourist") {
@@ -291,6 +294,20 @@ export class UAEComponent implements OnInit {
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
+  }
+
+  dataDisplayFunction() {
+    this.loadText = "loading..."
+    setTimeout(() => {
+      this.showData = !this.showData;
+      this.animationState = this.animationState === "out" ? "in" : "out";
+
+      if (this.showData) {
+        this.loadText = "less";
+      } else {
+        this.loadText = "more";
+      }
+    }, Math.floor(Math.random() * 1000));
   }
 
 }

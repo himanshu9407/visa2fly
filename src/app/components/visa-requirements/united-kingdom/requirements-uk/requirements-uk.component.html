@@ -1,4 +1,4 @@
-<section id="requirement">
+<!-- <section id="requirement">
 <div class="container-fluid p-0">
     <div class="iconSection">
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
@@ -8,7 +8,7 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- tourist -->
+
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -18,7 +18,7 @@
                 </div>
               </div>
 
-              <!-- desktopContainer -->
+
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-2">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -389,7 +389,7 @@
 
 
 
-              <!-- mobileContainer -->
+
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -803,7 +803,7 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- business -->
+
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">BUSINESS
@@ -1177,7 +1177,7 @@
                 </div>
               </div>
 
-              <!-- mobileContainer -->
+
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -1592,7 +1592,7 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- transit -->
+
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TRANSIT
@@ -1924,4 +1924,254 @@
       </ngb-tabset>
     </div>
   </div>
-  </section>
+</section> -->
+
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
+    <div class="iconSection">
+      <div class="row headingWrapContainer">
+        <!-- Heading -->
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for United Kingdom {{ visaType }} visa
+          </h3>
+        </div>
+        <!-- Content -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Passport</h3>
+              <ul>
+                <li>
+                  Upload coloured copies of the
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportFront"
+                  >
+                    first page
+                  </button>
+                  and
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportBack"
+                  >
+                    last page
+                  </button>
+                  of the passport.
+                </li>
+                <li>
+                  Ensure that passport should be valid for 6 months from the
+                  date of entry to the United Kingdom.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Photograph</h3>
+              <ul>
+                <li>
+                  Upload scanned colour copy of your passport-sized photograph.
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePhotograph"
+                  >
+                    Photo
+                  </button>
+                  should be taken against a white background.
+                </li>
+                <li>Dimensions should be 45mm height x 35mm width.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" [ngStyle]="{ display: visaType == 'Transit' ? 'none' : 'block' }">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Proof Of Funds</h3>
+                <ul>
+                  <li>
+                    The applicant of the UK Visa Application needs to provide proof of means of subsistence to cover
+                    living costs in the UK. The applicant needs to provide the last 6 months' bank statement signed and
+                    attested by a bank official. In case of a business visit, the applicant must also provide a bank
+                    statement of the company/person sponsoring his/her trip. All bank statements must be dated within the
+                    last 1 week from the date of submission. Additionally, copies of fixed deposits and other cash forms may
+                    also be used to substantiate this.
+                  </li>
+                  <li>
+                    As a guide, a person must have sufficient funds in his/her bank account continuously for the
+                    last 6 months. Average requirement for sufficiency can be calculated at Rs. 15,000 per day of visit
+                    per person to the UK. Eg - For a single person travelling on a 10 day visit, the person must ideally
+                    show Rs. 1,50,000 (Rs. 15,000/day x 10 days) in his/her bank account continuously for the last 6 months.
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" [ngStyle]="{ display: visaType == 'Transit' ? 'none' : 'block' }">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Accommodation</h3>
+                <ul>
+                  <li>
+                    Proof of accommodation mentioning where you will be staying during your entire stay in the UK, which could be at a friend or relative’s place or at a hotel or a hostel.
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" [ngStyle]="{ display: visaType == 'Transit' ? 'none' : 'block' }">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Itinerary</h3>
+                <ul>
+                  <li>
+                    Your detailed travel itinerary which gives information of your travel plans in the UK along with tickets, places you are going to visit, your meeting agenda, tours booked in advance, your festival agenda, etc.
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" [ngStyle]="{ display: visaType == 'Transit' ? 'none' : 'block' }">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Employment / Student Proof</h3>
+                <ul>
+                  <li>
+                    For Employed Persons - A letter from your employer on company headed paper detailing your role, salary and length of employment, business card and 6 month’s salary slips and Income Tax Returns (last 3 years)
+                  </li>
+                  <li>
+                    For Self-Employed Persons - business registration documents confirming the business owner’s name and the date the business started trading and three years tax returns of the business.
+                  </li>
+                  <li>
+                    For Students - a letter from your education provider, on headed paper, confirming your enrolment and leave of absence.
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" [ngStyle]="{ display: visaType == 'Transit' ? 'none' : 'block' }">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Other Documents</h3>
+                <ul>
+                  <li>
+                    Tuberculosis test results, if you belong to a country listed amongst countries requiring a prior TB test before coming to the UK for a period over six months
+                  </li>
+                  <li>
+                    UK visa invitation letter should be submitted if it is applicable. It is a letter of invitation issued by a company, citizen or legal resident of the UK stating that they have invited you to stay with them.
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Covid Medical Insurance</h3>
+              <ul>
+                <li>
+                  International Travel Insurance and COVID Insurance is
+                  advisable to be taken by anyone travelling to Dubai/UAE. This
+                  is especially important as the cost of healthcare service and
+                  hospital admission can be very high in Dubai/UAE.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+        <div
+          class="col-12"
+        >
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Flight Tickets</h3>
+              <ul>
+                <li>
+                  Flight tickets are mandatory to book United Kingdom Visa.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt=""
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt="uae visa online"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt="uae visa online"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

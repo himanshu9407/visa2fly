@@ -54,6 +54,9 @@ export class DubaiComponent implements OnInit {
   isBusiness: boolean = false;
   isTourist: boolean = false;
   isTransit: boolean = false;
+  loadText: string = "more";
+  showData: boolean = false;
+  animationState = "in";
 
   constructor(
     private router: Router,
@@ -252,6 +255,20 @@ export class DubaiComponent implements OnInit {
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
+  }
+
+  dataDisplayFunction() {
+    this.loadText = "loading..."
+    setTimeout(() => {
+      this.showData = !this.showData;
+      this.animationState = this.animationState === "out" ? "in" : "out";
+
+      if (this.showData) {
+        this.loadText = "less";
+      } else {
+        this.loadText = "more";
+      }
+    }, Math.floor(Math.random() * 1000));
   }
 
 

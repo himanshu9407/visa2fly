@@ -36,13 +36,13 @@ export class EthiopianComponent implements OnInit {
 
   selectedBusiness: number = 1;
   selectedMobileBusiness: number = 1;
-  
+
   selectedTourist: number = 1;
   selectedMobileTourist: number = 1;
-  
+
   selectedVisaBusiness: number = 1;
   selectedVisaMobileBusiness: number = 1;
-  
+
   selectedTransit: number = 1;
   selectedMobileTransit: number = 1;
 
@@ -56,6 +56,9 @@ export class EthiopianComponent implements OnInit {
   isBusiness: boolean = false;
   isTourist: boolean = false;
   isTransit: boolean = false;
+  loadText: string = "more";
+  showData: boolean = false;
+  animationState = "in";
 
   constructor(
     private router: Router,
@@ -286,6 +289,20 @@ export class EthiopianComponent implements OnInit {
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
+  }
+
+  dataDisplayFunction() {
+    this.loadText = "loading..."
+    setTimeout(() => {
+      this.showData = !this.showData;
+      this.animationState = this.animationState === "out" ? "in" : "out";
+
+      if (this.showData) {
+        this.loadText = "less";
+      } else {
+        this.loadText = "more";
+      }
+    }, Math.floor(Math.random() * 1000));
   }
 
 }

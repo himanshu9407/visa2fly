@@ -48,7 +48,7 @@ export class UnitedKingdomComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -75,9 +75,12 @@ export class UnitedKingdomComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
-isBusiness: boolean = false;
-isTourist: boolean = false;
-isTransit: boolean = false;
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
+  loadText: string = "more";
+  showData: boolean = false;
+  animationState = "in";
   // public imageUpload1: Array<any> = []
 
   constructor(
@@ -174,9 +177,9 @@ isTransit: boolean = false;
       });
     }
   ngOnInit() {
-    
+
     this.titleService.setTitle("UK Visa | Apply For UK Visa Online for Indians- Visa2Fly");
-    
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -309,4 +312,19 @@ isTransit: boolean = false;
       JSON.stringify(this.imageCatogoryTemp)
     );
   }
+
+  dataDisplayFunction() {
+    this.loadText = "loading..."
+    setTimeout(() => {
+      this.showData = !this.showData;
+      this.animationState = this.animationState === "out" ? "in" : "out";
+
+      if (this.showData) {
+        this.loadText = "less";
+      } else {
+        this.loadText = "more";
+      }
+    }, Math.floor(Math.random() * 1000));
+  }
 }
+

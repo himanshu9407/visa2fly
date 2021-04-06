@@ -59,6 +59,9 @@ export class BahrainComponent implements OnInit {
   isBusiness: boolean = false;
   isTourist: boolean = false;
   isTransit: boolean = false;
+  loadText: string = "more";
+  showData: boolean = false;
+  animationState = "in";
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
@@ -80,7 +83,7 @@ export class BahrainComponent implements OnInit {
           this.router.navigate(['visa','bahrain-visa-online']);
         }
       });
-  
+
       this.preloaderService.showPreloader(true);
 
       if (this.userFlow.getCookie("selectedVisaPurpose")) {
@@ -88,10 +91,10 @@ export class BahrainComponent implements OnInit {
       } else {
         this.selectedVisaType = "Tourist";
       }
-  
+
       let tempPurpose = this.selectedVisaType;
       this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-  
+
       this.purposeChooseForm = new FormGroup({
         purposeSelected: new FormControl(tempPurpose),
       });
@@ -109,7 +112,7 @@ export class BahrainComponent implements OnInit {
               "onlineCountry",
               JSON.stringify(res.data.onlineCategory)
             );
-  
+
             this.MyQuotation.forEach((element) => {
               if (element.purpose == "Business") {
                 this.businessArr.push(element);
@@ -122,7 +125,7 @@ export class BahrainComponent implements OnInit {
                 this.isTransit = true;
               }
             });
-  
+
             let purposeMain = this.selectedVisaType;
             let purposeUrl =
               purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
@@ -138,12 +141,12 @@ export class BahrainComponent implements OnInit {
             } else {
               this.router.navigate(["visa/"]);
             }
-  
+
             this.userFlow.setUserFlowDetails(
               "imageUploads",
               JSON.stringify(this.imageCatogoryTemp)
             );
-  
+
             setTimeout(() => {
               this.preloaderService.showPreloader(false);
             }, 500);
@@ -160,7 +163,7 @@ export class BahrainComponent implements OnInit {
   ngOnInit() {
 
     this.titleService.setTitle("Bahrain Visa | Apply For Bahrain Visa Online for Indians- Visa2Fly");
-      
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -292,6 +295,20 @@ export class BahrainComponent implements OnInit {
       "imageUploads",
       JSON.stringify(this.imageCatogoryTemp)
     );
+  }
+
+  dataDisplayFunction() {
+    this.loadText = "loading..."
+    setTimeout(() => {
+      this.showData = !this.showData;
+      this.animationState = this.animationState === "out" ? "in" : "out";
+
+      if (this.showData) {
+        this.loadText = "less";
+      } else {
+        this.loadText = "more";
+      }
+    }, Math.floor(Math.random() * 1000));
   }
 
 }

@@ -40,16 +40,22 @@ export class RequirementsUkComponent implements OnInit, AfterViewInit {
   showTransitFirst: boolean = true;
   showTransitMobileFirst: boolean = true;
 
+  visaType: string;
+  public selectedCountrytype = "United Kingdom";
+
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.selectedPurpose.subscribe((res) => {
-      this.t.select(res);
+      this.visaType = res;
+      // console.log(this.visaType);
     });
   }
 
   ngAfterViewInit() {
-    this.t.select(this.selectedVisaType);
+    setTimeout(() => {
+      this.visaType = this.selectedVisaType;
+    });
   }
 
   setActiveTourist(index: number, id: string) {
@@ -84,7 +90,7 @@ export class RequirementsUkComponent implements OnInit, AfterViewInit {
     }
   }
 
- 
+
   setActiveBusiness(index: number, id: string) {
     this.selectedBusiness = index;
     let businessBool = true;

@@ -25,6 +25,7 @@
               humans first migrated to other regions of the world. Due to this, the country is famous
               worldwide for paleontological and archaeological discoveries and excavations. Tourism in
               Ethiopia mainly features serene National Parks and intriguing historical sites. Ecotourism is
+              <span id="dataCollapse" class="collapse">
               another growing wing of the country’s tourism industry. It is home to 9 UNESCO World
               Heritage sites and some of the most glorious views, unique cultures and traditions. The
               landscape features mountains, valleys, plateaus and more. Addis Ababa is the capital and it
@@ -32,7 +33,13 @@
               of the oldest civilisations known to us. On the African Continent, Ethiopia is considered to
               have the richest history of all and it will surely blow your mind. Ethiopia is considered to be
               the birthplace of coffee and the world’s oldest known almost-complete hominid skeleton
-              ‘Lucy’ was found here too!</p>
+              ‘Lucy’ was found here too!
+              </span>
+              <button class="btn dataDisplay" type="button" data-toggle="collapse"
+              data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+              (click)="dataDisplayFunction()">
+              {{loadText}}</button>
+            </p>
           </div>
         </div>
       </div>
@@ -293,6 +300,7 @@
         humans first migrated to other regions of the world. Due to this, the country is famous
         worldwide for paleontological and archaeological discoveries and excavations. Tourism in
         Ethiopia mainly features serene National Parks and intriguing historical sites. Ecotourism is
+        <span id="dataCollapse" class="collapse">
         another growing wing of the country’s tourism industry. It is home to 9 UNESCO World
         Heritage sites and some of the most glorious views, unique cultures and traditions. The
         landscape features mountains, valleys, plateaus and more. Addis Ababa is the capital and it
@@ -300,7 +308,13 @@
         of the oldest civilisations known to us. On the African Continent, Ethiopia is considered to
         have the richest history of all and it will surely blow your mind. Ethiopia is considered to be
         the birthplace of coffee and the world’s oldest known almost-complete hominid skeleton
-        ‘Lucy’ was found here too!</p>
+        ‘Lucy’ was found here too!
+        </span>
+        <button class="btn dataDisplay" type="button" data-toggle="collapse"
+        data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+        (click)="dataDisplayFunction()">
+        {{loadText}}</button>
+      </p>
     </div>
   </div>
 </div>

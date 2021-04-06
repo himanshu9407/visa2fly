@@ -19,7 +19,27 @@
 
           <div class="country-info">
             <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">Contrary to popular belief, the United Kingdom is a set of countries - England, Scotland, Wales and Northern Ireland all come under this bracket. The capital, London, is part of England. The London Eye, Stonehenge and Buckingham Palace are some notable sights to explore, as well as the sprawling streets of Edinburgh, Cardiff, Belfast and Manchester. </p>
+            <p class="country-desc">The United Kingdom of Great Britain and Northern Ireland consists of 4 countries, England,
+              Scotland, Wales and Northern Ireland and 14 overseas territories. The UK is mainly known
+              all over the world due to its history of the British Empire, its colonies and other literary, visual
+              arts and cinematic influences. Classics like Harry Potter and James Bond originated here
+              too! The UK is the world’s 10 th biggest tourist destination with over 37 million people visiting the country in 2018 alone.
+              <span id="dataCollapse" class="collapse">
+              It is home to over 25 World Heritage Sites and has some of the
+              most stunning landscapes and historical architecture. London is the most visited city in the
+              UK and Edinburg, Oxford, Cambridge, York and Canterbury are some other popular tourist
+              cities. The UK’s geographical and cultural diversity is another factor that attracts millions of
+              tourists here every year. The 4 countries have their unique landscapes and histories which
+              greatly influence the lifestyle of the people and the tourist attractions too. The castles,
+              estates, royal residences, art galleries, museums are just some of the exciting things you
+              can expect here.
+              </span>
+              <button class="btn dataDisplay" type="button" data-toggle="collapse"
+              data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+              (click)="dataDisplayFunction()">
+              {{loadText}}</button>
+            </p>
+
           </div>
         </div>
       </div>
@@ -28,49 +48,101 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value" *ngIf="isTourist">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Tourist"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value" *ngIf="isBusiness">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Business"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value" *ngIf="isTransit">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Transit"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li *ngIf="isTourist">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Tourist"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li *ngIf="isBusiness">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Business"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li *ngIf="isTransit">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Transit"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -112,49 +184,101 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding visaDropDown p-0">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding p-0">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown p-0">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value" *ngIf="isTourist">
-                      <input class="select-box__input" type="radio" id="mTourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mTourist"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value" *ngIf="isBusiness">
-                      <input class="select-box__input" type="radio" id="mBusiness" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mBusiness"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value" *ngIf="isTransit">
-                      <input class="select-box__input" type="radio" id="mTransit" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="mTransit"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li *ngIf="isTourist">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTourist"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mTourist"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li *ngIf="isBusiness">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mBusiness"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mBusiness"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li *ngIf="isTransit">
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="mTransit"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="mTransit"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -170,7 +294,27 @@
 <div class="container-fluid mt-4 mobileView">
   <div class="row">
     <div class="col-12">
-      <p class="country-desc">Contrary to popular belief, the United Kingdom is a set of countries - England, Scotland, Wales and Northern Ireland all come under this bracket. The capital, London, is part of England. The London Eye, Stonehenge and Buckingham Palace are some notable sights to explore, as well as the sprawling streets of Edinburgh, Cardiff, Belfast and Manchester. </p>
+      <p class="country-desc">The United Kingdom of Great Britain and Northern Ireland consists of 4 countries, England,
+        Scotland, Wales and Northern Ireland and 14 overseas territories. The UK is mainly known
+        all over the world due to its history of the British Empire, its colonies and other literary, visual
+        arts and cinematic influences. Classics like Harry Potter and James Bond originated here
+        too! The UK is the world’s 10 th biggest tourist destination with over 37 million people visiting the country in 2018 alone.
+        <span id="dataCollapse" class="collapse">
+        It is home to over 25 World Heritage Sites and has some of the
+        most stunning landscapes and historical architecture. London is the most visited city in the
+        UK and Edinburg, Oxford, Cambridge, York and Canterbury are some other popular tourist
+        cities. The UK’s geographical and cultural diversity is another factor that attracts millions of
+        tourists here every year. The 4 countries have their unique landscapes and histories which
+        greatly influence the lifestyle of the people and the tourist attractions too. The castles,
+        estates, royal residences, art galleries, museums are just some of the exciting things you
+        can expect here.
+        </span>
+        <button class="btn dataDisplay" type="button" data-toggle="collapse"
+        data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+        (click)="dataDisplayFunction()">
+        {{loadText}}</button>
+
+      </p>
     </div>
   </div>
 </div>
@@ -196,6 +340,8 @@
 
 
 <app-faq></app-faq>
+
+<app-description></app-description>
 
 <div class="container-fluid wrapContainer linkAddress">
   <div class="row">

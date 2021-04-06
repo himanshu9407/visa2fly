@@ -26,8 +26,9 @@
               Umm Al-Quwain. The UAE is the most popular tourist attraction in
               the middle-east and attracts more than 15 million tourists each
               year. It's home to some of the most magnificent man-made
-              structures like the Burj Khalifa, Palm Jumeriah and more! The
-              luxury of the Emirati culture and lifestyle is another key reason
+              structures like the Burj Khalifa, Palm Jumeriah and more!
+              <span id="dataCollapse" class="collapse">
+              The luxury of the Emirati culture and lifestyle is another key reason
               why tourists flock here. Each of the Emirates has its magnificent
               tourist attractions like beautiful forts, museums, luxurious
               hotels, stunning architecture and exciting nightlife too! UAE also
@@ -35,6 +36,12 @@
               attractions which attract visitors. Everything about the UAE is
               exciting; the infrastructure, the mesmerizing skylines, the
               cuisines, and the blended different cultures!
+              </span>
+              <button class="btn dataDisplay" type="button" data-toggle="collapse"
+              data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+              (click)="dataDisplayFunction()">
+              {{loadText}}</button>
+
             </p>
           </div>
         </div>
@@ -292,19 +299,26 @@
   <div class="row">
     <div class="col-12">
       <p class="country-desc">
-        The United Arab Emirates or the UAE is a federation of 7 Emirates – Abu
-        Dhabi, Dubai, Fujairah, Ajman, Ra’s Al Khaimah, Sharjah and Umm
-        Al-Quwain. The UAE is the most popular tourist attraction in the
-        middle-east and attracts more than 15 million tourists each year. It's
-        home to some of the most magnificent man-made structures like the Burj
-        Khalifa, Palm Jumeriah and more! The luxury of the Emirati culture and
-        lifestyle is another key reason why tourists flock here. Each of the
-        Emirates has its magnificent tourist attractions like beautiful forts,
-        museums, luxurious hotels, stunning architecture and exciting nightlife
-        too! UAE also has some of the most serene beaches, islands and natural
-        tourist attractions which attract visitors. Everything about the UAE is
-        exciting; the infrastructure, the mesmerizing skylines, the cuisines,
-        and the blended different cultures!
+        The United Arab Emirates or the UAE is a federation of 7 Emirates
+        – Abu Dhabi, Dubai, Fujairah, Ajman, Ra’s Al Khaimah, Sharjah and
+        Umm Al-Quwain. The UAE is the most popular tourist attraction in
+        the middle-east and attracts more than 15 million tourists each
+        year. It's home to some of the most magnificent man-made
+        structures like the Burj Khalifa, Palm Jumeriah and more!
+        <span id="dataCollapse" class="collapse">
+        The luxury of the Emirati culture and lifestyle is another key reason
+        why tourists flock here. Each of the Emirates has its magnificent
+        tourist attractions like beautiful forts, museums, luxurious
+        hotels, stunning architecture and exciting nightlife too! UAE also
+        has some of the most serene beaches, islands and natural tourist
+        attractions which attract visitors. Everything about the UAE is
+        exciting; the infrastructure, the mesmerizing skylines, the
+        cuisines, and the blended different cultures!
+        </span>
+        <button class="btn dataDisplay" type="button" data-toggle="collapse"
+        data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+        (click)="dataDisplayFunction()">
+        {{loadText}}</button>
       </p>
     </div>
   </div>
