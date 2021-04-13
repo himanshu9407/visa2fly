@@ -3,11 +3,8 @@
     <div class="row">
       <div class="col-12 text-center">
         <ng-container *ngIf="!showHeading; else onClick">
-          <h5 class="worldTitle">
-            Like exploring new places
-          </h5>
-          <p class="worldSubTitle" style="font-weight: lighter;
-          ">
+          <h5 class="worldTitle">Like exploring new places</h5>
+          <p class="worldSubTitle" style="font-weight: normal">
             Click on globe below to know more
           </p>
         </ng-container>
@@ -15,84 +12,116 @@
           <h5 class="worldTitle">
             {{ destinationCountry }}
           </h5>
-          <p class="worldSubTitle" style="font-weight: lighter;">
+          <p class="worldSubTitle" style="font-weight: normal">
             Click on the map below to explore more places
           </p>
         </ng-template>
       </div>
     </div>
-    <div class="talk-bubble tri-right round btn-top-left"
-      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+    <div
+      class="talk-bubble tri-right round btn-top-left"
+      [ngStyle]="{
+        display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+      }"
+      [@flipState]="flip"
+    >
       <div class="talktext">
         <div class="talktextHeader">
           <div class="world-Img img-sprite" [ngClass]="destinationImage1"></div>
-          <h5 class="destinationTitle">{{destinationTitle1}}</h5>
+          <h5 class="destinationTitle">{{ destinationTitle1 }}</h5>
         </div>
-        <p class="destinationContent">{{destinationContent1}}</p>
+        <p class="destinationContent">{{ destinationContent1 }}</p>
         <p ng-text-truncate="longText" ng-tt-chars-threshold="40"></p>
       </div>
     </div>
 
-    <div class="talk-bubble tri-right round btn-top-right btm-left"
-      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+    <div
+      class="talk-bubble tri-right round btn-top-right btm-left"
+      [ngStyle]="{
+        display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+      }"
+      [@flipState]="flip"
+    >
       <div class="talktext">
         <div class="talktextHeader">
           <div class="world-Img img-sprite" [ngClass]="destinationImage2"></div>
-          <h5 class="destinationTitle">{{destinationTitle2}}</h5>
+          <h5 class="destinationTitle">{{ destinationTitle2 }}</h5>
         </div>
-        <p class="destinationContent">{{destinationContent2}}</p>
+        <p class="destinationContent">{{ destinationContent2 }}</p>
       </div>
     </div>
 
     <div class="jugGhumia">
-      <div class="glow" *ngIf="!showHeading" [ngClass]="{
-    'pulse':exploreWorld === 'simpleRotate',
-    'exploreTheWorld':exploreWorld === 'findingDestination',
-    'finallyReach':exploreWorld === 'reachYourDestination'
-    }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
-        usemap="shapes-map">
-      </div>
-      <img *ngIf="showHeading" data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
-        [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
-        [@flipWorld]="flip" class="counrtyCourt img-fluid lazyload">
+      <div
+        class="glow"
+        *ngIf="!showHeading"
+        [ngClass]="{
+          pulse: exploreWorld === 'simpleRotate',
+          exploreTheWorld: exploreWorld === 'findingDestination',
+          finallyReach: exploreWorld === 'reachYourDestination'
+        }"
+        [ngStyle]="{
+          display: exploreWorld === 'reachYourDestination' ? 'none' : 'block'
+        }"
+        (click)="findPlace()"
+        usemap="shapes-map"
+      ></div>
+      <img
+        *ngIf="showHeading"
+        data-src="https://static.visa2fly.com/globe/{{
+          destinationCountry
+        }}.png"
+        [alt]="destinationCountry"
+        [ngStyle]="{
+          display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+        }"
+        (click)="findPlace()"
+        [@flipWorld]="flip"
+        class="counrtyCourt img-fluid lazyload"
+      />
     </div>
 
-    <div class="talk-bubble tri-right round btn-bottom-left btm-top-right"
-      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+    <div
+      class="talk-bubble tri-right round btn-bottom-left btm-top-right"
+      [ngStyle]="{
+        display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+      }"
+      [@flipState]="flip"
+    >
       <div class="talktext">
         <div class="talktextHeader">
           <div class="world-Img img-sprite" [ngClass]="destinationImage3"></div>
-          <h5 class="destinationTitle">{{destinationTitle3}}</h5>
+          <h5 class="destinationTitle">{{ destinationTitle3 }}</h5>
         </div>
-        <p class="destinationContent">{{destinationContent3}}</p>
+        <p class="destinationContent">{{ destinationContent3 }}</p>
       </div>
     </div>
 
-    <div class="talk-bubble tri-right round btn-bottom-right"
-      [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" [@flipState]="flip">
+    <div
+      class="talk-bubble tri-right round btn-bottom-right"
+      [ngStyle]="{
+        display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+      }"
+      [@flipState]="flip"
+    >
       <div class="talktext">
         <div class="talktextHeader">
           <div class="world-Img img-sprite" [ngClass]="destinationImage4"></div>
-          <h5 class="destinationTitle">{{destinationTitle4}}</h5>
+          <h5 class="destinationTitle">{{ destinationTitle4 }}</h5>
         </div>
-        <p class="destinationContent">{{destinationContent4}}</p>
+        <p class="destinationContent">{{ destinationContent4 }}</p>
       </div>
     </div>
   </div>
 </section>
-
 
 <section class="mobileView mt-4">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
         <ng-container *ngIf="!showHeading; else onClick">
-          <h5 class="worldTitle">
-            Like exploring new places
-          </h5>
-          <p class="worldSubTitle">
-            Click on globe below to know more
-          </p>
+          <h5 class="worldTitle">Like exploring new places</h5>
+          <p class="worldSubTitle">Click on globe below to know more</p>
         </ng-container>
         <ng-template #onClick>
           <h5 class="worldTitle">
@@ -106,68 +135,121 @@
 
       <div class="col-12 p-0">
         <div class="jugGhumia">
-          <div *ngIf="!showHeading" class="glow" [ngClass]="{
-        'pulse':exploreWorld === 'simpleRotate',
-        'exploreTheWorld':exploreWorld === 'findingDestination',
-        'finallyReach':exploreWorld === 'reachYourDestination'
-        }" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'none' : 'block' }" (click)="findPlace()"
-            usemap="shapes-map">
-          </div>
-          <img *ngIf="showHeading" data-src="https://static.visa2fly.com/globe/{{destinationCountry}}.png" [alt]="destinationCountry"
-            [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }" (click)="findPlace()"
-            [@flipWorld]="flip" class="counrtyCourt img-fluid lazyload">
+          <div
+            *ngIf="!showHeading"
+            class="glow"
+            [ngClass]="{
+              pulse: exploreWorld === 'simpleRotate',
+              exploreTheWorld: exploreWorld === 'findingDestination',
+              finallyReach: exploreWorld === 'reachYourDestination'
+            }"
+            [ngStyle]="{
+              display:
+                exploreWorld === 'reachYourDestination' ? 'none' : 'block'
+            }"
+            (click)="findPlace()"
+            usemap="shapes-map"
+          ></div>
+          <img
+            *ngIf="showHeading"
+            data-src="https://static.visa2fly.com/globe/{{
+              destinationCountry
+            }}.png"
+            [alt]="destinationCountry"
+            [ngStyle]="{
+              display:
+                exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+            }"
+            (click)="findPlace()"
+            [@flipWorld]="flip"
+            class="counrtyCourt img-fluid lazyload"
+          />
         </div>
       </div>
 
-
-      <div class="col-12 p-0" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }">
+      <div
+        class="col-12 p-0"
+        [ngStyle]="{
+          display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+        }"
+      >
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <div class="world-Img img-sprite" [ngClass]="destinationImage1"></div>
-              <h5 class="destinationTitle">{{destinationTitle1}}</h5>
+              <div
+                class="world-Img img-sprite"
+                [ngClass]="destinationImage1"
+              ></div>
+              <h5 class="destinationTitle">{{ destinationTitle1 }}</h5>
             </div>
-            <p class="destinationContent">{{destinationContent1}}</p>
+            <p class="destinationContent">{{ destinationContent1 }}</p>
           </div>
         </div>
       </div>
 
-      <div class="col-12 p-0 mt-4" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none'}">
+      <div
+        class="col-12 p-0 mt-4"
+        [ngStyle]="{
+          display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+        }"
+      >
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <div class="world-Img img-sprite" [ngClass]="destinationImage2"></div>
-              <h5 class="destinationTitle">{{destinationTitle2}}</h5>
+              <div
+                class="world-Img img-sprite"
+                [ngClass]="destinationImage2"
+              ></div>
+              <h5 class="destinationTitle">{{ destinationTitle2 }}</h5>
             </div>
-            <p class="destinationContent">{{destinationContent2}}</p>
+            <p class="destinationContent">{{ destinationContent2 }}</p>
           </div>
         </div>
       </div>
 
-      <div class="col-12 p-0 mt-4" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }">
+      <div
+        class="col-12 p-0 mt-4"
+        [ngStyle]="{
+          display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+        }"
+      >
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <div class="world-Img img-sprite" [ngClass]="destinationImage3"></div>
-              <h5 class="destinationTitle">{{destinationTitle3}}</h5>
+              <div
+                class="world-Img img-sprite"
+                [ngClass]="destinationImage3"
+              ></div>
+              <h5 class="destinationTitle">{{ destinationTitle3 }}</h5>
             </div>
-            <p class="destinationContent">{{destinationContent3}}</p>
+            <p class="destinationContent">{{ destinationContent3 }}</p>
           </div>
         </div>
       </div>
 
-      <div class="col-12 p-0 mt-4" [ngStyle]="{'display':exploreWorld === 'reachYourDestination' ? 'block' : 'none' }">
+      <div
+        class="col-12 p-0 mt-4"
+        [ngStyle]="{
+          display: exploreWorld === 'reachYourDestination' ? 'block' : 'none'
+        }"
+      >
         <div class="bubble" [@flipState]="flip">
           <div class="talktext">
             <div class="talktextHeader">
-              <div class="world-Img img-sprite" [ngClass]="destinationImage4"></div>
-              <h5 class="destinationTitle">{{destinationTitle4}}</h5>
+              <div
+                class="world-Img img-sprite"
+                [ngClass]="destinationImage4"
+              ></div>
+              <h5 class="destinationTitle">{{ destinationTitle4 }}</h5>
             </div>
-            <p class="destinationContent">{{destinationContent4}}</p>
+            <p class="destinationContent">{{ destinationContent4 }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <img data-src="https://static.visa2fly.com/globe/world-heritage.png" class="img-fluid lazyload world-heritage" />
+  <img
+    data-src="https://static.visa2fly.com/globe/world-heritage.png"
+    class="img-fluid lazyload world-heritage"
+  />
 </section>
