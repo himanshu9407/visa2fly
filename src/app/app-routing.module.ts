@@ -847,8 +847,8 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-   // B2b Sim Home Page
-   {
+  // B2b Sim Home Page
+  {
     path: "b2b/sim",
     loadChildren: () =>
       import("./components/b2b-sim/b2b-sim.module").then((m) => m.B2bSimModule),
@@ -907,7 +907,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: "enabled",
       onSameUrlNavigation: "reload",
-      preloadingStrategy: PreloadAllModules,
+      // preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],

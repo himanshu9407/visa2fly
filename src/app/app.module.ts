@@ -23,7 +23,6 @@ import { ToastComponent } from "./shared/components/toast/toast.component";
 import { ChatboxComponent } from "./chatbox/chatbox.component";
 import { PreloaderComponent } from "./shared/preloader/preloader.component";
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { B2BModule } from './components/b2b/b2b.module';
