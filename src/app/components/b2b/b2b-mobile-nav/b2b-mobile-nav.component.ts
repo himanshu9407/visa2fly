@@ -11,8 +11,7 @@ export class B2bMobileNavComponent implements OnInit {
 
   constructor(private router: Router, private userFlow: UserFlowDetails) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   navigateToHome() {
     const ID = this.userFlow.getB2BUserFlowDetails().id;

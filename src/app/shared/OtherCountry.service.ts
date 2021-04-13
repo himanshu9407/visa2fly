@@ -3,33 +3,26 @@ import { Router } from "@angular/router";
 import { UserFlowDetails } from "./user-flow-details.service";
 import { isPlatformBrowser } from "@angular/common";
 import { HomeFormService } from '../components/home-container/home-form/home-form.service';
+import { visaFormData } from "../interfaces/visa-form";
 
 @Injectable({
   providedIn: "root",
 })
 export class OtherCountryService {
-  public countryList: Array<any> = [];
+  homeFormData: visaFormData;
+  countryList: string[];
+
   constructor(
     private router: Router,
     private userFlow: UserFlowDetails,
     private homeFormService: HomeFormService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    if (isPlatformBrowser(this.platformId)) {
-      if (this.userFlow.getCookie("countryList")) {
-        this.countryList = JSON.parse(this.userFlow.getCookie("countryList")) || [];
-      }
-    }
-
-    if (
-      this.countryList == [] ||
-      this.countryList == undefined ||
-      this.countryList == null
-    ) {
-      this.homeFormService.getHomeFormDataFromServer().subscribe((data) => {
-        this.countryList = data.data.countries;
-      });
-    }
+    this.homeFormService.homeFormData.subscribe((res: visaFormData) => {
+      // console.log(res);
+      this.homeFormData = res;
+      this.countryList = this.homeFormData.countries;
+    });
   }
 
   validateCountry(country: string) {
@@ -43,10 +36,9 @@ export class OtherCountryService {
   }
 
   validateCountryPopular(country: string) {
+    console.log(country);
     if (this.countryList.indexOf(country) != -1) {
-      if (isPlatformBrowser(this.platformId)) {
-        this.userFlow.setCookie("popularCountry", country);
-      }
+      this.userFlow.setCookie("popularCountry", country);
       window.location.reload();
     }
   }

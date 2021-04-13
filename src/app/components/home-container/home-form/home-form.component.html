@@ -6,49 +6,49 @@
       <div class="img-loader ldr1" style="display: none">
         <div class="icon-s1-small-loader" alt="apply visa online"></div>
       </div>
-      <!-- <select (change)="countryChanged()" [(ngModel)]="selectedCountry" formControlName="country" required
-        id="ddlCountry" class="form-control form-control-sm" name="country">
-        <option style="height: 40px;" class="option" *ngFor="let country of homeFormData.data.countries"
-            value="{{country}}">{{country}}</option>
-        </select> -->
 
-      <!-- <div class="ng-autocomplete" style="width: 100%;">
-            <ng-autocomplete 
-              [data]="data"
-              [searchKeyword]="keyword"
-              (selected)='selectEvent($event)'
-              (inputChanged)='onChangeSearch($event)'
-              (inputFocused)='onFocused($event)'
-              (change)="countryChanged()"
-              [itemTemplate]="itemTemplate"
-              formControlName="country"
-              placeholder="Search Country..."
-              [notFoundTemplate]="notFoundTemplate">                                 
-            </ng-autocomplete>
-            
-            <ng-template #itemTemplate let-item>
-            <a [innerHTML]="item.name"></a>
-            </ng-template>
-            
-            <ng-template #notFoundTemplate let-notFound>
-            <div [innerHTML]="notFound"></div>
-            </ng-template>
-            </div> -->
-
-      <!--Using ng-option and for loop-->
       <ng-select
+        #country
+        [items]="countryList"
+        [dropdownPosition]="'bottom'"
+        [searchable]="false"
+        [searchFn]="inputSearchFn"
+        (open)="focusInputField('counrty')"
+        class="desktopInput"
         formControlName="country"
         placeholder="Select Country"
         required
         (change)="countryChanged($event)"
       >
-        <ng-option
-          *ngFor="let country of homeFormData.countries"
-          [value]="country"
-        >
-          {{ country }}
-        </ng-option>
+        <ng-template ng-header-tmp>
+          <div style="display: flex">
+            <input
+              #countryInput
+              style="width: 100%; line-height: 24px; box-shadow: none"
+              type="text"
+              class="form-control form-control-sm"
+              (input)="country.filter($event.target.value)"
+            />
+            <i
+              [hidden]="countryInput.value.length === 0"
+              (click)="country.filter(''); countryInput.value = ''"
+            ></i>
+          </div>
+        </ng-template>
+        <div>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            {{ item }}
+          </ng-template>
+        </div>
       </ng-select>
+
+      <div class="onMobileInput mobileInput" id="countryInput">
+        {{
+          homeForm.get("country").value == ""
+            ? "Select"
+            : homeForm.get("country").value
+        }}
+      </div>
       <div *ngIf="countryNotSelected" class="invalid-feedback">
         Please choose a country.
       </div>
@@ -56,24 +56,8 @@
     <div class="chkIp chkIp2">
       <label class="chkLabel">Visa Type</label>
       <div class="icon-s1-calender pull-left"></div>
-      <!-- <select
-        formControlName="purpose"
-        [(ngModel)]="selectedPurpose"
-        required
-        name="purpose"
-        id="ddlPurpose"
-        class="form-control form-control-sm"
-      >
-        <option value="select">Select</option>
-        <option
-          class="purpose-opt"
-          *ngFor="let visaType of purposeArr"
-          value="{{ visaType }}"
-        >
-          {{ visaType }}
-        </option>
-      </select> -->
-      <ng-select
+      <!-- <ng-select
+        class="desktopInput"
         formControlName="purpose"
         placeholder="Select Purpose"
         required
@@ -82,7 +66,48 @@
         <ng-option *ngFor="let purpose of purposeArr" [value]="purpose">
           {{ purpose }}
         </ng-option>
+      </ng-select> -->
+      <ng-select
+        #visaType
+        [items]="purposeArr"
+        [dropdownPosition]="'bottom'"
+        [searchable]="false"
+        [searchFn]="inputSearchFn"
+        (open)="focusInputField('visaType')"
+        class="desktopInput"
+        formControlName="purpose"
+        placeholder="Select Purpose"
+        required
+      >
+        <ng-template ng-header-tmp>
+          <div style="display: flex">
+            <input
+              #visaTypeInput
+              style="width: 100%; line-height: 24px; box-shadow: none"
+              type="text"
+              class="form-control form-control-sm"
+              (input)="visaType.filter($event.target.value)"
+            />
+            <i
+              [hidden]="visaTypeInput.value.length === 0"
+              (click)="visaType.filter(''); visaTypeInput.value = ''"
+            ></i>
+          </div>
+        </ng-template>
+        <div>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            {{ item }}
+          </ng-template>
+        </div>
       </ng-select>
+      <div class="onMobileInput mobileInput" id="visaTypeInput">
+        {{
+          homeForm.get("purpose").value == ""
+            ? "Select"
+            : homeForm.get("purpose").value
+        }}
+      </div>
+
       <div *ngIf="purposeNotSelected" class="invalid-feedback">
         Please choose a Entry Type.
       </div>
@@ -95,58 +120,57 @@
         <div class="img-loader ldr3" style="display: none">
           <div class="icon-s1-small-loader" alt="apply visa online"></div>
         </div>
-        <!-- <select
-          formControlName="livingin"
-          [(ngModel)]="selectedResidenceOf"
-          required
-          name="livingin"
-          id="ddlJurisction"
-          class="form-control form-control-sm"
-        >
-          <option value="select" class="option">Select</option>
-          <option
-            class="purpose-opt option"
-            *ngFor="
-              let livesin of homeFormData.data.data[this.selectedCountry]
-                .residenceOf
-            "
-            value="{{ livesin }}"
-          >
-            {{ livesin }}
-          </option>
-        </select> -->
 
         <!-- <ng-select
-          [(ngModel)]="selectedResidenceOf"
-          formControlName="livingin"
-          placeholder="Select Reside In"
-          required
         >
-          <ng-option value="select"> Select </ng-option>
+          <ng-option value=""> Select </ng-option>
           <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
             {{ livesin }}
           </ng-option>
         </ng-select> -->
 
         <ng-select
+          #resideIn
+          [items]="resideInArr"
+          [dropdownPosition]="'bottom'"
+          [searchable]="false"
+          [searchFn]="inputSearchFn"
+          (open)="focusInputField('resideIn')"
+          class="desktopInput"
           formControlName="livingin"
           placeholder="Select Reside In"
           required
         >
-          <ng-option value=""> Select </ng-option>
-          <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
-            {{ livesin }}
-          </ng-option>
+          <ng-template ng-header-tmp>
+            <div style="display: flex">
+              <input
+                #resideInInput
+                style="width: 100%; line-height: 24px; box-shadow: none"
+                type="text"
+                class="form-control form-control-sm"
+                (input)="resideIn.filter($event.target.value)"
+              />
+              <i
+                [hidden]="resideInInput.value.length === 0"
+                (click)="resideIn.filter(''); resideInInput.value = ''"
+              ></i>
+            </div>
+          </ng-template>
+          <div>
+            <ng-template ng-option-tmp let-item="item" let-index="index">
+              {{ item }}
+            </ng-template>
+          </div>
         </ng-select>
 
-        <!-- <select formControlName="livingin" onmousedown="if(this.options.length>7){this.size=7;}"
-            onchange='this.size=0;' onblur="this.size=0;" [(ngModel)]="selectedResidenceOf" required name="livingin"
-            id="ddlJurisction" class=" form-control form-control-sm" style="">
-            <option value="select" class="option">Select</option>
-            <option class="purpose-opt option"
-            *ngFor="let livesin of homeFormData.data.data[this.selectedCountry].residenceOf" value="{{livesin}}">
-            {{livesin}}</option>
-        </select> -->
+        <div class="onMobileInput mobileInput" id="resideInInput">
+          {{
+            homeForm.get("livingin").value == ""
+              ? "Select"
+              : homeForm.get("livingin").value
+          }}
+        </div>
+
         <div *ngIf="livesInNotSelected" class="invalid-feedback">
           Please choose where you live.
         </div>

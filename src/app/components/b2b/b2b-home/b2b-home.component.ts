@@ -12,7 +12,7 @@ import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { isPlatformBrowser } from "@angular/common";
 import { HomeFormService } from '../../home-container/home-form/home-form.service';
-// import { ToastService } from 'src/app/shared/toast.service';
+import { visaFormData } from "src/app/interfaces/visa-form";
 
 @Component({
   selector: "app-b2b-home",
@@ -36,15 +36,17 @@ export class B2bHomeComponent implements OnInit {
   livesInNotSelected: boolean = false;
   id: string;
   isIdExist: boolean;
+  countryList: string[];
+
+  resideInArr: Array<string> = [];
+  purposeArr: Array<string> = [];
 
   constructor(
     private router: Router,
-    private httpClient: HttpClient,
     private titleService: Title,
     private meta: Meta,
     private toastr: ToastrService,
     private homeFormService: HomeFormService,
-    // private toastService: ToastService,
     private userFlow: UserFlowDetails,
     private preloaderService: PreloaderService,
     private route: ActivatedRoute,
@@ -52,8 +54,6 @@ export class B2bHomeComponent implements OnInit {
   ) {
     this.id = this.route.snapshot.queryParamMap.get("id");
     this.userFlow.setB2BUserFlowDetails("id", this.id);
-
-    // console.log(this.id);
 
     if (this.id == "" || this.id == null || this.id == undefined) {
       this.isIdExist = false;
@@ -72,44 +72,29 @@ export class B2bHomeComponent implements OnInit {
     this.purpose = this.b2bHomeForm.get("purpose");
     this.livesIn = this.b2bHomeForm.get("livingIn");
 
-    this.homeFormService.getHomeFormDataFromServer().subscribe(data => {
-      if (isPlatformBrowser(this.platformId)) {
-        this.homeFormData = data;
-        let activeCountry: string = this.userFlow.getCookie("activeCountry");
-        let popularCountry: string = this.userFlow.getCookie("popularCountry");
-        if (
-          activeCountry == "" ||
-          activeCountry == undefined ||
-          activeCountry == null
-        ) {
-          this.country.setValue(this.homeFormData.data.countries[0]);
-          this.selectedCountry = this.homeFormData.data.countries[0];
+    this.homeFormService.homeFormData.subscribe((res: visaFormData) => {
+      // console.log(res);
+      this.homeFormData = res;
+      this.countryList = this.homeFormData.countries;
+      this.country.setValue(this.homeFormData.countries[0]);
+      this.b2bHomeForm.get('country').setValue(this.homeFormData.countries[0]);
+      this.sortPurposeArr(this.homeFormData.data[this.b2bHomeForm.get('country').value]['purpose'])
+      this.resideInArr = this.homeFormData.data[this.b2bHomeForm.get('country').value]['residenceOf'];
+    });
 
-          // console.log("here 1");
-        } else {
-          this.country.setValue(activeCountry);
-          this.userFlow.setCookie("activeCountry", "");
-          // console.log("here 2");
-        }
-        if (
-          popularCountry == "" ||
-          popularCountry == undefined ||
-          popularCountry == null
-        ) {
-          this.country.setValue(this.homeFormData.data.countries[0]);
-          this.selectedCountry = this.homeFormData.data.countries[0];
+    this.homeFormService.countryInputModel.subscribe((res: string) => {
+      // console.log(res);
+      this.country.setValue(res);
+      this.b2bHomeForm.get('country').setValue(res);
+      this.countryChanged(res);
+    });
 
-          // console.log("here 3");
-        } else {
-          this.country.setValue(popularCountry);
-          this.userFlow.setCookie("popularCountry", "");
-          // console.log("here 4");
-        }
+    this.homeFormService.visaTypeInputModel.subscribe((res: string) => {
+      this.purpose.setValue(res);
+    });
 
-        // this.userFlow.setCookie("countryList", JSON.stringify(data.data.countries));
-        // console.log(data.data.data[this.selectedCountry]);
-        this.preloaderService.showPreloader(false);
-      }
+    this.homeFormService.resideInInputModel.subscribe((res: string) => {
+      this.livesIn.setValue(res);
     });
   }
 
@@ -126,7 +111,7 @@ export class B2bHomeComponent implements OnInit {
     ]);
   }
 
-  countryChanged() {
+  countryChanged(event: string) {
     // console.log("country changed");
     let temoCountry = this.b2bHomeForm.get("country").value;
     this.b2bHomeForm.get("purpose").setValue("select");
@@ -211,5 +196,36 @@ export class B2bHomeComponent implements OnInit {
         this.selectedPurpose
       ]);
     }
+  }
+
+  sortPurposeArr(purposeArr: Array<string>) {
+    this.purposeArr = [];
+    let purposeCustomArr: Array<{ purpose: string, order: number }> = []
+    purposeArr.forEach(element => {
+      if (element == "Tourist") {
+        purposeCustomArr.push({
+          purpose: "Tourist",
+          order: 1
+        })
+      } else if (element == "Business") {
+        purposeCustomArr.push({
+          purpose: "Business",
+          order: 2
+        })
+      } else if (element == "Transit") {
+        purposeCustomArr.push({
+          purpose: "Transit",
+          order: 3
+        })
+      }
+    });
+
+    purposeCustomArr.sort(function (a, b) {
+      return a.order - b.order || a.purpose.localeCompare(b.purpose);
+    });
+
+    purposeCustomArr.forEach(element => {
+      this.purposeArr.push(element.purpose);
+    })
   }
 }

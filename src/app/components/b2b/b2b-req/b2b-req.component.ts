@@ -420,19 +420,19 @@ export class B2bReqComponent implements OnInit {
             this.purposeApi.push(element.purpose);
             if (element.purpose == "Tourist") {
               this.touristArr.push(element);
-              this.userFlow.setUserFlowDetails(
+              this.userFlow.setB2BUserFlowDetails(
                 "imageUpload",
                 element.imageUpload
               );
             } else if (element.purpose == "Business") {
               this.businessArr.push(element);
-              this.userFlow.setUserFlowDetails(
+              this.userFlow.setB2BUserFlowDetails(
                 "imageUpload",
                 element.imageUpload
               );
             } else {
               this.transitArr.push(element);
-              this.userFlow.setUserFlowDetails(
+              this.userFlow.setB2BUserFlowDetails(
                 "imageUpload",
                 element.imageUpload
               );
@@ -460,7 +460,8 @@ export class B2bReqComponent implements OnInit {
           } else if (purposeUrl == "Transit") {
             this.MyQuotation = this.transitArr;
           } else {
-            this.router.navigate(["visa/"]);
+            const ID = this.userFlow.getB2BUserFlowDetails().id;
+            this.router.navigate(["b2b/home"], { queryParams: { id: ID } });
           }
           this.importantInfo = data.data.importantInfo;
           this.onlinestatus = data.data.onlineCategory;
@@ -479,28 +480,35 @@ export class B2bReqComponent implements OnInit {
             this.dataSource.push(temp);
           });
 
-          if (this.onlinestatus) {
-            this.imageCatogory.push(data.data.imageUploadInfo);
+          // if (this.onlinestatus) {
+          this.imageCatogory.push(data.data.imageUploadInfo);
 
-            this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-            this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-            this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
 
-            if (purposeUrl == "Business") {
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            } else if (purposeUrl == "Tourist") {
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            } else {
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            }
-
-            let temp1 = JSON.parse(this.userFlow.getCookie("userFlowDetails"));
-            this.userFlow.setUserFlowDetails(
-              "onlineCountry",
-              JSON.stringify(data.data.onlineCategory)
-            );
-            this.imageUpload1 = this.imageCatogoryTemp;
+          if (purposeUrl == "Business") {
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else {
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
           }
+
+          console.log(this.imageCatogoryTemp);
+
+          let temp1 = JSON.parse(this.userFlow.getCookie("userFlowDetails"));
+          this.userFlow.setB2BUserFlowDetails(
+            "onlineCountry",
+            JSON.stringify(data.data.onlineCategory)
+          );
+          this.imageUpload1 = this.imageCatogoryTemp;
+          // }
+
+          this.userFlow.setB2BUserFlowDetails(
+            "markup",
+            JSON.stringify(data.data.markup)
+          );
 
           let temp = [];
           let i,
@@ -605,7 +613,7 @@ export class B2bReqComponent implements OnInit {
       JSON.stringify(serviceTax)
     );
     this.userFlow.setB2BUserFlowDetails("stayPeriod", stayPeriod);
-    this.userFlow.setUserFlowDetails(
+    this.userFlow.setB2BUserFlowDetails(
       "imageUpload",
       JSON.stringify(imageUpload)
     );

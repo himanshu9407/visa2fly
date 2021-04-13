@@ -16,6 +16,27 @@ select {
   height: 35px !important;
 }
 
+.onMobileInput {
+  height: 36px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.mobileInput {
+  display: none;
+}
+
+.desktopInput {
+  display: block;
+}
+
 select:focus {
   outline: none;
   font-size: 16px !important;
@@ -64,7 +85,6 @@ label {
 .shadow:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
 
 .invalid-feedback {
   display: block;
@@ -331,7 +351,6 @@ button {
 
 /*.chkIn.chkInSec2.nextFieldsIn { bottom: 0; }*/
 
-
 @keyframes toggle {
   0% {
     opacity: 0;
@@ -564,5 +583,23 @@ select {
     border: none;
     margin-bottom: 7px !important;
     position: relative;
+  }
+}
+
+.autocomplete-container .input-container input {
+  padding: 0px 0px !important;
+}
+
+.autocomplete-container {
+  box-shadow: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .mobileInput {
+    display: flex;
+  }
+
+  .desktopInput {
+    display: none;
   }
 }
