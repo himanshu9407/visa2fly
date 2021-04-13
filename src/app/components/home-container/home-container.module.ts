@@ -1,3 +1,4 @@
+import { HomeFormResolver } from './home-form/home-form-resolver.service';
 import { NgModule } from '@angular/core';
 import { HomeContainerComponent } from './home-container.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,7 +18,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { OfferBannerComponent } from './offer-banner/offer-banner.component';
 
 const routes: Routes = [
-  { path: "", component: HomeContainerComponent, pathMatch: "full" }
+  { path: "", component: HomeContainerComponent, resolve: { homeFormData: HomeFormResolver } }
 ]
 
 
@@ -45,4 +46,4 @@ const routes: Routes = [
   ]
 })
 
-export class HomeContainerModule {}
+export class HomeContainerModule { }

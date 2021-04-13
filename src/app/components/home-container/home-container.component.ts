@@ -28,7 +28,6 @@ export class HomeContainerComponent implements OnInit {
     private homeFormService: HomeFormService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.homeFormService.getHomeFormDataFromServer();
   }
 
   ngOnInit() {
