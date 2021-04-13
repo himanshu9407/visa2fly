@@ -10,7 +10,7 @@ export class HomeFormResolver implements Resolve<any>  {
   constructor(private homeFormService: HomeFormService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log("Fuck you");
+    // console.log("Fuck you");
     this.homeFormService.getHomeFormDataFromServer();
   }
 }
