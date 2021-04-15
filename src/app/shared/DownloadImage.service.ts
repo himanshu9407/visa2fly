@@ -23,7 +23,7 @@ export class DownloadImageService {
         return this.http.get(base_url + "profile" + "/downloadFile/" + bookingId + "/" + url, { headers: headers, responseType: 'blob' as 'json' });
     }
 
-    downloadInvoice(bookingId: string) {
+    createDownloadInvoice(bookingId: string) {
         let token = this.loginService.getAuthToken();
         if (token == null || token == undefined) {
             token = "";
@@ -31,9 +31,21 @@ export class DownloadImageService {
         // console.log(token);
         let headers = new HttpHeaders({ 'token': token, 'visa-client': "0" });
         let base_url = this.userFlowDetails.getBaseURL();
-        return this.http.get(base_url + "invoice/v2/" + bookingId, { headers: headers, responseType: 'blob' as 'json' });
+        return this.http.get(base_url + "create/invoice/" + bookingId, { headers: headers });
 
     }
+
+    downloadInvoice(bookingId: string) {
+      let token = this.loginService.getAuthToken();
+      if (token == null || token == undefined) {
+          token = "";
+      }
+      // console.log(token);
+      let headers = new HttpHeaders({ 'token': token, 'visa-client': "0" });
+      let base_url = this.userFlowDetails.getBaseURL();
+      return this.http.get(base_url + "download/invoice/" + bookingId, { headers: headers, responseType: 'blob' as 'json' });
+
+  }
 
     getPolicy(policyNumber: string) {
         let token = this.loginService.getAuthToken();
@@ -49,7 +61,7 @@ export class DownloadImageService {
         return this.http.post(base_url + "insurance/getPolicy", reqBody, { headers: headers });
     }
 
-    // 
+    //
 
     downloadPolicy(bookingId: string) {
         let token = this.loginService.getAuthToken();

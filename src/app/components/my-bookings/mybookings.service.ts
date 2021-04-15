@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginService } from "../login-signup/login/login.service";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { response } from "express";
 
 @Injectable({
@@ -12,9 +12,20 @@ import { response } from "express";
 })
 export class MyBookingsService {
   activeBooking: any;
-  allBookings: Array<any> = [];
   verifytokendetails: Array<any> = [];
+  //All Booking Variable
+  allBookings: Array<any> = [];
   totalItems: number;
+  totalCount: number;
+  searchBy: any;
+  fromDate: any;
+  toDate: any;
+  bookingID: any;
+  currentPage1: number;
+  currentPage2: number;
+  visa: any;
+  sim: any;
+  insurance: any;
 
   constructor(
     private router: Router,
@@ -23,21 +34,20 @@ export class MyBookingsService {
     private userFlow: UserFlowDetails
   ) { }
 
-  getBookingsFromServer(): Observable<any> {
+  postBookingsByDateFromServer(fromDate: String, toDate: String, pageNo: Number, pageSize: Number): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
       this.router.navigateByUrl["/visa"];
     } else {
+      let reqbodyByDate = {};
+      reqbodyByDate = {fromDate, toDate, pageNo, pageSize};
       const base_url = this.userFlow.getBaseURL();
       const headers = new HttpHeaders({
         token: AUTH_TOKEN,
         "visa-client": "0",
       });
-      // console.log(AUTH_TOKEN);
-
-      return this.http.get(base_url + "fetchBookings", { headers: headers });
+      return this.http.post(base_url + "fetchBookings/bydate", reqbodyByDate,{ headers: headers });
     }
-    //  console.log(AUTH_TOKEN);
   }
 
   fetchBooking(pageNo: number, pageSize: number): Observable<any> {
@@ -52,6 +62,36 @@ export class MyBookingsService {
       });
 
       return this.http.get(base_url + "fetchBookings/v2?pageNo=" + pageNo + "&pageSize=" + pageSize, { headers: headers });
+    }
+  }
+
+  postFindBookingById(bookingId): Observable<any> {
+    let AUTH_TOKEN = this.loginService.getAuthToken();
+    if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
+      this.router.navigateByUrl["/visa"];
+    } else {
+      const base_url = this.userFlow.getBaseURL();
+      let reqBookingId = {};
+      const headers = new HttpHeaders({
+        token: AUTH_TOKEN,
+        "visa-client": "0",
+      });
+      return this.http.post(base_url + "fetchBookings/byId/" + bookingId, reqBookingId, { headers });
+    }
+  }
+
+  postBookingFindByFilter(fromDate: String, toDate: String, pageNo: Number, pageSize: Number, filterList: Array<any>): Observable<any> {
+    let AUTH_TOKEN = this.loginService.getAuthToken();
+    if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
+      this.router.navigateByUrl["/visa"];
+    } else {
+      const base_url = this.userFlow.getBaseURL();
+      const reqbodyByFilter = {fromDate, toDate, pageNo, pageSize, filterList};
+      const headers = new HttpHeaders({
+        token: AUTH_TOKEN,
+        "visa-client": "0",
+      });
+      return this.http.post(base_url + "fetchBookings/byFilter", reqbodyByFilter, { headers: headers });
     }
   }
 
