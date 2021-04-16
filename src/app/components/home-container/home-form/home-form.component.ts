@@ -53,8 +53,8 @@ export class HomeFormComponent {
 
     this.homeForm = new FormGroup({
       country: new FormControl("Armenia"),
-      purpose: new FormControl(),
-      livingin: new FormControl(),
+      purpose: new FormControl(null),
+      livingin: new FormControl(null),
     });
 
     this.country = this.homeForm.get("country");
@@ -97,18 +97,12 @@ export class HomeFormComponent {
           this.country.setValue(popularCountry);
           this.userFlow.setCookie("popularCountry", "");
         }
-
-        // this.userFlow.setCookie(
-        //   "countryList",
-        //   JSON.stringify(res.countries)
-        // );
       }
     });
 
     this.preloaderService.showPreloader(false);
 
     this.homeFormService.countryInputModel.subscribe((res: string) => {
-      // console.log(res);
       this.country.setValue(res);
       this.homeForm.get('country').setValue(res);
       this.countryChanged(res);
@@ -128,14 +122,13 @@ export class HomeFormComponent {
   }
 
   countryChanged(event: string) {
-    this.homeForm.get('purpose').setValue("");
-    this.homeForm.get('livingin').setValue("");
     if (event == undefined || event == null || event == "") {
-      // console.log("country changed");
-      this.homeForm.get("purpose").setValue("select");
-      this.homeForm.get("livingin").setValue("select");
+      this.homeForm.get("purpose").setValue(null);
+      this.homeForm.get("livingin").setValue(null);
       this.countryNotSelected = true;
     } else {
+      this.homeForm.get("purpose").setValue(null);
+      this.homeForm.get("livingin").setValue(null);
       this.sortPurposeArr(this.homeFormData.data[event]['purpose'])
       this.resideInArr = this.homeFormData.data[event]['residenceOf'];
       this.countryNotSelected = false;

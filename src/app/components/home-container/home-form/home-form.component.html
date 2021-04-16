@@ -102,7 +102,7 @@
       </ng-select>
       <div class="onMobileInput mobileInput" id="visaTypeInput">
         {{
-          homeForm.get("purpose").value == ""
+          homeForm.get("purpose").value == null
             ? "Select"
             : homeForm.get("purpose").value
         }}
@@ -165,7 +165,7 @@
 
         <div class="onMobileInput mobileInput" id="resideInInput">
           {{
-            homeForm.get("livingin").value == ""
+            homeForm.get("livingin").value == null
               ? "Select"
               : homeForm.get("livingin").value
           }}

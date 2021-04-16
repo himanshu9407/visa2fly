@@ -171,6 +171,7 @@ export class HomeContainerComponent implements OnInit {
         let countryInput = document.getElementById('countryInput');
         let visaTypeInput = document.getElementById('visaTypeInput');
         let resideInInput = document.getElementById('resideInInput');
+        let homeform_heading = document.getElementById('homeform_heading');
 
         let countryInput_homeform = document.getElementById('countryInput_homeform');
         let purposeInput_homeform = document.getElementById('purposeInput_homeform');
@@ -183,6 +184,7 @@ export class HomeContainerComponent implements OnInit {
         countryInput.addEventListener('click', function () {
           countryInputContainer.classList.add('overlay');
           countryInput_homeform.classList.add('show_select');
+          homeform_heading.classList.add('show_select');
           body.classList.add('noScroll');
           homeform_label.innerText = "Destination";
         });
@@ -190,6 +192,7 @@ export class HomeContainerComponent implements OnInit {
         visaTypeInput.addEventListener('click', function () {
           countryInputContainer.classList.add('overlay');
           purposeInput_homeform.classList.add('show_select');
+          homeform_heading.classList.add('show_select');
           body.classList.add('noScroll');
           homeform_label.innerText = "Visa Type";
         });
@@ -197,6 +200,7 @@ export class HomeContainerComponent implements OnInit {
         resideInInput.addEventListener('click', function () {
           countryInputContainer.classList.add('overlay');
           liveInInput_homeform.classList.add('show_select');
+          homeform_heading.classList.add('show_select');
           body.classList.add('noScroll');
           homeform_label.innerText = "Reside In";
         });
@@ -211,20 +215,24 @@ export class HomeContainerComponent implements OnInit {
     let countryInput_homeform = document.getElementById('countryInput_homeform');
     let purposeInput_homeform = document.getElementById('purposeInput_homeform');
     let liveInInput_homeform = document.getElementById('liveInInput_homeform');
+    let homeform_heading = document.getElementById('homeform_heading');
 
     countryInputContainer.classList.remove('overlay');
     body.classList.remove('noScroll');
 
     if (countryInput_homeform.classList.contains('show_select')) {
       countryInput_homeform.classList.remove('show_select');
+      homeform_heading.classList.remove('show_select');
     }
 
     if (purposeInput_homeform.classList.contains('show_select')) {
       purposeInput_homeform.classList.remove('show_select');
+      homeform_heading.classList.remove('show_select');
     }
 
     if (liveInInput_homeform.classList.contains('show_select')) {
       liveInInput_homeform.classList.remove('show_select');
+      homeform_heading.classList.remove('show_select');
     }
   }
 
