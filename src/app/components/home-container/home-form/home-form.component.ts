@@ -136,54 +136,52 @@ export class HomeFormComponent {
   }
 
   validateCountry() {
-    if (this.country.dirty && (this.country.value == undefined || this.country.value == null || this.country.value == "")
+    if (
+      !(this.country.value == undefined || this.country.value == null || this.country.value == "")
     ) {
-      this.countryNotSelected = true;
-
-      return false;
-    } else {
       return true;
+    } else {
+      this.countryNotSelected = true;
+      return false;
     }
   }
 
   validatePurpose() {
     if (
-      (this.purpose.dirty && (this.purpose.value == undefined || this.purpose.value == null || this.purpose.value == "")) ||
-      !this.purpose.touched ||
-      this.purpose.pristine
+      !(this.purpose.value == undefined || this.purpose.value == null || this.purpose.value == "")
     ) {
+      return true;
+    } else {
       this.purposeNotSelected = true;
       return false;
-    } else {
-      return true;
     }
   }
 
   validateLivingIn() {
     if (
-      (this.livesIn.dirty && (this.livesIn.value == undefined || this.livesIn.value == null || this.livesIn.value == "")) ||
-      !this.livesIn.touched ||
-      this.livesIn.pristine
+      !(this.livesIn.value == undefined || this.livesIn.value == null || this.livesIn.value == "")
     ) {
-      this.livesInNotSelected = true;
-
-      return false;
-    } else {
       return true;
+    } else {
+      this.livesInNotSelected = true;
+      return false;
     }
   }
 
   validateForm() {
+    this.validatePurpose();
     this.validateLivingIn();
-    if (!this.validatePurpose() || !this.validateLivingIn() || !this.validateCountry()) {
-      return false;
-    } else {
+    this.validateCountry()
+
+    if (this.validateCountry() && this.validatePurpose() && this.validateLivingIn()) {
       return true;
+    } else {
+      return false;
     }
   }
 
   onSubmit() {
-    // console.log(this.homeForm.value);
+    console.log(this.homeForm.value);
     this.purpose.valueChanges.subscribe((value) => {
       if (value == "select") {
         this.purposeNotSelected = true;
