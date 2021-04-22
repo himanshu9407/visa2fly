@@ -324,19 +324,19 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     // console.log(screen.width);
     // if (screen.width < 600) {
     if (isPlatformBrowser(this.platformId)) {
-      let country_input_sim = document.getElementById('country_input_sim');
-      let sim_home_heading = document.getElementById('sim_home_heading');
+      let country_input_simplan = document.getElementById('country_input_simplan');
+      let simplan_home_heading = document.getElementById('simplan_home_heading');
 
-      let country_mobile_sim = document.getElementById('country_mobile_sim');
+      let country_mobile_simplan = document.getElementById('country_mobile_simplan');
 
       let simplan_input_container = document.getElementById('simplan_input_container');
       let body = document.getElementById('body');
       let homeform_label = document.getElementById('homeform_label');
 
-      country_input_sim.addEventListener('click', function () {
+      country_input_simplan.addEventListener('click', function () {
         simplan_input_container.classList.add('overlay');
-        country_mobile_sim.classList.add('show_select');
-        sim_home_heading.classList.add('show_select');
+        country_mobile_simplan.classList.add('show_select');
+        simplan_home_heading.classList.add('show_select');
         body.classList.add('noScroll');
         homeform_label.innerText = "Select Country";
       });
@@ -348,15 +348,15 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     let simplan_input_container = document.getElementById('simplan_input_container');
     let body = document.getElementById('body');
 
-    let country_mobile_sim = document.getElementById('country_mobile_sim');
-    let sim_home_heading = document.getElementById('sim_home_heading');
+    let country_mobile_simplan = document.getElementById('country_mobile_simplan');
+    let simplan_home_heading = document.getElementById('simplan_home_heading');
 
     simplan_input_container.classList.remove('overlay');
     body.classList.remove('noScroll');
 
-    if (country_mobile_sim.classList.contains('show_select')) {
-      country_mobile_sim.classList.remove('show_select');
-      sim_home_heading.classList.remove('show_select');
+    if (country_mobile_simplan.classList.contains('show_select')) {
+      country_mobile_simplan.classList.remove('show_select');
+      simplan_home_heading.classList.remove('show_select');
     }
   }
 }

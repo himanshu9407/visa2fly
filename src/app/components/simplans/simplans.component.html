@@ -60,7 +60,7 @@
                 </div>
               </ng-select>
 
-              <div class="onMobileInput mobileInput" id="country_input_sim">
+              <div class="onMobileInput mobileInput" id="country_input_simplan">
                 {{
                   simHomeForm.get("simSelect").value == null
                     ? "Select Country"
@@ -85,7 +85,8 @@
           >
             <div class="plan">
               <h3>
-                {{ simData.country }} PREPAID SIM<span
+                {{ simData.country }} PREPAID SIM
+                <span
                   ><img
                     data-src="https://static.visa2fly.com/sim/flag/{{
                       simData.country
@@ -96,6 +97,16 @@
                     class="lazyload"
                 /></span>
               </h3>
+              <!-- <span>
+                <img
+                  data-src="https://static.visa2fly.com/flag/{{
+                    simData.country
+                  }}.png"
+                  height="90px;"
+                  [alt]="simData.country"
+                  class="lazyload"
+                />
+              </span> -->
               <h4>
                 {{ simData.planName }}
                 <span>
@@ -104,17 +115,7 @@
               </h4>
               <div class="planDesp">
                 <div class="summaryContainer">
-                  <h6
-                    class="summaryHeading text-center"
-                    style="
-                      border: 1px solid #d4d4d4;
-                      padding: 4px 0px;
-                      border-radius: 5px;
-                      margin: 10px 10px;
-                    "
-                  >
-                    Summary
-                  </h6>
+                  <h6 class="summaryHeading text-center">Summary</h6>
                   <div class="summaryContent">
                     <li *ngFor="let summary of simData.summary">
                       {{ summary }}
@@ -124,72 +125,19 @@
                 <br />
                 <!-- <p>Note - Student Visa mandatory</p> -->
               </div>
-              <div style="text-align: center; font-size: 16px">
-                <span
-                  style="
-                    box-sizing: inherit;
-                    text-align: center;
-                    max-width: 100%;
-                  "
-                  class="metreButton"
-                >
-                  <button
-                    (click)="decreaseItemCount(simData)"
-                    type="button"
-                    class="ui left attached btn"
-                  >
-                    <svg
-                      height="10px"
-                      fill="#fff"
-                      viewBox="0 -192 469.33333 469"
-                      width="10px"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"
-                      />
-                    </svg>
-                  </button>
-                  <input
-                    type="text"
-                    value="{{ simData.quantity }}"
-                    disabled
-                    class="count" />
-                  <button
-                    (click)="increaseItemCount(simData)"
-                    type="button"
-                    class="btn right attached"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="10px"
-                      viewBox="0 0 469.33333 469.33333"
-                      width="10px"
-                      class="hovered-paths"
-                    >
-                      <g>
-                        <path
-                          d="m437.332031 192h-160v-160c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32v160h-160c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h160v160c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-160h160c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"
-                          data-original="#000000"
-                          class="hovered-path active-path"
-                          data-old_color="#000000"
-                          fill="#FFFFFF"
-                        />
-                      </g>
-                    </svg></button
-                ></span>
-              </div>
 
               <ul>
                 <h6
                   class="summaryHeading text-center"
                   style="
-                    border: 1px solid #d4d4d4;
+                    border: 1px solid #202020;
                     padding: 4px 0px;
                     border-radius: 5px;
                     margin: 10px 10px;
                     text-align: center;
+                    font-size: 14px;
                     cursor: pointer;
+                    font-weight: 550;
                   "
                   class="dropdown-toggle"
                   id="dropdownMenuButton"
@@ -211,6 +159,64 @@
                 </div>
               </ul>
 
+              <div style="text-align: center; font-size: 16px">
+                <span
+                  style="
+                    box-sizing: inherit;
+                    text-align: center;
+                    max-width: 100%;
+                    display: flex;
+                    align-items: center;
+                  "
+                  class="metreButton"
+                >
+                  <button
+                    (click)="decreaseItemCount(simData)"
+                    type="button"
+                    class="ui left attached btn"
+                  >
+                    <svg
+                      height="12px"
+                      fill="#fff"
+                      viewBox="0 -192 469.33333 469"
+                      width="12px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"
+                      />
+                    </svg>
+                  </button>
+                  <input
+                    type="text"
+                    value="{{ simData.quantity }}"
+                    disabled
+                    class="count" />
+                  <button
+                    (click)="increaseItemCount(simData)"
+                    type="button"
+                    class="btn right attached"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="12px"
+                      viewBox="0 0 469.33333 469.33333"
+                      width="12px"
+                      class="hovered-paths"
+                    >
+                      <g>
+                        <path
+                          d="m437.332031 192h-160v-160c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32v160h-160c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h160v160c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-160h160c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"
+                          data-original="#000000"
+                          class="hovered-path active-path"
+                          data-old_color="#000000"
+                          fill="#FFFFFF"
+                        />
+                      </g>
+                    </svg></button
+                ></span>
+              </div>
+
               <!-- <a class="buy" >Buy Now</a> -->
             </div>
           </div>
@@ -220,7 +226,12 @@
         <div class="card orderCard pc-Cart mb-3" style="padding: 0px">
           <div
             class="card-header bg-transparent font-weight-bold"
-            style="font-size: 20px; padding: 7px 15px; border-bottom: none"
+            style="
+              font-size: 18px;
+              padding: 7px 15px;
+              border-bottom: none;
+              text-align: center;
+            "
           >
             Your Order
           </div>
@@ -231,7 +242,7 @@
           >
             <div
               *ngFor="let item of simCart"
-              style="width: 100%; padding: 0px 0px"
+              style="width: 100%; padding: 10px 0px"
             >
               <div class="col-lg-12">
                 <h3
@@ -247,12 +258,20 @@
                 </h3>
               </div>
               <div class="col-lg-12 order">
-                <div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
                   <span
                     style="
                       box-sizing: inherit;
                       text-align: center;
                       max-width: 100%;
+                      display: flex;
+                      align-items: center;
                     "
                   >
                     <button
@@ -299,8 +318,6 @@
                         </g>
                       </svg></button
                   ></span>
-                  <br />
-                  <span style="font-size: 12px">&nbsp;</span>
                   <span class="pull-right" style="float: right">
                     &#x20B9;
                     {{ item.quantity * item.priceWithoutGST | number: "1.0-2" }}
@@ -373,7 +390,12 @@
         >
           <div
             class="card-header bg-transparent font-weight-bold"
-            style="font-size: 20px; padding: 7px 15px; border-bottom: none"
+            style="
+              font-size: 18px;
+              padding: 7px 15px;
+              border-bottom: none;
+              text-align: center;
+            "
           >
             Your Order
           </div>
@@ -385,7 +407,7 @@
           >
             <div
               *ngFor="let item of simCart"
-              style="width: 100%; padding: 0px 0px"
+              style="width: 100%; padding: 10px 0px"
             >
               <div class="col-lg-12">
                 <h3
@@ -401,12 +423,20 @@
                 </h3>
               </div>
               <div class="col-lg-12 order">
-                <div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
                   <span
                     style="
                       box-sizing: inherit;
                       text-align: center;
                       max-width: 100%;
+                      display: flex;
+                      align-items: center;
                     "
                   >
                     <button
@@ -453,8 +483,6 @@
                         </g>
                       </svg></button
                   ></span>
-                  <br />
-                  <span style="font-size: 12px">&nbsp;</span>
                   <span class="pull-right" style="float: right">
                     &#x20B9;
                     {{ item.quantity * item.priceWithoutGST | number: "1.0-2" }}
@@ -557,7 +585,7 @@
 </section>
 
 <div id="simplan_input_container">
-  <h5 class="label_text" id="sim_home_heading">
+  <h5 class="label_text" id="simplan_home_heading">
     <span>
       <svg id="sim_home_backBtn" class="backBtn_icon" (click)="onBackButton()">
         <use xlink:href="assets/sprites/sprite.svg#arrow-left"></use>
@@ -577,7 +605,7 @@
       class="desktopInput"
       (change)="onClickSelect()"
       formControlName="simSelect"
-      id="country_mobile_sim"
+      id="country_mobile_simplan"
       placeholder="Select Country"
       required
     >
