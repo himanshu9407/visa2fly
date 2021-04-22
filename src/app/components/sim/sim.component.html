@@ -8,16 +8,6 @@
               <label class="mr-sm-2 text-white" for="country"
                 >Select country for which you want SIM</label
               >
-              <!-- <ng-select >
-                <ng-option value=""> Select Country </ng-option>
-                <ng-option
-                  *ngFor="let country of simCountries"
-                  [value]="country"
-                >
-                  {{ country }}
-                </ng-option>
-              </ng-select> -->
-
               <ng-select
                 #country
                 [items]="simCountries"
@@ -52,6 +42,14 @@
                   </ng-template>
                 </div>
               </ng-select>
+
+              <div class="onMobileInput mobileInput" id="country_input_sim">
+                {{
+                  simHomeForm.get("simSelect").value == null
+                    ? "Select Country"
+                    : simHomeForm.get("simSelect").value
+                }}
+              </div>
 
               <!-- <select
                 formControlName="simSelect"
@@ -388,4 +386,53 @@
       </div>
     </div>
   </div>
+</div>
+
+<div id="sim_input_container">
+  <h5 class="label_text" id="sim_home_heading">
+    <span>
+      <svg id="sim_home_backBtn" class="backBtn_icon" (click)="onBackButton()">
+        <use xlink:href="assets/sprites/sprite.svg#arrow-left"></use>
+      </svg>
+    </span>
+    <span class="label" id="homeform_label"> Select Country </span>
+  </h5>
+
+  <form [formGroup]="simHomeForm">
+    <ng-select
+      #country
+      [items]="simCountries"
+      [dropdownPosition]="'bottom'"
+      [searchable]="false"
+      [searchFn]="inputSearchFn"
+      (open)="focusInputField()"
+      class="desktopInput"
+      (change)="onSimCountrySelected()"
+      formControlName="simSelect"
+      id="country_mobile_sim"
+      placeholder="Select Country"
+      required
+    >
+      <ng-template ng-header-tmp>
+        <div style="display: flex">
+          <input
+            #countryInput
+            style="width: 100%; line-height: 24px; box-shadow: none"
+            type="text"
+            class="form-control form-control-sm"
+            (input)="country.filter($event.target.value)"
+          />
+          <i
+            [hidden]="countryInput.value.length === 0"
+            (click)="country.filter(''); countryInput.value = ''"
+          ></i>
+        </div>
+      </ng-template>
+      <div>
+        <ng-template ng-option-tmp let-item="item" let-index="index">
+          {{ item }}
+        </ng-template>
+      </div>
+    </ng-select>
+  </form>
 </div>

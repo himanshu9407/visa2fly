@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from "@angular/core";
 import { SimService } from "../sim/sim.service";
 import { Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
@@ -10,13 +10,14 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Title, Meta } from "@angular/platform-browser";
 import { ToastrService } from "ngx-toastr";
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-simplans",
   templateUrl: "./simplans.component.html",
   styleUrls: ["./simplans.component.css"]
 })
-export class SimplansComponent implements OnInit {
+export class SimplansComponent implements OnInit, AfterViewInit {
   simCountries: Array<any> = [];
   revertCountry: Array<any> = [];
   selectedSimCountry: any = "";
@@ -46,7 +47,8 @@ export class SimplansComponent implements OnInit {
     private routerHistory: RouterHistory,
     private titleService: Title,
     private meta: Meta,
-    private userFlow: UserFlowDetails
+    private userFlow: UserFlowDetails,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     // this.simCart = JSON.parse(this.userFlow.getCookie('simCart')) || [];
     this.preloaderService.showPreloader(true);
@@ -120,6 +122,7 @@ export class SimplansComponent implements OnInit {
   }
 
   onClickSelect() {
+    this.onBackButton();
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
     this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
     this.preloaderService.showPreloader(true);
@@ -128,53 +131,38 @@ export class SimplansComponent implements OnInit {
       this.selectedCountry == undefined ||
       this.selectedCountry == null
     ) {
-      // this.preloaderService.showPreloader(true);
       this.router.navigate(["sim"]);
     } else {
       this.selectedCountry = this.simHomeForm.get("simSelect").value;
-      // console.log(this.revertCountry);
       this.simService
         .getSimPlans(this.selectedCountry)
         .subscribe((data: any) => {
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
-            // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
-            // this.preloaderService.showPreloader(false);
-            // setTimeout(() => {
             this.preloaderService.showPreloader(false);
-            // }, 4000);
 
             this.selectedSimCountryData.forEach((element: any) => {
               element.quantity = 0;
             });
             this.revertCountry.push(this.selectedCountry);
-            // console.log(this.revertCountry);
-            // console.log(this.selectedSimCountryData);
           } else {
             this.selectedRevertCountry = this.revertCountry[
               this.revertCountry.length - 1
             ];
             this.toastr.error(data.message);
-            // console.log(this.selectedRevertCountry);
             this.simService
               .getSimPlans(this.selectedRevertCountry)
               .subscribe((data: any) => {
                 this.selectedSimCountryData = data.data;
-                // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
-                // this.preloaderService.showPreloader(false);
-                // setTimeout(() => {
                 this.preloaderService.showPreloader(false);
-                // }, 4000);
 
                 this.selectedSimCountryData.forEach((element: any) => {
                   element.quantity = 0;
                 });
-                // console.log(this.selectedSimCountryData);
               });
             this.selectedCountry = this.selectedRevertCountry;
           }
         });
-      // this.userFlow.setCookie("simSelectedCountry",this.selectedCountry);
     }
   }
 
@@ -307,6 +295,7 @@ export class SimplansComponent implements OnInit {
     });
 
   }
+
   toogleCartMobile() {
     this.showMobileCart = !this.showMobileCart;
     if (this.showMobileCart) {
@@ -329,5 +318,45 @@ export class SimplansComponent implements OnInit {
     // console.log(item);
     term = term.toLocaleLowerCase();
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
+  }
+
+  ngAfterViewInit(): void {
+    // console.log(screen.width);
+    // if (screen.width < 600) {
+    if (isPlatformBrowser(this.platformId)) {
+      let country_input_simplan = document.getElementById('country_input_simplan');
+      let simplan_home_heading = document.getElementById('simplan_home_heading');
+
+      let country_mobile_simplan = document.getElementById('country_mobile_simplan');
+
+      let simplan_input_container = document.getElementById('simplan_input_container');
+      let body = document.getElementById('body');
+      let homeform_label = document.getElementById('homeform_label');
+
+      country_input_simplan.addEventListener('click', function () {
+        simplan_input_container.classList.add('overlay');
+        country_mobile_simplan.classList.add('show_select');
+        simplan_home_heading.classList.add('show_select');
+        body.classList.add('noScroll');
+        homeform_label.innerText = "Select Country";
+      });
+    }
+    // }
+  }
+
+  onBackButton() {
+    let simplan_input_container = document.getElementById('simplan_input_container');
+    let body = document.getElementById('body');
+
+    let country_mobile_simplan = document.getElementById('country_mobile_simplan');
+    let simplan_home_heading = document.getElementById('simplan_home_heading');
+
+    simplan_input_container.classList.remove('overlay');
+    body.classList.remove('noScroll');
+
+    if (country_mobile_simplan.classList.contains('show_select')) {
+      country_mobile_simplan.classList.remove('show_select');
+      simplan_home_heading.classList.remove('show_select');
+    }
   }
 }
