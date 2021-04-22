@@ -62,10 +62,8 @@ export class HomeFormComponent {
     this.livesIn = this.homeForm.get("livingin");
 
     this.homeFormService.homeFormData.subscribe((res: visaFormData) => {
-      // console.log(res);
       this.homeFormData = res;
       this.countryList = this.homeFormData.countries;
-      // this.tempCountryList = this.homeFormData.countries;
 
       if (isPlatformBrowser(this.platformId)) {
         let activeCountry: string = this.userFlow.getCookie("activeCountry");
@@ -98,9 +96,12 @@ export class HomeFormComponent {
           this.userFlow.setCookie("popularCountry", "");
         }
       }
+
+      this.preloaderService.showPreloader(false);
+
     });
 
-    this.preloaderService.showPreloader(false);
+
 
     this.homeFormService.countryInputModel.subscribe((res: string) => {
       this.country.setValue(res);

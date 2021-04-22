@@ -1,3 +1,4 @@
+import { NgSelectModule } from '@ng-select/ng-select';
 import { NgModule } from '@angular/core';
 import { SimplansComponent } from './simplans.component';
 import { CommonModule } from '@angular/common';
@@ -14,13 +15,14 @@ const routes: Routes = [
   declarations: [
     SimplansComponent,
   ],
-  imports : [
+  imports: [
     CommonModule,
     ReactiveFormsModule,
     NgbModule,
     FormsModule,
+    NgSelectModule,
     RouterModule.forChild(routes)
   ]
 })
 
-export class SimplansModule {}
+export class SimplansModule { }

@@ -12,7 +12,11 @@ import { QuotationComponent } from './quotation/quotation.component';
 import { RequirementsComponent } from './requirements/requirements.component';
 
 const routes: Routes = [
-  { path: "", component: AustraliaComponent },
+  {
+    path: "",
+    component: AustraliaComponent,
+    // resolve: {quotationRes: AustraliaResolver} 
+  },
 ]
 
 @NgModule({
@@ -29,9 +33,8 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     NgbModule,
-    
     SharedVisaModuleModule,
     RouterModule.forChild(routes)
   ]
 })
-export class AustraliaModule {}
+export class AustraliaModule { }

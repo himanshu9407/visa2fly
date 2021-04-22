@@ -8,14 +8,49 @@
               <label class="mr-sm-2 text-white" for="country"
                 >Select country for which you want SIM</label
               >
-              <ng-select formControlName="simSelect"
-              id="country">
-              <ng-option value="">
-                Select Country
-              </ng-option>
-                <ng-option *ngFor="let country of simCountries" [value]="country">
+              <!-- <ng-select >
+                <ng-option value=""> Select Country </ng-option>
+                <ng-option
+                  *ngFor="let country of simCountries"
+                  [value]="country"
+                >
                   {{ country }}
                 </ng-option>
+              </ng-select> -->
+
+              <ng-select
+                #country
+                [items]="simCountries"
+                [dropdownPosition]="'bottom'"
+                [searchable]="false"
+                [searchFn]="inputSearchFn"
+                (open)="focusInputField()"
+                class="desktopInput"
+                formControlName="simSelect"
+                id="country"
+                placeholder="Select Country"
+                required
+              >
+                <ng-template ng-header-tmp>
+                  <div style="display: flex">
+                    <input
+                      #countryInput
+                      style="width: 100%; line-height: 24px; box-shadow: none"
+                      type="text"
+                      class="form-control form-control-sm"
+                      (input)="country.filter($event.target.value)"
+                    />
+                    <i
+                      [hidden]="countryInput.value.length === 0"
+                      (click)="country.filter(''); countryInput.value = ''"
+                    ></i>
+                  </div>
+                </ng-template>
+                <div>
+                  <ng-template ng-option-tmp let-item="item" let-index="index">
+                    {{ item }}
+                  </ng-template>
+                </div>
               </ng-select>
 
               <!-- <select
@@ -45,7 +80,7 @@
   </div>
 </div>
 
-<div class="sim-plan desktopView" style="margin-bottom: 30px;">
+<div class="sim-plan desktopView" style="margin-bottom: 30px">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -53,7 +88,10 @@
           Tariff Plans For Popular Destinations
         </h1>
       </div>
-      <div (click)="proceedToPlans('Australia')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Australia')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -68,7 +106,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('France')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('France')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -83,7 +124,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('Germany')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Germany')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -98,7 +142,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('Italy')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Italy')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -113,7 +160,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('Singapore')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Singapore')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -128,7 +178,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('UAE')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('UAE')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -143,7 +196,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('United Kingdom')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('United Kingdom')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -158,7 +214,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('USA')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('USA')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -176,7 +235,7 @@
   </div>
 </div>
 
-<div class="sim-plan mobile" style="margin-bottom: 30px;">
+<div class="sim-plan mobile" style="margin-bottom: 30px">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -184,7 +243,10 @@
           Tariff Plans For Popular Destinations
         </h1>
       </div>
-      <div (click)="proceedToPlans('Australia')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Australia')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -199,7 +261,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('France')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('France')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -214,7 +279,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('Germany')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Germany')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -229,7 +297,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('Italy')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Italy')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -244,7 +315,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('Singapore')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('Singapore')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -259,7 +333,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('UAE')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('UAE')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -274,7 +351,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('United Kingdom')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('United Kingdom')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img
@@ -289,7 +369,10 @@
         </div>
       </div>
 
-      <div (click)="proceedToPlans('USA')" class="col-lg-3 col-md-6 col-sm-12 mt-4">
+      <div
+        (click)="proceedToPlans('USA')"
+        class="col-lg-3 col-md-6 col-sm-12 mt-4"
+      >
         <div class="visa-card">
           <div class="img-box">
             <img

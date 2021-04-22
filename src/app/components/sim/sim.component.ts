@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { SimService } from "./sim.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -33,7 +33,7 @@ export class SimComponent implements OnInit {
 
   ngOnInit() {
     this.simHomeForm = new FormGroup({
-      simSelect: new FormControl("", [Validators.required]),
+      simSelect: new FormControl(null, [Validators.required]),
     });
 
     this.simService.getSimcountries().subscribe((data: any) => {
@@ -62,7 +62,7 @@ export class SimComponent implements OnInit {
 
   onSimCountrySelected() {
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
-    if (this.selectedSimCountry === "") {
+    if (this.selectedSimCountry === "" || this.selectedSimCountry === null || this.selectedSimCountry === undefined) {
       this.toastr.error("Please select a country.");
     } else {
       this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
@@ -74,4 +74,20 @@ export class SimComponent implements OnInit {
     this.userFlow.setCookie("simSelectedCountry", country);
     this.router.navigate(["sim/simplans"]);
   }
+
+  @ViewChild('countryInput') countryInput: ElementRef;
+
+  focusInputField() {
+    setTimeout(() => {
+      this.countryInput.nativeElement.focus()
+    }, 10)
+  }
+
+  inputSearchFn(term: string, item: any) {
+    console.log(term);
+    console.log(item);
+    term = term.toLocaleLowerCase();
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
+  }
+
 }

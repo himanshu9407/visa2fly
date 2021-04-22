@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { SimService } from "../sim/sim.service";
 import { Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
@@ -25,14 +25,14 @@ export class SimplansComponent implements OnInit {
   selectedCountry: string = "";
   // selectedCountry : string = "";
 
-  selectedSimCountryData : Array<any> = [];
-  simCart : Array<any> = [];
-  simCartEmpty : boolean = true;
-  totalPrice : number = 0;
-  displayTotal : number = 0;
+  selectedSimCountryData: Array<any> = [];
+  simCart: Array<any> = [];
+  simCartEmpty: boolean = true;
+  totalPrice: number = 0;
+  displayTotal: number = 0;
   // simResp : any ;
-  showMobileCart : boolean  = false;
-  buttonLabel : string = "View Cart";
+  showMobileCart: boolean = false;
+  buttonLabel: string = "View Cart";
   title: string = "Visa2fly | Sim Plans";
   //selectedSimCountry : any = "";
 
@@ -58,7 +58,7 @@ export class SimplansComponent implements OnInit {
 
   ngOnInit() {
     this.simHomeForm = new FormGroup({
-      simSelect: new FormControl("this.", [Validators.required])
+      simSelect: new FormControl(this.selectedCountry, [Validators.required])
     });
 
     this.simService.getSimcountries().subscribe((data: any) => {
@@ -90,7 +90,7 @@ export class SimplansComponent implements OnInit {
         .getSimPlans(this.selectedCountry)
         .subscribe((data: any) => {
           console.log(data);
-          
+
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
             // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
@@ -314,5 +314,20 @@ export class SimplansComponent implements OnInit {
     } else {
       this.buttonLabel = "View Cart";
     }
+  }
+
+  @ViewChild('countryInput') countryInput: ElementRef;
+
+  focusInputField() {
+    setTimeout(() => {
+      this.countryInput.nativeElement.focus()
+    }, 10)
+  }
+
+  inputSearchFn(term: string, item: any) {
+    // console.log(term);
+    // console.log(item);
+    term = term.toLocaleLowerCase();
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }
 }
