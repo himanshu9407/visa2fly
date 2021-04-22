@@ -79,7 +79,7 @@ import { B2bSimModule } from './components/b2b-sim/b2b-sim.module';
     BrowserAnimationsModule,
     NgxPaginationModule,
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 2000,
       preventDuplicates: true,
     }), // ToastrModule added
     Ng2FlatpickrModule,
