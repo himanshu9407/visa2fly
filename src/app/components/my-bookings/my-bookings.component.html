@@ -1,4 +1,4 @@
-<div class="container historyContainer" *ngIf="totalCount > 0">
+<div class="container historyContainer">
   <div class="row">
     <div class="col-lg-12">
       <div class="title-box">
@@ -40,89 +40,76 @@
           <span class="filterLabel"></span>By Booking Id
         </label>
       </div>
-      <div
-        class="col-md-12 mt-2 inputTop"
-        *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'"
-      >
+      <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byDate'">
         <div class="form-row">
           <div class="col-md-12 col-lg-8">
             <div class="row">
               <div class="col-md-6 form-inline col-sm-6 inputTop inputpad10">
-                <label for="" class="filterLabel">From Date</label>
+                <label for="dp" class="filterLabel">From Date</label>
                 <div class="input-group">
-                  <input
-                    (ngModelChange)="fromDateChanged()"
-                    formControlName="fromDate"
-                    class="form-control form-control-sm dateInput"
-                    placeholder="yyyy-mm-dd"
-                    name="dp"
-                    ngbDatepicker
-                    #d="ngbDatepicker"
-                    [maxDate]="maxDate"
-                    (click)="d.toggle()"
-                    readonly="readonly"
-                  />
+                  <input (ngModelChange)="fromDateChanged()" formControlName="fromDate" class="form-control form-control-sm dateInput"
+                    placeholder="yyyy-mm-dd"  name="dp" ngbDatepicker #d="ngbDatepicker" [maxDate]="maxDate"
+                    (click)="d.toggle()" readonly="readonly"/>
                   <div class="input-group-append">
-                    <button
-                      class="btn btn-sm btn-outline-secondary calendar"
-                      (click)="d.toggle()"
-                      type="button"
-                    >
+                    <button class="btn btn-sm btn-outline-secondary calendar" (click)="d.toggle()" type="button">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
                         class="calendarSvg"
-                        width="18px"
-                        height="18px"
+                        style="height: 18px; width: 18px"
                       >
-                        <path
-                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                        />
-                        <path d="M0 0h24v24H0z" fill="none" />
+                        <use
+                          xlink:href="assets/sprites/sprite.svg#my_booking_calender"
+                        ></use>
                       </svg>
                     </button>
                   </div>
+                  <div class="invalid-feedback" *ngIf="errorDisplayedByMobile" style="display: block;">
+                    <div *ngIf="(this.bookingSearchForm.get('fromDate').invalid && this.bookingSearchForm.get('fromDate').dirty)
+                    || (this.bookingSearchForm.get('fromDate').pristine && fromDate)"> Please select the date
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div
-                class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10"
-              >
-                <label for="" class="filterLabel">To Date</label>
+              <div class="col-md-6 form-inline input100 col-sm-6 inputTop inputpad10">
+                <label for="tp" class="filterLabel">To Date</label>
                 <div class="input-group">
-                  <input
-                    [disabled]="
-                      this.bookingSearchForm.get('fromDate').value == null
-                    "
-                    formControlName="toDate"
-                    class="form-control form-control-sm dateInput"
-                    placeholder="yyyy-mm-dd"
-                    name="tp"
-                    ngbDatepicker
-                    #tp="ngbDatepicker"
-                    [minDate]="minDateOfTo"
-                    [maxDate]="maxDate"
-                    readonly="readonly"
-                    (click)="tp.toggle()"
-                  />
+                  <input formControlName="toDate"
+                  class="form-control form-control-sm dateInput" placeholder="yyyy-mm-dd" name="tp" ngbDatepicker #tp="ngbDatepicker"
+                    [minDate]="minDateOfTo" [maxDate]="maxDate" (click)="tp.toggle()"/>
                   <div class="input-group-append">
-                    <button
-                      class="btn btn-sm btn-outline-secondary calendar"
-                      (click)="tp.toggle()"
-                      type="button"
-                    >
+                    <button class="btn btn-sm btn-outline-secondary calendar" (click)="tp.toggle()" type="button">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
                         class="calendarSvg"
-                        width="18px"
-                        height="18px"
+                        style="height: 18px; width: 18px"
                       >
-                        <path
-                          d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                        />
-                        <path d="M0 0h24v24H0z" fill="none" />
+                        <use
+                          xlink:href="assets/sprites/sprite.svg#my_booking_calender"
+                        ></use>
                       </svg>
                     </button>
+                  </div>
+                  <div class="invalid-feedback" *ngIf="errorDisplayedByMobile" style="display: block;">
+                    <div *ngIf="(this.bookingSearchForm.get('toDate').invalid && this.bookingSearchForm.get('toDate').dirty)
+                    || (this.bookingSearchForm.get('toDate').pristine && toDate)"> Please select the date
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="errorDisplayedByDeskstop">
+              <div class="col-md-6 form-inline col-sm-6 input100 col-sm-6 inputTop inputpad10">
+                <label for="" class="filterLabel"></label>
+                  <div class="input-group">
+                      <div class="invalid-feedback errorForDeskStop">
+                        <div *ngIf="(this.bookingSearchForm.get('fromDate').invalid && this.bookingSearchForm.get('fromDate').dirty)
+                          || (this.bookingSearchForm.get('fromDate').pristine && fromDate)"> Please select the date
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 form-inline">
+                <div class="invalid-feedback errorToDateForDeskStop">
+                  <div *ngIf="(this.bookingSearchForm.get('toDate').invalid && this.bookingSearchForm.get('toDate').dirty)
+                        || (this.bookingSearchForm.get('toDate').pristine && toDate)"> Please select the date
                   </div>
                 </div>
               </div>
@@ -133,108 +120,29 @@
               <div class="noPadd">
                 <button
                   (click)="searchBookingsByDate()"
-                  [disabled]="
-                    this.bookingSearchForm.get('toDate').value == null ||
-                    this.bookingSearchForm.get('fromDate').value == null
-                  "
                   class="btn btn-sm roundedBorder"
-                  type="submit"
-                >
+                  type="submit">
                   Search
                 </button>
               </div>
-              <!-- <div class="col-4 noPadd text-center p-0">
-                <button (click)="clearFilters()" class="btn btn-sm"
-                  style="border-radius: 20px; padding: 5px 7px; background: #ffae42; font-weight: 600; color: #fff;">
-                  Clear Filters
+              <div class="borderLeft">
+                <button
+                (click)="filterByDate()"
+                  class="btn btn-light btn-sm roundedBorder2"
+                  type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3">
+                    </polygon>
+                  </svg>
+                  Filter
                 </button>
               </div>
-              <div class="col-4 noPadd borderLeft">
-                <div class="text-center">
-                  <button type="button" class="btn btn-dark btn-sm roundedBorder2" data-toggle="modal"
-                    data-target="#filterBtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                      id="Capa_1" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 459 459"
-                      style="enable-background:new 0 0 459 459; margin-right: 5px;" xml:space="preserve">
-                      <g>
-                        <g>
-                          <g id="filter">
-                            <path d="M178.5,382.5h102v-51h-102V382.5z M0,76.5v51h459v-51H0z M76.5,255h306v-51h-306V255z"
-                              data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF" />
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                    Filter By
-                  </button>
-                </div>
-
-                <div class="modal fade" id="filterBtn" tabindex="-1" role="dialog"
-                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Filter By</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body filterBody">
-                        <form [formGroup]="bookingFilterForm">
-                          <div class="col-12">
-                            <input type="checkbox" formControlName="visa" class="inp-cbx" id="datecbx1"
-                              style="display: none;" />
-                            <label class="cbx" for="datecbx1">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Visa</span>
-                            </label>
-                          </div>
-                          <div class="col-12">
-                            <input type="checkbox" formControlName="sim" class="inp-cbx" id="datecbx2"
-                              style="display: none;" />
-                            <label class="cbx" for="datecbx2">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Sim</span>
-                            </label>
-                          </div>
-                          <div class="col-12">
-                            <input type="checkbox" formControlName="insurance" class="inp-cbx" id="datecbx3"
-                              style="display: none;" />
-                            <label class="cbx" for="datecbx3">
-                              <span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg>
-                              </span>
-                              <span>Insurance</span>
-                            </label>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer filterFooter">
-                        <button (click)="filterBookings()" type="button" class="btn btn-sm btn-primary"
-                          data-dismiss="modal" style="border-radius: 20px; background: #000080;">Apply Changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
+
         </div>
       </div>
-      <div
-        class="col-md-12 mt-2 inputTop"
-        *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'"
-      >
+      <div class="col-md-12 mt-2 inputTop" *ngIf="this.bookingSearchForm.get('searchBy').value === 'byBookingId'">
         <div class="form-row">
           <div class="col-md-6 col-lg-4">
             <div class="row inputTop">
@@ -283,6 +191,75 @@
       </div>
     </form>
   </div>
+</div>
+
+<div class="modal fade show" id="filterModel" [ngStyle] ="{'display': display}" tabindex="-1" role="dialog"
+data-backdrop="false" aria-labelledby="exampleModalLabel"
+style="background-color: rgba(0, 0, 0, .7); overflow-y: scroll !important;"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Filter By</h5>
+      <button type="button" class="close" data-dismiss="modal" (click)="closeModel()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form [formGroup]="bookingFilterForm">
+      <div class="modal-body filterBody">
+          <div class="col-12">
+            <input class="form-check-input" type="checkbox" value="visa" formControlName="visa" id="visaCheckbox" checked>
+            <label class="form-check-label" for="visaCheckbox">
+              <span>Visa</span>
+            </label>
+            <!-- <input class="inp-cbx" id="datecbx1" formControlName="visa" type="checkbox" style="display: none;" />
+            <label class="cbx" for="datecbx1">
+              <span>
+                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </svg>
+              </span>
+              <span>Visa</span>
+            </label> -->
+          </div>
+          <div class="col-12">
+            <input class="form-check-input" type="checkbox" value="sim" formControlName="sim" id="simCheckbox" checked>
+            <label class="form-check-label" for="simCheckbox">
+              <span>Sim</span>
+            </label>
+            <!-- <input class="inp-cbx" id="datecbx2" formControlName="sim" type="checkbox" style="display: none;" />
+            <label class="cbx" for="datecbx2">
+              <span>
+                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </svg>
+              </span>
+              <span>Sim</span>
+            </label> -->
+          </div>
+          <div class="col-12">
+            <input class="form-check-input" type="checkbox" value="insurance" formControlName="insurance" id="insuranceCheckbox" checked>
+            <label class="form-check-label" for="insuranceCheckbox">
+              <span>Insurance</span>
+            </label>
+            <!-- <input class="inp-cbx" id="datecbx3" type="checkbox" formControlName="insurance" style="display: none;" />
+            <label class="cbx" for="datecbx3">
+              <span>
+                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </svg>
+              </span>
+              <span>Insurance</span>
+            </label> -->
+          </div>
+      </div>
+    </form>
+    <div class="modal-footer filterFooter">
+      <button type="button" class="btn btn-sm btn-primary filterButton"
+         (click)="filterBookingFunction()">Apply Changes</button>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="pcOnly">
@@ -357,6 +334,10 @@
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
+                  <span class="fieldData">{{ booking.booking.visaType }}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim Type:
                   <span class="fieldData">{{ booking.booking.visaType }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
@@ -474,31 +455,12 @@
                       )
                     "
                     >Download
-                    <svg
-                      class="bi bi-download"
-                      width="1em"
-                      height="1em"
-                      style="margin-left: 2px"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
-                        clip-rule="evenodd"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
-                        clip-rule="evenodd"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
-                        clip-rule="evenodd"
-                      /></svg
-                  ></span>
+                    <svg style="height: 16px; width: 16px">
+                      <use
+                        xlink:href="assets/sprites/sprite.svg#download"
+                      ></use>
+                    </svg>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -592,7 +554,7 @@
               alt="empty cart image"
             />
           </div>
-          <div class="col-md-12 text-center" style="vertical-align: middle">
+          <div class="col-md-12 text-center" style="vertical-align: middle; padding-bottom: 50px;">
             <button
               class="btn"
               (click)="seeBooking()"
@@ -623,9 +585,10 @@
       <!-- <div class="col-md-12 text-center" style="vertical-align: middle; margin-top: 10px;">
         <p style="color: gray; font-size: 14px; font-weight: 600;">No Booking Found</p>
        </div> -->
-      <div class="col-md-12 text-center" style="vertical-align: middle">
+      <div class="col-md-12 text-center" style="vertical-align: middle; padding-bottom: 50px;">
         <button
           class="btn"
+          (click)="seeBooking()"
           style="
             background: #000080;
             color: #fff;
@@ -711,6 +674,10 @@
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Visa'">
                   Visa Type:
+                  <span class="fieldData">{{ booking.booking.visaType }}</span>
+                </li>
+                <li *ngIf="booking.booking.bookingType == 'Sim'">
+                  Sim Type:
                   <span class="fieldData">{{ booking.booking.visaType }}</span>
                 </li>
                 <li *ngIf="booking.booking.bookingType == 'Insurance'">
@@ -824,31 +791,12 @@
                       )
                     "
                     >Download
-                    <svg
-                      class="bi bi-download"
-                      width="1em"
-                      height="1em"
-                      style="margin-left: 2px"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
-                        clip-rule="evenodd"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
-                        clip-rule="evenodd"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
-                        clip-rule="evenodd"
-                      /></svg
-                  ></span>
+                    <svg style="height: 16px; width: 16px">
+                      <use
+                        xlink:href="assets/sprites/sprite.svg#download"
+                      ></use>
+                    </svg>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -1019,7 +967,7 @@
                     </h4>
                   </div>
                   <div class="col-md-12">
-                    <svg height="210" width="500">
+                    <!-- <svg height="210" width="500">
                       <line
                         class="lineArrange"
                         x1="0"
@@ -1028,7 +976,7 @@
                         y2="0"
                         style="stroke: rgb(0, 0, 0); stroke-width: 2"
                       />
-                    </svg>
+                    </svg> -->
                   </div>
                   <div
                     class="col-md-12 detailsSetting"
@@ -1036,25 +984,25 @@
                   >
                     <ul class="listSet">
                       <li>
-                        Booking Id :
+                        Booking Id:
                         <span class="fieldData">{{
                           item.booking.bookingId
                         }}</span>
                       </li>
                       <li>
-                        Visa For :
+                        Visa For:
                         <span class="fieldData">{{
                           item.booking.visaForCountry
                         }}</span>
                       </li>
                       <li>
-                        Visa Type
+                        Visa Type:
                         <span class="fieldData">{{
                           item.booking.visaType
                         }}</span>
                       </li>
                       <li>
-                        Booking Date :
+                        Booking Date:
                         <span class="fieldData">{{
                           item.booking.bookingDate
                         }}</span>
@@ -1063,13 +1011,13 @@
                   </div>
 
                   <div class="col-md-12">
-                    <h1>
+                    <span>
                       <img
                         data-src="https://static.visa2fly.com/assets/feedback.png"
                         alt=""
                         class="img-fluid feedImage lazyload"
                       />
-                    </h1>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1099,43 +1047,15 @@
                 </div>
                 <form
                   class="form-row"
-                  [formGroup]="FeedbackForm"
+                  [formGroup]="feedbackForm"
                   (ngSubmit)="onSubmit()"
                 >
                   <div class="col-md-12">
                     <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        version="1.1"
-                        id="Capa_1"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 286.614 286.614"
-                        style="
-                          enable-background: new 0 0 286.614 286.614;
-                          margin-right: 8px;
-                        "
-                        xml:space="preserve"
-                        width="16px"
-                        height="16px"
-                      >
-                        <g>
-                          <g>
-                            <path
-                              d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
-                              data-original="#000000"
-                              class="active-path"
-                              fill="#000"
-                            />
-                            <path
-                              d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
-                              data-original="#000000"
-                              class="active-path"
-                              fill="#000"
-                            />
-                          </g>
-                        </g>
+                      <svg style="height: 16px; width: 16px">
+                        <use
+                          xlink:href="assets/sprites/sprite.svg#hand_pointer"
+                        ></use>
                       </svg>
                       How well does our product meet your needs ?
                     </p>
@@ -1184,38 +1104,10 @@
                   </div>
                   <div class="col-md-12">
                     <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        version="1.1"
-                        id="Capa_1"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 286.614 286.614"
-                        style="
-                          enable-background: new 0 0 286.614 286.614;
-                          margin-right: 8px;
-                        "
-                        xml:space="preserve"
-                        width="16px"
-                        height="16px"
-                      >
-                        <g>
-                          <g>
-                            <path
-                              d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
-                              data-original="#000000"
-                              class="active-path"
-                              fill="#000"
-                            />
-                            <path
-                              d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
-                              data-original="#000000"
-                              class="active-path"
-                              fill="#000"
-                            />
-                          </g>
-                        </g>
+                      <svg style="height: 16px; width: 16px">
+                        <use
+                          xlink:href="assets/sprites/sprite.svg#hand_pointer"
+                        ></use>
                       </svg>
                       Were you able to find the information you were looking for
                       on our website ?
@@ -1265,38 +1157,10 @@
                   </div>
                   <div class="col-md-12">
                     <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        version="1.1"
-                        id="Capa_1"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 286.614 286.614"
-                        style="
-                          enable-background: new 0 0 286.614 286.614;
-                          margin-right: 8px;
-                        "
-                        xml:space="preserve"
-                        width="16px"
-                        height="16px"
-                      >
-                        <g>
-                          <g>
-                            <path
-                              d="M270.126,105.055H146.394l23.487-18.548c7.147-5.643,8.364-16.011,2.721-23.156c-5.643-7.146-16.012-8.365-23.156-2.721   c0,0-40.819,33.689-60.28,47.603c-13.14,9.395-25.402,20.959-25.402,38.096v39.537c0,24.077,19.588,43.666,43.665,43.666   c17.677,0,61.369,0,77.789,0c9.106,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h5.359   c9.105,0,16.487-7.382,16.487-16.487c0-5.927-3.138-11.108-7.833-14.014h3.71c9.105,0,16.487-7.382,16.487-16.487   c0-5.927-3.138-11.108-7.832-14.014h49.874c9.105,0,16.487-7.382,16.487-16.487S279.232,105.055,270.126,105.055z"
-                              data-original="#000000"
-                              class="active-path"
-                              fill="#000"
-                            />
-                            <path
-                              d="M37.885,110.781H9.282c-5.126,0-9.282,4.156-9.282,9.282V220.25c0,5.126,4.156,9.282,9.282,9.282h28.603   c5.126,0,9.282-4.156,9.282-9.282V120.063C47.167,114.936,43.011,110.781,37.885,110.781z"
-                              data-original="#000000"
-                              class="active-path"
-                              fill="#000"
-                            />
-                          </g>
-                        </g>
+                      <svg style="height: 16px; width: 16px">
+                        <use
+                          xlink:href="assets/sprites/sprite.svg#hand_pointer"
+                        ></use>
                       </svg>
                       How likely are you to recommend visa2fly to a friends or
                       family ?

@@ -3,13 +3,36 @@
   color: #fff;
   width: 220px;
   padding: 4px 10px;
-  height: 40px;
-  margin-bottom: 30px;
+  height: 33px;
+  margin-bottom: 15px;
   display: flex;
 }
 
 #evisa_download:hover {
   cursor: pointer;
+}
+
+input {
+  border-color: black;
+  font-size: 13px;
+}
+
+.errorForDeskStop {
+  display: block;
+  font-size: 12px;
+  margin-top: 0;
+  margin-left: 74px;
+}
+
+.errorToDateForDeskStop {
+  display: block;
+  font-size: 12px;
+  margin-top: 0;
+  margin-left: 65px;
+}
+
+#evisa_download.progress_loader:hover {
+  cursor: progress;
 }
 
 .headingSet {
@@ -44,10 +67,6 @@
   -o-border-radius: 10px;
 }
 
-.detailsSetting {
-  margin-top: 25px;
-}
-
 .calendarSvg {
   fill: #6c757d;
 }
@@ -62,11 +81,13 @@
 
 .listSet {
   padding: 20px;
-  margin-top: -240px;
+  margin-bottom: 0px !important;
 }
 
 .listSet li {
   padding: 5px;
+  font-size: 14px;
+  font-weight: 500;
   /* font-family: 'Lobster'; */
 }
 
@@ -87,77 +108,16 @@ input {
   font-size: 14px;
 }
 
-input:focus {
-  box-shadow: none !important;
-  outline: none !important;
+.filterBody {
+  margin-left: 15px;
 }
 
-.cbx {
-  margin: auto;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: pointer;
-}
-
-.cbx span {
-  display: inline-block;
-  vertical-align: middle;
-  transform: translate3d(0, 0, 0);
-}
-
-.cbx span:first-child {
-  position: relative;
-  width: 18px;
-  height: 18px;
-  border-radius: 3px;
-  transform: scale(1);
-  vertical-align: middle;
-  border: 1px solid #9098a9;
-  transition: all 0.2s ease;
-}
-
-.cbx span:first-child svg {
-  position: absolute;
-  top: 3px;
-  left: 2px;
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 16px;
-  stroke-dashoffset: 16px;
-  transition: all 0.3s ease;
-  transition-delay: 0.1s;
-  transform: translate3d(0, 0, 0);
-}
-
-.cbx span:first-child:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #506eec;
-  display: block;
-  transform: scale(0);
-  opacity: 1;
-  border-radius: 50%;
-}
-
-.cbx span:last-child {
-  padding-left: 8px;
-}
-
-.cbx:hover span:first-child {
-  border-color: #506eec;
-}
-
-.inp-cbx:checked + .cbx span:first-child {
-  background: #506eec;
-  border-color: #506eec;
-}
-
-.inp-cbx:checked + .cbx span:first-child svg {
-  stroke-dashoffset: 0;
+.filterButton {
+  padding: 5px 16px;
+  background: #607FDC;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 20px;
 }
 
 .radio {
@@ -165,7 +125,6 @@ input:focus {
   cursor: pointer;
   line-height: 20px;
   font-size: 14px;
-  /* margin-left: 11px; */
 }
 
 .radio .filterLabel {
@@ -203,6 +162,7 @@ input[type="radio"]:checked + .filterLabel {
   border-color: #225cff;
 }
 
+
 input[type="radio"]:checked + .filterLabel:after {
   transform: scale(1);
   transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
@@ -214,11 +174,9 @@ input[type="radio"]:checked + .filterLabel:after {
 }
 
 .summaryContainer {
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
   background-color: #e2e2e2;
   border-radius: 10px;
   padding: 15px 0px;
-  /* margin-top: 20px; */
 }
 
 .filterLabel {
@@ -232,9 +190,10 @@ input[type="radio"]:checked + .filterLabel:after {
 }
 
 .roundedBorder {
-  padding: 5px 20px;
+  padding: 5px 16px;
   background: #000080;
   color: #fff;
+  font-size: 14px;
   border-radius: 20px;
   font-weight: 600;
 }
@@ -247,12 +206,22 @@ input[type="radio"]:checked + .filterLabel:after {
   font-weight: 600;
 }
 
+.borderLeft {
+  border-left: 1px solid #000;
+  /* margin-top: 10px; */
+  margin-left: 20px;
+}
+
 .roundedBorder2 {
-  padding: 5px 10px;
-  color: #fff;
-  border-radius: 20px;
+  padding: 5px 16px;
   font-size: 14px;
+  margin-left: 20px;
+  border-radius: 20px;
   font-weight: 600;
+}
+
+.fa{
+  color: black;
 }
 
 .radio2 {
@@ -287,27 +256,18 @@ input[type="radio"]:checked + .filterLabel:after {
 
 @media screen and (min-width: 380px) and (max-width: 480px) {
   .summaryContainer {
-    /* padding: 20px 20px; */
-    /* margin-left: 20px; */
-    /* margin-right: 10px; */
     width: 370px;
   }
 }
 
 @media screen and (min-width: 351px) and (max-width: 379px) {
   .summaryContainer {
-    /* padding: 20px 20px; */
-    /* margin-left: 15px; */
-    /* margin-right: 10px; */
     width: 332px;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 350px) {
   .summaryContainer {
-    /* padding: 20px 20px; */
-    /* margin-left: 10px; */
-    /* margin-right: 10px; */
     width: 280px;
   }
 }
@@ -323,6 +283,8 @@ input[type="radio"]:checked + .filterLabel:after {
     padding: 5px;
     font-size: 23px;
   }
+
+
 }
 
 @media screen and (max-width: 767px) {
@@ -346,7 +308,7 @@ input[type="radio"]:checked + .filterLabel:after {
     padding: 5px 0px 0px;
   }
   .feedImage {
-    margin-top: -70px;
+    margin-top: 0px;
   }
   .inputTop {
     margin-top: 7px;
@@ -383,7 +345,7 @@ input[type="radio"]:checked + .filterLabel:after {
 
 .title-box::after {
   content: "";
-  border-top: 40px solid #000080;
+  border-top: 33px solid #000080;
   border-right: 50px solid transparent;
   position: absolute;
   display: flex;
@@ -459,6 +421,13 @@ input[type="radio"]:checked + .filterLabel:after {
   .breakWord {
     word-break: break-all;
     text-align: right;
+  }
+
+  .pcOnly {
+    display: none;
+  }
+  .mobileOnly {
+    display: block;
   }
 
   .searchForDate {
@@ -596,11 +565,6 @@ ul {
   }
 }
 
-/*
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
-
 @media (min-width: 1025px) and (max-width: 1280px) {
   .pcOnly {
     display: block;
@@ -622,10 +586,10 @@ ul {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .pcOnly {
-    display: block;
+    display: none;
   }
   .mobileOnly {
-    display: none;
+    display: block;
   }
 }
 
@@ -636,10 +600,10 @@ ul {
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .pcOnly {
-    display: block;
+    display: none;
   }
   .mobileOnly {
-    display: none;
+    display: block;
   }
 }
 
@@ -708,7 +672,7 @@ textarea:focus,
 }
 
 .feedHeading {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -750,7 +714,6 @@ textarea:focus,
   background-color: #ffffff;
   background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
 }
-
 
 label {
   margin: 0;
@@ -878,7 +841,6 @@ label {
 }
 
 @media screen and (max-width: 600px) {
-
   .searchBooking {
     text-align: center;
   }

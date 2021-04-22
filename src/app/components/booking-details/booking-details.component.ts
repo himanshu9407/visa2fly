@@ -1,15 +1,8 @@
-import { Data } from "./../../interfaces/requirement";
-import { ActivatedRoute } from "@angular/router";
-// import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, HostListener } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MyBookingsService } from "../my-bookings/mybookings.service";
-// import { ToastService } from "src/app/shared/toast.service";
 import { DownloadImageService } from "src/app/shared/DownloadImage.service";
-import { Location } from "@angular/common";
-import { Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 
-import { PlatformLocation } from "@angular/common";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
@@ -26,13 +19,13 @@ export class BookingDetailsComponent implements OnInit {
   bookingStatus: boolean = false;
   title: string = "Visa2fly | Booking Details";
   insuranceDetail: Array<any> = [];
+  currentPageIndex: any;
+  currentPageSize: any;
+
   constructor(
     private myBookingService: MyBookingsService,
-    // private toastService: ToastService,
     private toastr: ToastrService,
     private downloadImageService: DownloadImageService,
-    private router: Router,
-    private location: PlatformLocation,
     private titleService: Title,
     private meta: Meta,
     private userFlow: UserFlowDetails,
@@ -46,10 +39,15 @@ export class BookingDetailsComponent implements OnInit {
     }
     this.selectedBooking = temp;
     this.insuranceDetail.push(this.selectedBooking.insuranceBookings);
-    console.log(this.insuranceDetail);
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
     }, 2000);
+
+    this.currentPageIndex = temp.lastPageDetail.pageNo;
+    this.currentPageSize = temp.lastPageDetail.pageSize;
+
+    // console.log(temp);
+
 
   }
 
@@ -61,8 +59,6 @@ export class BookingDetailsComponent implements OnInit {
         name: "description",
         content: ""
       }
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
   }
 
@@ -91,31 +87,6 @@ export class BookingDetailsComponent implements OnInit {
   }
 
   downloadPolicy(policyNumber: string, bookingStatus: string, bookingId: string) {
-    //   if (bookingStatus == "g") {
-    //     this.downloadImageService
-    //       .downloadPolicy(policyNumber)
-    //       .subscribe((response: any) => {
-    //         // console.log(response);
-    //         let dataType = response.type;
-    //         let binaryData = [];
-    //         binaryData.push(response);
-    //         var a = document.createElement("a");
-    //         document.body.appendChild(a);
-    //         a.style.display = "none";
-    //         let url = window.URL.createObjectURL(
-    //           new Blob(binaryData, { type: dataType })
-    //         );
-    //         a.href = url;
-    //         a.download = "Invoice" + policyNumber;
-    //         a.click();
-    //         window.URL.revokeObjectURL(url);
-    //       });
-    //   } else {
-    //     this.toastr.error(
-    //       "Policy could not be generated as the payment failed."
-    //     );
-    //   }
-
     this.downloadImageService
       .getPolicy(policyNumber)
       .subscribe((res: any) => {
@@ -150,7 +121,6 @@ export class BookingDetailsComponent implements OnInit {
           this.myBookingService.getEvisaFromServicer(bookingId, bookingFrom)
             .subscribe((response: any) => {
               document.getElementById('evisa_download').classList.remove('progress_loader');
-              let dataType = response.type;
               let binaryData = [];
               binaryData.push(response);
               var a = document.createElement("a");
