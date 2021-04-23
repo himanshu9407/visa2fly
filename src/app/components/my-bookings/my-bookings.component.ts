@@ -314,7 +314,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
             this.totalItems = 0;
             this.bookingsForLoop = [];
             this.filteredBookingsEmpty = true;
-            this.toastr.success(data.message);
+            this.toastr.error(data.message);
           }
         });
         this.bookingFindByFilter = [];
@@ -374,7 +374,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
             // console.log(res);
           } else {
             this.totalCount = 0;
-            this.toastr.success(res.message);
+            this.toastr.error(res.message);
             let topPicker: number;
             if (window.innerWidth > 600) {
               topPicker = 250;
@@ -503,7 +503,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
             this.totalItems = 0;
             this.bookingsForLoop = [];
             this.filteredBookingsEmpty = true;
-            this.toastr.success(data.message);
+            this.toastr.error(data.message);
           }
         });
         this.bookingFindByFilter = [];
@@ -563,7 +563,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
             // console.log(res);
           } else {
             this.totalCount = 0;
-            this.toastr.success(res.message);
+            this.toastr.error(res.message);
             let topPicker: number;
               if (window.innerWidth > 600) {
                 topPicker = 150;
