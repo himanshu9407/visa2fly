@@ -10,8 +10,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { MobileNavComponent } from "./components/mobile-nav/mobile-nav.component";
-import { MobileFooterComponent } from "./components/mobile-footer/mobile-footer.component";
+import { MobileNavComponent } from "./includes/mobile-nav/mobile-nav.component";
+import { MobileFooterComponent } from "./includes/mobile-footer/mobile-footer.component";
 import { AddPassengerDetailsComponent } from "./add-passenger-details/add-passenger-details.component";
 import { Ng2FlatpickrModule } from "ng2-flatpickr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -20,11 +20,10 @@ import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RequestInterceptor } from "./shared/request.interceptor";
 import { ToastComponent } from "./shared/components/toast/toast.component";
-import { ChatboxComponent } from "./chatbox/chatbox.component";
+import { ChatboxComponent } from "./includes/chatbox/chatbox.component";
 import { PreloaderComponent } from "./shared/preloader/preloader.component";
 import { SomethingWrongComponent } from './shared/components/something-wrong/something-wrong.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './includes/footer/footer.component';
 import { B2BModule } from './components/b2b/b2b.module';
 import { B2bHeaderComponent } from './components/b2b/b2b-header/b2b-header.component';
 import { B2bFooterComponent } from './components/b2b/b2b-footer/b2b-footer.component';
@@ -51,6 +50,7 @@ import { BookingStatusModule } from './components/booking-status/booking-status.
 import { InsuranceModule } from './components/insurance/insurance.module';
 import { OffersModule } from "./components/offers/offers.module";
 import { B2bSimModule } from './components/b2b-sim/b2b-sim.module';
+import { HeaderComponent } from './includes/header/header.component';
 
 @NgModule({
   declarations: [

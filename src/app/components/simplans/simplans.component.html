@@ -84,140 +84,146 @@
             class="col-lg-4 col-md-6 pricing-table"
           >
             <div class="plan">
-              <h3>
-                {{ simData.country }} PREPAID SIM
-                <span
-                  ><img
-                    data-src="https://static.visa2fly.com/sim/flag/{{
-                      simData.country
-                    }}.png
+              <div class="card-header">
+                <h3>
+                  {{ simData.country }} PREPAID SIM
+                  <!-- <span
+                    ><img
+                      data-src="https://static.visa2fly.com/sim/flag/{{
+                        simData.country
+                      }}.png
 "
-                    height="90px;"
-                    [alt]="simData.country"
-                    class="lazyload"
-                /></span>
-              </h3>
-              <!-- <span>
-                <img
-                  data-src="https://static.visa2fly.com/flag/{{
-                    simData.country
-                  }}.png"
-                  height="90px;"
-                  [alt]="simData.country"
-                  class="lazyload"
-                />
-              </span> -->
-              <h4>
-                {{ simData.planName }}
+                      height="90px;"
+                      [alt]="simData.country"
+                      class="lazyload"
+                  /></span> -->
+                </h3>
                 <span>
-                  &#x20B9; {{ simData.priceWithoutGST | number: "1.0-2" }}</span
-                >
-              </h4>
-              <div class="planDesp">
-                <div class="summaryContainer">
-                  <h6 class="summaryHeading text-center">Summary</h6>
-                  <div class="summaryContent">
-                    <li *ngFor="let summary of simData.summary">
-                      {{ summary }}
-                    </li>
+                  <img
+                    src="../../../assets/Aus. Flag.png"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </span>
+              </div>
+
+              <div class="card-body">
+                <h4>
+                  {{ simData.planName }}
+                  <span>
+                    &#x20B9;
+                    {{ simData.priceWithoutGST | number: "1.0-2" }}</span
+                  >
+                </h4>
+                <div class="planDesp">
+                  <div class="summaryContainer">
+                    <h6 class="summaryHeading">Summary</h6>
+                    <div class="summaryContent">
+                      <li *ngFor="let summary of simData.summary">
+                        {{ summary }}
+                      </li>
+                    </div>
                   </div>
+                  <br />
+                  <!-- <p>Note - Student Visa mandatory</p> -->
                 </div>
-                <br />
-                <!-- <p>Note - Student Visa mandatory</p> -->
+
+                <ul>
+                  <h6
+                    class="summaryHeading text-center"
+                    style="
+                      border: 1px solid #202020;
+                      padding: 6px 0px;
+                      border-radius: 5px;
+                      margin: 10px 10px 0px;
+                      text-align: center;
+                      font-size: 14px;
+                      cursor: pointer;
+                      font-weight: 550;
+                    "
+                    class="dropdown-toggle"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Additional Details
+                  </h6>
+
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <a
+                      class="dropdown-item"
+                      *ngFor="let tarrif of simData.tariffDetails"
+                    >
+                      <b>{{ tarrif.fieldName }}</b> - {{ tarrif.rates }}
+                      {{ tarrif.description }}
+                    </a>
+                  </div>
+                </ul>
               </div>
 
-              <ul>
-                <h6
-                  class="summaryHeading text-center"
-                  style="
-                    border: 1px solid #202020;
-                    padding: 4px 0px;
-                    border-radius: 5px;
-                    margin: 10px 10px;
-                    text-align: center;
-                    font-size: 14px;
-                    cursor: pointer;
-                    font-weight: 550;
-                  "
-                  class="dropdown-toggle"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Additional Details
-                </h6>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a
-                    class="dropdown-item"
-                    *ngFor="let tarrif of simData.tariffDetails"
+              <div class="card-footer">
+                <div style="text-align: center; font-size: 16px">
+                  <span
+                    style="
+                      box-sizing: inherit;
+                      text-align: center;
+                      max-width: 100%;
+                      display: flex;
+                      align-items: center;
+                    "
+                    class="metreButton"
                   >
-                    <b>{{ tarrif.fieldName }}</b> - {{ tarrif.rates }}
-                    {{ tarrif.description }}
-                  </a>
-                </div>
-              </ul>
-
-              <div style="text-align: center; font-size: 16px">
-                <span
-                  style="
-                    box-sizing: inherit;
-                    text-align: center;
-                    max-width: 100%;
-                    display: flex;
-                    align-items: center;
-                  "
-                  class="metreButton"
-                >
-                  <button
-                    (click)="decreaseItemCount(simData)"
-                    type="button"
-                    class="ui left attached btn"
-                  >
-                    <svg
-                      height="12px"
-                      fill="#fff"
-                      viewBox="0 -192 469.33333 469"
-                      width="12px"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <button
+                      (click)="decreaseItemCount(simData)"
+                      type="button"
+                      class="ui left attached btn"
                     >
-                      <path
-                        d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"
-                      />
-                    </svg>
-                  </button>
-                  <input
-                    type="text"
-                    value="{{ simData.quantity }}"
-                    disabled
-                    class="count" />
-                  <button
-                    (click)="increaseItemCount(simData)"
-                    type="button"
-                    class="btn right attached"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="12px"
-                      viewBox="0 0 469.33333 469.33333"
-                      width="12px"
-                      class="hovered-paths"
-                    >
-                      <g>
+                      <svg
+                        height="10px"
+                        fill="#fff"
+                        viewBox="0 -192 469.33333 469"
+                        width="10px"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
-                          d="m437.332031 192h-160v-160c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32v160h-160c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h160v160c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-160h160c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"
-                          data-original="#000000"
-                          class="hovered-path active-path"
-                          data-old_color="#000000"
-                          fill="#FFFFFF"
+                          d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"
                         />
-                      </g>
-                    </svg></button
-                ></span>
+                      </svg>
+                    </button>
+                    <input
+                      type="text"
+                      value="{{ simData.quantity }}"
+                      disabled
+                      class="count" />
+                    <button
+                      (click)="increaseItemCount(simData)"
+                      type="button"
+                      class="btn right attached"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="10px"
+                        viewBox="0 0 469.33333 469.33333"
+                        width="10px"
+                        class="hovered-paths"
+                      >
+                        <g>
+                          <path
+                            d="m437.332031 192h-160v-160c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32v160h-160c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h160v160c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-160h160c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"
+                            data-original="#000000"
+                            class="hovered-path active-path"
+                            data-old_color="#000000"
+                            fill="#FFFFFF"
+                          />
+                        </g>
+                      </svg></button
+                  ></span>
+                </div>
               </div>
-
-              <!-- <a class="buy" >Buy Now</a> -->
             </div>
           </div>
         </div>
@@ -225,9 +231,10 @@
       <div class="col-lg-3 col-md-4">
         <div class="card orderCard pc-Cart mb-3" style="padding: 0px">
           <div
-            class="card-header bg-transparent font-weight-bold"
+            class="card-header bg-transparent"
             style="
               font-size: 18px;
+              font-weight: 600;
               padding: 7px 15px;
               border-bottom: none;
               text-align: center;
@@ -242,14 +249,13 @@
           >
             <div
               *ngFor="let item of simCart"
-              style="width: 100%; padding: 10px 0px"
+              style="width: 100%; padding: 0px 0px 10px"
             >
               <div class="col-lg-12">
                 <h3
-                  class="font-weight-bold"
                   style="
                     font-size: 14px;
-                    font-weight: 500;
+                    font-weight: 600;
                     border-top: 1px solid #e2e2e2;
                     padding-top: 10px;
                   "
@@ -328,7 +334,7 @@
           </div>
           <div *ngIf="simCartEmpty" class="card-body emptyItem">
             <div class="col-lg-12 text-center" style="margin-top: 80px">
-              <h5
+              <!-- <h5
                 class="emptyMsg"
                 style="
                   font-size: 14px;
@@ -338,11 +344,11 @@
                 "
               >
                 YOUR CART IS CURRENTLY EMPTY
-              </h5>
+              </h5> -->
             </div>
             <div class="col-lg-12">
               <img
-                data-src="https://static.visa2fly.com/assets/undraw_empty_cart_co35.png"
+                data-src="../../../assets/Illustration.png"
                 alt="empty-cart icon"
                 class="img-fluid lazyload"
                 style="margin-top: 30px"
@@ -358,24 +364,29 @@
                   margin-top: 30px;
                 "
               >
-                ADD SIM CARDS NOW
+                No Cart Added
               </h5>
             </div>
           </div>
           <div *ngIf="!simCartEmpty" class="card-footer orderTotal">
-            <div class="col-lg-12 font-weight-bold">
-              <p style="margin-bottom: 2px">
-                Total
-                <span style="float: right"
+            <div
+              class="col-lg-12"
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <p style="margin-bottom: 2px; font-size: 12px">
+                Total <br />
+                <span style="font-size: 17px; font-weight: 700"
                   >&#x20B9; {{ displayTotal | number: "1.2-2" }}</span
                 >
               </p>
-            </div>
-            <div class="col-lg-12">
               <button
                 (click)="checkOut()"
+                style="border-radius: 10px"
                 class="btn btn-success btn-sm mt-1"
-                style="width: 100%"
               >
                 Continue
               </button>
@@ -389,9 +400,10 @@
           style="margin-top: 100px; padding: 0px"
         >
           <div
-            class="card-header bg-transparent font-weight-bold"
+            class="card-header bg-transparent"
             style="
               font-size: 18px;
+              font-weight: 600;
               padding: 7px 15px;
               border-bottom: none;
               text-align: center;
@@ -407,7 +419,7 @@
           >
             <div
               *ngFor="let item of simCart"
-              style="width: 100%; padding: 10px 0px"
+              style="width: 100%; padding: 0px 0px 10px"
             >
               <div class="col-lg-12">
                 <h3
@@ -495,7 +507,7 @@
           <!-- if cart is empty -->
           <div *ngIf="simCartEmpty" class="card-body orderItem">
             <div class="col-lg-12 text-center">
-              <h5
+              <!-- <h5
                 class="emptyMsg"
                 style="
                   font-size: 14px;
@@ -505,7 +517,7 @@
                 "
               >
                 YOUR CART IS CURRENTLY EMPTY
-              </h5>
+              </h5> -->
             </div>
             <div class="col-lg-12">
               <img
@@ -525,21 +537,28 @@
                   margin-top: 30px;
                 "
               >
-                ADD SIM CARDS NOW
+                No Cart Added
               </h5>
             </div>
           </div>
 
           <div *ngIf="!simCartEmpty" class="card-footer orderTotal">
-            <div class="col-lg-12 font-weight-bold">
-              <p style="margin-bottom: 2px">
-                Total
-                <span style="float: right"
-                  >&#x20B9; {{ displayTotal | number: "1.0-2" }}</span
+            <div class="col-lg-12">
+              <p style="margin-bottom: 2px; font-size: 12px">
+                Total <br />
+                <span style="font-size: 16px; font-weight: 700"
+                  >&#x20B9; {{ displayTotal | number: "1.2-2" }}</span
                 >
               </p>
+              <button
+                (click)="checkOut()"
+                style="border-radius: 10px"
+                class="btn btn-success btn-sm mt-1"
+              >
+                Continue
+              </button>
             </div>
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
               <button
                 (click)="checkOut()"
                 class="btn btn-success btn-sm mt-1"
@@ -547,7 +566,7 @@
               >
                 Continue
               </button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

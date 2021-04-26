@@ -6,7 +6,6 @@ import { CookiesService } from "@ngx-utils/cookies/src/cookies.service";
   providedIn: "root",
 })
 export class UserFlowDetails {
-
   public userObject: object = {};
   expiry: string;
   expiryDate: { year: number; month: number; day: number };
@@ -69,10 +68,6 @@ export class UserFlowDetails {
         "." +
         this.expiryDate.year;
     }
-  }
-
-  setB2bTokenExpiry() {
-
   }
 
   setUserFlowDetails(name: string, value: string) {
@@ -238,6 +233,10 @@ export class UserFlowDetails {
     if (isPlatformBrowser(this.platformId)) {
       return this.cookies.get(key);
     }
+  }
+
+  removeAll() {
+    this.cookies.removeAll();
   }
 
 

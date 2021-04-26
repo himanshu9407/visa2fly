@@ -1,8 +1,8 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
-import { LoginService } from "../login-signup/login/login.service";
+import { LoginService } from "../../components/login-signup/login/login.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LogoutService } from "src/app/shared/logout.service";
-import { SignupResponseModel } from "../login-signup/signup/SignupResponse.model";
+import { SignupResponseModel } from "../../components/login-signup/signup/SignupResponse.model";
 import { ToastService } from "src/app/shared/toast.service";
 import { Router, ActivatedRoute, NavigationStart } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
@@ -153,6 +153,7 @@ export class HeaderComponent implements OnInit {
             this.loginStatus.setUserLoggedIn(false);
             this.router.navigate(["visa"]);
             this.userFlow.setCookie("profile", JSON.stringify({}));
+            this.userFlow.removeAll();
             this.preloaderService.showPreloader(false);
           } else if (data.code == "301") {
             this.loginService.setAuthToken("");

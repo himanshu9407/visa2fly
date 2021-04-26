@@ -6,7 +6,7 @@
 </div>
 <div class="chat-box">
   <div class="chat-box-header">
-    Get a call back from us.
+    Request a callback
     <span class="chat-box-toggle">
       <svg style="height: 1em; width: 1em">
         <use xlink:href="assets/sprites/sprite.svg#chatbox_minimize"></use>
@@ -18,25 +18,27 @@
       <form [formGroup]="callBackForm">
         <div class="form-row form_row">
           <div class="col-sm-12">
+            <label for="inputName">Name</label>
             <input
               [ngClass]="{
                 'is-invalid':
-                  callBackForm.get('name').invalid &&
-                  callBackForm.get('name').dirty,
+                  (callBackForm.get('name').invalid &&
+                    callBackForm.get('name').dirty) ||
+                  (callBackForm.get('name').pristine && name_error),
                 'is-valid':
                   !(
                     callBackForm.get('name').invalid &&
                     callBackForm.get('name').dirty
-                  ) && !callBackForm.get('name').pristine
+                  ) || !(callBackForm.get('name').pristine && name_error)
               }"
               pattern="[A-Z a-z]{3,32}"
               formControlName="name"
               type="text"
               class="form-control form-control-sm"
               id="inputName"
-              placeholder="Name"
+              placeholder="Enter your name"
             />
-            <div
+            <!-- <div
               class="invalid-feedback"
               style="display: block"
               *ngIf="
@@ -44,17 +46,19 @@
                 callBackForm.get('name').dirty
               "
             >
-              Enter a valid Name
-            </div>
+              Enter a valid name
+            </div> -->
           </div>
         </div>
         <div class="form-row form_row">
           <div class="col-sm-12">
+            <label for="inputEmail">Email</label>
             <input
               [ngClass]="{
                 'is-invalid':
                   callBackForm.get('emailId').invalid &&
-                  callBackForm.get('emailId').dirty,
+                  callBackForm.get('emailId').dirty &&
+                  callBackForm.get('emailId').pristine,
                 'is-valid':
                   !(
                     callBackForm.get('emailId').invalid &&
@@ -66,9 +70,9 @@
               type="email"
               class="form-control form-control-sm"
               id="inputEmail"
-              placeholder="Email"
+              placeholder="Enter your email address"
             />
-            <div
+            <!-- <div
               class="invalid-feedback"
               style="display: block"
               *ngIf="
@@ -77,30 +81,32 @@
               "
             >
               Enter a valid email
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="form-row form_row">
           <div class="col-sm-12">
+            <label for="inputMobile">Phone</label>
             <input
               pattern="^[4-9][0-9]{9}$"
               [ngClass]="{
                 'is-invalid':
-                  callBackForm.get('cell').invalid &&
-                  callBackForm.get('cell').dirty,
+                  (callBackForm.get('cell').invalid &&
+                    callBackForm.get('cell').dirty) ||
+                  (callBackForm.get('cell').pristine && cell_error),
                 'is-valid':
                   !(
                     callBackForm.get('cell').invalid &&
                     callBackForm.get('cell').dirty
-                  ) && !callBackForm.get('cell').pristine
+                  ) || !(callBackForm.get('cell').pristine && cell_error)
               }"
               formControlName="cell"
-              type="number"
+              type="tel"
               class="form-control form-control-sm"
               id="inputMobile"
-              placeholder="Phone"
+              placeholder="Enter your phone no."
             />
-            <div
+            <!-- <div
               class="invalid-feedback"
               style="display: block"
               *ngIf="
@@ -109,11 +115,11 @@
               "
             >
               Enter a valid Name
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="form-row form_row mt-1">
-          <div class="col-6 mgBtm">
+        <div class="form-row form_row mt-1 chatbot_service">
+          <div class="chatbot_col">
             <div class="form-check">
               <input
                 formControlName="visa"
@@ -122,12 +128,12 @@
                 id="chatbot-visa"
               />
               <label class="form-check-label smallLabel" for="chatbot-visa">
-                <div class="callBack-visa img-sprite"></div>
+                <!-- <div class="callBack-visa img-sprite"></div> -->
                 <label for="chatbot-visa">Visa</label>
               </label>
             </div>
           </div>
-          <div class="col-6 mgBtm">
+          <div class="chatbot_col">
             <div class="form-check">
               <input
                 formControlName="sim"
@@ -136,12 +142,30 @@
                 id="chatbot-sim"
               />
               <label class="form-check-label smallLabel" for="chatbot-sim">
-                <div class="callBack-sim img-sprite"></div>
+                <!-- <div class="callBack-sim img-sprite"></div> -->
                 <label for="chatbot-sim">Sim Card</label>
               </label>
             </div>
           </div>
-          <div class="col-6">
+          <div class="chatbot_col">
+            <div class="form-check">
+              <input
+                formControlName="insurance"
+                class="form-check-input smallCheck"
+                type="checkbox"
+                id="chatbot-insurance"
+              />
+              <label
+                class="form-check-label smallLabel"
+                for="chatbot-insurance"
+              >
+                <!-- <div class="callBack-insurance img-sprite"></div> -->
+                <label for="chatbot-insurance">Insurance</label>
+              </label>
+            </div>
+          </div>
+
+          <!-- <div class="col-6">
             <div class="form-check">
               <input
                 formControlName="forex"
@@ -154,24 +178,96 @@
                 <label for="chatbot-forex">Forex</label>
               </label>
             </div>
-          </div>
-          <div class="col-6">
-            <div class="form-check">
-              <input
-                formControlName="insurance"
-                class="form-check-input smallCheck"
-                type="checkbox"
-                id="chatbot-insurance"
-              />
-              <label
-                class="form-check-label smallLabel"
-                for="chatbot-insurance"
+          </div> -->
+        </div>
+        <div class="chat-input">
+          <button
+            (click)="onSubmit()"
+            type="submit"
+            class="btn btn-primary btn-oval chat-submit"
+            id="chat-submit"
+          >
+            Submit
+            <span class="loading" *ngIf="showSuccessAlert">
+              <svg
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                height="18"
+                width="18"
+                x="0px"
+                y="0px"
+                viewBox="0 0 512 512"
+                style="enable-background: new 0 0 512 512"
+                xml:space="preserve"
               >
-                <div class="callBack-insurance img-sprite"></div>
-                <label for="chatbot-insurance">Insurance</label>
-              </label>
-            </div>
-          </div>
+                <path
+                  style="fill: #2d50a7"
+                  d="M267.636,0c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273V23.273C290.909,10.42,280.489,0,267.636,0z"
+                />
+                <path
+                  style="fill: #73a1fb"
+                  d="M267.638,372.364c-12.853,0-23.273,10.42-23.273,23.273v93.091c0,12.853,10.42,23.273,23.273,23.273
+	c12.853,0,23.273-10.42,23.273-23.273v-93.091C290.911,382.784,280.491,372.364,267.638,372.364z"
+                />
+                <path
+                  style="fill: #355ec9"
+                  d="M185.355,140.808L119.529,74.98c-9.086-9.089-23.822-9.089-32.912,0
+	c-9.089,9.089-9.089,23.824,0,32.912l65.826,65.828c4.544,4.544,10.501,6.817,16.455,6.817c5.955,0,11.913-2.273,16.455-6.817
+	C194.444,164.631,194.444,149.897,185.355,140.808z"
+                />
+                <g>
+                  <path
+                    style="fill: #c4d9fd"
+                    d="M477.091,232.727h-46.545c-12.853,0-23.273,10.42-23.273,23.273
+		c0,12.853,10.42,23.273,23.273,23.273h46.545c12.853,0,23.273-10.42,23.273-23.273
+		C500.364,243.147,489.944,232.727,477.091,232.727z"
+                  />
+                  <path
+                    style="fill: #c4d9fd"
+                    d="M382.83,338.283c-9.087-9.089-23.823-9.087-32.912,0c-9.089,9.089-9.087,23.823,0,32.912
+		l65.828,65.825c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.273,16.455-6.816c9.089-9.089,9.089-23.824,0-32.912
+		L382.83,338.283z"
+                  />
+                </g>
+                <path
+                  style="fill: #3d6deb"
+                  d="M151.273,256c0-12.853-10.42-23.273-23.273-23.273H34.909c-12.853,0-23.273,10.42-23.273,23.273
+	c0,12.853,10.42,23.273,23.273,23.273H128C140.853,279.273,151.273,268.853,151.273,256z"
+                />
+                <path
+                  style="fill: #5286fa"
+                  d="M185.355,338.283c-9.087-9.089-23.824-9.089-32.912,0l-65.825,65.825
+	c-9.089,9.087-9.089,23.824,0,32.912c4.544,4.544,10.501,6.816,16.457,6.816c5.956,0,11.913-2.271,16.455-6.816l65.825-65.825
+	C194.444,362.108,194.444,347.372,185.355,338.283z"
+                />
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </span>
+          </button>
+          <!-- [disabled]="
+              !callBackForm.valid ||
+              (callBackForm.get('visa').value == false &&
+                callBackForm.get('sim').value == false &&
+                callBackForm.get('insurance').value == false &&
+                callBackForm.get('forex').value == false) 
+            " -->
         </div>
       </form>
       <div class="col-lg-12 mt-1" style="padding: 0px">
@@ -216,23 +312,5 @@
         </p>
       </div>
     </div>
-    <!--chat-log -->
-  </div>
-  <div class="chat-input">
-    <button
-      (click)="onSubmit()"
-      type="button"
-      class="btn btn-primary btn-oval chat-submit"
-      id="chat-submit"
-      [disabled]="
-        !callBackForm.valid ||
-        (callBackForm.get('visa').value == false &&
-          callBackForm.get('sim').value == false &&
-          callBackForm.get('insurance').value == false &&
-          callBackForm.get('forex').value == false)
-      "
-    >
-      Submit
-    </button>
   </div>
 </div>

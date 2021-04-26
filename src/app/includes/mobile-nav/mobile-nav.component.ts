@@ -1,13 +1,13 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
 import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
-import { LoginService } from "../login-signup/login/login.service";
+import { LoginService } from "../../components/login-signup/login/login.service";
 import { LoginStatusService } from "src/app/shared/login-status.service";
 import { LogoutService } from "src/app/shared/logout.service";
 // import { ToastService } from 'src/app/shared/toast.service';
 import { ToastrService } from "ngx-toastr";
 import { PreloaderService } from "src/app/shared/preloader.service";
 import { Router } from "@angular/router";
-import { SignupResponseModel } from "../login-signup/signup/SignupResponse.model";
+import { SignupResponseModel } from "../../components/login-signup/signup/SignupResponse.model";
 import { isPlatformBrowser } from "@angular/common";
 import * as $ from "jquery";
 
@@ -29,7 +29,7 @@ export class MobileNavComponent implements OnInit {
     private preloaderService: PreloaderService,
     private userFlow: UserFlowDetails,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.userLoggedIn = this.loginStatus.getUserLoggedIn();
@@ -69,6 +69,7 @@ export class MobileNavComponent implements OnInit {
             this.router.navigate(["visa"]);
             this.preloaderService.showPreloader(false);
             this.userFlow.setCookie("profile", JSON.stringify({}));
+            this.userFlow.removeAll();
           } else if (data.code == "301") {
             this.loginService.setAuthToken("");
             this.loginStatus.setUserStatus(false);
@@ -84,7 +85,7 @@ export class MobileNavComponent implements OnInit {
           }
         },
 
-        (err) => {}
+        (err) => { }
       );
     }
   }

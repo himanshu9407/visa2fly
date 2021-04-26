@@ -9,7 +9,7 @@ export class RequestInterceptor implements HttpInterceptor {
 intercept(req : HttpRequest<any>, next : HttpHandler) : Observable <HttpEvent<any>> {
     // console.log("intercepted the request");
     return next.handle(req).pipe(
-        map( (event: HttpEvent<any>)=> {
+        map((event: HttpEvent<any>)=> {
             if (event instanceof HttpResponse) {
                 return event;
             }

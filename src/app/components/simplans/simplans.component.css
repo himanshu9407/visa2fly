@@ -108,7 +108,7 @@ select:focus {
   background: #f5f5f5;
   border: none;
   color: #333;
-  padding: 20px 20px 10px;
+  padding: 0px;
   position: relative;
   margin-bottom: 25px;
   border-radius: 20px;
@@ -116,16 +116,11 @@ select:focus {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
+  box-shadow: 0px -2px 18px -3px rgba(0, 0, 0, 0.2);
 }
-.pricing-table h3 {
-  font-size: 15px;
-  text-align: center;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 20px;
-  margin: -20px -20px 50px -20px;
-  color: #fff;
+
+.pricing-table .plan .card-header {
+  padding: 0px;
   background: #0575e6;
   background: -webkit-linear-gradient(to top right, #101ee6 0%, #000080 74%);
   background: linear-gradient(to top right, #101ee6 0%, #000080 74%);
@@ -135,16 +130,35 @@ select:focus {
   -ms-border-radius: 20px 20px 0 0;
   -o-border-radius: 20px 20px 0 0;
 }
+
+.pricing-table .plan .card-body {
+  padding: 15px 20px;
+}
+
+.pricing-table .plan .card-footer {
+  background-color: transparent;
+}
+
+.pricing-table h3 {
+  font-size: 15px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px;
+  margin-bottom: 0px;
+  color: #fff;
+}
 .pricing-table h4 {
   font-size: 14px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 600;
   min-height: 60px;
   margin: 0px;
 }
 .pricing-table h4 span {
   display: block;
   font-size: 20px;
+  margin-top: 10px;
 }
 .pricing-table h3 span img {
   display: block;
@@ -285,12 +299,18 @@ button.attached:focus {
   min-height: 250px;
 }
 .orderCard {
-  border: 2px solid dodgerblue;
+  border: none;
   padding: 5px 12px 0px;
-  border-radius: 10px;
+  border-radius: 20px;
+  background: #f5f5f5;
   position: sticky;
   top: 30px;
   margin-bottom: 25px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 0px -2px 18px -3px rgba(0, 0, 0, 0.2);
 }
 .orderTotal {
   z-index: 10;
@@ -299,7 +319,7 @@ button.attached:focus {
   bottom: 0px;
   box-shadow: rgba(0, 0, 0, 0.15) 0 -2px 15px;
   background: #fff;
-  padding: 7px;
+  padding: 12px 7px;
   margin-top: 10px;
   box-shadow: 1px;
   width: 100%;
@@ -502,6 +522,10 @@ button.attached:focus {
 
   .mobileInput {
     display: flex;
+  }
+
+  .pricing-table {
+    padding: 0px;
   }
 }
 
