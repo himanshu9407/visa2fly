@@ -2,15 +2,76 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  box-shadow: none !important;
-
+  /* box-shadow: none !important; */
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
   /* height: 30px; */
+}
+
+input::placeholder {
+  font-size: 12px;
+  color: #cecece;
+}
+
+textarea::placeholder {
+  font-size: 12px;
+  color: #cecece;
+}
+
+.paddReq {
+  padding: 5px 50px;
+}
+
+/* //cecece */
+
+.headingTitle {
+  margin-left: 12px;
+}
+
+.addressHeading {
+  margin-left: -25px;
+  margin-top: 5px;
+}
+
+.summaryHeader {
+  font-size: 14px;
+  color: #000080;
+  font-weight: 600;
+  padding: 10px 10px;
+}
+
+.summaryBody {
+  padding: 0px;
+  /* border-bottom: 1px #000; */
+}
+
+.summaryFooter {
+  padding: 0px;
+}
+
+.summaryHeadings {
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.summaryData1 {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.summaryData {
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.gstPart {
+   margin-top: 15px;
 }
 
 input {
   border-radius: 5px;
   padding: 6px 10px;
-  border: 1px solid #ddd;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
+  /* border: 1px solid #ddd; */
   background-color: #fff;
   position: relative;
   line-height: 18px;
@@ -30,7 +91,8 @@ input {
 select {
   border-radius: 5px;
   padding: 6px 10px;
-  border: 1px solid #ddd;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
+  /* border: 1px solid #ddd; */
   background-color: #fff;
   position: relative;
   line-height: 18px;
@@ -104,6 +166,7 @@ td {
 input,
 textarea {
   font-size: 14px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
 }
 
 .desktopView {
@@ -120,7 +183,8 @@ textarea {
 
 button.calendar {
   padding: 2px 7px;
-  height: 30px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
+  height: 31px;
 }
 .grandLabel {
   padding-right: 150px;
@@ -186,7 +250,7 @@ button.calendar {
 }
 
 section {
-  padding-top: 10px;
+  padding-top: 50px;
   padding-bottom: 10px;
 }
 
@@ -194,13 +258,24 @@ section {
   background-color: #CAD5E2
 } */
 
-.TrvDetail .container {
+.summaryDetail {
   /* box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4); */
   background-color: #f1f1f1;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 15px 20px 15px;
+  /* padding: 15px 20px 15px; */
   margin-top: 20px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
+}
+
+.TrvDetail {
+  /* box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4); */
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px 5px 15px;
+  margin-top: 20px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
 }
 
 .TrvDetail span {
@@ -234,6 +309,10 @@ section {
     padding: 20px;
   }
 
+  .summaryDetail {
+    margin-top: 60px;
+  }
+
   #insrSummary .planDetail {
     margin-top: 2px;
     margin-bottom: 20px;
@@ -263,6 +342,10 @@ section {
 @media (min-width: 320px) and (max-width: 480px) {
   #insrSummary .container {
     padding: 20px;
+  }
+
+  .summaryDetail {
+    margin-top: 60px;
   }
 
   hr {
@@ -341,6 +424,10 @@ section {
     width: 382px;
   }
 
+  .summaryDetail {
+    margin-top: 60px;
+  }
+
   .form-check-inline {
     padding-left: 15px;
   }
@@ -364,6 +451,10 @@ section {
     width: 332px;
   }
 
+  .summaryDetail {
+    margin-top: 60px;
+  }
+
   .form-check-inline {
     padding-left: 15px;
   }
@@ -385,6 +476,10 @@ section {
     margin-left: 17px;
     /* margin-right: 10px; */
     width: 285px;
+  }
+
+  .summaryDetail {
+    margin-top: 60px;
   }
 
   .form-check-inline {
@@ -420,6 +515,47 @@ section {
     display: none;
   }
 
+  .summaryData1 {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .paddReq {
+    padding: 5px 0px;
+  }
+
+  .label_for_gst {
+    margin-left: 15px;
+  }
+
+  .gstMobileAdjustment {
+    margin-top: -6px;
+    margin-left: 13px;
+    margin-right: 15px;
+  }
+
+  .headTitle {
+    color: #000080;
+    background-color: #F5F5F5;
+    text-align: center;
+    font-size: 16px !important;
+  }
+
+  .summaryHeadings {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .addressHeading {
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .summaryData {
+    font-size: 13px;
+    font-weight: 550;
+  }
+
   .form-check-inline {
     padding-left: 15px;
   }
@@ -428,9 +564,9 @@ section {
     display: block;
   }
 
-  .paddReq {
+  /* .paddReq {
     padding: 0px;
-  }
+  } */
 
   .forMobile {
     padding-left: 15px;
@@ -472,6 +608,10 @@ section {
 @media screen and (width: 600px) {
   #insrSummary .container {
     border-radius: 10px;
+  }
+
+  .summaryDetail {
+    margin-top: 20px;
   }
 
   .form-check-inline {
