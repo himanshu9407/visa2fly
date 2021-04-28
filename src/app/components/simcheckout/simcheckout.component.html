@@ -251,38 +251,53 @@
           <div class="card-header summaryHeader text-center">
             Summary
           </div>
-          <div class="card-body summaryBody" *ngFor="let item of simCart">
+
+          <div class="card-body summaryBody">
             <div style="width: 100%;">
-            <div class="col-lg-12 text-center">
-              <span class="summaryHeadings">Item: </span>
-              <p class="summaryData1">{{ item.planName }}</p>
+               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let item of simCart; let index = index; let isFirst=first" [ngClass]="{active:isFirst}">
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Item: </span>
+                        <p class="summaryData1">{{ item.planName }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Qty: </span>
+                        <p class="summaryData1">{{ item.quantity }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Price: </span>
+                        <p class="summaryData1"> &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Convenience Fee: </span>
+                        <p class="summaryData1">&#x20B9; {{ item.convenienceFee }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">GST: </span>
+                        <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Sub Total (Inclusive of taxes)</span>
+                        <p class="summaryData1">&#x20B9; {{
+                          item.quantity *
+                            (item.price +
+                              item.convenienceFee +
+                              item.convenienceFeeTAX) | number: "1.0-2"
+                        }}</p>
+                      </div>
+                  </div>
+                  </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
             </div>
-            <div class="col-lg-12 text-center">
-              <span class="summaryHeadings">Qty: </span>
-              <p class="summaryData1">{{ item.quantity }}</p>
-            </div>
-            <div class="col-lg-12 text-center">
-              <span class="summaryHeadings">Price: </span>
-              <p class="summaryData1"> &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}</p>
-            </div>
-            <div class="col-lg-12 text-center">
-              <span class="summaryHeadings">Convenience Fee: </span>
-              <p class="summaryData1">&#x20B9; {{ item.convenienceFee }}</p>
-            </div>
-            <div class="col-lg-12 text-center">
-              <span class="summaryHeadings">GST: </span>
-              <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
-            </div>
-            <div class="col-lg-12 text-center" style="border-bottom: 1px solid  #707070;">
-              <span class="summaryHeadings">Sub Total (Inclusive of taxes)</span>
-              <p class="summaryData1">&#x20B9; {{
-                item.quantity *
-                  (item.price +
-                    item.convenienceFee +
-                    item.convenienceFeeTAX) | number: "1.0-2"
-              }}</p>
-            </div>
-          </div>
           </div>
           <div class="card-footer summaryFooter text-center">
             <div class="col-lg-12">
@@ -294,7 +309,7 @@
       </div>
       <div class="col-md-8 col-lg-9 TrvDetail">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 headingForForm">
             <p
               class="headTitle lead font-weight-bold mb-1 headingTitle"
               style="text-transform: uppercase"
@@ -884,7 +899,7 @@
                     <button
                       (click)="submitForm()"
                       class="btn btn-dark btn-sm"
-                      style="width: 120px"
+                      style="width: 200px"
                     >
                       Submit
                     </button>
@@ -900,38 +915,52 @@
           <div class="card-header summaryHeader">
             Summary
           </div>
-          <div class="card-body summaryBody" *ngFor="let item of simCart">
-            <div style="width: 100%;">
-            <div class="col-lg-12">
-              <span class="summaryHeadings">Item: </span>
-              <p class="summaryData1">{{ item.planName }}</p>
+          <div id="carouselDeskstopControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor="let item of simCart; let index = index;" [ngClass]="{active: index == 0}">
+                  <div class="card-body summaryBody">
+                    <div style="width: 100%;">
+                      <div class="col-lg-12">
+                        <span class="summaryHeadings">Item: </span>
+                        <p class="summaryData1">{{ item.planName }}</p>
+                      </div>
+                      <div class="col-lg-12">
+                            <span class="summaryHeadings">Qty: </span>
+                            <p class="summaryData1">{{ item.quantity }}</p>
+                      </div>
+                      <div class="col-lg-12">
+                            <span class="summaryHeadings">Price: </span>
+                            <p class="summaryData1"> &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}</p>
+                      </div>
+                      <div class="col-lg-12">
+                            <span class="summaryHeadings">Convenience Fee: </span>
+                            <p class="summaryData1">&#x20B9; {{ item.convenienceFee }}</p>
+                      </div>
+                      <div class="col-lg-12">
+                            <span class="summaryHeadings">GST: </span>
+                            <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
+                      </div>
+                      <div class="col-lg-12">
+                            <span class="summaryHeadings">Sub Total (Inclusive of taxes)</span>
+                            <p class="summaryData1">&#x20B9; {{
+                              item.quantity *
+                                (item.price +
+                                  item.convenienceFee +
+                                  item.convenienceFeeTAX) | number: "1.0-2"
+                            }}</p>
+                      </div>
+                  </div>
+                  </div>
+              </div>
             </div>
-            <div class="col-lg-12">
-              <span class="summaryHeadings">Qty: </span>
-              <p class="summaryData1">{{ item.quantity }}</p>
-            </div>
-            <div class="col-lg-12">
-              <span class="summaryHeadings">Price: </span>
-              <p class="summaryData1"> &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}</p>
-            </div>
-            <div class="col-lg-12">
-              <span class="summaryHeadings">Convenience Fee: </span>
-              <p class="summaryData1">&#x20B9; {{ item.convenienceFee }}</p>
-            </div>
-            <div class="col-lg-12">
-              <span class="summaryHeadings">GST: </span>
-              <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
-            </div>
-            <div class="col-lg-12" style="border-bottom: 1px solid #959595;">
-              <span class="summaryHeadings">Sub Total (Inclusive of taxes)</span>
-              <p class="summaryData1">&#x20B9; {{
-                item.quantity *
-                  (item.price +
-                    item.convenienceFee +
-                    item.convenienceFeeTAX) | number: "1.0-2"
-              }}</p>
-            </div>
-          </div>
+            <a class="carousel-control-prev" href="#carouselDeskstopControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselDeskstopControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
           <div class="card-footer summaryFooter">
             <div class="col-lg-12">

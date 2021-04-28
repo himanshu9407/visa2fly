@@ -275,6 +275,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   }
 
   checkOut() {
+    console.log(this.simCart);
     this.preloaderService.showPreloader(true);
     this.userFlow.setCookie("simCart", JSON.stringify(this.simCart));
     let token = this.loginService.getAuthToken();
