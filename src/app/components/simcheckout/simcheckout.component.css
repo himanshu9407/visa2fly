@@ -12,9 +12,22 @@ input::placeholder {
   color: #cecece;
 }
 
-/* .headingForForm {
+.addressDetailsHeading {
+  margin-left: -22px;
+}
 
-} */
+.gstFieldSetting {
+  margin-top: -10px;
+}
+
+.form-row>.col, .form-row>[class*=col-] {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.headingForForm {
+  background-color: #FAFAFA;
+}
 
 textarea::placeholder {
   font-size: 12px;
@@ -22,26 +35,40 @@ textarea::placeholder {
 }
 
 .paddReq {
-  padding: 5px 50px;
+  padding: 5px 65px;
+}
+
+.paddReq1 {
+  padding: 2px 65px;
 }
 
 /* //cecece */
 
 .headingTitle {
-  margin-left: 12px;
+  margin-left: 20px;
   /* background-color: #FAFAFA; */
 }
 
 .addressHeading {
-  margin-left: -25px;
-  margin-top: 5px;
+  margin-left: -38px;
+  margin-top: 10px;
 }
 
-.summaryHeader {
-  font-size: 14px;
-  color: #000080;
+.summary {
+  margin-left: 19px;
+  font-size: 16px;
+  color: #0A0080;
   font-weight: 600;
-  padding: 10px 30px;
+}
+
+/* .summaryBox {
+  background-color: #F5F5F5;
+} */
+
+.summaryHeader {
+  background-color: #F5F5F5;
+  border: none;
+  padding: 18px 15px;
 }
 
 .carousel-control-prev {
@@ -50,39 +77,46 @@ textarea::placeholder {
 }
 
 .carousel-control-prev-icon {
-  background-image: url(../../../assets/iconfinder_multimedia-04_2849832.png);
+  background-image: url(../../../assets/left.png);
 }
 
 .carousel-control-next-icon {
-  background-image: url(../../../assets/iconfinder_multimedia-03_2849833.png);
+  background-image: url(../../../assets/right.png);
 }
 
 .summaryBody {
-  padding: 0px 20px;
+  padding: 0px 25px;
   /* border-bottom: 1px #000; */
 }
 
 .summaryFooter {
-  padding: 0px 20px;
+  padding: 0px 25px;
+  background-color: #F5F5F5;
+  /* border-top: 1px solid #888888; */
+  box-shadow: #888888 0px -1px, #888888 0px 0px;
+}
+
+.summaryHeading {
+  background-color: #FAFAFA;
 }
 
 .summaryHeadings {
   font-size: 13px;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .summaryData1 {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 .summaryData {
   font-size: 13px;
-  font-weight: 550;
+  font-weight: 450;
 }
 
 .gstPart {
-   margin-top: 15px;
+   margin-top: 25px;
 }
 
 input {
@@ -96,7 +130,7 @@ input {
 }
 
 .btn-dark {
-  background-color: #03203c;
+  background-color: #0C203C;
   border: none;
   color: #fff;
   font-weight: 550;
@@ -212,7 +246,7 @@ select {
 /* } */
 
 button.calendar {
-  padding: 2px 7px;
+  padding: 2px 11px;
   border: none;
   box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
   height: 45px;
@@ -254,14 +288,15 @@ button.calendar {
   /* #f1f1f1 */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
   background-color: #f1f1f1;
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
   border-radius: 5px;
   padding: 10px 20px;
   margin-top: 20px;
 }
 
 .headTitle {
-  color: #000080;
+  color: #0A0080;
+  font-weight: 500;
   /* margin-left: 5px; */
   font-size: 16px !important;
 }
@@ -291,32 +326,38 @@ section {
 
 .summaryDetail {
   /* box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4); */
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
+  background-color: #F5F5F5;
+  border: 1px solid #888888;
   border-radius: 5px;
   /* padding: 15px 20px 15px; */
   margin-top: 20px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
+  box-shadow: #888888 0px 1px 2px, #888888 0px 2px 4px;
 }
 
 .TrvDetail {
   /* box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4); */
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
+  background-color: #F5F5F5;
+  border: 1px solid #888888;
   border-radius: 5px;
-  padding: 15px 5px 15px;
+  padding: 15px 15px 15px;
   margin-top: 20px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 1px 2px, rgb(0 0 0 / 8%) 0px 2px 8px;
+  box-shadow: #888888 0px 1px 2px, #888888 0px 2px 4px;
 }
 
 .TrvDetail span {
   color: dodgerblue;
 }
 
+/* .gstLabel {
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+} */
+
 .TrvDetail label {
   color: #000;
   font-size: 13px;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .form-check-inline {
@@ -551,6 +592,19 @@ section {
     font-weight: 500;
   }
 
+  .summary {
+    margin-left: 0px;
+    font-size: 16px;
+    color: #0A0080;
+    font-weight: 600;
+  }
+
+  .summaryHeader {
+    background-color: #F5F5F5;
+    border: none;
+    padding: 10px 0px;
+  }
+
   .paddReq {
     padding: 5px 0px;
   }
@@ -567,7 +621,7 @@ section {
 
   .headTitle {
     color: #000080;
-    background-color: #F5F5F5;
+    /* background-color: #F5F5F5; */
     text-align: center;
     font-size: 16px !important;
   }

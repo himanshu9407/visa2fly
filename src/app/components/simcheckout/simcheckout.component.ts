@@ -62,7 +62,7 @@ export class SimcheckoutComponent implements OnInit {
     private meta: Meta,
     private userFlow: UserFlowDetails
   ) {
-    this.simCart = JSON.parse(this.userFlow.getCookie("simCart"));
+    this.simCart = JSON.parse(this.userFlow.getLocalStorage("simCart"));
     // console.log(this.simCart);
     this.updateTotal();
     this.totalQuantity();
@@ -136,14 +136,14 @@ export class SimcheckoutComponent implements OnInit {
   }
 
   updateTotal() {
-    console.log(this.simCart);
+    // console.log(this.simCart);
     this.simCart.forEach((item: any) => {
       let temp =
         item.quantity *
         (item.price + item.convenienceFee + item.convenienceFeeTAX);
       this.totalPrice = this.totalPrice + temp;
     });
-    console.log(this.totalPrice);
+    // console.log(this.totalPrice);
   }
 
   totalQuantity() {
