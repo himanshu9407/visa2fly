@@ -16,6 +16,7 @@ import { SiteBriefComponent } from './site-brief/site-brief.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { OfferBannerComponent } from './offer-banner/offer-banner.component';
+import { ShortVideoComponent } from './short-video/short-video.component';
 
 const routes: Routes = [
   { path: "", component: HomeContainerComponent, resolve: { homeFormData: HomeFormResolver } }
@@ -33,7 +34,8 @@ const routes: Routes = [
     TestimonialComponent,
     HomeStepComponent,
     SiteBriefComponent,
-    OfferBannerComponent
+    OfferBannerComponent,
+    ShortVideoComponent
   ],
   imports: [
     CommonModule,

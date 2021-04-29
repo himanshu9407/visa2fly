@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RequestInterceptor } from "./shared/request.interceptor";
+import { RequestInterceptor } from "./interceptor/request.interceptor";
 import { ToastComponent } from "./shared/components/toast/toast.component";
 import { ChatboxComponent } from "./chatbox/chatbox.component";
 import { PreloaderComponent } from "./shared/preloader/preloader.component";
@@ -51,6 +51,7 @@ import { BookingStatusModule } from './components/booking-status/booking-status.
 import { InsuranceModule } from './components/insurance/insurance.module';
 import { OffersModule } from "./components/offers/offers.module";
 import { B2bSimModule } from './components/b2b-sim/b2b-sim.module';
+import { WithCredentialsInterceptor } from './interceptor/with-credentials.interceptor';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { B2bSimModule } from './components/b2b-sim/b2b-sim.module';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: WithCredentialsInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

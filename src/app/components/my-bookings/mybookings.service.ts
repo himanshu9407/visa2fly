@@ -40,13 +40,13 @@ export class MyBookingsService {
       this.router.navigateByUrl["/visa"];
     } else {
       let reqbodyByDate = {};
-      reqbodyByDate = {fromDate, toDate, pageNo, pageSize};
+      reqbodyByDate = { fromDate, toDate, pageNo, pageSize };
       const base_url = this.userFlow.getBaseURL();
       const headers = new HttpHeaders({
         token: AUTH_TOKEN,
         "visa-client": "0",
       });
-      return this.http.post(base_url + "fetchBookings/bydate", reqbodyByDate,{ headers: headers });
+      return this.http.post(base_url + "fetchBookings/bydate", reqbodyByDate, { headers: headers });
     }
   }
 
@@ -61,7 +61,7 @@ export class MyBookingsService {
         "visa-client": "0",
       });
 
-      return this.http.get(base_url + "fetchBookings/v2?pageNo=" + pageNo + "&pageSize=" + pageSize, { headers: headers });
+      return this.http.get(base_url + "fetchBookings/v2?pageNo=" + pageNo + "&pageSize=" + pageSize, { headers: headers, withCredentials: false });
     }
   }
 
@@ -86,7 +86,7 @@ export class MyBookingsService {
       this.router.navigateByUrl["/visa"];
     } else {
       const base_url = this.userFlow.getBaseURL();
-      const reqbodyByFilter = {fromDate, toDate, pageNo, pageSize, filterList};
+      const reqbodyByFilter = { fromDate, toDate, pageNo, pageSize, filterList };
       const headers = new HttpHeaders({
         token: AUTH_TOKEN,
         "visa-client": "0",
