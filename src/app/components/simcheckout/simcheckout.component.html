@@ -928,7 +928,7 @@
       <!-- <div class="col-md-1 col-lg-1"></div> -->
       <div class="col-md-5 col-lg-4 desktopView">
         <div class="card summaryDetail">
-          <div class="card-header summaryHeader">
+          <div class="card-header summaryHeader text-center">
             <div class="row">
               <div class="col-md-12 summaryHeading">
                   <div class="summaryBox">
@@ -942,27 +942,27 @@
               <div class="carousel-item" *ngFor="let item of simCart; let index = index;" [ngClass]="{active: index == 0}">
                   <div class="card-body summaryBody">
                     <div style="width: 100%;">
-                      <div class="col-lg-12">
+                      <div class="col-lg-12 text-center">
                         <span class="summaryHeadings">Item: </span>
                         <p class="summaryData1">{{ item.planName }}</p>
                       </div>
-                      <div class="col-lg-12">
+                      <div class="col-lg-12 text-center">
                             <span class="summaryHeadings">Qty: </span>
                             <p class="summaryData1">{{ item.quantity }}</p>
                       </div>
-                      <div class="col-lg-12">
+                      <div class="col-lg-12 text-center">
                             <span class="summaryHeadings">Price: </span>
                             <p class="summaryData1"> &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}</p>
                       </div>
-                      <div class="col-lg-12">
+                      <div class="col-lg-12 text-center">
                             <span class="summaryHeadings">Convenience Fee: </span>
                             <p class="summaryData1">&#x20B9; {{ item.convenienceFee }}</p>
                       </div>
-                      <div class="col-lg-12">
+                      <div class="col-lg-12 text-center">
                             <span class="summaryHeadings">GST: </span>
                             <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
                       </div>
-                      <div class="col-lg-12">
+                      <div class="col-lg-12 text-center">
                             <span class="summaryHeadings">Sub Total (Inclusive of taxes)</span>
                             <p class="summaryData1">&#x20B9; {{
                               item.quantity *
@@ -984,7 +984,7 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-          <div class="card-footer summaryFooter">
+          <div class="card-footer text-center summaryFooter">
             <div class="col-lg-12">
               <span class="summaryHeadings">GRAND TOTAL</span>
               <p class="summaryData">&#x20B9; {{ totalPrice | number: "1.0-2" }}</p>
