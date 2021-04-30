@@ -1,3 +1,4 @@
+import { event } from 'jquery';
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { SimCheckoutService } from "./simcheckout.service";
@@ -41,7 +42,17 @@ export class SimcheckoutComponent implements OnInit {
   title: string = "Visa2fly | Sim Checkout";
   paymentUrl: any = "";
   stateError: boolean;
+  numberValidationName : any;
   errorMessage: boolean;
+  errorMessageFirstName: boolean;
+  errorMessageLastName: boolean;
+  errorMessagePassportNumber: boolean;
+  errorMessageMobileNumber: boolean;
+  errorMessageEmaildId: boolean;
+  errorMessageAddess: boolean;
+  errorMessageCity: boolean;
+  errorMessagePincode: boolean;
+  errorMessageGST: boolean;
 
   stateListArr: Array<string> = [
     "Andaman And Nicobar Islands",
@@ -135,6 +146,69 @@ export class SimcheckoutComponent implements OnInit {
     ]);
   }
 
+
+
+  // onlyNumberAllowed(event):boolean {
+  //   const charCode = (event.which)?event.which: event.keyCode;
+
+  //   if(charCode > 31 && (charCode < 48 || charCode > 57))
+  //   {
+  //     this.numberValidationName = "Special character and spaces are not allowed";
+  //     console.log('charCode restricted is ' + charCode);
+  //     return false;
+  //   }
+  //   this.numberValidationName = "";
+  //   return true;
+  // }
+
+  onlyForError(event) {
+    console.log(event);
+
+    if (/\s/.test(event)) {
+      // It has any kind of whitespace
+      console.log("Himanshu");
+    }
+    // return event.indexOf(' ') >= 0
+    // const firstName = event;
+    // if(firstName.indexOf(' ') >= 0)
+    // {
+    //   console.log("Himanshu");
+    // }
+    this.errorMessageFirstName =  false;
+  }
+
+  onlyForLastNameError(event) {
+    this.errorMessageLastName = false;
+  }
+
+  onlyForPassportError(event) {
+    this.errorMessagePassportNumber = false;
+  }
+
+  onlyForMobileNumberError(event) {
+    this.errorMessageMobileNumber = false;
+  }
+
+  onlyForEmailIdError(event) {
+    this.errorMessageEmaildId = false;
+  }
+
+  onlyForPincodeError(event) {
+    this.errorMessagePincode = false;
+  }
+
+  onlyForCityError(event) {
+    this.errorMessageCity = false;
+  }
+
+  onlyForAddressError(event) {
+    this.errorMessageAddess = false;
+  }
+
+  onlyForGSTError(event) {
+    this.errorMessageGST = false;
+  }
+
   updateTotal() {
     // console.log(this.simCart);
     this.simCart.forEach((item: any) => {
@@ -168,6 +242,15 @@ export class SimcheckoutComponent implements OnInit {
   submitForm() {
     if(this.simCheckoutForm.invalid) {
       this.errorMessage = true;
+      this.errorMessageFirstName =  true;
+      this.errorMessageLastName = true;
+      this.errorMessagePassportNumber = true;
+      this.errorMessageMobileNumber = true;
+      this.errorMessageEmaildId = true;
+      this.errorMessageAddess = true;
+      this.errorMessageCity = true;
+      this.errorMessagePincode = true;
+      this.errorMessageGST = true;
     } else {
     let formValueObj = this.simCheckoutForm.value;
     // console.log(formValueObj);
