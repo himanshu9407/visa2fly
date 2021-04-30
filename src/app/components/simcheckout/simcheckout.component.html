@@ -320,7 +320,7 @@
               class="headTitle lead font-weight-bold mb-1 headingTitle"
               style="text-transform: uppercase"
             >
-              Traveller Detail
+              Traveler Detail
             </p>
           </div>
         </div>
@@ -348,13 +348,13 @@
                       }"
                       class="form-control form-control-sm trvName"
                       placeholder="Enter your first name"
-                      (keypress)="onlyForError($event)"
+                      (input)="onlyForError($event.target.value)"
                     />
                     <div *ngIf="simCheckoutForm.get('firstName').errors"
                           class="invalid-feedback" style="display: block;">
                           <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                           <div *ngIf="errorMessageFirstName">Enter a valid first name</div>
-                          <div *ngIf="simCheckoutForm.get('firstName').errors.pattern">Invalid first name</div>
+                          <div>{{errorMessageTextFirstName}}</div>
                     </div>
                     <!-- <div class="row">
                       <div class="col-md-3">
@@ -399,13 +399,13 @@
                             simCheckoutForm.get('lastName').dirty
                           ) && !simCheckoutForm.get('lastName').pristine
                       }"
-                      (keypress)="onlyForLastNameError($event)"
+                      (input)="onlyForLastNameError($event.target.value)"
                     />
                     <div *ngIf="simCheckoutForm.get('lastName').errors"
                           class="invalid-feedback" style="display: block;">
                           <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                           <div *ngIf="errorMessageLastName">Enter a valid last name</div>
-                          <div *ngIf="simCheckoutForm.get('lastName').errors.pattern">Invalid last name</div>
+                          <div>{{errorMessageTextLastName}}</div>
                     </div>
                     <!-- <div class="row">
                       <div class="col-md-4 gender">
@@ -459,13 +459,13 @@
                       }"
                       class="form-control form-control-sm"
                       placeholder="Enter your passport no"
-                      (keypress)="onlyForPassportError($event)"
+                      (input)="onlyForPassportError($event.target.value)"
                     />
                     <div *ngIf="simCheckoutForm.get('passport').errors"
                           class="invalid-feedback" style="display: block;">
                           <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                           <div *ngIf="errorMessagePassportNumber">Enter a valid passport number</div>
-                          <div *ngIf="simCheckoutForm.get('passport').errors.pattern">Invalid passport number</div>
+                          <div>{{errorMessageTextPassport}}</div>
                     </div>
                   </div>
                 </div>
@@ -492,13 +492,13 @@
                       class="form-control form-control-sm"
                       placeholder="Enter your mobile no"
                       maxlength="10"
-                      (keypress)="onlyForMobileNumberError($event)"
+                      (input)="onlyForMobileNumberError($event.target.value)"
                     />
                     <div *ngIf="simCheckoutForm.get('cell').errors"
                           class="invalid-feedback" style="display: block;">
                           <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                           <div *ngIf="errorMessageMobileNumber">Enter valid Mobile Number</div>
-                          <div *ngIf="simCheckoutForm.get('cell').errors.pattern">invalid Phone Number</div>
+                          <div>{{errorMessageTextMobileNumber}}</div>
                     </div>
                     <!-- <div class="row">
                       <div class="col-md-3">
@@ -542,13 +542,13 @@
                       }"
                       class="form-control form-control-sm"
                       placeholder="Enter your email address"
-                      (keypress)="onlyForEmailIdError($event)"
+                      (input)="onlyForEmailIdError($event.target.value)"
                     />
                     <div *ngIf="simCheckoutForm.get('emailId').errors"
                           class="invalid-feedback" style="display: block;">
                           <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                           <div *ngIf="errorMessageEmaildId">Enter valid email id</div>
-                          <div *ngIf="simCheckoutForm.get('emailId').errors.pattern">invalid email id</div>
+                          <div>{{errorMessageTextEmailId}}</div>
                     </div>
                     <!-- <div class="row">
 
@@ -731,13 +731,13 @@
                       id="exampleFormControlTextarea1"
                       rows="4"
                       placeholder="Enter your address"
-                      (keypress)="onlyForAddressError($event)"
+                      (change)="onlyForAddressError($event.target.value)"
                     ></textarea>
                     <div *ngIf="simCheckoutForm.get('address').errors"
                           class="invalid-feedback" style="display: block;">
                           <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                           <div *ngIf="errorMessageAddess">Enter a valid address</div>
-                          <div *ngIf="simCheckoutForm.get('address').errors.pattern">Invalid address</div>
+                          <div>{{errorMessageTextAddress}}</div>
                     </div>
                   </div>
                 </div>
@@ -748,9 +748,8 @@
                     <input
                       formControlName="city"
                       autocomplete="new-name"
-                      pattern="^[ a-zA-Z]*$"
+                      pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$"
                       type="text"
-                      minlength="3"
                       [ngClass]="{
                         'is-invalid':
                           (simCheckoutForm.get('city').invalid &&
@@ -765,13 +764,25 @@
                       }"
                       class="form-control form-control-sm trvName"
                       placeholder="Enter your city"
-                      (keypress)="onlyForCityError($event)"
+                      (input)="onlyForCityError($event.target.value)"
                     />
+                    <!-- <ng-select
+                      formControlName="state"
+                      placeholder="Select State"
+                      (change)="stateChanged($event)"
+                    >
+                      <ng-option
+                        *ngFor="let state of stateListArr"
+                        [value]="state"
+                      >
+                        {{ state }}
+                      </ng-option>
+                    </ng-select> -->
                     <div *ngIf="simCheckoutForm.get('city').errors"
                     class="invalid-feedback" style="display: block;">
                     <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                       <div *ngIf="errorMessageCity">Enter a valid city</div>
-                      <div *ngIf="simCheckoutForm.get('city').errors.pattern">Invalid city</div>
+                      <div>{{errorMessageTextCity}}</div>
                     </div>
                   </div>
                   <div class="col-md-6 field_space">
@@ -863,13 +874,13 @@
                             simCheckoutForm.get('pinCode').dirty
                           ) && !simCheckoutForm.get('pinCode').pristine
                       }"
-                      (keypress)="onlyForPincodeError($event)"
+                      (input)="onlyForPincodeError($event.target.value)"
                     />
                     <div *ngIf="simCheckoutForm.get('pinCode').errors"
                     class="invalid-feedback" style="display: block;">
                     <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                     <div *ngIf="errorMessagePincode">Enter a valid pincode</div>
-                    <div *ngIf="simCheckoutForm.get('pinCode').errors.pattern">Invalid pincode</div>
+                    <div>{{errorMessageTextPincode}}</div>
                     </div>
                   </div>
                   <div class="col-md-6 field_space_mb">
@@ -937,13 +948,13 @@
                       }"
                       class="form-control form-control-sm trvName"
                       placeholder="Enter your GST Number"
-                      (keypress)="onlyForGSTError($event)"
+                      (input)="onlyForGSTError($event.target.value)"
                         />
                         <div *ngIf="simCheckoutForm.get('gstNumber').errors"
                         class="invalid-feedback" style="display: block;">
                         <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                         <div *ngIf="errorMessageGST">Enter a valid GST number</div>
-                        <div *ngIf="simCheckoutForm.get('gstNumber').errors.pattern">invalid GST</div>
+                        <div>{{errorMessageTextGST}}</div>
                   </div>
                     </div>
                   </div>
