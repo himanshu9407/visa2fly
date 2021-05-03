@@ -251,152 +251,112 @@
           <div class="card-header summaryHeader text-center">
             <div class="row">
               <div class="col-md-12 summaryHeading">
-                <p class="summary">Summary</p>
+                  <div class="summaryBox">
+                    <span class="summary">Summary</span>
+                  </div>
               </div>
             </div>
           </div>
 
           <div class="card-body summaryBody">
-            <div style="width: 100%">
-              <div
-                id="carouselExampleControls"
-                class="carousel slide"
-                data-ride="carousel"
-              >
-                <div class="carousel-inner">
-                  <div
-                    class="carousel-item"
-                    *ngFor="
-                      let item of simCart;
-                      let index = index;
-                      let isFirst = first
-                    "
-                    [ngClass]="{ active: isFirst }"
-                  >
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Item: </span>
-                      <p class="summaryData1">{{ item.planName }}</p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Qty: </span>
-                      <p class="summaryData1">{{ item.quantity }}</p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Price: </span>
-                      <p class="summaryData1">
-                        &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}
-                      </p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Convenience Fee: </span>
-                      <p class="summaryData1">
-                        &#x20B9; {{ item.convenienceFee }}
-                      </p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">GST: </span>
-                      <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings"
-                        >Sub Total (Inclusive of taxes)</span
-                      >
-                      <p class="summaryData1">
-                        &#x20B9;
-                        {{
+            <div style="width: 100%;">
+               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let item of simCart; let index = index; let isFirst=first" [ngClass]="{active:isFirst}">
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Item: </span>
+                        <p class="summaryData1">{{ item.planName }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Qty: </span>
+                        <p class="summaryData1">{{ item.quantity }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Price: </span>
+                        <p class="summaryData1"> &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Convenience Fee: </span>
+                        <p class="summaryData1">&#x20B9; {{ item.convenienceFee }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">GST: </span>
+                        <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Sub Total (Inclusive of taxes)</span>
+                        <p class="summaryData1">&#x20B9; {{
                           item.quantity *
                             (item.price +
                               item.convenienceFee +
                               item.convenienceFeeTAX) | number: "1.0-2"
-                        }}
-                      </p>
-                    </div>
+                        }}</p>
+                      </div>
                   </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#carouselExampleControls"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
+                  </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
                 </a>
-                <a
-                  class="carousel-control-next"
-                  href="#carouselExampleControls"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
               </div>
             </div>
           </div>
           <div class="card-footer summaryFooter text-center">
-            <span class="summaryHeadings">GRAND TOTAL</span>
-            <p class="summaryData">
-              &#x20B9; {{ totalPrice | number: "1.0-2" }}
-            </p>
+            <div class="col-lg-12">
+              <span class="summaryHeadings">GRAND TOTAL</span>
+              <p class="summaryData">&#x20B9; {{ totalPrice | number: "1.0-2" }}</p>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-7 col-lg-8 TrvDetail">
         <div class="row">
           <div class="col-md-12 headingForForm">
-            <p class="headTitle lead headingTitle">Traveller Detail</p>
+            <p
+              class="headTitle lead font-weight-bold mb-1 headingTitle"
+              style="text-transform: uppercase"
+            >
+              Traveler Detail
+            </p>
           </div>
         </div>
         <form [formGroup]="simCheckoutForm">
           <div class="row">
             <div class="col-md-12 paddReq">
-              <div class="form-row form-group forMobile">
-                <div class="col-md-6 field_space">
-                  <label for="" class="">First Name:</label>
-                  <input
-                    formControlName="firstName"
-                    pattern="[A-Za-z]{3,32}"
-                    type="text"
-                    autocomplete="new-name"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('firstName').invalid &&
-                          simCheckoutForm.get('firstName').dirty) ||
-                        (simCheckoutForm.get('firstName').pristine &&
-                          errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('firstName').invalid &&
-                          simCheckoutForm.get('firstName').dirty
-                        ) && !simCheckoutForm.get('firstName').pristine
-                    }"
-                    class="form-control form-control-sm trvName"
-                    placeholder="Enter your first name"
-                    (keypress)="onlyForError($event)"
-                  />
-                  <div
-                    *ngIf="simCheckoutForm.get('firstName').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                    <div *ngIf="errorMessageFirstName">
-                      Enter a valid first name
+                <div class="form-row form-group forMobile">
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">First Name:</label>
+                    <input
+                      formControlName="firstName"
+                      pattern="[A-Za-z]{3,32}"
+                      type="text"
+                      autocomplete="new-name"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('firstName').invalid &&
+                            simCheckoutForm.get('firstName').dirty) ||
+                          (simCheckoutForm.get('firstName').pristine && errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('firstName').invalid &&
+                            simCheckoutForm.get('firstName').dirty
+                          ) && !simCheckoutForm.get('firstName').pristine
+                      }"
+                      class="form-control form-control-sm trvName"
+                      placeholder="Enter your first name"
+                      (input)="onlyForError($event.target.value)"
+                    />
+                    <div *ngIf="simCheckoutForm.get('firstName').errors"
+                          class="invalid-feedback" style="display: block;">
+                          <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
+                          <div *ngIf="errorMessageFirstName">Enter a valid first name</div>
+                          <div>{{errorMessageTextFirstName}}</div>
                     </div>
-                    <div
-                      *ngIf="simCheckoutForm.get('firstName').errors.pattern"
-                    >
-                      Invalid first name
-                    </div>
-                  </div>
-                  <!-- <div class="row">
+                    <!-- <div class="row">
                       <div class="col-md-3">
                         <label for="" class="">First Name:</label>
                       </div>
@@ -414,46 +374,40 @@
                           Please enter valid First Name
                         </div>
                       </div>
+
+
                     </div> -->
-                </div>
-                <!-- <div class="col-md-1 field_space"></div> -->
-                <div class="col-md-6 field_space">
-                  <label for="" class="">Last Name:</label>
-                  <input
-                    formControlName="lastName"
-                    pattern="[A-Za-z]{3,32}"
-                    type="text"
-                    autocomplete="new-name"
-                    class="form-control form-control-sm trvName"
-                    placeholder="Enter your last name"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('lastName').invalid &&
-                          simCheckoutForm.get('lastName').dirty) ||
-                        (simCheckoutForm.get('lastName').pristine &&
-                          errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('lastName').invalid &&
-                          simCheckoutForm.get('lastName').dirty
-                        ) && !simCheckoutForm.get('lastName').pristine
-                    }"
-                    (keypress)="onlyForLastNameError($event)"
-                  />
-                  <div
-                    *ngIf="simCheckoutForm.get('lastName').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                    <div *ngIf="errorMessageLastName">
-                      Enter a valid last name
-                    </div>
-                    <div *ngIf="simCheckoutForm.get('lastName').errors.pattern">
-                      Invalid last name
-                    </div>
                   </div>
-                  <!-- <div class="row">
+                  <!-- <div class="col-md-1 field_space"></div> -->
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">Last Name:</label>
+                    <input
+                      formControlName="lastName"
+                      pattern="[A-Za-z]{3,32}"
+                      type="text"
+                      autocomplete="new-name"
+                      class="form-control form-control-sm trvName"
+                      placeholder="Enter your last name"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('lastName').invalid &&
+                            simCheckoutForm.get('lastName').dirty) ||
+                          (simCheckoutForm.get('lastName').pristine && errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('lastName').invalid &&
+                            simCheckoutForm.get('lastName').dirty
+                          ) && !simCheckoutForm.get('lastName').pristine
+                      }"
+                      (input)="onlyForLastNameError($event.target.value)"
+                    />
+                    <div *ngIf="simCheckoutForm.get('lastName').errors"
+                          class="invalid-feedback" style="display: block;">
+                          <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
+                          <div *ngIf="errorMessageLastName">Enter a valid last name</div>
+                          <div>{{errorMessageTextLastName}}</div>
+                    </div>
+                    <!-- <div class="row">
                       <div class="col-md-4 gender">
                         <label for="" class="">Last Name:</label>
                       </div>
@@ -472,96 +426,81 @@
                         </div>
                       </div>
                     </div> -->
+                  </div>
                 </div>
-              </div>
-              <div class="form-row form-group forMobile">
-                <div class="col-md-6 field_space">
-                  <label for="" class="">Gender:</label>
-                  <select
-                    formControlName="gender"
-                    class="form-control form-control-sm"
-                  >
-                    <option selected value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
-                <div class="col-md-6 field_space">
-                  <label for="" class="">Passport No:</label>
-                  <input
-                    formControlName="passport"
-                    pattern="^[A-Za-z]{1}[0-9]{7}$"
-                    type="text"
-                    autocomplete="new-name"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('passport').invalid &&
-                          simCheckoutForm.get('passport').dirty) ||
-                        (simCheckoutForm.get('passport').pristine &&
-                          errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('passport').invalid &&
-                          simCheckoutForm.get('passport').dirty
-                        ) && !simCheckoutForm.get('passport').pristine
-                    }"
-                    class="form-control form-control-sm"
-                    placeholder="Enter your passport no"
-                    (keypress)="onlyForPassportError($event)"
-                  />
-                  <div
-                    *ngIf="simCheckoutForm.get('passport').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                    <div *ngIf="errorMessagePassportNumber">
-                      Enter a valid passport number
-                    </div>
-                    <div *ngIf="simCheckoutForm.get('passport').errors.pattern">
-                      Invalid passport number
+                <div class="form-row form-group forMobile">
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">Gender:</label>
+                    <select
+                      formControlName="gender"
+                      class="form-control form-control-sm"
+                    >
+                      <option selected value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">Passport No:</label>
+                    <input
+                      formControlName="passport"
+                      pattern="^[A-Za-z]{1}[0-9]{7}$"
+                      type="text"
+                      autocomplete="new-name"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('passport').invalid &&
+                            simCheckoutForm.get('passport').dirty) ||
+                          (simCheckoutForm.get('passport').pristine && errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('passport').invalid &&
+                            simCheckoutForm.get('passport').dirty
+                          ) && !simCheckoutForm.get('passport').pristine
+                      }"
+                      class="form-control form-control-sm"
+                      placeholder="Enter your passport no"
+                      (input)="onlyForPassportError($event.target.value)"
+                    />
+                    <div *ngIf="simCheckoutForm.get('passport').errors"
+                          class="invalid-feedback" style="display: block;">
+                          <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
+                          <div *ngIf="errorMessagePassportNumber">Enter a valid passport number</div>
+                          <div>{{errorMessageTextPassport}}</div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="form-row form-group forMobile">
-                <div class="col-md-6">
-                  <label for="" class="">Mobile:</label>
-                  <input
-                    formControlName="cell"
-                    pattern="^[4-9][0-9]{9}$"
-                    autocomplete="new-name"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('cell').invalid &&
-                          simCheckoutForm.get('cell').dirty) ||
-                        (simCheckoutForm.get('cell').pristine && errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('cell').invalid &&
-                          simCheckoutForm.get('cell').dirty
-                        ) && !simCheckoutForm.get('cell').pristine
-                    }"
-                    type="tel"
-                    class="form-control form-control-sm"
-                    placeholder="Enter your mobile no"
-                    maxlength="10"
-                    (keypress)="onlyForMobileNumberError($event)"
-                  />
-                  <div
-                    *ngIf="simCheckoutForm.get('cell').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                    <div *ngIf="errorMessageMobileNumber">
-                      Enter valid Mobile Number
+                <div class="form-row form-group forMobile">
+                  <div class="col-md-6">
+                    <label for="" class="">Mobile:</label>
+                    <input
+                      formControlName="cell"
+                      pattern="^[4-9][0-9]{9}$"
+                      autocomplete="new-name"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('cell').invalid &&
+                            simCheckoutForm.get('cell').dirty) ||
+                          (simCheckoutForm.get('cell').pristine && errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('cell').invalid &&
+                            simCheckoutForm.get('cell').dirty
+                          ) && !simCheckoutForm.get('cell').pristine
+                      }"
+                      type="tel"
+                      class="form-control form-control-sm"
+                      placeholder="Enter your mobile no"
+                      maxlength="10"
+                      (input)="onlyForMobileNumberError($event.target.value)"
+                    />
+                    <div *ngIf="simCheckoutForm.get('cell').errors"
+                          class="invalid-feedback" style="display: block;">
+                          <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
+                          <div *ngIf="errorMessageMobileNumber">Enter valid Mobile Number</div>
+                          <div>{{errorMessageTextMobileNumber}}</div>
                     </div>
-                    <div *ngIf="simCheckoutForm.get('cell').errors.pattern">
-                      invalid Phone Number
-                    </div>
-                  </div>
-                  <!-- <div class="row">
+                    <!-- <div class="row">
                       <div class="col-md-3">
                         <label for="" class="">Mobile:</label>
                       </div>
@@ -581,43 +520,37 @@
                         </div>
                       </div>
                     </div> -->
-                </div>
-
-                <div class="col-md-6 field_space">
-                  <label for="" class="">Email:</label>
-                  <input
-                    formControlName="emailId"
-                    autocomplete="new-name"
-                    pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
-                    type="text"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('emailId').invalid &&
-                          simCheckoutForm.get('emailId').dirty) ||
-                        (simCheckoutForm.get('emailId').pristine &&
-                          errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('emailId').invalid &&
-                          simCheckoutForm.get('emailId').dirty
-                        ) && !simCheckoutForm.get('emailId').pristine
-                    }"
-                    class="form-control form-control-sm"
-                    placeholder="Enter your email address"
-                    (keypress)="onlyForEmailIdError($event)"
-                  />
-                  <div
-                    *ngIf="simCheckoutForm.get('emailId').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                    <div *ngIf="errorMessageEmaildId">Enter valid email id</div>
-                    <div *ngIf="simCheckoutForm.get('emailId').errors.pattern">
-                      invalid email id
-                    </div>
                   </div>
-                  <!-- <div class="row">
+
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">Email:</label>
+                    <input
+                      formControlName="emailId"
+                      autocomplete="new-name"
+                      pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
+                      type="text"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('emailId').invalid &&
+                            simCheckoutForm.get('emailId').dirty) ||
+                          (simCheckoutForm.get('emailId').pristine && errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('emailId').invalid &&
+                            simCheckoutForm.get('emailId').dirty
+                          ) && !simCheckoutForm.get('emailId').pristine
+                      }"
+                      class="form-control form-control-sm"
+                      placeholder="Enter your email address"
+                      (input)="onlyForEmailIdError($event.target.value)"
+                    />
+                    <div *ngIf="simCheckoutForm.get('emailId').errors"
+                          class="invalid-feedback" style="display: block;">
+                          <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
+                          <div *ngIf="errorMessageEmaildId">Enter valid email id</div>
+                          <div>{{errorMessageTextEmailId}}</div>
+                    </div>
+                    <!-- <div class="row">
 
                       <div class="col-md-4 mail">
                         <label for="" class="">Email:</label>
@@ -640,253 +573,243 @@
                         </div>
                       </div>
                     </div> -->
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-row form-group forMobile">
-                <div class="col-md-6 field_space">
-                  <label for="" class="">Date of Birth:</label>
-                  <div class="input-group">
-                    <input
-                      [minDate]="{ year: 1930, month: 1, day: 1 }"
-                      [maxDate]="maxDateDob"
-                      formControlName="dateOfBirth"
-                      autocomplete="new-name"
-                      id="#dob"
-                      class="form-control form-control-sm addTravelDate"
-                      placeholder="Date of birth"
-                      name="dob"
-                      ngbDatepicker
-                      #dob="ngbDatepicker"
-                      (click)="dob.toggle()"
-                      readonly="readonly"
-                      [ngClass]="{
-                        'is-invalid':
-                          (simCheckoutForm.get('dateOfBirth').invalid &&
-                            simCheckoutForm.get('dateOfBirth').dirty) ||
-                          (simCheckoutForm.get('dateOfBirth').pristine &&
-                            errorMessage),
-                        'is-valid':
-                          !(
-                            simCheckoutForm.get('dateOfBirth').invalid &&
-                            simCheckoutForm.get('dateOfBirth').dirty
-                          ) && !simCheckoutForm.get('dateOfBirth').pristine
-                      }"
-                    />
-                    <div class="input-group-append">
-                      <button
-                        class="btn btn-sm btn-outline-secondary calendar"
+                <div class="form-row form-group forMobile">
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">Date of Birth:</label>
+                    <div class="input-group">
+                      <input
+                        [minDate]="{ year: 1930, month: 1, day: 1 }"
+                        [maxDate]="maxDateDob"
+                        formControlName="dateOfBirth"
+                        autocomplete="new-name"
+                        id="#dob"
+                        class="form-control form-control-sm addTravelDate"
+                        placeholder="Date of birth"
+                        name="dob"
+                        ngbDatepicker
+                        #dob="ngbDatepicker"
                         (click)="dob.toggle()"
-                        type="button"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          class="calendarSvg"
-                          width="18px"
-                          height="18px"
+                        readonly="readonly"
+                        [ngClass]="{
+                          'is-invalid':
+                            (simCheckoutForm.get('dateOfBirth').invalid &&
+                              simCheckoutForm.get('dateOfBirth').dirty) ||
+                            (simCheckoutForm.get('dateOfBirth').pristine &&
+                              errorMessage),
+                          'is-valid':
+                            !(
+                              simCheckoutForm.get('dateOfBirth').invalid &&
+                              simCheckoutForm.get('dateOfBirth').dirty
+                            ) && !simCheckoutForm.get('dateOfBirth').pristine
+                        }"
+                      />
+                      <div class="input-group-append">
+                        <button
+                          class="btn btn-sm btn-outline-secondary calendar"
+                          (click)="dob.toggle()"
+                          type="button"
                         >
-                          <path
-                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                          />
-                          <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                      </button>
-                    </div>
-                    <div
-                      *ngIf="
-                        (simCheckoutForm.get('dateOfBirth').invalid &&
-                          simCheckoutForm.get('dateOfBirth').dirty) ||
-                        (simCheckoutForm.get('dateOfBirth').pristine &&
-                          errorMessage)
-                      "
-                      class="invalid-feedback"
-                      style="display: block"
-                    >
-                      Select date of birth
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            class="calendarSvg"
+                            width="18px"
+                            height="18px"
+                          >
+                            <path
+                              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                            />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div *ngIf="(simCheckoutForm.get('dateOfBirth').invalid && simCheckoutForm.get('dateOfBirth').dirty)
+                        || (simCheckoutForm.get('dateOfBirth').pristine && errorMessage)"
+                          class="invalid-feedback" style="display: block;">
+                          Select date of birth
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="col-md-6 field_space">
-                  <label for="" class="">Sim To Be Activated On:</label>
-                  <div class="input-group">
-                    <input
-                      formControlName="simActivationDate"
-                      id="#activated"
-                      class="form-control form-control-sm"
-                      placeholder="Select Date"
-                      autocomplete="new-name"
-                      name="activated"
-                      [minDate]="minDate"
-                      [maxDate]="maxTravelDate"
-                      ngbDatepicker
-                      #activated="ngbDatepicker"
-                      (click)="activated.toggle()"
-                      readonly="readonly"
-                      [ngClass]="{
-                        'is-invalid':
-                          (simCheckoutForm.get('simActivationDate').invalid &&
-                            simCheckoutForm.get('simActivationDate').dirty) ||
-                          (simCheckoutForm.get('simActivationDate').pristine &&
-                            errorMessage),
-                        'is-valid':
-                          !(
-                            simCheckoutForm.get('simActivationDate').invalid &&
-                            simCheckoutForm.get('simActivationDate').dirty
-                          ) &&
-                          !simCheckoutForm.get('simActivationDate').pristine
-                      }"
-                    />
-                    <div class="input-group-append">
-                      <button
-                        class="btn btn-outline-secondary calendar"
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">Sim To Be Activated On:</label>
+                    <div class="input-group">
+                      <input
+                        formControlName="simActivationDate"
+                        id="#activated"
+                        class="form-control form-control-sm"
+                        placeholder="Select Date"
+                        autocomplete="new-name"
+                        name="activated"
+                        [minDate]="minDate"
+                        [maxDate]="maxTravelDate"
+                        ngbDatepicker
+                        #activated="ngbDatepicker"
                         (click)="activated.toggle()"
-                        type="button"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          width="18px"
-                          height="18px"
-                          class="calendarSvg"
+                        readonly="readonly"
+                        [ngClass]="{
+                          'is-invalid':
+                            (simCheckoutForm.get('simActivationDate').invalid &&
+                              simCheckoutForm.get('simActivationDate').dirty) ||
+                            (simCheckoutForm.get('simActivationDate').pristine &&
+                              errorMessage),
+                          'is-valid':
+                            !(
+                              simCheckoutForm.get('simActivationDate').invalid &&
+                              simCheckoutForm.get('simActivationDate').dirty
+                            ) && !simCheckoutForm.get('simActivationDate').pristine
+                        }"
+                      />
+                      <div class="input-group-append">
+                        <button
+                          class="btn btn-outline-secondary calendar"
+                          (click)="activated.toggle()"
+                          type="button"
                         >
-                          <path
-                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                          />
-                          <path d="M0 0h24v24H0z" fill="none" />
-                        </svg>
-                      </button>
-                    </div>
-                    <div
-                      *ngIf="
-                        (simCheckoutForm.get('simActivationDate').invalid &&
-                          simCheckoutForm.get('simActivationDate').dirty) ||
-                        (simCheckoutForm.get('simActivationDate').pristine &&
-                          errorMessage)
-                      "
-                      class="invalid-feedback"
-                      style="display: block"
-                    >
-                      Select activation date
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="18px"
+                            height="18px"
+                            class="calendarSvg"
+                          >
+                            <path
+                              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                            />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div *ngIf="(simCheckoutForm.get('simActivationDate').invalid && simCheckoutForm.get('simActivationDate').dirty)
+                        || (simCheckoutForm.get('simActivationDate').pristine && errorMessage)"
+                          class="invalid-feedback" style="display: block;">
+                          Select activation date
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
           <div class="row">
             <!-- <div class="form-row addressHeading"> -->
-            <div class="col-md-12 paddReq1 headingForForm">
-              <p class="headTitle lead addressDetailsHeading forMobileUseOnly">
-                Address Detail
-              </p>
-            </div>
+              <div class="col-md-12 paddReq1 headingForForm">
+                <p
+                  class="headTitle lead font-weight-bold addressDetailsHeading forMobileUseOnly mb-1"
+                  style="text-transform: uppercase"
+                >
+                  Address Detail
+                </p>
+              </div>
             <!-- </div> -->
           </div>
           <div class="row">
             <div class="col-md-12 paddReq">
-              <div class="form-row form-group forMobile">
-                <div class="col-md-12 field_space">
-                  <label for="exampleFormControlInput1">Address:</label>
-                  <textarea
-                    formControlName="address"
-                    pattern="^[ A-Za-z0-9-:./,]*$"
-                    minlength="10"
-                    maxlength="400"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('address').invalid &&
-                          simCheckoutForm.get('address').dirty) ||
-                        (simCheckoutForm.get('address').pristine &&
-                          errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('address').invalid &&
-                          simCheckoutForm.get('address').dirty
-                        ) && !simCheckoutForm.get('address').pristine
-                    }"
-                    class="form-control"
-                    id="exampleFormControlTextarea1"
-                    rows="4"
-                    placeholder="Enter your address"
-                    (keypress)="onlyForAddressError($event)"
-                  ></textarea>
-                  <div
-                    *ngIf="simCheckoutForm.get('address').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                    <div *ngIf="errorMessageAddess">Enter a valid address</div>
-                    <div *ngIf="simCheckoutForm.get('address').errors.pattern">
-                      Invalid address
+                <div class="form-row form-group forMobile">
+                  <div class="col-md-12 field_space">
+                    <label for="exampleFormControlInput1">Address:</label>
+                    <textarea
+                      formControlName="address"
+                      pattern="^[ A-Za-z0-9-:./,]*$"
+                      minlength="10"
+                      maxlength="400"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('address').invalid &&
+                            simCheckoutForm.get('address').dirty) ||
+                          (simCheckoutForm.get('address').pristine &&
+                            errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('address').invalid &&
+                            simCheckoutForm.get('address').dirty
+                          ) && !simCheckoutForm.get('address').pristine
+                      }"
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="4"
+                      placeholder="Enter your address"
+                      (change)="onlyForAddressError($event.target.value)"
+                    ></textarea>
+                    <div *ngIf="simCheckoutForm.get('address').errors"
+                          class="invalid-feedback" style="display: block;">
+                          <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
+                          <div *ngIf="errorMessageAddess">Enter a valid address</div>
+                          <div>{{errorMessageTextAddress}}</div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="form-row form-group forMobile">
-                <div class="col-md-6 field_space">
-                  <label for="" class="">City:</label>
-                  <input
-                    formControlName="city"
-                    autocomplete="new-name"
-                    pattern="^[ a-zA-Z]*$"
-                    type="text"
-                    minlength="3"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('city').invalid &&
-                          simCheckoutForm.get('city').dirty) ||
-                        (simCheckoutForm.get('city').pristine && errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('city').invalid &&
-                          simCheckoutForm.get('city').dirty
-                        ) && !simCheckoutForm.get('city').pristine
-                    }"
-                    class="form-control form-control-sm trvName"
-                    placeholder="Enter your city"
-                    (keypress)="onlyForCityError($event)"
-                  />
-                  <div
-                    *ngIf="simCheckoutForm.get('city').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
+                <div class="form-row form-group forMobile">
+                  <div class="col-md-6 field_space">
+                    <label for="" class="">City:</label>
+                    <input
+                      formControlName="city"
+                      autocomplete="new-name"
+                      pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$"
+                      type="text"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('city').invalid &&
+                            simCheckoutForm.get('city').dirty) ||
+                          (simCheckoutForm.get('city').pristine &&
+                            errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('city').invalid &&
+                            simCheckoutForm.get('city').dirty
+                          ) && !simCheckoutForm.get('city').pristine
+                      }"
+                      class="form-control form-control-sm trvName"
+                      placeholder="Enter your city"
+                      (input)="onlyForCityError($event.target.value)"
+                    />
+                    <!-- <ng-select
+                      formControlName="state"
+                      placeholder="Select State"
+                      (change)="stateChanged($event)"
+                    >
+                      <ng-option
+                        *ngFor="let state of stateListArr"
+                        [value]="state"
+                      >
+                        {{ state }}
+                      </ng-option>
+                    </ng-select> -->
+                    <div *ngIf="simCheckoutForm.get('city').errors"
+                    class="invalid-feedback" style="display: block;">
                     <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                    <div *ngIf="errorMessageCity">Enter a valid city</div>
-                    <div *ngIf="simCheckoutForm.get('city').errors.pattern">
-                      Invalid city
+                      <div *ngIf="errorMessageCity">Enter a valid city</div>
+                      <div>{{errorMessageTextCity}}</div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 field_space">
-                  <label for="exampleInputPassword1">State:</label>
-                  <ng-select
-                    formControlName="state"
-                    placeholder="Select State"
-                    (change)="stateChanged($event)"
-                  >
-                    <ng-option
-                      *ngFor="let state of stateListArr"
-                      [value]="state"
+                  <div class="col-md-6 field_space">
+                    <label for="exampleInputPassword1">State:</label>
+                    <ng-select
+                      formControlName="state"
+                      placeholder="Select State"
+                      (change)="stateChanged($event)"
                     >
-                      {{ state }}
-                    </ng-option>
-                  </ng-select>
-                  <div
-                    *ngIf="
-                      simCheckoutForm.controls.state.errors?.valueErr ||
-                      stateError
-                    "
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    Select a valid state
-                  </div>
-                  <!-- <select formControlName="state" id="inputState" class="form-control col form-control-sm">
+                      <ng-option
+                        *ngFor="let state of stateListArr"
+                        [value]="state"
+                      >
+                        {{ state }}
+                      </ng-option>
+                    </ng-select>
+                    <div
+                      *ngIf="
+                        simCheckoutForm.controls.state.errors?.valueErr ||
+                        stateError
+                      "
+                      class="invalid-feedback"
+                      style="display: block"
+                    >
+                      Select a valid state
+                    </div>
+                    <!-- <select formControlName="state" id="inputState" class="form-control col form-control-sm">
                       <option selected value="select" [disabled]="true" [selected]="true">Select State</option>
                       <option value="Andaman And Nicobar Islands">Andaman and Nicobar Islands</option>
                       <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -925,105 +848,95 @@
                       <option value="Uttarakhand">Uttarakhand</option>
                       <option value="West Bengal">West Bengal</option>
                     </select> -->
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-row form-group forMobile">
-                <div class="col-md-6 field_space_mb">
-                  <label for="exampleInputPassword1">Pin Code:</label>
-                  <input
-                    type="text"
-                    autocomplete="new-name"
-                    pattern="^[1-9][0-9]{5}$"
-                    formControlName="pinCode"
-                    class="form-control form-control-sm col"
-                    id="exampleInputPassword1"
-                    placeholder="Enter your pincode"
-                    [ngClass]="{
-                      'is-invalid':
-                        (simCheckoutForm.get('pinCode').invalid &&
-                          simCheckoutForm.get('pinCode').dirty) ||
-                        (simCheckoutForm.get('pinCode').pristine &&
-                          errorMessage),
-                      'is-valid':
-                        !(
-                          simCheckoutForm.get('pinCode').invalid &&
-                          simCheckoutForm.get('pinCode').dirty
-                        ) && !simCheckoutForm.get('pinCode').pristine
-                    }"
-                    (keypress)="onlyForPincodeError($event)"
-                  />
-                  <div
-                    *ngIf="simCheckoutForm.get('pinCode').errors"
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
+                <div class="form-row form-group forMobile">
+                  <div class="col-md-6 field_space_mb">
+                    <label for="exampleInputPassword1">Pin Code:</label>
+                    <input
+                      type="text"
+                      autocomplete="new-name"
+                      pattern="^[1-9][0-9]{5}$"
+                      formControlName="pinCode"
+                      class="form-control form-control-sm col"
+                      id="exampleInputPassword1"
+                      placeholder="Enter your pincode"
+                      [ngClass]="{
+                        'is-invalid':
+                          (simCheckoutForm.get('pinCode').invalid &&
+                            simCheckoutForm.get('pinCode').dirty) ||
+                          (simCheckoutForm.get('pinCode').pristine &&
+                            errorMessage),
+                        'is-valid':
+                          !(
+                            simCheckoutForm.get('pinCode').invalid &&
+                            simCheckoutForm.get('pinCode').dirty
+                          ) && !simCheckoutForm.get('pinCode').pristine
+                      }"
+                      (input)="onlyForPincodeError($event.target.value)"
+                    />
+                    <div *ngIf="simCheckoutForm.get('pinCode').errors"
+                    class="invalid-feedback" style="display: block;">
                     <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
                     <div *ngIf="errorMessagePincode">Enter a valid pincode</div>
-                    <div *ngIf="simCheckoutForm.get('pinCode').errors.pattern">
-                      Invalid pincode
+                    <div>{{errorMessageTextPincode}}</div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 field_space_mb">
-                  <label for="" class="">Country:</label>
-                  <input
-                    disabled
-                    autocomplete="new-name"
-                    formControlName="country"
-                    type="text"
-                    style="font-weight: 700"
-                    class="form-control form-control-sm trvName"
-                    placeholder="Country"
-                  />
-                  <div
-                    *ngIf="
-                      simCheckoutForm.get('country').invalid &&
-                      simCheckoutForm.get('country').dirty
-                    "
-                    class="invalid-feedback"
-                    style="display: block"
-                  >
-                    Please enter valid Country
-                  </div>
-                </div>
-              </div>
-              <form [formGroup]="gstOption">
-                <div class="form-row form-group gstPart">
-                  <div class="col-md-4 field_space_mb">
-                    <div class="form-check form-check-inline">
-                      <input
-                        formControlName="gstOptionResult"
-                        class="form-check-input"
-                        type="checkbox"
-                        name="inlineRadioOptions"
-                        autocomplete="new-name"
-                        id="inlineRadio1"
-                      />
-                      <label
-                        class="form-check-label"
-                        for="inlineRadio1"
-                        style="font-size: 13px"
-                        >Have GST Number ?</label
-                      >
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-2 field_space_mb label_for_gst"
-                    *ngIf="gstOption.get('gstOptionResult').value === true"
-                  >
-                    <label for="gstNumber" class="gstLabel">GST Number:</label>
-                  </div>
-                  <div
-                    class="col-md-6 field_space_mb gstFieldSetting gstMobileAdjustment"
-                    *ngIf="gstOption.get('gstOptionResult').value === true"
-                  >
+                  <div class="col-md-6 field_space_mb">
+                    <label for="" class="">Country:</label>
                     <input
+                      disabled
+                      autocomplete="new-name"
+                      formControlName="country"
+                      type="text"
+                      style="font-weight: 700"
+                      class="form-control form-control-sm trvName"
+                      placeholder="Country"
+                    />
+                    <div
+                      *ngIf="
+                        simCheckoutForm.get('country').invalid &&
+                        simCheckoutForm.get('country').dirty
+                      "
+                      class="invalid-feedback"
+                      style="display: block"
+                    >
+                      Please enter valid Country
+                    </div>
+                  </div>
+                </div>
+                <form [formGroup]="gstOption">
+                  <div class="form-row form-group gstPart">
+                    <div class="col-md-4 field_space_mb">
+                      <div class="form-check form-check-inline">
+                        <input
+                          formControlName="gstOptionResult"
+                          class="form-check-input"
+                          type="checkbox"
+                          name="inlineRadioOptions"
+                          autocomplete="new-name"
+                          id="inlineRadio1"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="inlineRadio1"
+                          style="font-size: 13px"
+                          >Have GST Number ?</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-2 field_space_mb label_for_gst" *ngIf="gstOption.get('gstOptionResult').value === true">
+                      <label for="gstNumber" class="gstLabel">GST Number:</label>
+                    </div>
+                    <div class="col-md-6 field_space_mb gstFieldSetting gstMobileAdjustment" *ngIf="gstOption.get('gstOptionResult').value === true">
+                        <input
                       formControlName="gstNumber"
                       autocomplete="new-name"
                       type="text"
                       id="gstNumber"
                       pattern="^[A-Za-z0-9]*$"
+                      maxlength="15"
                       [ngClass]="{
                         'is-invalid':
                           simCheckoutForm.get('gstNumber').invalid &&
@@ -1036,26 +949,17 @@
                       }"
                       class="form-control form-control-sm trvName"
                       placeholder="Enter your GST Number"
-                      (keypress)="onlyForGSTError($event)"
-                    />
-                    <div
-                      *ngIf="simCheckoutForm.get('gstNumber').errors"
-                      class="invalid-feedback"
-                      style="display: block"
-                    >
-                      <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
-                      <div *ngIf="errorMessageGST">
-                        Enter a valid GST number
-                      </div>
-                      <div
-                        *ngIf="simCheckoutForm.get('gstNumber').errors.pattern"
-                      >
-                        invalid GST
-                      </div>
+                      (input)="onlyForGSTError($event.target.value)"
+                        />
+                        <div *ngIf="simCheckoutForm.get('gstNumber').errors"
+                        class="invalid-feedback" style="display: block;">
+                        <!-- <div *ngIf="simCheckoutForm.get('cell').pristine && errorMessage">Contact Number is Required</div> -->
+                        <div *ngIf="errorMessageGST">Enter a valid GST number</div>
+                        <div>{{errorMessageTextGST}}</div>
+                  </div>
                     </div>
                   </div>
-                </div>
-              </form>
+                </form>
             </div>
           </div>
           <div class="row">
@@ -1083,95 +987,64 @@
           <div class="card-header summaryHeader text-center">
             <div class="row">
               <div class="col-md-12 summaryHeading">
-                <p class="summary">Summary</p>
+                  <div class="summaryBox">
+                    <span class="summary">Summary</span>
+                  </div>
               </div>
             </div>
           </div>
-          <div
-            id="carouselDeskstopControls"
-            class="carousel slide"
-            data-ride="carousel"
-          >
+          <div id="carouselDeskstopControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-              <div
-                class="carousel-item"
-                *ngFor="let item of simCart; let index = index"
-                [ngClass]="{ active: index == 0 }"
-              >
-                <div class="card-body summaryBody">
-                  <div style="width: 100%">
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Item: </span>
-                      <p class="summaryData1">{{ item.planName }}</p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Qty: </span>
-                      <p class="summaryData1">{{ item.quantity }}</p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Price: </span>
-                      <p class="summaryData1">
-                        &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}
-                      </p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">Convenience Fee: </span>
-                      <p class="summaryData1">
-                        &#x20B9; {{ item.convenienceFee }}
-                      </p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings">GST: </span>
-                      <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
-                    </div>
-                    <div class="col-lg-12 text-center">
-                      <span class="summaryHeadings"
-                        >Sub Total (Inclusive of taxes)</span
-                      >
-                      <p class="summaryData1">
-                        &#x20B9;
-                        {{
-                          item.quantity *
-                            (item.price +
-                              item.convenienceFee +
-                              item.convenienceFeeTAX) | number: "1.0-2"
-                        }}
-                      </p>
-                    </div>
+              <div class="carousel-item" *ngFor="let item of simCart; let index = index;" [ngClass]="{active: index == 0}">
+                  <div class="card-body summaryBody">
+                    <div style="width: 100%;">
+                      <div class="col-lg-12 text-center">
+                        <span class="summaryHeadings">Item: </span>
+                        <p class="summaryData1">{{ item.planName }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                            <span class="summaryHeadings">Qty: </span>
+                            <p class="summaryData1">{{ item.quantity }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                            <span class="summaryHeadings">Price: </span>
+                            <p class="summaryData1"> &#x20B9; {{ item.priceWithoutGST | number: "1.0-2" }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                            <span class="summaryHeadings">Convenience Fee: </span>
+                            <p class="summaryData1">&#x20B9; {{ item.convenienceFee }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                            <span class="summaryHeadings">GST: </span>
+                            <p class="summaryData1">&#x20B9; {{ item.gst }}</p>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                            <span class="summaryHeadings">Sub Total (Inclusive of taxes)</span>
+                            <p class="summaryData1">&#x20B9; {{
+                              item.quantity *
+                                (item.price +
+                                  item.convenienceFee +
+                                  item.convenienceFeeTAX) | number: "1.0-2"
+                            }}</p>
+                      </div>
                   </div>
-                </div>
+                  </div>
               </div>
             </div>
-            <a
-              class="carousel-control-prev"
-              href="#carouselDeskstopControls"
-              role="button"
-              data-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
+            <a class="carousel-control-prev" href="#carouselDeskstopControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a
-              class="carousel-control-next"
-              href="#carouselDeskstopControls"
-              role="button"
-              data-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
+            <a class="carousel-control-next" href="#carouselDeskstopControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
           <div class="card-footer text-center summaryFooter">
-            <span class="summaryHeadings">GRAND TOTAL</span>
-            <p class="summaryData">
-              &#x20B9; {{ totalPrice | number: "1.0-2" }}
-            </p>
+            <div class="col-lg-12">
+              <span class="summaryHeadings">GRAND TOTAL</span>
+              <p class="summaryData">&#x20B9; {{ totalPrice | number: "1.0-2" }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1196,6 +1069,7 @@
     </div>
   </div>
 </section>
+
 
 <div style="display: none">
   <form name="paymentForm" ngNoForm [action]="paymentUrl" method="POST">

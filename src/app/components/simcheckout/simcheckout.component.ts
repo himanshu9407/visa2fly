@@ -1,18 +1,23 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { event } from 'jquery';
+import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { SimCheckoutService } from "./simcheckout.service";
 import { Router } from "@angular/router";
+import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { PreloaderService } from "src/app/shared/preloader.service";
+// import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import { isNumber } from 'util';
 
 @Component({
   selector: "app-simcheckout",
   templateUrl: "./simcheckout.component.html",
   styleUrls: ["./simcheckout.component.css"]
 })
-export class SimcheckoutComponent implements OnInit, OnDestroy {
+export class SimcheckoutComponent implements OnInit {
   simCart: Array<any> = [];
   totalPrice: number = 0;
   simCheckoutForm: FormGroup;
@@ -50,6 +55,16 @@ export class SimcheckoutComponent implements OnInit, OnDestroy {
   errorMessageCity: boolean;
   errorMessagePincode: boolean;
   errorMessageGST: boolean;
+  errorMessageTextFirstName: any;
+  errorMessageTextLastName: any;
+  errorMessageTextPassport: any;
+  errorMessageTextMobileNumber: any;
+  errorMessageTextEmailId: any;
+  errorMessageTextAddress: any;
+  errorMessageTextCity: any;
+  errorMessageTextPincode: any;
+  errorMessageTextGST: any;
+
 
   stateListArr: Array<string> = [
     "Andaman And Nicobar Islands",
@@ -143,9 +158,7 @@ export class SimcheckoutComponent implements OnInit, OnDestroy {
     ]);
   }
 
-  ngOnDestroy() {
-    this.simCheckoutForm.reset();
-  }
+
 
   // onlyNumberAllowed(event):boolean {
   //   const charCode = (event.which)?event.which: event.keyCode;
@@ -160,51 +173,126 @@ export class SimcheckoutComponent implements OnInit, OnDestroy {
   //   return true;
   // }
 
-  onlyForError(event) {
-    console.log(event);
-
-    if (/\s/.test(event)) {
-      // It has any kind of whitespace
-      console.log("Himanshu");
+  onlyForError(value) {
+    // console.log(value);
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextFirstName = "spaces are not allowed"
+    } else if (format.test(newValue)) {
+      this.errorMessageTextFirstName = "special character are not allowed"
+    } else if (isNaN(newValue)) {
+      this.errorMessageTextFirstName = "number are not allowed"
+    } else if (newValue == "") {
+      this.errorMessageTextFirstName = "";
     }
-    // return event.indexOf(' ') >= 0
-    // const firstName = event;
-    // if(firstName.indexOf(' ') >= 0)
-    // {
-    //   console.log("Himanshu");
-    // }
     this.errorMessageFirstName = false;
   }
 
-  onlyForLastNameError(event) {
+  onlyForLastNameError(value) {
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextLastName = "spaces are not allowed"
+    } else if (format.test(newValue)) {
+      this.errorMessageTextLastName = "special character are not allowed"
+    } else if (isNaN(newValue)) {
+      this.errorMessageTextLastName = "number are not allowed"
+    } else {
+      this.errorMessageTextLastName = "";
+    }
     this.errorMessageLastName = false;
   }
 
-  onlyForPassportError(event) {
+  onlyForPassportError(value) {
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextPassport = "spaces are not allowed"
+    } else if (format.test(newValue)) {
+      this.errorMessageTextPassport = "special character are not allowed"
+    } else {
+      this.errorMessageTextPassport = "";
+    }
     this.errorMessagePassportNumber = false;
   }
 
-  onlyForMobileNumberError(event) {
+  onlyForMobileNumberError(value) {
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextMobileNumber = "spaces are not allowed"
+    } else if (format.test(newValue)) {
+      this.errorMessageTextMobileNumber = "special character are not allowed"
+    } else if (/[a-z]/i.test(newValue)) {
+      this.errorMessageTextMobileNumber = "alphabet are not allowed"
+    } else {
+      this.errorMessageTextMobileNumber = "";
+    }
     this.errorMessageMobileNumber = false;
   }
 
-  onlyForEmailIdError(event) {
+  onlyForEmailIdError(value) {
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextEmailId = "spaces are not allowed"
+    } else {
+      this.errorMessageTextEmailId = "";
+    }
     this.errorMessageEmaildId = false;
   }
 
-  onlyForPincodeError(event) {
+  onlyForPincodeError(value) {
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextPincode = "spaces are not allowed"
+    } else if (/[a-z]/i.test(newValue)) {
+      this.errorMessageTextPincode = "alphabet are not allowed"
+    } else {
+      this.errorMessageTextPincode = "";
+    }
     this.errorMessagePincode = false;
   }
 
-  onlyForCityError(event) {
+  onlyForCityError(value) {
+    var format = /[$&+,:;=?@#|'<>.^*()%!-]/;
+    const newValue = value;
+    if (format.test(newValue)) {
+      console.log("bshvadhg");
+      this.errorMessageTextCity = "special character are not allowed"
+    } else if (isNaN(newValue)) {
+      this.errorMessageTextCity = "number are not allowed"
+    } else {
+      this.errorMessageTextCity = "";
+    }
     this.errorMessageCity = false;
   }
 
-  onlyForAddressError(event) {
+  onlyForAddressError(value) {
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextAddress = "spaces are not allowed"
+    } else if (format.test(newValue)) {
+      this.errorMessageTextAddress = "special character are not allowed"
+    } else {
+      this.errorMessageTextAddress = "";
+    }
     this.errorMessageAddess = false;
   }
 
-  onlyForGSTError(event) {
+  onlyForGSTError(value) {
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const newValue = value;
+    if (/\s/.test(newValue)) {
+      this.errorMessageTextGST = "spaces are not allowed"
+    } else if (format.test(newValue)) {
+      this.errorMessageTextGST = "special character are not allowed"
+    } else if (newValue == "") {
+      this.errorMessageTextGST = "";
+    }
     this.errorMessageGST = false;
   }
 
