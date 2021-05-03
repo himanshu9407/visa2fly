@@ -1,11 +1,9 @@
 <div class="mgContainer mt-4">
   <div class="text-center my-3" style="width: 100%">
-    <h3 class="popularVisa">Popular Destinations</h3>
-    <p class="popularVisaSubHeading">
-      Apply Visa Online For These Popular Destinations.
-    </p>
+    <h3 class="popularVisa">E-Visas</h3>
+    <p class="popularVisaSubHeading">Apply E-Visa Online</p>
     <div
-      id="recipeCarouselLarge"
+      id="evisaCarouselLarge"
       class="carousel slide w-100 largeCarousel"
       data-ride="carousel"
       data-interval="6000"
@@ -15,72 +13,80 @@
         <!-- for tablet and upper -->
         <div class="carousel-item row no-gutters active">
           <div
-            (click)="proceedToHome('USA')"
+            (click)="proceedToHome('Thailand')"
             class="col-3 float-left img-fluid rounded"
           >
             <img
               class="img-fluid carouselImage rounded lazyload"
-              data-src="https://static.visa2fly.com/eVisa/United State Of America.jpg"
+              data-src="https://static.visa2fly.com/eVisa/Thailand.jpg"
               alt="apply visa online"
             />
-            <div class="country">United States</div>
+            <div class="country">Thailand</div>
           </div>
-          <div
-            (click)="proceedToHome('United Kingdom')"
-            class="col-3 float-left"
-          >
+          <div (click)="proceedToHome('Sri Lanka')" class="col-3 float-left">
             <img
               class="img-fluid carouselImage rounded lazyload"
-              data-src="https://static.visa2fly.com/eVisa/United Kingdom.jpg"
+              data-src="https://static.visa2fly.com/eVisa/Sri Lanka.jpg"
               alt="apply visa online"
             />
-            <div class="country">United Kingdom</div>
+            <div class="country">Sri Lanka</div>
           </div>
           <div
-            (click)="proceedToHome('Italy')"
+            (click)="proceedToHome('Malaysia')"
             class="col-3 float-left rounded"
           >
             <img
               class="img-fluid carouselImage rounded lazyload"
-              data-src="https://static.visa2fly.com/eVisa/Italy.jpg"
+              data-src="https://static.visa2fly.com/eVisa/Malaysia.jpg"
               alt="apply visa online"
             />
-            <div class="country">Italy</div>
+            <div class="country">Malaysia</div>
           </div>
           <div
-            (click)="proceedToHome('France')"
+            (click)="proceedToHome('Cambodia')"
             class="col-3 float-left rounded"
           >
             <img
               class="img-fluid carouselImage rounded lazyload"
-              data-src="https://static.visa2fly.com/eVisa/France.jpg"
+              data-src="https://static.visa2fly.com/eVisa/Cambodia.jpg"
               alt="apply visa online"
             />
-            <div class="country">France</div>
+            <div class="country">Cambodia</div>
           </div>
         </div>
         <div class="carousel-item row no-gutters">
           <div
-            (click)="proceedToHome('Germany')"
+            (click)="proceedToHome('Vietnam')"
             class="col-3 float-left rounded"
           >
             <img
               class="img-fluid carouselImage lazyload rounded lazyload"
-              data-src="https://static.visa2fly.com/eVisa/Germany.jpg"
+              data-src="https://static.visa2fly.com/eVisa/Vietnam.jpg"
               alt="apply visa online"
             />
-            <div class="country">Germany</div>
+            <div class="country">Vietnam</div>
           </div>
           <div
-            (click)="proceedToHome('Australia')"
+            (click)="proceedToHome('Ethiopia')"
             class="col-3 float-left rounded"
           >
             <img
               class="img-fluid carouselImage rounded lazyload"
-              data-src="https://static.visa2fly.com/eVisa/Australia.jpg"
+              data-src="https://static.visa2fly.com/eVisa/Ethiopia.jpg"
               alt="apply visa online"
             />
-            <div class="country">Australia</div>
+            <div class="country">Ethiopia</div>
+          </div>
+          <div
+            (click)="proceedToHome('Armenia')"
+            class="col-3 float-left rounded"
+          >
+            <img
+              class="img-fluid carouselImage rounded lazyload"
+              data-src="https://static.visa2fly.com/eVisa/Armenia.jpg"
+              alt="apply visa online"
+            />
+            <div class="country">Armenia</div>
           </div>
           <div (click)="proceedToHome('UAE')" class="col-3 float-left rounded">
             <img
@@ -90,24 +96,13 @@
             />
             <div class="country">United Arab Emirates</div>
           </div>
-          <div
-            (click)="proceedToHome('Singapore')"
-            class="col-3 float-left rounded"
-          >
-            <img
-              class="img-fluid carouselImage rounded lazyload"
-              data-src="https://static.visa2fly.com/eVisa/Singapore.jpg"
-              alt="apply visa online"
-            />
-            <div class="country">Singapore</div>
-          </div>
         </div>
         <!--  -->
       </div>
       <a
         class="carousel-control-prev"
         data-slide="prev"
-        href="#recipeCarouselLarge"
+        href="#evisaCarouselLarge"
         role="button"
       >
         <svg
@@ -127,7 +122,7 @@
       </a>
       <a
         class="carousel-control-next"
-        href="#recipeCarouselLarge"
+        href="#evisaCarouselLarge"
         role="button"
         data-slide="next"
       >
@@ -138,13 +133,11 @@
 
     <!-- small Carousel -->
     <div class="smallHeader">
-      <h2 class="smallVisaHeading">Popular Destinations</h2>
-      <p class="smallVisaSubHeading">
-        Apply Visa Online For These Popular Destinations.
-      </p>
+      <h2 class="smallVisaHeading">E-Visas</h2>
+      <p class="smallVisaSubHeading">Apply E-Visa Online</p>
     </div>
     <div
-      id="recipeCarouselSmall"
+      id="evisaCarouselSmall"
       class="carousel slide smallCarousel"
       data-ride="carousel"
       data-interval="6000"
@@ -152,68 +145,76 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row">
-            <div (click)="proceedToHome('USA')" class="col-6 img-pd">
+            <div (click)="proceedToHome('Thailand')" class="col-6 img-pd">
               <img
                 class="img-fluid carouselImage rounded lazyload"
-                data-src="https://static.visa2fly.com/eVisa/United State Of America.jpg"
+                data-src="https://static.visa2fly.com/eVisa/Thailand.jpg"
                 alt="apply visa online"
               />
-              <div class="country">United States</div>
+              <div class="country">Thailand</div>
             </div>
-            <div (click)="proceedToHome('United Kingdom')" class="col-6 img-pd">
+            <div (click)="proceedToHome('Sri Lanka')" class="col-6 img-pd">
               <img
                 class="img-fluid carouselImage rounded lazyload"
-                data-src="https://static.visa2fly.com/eVisa/United Kingdom.jpg"
+                data-src="https://static.visa2fly.com/eVisa/Sri Lanka.jpg"
                 alt="apply visa online"
               />
-              <div class="country">United Kingdom</div>
+              <div class="country">Sri Lanka</div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="row">
-            <div (click)="proceedToHome('Italy')" class="col-6 img-pd">
+            <div (click)="proceedToHome('Malaysia')" class="col-6 img-pd">
               <img
                 class="img-fluid carouselImage rounded lazyload"
-                data-src="https://static.visa2fly.com/eVisa/Italy.jpg"
+                data-src="https://static.visa2fly.com/eVisa/Malaysia.jpg"
                 alt="apply visa online"
               />
-              <div class="country">Italy</div>
+              <div class="country">Malaysia</div>
             </div>
-            <div (click)="proceedToHome('France')" class="col-6 img-pd">
+            <div (click)="proceedToHome('Cambodia')" class="col-6 img-pd">
               <img
                 class="img-fluid carouselImage rounded lazyload"
-                data-src="https://static.visa2fly.com/eVisa/France.jpg"
+                data-src="https://static.visa2fly.com/eVisa/Cambodia.jpg"
                 alt="apply visa online"
               />
-              <div class="country">France</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="row">
-            <div (click)="proceedToHome('Germany')" class="col-6 img-pd">
-              <img
-                class="img-fluid carouselImage rounded lazyload"
-                data-src="https://static.visa2fly.com/eVisa/Germany.jpg"
-                alt="apply visa online"
-              />
-              <div class="country">Germany</div>
-            </div>
-            <div (click)="proceedToHome('Australia')" class="col-6 img-pd">
-              <img
-                class="img-fluid carouselImage rounded lazyload"
-                data-src="https://static.visa2fly.com/eVisa/Australia.jpg"
-                alt="apply visa online"
-              />
-              <div class="country">Australia</div>
+              <div class="country">Cambodia</div>
             </div>
           </div>
         </div>
 
         <div class="carousel-item">
           <div class="row">
+            <div (click)="proceedToHome('Vietnam')" class="col-6 img-pd">
+              <img
+                class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/Vietnam.jpg"
+                alt="apply visa online"
+              />
+              <div class="country">Vietnam</div>
+            </div>
+            <div (click)="proceedToHome('Ethiopia')" class="col-6 img-pd">
+              <img
+                class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/Ethiopia.jpg"
+                alt="apply visa online"
+              />
+              <div class="country">Ethiopia</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div (click)="proceedToHome('Armenia')" class="col-6 img-pd">
+              <img
+                class="img-fluid carouselImage rounded lazyload"
+                data-src="https://static.visa2fly.com/eVisa/Armenia.jpg"
+                alt="apply visa online"
+              />
+              <div class="country">Armenia</div>
+            </div>
             <div (click)="proceedToHome('UAE')" class="col-6 img-pd">
               <img
                 class="img-fluid carouselImage rounded lazyload"
@@ -221,14 +222,6 @@
                 alt="apply visa online"
               />
               <div class="country">United Arab Emirates</div>
-            </div>
-            <div (click)="proceedToHome('Singapore')" class="col-6 img-pd">
-              <img
-                class="img-fluid carouselImage rounded lazyload"
-                data-src="https://static.visa2fly.com/eVisa/Singapore.jpg"
-                alt="apply visa online"
-              />
-              <div class="country">Singapore</div>
             </div>
           </div>
         </div>
