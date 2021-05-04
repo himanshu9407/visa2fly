@@ -178,11 +178,11 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextFirstName = "spaces are not allowed"
+      this.errorMessageTextFirstName = "Spaces are not allowed"
     } else if (format.test(newValue)) {
-      this.errorMessageTextFirstName = "special character are not allowed"
+      this.errorMessageTextFirstName = "Special character are not allowed"
     } else if (isNaN(newValue)) {
-      this.errorMessageTextFirstName = "number are not allowed"
+      this.errorMessageTextFirstName = "Number are not allowed"
     } else if (newValue == "") {
       this.errorMessageTextFirstName = "";
     }
@@ -193,11 +193,11 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextLastName = "spaces are not allowed"
+      this.errorMessageTextLastName = "Spaces are not allowed"
     } else if (format.test(newValue)) {
-      this.errorMessageTextLastName = "special character are not allowed"
+      this.errorMessageTextLastName = "Special character are not allowed"
     } else if (isNaN(newValue)) {
-      this.errorMessageTextLastName = "number are not allowed"
+      this.errorMessageTextLastName = "Number are not allowed"
     } else {
       this.errorMessageTextLastName = "";
     }
@@ -208,9 +208,9 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextPassport = "spaces are not allowed"
+      this.errorMessageTextPassport = "Spaces are not allowed"
     } else if (format.test(newValue)) {
-      this.errorMessageTextPassport = "special character are not allowed"
+      this.errorMessageTextPassport = "Special character are not allowed"
     } else {
       this.errorMessageTextPassport = "";
     }
@@ -221,11 +221,11 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextMobileNumber = "spaces are not allowed"
+      this.errorMessageTextMobileNumber = "Spaces are not allowed"
     } else if (format.test(newValue)) {
-      this.errorMessageTextMobileNumber = "special character are not allowed"
+      this.errorMessageTextMobileNumber = "Special character are not allowed"
     } else if (/[a-z]/i.test(newValue)) {
-      this.errorMessageTextMobileNumber = "alphabet are not allowed"
+      this.errorMessageTextMobileNumber = "Alphabet are not allowed"
     } else {
       this.errorMessageTextMobileNumber = "";
     }
@@ -236,7 +236,7 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextEmailId = "spaces are not allowed"
+      this.errorMessageTextEmailId = "Spaces are not allowed"
     } else {
       this.errorMessageTextEmailId = "";
     }
@@ -247,9 +247,9 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextPincode = "spaces are not allowed"
+      this.errorMessageTextPincode = "Spaces are not allowed"
     } else if (/[a-z]/i.test(newValue)) {
-      this.errorMessageTextPincode = "alphabet are not allowed"
+      this.errorMessageTextPincode = "Alphabet are not allowed"
     } else {
       this.errorMessageTextPincode = "";
     }
@@ -260,10 +260,10 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[$&+,:;=?@#|'<>.^*()%!-]/;
     const newValue = value;
     if (format.test(newValue)) {
-      console.log("bshvadhg");
-      this.errorMessageTextCity = "special character are not allowed"
+      // console.log("bshvadhg");
+      this.errorMessageTextCity = "Special character are not allowed"
     } else if (isNaN(newValue)) {
-      this.errorMessageTextCity = "number are not allowed"
+      this.errorMessageTextCity = "Number are not allowed"
     } else {
       this.errorMessageTextCity = "";
     }
@@ -274,9 +274,9 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextAddress = "spaces are not allowed"
+      this.errorMessageTextAddress = "Spaces are not allowed"
     } else if (format.test(newValue)) {
-      this.errorMessageTextAddress = "special character are not allowed"
+      this.errorMessageTextAddress = "Special character are not allowed"
     } else {
       this.errorMessageTextAddress = "";
     }
@@ -287,9 +287,9 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
-      this.errorMessageTextGST = "spaces are not allowed"
+      this.errorMessageTextGST = "Spaces are not allowed"
     } else if (format.test(newValue)) {
-      this.errorMessageTextGST = "special character are not allowed"
+      this.errorMessageTextGST = "Special character are not allowed"
     } else if (newValue == "") {
       this.errorMessageTextGST = "";
     }

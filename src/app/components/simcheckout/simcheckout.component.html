@@ -307,7 +307,7 @@
           </div>
           <div class="card-footer summaryFooter text-center">
             <div class="col-lg-12">
-              <span class="summaryHeadings">GRAND TOTAL</span>
+              <span class="summaryHeadings1">GRAND TOTAL</span>
               <p class="summaryData">&#x20B9; {{ totalPrice | number: "1.0-2" }}</p>
             </div>
           </div>
@@ -748,7 +748,7 @@
                     <input
                       formControlName="city"
                       autocomplete="new-name"
-                      pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$"
+                      pattern="[A-Z a-z]{3,32}"
                       type="text"
                       [ngClass]="{
                         'is-invalid':
@@ -1042,7 +1042,7 @@
           </div>
           <div class="card-footer text-center summaryFooter">
             <div class="col-lg-12">
-              <span class="summaryHeadings">GRAND TOTAL</span>
+              <span class="summaryHeadings1">GRAND TOTAL</span>
               <p class="summaryData">&#x20B9; {{ totalPrice | number: "1.0-2" }}</p>
             </div>
           </div>
