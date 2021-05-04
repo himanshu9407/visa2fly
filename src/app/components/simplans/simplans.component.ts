@@ -91,7 +91,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
       this.simService
         .getSimPlans(this.selectedCountry)
         .subscribe((data: any) => {
-          console.log(data);
+          // console.log(data);
 
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
@@ -126,6 +126,10 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
     this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
     this.preloaderService.showPreloader(true);
+
+    // let body = document.getElementById('body');
+    // body.classList.remove('noScroll');
+
     if (
       this.selectedCountry == "" ||
       this.selectedCountry == undefined ||
@@ -298,32 +302,40 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   }
 
   toogleCartMobile() {
-    this.showMobileCart = !this.showMobileCart;
     if (this.showMobileCart) {
       this.buttonLabel = "Go back";
     } else {
       this.buttonLabel = "View Cart";
     }
+
+    this.showMobileCart = !this.showMobileCart;
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   @ViewChild('countryInput') countryInput: ElementRef;
+  @ViewChild('countryInput_mobile') countryInput_mobile: ElementRef;
 
-  focusInputField() {
+  focusInputField(fieldName: string) {
     setTimeout(() => {
-      this.countryInput.nativeElement.focus()
+      if (fieldName == 'country_mobile_sim') {
+        this.countryInput_mobile.nativeElement.focus();
+      } else if (fieldName == 'country') {
+        this.countryInput.nativeElement.focus()
+      }
     }, 10)
   }
 
   inputSearchFn(term: string, item: any) {
-    // console.log(term);
-    // console.log(item);
+    term = term.toLocaleLowerCase();
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
+  }
+
+  inputSearchMobileFn(term: string, item: any) {
     term = term.toLocaleLowerCase();
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }
 
   ngAfterViewInit(): void {
-    // console.log(screen.width);
-    // if (screen.width < 600) {
     if (isPlatformBrowser(this.platformId)) {
       let country_input_simplan = document.getElementById('country_input_simplan');
       let simplan_home_heading = document.getElementById('simplan_home_heading');
@@ -335,6 +347,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
       let homeform_label = document.getElementById('homeform_label');
 
       country_input_simplan.addEventListener('click', function () {
+        // console.log('click');
         simplan_input_container.classList.add('overlay');
         country_mobile_simplan.classList.add('show_select');
         simplan_home_heading.classList.add('show_select');

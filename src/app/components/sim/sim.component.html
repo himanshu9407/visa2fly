@@ -14,7 +14,8 @@
                 [dropdownPosition]="'bottom'"
                 [searchable]="false"
                 [searchFn]="inputSearchFn"
-                (open)="focusInputField()"
+                (change)="onSimCountrySelected()"
+                (open)="focusInputField('country')"
                 class="desktopInput"
                 formControlName="simSelect"
                 id="country"
@@ -63,13 +64,13 @@
                   >{{ country }}</option
                 >
               </select> -->
-              <button
+              <!-- <button
                 (click)="onSimCountrySelected()"
                 type="button"
                 class="btn btn-outline-primary btn-sm"
               >
                 View Plans
-              </button>
+              </button> -->
             </form>
           </div>
         </div>
@@ -400,12 +401,12 @@
 
   <form [formGroup]="simHomeForm">
     <ng-select
-      #country
+      #country_mobile_sim
       [items]="simCountries"
       [dropdownPosition]="'bottom'"
       [searchable]="false"
-      [searchFn]="inputSearchFn"
-      (open)="focusInputField()"
+      [searchFn]="inputSearchMobileFn"
+      (open)="focusInputField('country_mobile_sim')"
       class="desktopInput"
       (change)="onSimCountrySelected()"
       formControlName="simSelect"
@@ -417,15 +418,17 @@
       <ng-template ng-header-tmp>
         <div style="display: flex">
           <input
-            #countryInput
+            #countryInput_mobile
             style="width: 100%; line-height: 24px; box-shadow: none"
             type="text"
             class="form-control form-control-sm"
-            (input)="country.filter($event.target.value)"
+            (input)="country_mobile_sim.filter($event.target.value)"
           />
           <i
-            [hidden]="countryInput.value.length === 0"
-            (click)="country.filter(''); countryInput.value = ''"
+            [hidden]="countryInput_mobile.value.length === 0"
+            (click)="
+              country_mobile_sim.filter(''); countryInput_mobile.value = ''
+            "
           ></i>
         </div>
       </ng-template>

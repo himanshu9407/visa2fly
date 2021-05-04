@@ -1,4 +1,4 @@
-<div *ngIf="!showMobileCart" id="sim">
+<div [ngStyle]="{ display: showMobileCart ? 'none' : 'block' }" id="sim">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -8,29 +8,13 @@
               <label class="mr-sm-2 text-white" for="country"
                 >Select country for which you want SIM</label
               >
-              <!-- <select
-                [(ngModel)]="selectedCountry"
-                formControlName="simSelect"
-                (change)="onClickSelect()"
-                class="form-control form-control-sm"
-                id="country"
-              >
-                <option value="">Select Country</option>
-                <option
-                  *ngFor="let country of simCountries"
-                  value="{{ country }}"
-                >
-                  {{ country }}
-                </option>
-              </select> -->
-
               <ng-select
                 #country
                 [items]="simCountries"
                 [dropdownPosition]="'bottom'"
                 [searchable]="false"
                 [searchFn]="inputSearchFn"
-                (open)="focusInputField()"
+                (open)="focusInputField('country')"
                 class="desktopInput"
                 (change)="onClickSelect()"
                 formControlName="simSelect"
@@ -77,7 +61,10 @@
 <section id="sim-plans">
   <div class="container mt-4">
     <div class="row">
-      <div *ngIf="!showMobileCart" class="col-lg-9 col-md-8">
+      <div
+        [ngStyle]="{ display: showMobileCart ? 'none' : 'block' }"
+        class="col-lg-9 col-md-8"
+      >
         <div class="row">
           <div
             *ngFor="let simData of selectedSimCountryData; let i = index"
@@ -397,7 +384,7 @@
         </div>
 
         <div
-          *ngIf="showMobileCart"
+          [ngStyle]="{ display: showMobileCart ? 'block' : 'none' }"
           class="card orderCard mobile-cart mb-3"
           style="margin-top: 100px; padding: 0px"
         >
@@ -523,7 +510,7 @@
             </div>
             <div class="col-lg-12">
               <img
-                data-src="https://static.visa2fly.com/assets/undraw_empty_cart_co35.png"
+                data-src="https://static.visa2fly.com/assets/sim_cart.png"
                 alt="empty-cart icon"
                 class="img-fluid lazyload"
                 style="margin-top: 30px"
@@ -574,10 +561,7 @@
       </div>
     </div>
   </div>
-  <div
-    (click)="toogleCartMobile()"
-    class="button backButton btn btn-success text-center"
-  >
+  <div (click)="toogleCartMobile()" class="button backButton btn text-center">
     <svg style="height: 18px; width: 18px; margin-right: 15px">
       <use xlink:href="assets/sprites/sprite.svg#sim_cart"></use>
     </svg>
@@ -597,12 +581,12 @@
 
   <form [formGroup]="simHomeForm">
     <ng-select
-      #country
+      #country_mobile_simplan
       [items]="simCountries"
       [dropdownPosition]="'bottom'"
       [searchable]="false"
-      [searchFn]="inputSearchFn"
-      (open)="focusInputField()"
+      [searchFn]="inputSearchMobileFn"
+      (open)="focusInputField('country_mobile_simplan')"
       class="desktopInput"
       (change)="onClickSelect()"
       formControlName="simSelect"
@@ -614,15 +598,17 @@
       <ng-template ng-header-tmp>
         <div style="display: flex">
           <input
-            #countryInput
+            #countryInput_mobile
             style="width: 100%; line-height: 24px; box-shadow: none"
             type="text"
             class="form-control form-control-sm"
-            (input)="country.filter($event.target.value)"
+            (input)="country_mobile_simplan.filter($event.target.value)"
           />
           <i
-            [hidden]="countryInput.value.length === 0"
-            (click)="country.filter(''); countryInput.value = ''"
+            [hidden]="countryInput_mobile.value.length === 0"
+            (click)="
+              country_mobile_simplan.filter(''); countryInput_mobile.value = ''
+            "
           ></i>
         </div>
       </ng-template>

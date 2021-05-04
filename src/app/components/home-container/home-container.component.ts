@@ -42,7 +42,7 @@ export class HomeContainerComponent implements OnInit {
     this.livesIn = this.homeForm.get("livingin");
 
     this.homeFormService.homeFormData.subscribe((res: visaFormData) => {
-      console.log(res);
+      // console.log(res);
       this.homeFormData = res;
       this.countryList = this.homeFormData.countries;
       this.country.setValue(this.homeFormData.countries[0]);
