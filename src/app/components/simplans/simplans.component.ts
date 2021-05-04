@@ -302,13 +302,14 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   }
 
   toogleCartMobile() {
+    this.showMobileCart = !this.showMobileCart;
+
     if (this.showMobileCart) {
       this.buttonLabel = "Go back";
     } else {
       this.buttonLabel = "View Cart";
     }
 
-    this.showMobileCart = !this.showMobileCart;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
