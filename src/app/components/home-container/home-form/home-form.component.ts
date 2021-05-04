@@ -182,7 +182,7 @@ export class HomeFormComponent {
   }
 
   onSubmit() {
-    console.log(this.homeForm.value);
+    // console.log(this.homeForm.value);
     this.purpose.valueChanges.subscribe((value) => {
       if (value == "select") {
         this.purposeNotSelected = true;
@@ -545,22 +545,22 @@ export class HomeFormComponent {
   }
 
   inputSearchFn(term: string, item: any) {
-    console.log(term);
-    console.log(item);
+    // console.log(term);
+    // console.log(item);
     term = term.toLocaleLowerCase();
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }
 
   visaTypeSearchFn(term: string, item: any) {
-    console.log(term);
-    console.log(item);
+    // console.log(term);
+    // console.log(item);
     term = term.toLocaleLowerCase();
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }
 
   resideInSearchFn(term: string, item: any) {
-    console.log(term);
-    console.log(item);
+    // console.log(term);
+    // console.log(item);
     term = term.toLocaleLowerCase();
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }

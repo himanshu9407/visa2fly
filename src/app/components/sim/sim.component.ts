@@ -63,6 +63,9 @@ export class SimComponent implements OnInit, AfterViewInit {
   }
 
   onSimCountrySelected() {
+    let body = document.getElementById('body');
+    body.classList.remove('noScroll');
+
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
     if (this.selectedSimCountry === "" || this.selectedSimCountry === null || this.selectedSimCountry === undefined) {
       this.toastr.error("Please select a country.");
@@ -78,16 +81,24 @@ export class SimComponent implements OnInit, AfterViewInit {
   }
 
   @ViewChild('countryInput') countryInput: ElementRef;
+  @ViewChild('countryInput_mobile') countryInput_mobile: ElementRef;
 
-  focusInputField() {
+  focusInputField(fieldName: string) {
     setTimeout(() => {
-      this.countryInput.nativeElement.focus()
+      if (fieldName == 'country_mobile_sim') {
+        this.countryInput_mobile.nativeElement.focus();
+      } else if (fieldName == 'country') {
+        this.countryInput.nativeElement.focus()
+      }
     }, 10)
   }
 
   inputSearchFn(term: string, item: any) {
-    console.log(term);
-    console.log(item);
+    term = term.toLocaleLowerCase();
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
+  }
+
+  inputSearchMobileFn(term: string, item: any) {
     term = term.toLocaleLowerCase();
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }

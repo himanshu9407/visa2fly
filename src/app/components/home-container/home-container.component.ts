@@ -42,7 +42,7 @@ export class HomeContainerComponent implements OnInit {
     this.livesIn = this.homeForm.get("livingin");
 
     this.homeFormService.homeFormData.subscribe((res: visaFormData) => {
-      console.log(res);
+      // console.log(res);
       this.homeFormData = res;
       this.countryList = this.homeFormData.countries;
       this.country.setValue(this.homeFormData.countries[0]);
@@ -165,47 +165,47 @@ export class HomeContainerComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(screen.width);
-    if (screen.width < 600) {
-      if (isPlatformBrowser(this.platformId)) {
-        let countryInput = document.getElementById('countryInput');
-        let visaTypeInput = document.getElementById('visaTypeInput');
-        let resideInInput = document.getElementById('resideInInput');
-        let homeform_heading = document.getElementById('homeform_heading');
+    // console.log(screen.width);
+    // if (screen.width < 600) {
+    if (isPlatformBrowser(this.platformId)) {
+      let countryInput = document.getElementById('countryInput');
+      let visaTypeInput = document.getElementById('visaTypeInput');
+      let resideInInput = document.getElementById('resideInInput');
+      let homeform_heading = document.getElementById('homeform_heading');
 
-        let countryInput_homeform = document.getElementById('countryInput_homeform');
-        let purposeInput_homeform = document.getElementById('purposeInput_homeform');
-        let liveInInput_homeform = document.getElementById('liveInInput_homeform');
+      let countryInput_homeform = document.getElementById('countryInput_homeform');
+      let purposeInput_homeform = document.getElementById('purposeInput_homeform');
+      let liveInInput_homeform = document.getElementById('liveInInput_homeform');
 
-        let countryInputContainer = document.getElementById('countryInputContainer');
-        let body = document.getElementById('body');
-        let homeform_label = document.getElementById('homeform_label');
+      let countryInputContainer = document.getElementById('countryInputContainer');
+      let body = document.getElementById('body');
+      let homeform_label = document.getElementById('homeform_label');
 
-        countryInput.addEventListener('click', function () {
-          countryInputContainer.classList.add('overlay');
-          countryInput_homeform.classList.add('show_select');
-          homeform_heading.classList.add('show_select');
-          body.classList.add('noScroll');
-          homeform_label.innerText = "Destination";
-        });
+      countryInput.addEventListener('click', function () {
+        countryInputContainer.classList.add('overlay');
+        countryInput_homeform.classList.add('show_select');
+        homeform_heading.classList.add('show_select');
+        body.classList.add('noScroll');
+        homeform_label.innerText = "Destination";
+      });
 
-        visaTypeInput.addEventListener('click', function () {
-          countryInputContainer.classList.add('overlay');
-          purposeInput_homeform.classList.add('show_select');
-          homeform_heading.classList.add('show_select');
-          body.classList.add('noScroll');
-          homeform_label.innerText = "Visa Type";
-        });
+      visaTypeInput.addEventListener('click', function () {
+        countryInputContainer.classList.add('overlay');
+        purposeInput_homeform.classList.add('show_select');
+        homeform_heading.classList.add('show_select');
+        body.classList.add('noScroll');
+        homeform_label.innerText = "Visa Type";
+      });
 
-        resideInInput.addEventListener('click', function () {
-          countryInputContainer.classList.add('overlay');
-          liveInInput_homeform.classList.add('show_select');
-          homeform_heading.classList.add('show_select');
-          body.classList.add('noScroll');
-          homeform_label.innerText = "Reside In";
-        });
-      }
+      resideInInput.addEventListener('click', function () {
+        countryInputContainer.classList.add('overlay');
+        liveInInput_homeform.classList.add('show_select');
+        homeform_heading.classList.add('show_select');
+        body.classList.add('noScroll');
+        homeform_label.innerText = "Reside In";
+      });
     }
+    // }
   }
 
   onBackButton() {
@@ -245,7 +245,7 @@ export class HomeContainerComponent implements OnInit {
   // }
 
   countryChanged(value: string) {
-    console.log(value);
+    // console.log(value);
 
     if (value != '' && value != undefined && value != null) {
       this.homeFormService.countryInputModel.next(value);
@@ -255,7 +255,7 @@ export class HomeContainerComponent implements OnInit {
   }
 
   visaTypeChanged(value: string) {
-    console.log(value);
+    // console.log(value);
 
     if (value != '' && value != undefined && value != null) {
       this.homeFormService.visaTypeInputModel.next(value);
@@ -264,7 +264,7 @@ export class HomeContainerComponent implements OnInit {
   }
 
   resideInChanged(value: string) {
-    console.log(value);
+    // console.log(value);
 
     if (value != '' && value != undefined && value != null) {
       this.homeFormService.resideInInputModel.next(value);
