@@ -36,6 +36,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   buttonLabel: string = "View Cart";
   title: string = "Visa2fly | Sim Plans";
   //selectedSimCountry : any = "";
+  plan_list_length = 0;
 
   constructor(
     private simService: SimService,
@@ -95,15 +96,12 @@ export class SimplansComponent implements OnInit, AfterViewInit {
 
           if (data.code == "0" && data.data.length > 0) {
             this.selectedSimCountryData = data.data;
-            // this.userFlow.setCookie("simResp", JSON.stringify(data.data));
 
             this.selectedSimCountryData.forEach((element: any) => {
               element.quantity = 0;
             });
-            // console.log(this.selectedSimCountryData);
           } else {
             this.toastr.error(data.message);
-            // console.log(this.selectedRevertCountry);
             this.router.navigate(["/sim"]);
           }
         });
@@ -337,6 +335,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+
     if (isPlatformBrowser(this.platformId)) {
       let country_input_simplan = document.getElementById('country_input_simplan');
       let simplan_home_heading = document.getElementById('simplan_home_heading');
@@ -356,8 +355,17 @@ export class SimplansComponent implements OnInit, AfterViewInit {
         homeform_label.innerText = "Select Country";
       });
     }
-    // }
   }
+
+  // setPlanCardHeight() {
+  //   let N = this.selectedSimCountryData.length;
+  //   console.log(N);
+
+  //   for (let i = 0; i < N; i++) {
+  //     let planHeight = document.getElementById('planDesp_' + i);
+  //     console.log(planHeight);
+  //   }
+  // }
 
   onBackButton() {
     let simplan_input_container = document.getElementById('simplan_input_container');
