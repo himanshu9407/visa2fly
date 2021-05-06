@@ -177,7 +177,8 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   }
 
   increaseItemCount(item: any) {
-    //console.log(item);
+    // console.log(item);
+    // console.log("  ");
     let totalQuantity = 0;
     this.simCart.forEach(element => {
       totalQuantity = totalQuantity + element.quantity;
@@ -192,6 +193,8 @@ export class SimplansComponent implements OnInit, AfterViewInit {
       for (let index = 0; index < this.simCart.length; index++) {
         // this.simCart.forEach((element : any) => {
         let element = this.simCart[index];
+
+        // console.log(element.planId);
 
         if (element.planId == item.planId) {
           element.quantity = element.quantity + 1;
