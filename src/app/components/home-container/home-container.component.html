@@ -23,7 +23,7 @@
     </h5>
 
     <form [formGroup]="homeForm">
-      <ng-select
+      <!-- <ng-select
         placeholder="Select Country"
         id="countryInput_homeform"
         [isOpen]="true"
@@ -32,11 +32,46 @@
         <ng-option *ngFor="let country of countryList" [value]="country">
           {{ country }}
         </ng-option>
-      </ng-select>
+      </ng-select> -->
 
       <ng-select
-        formControlName="purpose"
-        placeholder="Select Purpose"
+        #countryMobile
+        [items]="countryList"
+        [dropdownPosition]="'bottom'"
+        [searchable]="false"
+        [searchFn]="inputSearchFn"
+        (open)="focusInputField('countryMobile')"
+        class="desktopInput"
+        [isOpen]="true"
+        id="countryInput_homeform"
+        formControlName="country"
+        placeholder="Select Country"
+        required
+        (change)="countryChanged()"
+      >
+        <ng-template ng-header-tmp>
+          <div style="display: flex">
+            <input
+              #countryInput_mobile
+              style="width: 100%; line-height: 24px; box-shadow: none"
+              type="text"
+              class="form-control form-control-sm"
+              (input)="countryMobile.filter($event.target.value)"
+            />
+            <i
+              [hidden]="countryInput_mobile.value.length === 0"
+              (click)="countryMobile.filter(''); countryInput_mobile.value = ''"
+            ></i>
+          </div>
+        </ng-template>
+        <div>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            {{ item }}
+          </ng-template>
+        </div>
+      </ng-select>
+
+      <!-- <ng-select
         id="purposeInput_homeform"
         [isOpen]="true"
         (change)="visaTypeChanged($event)"
@@ -47,9 +82,48 @@
         <ng-option *ngFor="let purpose of purposeArr" [value]="purpose">
           {{ purpose }}
         </ng-option>
-      </ng-select>
+      </ng-select> -->
 
       <ng-select
+        #visaTypeMobile
+        [items]="purposeArr"
+        [dropdownPosition]="'bottom'"
+        [searchable]="false"
+        [isOpen]="true"
+        (change)="visaTypeChanged()"
+        [searchFn]="inputSearchFn"
+        (open)="focusInputField('visaTypeMobile')"
+        class="desktopInput"
+        id="purposeInput_homeform"
+        formControlName="purpose"
+        placeholder="Select Purpose"
+        required
+      >
+        <ng-template ng-header-tmp>
+          <div style="display: flex">
+            <input
+              #visaTypeInput_mobile
+              style="width: 100%; line-height: 24px; box-shadow: none"
+              type="text"
+              class="form-control form-control-sm"
+              (input)="visaTypeMobile.filter($event.target.value)"
+            />
+            <i
+              [hidden]="visaTypeInput_mobile.value.length === 0"
+              (click)="
+                visaTypeMobile.filter(''); visaTypeInput_mobile.value = ''
+              "
+            ></i>
+          </div>
+        </ng-template>
+        <div>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            {{ item }}
+          </ng-template>
+        </div>
+      </ng-select>
+
+      <!-- <ng-select
         formControlName="livingin"
         placeholder="Select Reside In"
         id="liveInInput_homeform"
@@ -62,6 +136,45 @@
         <ng-option *ngFor="let livesin of resideInArr" [value]="livesin">
           {{ livesin }}
         </ng-option>
+      </ng-select> -->
+
+      <ng-select
+        #resideInMobile
+        [items]="resideInArr"
+        [dropdownPosition]="'bottom'"
+        [searchable]="false"
+        [isOpen]="true"
+        id="liveInInput_homeform"
+        [searchFn]="inputSearchFn"
+        (open)="focusInputField('resideInMobile')"
+        class="desktopInput"
+        formControlName="livingin"
+        (change)="resideInChanged()"
+        placeholder="Select Reside In"
+        required
+      >
+        <ng-template ng-header-tmp>
+          <div style="display: flex">
+            <input
+              #resideInInput_mobile
+              style="width: 100%; line-height: 24px; box-shadow: none"
+              type="text"
+              class="form-control form-control-sm"
+              (input)="resideInMobile.filter($event.target.value)"
+            />
+            <i
+              [hidden]="resideInInput_mobile.value.length === 0"
+              (click)="
+                resideInMobile.filter(''); resideInInput_mobile.value = ''
+              "
+            ></i>
+          </div>
+        </ng-template>
+        <div>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            {{ item }}
+          </ng-template>
+        </div>
       </ng-select>
     </form>
   </div>

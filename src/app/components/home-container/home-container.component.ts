@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from "@angular/core";
+import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild } from "@angular/core";
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
@@ -33,8 +33,8 @@ export class HomeContainerComponent implements OnInit {
   ngOnInit() {
     this.homeForm = new FormGroup({
       country: new FormControl("Sri Lanka"),
-      purpose: new FormControl(""),
-      livingin: new FormControl(""),
+      purpose: new FormControl(null),
+      livingin: new FormControl(null),
     });
 
     this.country = this.homeForm.get("country");
@@ -131,6 +131,15 @@ export class HomeContainerComponent implements OnInit {
       "href",
       "https://visa2fly.com/visa"
     );
+
+    this.homeFormService.visaTypeList.subscribe((list: string[]) => {
+      this.purposeArr = list;
+    });
+
+    this.homeFormService.resideInList.subscribe((list: string[]) => {
+      // console.log(list)
+      this.resideInArr = list;
+    });
   }
 
   sortPurposeArr(purposeArr: Array<string>) {
@@ -244,8 +253,8 @@ export class HomeContainerComponent implements OnInit {
   //   }, 10)
   // }
 
-  countryChanged(value: string) {
-    // console.log(value);
+  countryChanged() {
+    let value = this.country.value;
 
     if (value != '' && value != undefined && value != null) {
       this.homeFormService.countryInputModel.next(value);
@@ -254,7 +263,8 @@ export class HomeContainerComponent implements OnInit {
 
   }
 
-  visaTypeChanged(value: string) {
+  visaTypeChanged() {
+    let value = this.purpose.value;
     // console.log(value);
 
     if (value != '' && value != undefined && value != null) {
@@ -263,7 +273,8 @@ export class HomeContainerComponent implements OnInit {
     }
   }
 
-  resideInChanged(value: string) {
+  resideInChanged() {
+    let value = this.livesIn.value;
     // console.log(value);
 
     if (value != '' && value != undefined && value != null) {
@@ -271,4 +282,28 @@ export class HomeContainerComponent implements OnInit {
       this.onBackButton();
     }
   }
+
+  @ViewChild('countryInputMobile') countryInputMobile: ElementRef;
+  @ViewChild('visaTypeMobile') visaTypeMobile: ElementRef;
+  @ViewChild('resideInInputMobile') resideInInputMobile: ElementRef;
+
+  focusInputField(input: string) {
+    setTimeout(() => {
+      if (input == 'visaTypeMobile') {
+        this.visaTypeMobile.nativeElement.focus();
+      } else if (input == 'resideInInputMobile') {
+        this.resideInInputMobile.nativeElement.focus();
+      } else if (input == 'countryInputMobile') {
+        this.countryInputMobile.nativeElement.focus();
+      }
+    }, 10)
+  }
+
+  inputSearchFn(term: string, item: any) {
+    // console.log(term);
+    term = term.toLocaleLowerCase();
+    // console.log(item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1);
+    return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
+  }
+
 }
