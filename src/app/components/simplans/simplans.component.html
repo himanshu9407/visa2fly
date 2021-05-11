@@ -234,7 +234,7 @@
           <div
             class="card-body orderItem"
             *ngIf="!simCartEmpty"
-            style="padding: 0px; overflow-y: auto;"
+            style="padding: 0px; overflow-y: auto"
           >
             <div
               *ngFor="let item of simCart"
@@ -389,7 +389,7 @@
         <div
           [ngStyle]="{ display: showMobileCart ? 'block' : 'none' }"
           class="card orderCard mobile-cart mb-3"
-          style="margin-top: 100px; padding: 0px"
+          style="margin: 100px auto 0; width: 90%; padding: 0px"
         >
           <div
             class="card-header bg-transparent"
@@ -407,7 +407,7 @@
           <div
             class="card-body orderItem"
             *ngIf="!simCartEmpty"
-            style="padding: 0px; overflow-y: auto;"
+            style="padding: 0px; overflow-y: auto"
           >
             <div
               *ngFor="let item of simCart"
