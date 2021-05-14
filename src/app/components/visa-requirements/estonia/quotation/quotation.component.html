@@ -2,6 +2,8 @@
   <div class="card planCard" style="position: relative">
     <div class="card-header text-center font-weight-bold">
       {{ quotation.purpose }} ({{ quotation.processingType }})
+      <br />
+      <span *ngIf="quotation.withServices === 'I'">Without Insurance</span>
     </div>
     <div class="card-body planCardBody">
       <div class="row">

@@ -71,11 +71,11 @@ export class DubaiComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','dubai-visa-online']);
+        this.router.navigate(['visa', 'dubai-visa-online']);
       }
     });
 
-       this.preloaderService.showPreloader(true);
+    this.preloaderService.showPreloader(true);
 
     if (this.userFlow.getCookie("selectedVisaPurpose")) {
       this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
@@ -92,6 +92,7 @@ export class DubaiComponent implements OnInit {
     this.requireQuotation
       .getRequireQuotation(this.selectedCountrytype)
       .subscribe((res: any) => {
+        console.log(res);
         if (res.code == 0) {
           this.MyQuotation = res.data.quotations;
           this.imageCatogory.push(res.data.imageUploadInfo);

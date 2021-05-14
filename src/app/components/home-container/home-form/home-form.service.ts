@@ -14,6 +14,9 @@ export class HomeFormService {
   visaTypeInputModel: Subject<string> = new Subject<string>();
   resideInInputModel: Subject<string> = new Subject<string>();
 
+  visaTypeList: Subject<string[]> = new Subject<string[]>();
+  resideInList: Subject<string[]> = new Subject<string[]>();
+
   constructor(private http: HttpClient, private userFlow: UserFlowDetails) { }
 
   getHomeFormData() {

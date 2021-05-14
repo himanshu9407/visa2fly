@@ -15,8 +15,8 @@ export class MiniCarouselComponent implements OnInit {
   ngOnInit() {
   }
 
-  proceedToHome(countryName: string) {
-    console.log(countryName);
-    this.otherCountryService.validateCountryPopular(countryName);
-  }
+  // proceedToHome(countryName: string) {
+  //   console.log(countryName);
+  //   this.otherCountryService.validateCountryPopular(countryName);
+  // }
 }

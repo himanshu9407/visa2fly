@@ -67,7 +67,7 @@ export class HomeFormComponent {
 
       if (isPlatformBrowser(this.platformId)) {
         let activeCountry: string = this.userFlow.getCookie("activeCountry");
-        let popularCountry: string = this.userFlow.getCookie("popularCountry");
+        // let popularCountry: string = this.userFlow.getCookie("popularCountry");
         if (
           activeCountry == "" ||
           activeCountry == undefined ||
@@ -77,24 +77,28 @@ export class HomeFormComponent {
           this.homeForm.get('country').setValue(this.homeFormData.countries[0]);
           this.sortPurposeArr(this.homeFormData.data[this.homeForm.get('country').value]['purpose'])
           this.resideInArr = this.homeFormData.data[this.homeForm.get('country').value]['residenceOf'];
+          this.homeFormService.visaTypeList.next(this.purposeArr);
+          this.homeFormService.resideInList.next(this.resideInArr);
 
         } else {
           this.country.setValue(activeCountry);
           this.userFlow.setCookie("activeCountry", "");
         }
-        if (
-          popularCountry == "" ||
-          popularCountry == undefined ||
-          popularCountry == null
-        ) {
-          this.country.setValue(this.homeFormData.countries[0]);
-          this.homeForm.get('country').setValue(this.homeFormData.countries[0]);
-          this.sortPurposeArr(this.homeFormData.data[this.homeForm.get('country').value]['purpose'])
-          this.resideInArr = this.homeFormData.data[this.homeForm.get('country').value]['residenceOf'];
-        } else {
-          this.country.setValue(popularCountry);
-          this.userFlow.setCookie("popularCountry", "");
-        }
+        // if (
+        //   popularCountry == "" ||
+        //   popularCountry == undefined ||
+        //   popularCountry == null
+        // ) {
+        //   this.country.setValue(this.homeFormData.countries[0]);
+        //   this.homeForm.get('country').setValue(this.homeFormData.countries[0]);
+        //   this.sortPurposeArr(this.homeFormData.data[this.homeForm.get('country').value]['purpose'])
+        //   this.resideInArr = this.homeFormData.data[this.homeForm.get('country').value]['residenceOf'];
+        //   this.homeFormService.visaTypeList.next(this.purposeArr);
+        //   // this.homeFormService.resideInList.next(this.resideInArr);
+        // } else {
+        //   this.country.setValue(popularCountry);
+        //   this.userFlow.setCookie("popularCountry", "");
+        // }
       }
 
       this.preloaderService.showPreloader(false);
@@ -102,11 +106,11 @@ export class HomeFormComponent {
     });
 
 
-
     this.homeFormService.countryInputModel.subscribe((res: string) => {
+      // console.log
       this.country.setValue(res);
       this.homeForm.get('country').setValue(res);
-      this.countryChanged(res);
+      this.countryChanged();
     });
 
     this.homeFormService.visaTypeInputModel.subscribe((res: string) => {
@@ -122,16 +126,24 @@ export class HomeFormComponent {
     // console.log(this.homeForm.get('purpose').value == "");
   }
 
-  countryChanged(event: string) {
+  countryChanged() {
+    let event = this.homeForm.get('country').value;
+    // console.log(event);
     if (event == undefined || event == null || event == "") {
       this.homeForm.get("purpose").setValue(null);
       this.homeForm.get("livingin").setValue(null);
       this.countryNotSelected = true;
     } else {
+      // console.log("  ");
       this.homeForm.get("purpose").setValue(null);
       this.homeForm.get("livingin").setValue(null);
+      // console.log(this.purposeArr);
       this.sortPurposeArr(this.homeFormData.data[event]['purpose'])
       this.resideInArr = this.homeFormData.data[event]['residenceOf'];
+      this.homeFormService.visaTypeList.next(this.purposeArr);
+      this.homeFormService.resideInList.next(this.resideInArr);
+
+      // console.log(this.resideInArr);
       this.countryNotSelected = false;
     }
   }
@@ -546,8 +558,8 @@ export class HomeFormComponent {
 
   inputSearchFn(term: string, item: any) {
     // console.log(term);
-    // console.log(item);
     term = term.toLocaleLowerCase();
+    // console.log(item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1);
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }
 
