@@ -9,13 +9,8 @@
   }
 }
 
-.plan {
-  font-family: "Open-sans", sans-serif !important;
-}
-
-  @media not all and (min-resolution:.001dpcm)
-  { @supports (-webkit-appearance:none) {
-
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
     .order .count {
       font-size: 13px !important;
     }
@@ -34,7 +29,8 @@
         font-size: 13px;
       }
     }
-  }}
+  }
+}
 
 select {
   border: none;
@@ -55,8 +51,8 @@ select:focus {
       rgba(0, 0, 0, 0.1)
     ),
     url("https://static.visa2fly.com/carousel/simBg.jpg");
-    background-size: cover;
-  height: 60vh;
+  background-size: cover;
+  height: 417px;
   background-size: cover;
   background-position: center center;
 }
@@ -108,49 +104,62 @@ select:focus {
   }
 }
 .pricing-table .plan {
-  font: 12px "Lucida Sans", "trebuchet MS", Arial, Helvetica;
-  /* text-shadow: 0 1px rgba(255, 255, 255, 0.8); */
-  background: #fff;
-  border: 1px solid #ddd;
+  font-size: 12px;
+  background: #f5f5f5;
+  border: none;
   color: #333;
-  padding: 20px 20px 10px;
+  padding: 0px;
   position: relative;
-  -moz-border-radius: 5px 0 0 5px;
-  -webkit-border-radius: 5px 0 0 5px;
-  border-radius: 5px 0 0 5px;
   margin-bottom: 25px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 0px -2px 18px -3px rgba(0, 0, 0, 0.2);
 }
+
+.pricing-table .plan .card-header {
+  padding: 0px;
+  background: #0575e6;
+  border: none;
+  background: -webkit-linear-gradient(to top right, #101ee6 0%, #000080 74%);
+  background: linear-gradient(to top right, #101ee6 0%, #000080 74%);
+  border-radius: 20px 20px 0 0;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  -ms-border-radius: 20px 20px 0 0;
+  -o-border-radius: 20px 20px 0 0;
+}
+
+.pricing-table .plan .card-body {
+  padding: 15px 20px;
+}
+
+.pricing-table .plan .card-footer {
+  background-color: transparent;
+}
+
 .pricing-table h3 {
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  padding: 20px;
-  margin: -20px -20px 50px -20px;
+  padding: 10px;
+  margin-bottom: 0px;
   color: #fff;
-  background: #0575e6; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top right,
-    #101ee6 0%,
-    #000080 74%
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top right,
-    #101ee6 0%,
-    #000080 74%
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 5px 0 0 0;
 }
 .pricing-table h4 {
   font-size: 14px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 600;
   min-height: 60px;
   margin: 0px;
 }
 .pricing-table h4 span {
   display: block;
   font-size: 20px;
+  margin-top: 10px;
 }
 .pricing-table h3 span img {
   display: block;
@@ -165,14 +174,17 @@ select:focus {
   -moz-border-radius: 100px;
   -webkit-border-radius: 100px;
   border-radius: 100px;
-  /* -moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
-  -webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
-  box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset; */
 }
 
-  .dropdown-menu {
-    font-size: 14px;
-  }
+h6.summaryHeading {
+  font-size: 14px;
+  font-weight: 550;
+  margin-top: 10px;
+}
+
+.dropdown-menu {
+  font-size: 14px;
+}
 
 .pricing-table ul {
   margin: 10px 0 0 0;
@@ -213,71 +225,73 @@ select:focus {
   color: #fff;
 }
 button.attached {
-  padding-left: 6px !important;
-  padding-top: 3px;
-  width: 12%;
-  background: -webkit-linear-gradient(
-    to top right,
-    #101ee6 0%,
-    #0000a7 74%
-  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top right, #101ee6 0%, #0000a7 74%);
   color: #fff !important;
-  box-shadow: 0 0 0 1px #0000a7 !important;
   cursor: pointer;
   line-height: 0px;
-  height: 18px;
+  height: 25px;
+  padding: 0;
+  width: 25px;
   font-size: 22px;
+  border-radius: 7px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .order button.attached {
-  width: 12%;
-  background: -webkit-linear-gradient(
-    to top right,
-    #101ee6 0%,
-    #0000a7 74%
-  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top right, #101ee6 0%, #0000a7 74%);
   color: #fff !important;
-  box-shadow: 0 0 0 1px #0000a7 !important;
   cursor: pointer;
   line-height: 0px;
-  height: 17px;
+  height: 25px;
+  padding: 0;
+  width: 25px;
   font-size: 22px;
+  border-radius: 7px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 button.attached:focus {
   outline: none;
 }
-.left {
+/* .left {
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
 }
 .right {
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
+} */
+.metreButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 .metreButton .count {
   position: relative;
   width: 35px;
-  background: #fff;
   color: #000;
-  font-size: 12px;
+  font-size: 16px;
   height: 20.4px;
-  border: 1px solid #000080;
+  border: none;
   padding: 0;
+  background-color: transparent;
   text-align: center;
   border-radius: 0;
 }
 .order .count {
   position: relative;
   width: 35px;
-  background: #fff;
   color: #000;
-  /* top: 0.8px; */
   font-size: 12px;
   height: 19px;
-  /* top: 1px; */
-  border: 1px solid #000080;
+  background-color: transparent;
+  border: none;
   padding: 0;
   text-align: center;
   border-radius: 0;
@@ -286,12 +300,18 @@ button.attached:focus {
   min-height: 250px;
 }
 .orderCard {
-  border: 2px solid dodgerblue;
+  border: none;
   padding: 5px 12px 0px;
-  border-radius: 10px;
+  border-radius: 20px;
+  background: #f5f5f5;
   position: sticky;
   top: 30px;
   margin-bottom: 25px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 0px -2px 18px -3px rgba(0, 0, 0, 0.2);
 }
 .orderTotal {
   z-index: 10;
@@ -300,7 +320,7 @@ button.attached:focus {
   bottom: 0px;
   box-shadow: rgba(0, 0, 0, 0.15) 0 -2px 15px;
   background: #fff;
-  padding: 7px;
+  padding: 12px 7px;
   margin-top: 10px;
   box-shadow: 1px;
   width: 100%;
@@ -309,33 +329,29 @@ button.attached:focus {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   button.attached {
-    padding-bottom: 5px;
-    padding-left: 1px !important;
-    padding-right: 10px !important;
-    width: 15%;
-    font-size: 6px;
-    background: -webkit-linear-gradient(
-      to top right,
-      #101ee6 0%,
-      #000080 74%
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top right, #101ee6 0%, #000080 74%);
+    background: linear-gradient(to top right, #101ee6 0%, #0000a7 74%);
     color: #fff !important;
-    box-shadow: 0 0 0 1px #000080 !important;
     cursor: pointer;
     line-height: 0px;
-    height: 15px;
+    height: 25px;
+    padding: 0;
+    width: 25px;
     font-size: 22px;
+    border-radius: 7px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   .metreButton .count {
     position: relative;
-    width: 50px;
-    background: #fff;
+    width: 35px;
     color: #000;
-    font-size: 12px;
-    height: 17px;
-    border: 1px solid #000080;
+    font-size: 16px;
+    height: 20.4px;
+    border: none;
     padding: 0;
+    background-color: transparent;
     text-align: center;
     border-radius: 0;
   }
@@ -360,7 +376,6 @@ button.attached:focus {
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top right, #101ee6 0%, #000080 74%);
     color: #fff !important;
-    box-shadow: 0 0 0 1px #000080 !important;
     cursor: pointer;
     line-height: 0px;
     height: 15px;
@@ -445,23 +460,30 @@ button.attached:focus {
     display: none;
   }
   #sim {
-    margin-top: 60px;
+    margin-top: 40px;
     height: 280px !important;
   }
 }
 
 .backButton {
   display: none;
+  background-color: #003b8b;
+  /* background-image: linear-gradient(315deg, #f2cf43 0%, #19a186 74%); */
+  border-radius: 0px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-color: none !important;
 }
 
 @media screen and (max-width: 767px) {
   .backButton {
     z-index: 999;
     position: fixed;
-    /* text-align: center; */
     width: 100%;
+    display: flex;
     bottom: 56px;
-    font-weight: 700;
+    font-weight: 600;
     display: block;
     padding-top: 7px;
     height: 40px;
@@ -485,3 +507,91 @@ button.attached:focus {
     top: -1px !important;
   }
 } */
+
+.mobileInput {
+  display: none;
+}
+
+.desktopInput {
+  display: block;
+}
+
+#country_input_simplan {
+  font-size: 14px;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .desktopInput {
+    display: none;
+  }
+
+  .mobileInput {
+    display: flex;
+  }
+
+  .pricing-table {
+    padding: 0px;
+  }
+
+  .orderItem {
+    min-height: 48vh;
+  }
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1200;
+  padding: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+#country_mobile_simplan,
+#simplan_home_heading {
+  display: none;
+  visibility: visible;
+}
+
+.show_select {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.overlay .label_text {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-start;
+  top: 15px;
+}
+
+.overlay .backBtn_icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+}
+
+.overlay .label {
+  font-size: 15px;
+  font-weight: 600;
+}

@@ -1,16 +1,13 @@
-import { event } from 'jquery';
+
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { SimCheckoutService } from "./simcheckout.service";
 import { Router } from "@angular/router";
-import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { PreloaderService } from "src/app/shared/preloader.service";
 // import { ToastService } from "src/app/shared/toast.service";
 import { Title, Meta } from "@angular/platform-browser";
 import { ToastrService } from 'ngx-toastr';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
-import { isNumber } from 'util';
 
 @Component({
   selector: "app-simcheckout",

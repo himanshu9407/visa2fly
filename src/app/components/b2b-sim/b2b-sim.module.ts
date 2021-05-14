@@ -32,7 +32,6 @@ const routes: Routes = [
     NgbModule,
     NgSelectModule,
     SharedVisaModuleModule,
-
     RouterModule.forChild(routes)
   ]
 })

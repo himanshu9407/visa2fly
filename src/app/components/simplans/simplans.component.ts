@@ -125,9 +125,6 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
     this.preloaderService.showPreloader(true);
 
-    // let body = document.getElementById('body');
-    // body.classList.remove('noScroll');
-
     if (
       this.selectedCountry == "" ||
       this.selectedCountry == undefined ||
@@ -335,8 +332,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
-    if (isPlatformBrowser(this.platformId)) {
+  if (isPlatformBrowser(this.platformId)) {
       let country_input_simplan = document.getElementById('country_input_simplan');
       let simplan_home_heading = document.getElementById('simplan_home_heading');
 
