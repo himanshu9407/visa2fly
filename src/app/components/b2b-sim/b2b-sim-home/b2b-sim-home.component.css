@@ -16,8 +16,6 @@ select:focus {
   display: none;
 }
 
-
-
 .desktopView {
   display: block;
 }
@@ -183,9 +181,31 @@ select:focus {
   }
 }
 
+.mobileInput {
+  display: none;
+}
 
+.desktopInput {
+  display: block;
+}
 
+#country_input_sim {
+  font-size: 14px;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 
+@media screen and (max-width: 600px) {
+  .desktopInput {
+    display: none;
+  }
+
+  .mobileInput {
+    display: flex;
+  }
+}
 
 .overlay {
   width: 100%;
@@ -239,30 +259,4 @@ select:focus {
 .overlay .label {
   font-size: 15px;
   font-weight: 600;
-}
-
-.mobileInputB2b {
-  display: none;
-}
-
-.desktopInputB2b {
-  display: block;
-}
-
-#country_input_sim {
-  font-size: 14px;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-@media screen and (max-width: 600px) {
-  .desktopInputB2b {
-    display: none;
-  }
-
-  .mobileInputB2b {
-    display: flex;
-  }
 }

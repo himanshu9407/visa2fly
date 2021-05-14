@@ -16,7 +16,7 @@
                 [searchFn]="inputSearchFn"
                 (change)="onSimCountrySelected()"
                 (open)="focusInputField('country')"
-                class="desktopInputB2b"
+                class="desktopInput"
                 formControlName="simSelect"
                 id="country"
                 placeholder="Select Country"
@@ -44,33 +44,13 @@
                 </div>
               </ng-select>
 
-              <div class="onMobileInput mobileInputB2b" id="country_input_sim">
+              <div class="onMobileInput mobileInput" id="country_input_sim">
                 {{
                   simHomeForm.get("simSelect").value == null
                     ? "Select Country"
                     : simHomeForm.get("simSelect").value
                 }}
               </div>
-
-              <!-- <select
-                formControlName="simSelect"
-                class="form-control form-control-sm"
-                id="country"
-              >
-                <option value="">Select Country</option>
-                <option
-                  *ngFor="let country of simCountries"
-                  value="{{ country }}"
-                  >{{ country }}</option
-                >
-              </select> -->
-              <!-- <button
-                (click)="onSimCountrySelected()"
-                type="button"
-                class="btn btn-outline-primary btn-sm"
-              >
-                View Plans
-              </button> -->
             </form>
           </div>
         </div>
@@ -407,7 +387,7 @@
       [searchable]="false"
       [searchFn]="inputSearchMobileFn"
       (open)="focusInputField('country_mobile_sim')"
-      class="mobileInputB2b"
+      class="desktopInput"
       (change)="onSimCountrySelected()"
       formControlName="simSelect"
       id="country_mobile_sim"

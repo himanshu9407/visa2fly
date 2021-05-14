@@ -35,18 +35,8 @@ export class B2bSimHomeComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object) {
 
     this.preloaderService.showPreloader(true);
-
-  }
-
-  ngOnInit() {
-    this.simHomeForm = new FormGroup({
-      simSelect: new FormControl("", [Validators.required]),
-    });
-
     this.id = this.route.snapshot.queryParamMap.get("id");
     this.userFlow.setB2BSimUserFlowDetails("id", this.id);
-
-    // console.log(this.id);
 
     if (this.id == "" || this.id == null || this.id == undefined) {
       this.isIdExist = false;
@@ -54,7 +44,17 @@ export class B2bSimHomeComponent implements OnInit {
     } else {
       this.isIdExist = true;
     }
+  }
 
+  ngOnInit() {
+    this.simHomeForm = new FormGroup({
+      simSelect: new FormControl(null, [Validators.required]),
+    });
+
+    this.id = this.route.snapshot.queryParamMap.get("id");
+    this.userFlow.setB2BSimUserFlowDetails("id", this.id);
+
+    // console.log(this.id);
     this.simService.getSimcountries(this.id).subscribe((data: any) => {
       if (data.code == "0") {
         // console.log(data);
