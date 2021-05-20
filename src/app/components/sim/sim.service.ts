@@ -3,23 +3,20 @@ import { HttpClientModule, HttpClient, HttpParams } from '@angular/common/http';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 
 @Injectable({
-    providedIn : "root"
+    providedIn: "root"
 })
 export class SimService {
-    constructor (private http : HttpClient , private userFlowService: UserFlowDetails){}
+    constructor(private http: HttpClient, private userFlowService: UserFlowDetails) { }
 
-
-
-
-    getSimcountries () {
+    getSimcountries() {
         let base_url = this.userFlowService.getBaseURL();
-        return this.http.get(base_url+"sim/fetch/countries");
+        return this.http.get(base_url + "sim/fetch/countries");
     }
 
-    getSimPlans (country : string) {
+    getSimPlans(country: string) {
         let base_url = this.userFlowService.getBaseURL();
-        const params = new HttpParams().set("countryName",country);
-        return this.http.get(base_url+'sim/fetch/plans',{params:params});
+        const params = new HttpParams().set("countryName", country);
+        return this.http.get(base_url + 'sim/fetch/plans', { params: params });
 
     }
 }
