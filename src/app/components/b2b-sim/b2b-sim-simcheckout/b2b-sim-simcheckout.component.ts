@@ -16,7 +16,7 @@ export class B2bSimSimcheckoutComponent implements OnInit {
   simCart: Array<any> = [];
   totalPrice: number = 0;
   simCheckoutForm: FormGroup;
-  gstOption : FormGroup;
+  gstOption: FormGroup;
   selectedCountry: string = "";
   simReqObj: any;
   public paymentForm: any = {};
@@ -39,7 +39,26 @@ export class B2bSimSimcheckoutComponent implements OnInit {
   title: string = "Visa2fly | Sim Checkout";
   paymentUrl: any = "";
   stateError: boolean;
+  numberValidationName: any;
   errorMessage: boolean;
+  errorMessageFirstName: boolean;
+  errorMessageLastName: boolean;
+  errorMessagePassportNumber: boolean;
+  errorMessageMobileNumber: boolean;
+  errorMessageEmaildId: boolean;
+  errorMessageAddess: boolean;
+  errorMessageCity: boolean;
+  errorMessagePincode: boolean;
+  errorMessageGST: boolean;
+  errorMessageTextFirstName: any;
+  errorMessageTextLastName: any;
+  errorMessageTextPassport: any;
+  errorMessageTextMobileNumber: any;
+  errorMessageTextEmailId: any;
+  errorMessageTextAddress: any;
+  errorMessageTextCity: any;
+  errorMessageTextPincode: any;
+  errorMessageTextGST: any;
 
   stateListArr: Array<string> = [
     "Andaman And Nicobar Islands",
@@ -62,7 +81,7 @@ export class B2bSimSimcheckoutComponent implements OnInit {
     private meta: Meta,
     private userFlow: UserFlowDetails) {
 
-      this.simCart = JSON.parse(this.userFlow.getCookie("simCart"));
+      this.simCart = JSON.parse(this.userFlow.getLocalStorage("simCart"));
       this.updateTotal();
       this.totalQuantity();
       this.selectedCountry = this.userFlow.getCookie("simSelectedCountry");
@@ -140,6 +159,130 @@ export class B2bSimSimcheckoutComponent implements OnInit {
         // { name: "robots", content: "index, follow" }
       ]);
     }
+
+    onlyForError(value) {
+      // console.log(value);
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextFirstName = "Spaces are not allowed"
+      } else if (format.test(newValue)) {
+        this.errorMessageTextFirstName = "Special character are not allowed"
+      } else if (isNaN(newValue)) {
+        this.errorMessageTextFirstName = "Number are not allowed"
+      } else if (newValue == "") {
+        this.errorMessageTextFirstName = "";
+      }
+      this.errorMessageFirstName = false;
+    }
+
+    onlyForLastNameError(value) {
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextLastName = "Spaces are not allowed"
+      } else if (format.test(newValue)) {
+        this.errorMessageTextLastName = "Special character are not allowed"
+      } else if (isNaN(newValue)) {
+        this.errorMessageTextLastName = "Number are not allowed"
+      } else {
+        this.errorMessageTextLastName = "";
+      }
+      this.errorMessageLastName = false;
+    }
+
+    onlyForPassportError(value) {
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextPassport = "Spaces are not allowed"
+      } else if (format.test(newValue)) {
+        this.errorMessageTextPassport = "Special character are not allowed"
+      } else {
+        this.errorMessageTextPassport = "";
+      }
+      this.errorMessagePassportNumber = false;
+    }
+
+    onlyForMobileNumberError(value) {
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextMobileNumber = "Spaces are not allowed"
+      } else if (format.test(newValue)) {
+        this.errorMessageTextMobileNumber = "Special character are not allowed"
+      } else if (/[a-z]/i.test(newValue)) {
+        this.errorMessageTextMobileNumber = "Alphabet are not allowed"
+      } else {
+        this.errorMessageTextMobileNumber = "";
+      }
+      this.errorMessageMobileNumber = false;
+    }
+
+    onlyForEmailIdError(value) {
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextEmailId = "Spaces are not allowed"
+      } else {
+        this.errorMessageTextEmailId = "";
+      }
+      this.errorMessageEmaildId = false;
+    }
+
+    onlyForPincodeError(value) {
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextPincode = "Spaces are not allowed"
+      } else if (/[a-z]/i.test(newValue)) {
+        this.errorMessageTextPincode = "Alphabet are not allowed"
+      } else {
+        this.errorMessageTextPincode = "";
+      }
+      this.errorMessagePincode = false;
+    }
+
+    onlyForCityError(value) {
+      var format = /[$&+,:;=?@#|'<>.^*()%!-]/;
+      const newValue = value;
+      if (format.test(newValue)) {
+        // console.log("bshvadhg");
+        this.errorMessageTextCity = "Special character are not allowed"
+      } else if (isNaN(newValue)) {
+        this.errorMessageTextCity = "Number are not allowed"
+      } else {
+        this.errorMessageTextCity = "";
+      }
+      this.errorMessageCity = false;
+    }
+
+    onlyForAddressError(value) {
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextAddress = "Spaces are not allowed"
+      } else if (format.test(newValue)) {
+        this.errorMessageTextAddress = "Special character are not allowed"
+      } else {
+        this.errorMessageTextAddress = "";
+      }
+      this.errorMessageAddess = false;
+    }
+
+    onlyForGSTError(value) {
+      var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+      const newValue = value;
+      if (/\s/.test(newValue)) {
+        this.errorMessageTextGST = "Spaces are not allowed"
+      } else if (format.test(newValue)) {
+        this.errorMessageTextGST = "Special character are not allowed"
+      } else if (newValue == "") {
+        this.errorMessageTextGST = "";
+      }
+      this.errorMessageGST = false;
+    }
+
 
     updateTotal() {
       this.simCart.forEach((item: any) => {

@@ -27,7 +27,7 @@ select:focus {
       rgba(0, 0, 0, 0.1)
     ),
     url("https://static.visa2fly.com/carousel/simBg.jpg");
-  height: 60vh;
+  height: 417px;
   background-size: cover;
   background-position: center center;
 }
@@ -147,7 +147,7 @@ select:focus {
   }
 
   #sim {
-    margin-top: 60px;
+    margin-top: 40px;
     height: 280px !important;
   }
 }
@@ -179,4 +179,84 @@ select:focus {
     font-weight: 600;
     margin-bottom: 10px;
   }
+}
+
+.mobileInput {
+  display: none;
+}
+
+.desktopInput {
+  display: block;
+}
+
+#country_input_sim {
+  font-size: 14px;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .desktopInput {
+    display: none;
+  }
+
+  .mobileInput {
+    display: flex;
+  }
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1200;
+  padding: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+#country_mobile_sim,
+#sim_home_heading {
+  display: none;
+  visibility: visible;
+}
+
+.show_select {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.overlay .label_text {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-start;
+  top: 15px;
+}
+
+.overlay .backBtn_icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+}
+
+.overlay .label {
+  font-size: 15px;
+  font-weight: 600;
 }
