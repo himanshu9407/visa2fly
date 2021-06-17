@@ -19,12 +19,12 @@ const routes: Routes = [
   { path: "home", component: B2bHomeComponent },
   { path: "visa-requirement/:country/:purpose", component: B2bReqComponent },
   { path: "b2b-add-traveller", component: B2bAddTrvComponent },
-  { path: "page-not-found", component: PageNotFoundComponent },
+  { path: "404", component: PageNotFoundComponent },
   {
     path: "something-went-wrong",
     component: SomethingWrongComponent
   },
-  { path: "**", redirectTo: "page-not-found", pathMatch: "prefix" }
+  { path: "**", redirectTo: "404", pathMatch: "prefix" }
 ]
 
 @NgModule({

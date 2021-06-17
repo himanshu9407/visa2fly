@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "privacyPolicy" ||
           arr[1] == "cookiePolicy" ||
           arr[1] == "cancellationPolicy" ||
-          arr[1] == "page-not-found" ||
+          arr[1] == "404" ||
           arr[1] == "aboutUs" ||
           arr[1] == "offers" ||
           arr[1] == "insurance" ||

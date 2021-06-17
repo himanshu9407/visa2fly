@@ -19,7 +19,7 @@ const routes: Routes = [
     path: "something-went-wrong",
     component: SomethingWrongComponent
   },
-  { path: "**", redirectTo: "page-not-found", pathMatch: "prefix" }
+  { path: "**", redirectTo: "404", pathMatch: "prefix" }
 ]
 
 @NgModule({

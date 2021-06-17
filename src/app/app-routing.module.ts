@@ -873,9 +873,9 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-  // page-not-found
+  // 404
   {
-    path: "page-not-found",
+    path: "404",
     component: PageNotFoundComponent,
   },
 
@@ -899,7 +899,7 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-  { path: "**", redirectTo: "page-not-found", pathMatch: "full" },
+  { path: "**", redirectTo: "404", pathMatch: "full" },
 ];
 
 @NgModule({
