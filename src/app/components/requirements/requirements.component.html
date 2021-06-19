@@ -1,14 +1,23 @@
-<div class="imageContainer desktopView" [ngStyle]="{'background-image':'linear-gradient(
+<div
+  class="imageContainer desktopView"
+  [ngStyle]="{
+    'background-image':
+      'linear-gradient(
   to left,
-  rgba(0, 45, 75, 0),
-  rgba(0, 0, 0, 0.4)
-), url('+makeUrl+')'}">
+  rgba(0, 0, 0, 0.65),
+  rgba(0, 0, 0, 0.65)
+), url(' +
+      makeUrl +
+      ')'
+  }"
+>
   <div class="row">
     <div class="col-12 text-right">
       <p class="breadcrum">
         <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
-            Details</b>
+          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+            >{{ selectedCountrytype }} Visa Details</b
+          >
         </span>
       </p>
     </div>
@@ -18,11 +27,16 @@
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
-          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-            alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
+          <img
+            data-src="https://static.visa2fly.com/flag/{{
+              selectedCountrytype
+            }}.png"
+            alt="{{ selectedCountrytype }} flag image"
+            class="img-fluid countryFlag rounded lazyload"
+          />
 
           <div class="country-info">
-            <h2 class="country-heading">{{selectedCountrytype}}</h2>
+            <h2 class="country-heading">{{ selectedCountrytype }}</h2>
             <p class="country-desc">{{ countryDesc }}</p>
           </div>
         </div>
@@ -32,49 +46,101 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Tourist" value="Tourist" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Tourist"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Business" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Business"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="Transit" value="Transit" name="purposeSelected"
-                        formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="Transit"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Tourist"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Tourist"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Business"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Business"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="Transit"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="Transit"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -87,17 +153,26 @@
   </div>
 </div>
 
-<div class="imageContainer mobileView" [ngStyle]="{'background-image':'linear-gradient(
+<div
+  class="imageContainer mobileView"
+  [ngStyle]="{
+    'background-image':
+      'linear-gradient(
   to left,
-  rgba(0, 45, 75, 0),
-  rgba(0, 0, 0, 0.4)
-), url('+makeUrl+')'}">
+  rgba(0, 0, 0, 0.65),
+  rgba(0, 0, 0, 0.65)
+), url(' +
+      makeUrl +
+      ')'
+  }"
+>
   <div class="row">
     <div class="col-12 text-right p-0">
       <p class="breadcrum">
         <span>
-          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b>{{ selectedCountrytype }} Visa
-            Details</b>
+          <a [routerLink]="['/visa']">Home</a>&nbsp;/&nbsp;<b
+            >{{ selectedCountrytype }} Visa Details</b
+          >
         </span>
       </p>
     </div>
@@ -107,11 +182,16 @@
     <div class="row">
       <div class="col-12">
         <div class="country-img__box">
-          <img data-src="https://static.visa2fly.com/flag/{{selectedCountrytype}}.png"
-            alt="{{selectedCountrytype}} flag image" class="img-fluid countryFlag rounded lazyload">
+          <img
+            data-src="https://static.visa2fly.com/flag/{{
+              selectedCountrytype
+            }}.png"
+            alt="{{ selectedCountrytype }} flag image"
+            class="img-fluid countryFlag rounded lazyload"
+          />
 
           <div class="country-info">
-            <h2 class="country-heading">{{selectedCountrytype}}</h2>
+            <h2 class="country-heading">{{ selectedCountrytype }}</h2>
           </div>
         </div>
       </div>
@@ -120,49 +200,101 @@
       <div class="col-md-5">
         <div class="changingPurpose">
           <div class="row">
-            <div class="col-lg-3 col-md-4 col-4 setPadding">
-              Visa Type
-            </div>
+            <div class="col-lg-3 col-md-4 col-4 setPadding">Visa Type</div>
             <div class="col-lg-9 col-md-6 col-8 visaDropDown">
               <form [formGroup]="purposeChooseForm">
                 <div class="select-box">
-                  <div class="select-box__current" tabindex="1" (change)="purposeChanged()">
+                  <div
+                    class="select-box__current"
+                    tabindex="1"
+                    (change)="purposeChanged()"
+                  >
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="TouristMobile" value="Tourist"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="TouristMobile"
+                        value="Tourist"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Tourist</p>
                     </div>
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="BusinessMobile" value="Business"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="BusinessMobile"
+                        value="Business"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Business</p>
                     </div>
                     <div class="select-box__value">
-                      <input class="select-box__input" type="radio" id="TransitMobile" value="Transit"
-                        name="purposeSelected" formControlName="purposeSelected" checked="checked" />
+                      <input
+                        class="select-box__input"
+                        type="radio"
+                        id="TransitMobile"
+                        value="Transit"
+                        name="purposeSelected"
+                        formControlName="purposeSelected"
+                        checked="checked"
+                      />
                       <p class="select-box__input-text">Transit</p>
                     </div>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" height="15px" width="15px" class="select-box__icon" viewBox="0 0 1000 1000"
-                      enable-background="new 0 0 1000 1000" xml:space="preserve">
-                      <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                    <svg
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      height="15px"
+                      width="15px"
+                      class="select-box__icon"
+                      viewBox="0 0 1000 1000"
+                      enable-background="new 0 0 1000 1000"
+                      xml:space="preserve"
+                    >
+                      <metadata>
+                        Svg Vector Icons : http://www.onlinewebfonts.com/icon
+                      </metadata>
                       <g>
-                        <path d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z" />
+                        <path
+                          d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"
+                        />
                       </g>
                     </svg>
                   </div>
                   <ul class="select-box__list">
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="TouristMobile"
-                        aria-hidden="aria-hidden">Tourist</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="TouristMobile"
+                        aria-hidden="aria-hidden"
+                        >Tourist</label
+                      >
                     </li>
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="BusinessMobile"
-                        aria-hidden="aria-hidden">Business</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="BusinessMobile"
+                        aria-hidden="aria-hidden"
+                        >Business</label
+                      >
                     </li>
                     <li>
-                      <label class="select-box__option" style="margin-bottom: 0px;" for="TransitMobile"
-                        aria-hidden="aria-hidden">Transit</label>
+                      <label
+                        class="select-box__option"
+                        style="margin-bottom: 0px"
+                        for="TransitMobile"
+                        aria-hidden="aria-hidden"
+                        >Transit</label
+                      >
                     </li>
                   </ul>
                 </div>
@@ -183,98 +315,169 @@
   </div>
 </div>
 
-<div class="container-fluid wrapContainer mt-3" style="overflow: hidden;">
+<div class="container-fluid wrapContainer mt-3" style="overflow: hidden">
   <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3 colPlanCard" *ngFor="let quotation of MyQuotation">
+    <div
+      class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3 colPlanCard"
+      *ngFor="let quotation of MyQuotation"
+    >
       <div class="card planCard">
         <div class="card-header text-center font-weight-bold">
-          {{quotation.purpose}} ({{quotation.processingType}})
+          {{ quotation.purpose }} ({{ quotation.processingType }})
           <br />
-      <span *ngIf="quotation.withServices === 'I'">Without Insurance</span>
+          <span *ngIf="quotation.withServices === 'I'">Without Insurance</span>
         </div>
         <div class="card-body planCardBody">
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-6 planCardRow">Processing time:
+            <div class="col-lg-6 col-md-6 col-6 planCardRow">
+              Processing time:
             </div>
             <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
-              {{quotation.processingTime}}
+              {{ quotation.processingTime }}
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Category:</div>
-            <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right planCardRow">{{quotation.category}}
+            <div
+              class="
+                col-lg-6 col-md-6 col-6
+                font-weight-bold
+                text-right
+                planCardRow
+              "
+            >
+              {{ quotation.category }}
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Stay period:</div>
-            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.stayPeriod}}
+            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+              {{ quotation.stayPeriod }}
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Validity:</div>
-            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">{{quotation.validity}}</div>
+            <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
+              {{ quotation.validity }}
+            </div>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-6 planCardRow">Entry:</div>
             <div class="col-lg-6 col-md-6 col-6 text-right planCardRow">
-              {{quotation.entryType}}
+              {{ quotation.entryType }}
 
-              <button type="button" *ngIf="quotation.entryType === 'Single Entry'" style="padding: 0px 0px 0px 2px;"
-                class="btn" ngbPopover="Applicant is allowed to enter only once within specified validity period.">
+              <button
+                type="button"
+                *ngIf="quotation.entryType === 'Single Entry'"
+                style="padding: 0px 0px 0px 2px"
+                class="btn"
+                ngbPopover="Applicant is allowed to enter only once within specified validity period."
+              ></button>
 
-              </button>
-
-              <button type="button" *ngIf="quotation.entryType === 'Double Entry'" style="padding: 0px 0px 0px 2px;"
-                class="btn" ngbPopover="Applicant is allowed to enter only twice within specified validity period.">
-                <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
-                  <path fill-rule="evenodd"
+              <button
+                type="button"
+                *ngIf="quotation.entryType === 'Double Entry'"
+                style="padding: 0px 0px 0px 2px"
+                class="btn"
+                ngbPopover="Applicant is allowed to enter only twice within specified validity period."
+              >
+                <svg
+                  class="bi bi-question-circle-fill"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="margin-top: -3px"
+                >
+                  <path
+                    fill-rule="evenodd"
                     d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                    clip-rule="evenodd" />
+                    clip-rule="evenodd"
+                  />
                 </svg>
               </button>
 
-              <button type="button" *ngIf="quotation.entryType === 'Multiple Entry'" style="padding: 0px 0px 0px 2px;"
-                class="btn" ngbPopover="Applicant is allowed to enter multiple times within specified validity period.">
-                <svg class="bi bi-question-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg" style="margin-top: -3px;">
-                  <path fill-rule="evenodd"
+              <button
+                type="button"
+                *ngIf="quotation.entryType === 'Multiple Entry'"
+                style="padding: 0px 0px 0px 2px"
+                class="btn"
+                ngbPopover="Applicant is allowed to enter multiple times within specified validity period."
+              >
+                <svg
+                  class="bi bi-question-circle-fill"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="margin-top: -3px"
+                >
+                  <path
+                    fill-rule="evenodd"
                     d="M16 8A8 8 0 110 8a8 8 0 0116 0zM6.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
-                    clip-rule="evenodd" />
+                    clip-rule="evenodd"
+                  />
                 </svg>
               </button>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-6 planCardRow
-                      ">Fees:</div>
-            <div class="col-lg-6 col-md-6 col-6 font-weight-bold text-right
-                      planCardRow" style="color: #000080;">
-              Rs. {{quotation.basePrice + quotation.serviceTax}}</div>
+            <div class="col-lg-6 col-md-6 col-6 planCardRow">Fees:</div>
+            <div
+              class="
+                col-lg-6 col-md-6 col-6
+                font-weight-bold
+                text-right
+                planCardRow
+              "
+              style="color: #000080"
+            >
+              Rs. {{ quotation.basePrice + quotation.serviceTax }}
+            </div>
           </div>
           <div class="row mt-3">
             <div class="col-12 text-center">
-              <button class="btn btn-primary btn-sm font-weight-bold submitBtn"
-                (click)="navigate(quotation.quoteId, quotation.category, quotation.minTravelDate, quotation.basePrice, quotation.serviceTax, quotation.stayPeriod, quotation.imageUpload)">Continue</button>
+              <button
+                class="btn btn-primary btn-sm font-weight-bold submitBtn"
+                (click)="
+                  navigate(
+                    quotation.quoteId,
+                    quotation.category,
+                    quotation.minTravelDate,
+                    quotation.basePrice,
+                    quotation.serviceTax,
+                    quotation.stayPeriod,
+                    quotation.imageUpload
+                  )
+                "
+              >
+                Continue
+              </button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
 
-<app-offline-process-steps [country]="selectedCountrytype" *ngIf="!onlinestatus"></app-offline-process-steps>
-<app-online-process-steps [country]="selectedCountrytype" *ngIf="onlinestatus"></app-online-process-steps>
+<app-offline-process-steps
+  [country]="selectedCountrytype"
+  *ngIf="!onlinestatus"
+></app-offline-process-steps>
+<app-online-process-steps
+  [country]="selectedCountrytype"
+  *ngIf="onlinestatus"
+></app-online-process-steps>
 
 <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
   <div class="row mb-2">
     <div class="col-12 text-center mgxTop">
       <h1 class="outerRequirement">
         <span class="requirementContainer text-uppercase">
-          VISA REQUIREMENT FOR {{selectedCountrytype}}
+          VISA REQUIREMENT FOR {{ selectedCountrytype }}
         </span>
       </h1>
     </div>
@@ -282,30 +485,55 @@
 
   <!-- desktopContainer -->
   <div class="desktopContainer accordion" id="requiredSourceAccodion">
-    <div class="row mb-4" *ngFor="let items of mainArr; let i = index;">
-      <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills">
-        <ngb-tab *ngFor="let item of items; let j = index;">
+    <div class="row mb-4" *ngFor="let items of mainArr; let i = index">
+      <ngb-tabset
+        [justify]="desktopJustify"
+        [orientation]="desktopOrientation"
+        class="iconTabset"
+        type="pills"
+      >
+        <ngb-tab *ngFor="let item of items; let j = index">
           <ng-template ngbTabTitle>
-            <div data-toggle="collapse" attr.data-target="#requiredSource{{ i }}{{ j }}" aria-expanded="true"
-              attr.aria-controls="requiredSource{{ i }}{{ j }}" id="setActiveRequiredSource{{ i }}{{ j }}"
+            <div
+              data-toggle="collapse"
+              attr.data-target="#requiredSource{{ i }}{{ j }}"
+              aria-expanded="true"
+              attr.aria-controls="requiredSource{{ i }}{{ j }}"
+              id="setActiveRequiredSource{{ i }}{{ j }}"
               [class.showDiv]="selectedItem === i + '' + j"
-              (click)="setActiveItem(i + '' + j, 'setActiveRequiredSource' + i + '' + j)"
-              [ngStyle]="{visibility: item.fieldName === '' ? 'hidden' : 'visible',
-                          display: item.fieldName === '' ? 'none' : 'flex'}">
+              (click)="
+                setActiveItem(
+                  i + '' + j,
+                  'setActiveRequiredSource' + i + '' + j
+                )
+              "
+              [ngStyle]="{
+                visibility: item.fieldName === '' ? 'hidden' : 'visible',
+                display: item.fieldName === '' ? 'none' : 'flex'
+              }"
+            >
               <div class="makeIconCntr">
-                <div class="vr-{{item.fieldName | removespace}} requiredIcons img-sprite"></div>
+                <div
+                  class="vr-{{
+                    item.fieldName | removespace
+                  }} requiredIcons img-sprite"
+                ></div>
               </div>
-              <h2 class="setFontSize">{{item.fieldName}}</h2>
+              <h2 class="setFontSize">{{ item.fieldName }}</h2>
             </div>
           </ng-template>
           <ng-template ngbTabContent>
-            <div id="requiredSource{{ i }}{{ j }}" class="collapse" attr.aria-labelledby="heading{{ i }}{{ j }}"
-              data-parent="#requiredSourceAccodion">
+            <div
+              id="requiredSource{{ i }}{{ j }}"
+              class="collapse"
+              attr.aria-labelledby="heading{{ i }}{{ j }}"
+              data-parent="#requiredSourceAccodion"
+            >
               <div class="card requiredIcon">
                 <div class="card-body">
-                  <h1 class="requiredIconHeading">{{item.fieldName}}</h1>
+                  <h1 class="requiredIconHeading">{{ item.fieldName }}</h1>
                   <p>
-                    {{item.content}}
+                    {{ item.content }}
                   </p>
                 </div>
               </div>
@@ -317,30 +545,58 @@
   </div>
 
   <!-- mobileContainer -->
-  <div class="mobileContainer wrapContainer accordion" id="requiredSourceAccodionMobile">
-    <div class="row mb-4" *ngFor="let items of mobileMainArr; let i = index;">
-      <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset" type="pills"
-        *ngFor="let item of items; let j = index;">
+  <div
+    class="mobileContainer wrapContainer accordion"
+    id="requiredSourceAccodionMobile"
+  >
+    <div class="row mb-4" *ngFor="let items of mobileMainArr; let i = index">
+      <ngb-tabset
+        [justify]="desktopJustify"
+        [orientation]="desktopOrientation"
+        class="iconTabset"
+        type="pills"
+        *ngFor="let item of items; let j = index"
+      >
         <ngb-tab>
           <ng-template ngbTabTitle>
-            <div data-toggle="collapse" attr.data-target="#requiredSourceMobile{{ i }}{{ j }}" aria-expanded="true"
-              attr.aria-controls="requiredSourceMobile{{ i }}{{ j }}" id="setActiveRequiredSourceMobile{{ i }}{{ j }}"
+            <div
+              data-toggle="collapse"
+              attr.data-target="#requiredSourceMobile{{ i }}{{ j }}"
+              aria-expanded="true"
+              attr.aria-controls="requiredSourceMobile{{ i }}{{ j }}"
+              id="setActiveRequiredSourceMobile{{ i }}{{ j }}"
               [class.showDiv]="selectedItem === i + '' + j"
-              (click)="setActiveItemMobile(i + '' + j, 'setActiveRequiredSourceMobile' + i + '' + j)">
+              (click)="
+                setActiveItemMobile(
+                  i + '' + j,
+                  'setActiveRequiredSourceMobile' + i + '' + j
+                )
+              "
+            >
               <div class="makeIconCntr">
-                <div class="vr-{{item.fieldName | removespace}} requiredIcons img-sprite"></div>
+                <div
+                  class="vr-{{
+                    item.fieldName | removespace
+                  }} requiredIcons img-sprite"
+                ></div>
               </div>
-              <h2 class="setFontSize">{{item.fieldName}}</h2>
+              <h2 class="setFontSize">{{ item.fieldName }}</h2>
             </div>
           </ng-template>
           <ng-template ngbTabContent>
-            <div id="requiredSourceMobile{{ i }}{{ j }}" class="collapse" attr.aria-labelledby="heading{{ i }}{{ j }}"
-              data-parent="#requiredSourceAccodionMobile">
+            <div
+              id="requiredSourceMobile{{ i }}{{ j }}"
+              class="collapse"
+              attr.aria-labelledby="heading{{ i }}{{ j }}"
+              data-parent="#requiredSourceAccodionMobile"
+            >
               <div class="card requiredIcon">
                 <div class="card-body" style="padding: 10px">
-                  <h1 class="requiredIconHeading" style="color: navy">{{mobileSelectedDataArr[i].fieldName}}</h1>
+                  <h1 class="requiredIconHeading" style="color: navy">
+                    {{ mobileSelectedDataArr[i].fieldName }}
+                  </h1>
                   <p>
-                    {{mobileSelectedDataArr[i].content}}
+                    {{ mobileSelectedDataArr[i].content }}
                   </p>
                 </div>
               </div>
@@ -357,54 +613,60 @@
     <div class="col-lg-12 p-0 impRequired">
       <div class="card">
         <div class="card-header text-center text-uppercase">
-          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-            <path style="fill:#FC495C;" d="M427.155,206l37.772-94.429c1.849-4.622,1.284-9.859-1.506-13.98C460.63,93.469,455.977,91,451,91
+          <svg
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 512 512"
+            style="enable-background: new 0 0 512 512"
+            xml:space="preserve"
+          >
+            <path
+              style="fill: #fc495c"
+              d="M427.155,206l37.772-94.429c1.849-4.622,1.284-9.859-1.506-13.98C460.63,93.469,455.977,91,451,91
              H261c-8.284,0-15,6.716-15,15v135h-35c-8.284,0-15,6.716-15,15v50c0,8.284,6.716,15,15,15h240c4.978,0,9.63-2.469,12.421-6.591
-             c2.791-4.121,3.355-9.358,1.506-13.98L427.155,206z" />
-            <path style="fill:#D12657;" d="M210.997,321c-1.932,0-3.881-0.373-5.737-1.142c-5.605-2.322-9.26-7.791-9.26-13.858v-50
+             c2.791-4.121,3.355-9.358,1.506-13.98L427.155,206z"
+            />
+            <path
+              style="fill: #d12657"
+              d="M210.997,321c-1.932,0-3.881-0.373-5.737-1.142c-5.605-2.322-9.26-7.791-9.26-13.858v-50
              c0-8.284,6.716-15,15-15h50c6.067,0,11.537,3.654,13.858,9.26c2.321,5.605,1.038,12.057-3.252,16.347l-50,50
-             C218.737,319.477,214.9,321,210.997,321z" />
-            <path style="fill:#FD6B82;" d="M261,41H61c-8.284,0-15,6.716-15,15v200c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15V56
-             C276,47.716,269.284,41,261,41z" />
-            <path style="fill:#A4B0BE;" d="M61,512c-8.284,0-15-6.716-15-15V15c0-8.284,6.716-15,15-15s15,6.716,15,15v482
-             C76,505.284,69.284,512,61,512z" />
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
-            <g>
-            </g>
+             C218.737,319.477,214.9,321,210.997,321z"
+            />
+            <path
+              style="fill: #fd6b82"
+              d="M261,41H61c-8.284,0-15,6.716-15,15v200c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15V56
+             C276,47.716,269.284,41,261,41z"
+            />
+            <path
+              style="fill: #a4b0be"
+              d="M61,512c-8.284,0-15-6.716-15-15V15c0-8.284,6.716-15,15-15s15,6.716,15,15v482
+             C76,505.284,69.284,512,61,512z"
+            />
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
           </svg>
-          IMPORTANT VISA INFORMATION FOR {{selectedCountrytype}}
+          IMPORTANT VISA INFORMATION FOR {{ selectedCountrytype }}
         </div>
         <div class="card-body">
           <p *ngFor="let info of importantInfo">
-            <li>{{info}}</li>
+            <li>{{ info }}</li>
           </p>
         </div>
       </div>
@@ -415,55 +677,101 @@
 <div class="wrapContainer mt-4">
   <div class="row">
     <div class="col-12 text-center">
-      <h1><span class="faqContainer">
-          <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" width="30" height="30"
-            xmlns="http://www.w3.org/2000/svg">
+      <h1>
+        <span class="faqContainer">
+          <svg
+            id="Capa_1"
+            enable-background="new 0 0 512 512"
+            viewBox="0 0 512 512"
+            width="30"
+            height="30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <g>
               <g>
                 <circle cx="91" cy="331" fill="#ffe1ba" r="60" />
-                <path d="m151 331c0-33.091-26.909-60-60-60v120c33.091 0 60-26.909 60-60z" fill="#ffbfab" />
-                <path d="m91 391c-49.629 0-91 41.371-91 91v30h91 90v-30c0-49.629-40.371-91-90-91z" fill="#47568c" />
-                <path d="m181 512v-30c0-49.629-40.371-91-90-91v121z" fill="#29376d" />
+                <path
+                  d="m151 331c0-33.091-26.909-60-60-60v120c33.091 0 60-26.909 60-60z"
+                  fill="#ffbfab"
+                />
+                <path
+                  d="m91 391c-49.629 0-91 41.371-91 91v30h91 90v-30c0-49.629-40.371-91-90-91z"
+                  fill="#47568c"
+                />
+                <path
+                  d="m181 512v-30c0-49.629-40.371-91-90-91v121z"
+                  fill="#29376d"
+                />
                 <circle cx="421" cy="331" fill="#ffe1ba" r="60" />
-                <path d="m481 331c0-33.091-26.909-60-60-60v120c33.091 0 60-26.909 60-60z" fill="#ffbfab" />
-                <path d="m512 482c0-49.629-41.371-91-91-91s-90 41.371-90 91v30h90 91z" fill="#47568c" />
-                <path d="m512 512v-30c0-49.629-41.371-91-91-91v121z" fill="#29376d" />
+                <path
+                  d="m481 331c0-33.091-26.909-60-60-60v120c33.091 0 60-26.909 60-60z"
+                  fill="#ffbfab"
+                />
+                <path
+                  d="m512 482c0-49.629-41.371-91-91-91s-90 41.371-90 91v30h90 91z"
+                  fill="#47568c"
+                />
+                <path
+                  d="m512 512v-30c0-49.629-41.371-91-91-91v121z"
+                  fill="#29376d"
+                />
               </g>
               <path
                 d="m256 0c-74.443 0-135 60.557-135 135v30c0 74.443 60.557 135 135 135s135-60.557 135-135v-30c0-74.443-60.557-135-135-135z"
-                fill="#66b3ff" />
-              <path d="m256 300c74.443 0 135-60.557 135-135v-30c0-74.443-60.557-135-135-135z" fill="#4d88ff" />
+                fill="#66b3ff"
+              />
+              <path
+                d="m256 300c74.443 0 135-60.557 135-135v-30c0-74.443-60.557-135-135-135z"
+                fill="#4d88ff"
+              />
               <path d="m241 210h30v30h-30z" fill="#edf5ff" />
               <path
                 d="m301 105c0 14.24-6.86 27.79-18.33 36.24-7.3 5.39-11.67 14-11.67 23.06v15.7h-30v-15.7c0-14.52 5.46-28.47 15-39.14 2.65-2.97 5.62-5.68 8.88-8.08 3.88-2.85 6.12-7.26 6.12-12.08 0-8.28-6.72-15-15-15s-15 6.72-15 15v15h-30v-15c0-24.81 20.19-45 45-45s45 20.19 45 45z"
-                fill="#edf5ff" />
+                fill="#edf5ff"
+              />
               <g fill="#d5e8fe">
                 <path d="m256 210h15v30h-15z" />
                 <path
-                  d="m301 105c0 14.24-6.86 27.79-18.33 36.24-7.3 5.39-11.67 14-11.67 23.06v15.7h-15v-54.84c2.65-2.97 5.62-5.68 8.88-8.08 3.88-2.85 6.12-7.26 6.12-12.08 0-8.28-6.72-15-15-15v-30c24.81 0 45 20.19 45 45z" />
+                  d="m301 105c0 14.24-6.86 27.79-18.33 36.24-7.3 5.39-11.67 14-11.67 23.06v15.7h-15v-54.84c2.65-2.97 5.62-5.68 8.88-8.08 3.88-2.85 6.12-7.26 6.12-12.08 0-8.28-6.72-15-15-15v-30c24.81 0 45 20.19 45 45z"
+                />
               </g>
             </g>
           </svg>
-          FAQ's</span></h1>
+          FAQ's</span
+        >
+      </h1>
     </div>
 
     <div class="col-12 p-0">
       <div class="accordion" id="faq">
-        <div class="card faqQueryCard" *ngFor="let faq of faqs; let first=first; let i = index">
-          <div class="card-header faqQuery" id="{{ dataSource[i].id}}" data-toggle="collapse"
-            attr.data-target="{{ dataSource[i].dataToggleHash }}" aria-expanded="true"
-            attr.aria-controls="{{ dataSource[i].dataToggle }}">
+        <div
+          class="card faqQueryCard"
+          *ngFor="let faq of faqs; let first = first; let i = index"
+        >
+          <div
+            class="card-header faqQuery"
+            id="{{ dataSource[i].id }}"
+            data-toggle="collapse"
+            attr.data-target="{{ dataSource[i].dataToggleHash }}"
+            aria-expanded="true"
+            attr.aria-controls="{{ dataSource[i].dataToggle }}"
+          >
             <h5 class="mb-0">
               <button class="btn btn-link" type="button">
-                {{faq.title}}
+                {{ faq.title }}
               </button>
             </h5>
           </div>
 
-          <div id="{{ dataSource[i].dataToggle }}" class="collapse " [ngClass]="{'show': first}"
-            attr.aria-labelledby="{{ dataSource[i].id }}" data-parent="#faq">
+          <div
+            id="{{ dataSource[i].dataToggle }}"
+            class="collapse"
+            [ngClass]="{ show: first }"
+            attr.aria-labelledby="{{ dataSource[i].id }}"
+            data-parent="#faq"
+          >
             <div class="card-body">
-              <p>{{faq.content}}</p>
+              <p>{{ faq.content }}</p>
             </div>
           </div>
         </div>
