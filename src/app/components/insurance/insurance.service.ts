@@ -8,7 +8,8 @@ import { LoginService } from '../login-signup/login/login.service';
   providedIn: 'root'
 })
 export class InsuranceService {
-  permiumCalculated: Subject<Array<{planType: string, premiumCalculated: number, gst: number}>> = new Subject();
+  
+  permiumCalculated: Subject<Array<{ planType: string, premiumCalculated: number, gst: number }>> = new Subject();
   loadingSkeleton: Subject<boolean> = new Subject();
 
   constructor(private http: HttpClient,

@@ -387,7 +387,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
               this.userflowDetails.setInsuranceDetails('tripEndDate', tripEndDate);
               this.userflowDetails.setInsuranceDetails('anyMedicalCondition', anyMedicalCondition);
 
-              this.insuranceService.permiumCalculated.next(res.data.premiumAsPerPlan);
+              // this.insuranceService.permiumCalculated.next(res.data.premiumAsPerPlan);
               this.insuranceService.loadingSkeleton.next(false);
 
               this.enableReviewPremiumForm();
@@ -488,32 +488,25 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  proceedBtn() {
-    this.validatePremiumForm();
-    // console.log(this.getPremiumForm);
 
+  /** Proceed function while user at insurance home page and click get to insurance quotations */
+  proceedBtn() {
+    /** check insurance home form */
+    this.validatePremiumForm();
     if (!this.getPremiumForm.valid) {
     } else {
-      // console.log(this.selectedCountry);
-
-      // let country;
-      // if (this.checkParenthesis(this.selectedCountry)) {
-      //   country = this.selectedCountry.replace(/ *\([^)]*\) */g, "");
-      // } else {
-      //   country = this.selectedCountry;
-      // }
-
+      /** get all the value of form */
       let country = this.getPremiumForm.get('country').value;
-
       let ageOfTravellers = this.getPremiumForm.get('ageOfTravellers').value;
       let ageOfTravellersList = [];
-
       let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
       let tripEndDate = this.getPremiumForm.get('tripEndDate').value;
 
+      /** reformat date input as api requirement */
       let tempTripStartDate: any;
       let tempTripEndDate: any;
 
+      /** reformat trip start date */
       if (tripStartDate.month < 10 && tripStartDate.day < 10) {
         tempTripStartDate = tripStartDate.year + "-0" + tripStartDate.month + "-0" + tripStartDate.day;
       } else if (tripStartDate.day < 10) {
@@ -523,7 +516,9 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
       } else {
         tempTripStartDate = tripStartDate.year + "-" + tripStartDate.month + "-" + tripStartDate.day;
       }
+      /** reformat trip start date end */
 
+      /** reformat trip end date */
       if (tripEndDate.month < 10 && tripEndDate.day < 10) {
         tempTripEndDate = tripEndDate.year + "-0" + tripEndDate.month + "-0" + tripEndDate.day;
       } else if (tripEndDate.day < 10) {
@@ -533,15 +528,14 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
       } else {
         tempTripEndDate = tripEndDate.year + "-" + tripEndDate.month + "-" + tripEndDate.day;
       }
+      /** reformat trip start date end */
 
       let anyMedicalCondition = this.getPremiumForm.get('anyMedicalCondition').value;
-      // let frequentTraveller = this.getPremiumForm.get('frequentTraveller').value;
-      // let tripFrequency = this.getPremiumForm.get('tripFrequency').value;
 
+      /** validate members age input */
       for (let i = 0; i < ageOfTravellers.length; i++) {
         if (ageOfTravellers[i].memberAge !== "" && ageOfTravellers[i].memberAge !== null && ageOfTravellers[i].memberAge !== undefined) {
           ageOfTravellersList.push(ageOfTravellers[i].memberAge);
-          // console.log(ageOfTravellers[i]);
         }
       }
 
@@ -560,12 +554,12 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
         // tripFrequency: tripFrequency
       }
 
-      // console.log(reqData);
-
       this.insuranceService.getPremium(reqData).subscribe((res: any) => {
-        // console.log(res);
+        console.log(res);
 
         if (res.code === '0') {
+          /** in case api response successfull */
+          /** store all the inputs in the localStorage */
           this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
           this.userflowDetails.setInsuranceDetails('country', country);
           this.userflowDetails.setInsuranceDetails('ageOfTravellers', JSON.stringify(ageOfTravellersList));
@@ -577,12 +571,12 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
           this.enableCheckoutBtn = true;
           this.router.navigateByUrl('insurance/plans');
         } else {
+          /** in case api response failed */
           this.toastr.error(res.message);
         }
       });
 
     }
-
   }
 
   enableReviewPremiumForm() {
@@ -627,8 +621,6 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
         this.router.navigateByUrl('insurance');
         this.toastr.error("Please fill the travel details.")
       }
-
-      // this.getPremiumForm.get('country').disable();
     }
   }
 

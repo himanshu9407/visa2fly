@@ -1,40 +1,85 @@
 <section class="plans_details">
   <div class="card_wrapper mt__4">
-    <div class="row">
-      <div class="col-lg-5 col-md-5 col-sm-12 col-12 xyz__0 pre_plan_pr">
-        <form class="plans-filter" [formGroup]="filterPlanForm">
-          <span>Premium Plan:</span>
-          <span class="premiumSkeleton" *ngIf="loadingSkeleton">
-            <div class="bar"></div>
-          </span>
-          <div class="styleSelectFilter" *ngIf="!loadingSkeleton">
-            <select
-              name="plan"
-              id="plan"
-              class="form-control-sm form-control"
-              formControlName="planFilter"
-              (change)="onChangePlan($event)"
+    <form class="" [formGroup]="filterPlanForm">
+      <div class="form-row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="form-row">
+            <div
+              class="col-lg-12 col-md-12 col-sm-12 col-12 xyz__0 plans-filter"
             >
-              <option *ngFor="let item of planType" [value]="item">
-                {{ item }}
-              </option>
-            </select>
-            <div class="bar-short"></div>
-          </div>
-        </form>
-      </div>
-      <div class="col-lg-7 col-md-7 col-sm-12 col-12 xyz__0 pdtp__02">
-        <div class="plans-filter">
-          <span>Premium Calculated:</span>
-          <span class="premiumSkeleton" *ngIf="loadingSkeleton">
-            <div class="bar"></div>
-          </span>
-          <span style="font-weight: 600; font-size: 13px;" *ngIf="!loadingSkeleton">
+              <span>Premium Plan:</span>
+              <span class="premiumSkeleton" *ngIf="loadingSkeleton">
+                <div class="bar"></div>
+              </span>
+              <div class="styleSelectFilter" *ngIf="!loadingSkeleton">
+                <select
+                  name="plan"
+                  id="plan"
+                  class="form-control-sm form-control"
+                  formControlName="planFilter"
+                  (change)="onChangePlan()"
+                >
+                  <option *ngFor="let item of planType" [value]="item">
+                    {{ item }}
+                  </option>
+                </select>
+                <div class="bar-short"></div>
+              </div>
+            </div>
+            <div
+              class="
+                col-lg-12 col-md-12 col-sm-12 col-12
+                xyz__0
+                pdtp__02
+                mt-1
+                plans-filter
+              "
+            >
+              <span>Premium Coverage:</span>
+              <span class="premiumSkeleton" *ngIf="loadingSkeleton">
+                <div class="bar"></div>
+              </span>
+              <!-- <span style="font-weight: 600; font-size: 13px;" *ngIf="!loadingSkeleton">
             ₹ {{ premiumCalculated + premiumGST}} <em style="font-size: 12px;">(including taxes)</em>
-          </span>
+          </span> -->
+              <div class="styleSelectFilter" *ngIf="!loadingSkeleton">
+                <select
+                  name="coverage"
+                  id="coverage"
+                  class="form-control-sm form-control"
+                  formControlName="coverageFilter"
+                  (change)="onChangePlan()"
+                >
+                  <option *ngFor="let item of coverageType" [value]="item">
+                    {{ item }}
+                  </option>
+                </select>
+                <div class="bar-short"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="form-row">
+            <div
+              class="col-lg-12 col-md-12 col-sm-12 col-12 plans-filter mmt-1"
+            >
+              <span>Premium Calculated:</span>
+              <span class="premiumSkeleton" *ngIf="loadingSkeleton">
+                <div class="bar"></div>
+              </span>
+              <div
+                class="styleSelectFilter calculated"
+                *ngIf="!loadingSkeleton"
+              >
+                {{ premiumCalculated + premiumGST }}
+                <div class="bar-short"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
   <div class="card_wrapper mt-2 pb__04">
     <div class="row">

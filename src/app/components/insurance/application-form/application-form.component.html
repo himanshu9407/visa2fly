@@ -5,22 +5,21 @@
   </div>
 
   <div class="container insurance_application-container">
-    <form
-      [formGroup]="policyDetailForm"
-      autocomplete="off"
-      class="policyDetailForm"
-    >
+    <form autocomplete="off" class="policyDetailForm">
       <div class="form-row form-group">
         <div
-          class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+          class="
+            col-lg-12 col-md-12 col-sm-12 col-12
+            insurance_application-subheader_box
+          "
         >
           <h5 class="insurance_application-subheading">Policy Details :</h5>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
           <div class="insurance-input_box">
             <label for="planType" class="insurance-label">Plan Type</label>
-            <div class="styleSelectPlan">
-              <select
+            <span class="styleSelectPlan">
+              <!-- <select
                 name="planType"
                 (change)="onChangePlan()"
                 class="form-control form-control-sm"
@@ -29,19 +28,21 @@
               >
                 <option value="Basic">Basic</option>
                 <option value="Gold">Gold</option>
-              </select>
-            </div>
+              </select> -->
+              {{ selectedPlan }}
+            </span>
           </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
           <div class="insurance-input_box">
             <label for="coverage" class="insurance-label">Coverage</label>
-            <input
+            <!-- <input
               type="text"
               id="coverage"
               formControlName="coverage"
               class="form-control-sm form-control insurance-input"
-            />
+            /> -->
+            <span class="styleSelectPlan">$ {{ selectedCoverage }}</span>
           </div>
         </div>
         <div class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box">
@@ -77,7 +78,10 @@
             >
               <div class="form-row">
                 <div
-                  class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                  class="
+                    col-lg-12 col-md-12 col-sm-12 col-12
+                    insurance_application-subheader_box
+                  "
                 >
                   <h5 class="insurance_application-subheading">
                     Customer Details :
@@ -93,7 +97,11 @@
                         <select
                           name="titleCd"
                           id="proposerTitle"
-                          class="form-control form-control-sm insurance-select titleSelect"
+                          class="
+                            form-control form-control-sm
+                            insurance-select
+                            titleSelect
+                          "
                           formControlName="titleCd"
                           (change)="
                             validatingTitle(
@@ -339,7 +347,12 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-2">
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        d-flex
+                        align-items-center
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         Contact Details :
@@ -395,7 +408,11 @@
                                   .partyContactDOList['controls'][j].controls
                                   .contactNum.pristine
                             }"
-                            class="form-control-sm form-control insurance-input iti"
+                            class="
+                              form-control-sm form-control
+                              insurance-input
+                              iti
+                            "
                           />
                         </div>
                         <div
@@ -503,7 +520,12 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-2">
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        d-flex
+                        align-items-center
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         Nominee Details :
@@ -576,7 +598,12 @@
                         <select
                           formControlName="nomineeRelation"
                           id="nomineeRelation"
-                          class="form-control col form-control-sm insurance-select"
+                          class="
+                            form-control
+                            col
+                            form-control-sm
+                            insurance-select
+                          "
                         >
                           <option value="">Select</option>
                           <option
@@ -616,7 +643,12 @@
               </div>
               <div class="form-row mt-2">
                 <div
-                  class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                  class="
+                    col-lg-12 col-md-12 col-sm-12 col-12
+                    insurance_application-subheader_box
+                    d-flex
+                    align-items-center
+                  "
                 >
                   <h5 class="insurance_application-subheading mr-auto">
                     Identity Details :
@@ -786,7 +818,11 @@
                 >
                   <div class="form-row mt-2" [formGroupName]="j">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box address_heading_box"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        address_heading_box
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         {{
@@ -799,7 +835,12 @@
                       </h5>
 
                       <div
-                        class="sameAsPrimary d-flex align-items-center address_heading-checkbox"
+                        class="
+                          sameAsPrimary
+                          d-flex
+                          align-items-center
+                          address_heading-checkbox
+                        "
                         *ngIf="!first"
                       >
                         <input
@@ -823,7 +864,10 @@
                     <div class="col-12" id="proposalAddressForm_{{ j }}">
                       <div class="form-row">
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerLine1" class="insurance-label"
@@ -861,7 +905,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .addressLine1Lang1.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             ></textarea>
                             <div
                               *ngIf="
@@ -889,7 +936,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerLine2" class="insurance-label"
@@ -927,7 +977,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .addressLine2Lang1.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             ></textarea>
                             <div
                               *ngIf="
@@ -977,7 +1030,10 @@
                           </div>
                         </div> -->
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerArea" class="insurance-label"
@@ -1012,7 +1068,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .areaCd.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             />
                             <div
                               *ngIf="
@@ -1040,7 +1099,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerPinCode" class="insurance-label"
@@ -1073,7 +1135,11 @@
                                       'controls'
                                     ].pinCode.validPinCodeForProposal
                                 }"
-                                class="insurance-input form-control-sm form-control pinCodeAutoComplete"
+                                class="
+                                  insurance-input
+                                  form-control-sm form-control
+                                  pinCodeAutoComplete
+                                "
                               />
                               <span
                                 class="loading pinCodeLoader"
@@ -1126,7 +1192,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerCity" class="insurance-label"
@@ -1139,7 +1208,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'cityCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1157,7 +1231,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'cityCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1191,7 +1270,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerState" class="insurance-label"
@@ -1204,7 +1286,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'stateCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1223,7 +1310,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'stateCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1237,7 +1329,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerCountry" class="insurance-label"
@@ -1272,7 +1367,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .countryCd.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             />
                             <div
                               *ngIf="
@@ -1398,7 +1496,12 @@
                 <div class="card-body card_body--application_form">
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        d-flex
+                        align-items-center
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         Customer Details :
@@ -1407,7 +1510,10 @@
                   </div>
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                      "
                     >
                       <h5 class="insurance_application-subheading"></h5>
                     </div>
@@ -1430,7 +1536,11 @@
                                   'partyDoList'
                                 )
                               "
-                              class="form-control form-control-sm insurance-select titleSelect"
+                              class="
+                                form-control form-control-sm
+                                insurance-select
+                                titleSelect
+                              "
                               formControlName="titleCd"
                             >
                               <option selected value="MR">Mr</option>
@@ -2205,7 +2315,12 @@
                     <div class="col-6">
                       <div class="form-row">
                         <div
-                          class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                          class="
+                            col-lg-12 col-md-12 col-sm-12 col-12
+                            insurance_application-subheader_box
+                            d-flex
+                            align-items-center
+                          "
                         >
                           <h5 class="insurance_application-subheading mr-auto">
                             Identity Details :
@@ -2245,7 +2360,10 @@
                               </div>
                             </div> -->
                             <div
-                              class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
+                              class="
+                                col-lg-6 col-md-4 col-sm-12 col-12
+                                insurance-box
+                              "
                             >
                               <div class="insurance-input_box">
                                 <label
@@ -2276,7 +2394,8 @@
                                   "
                                   #identityNum
                                   (input)="
-                                    identityNum.value = $event.target.value.toUpperCase()
+                                    identityNum.value =
+                                      $event.target.value.toUpperCase()
                                   "
                                   [ngClass]="{
                                     'is-invalid':
@@ -2299,7 +2418,10 @@
                                         .partyIdentityDOList.controls[0]
                                         .controls.identityNum.pristine
                                   }"
-                                  class="form-control-sm form-control insurance-input"
+                                  class="
+                                    form-control-sm form-control
+                                    insurance-input
+                                  "
                                 />
                                 <div
                                   *ngIf="
@@ -2398,7 +2520,11 @@
                           </div>
 
                           <div
-                            class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex ques_ans_option_box"
+                            class="
+                              col-lg-2 col-md-2 col-sm-12 col-12
+                              d-flex
+                              ques_ans_option_box
+                            "
                             *ngIf="
                               getControls[i]['controls'].partyQuestionDOList
                                 .controls[j].controls.questionType.value ==
@@ -2425,13 +2551,19 @@
                                 class="custom-control-input"
                               />
                               <label
-                                class="custom-control-label insurance-radio-label"
+                                class="
+                                  custom-control-label
+                                  insurance-radio-label
+                                "
                                 for="question_{{ j }}_1_{{ i }}"
                                 >Yes</label
                               >
                             </div>
                             <div
-                              class="custom-control custom-radio ques_ans_right_option"
+                              class="
+                                custom-control custom-radio
+                                ques_ans_right_option
+                              "
                             >
                               <input
                                 type="radio"
@@ -2452,7 +2584,10 @@
                                 class="custom-control-input"
                               />
                               <label
-                                class="custom-control-label insurance-radio-label"
+                                class="
+                                  custom-control-label
+                                  insurance-radio-label
+                                "
                                 for="question_{{ j }}_2_{{ i }}"
                                 >No</label
                               >
