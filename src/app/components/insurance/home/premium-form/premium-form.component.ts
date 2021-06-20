@@ -86,6 +86,21 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
     let routeLength = this.router.url.split('/').length;
     let endRoute = this.router.url.split('/')[routeLength - 1];
 
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        let url: string = event.url;
+        let arr = url.split("/");
+
+        arr[arr.length - 1] = arr[arr.length - 1].split("?")[0];
+
+        console.log(arr[2]);
+
+        if (arr[1] == 'insurance' && arr[2] == undefined) {
+          this.enableCheckoutBtn = false;
+        }
+      }
+    });
+
     if (endRoute == 'insurance') {
       for (let i = 1; i <= 3; i++) {
         let getPremiumForm: FormArray = this.getPremiumForm.get('ageOfTravellers') as FormArray;
@@ -95,6 +110,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
           }),
         );
         this.count++;
+
       }
     }
 
@@ -311,11 +327,9 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
     "Holy",
   ];
 
+  /** On click getQuotations or process fetch plans*/
   onChangePlan() {
-    // console.log(this.getPremiumForm);
-    // console.log(this.getPremiumForm.valid);
     if (this.enableCheckoutBtn && !this.deniedCountryEnable) {
-
       if (!this.getPremiumForm.valid) {
       } else {
         if (this.getPremiumForm.get('tripEndDate').value != '') {
@@ -326,8 +340,6 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
           let tripStartDate = this.getPremiumForm.get('tripStartDate').value;
           let tripEndDate = this.getPremiumForm.get('tripEndDate').value;
 
-          // console.log(tripStartDate);
-          // console.log(tripEndDate);
 
           let tempTripStartDate: any;
           let tempTripEndDate: any;
@@ -373,12 +385,8 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
             // tripFrequency: tripFrequency
           }
 
-          // console.log(reqData);
-
           this.insuranceService.loadingSkeleton.next(true);
           this.insuranceService.getPremium(reqData).subscribe((res: any) => {
-            // console.log(res);
-
             if (res.code === '0') {
               this.userflowDetails.setLocalStorage('premiumDetails', JSON.stringify(res.data));
               this.userflowDetails.setInsuranceDetails('country', country);
@@ -387,7 +395,8 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
               this.userflowDetails.setInsuranceDetails('tripEndDate', tripEndDate);
               this.userflowDetails.setInsuranceDetails('anyMedicalCondition', anyMedicalCondition);
 
-              // this.insuranceService.permiumCalculated.next(res.data.premiumAsPerPlan);
+              console.log(res);
+              this.insuranceService.permiumCalculated.next(res.data);
               this.insuranceService.loadingSkeleton.next(false);
 
               this.enableReviewPremiumForm();
@@ -583,7 +592,7 @@ export class PremiumFormComponent implements OnInit, OnDestroy {
     let routeLength = this.router.url.split('/').length;
     let endRoute = this.router.url.split('/')[routeLength - 1];
 
-    // console.log(endRoute);/
+    console.log(endRoute);
 
 
     if (endRoute == 'plans') {
