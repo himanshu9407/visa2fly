@@ -53,7 +53,7 @@ export class HomeContainerComponent implements OnInit {
 
     // console.log(this.route.url);
 
-    this.titleService.setTitle("Visa Online | Apply Visa Online | Online Visa Application | Visa2fly");
+    this.titleService.setTitle("Apply Visa Online | Online E-visa Application | Tourist Visa! Visit Visa | Transit Visa | Business Visa | Book Visa Online");
 
     this.meta.updateTag({
       name: "keywords",
@@ -63,14 +63,14 @@ export class HomeContainerComponent implements OnInit {
     this.meta.updateTag({
       name: "description",
       content:
-        "Apply Visa Online by filling your Online Visa Application at Visa2Fly. Experience hassle-free end to end visa assistance for Indian passport holders. Book Here",
+        "Online visa application made simple and hassle-free with visa2fly. Apply E-visa for Dubai, Malaysia, Thailand, Srilanka, Vietnam, Cambodia. Get an international e-visa by email. We also assist you at your Doorstep by providing End to End assistance in document submission, biometric & interviews. Apply for Tourist, Transit, and Business visas for top destinations.",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "Visa Online | Apply Visa Online | Online Visa Application | Visa2fly",
+        "Apply Visa Online | Online E-visa Application | Tourist Visa! Visit Visa | Transit Visa | Business Visa | Book Visa Online",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
@@ -88,7 +88,7 @@ export class HomeContainerComponent implements OnInit {
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Apply Visa Online by filling your Online Visa Application at Visa2Fly. Experience hassle-free end to end visa assistance for Indian passport holders. Book Here",
+        "Online visa application made simple and hassle-free with visa2fly. Apply E-visa for Dubai, Malaysia, Thailand, Srilanka, Vietnam, Cambodia. Get an international e-visa by email. We also assist you at your Doorstep by providing End to End assistance in document submission, biometric & interviews. Apply for Tourist, Transit, and Business visas for top destinations.",
     });
 
     // twitter
@@ -99,7 +99,7 @@ export class HomeContainerComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "Visa Online | Apply Visa Online | Online Visa Application | Visa2fly",
+        "Apply Visa Online | Online E-visa Application | Tourist Visa! Visit Visa | Transit Visa | Business Visa | Book Visa Online",
     });
     this.meta.updateTag({
       property: "twitter:image",
@@ -112,7 +112,7 @@ export class HomeContainerComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Apply Visa Online by filling your Online Visa Application at Visa2Fly. Experience hassle-free end to end visa assistance for Indian passport holders. Book Here",
+        "Online visa application made simple and hassle-free with visa2fly. Apply E-visa for Dubai, Malaysia, Thailand, Srilanka, Vietnam, Cambodia. Get an international e-visa by email. We also assist you at your Doorstep by providing End to End assistance in document submission, biometric & interviews. Apply for Tourist, Transit, and Business visas for top destinations.",
     });
     this.meta.updateTag({
       property: "twitter:site",
@@ -137,7 +137,6 @@ export class HomeContainerComponent implements OnInit {
     });
 
     this.homeFormService.resideInList.subscribe((list: string[]) => {
-      // console.log(list)
       this.resideInArr = list;
     });
   }
@@ -245,14 +244,6 @@ export class HomeContainerComponent implements OnInit {
     }
   }
 
-  // @ViewChild('filterInput') filterInput: ElementRef;
-
-  // focusInputField() {
-  //   setTimeout(() => {
-  //     this.filterInput.nativeElement.focus()
-  //   }, 10)
-  // }
-
   countryChanged() {
     let value = this.country.value;
 
@@ -300,9 +291,7 @@ export class HomeContainerComponent implements OnInit {
   }
 
   inputSearchFn(term: string, item: any) {
-    // console.log(term);
     term = term.toLocaleLowerCase();
-    // console.log(item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1);
     return item.toLocaleLowerCase().indexOf(term) > -1 || item.toLocaleLowerCase().indexOf(term) > -1;
   }
 
