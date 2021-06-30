@@ -58,7 +58,7 @@ export class HomeContainerComponent implements OnInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "Visa Online - Apply for tourist visa online to top international destinations like Dubai, UK, US, Singapore, Schengen, etc. hassle-free with Visa2fly. Click here to know more!",
+        "Visa Online - Apply for tourist visa Dubai, UK, US, Singapore, Russia, Thailand, Srilanka | online visa application | Apply international visa online | Indian visa online application",
     });
     this.meta.updateTag({
       name: "description",
