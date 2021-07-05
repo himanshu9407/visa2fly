@@ -7,7 +7,7 @@ const routes: Routes = [
 
   // About Us Page
   {
-    path: "AboutUs",
+    path: "About-Us",
     loadChildren: () =>
       import("./components/static/about-us/about-us.module").then(
         (m) => m.AboutUsModule

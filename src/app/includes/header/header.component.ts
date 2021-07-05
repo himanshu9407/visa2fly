@@ -62,7 +62,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "cookiePolicy" ||
           arr[1] == "cancellationPolicy" ||
           arr[1] == "404" ||
-          arr[1] == "AboutUs" ||
+          arr[1] == "About-Us" ||
           arr[1] == "offers" ||
           arr[1] == "insurance" ||
           arr[2] == "australia-visa-online" ||
