@@ -1,0 +1,441 @@
+section#quotation {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+section#quotation h3.quotations_heading {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  color: #000000;
+}
+
+section#quotation p.quotations_sheading {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #717171;
+}
+
+section#quotation .quotation_tab {
+  height: 100px;
+  width: 480px;
+  background-color: rgba(235, 235, 235, 0.28);
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+section#quotation .quotation_tab .navigation-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  z-index: 2;
+  color: #505050;
+  transform: scale(.8);
+  -webkit-transform: scale(.8);
+  -moz-transform: scale(.8);
+  -ms-transform: scale(.8);
+  -o-transform: scale(.8);
+}
+
+section#quotation .quotation_tab .navigation-tab-item.active {
+  color: #000;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+section#quotation .quotation_tab .navigation-tab-item .navigation-tab__icon {
+  display: block;
+  transition-duration: 0.3s;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+section#quotation .quotation_tab .navigation-tab-item .navigation-tab__icon svg {
+  height: 32px;
+  width: 32px;
+}
+
+section#quotation .quotation_tab .navigation-tab-item .navigation-tab__icon svg path {
+  fill: currentColor;
+}
+
+section#quotation .quotation_tab .navigation-tab-item .navigation-tab__txt {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  transition-duration: 0.3s;
+  user-select: none;
+}
+
+section#quotation .quotation_tab .navigation-tab-overlay {
+  background-color: #fff;
+  height: 108%;
+  width: 160px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+  border-radius: 20px 20px 0 0;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  -ms-border-radius: 20px 20px 0 0;
+  -o-border-radius: 20px 20px 0 0;
+}
+
+section#quotation .quotation_tab ul.quotation_tab_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+section#quotation .quotation_tab ul.quotation_tab_list li.quotation_tab_item {
+  /* padding: 10px; */
+  display: inline-block;
+}
+
+section#quotation .quotation_tab ul.quotation_tab_list li.quotation_tab_item .quotation_tab_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 2px;
+  width: 100%;
+  height: 100%;
+}
+
+section#quotation .quotation_tab ul.quotation_tab_list li.quotation_tab_item .quotation_tab_box {
+  background: rgba(235, 235, 235, 0.28);
+  border-radius: 0px;
+  width: 200px;
+  height: 100px;
+}
+
+section#quotation .quotation_tab ul.quotation_tab_list li.quotation_tab_item .quotation_tab_box [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+section#quotation .quotation_tab ul.quotation_tab_list li.quotation_tab_item .quotation_tab_box [type=radio]:checked+.label-icon {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 20px 20px 0px 0px;
+  width: 200px;
+  height: 110px;
+}
+
+section#quotation .quotation_tab ul.quotation_tab_list li.quotation_tab_item .quotation_tab_box .label-icon {
+  background-size: auto 40px;
+  background-repeat: no-repeat;
+  background-position: center 10px;
+  margin-bottom: 0;
+  padding: 15px 30px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.07, 0.49, 1, 0.08);
+  -moz-transition: all 0.3s cubic-bezier(0.07, 0.49, 1, 0.08);
+  transition: all 0.3s cubic-bezier(0.07, 0.49, 1, 0.08);
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+section#quotation .quotation_outer_box {
+  background: linear-gradient(180.08deg, rgba(26, 9, 109, 0.04) -12.14%, rgba(255, 255, 255, 0) 99.93%);
+  border-radius: 20px;
+  /* padding: 10px 35px; */
+}
+
+section#quotation .quotation_outer_box .slick-slide {
+  max-width: 393px;
+  width: 100%;
+}
+
+section#quotation .quotation_outer_box .quotation_card {
+  text-align: center;
+  max-width: calc(393px - 60px);
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  margin: 30px 30px;
+  font-family: Poppins;
+  background: #FFFFFF;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transition: opacity .2s ease, transform .2s ease;
+  -webkit-transition: opacity .2s ease, transform .2s ease;
+  -moz-transition: opacity .2s ease, transform .2s ease;
+  -ms-transition: opacity .2s ease, transform .2s ease;
+  -o-transition: opacity .2s ease, transform .2s ease;
+}
+
+section#quotation .quotation_outer_box .activeSlick .quotation_card {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+section#quotation .quotation_outer_box .slick-active:nth-child(2) .quotation_card {
+  border: 1px solid #FFC107;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_plan {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 30px;
+  color: #1A096D;
+  margin-bottom: 20px;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_plan span {
+  font-size: 13px;
+  line-height: 21px;
+  display: block;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_price-box {
+  margin-bottom: 20px;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_price-box .quotation_price {
+  background: rgba(26, 9, 109, 0.04);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-style: normal;
+  font-weight: bold;
+  color: #1A096D;
+  font-size: 20px;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_price-box .quotation_price span {
+  font-size: 16px;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_points .quotation_point_list {
+  list-style: none;
+  padding: 0;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_points .quotation_point_list .quotation_point_item {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: #353535;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_points .quotation_point_list .quotation_point_item:not(:last-child) {
+  border-bottom: 0.7px solid #616161;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_points .quotation_point_list .quotation_point_item span {
+  font-weight: 600;
+  color: #000000;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_extra_info {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_extra_info p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 15px;
+  color: #4F4F4F;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_submission {
+  text-align: center;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_submission button.quotation_submission_btn {
+  border: 1px solid #1A096D;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 180px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+section#quotation .quotation_outer_box .slick-active:nth-child(2) .quotation_card .quotation_submission button.quotation_submission_btn {
+  background: #1A096D;
+  color: #fff;
+}
+
+section#quotation .quotation_outer_box .quotation_card .quotation_submission button.quotation_submission_btn {
+  background: transparent;
+  color: #1A096D;
+}
+
+section#quotation .quotation_outer_box .slick-next:before,
+section#quotation .quotation_outer_box .slick-prev:before {
+  content: '';
+}
+
+@media screen and (max-width: 600px) {
+  section#quotation .container-fluid {
+    padding: 0;
+  }
+
+  section#quotation h3.quotations_heading {
+    font-size: 22px;
+  }
+
+  section#quotation p.quotations_sheading {
+    font-size: 14px;
+  }
+
+  section#quotation .quotation_tab {
+    height: 85px;
+    width: 300px;
+  }
+
+  section#quotation .quotation_tab .navigation-tab-item {
+    width: 100px;
+  }
+
+  section#quotation .quotation_tab .navigation-tab-overlay {
+    width: 100px;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+  }
+
+  section#quotation .quotation_tab .navigation-tab-item .navigation-tab__icon {
+    margin-bottom: 5px;
+  }
+
+  section#quotation .quotation_tab .navigation-tab-item .navigation-tab__txt {
+    font-size: 12px;
+  }
+
+  section#quotation .quotation_outer_col {
+    padding: 0px;
+  }
+
+  section#quotation .quotation_outer_box {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+  }
+
+  section#quotation .quotation_outer_box .slick-slide {
+    max-width: 354px;
+    width: 100%;
+  }
+
+  section#quotation .quotation_outer_box .quotation_card {
+    max-width: calc(354px - 20px);
+    width: 100%;
+    padding: 20px;
+    margin: 50px 10px 20px;
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.12));
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+  }
+
+  section#quotation .quotation_outer_box .slick-center .quotation_card {
+    margin-top: 20px;
+  }
+
+  section#quotation .quotation_tab .navigation-tab-item.active {
+    color: #000;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 412px) {
+  section#quotation .quotation_outer_box .quotation_card {
+    max-width: calc(351px - 20px);
+    width: 100%;
+  }
+
+  section#quotation .quotation_outer_box .slick-slide {
+    max-width: 351px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  section#quotation .quotation_outer_box .quotation_card {
+    max-width: calc(315px - 20px);
+    width: 100%;
+  }
+
+  section#quotation .quotation_outer_box .slick-slide {
+    max-width: 315px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  section#quotation .quotation_outer_box .quotation_card {
+    max-width: calc(260px - 20px);
+    width: 100%;
+  }
+
+  section#quotation .quotation_outer_box .slick-slide {
+    max-width: 260px;
+    width: 100%;
+  }
+}

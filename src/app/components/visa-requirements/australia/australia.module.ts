@@ -10,6 +10,7 @@ import { FaqComponent } from './faq/faq.component';
 import { ImportantPointsComponent } from './important-points/important-points.component';
 import { QuotationComponent } from './quotation/quotation.component';
 import { RequirementsComponent } from './requirements/requirements.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgbModule,
     SharedVisaModuleModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SlickCarouselModule,
   ]
 })
 export class AustraliaModule { }
