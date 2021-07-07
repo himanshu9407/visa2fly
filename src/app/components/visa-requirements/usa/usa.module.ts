@@ -11,6 +11,7 @@ import { FaqComponent } from './faq/faq.component';
 import { RequirementsUsaComponent } from './requirements-usa/requirements-usa.component';
 import { ImportantPointsUsaComponent } from './important-points-usa/important-points-usa.component';
 import { QuotationUsaComponent } from './quotation-usa/quotation-usa.component';
+import { DescriptionComponent } from './description/description.component';
 
 const routes: Routes = [
   { path: "", component: USAComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     FaqComponent,
     RequirementsUsaComponent,
     ImportantPointsUsaComponent,
-    QuotationUsaComponent
+    QuotationUsaComponent,
+    DescriptionComponent
   ],
 
   imports: [

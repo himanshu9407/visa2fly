@@ -19,7 +19,21 @@
 
           <div class="country-info">
             <h2 class="country-heading">{{selectedCountrytype}}</h2>
-            <p class="country-desc">The United States of America is a 50-state nation that stetches across North America. The islands of Hawaii and ice-cold North tip Alaska also come under the USA territory. Terrain, destinations - and even time zones - vary across the states, as it is such a huge country. Disneyland, Hollywood, New York, San Francisco and Las Vegas are some pupular urban tourist destinations - while Utah, the Grand Canyon, Yellowstone and Yosemite National Parks are some natural wonders. </p>
+            <p class="country-desc">The United States of America spans roughly 4500 kilometres from the West Coast to the
+              East Coast. It is one of the most culturally, geographically and ecologically diverse countries
+              in the world! The country is divided into 50 states and each state has its unique traditions
+              and customs which are intriguing and exciting. America is home to some of the largest urban
+              hubs as well as places that are practically devoid of human touch.
+              <span id="dataCollapse" class="collapse">Tourists often visit the
+              country to see natural wonders, bustling cities, historic landmarks and for entertainment.
+              From energetic nightclubs and music festivals to calming hills and serene beaches; the
+              States have a lot to offer!
+            </span>
+            <button class="btn dataDisplay" type="button" data-toggle="collapse"
+              data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+              (click)="dataDisplayFunction()">
+              {{loadText}}</button>
+            </p>
           </div>
         </div>
       </div>
@@ -274,7 +288,21 @@
 <div class="container-fluid mt-4 mobileView">
   <div class="row">
     <div class="col-12">
-      <p class="country-desc">The United States of America is a 50-state nation that stetches across North America. The islands of Hawaii and ice-cold North tip Alaska also come under the USA territory. Terrain, destinations - and even time zones - vary across the states, as it is such a huge country. Disneyland, Hollywood, New York, San Francisco and Las Vegas are some pupular urban tourist destinations - while Utah, the Grand Canyon, Yellowstone and Yosemite National Parks are some natural wonders. </p>
+      <p class="country-desc">The United States of America spans roughly 4500 kilometres from the West Coast to the
+        East Coast. It is one of the most culturally, geographically and ecologically diverse countries
+        in the world! The country is divided into 50 states and each state has its unique traditions
+        and customs which are intriguing and exciting. America is home to some of the largest urban
+        hubs as well as places that are practically devoid of human touch.
+        <span id="dataCollapse" class="collapse"> Tourists often visit the
+        country to see natural wonders, bustling cities, historic landmarks and for entertainment.
+        From energetic nightclubs and music festivals to calming hills and serene beaches; the
+        States have a lot to offer!
+      </span>
+      <button class="btn dataDisplay" type="button" data-toggle="collapse"
+        data-target="#dataCollapse" aria-expanded="false" aria-controls="dataCollapse"
+        (click)="dataDisplayFunction()">
+        {{loadText}}</button>
+      </p>
     </div>
   </div>
 </div>
@@ -301,6 +329,8 @@
 
 
 <app-faq></app-faq>
+
+<app-description></app-description>
 
 <div class="container-fluid wrapContainer linkAddress">
   <div class="row">

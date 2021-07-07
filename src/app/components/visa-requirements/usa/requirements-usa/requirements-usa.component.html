@@ -1,4 +1,4 @@
-<section id="requirement">
+<!-- <section id="requirement">
 <div class="container-fluid p-0">
     <div class="iconSection">
       <ngb-tabset #t="ngbTabset" (tabChange)="changePurpose($event)" class="tabset" type="pills" [justify]="desktopJustify"
@@ -8,7 +8,6 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- tourist -->
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h3 class="outerRequirement"><span class="requirementContainer text-uppercase">TOURIST
@@ -18,7 +17,7 @@
                 </div>
               </div>
 
-              <!-- desktopContainer -->
+
               <div class="desktopContainer accordion" id="touristAccodion">
                 <div class="row mt-4">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -197,7 +196,7 @@
                 </div>
               </div>
 
-              <!-- mobileContainer -->
+
               <div class="mobileContainer wrapContainer accordion" id="touristAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -412,7 +411,7 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- business -->
+
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h3 class="outerRequirement">
@@ -608,7 +607,7 @@
                 </div>
               </div>
 
-              <!-- mobileContainer -->
+
               <div class="mobileContainer wrapContainer accordion" id="businessAccodionMobile">
                 <div class="row">
                   <ngb-tabset [justify]="desktopJustify" [orientation]="desktopOrientation" class="iconTabset"
@@ -822,7 +821,7 @@
           <ng-template ngbTabContent>
 
             <div class="container-fluid wrapContainer" [@simpleFadeAnimation]="'in'">
-              <!-- transit -->
+
               <div class="row">
                 <div class="col-12 text-center mgxTop">
                   <h3 class="outerRequirement">
@@ -1288,4 +1287,208 @@
       </ngb-tabset>
     </div>
   </div>
-  </section>
+</section> -->
+
+<section id="ui_requirement" class="mgxTop">
+  <div class="container-fluid">
+    <div class="iconSection">
+      <div class="row headingWrapContainer">
+        <!-- Heading -->
+        <div class="col-12 text-center">
+          <h3 class="requirement-main--heading">
+            Document required for USA {{ visaType }} visa
+          </h3>
+        </div>
+        <!-- Content -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Passport</h3>
+              <ul>
+                <li>
+                  Upload coloured copies of the
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportFront"
+                  >
+                    first page
+                  </button>
+                  and
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePassportBack"
+                  >
+                    last page
+                  </button>
+                  of the passport.
+                </li>
+                <li>
+                  Ensure that passport should be valid for 6 months from the
+                  date of entry to the UAE.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Photograph</h3>
+              <ul>
+                <li>
+                  Upload scanned colour copy of your passport-sized photograph.
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="btn toggleHelperBtn"
+                    data-toggle="modal"
+                    data-target="#samplePhotograph"
+                  >
+                    Photo
+                  </button>
+                  should be taken against a white background.
+                </li>
+                <li>Dimensions should be 45mm height x 35mm width.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Pan Card</h3>
+                <ul>
+                  <li>
+                    Upload scanned copy of your PAN Card
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Appointment Letter</h3>
+              <ul>
+                <li>
+                  You require a printout of the US Interview appointment letter as well.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Interview</h3>
+              <ul>
+                <li>
+                  An interview at the U.S Embassy would need to be scheduled well in advance for your trip. You will need to attend this interview and answer the questions presented to you.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Supporting Documents</h3>
+              <ul>
+                <li>
+                  These may include tax returns, a travel itinerary, proof of funds (in the form of bank statements, copy of passbook, any other proof of cash), PAN card, or a business card (if you have one).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12"
+          [ngStyle]="{ display: visaType != 'Transit' ? 'none' : 'block' }"
+        >
+          <div class="card requiredIcon">
+            <div class="card-body">
+              <h3 class="requiredIconHeading">Flight Tickets</h3>
+              <ul>
+                <li>
+                  Visas and flight tickets to your next destination (after transit) are required when you apply for US visa online. Please make sure you have these BEFORE you apply for a transit visa.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="photo-spec">
+  <div
+    class="modal fade"
+    id="samplePassportFront"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_FRONT.jpg"
+            alt="Online visa apply USA"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePassportBack"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/passport/PASSPORT_BACK.jpg"
+            alt="Online visa apply USA"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="samplePhotograph"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img
+            src="https://static.visa2fly.com/sample/photograph/{{
+              selectedCountrytype
+            }}.jpg"
+            alt="Online visa apply USA"
+            class="img-fluid feedImage"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -53,7 +53,7 @@ export class RussiaComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -106,7 +106,7 @@ export class RussiaComponent implements OnInit {
 
     let tempPurpose = this.selectedVisaType;
       this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-  
+
       this.purposeChooseForm = new FormGroup({
         purposeSelected: new FormControl(tempPurpose),
       });
@@ -124,7 +124,7 @@ export class RussiaComponent implements OnInit {
               "onlineCountry",
               JSON.stringify(res.data.onlineCategory)
             );
-  
+
             this.MyQuotation.forEach((element) => {
               if (element.purpose == "Business") {
                 this.businessArr.push(element);
@@ -137,7 +137,7 @@ export class RussiaComponent implements OnInit {
                 this.isTransit = true;
               }
             });
-  
+
             let purposeMain = this.selectedVisaType;
             let purposeUrl =
               purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
@@ -153,12 +153,12 @@ export class RussiaComponent implements OnInit {
             } else {
               this.router.navigate(["visa/"]);
             }
-  
+
             this.userFlow.setUserFlowDetails(
               "imageUploads",
               JSON.stringify(this.imageCatogoryTemp)
             );
-  
+
             setTimeout(() => {
               this.preloaderService.showPreloader(false);
             }, 500);
@@ -180,7 +180,7 @@ export class RussiaComponent implements OnInit {
     this.meta.updateTag({
       name: "keywords",
       content:
-        "online apply visa Russia, Russia visa,  Russia Visa, Russia Tourist visa, Apply for Russia visa",
+        "online apply visa Russia | Russia visa | Russia Tourist visa | Apply for Russia visa",
     });
     this.meta.updateTag({
       name: "description",

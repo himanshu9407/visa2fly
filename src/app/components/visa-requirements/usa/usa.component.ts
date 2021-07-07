@@ -50,7 +50,7 @@ export class USAComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -77,9 +77,12 @@ export class USAComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
-isBusiness: boolean = false;
-isTourist: boolean = false;
-isTransit: boolean = false;
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
+  loadText: string = "more";
+  showData: boolean = false;
+  animationState = "in";
 
   constructor(private router: Router,
     private requireQuotation: VisaRequirementService,
@@ -106,10 +109,10 @@ isTransit: boolean = false;
       } else {
         this.selectedVisaType = "Tourist";
       }
-  
+
       let tempPurpose = this.selectedVisaType;
       this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-  
+
       this.purposeChooseForm = new FormGroup({
         purposeSelected: new FormControl(tempPurpose),
       });
@@ -127,7 +130,7 @@ isTransit: boolean = false;
               "onlineCountry",
               JSON.stringify(res.data.onlineCategory)
             );
-  
+
             this.MyQuotation.forEach((element) => {
               if (element.purpose == "Business") {
                 this.businessArr.push(element);
@@ -140,7 +143,7 @@ isTransit: boolean = false;
                 this.isTransit = true;
               }
             });
-  
+
             let purposeMain = this.selectedVisaType;
             let purposeUrl =
               purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
@@ -156,12 +159,12 @@ isTransit: boolean = false;
             } else {
               this.router.navigate(["visa/"]);
             }
-  
+
             this.userFlow.setUserFlowDetails(
               "imageUploads",
               JSON.stringify(this.imageCatogoryTemp)
             );
-  
+
             setTimeout(() => {
               this.preloaderService.showPreloader(false);
             }, 500);
@@ -177,24 +180,24 @@ isTransit: boolean = false;
 
   ngOnInit() {
 
-    this.titleService.setTitle("USA Visa | Apply For USA Visa Online for Indians- Visa2Fly");
-    
+    this.titleService.setTitle("U.S. Visa application online! Apply for a USA visa online.");
+
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for USA e-visa, USA tourist visa application, USA tourist visa for Indian, apply for USA e visa, USA e-visa for Indians",
+        "Online visa apply USA | India to USA visa | U.S. visa application online | Apply for U.S. visa",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here.",
+        "Visa2fly offers hassle-free online USA e-visa services right from the comfort of your home. We also offer other services like travel insurances, SIM cards, and end-to-end assistance.",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "USA Visa | Apply For USA Visa Online for Indians- Visa2Fly",
+        "U.S. Visa application online! Apply for a USA visa online.",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
@@ -213,7 +216,7 @@ isTransit: boolean = false;
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here.",
+        "Visa2fly offers hassle-free online USA e-visa services right from the comfort of your home. We also offer other services like travel insurances, SIM cards, and end-to-end assistance.",
     });
 
     // twitter
@@ -224,7 +227,7 @@ isTransit: boolean = false;
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "USA Visa | Apply For USA Visa Online for Indians- Visa2Fly",
+        "U.S. Visa application online! Apply for a USA visa online.",
     });
     this.meta.updateTag({
       property: "twitter:image",
@@ -238,7 +241,7 @@ isTransit: boolean = false;
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Apply for US visa online at Visa2fly. Once you apply for a US visa online with Visa2fly, you are entitled to the best visa services with maximum benefits for your travel. Your US visa includes travel insurance as well as travel sim cards with Visa2fly. Know more about it here.",
+        "Visa2fly offers hassle-free online USA e-visa services right from the comfort of your home. We also offer other services like travel insurances, SIM cards, and end-to-end assistance.",
     });
     this.meta.updateTag({
       property: "twitter:site",
@@ -312,5 +315,17 @@ isTransit: boolean = false;
     );
   }
 
+  dataDisplayFunction() {
+    this.loadText = "loading..."
+    setTimeout(() => {
+      this.showData = !this.showData;
+      this.animationState = this.animationState === "out" ? "in" : "out";
 
+      if (this.showData) {
+        this.loadText = "less";
+      } else {
+        this.loadText = "more";
+      }
+    }, Math.floor(Math.random() * 1000));
+  }
 }
