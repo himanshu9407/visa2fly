@@ -53,16 +53,14 @@
             <div class="bar-short"></div>
           </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-12 plans-filter mmt-1">
-          <div>
-            <span>Premium Calculated:</span>
-            <span class="premiumSkeleton" *ngIf="loadingSkeleton">
-              <div class="bar"></div>
-            </span>
-            <div class="calculated" *ngIf="!loadingSkeleton">
-              ₹ {{ premiumCalculated + premiumGST }}
-              <div class="bar-short"></div>
-            </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 plans-filter mmt-1">
+          <span>Premium Calculated:</span>
+          <span class="premiumSkeleton" *ngIf="loadingSkeleton">
+            <div class="bar"></div>
+          </span>
+          <div class="calculated" *ngIf="!loadingSkeleton">
+            ₹ {{ premiumCalculated + premiumGST }}
+            <div class="bar-short"></div>
           </div>
         </div>
       </div>

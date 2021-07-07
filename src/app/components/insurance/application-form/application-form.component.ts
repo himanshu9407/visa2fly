@@ -16,6 +16,12 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
   insurer: FormArray;
   birthDtError: boolean;
   count: number = 1;
+  relatedSelfTrue_0: boolean = false;
+  relatedSelfTrue_1: boolean = false;
+  relatedSelfTrue_2: boolean = false;
+  relatedSelfTrue_3: boolean = false;
+  relatedSelfTrue_4: boolean = false;
+  relatedSelfTrue_5: boolean = false;
   dataSource = [
     { id: "Member", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
   ];
@@ -1290,6 +1296,42 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
 
       this.getControls[i]['controls'].partyIdentityDOList.controls[0].controls.identityNum.identityNumError = false;
 
+      if (i === 0) {
+        this.relatedSelfTrue_0 = true;
+      } else if (i === 1) {
+        this.relatedSelfTrue_1 = true;
+      } else if (i === 2) {
+        this.relatedSelfTrue_2 = true;
+      } else if (i === 3) {
+        this.relatedSelfTrue_3 = true;
+      } else if (i === 4) {
+        this.relatedSelfTrue_4 = true;
+      } else if (i === 5) {
+        this.relatedSelfTrue_5 = true;
+      }
+
+    } else {
+      if (i === 0) {
+        this.relatedSelfTrue_0 = false;
+      } else if (i === 1) {
+        this.relatedSelfTrue_1 = false;
+      } else if (i === 2) {
+        this.relatedSelfTrue_2 = false;
+      } else if (i === 3) {
+        this.relatedSelfTrue_3 = false;
+      } else if (i === 4) {
+        this.relatedSelfTrue_4 = false;
+      } else if (i === 5) {
+        this.relatedSelfTrue_5 = false;
+      }
+
+      this.getControls[i].get('birthDtCopy').setValue("");
+      this.getControls[i].get('firstName').setValue("");
+      this.getControls[i].get("genderCd").setValue("");
+      this.getControls[i].get('lastName').setValue("");
+      this.getControls[i].get("titleCd").setValue('Mr');
+      this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityNum").setValue("");
+      this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityTypeCd").setValue('PASSPORT');
     }
 
     if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
