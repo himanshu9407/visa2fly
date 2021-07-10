@@ -70,7 +70,7 @@ export class EgyptComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','egypt-visa-online']);
+        this.router.navigate(['visa', 'egypt-visa-online']);
       }
     });
 
@@ -149,11 +149,11 @@ export class EgyptComponent implements OnInit {
         }
       });
 
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.titleService.setTitle("Egypt Visa | Apply For Egypt Visa Online for Indians- Visa2Fly");
-      
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -178,7 +178,7 @@ export class EgyptComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/egypt-visa-online",
+      content: "https://visa2fly.com/egypt-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -227,7 +227,7 @@ export class EgyptComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/egypt-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/egypt-visa-online");
   }
 
   purposeChanged() {

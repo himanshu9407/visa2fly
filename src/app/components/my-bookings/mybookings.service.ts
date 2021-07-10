@@ -37,7 +37,7 @@ export class MyBookingsService {
   postBookingsByDateFromServer(fromDate: String, toDate: String, pageNo: Number, pageSize: Number): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
-      this.router.navigateByUrl["/visa"];
+      this.router.navigateByUrl["/"];
     } else {
       let reqbodyByDate = {};
       reqbodyByDate = { fromDate, toDate, pageNo, pageSize };
@@ -53,7 +53,7 @@ export class MyBookingsService {
   fetchBooking(pageNo: number, pageSize: number): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
-      this.router.navigateByUrl["/visa"];
+      this.router.navigateByUrl["/"];
     } else {
       const base_url = this.userFlow.getBaseURL();
       const headers = new HttpHeaders({
@@ -68,7 +68,7 @@ export class MyBookingsService {
   postFindBookingById(bookingId): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
-      this.router.navigateByUrl["/visa"];
+      this.router.navigateByUrl["/"];
     } else {
       const base_url = this.userFlow.getBaseURL();
       let reqBookingId = {};
@@ -83,7 +83,7 @@ export class MyBookingsService {
   postBookingFindByFilter(fromDate: String, toDate: String, pageNo: Number, pageSize: Number, filterList: Array<any>): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
-      this.router.navigateByUrl["/visa"];
+      this.router.navigateByUrl["/"];
     } else {
       const base_url = this.userFlow.getBaseURL();
       const reqbodyByFilter = { fromDate, toDate, pageNo, pageSize, filterList };
@@ -107,7 +107,7 @@ export class MyBookingsService {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     const headers = new HttpHeaders({ token: AUTH_TOKEN, "visa-client": "0" });
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
-      this.router.navigateByUrl["/visa"];
+      this.router.navigateByUrl["/"];
     } else {
       feedback = {
         bookingId: bookingid,
@@ -139,7 +139,7 @@ export class MyBookingsService {
   getCreateEvisaFromServicer(bookingId: string, bookingFrom: string): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
-      // this.router.navigateByUrl["/visa"];
+      // this.router.navigateByUrl["/"];
     } else {
       const base_url = this.userFlow.getBaseURL();
       const headers = new HttpHeaders({ 'bookingFrom': bookingFrom, 'token': AUTH_TOKEN });
@@ -152,7 +152,7 @@ export class MyBookingsService {
   getEvisaFromServicer(bookingId: string, bookingFrom: string): Observable<any> {
     let AUTH_TOKEN = this.loginService.getAuthToken();
     if (AUTH_TOKEN == null || AUTH_TOKEN == undefined) {
-      // this.router.navigateByUrl["/visa"];
+      // this.router.navigateByUrl["/"];
     } else {
       const base_url = this.userFlow.getBaseURL();
       const headers = new HttpHeaders({ 'bookingFrom': bookingFrom, 'token': AUTH_TOKEN });

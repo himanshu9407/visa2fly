@@ -135,8 +135,6 @@ export class AustraliaComponent implements OnInit {
             this.router.navigate(["visa/"]);
           }
 
-          console.log(this.MyQuotation1);
-
           this.userFlow.setUserFlowDetails(
             "imageUploads",
             JSON.stringify(this.imageCatogoryTemp)
@@ -183,7 +181,7 @@ export class AustraliaComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/australia-visa-online",
+      content: "https://visa2fly.com/australia-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -234,27 +232,26 @@ export class AustraliaComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/australia-visa-online"
+      "https://visa2fly.com/australia-visa-online"
     );
   }
 
-  purposeChanged(event: any) {
-    this.selectedVisaType = event;
-    this.purposeChooseForm.get("purposeSelected").setValue(event);
-    this.userFlow.setCookie("selectedVisaPurpose", event);
+  purposeChanged() {
+    var purpose = this.purposeChooseForm.get("purposeSelected").value;
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
 
-    if (event == "Tourist") {
+    if (purpose == "Tourist") {
       this.MyQuotation1 = this.touristArr;
       this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-      this.selectedPurpose.next(event);
-    } else if (event == "Business") {
+      this.selectedPurpose.next(purpose);
+    } else if (purpose == "Business") {
       this.MyQuotation1 = this.businessArr;
       this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-      this.selectedPurpose.next(event);
+      this.selectedPurpose.next(purpose);
     } else {
       this.MyQuotation1 = this.transitArr;
       this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-      this.selectedPurpose.next(event);
+      this.selectedPurpose.next(purpose);
     }
 
     this.userFlow.setUserFlowDetails(

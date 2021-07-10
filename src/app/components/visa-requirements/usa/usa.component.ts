@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject, PLATFORM_ID} from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import {
   trigger,
@@ -50,7 +50,7 @@ export class USAComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -77,9 +77,9 @@ export class USAComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
-isBusiness: boolean = false;
-isTourist: boolean = false;
-isTransit: boolean = false;
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(private router: Router,
     private requireQuotation: VisaRequirementService,
@@ -93,92 +93,92 @@ isTransit: boolean = false;
     @Inject(PLATFORM_ID) private platformId: Object) {
 
 
-      this.activatedRoute.params.subscribe((params) => {
-        if (params["purpose"]) {
-          this.router.navigate(['visa','usa-visa-online']);
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(['visa', 'usa-visa-online']);
+      }
+    });
+
+    this.preloaderService.showPreloader(true);
+
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
+
+    let tempPurpose = this.selectedVisaType;
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+
+    this.purposeChooseForm = new FormGroup({
+      purposeSelected: new FormControl(tempPurpose),
+    });
+    this.requireQuotation
+      .getRequireQuotation(this.selectedCountrytype)
+      .subscribe((res: any) => {
+        if (res.code == 0) {
+          this.MyQuotation = res.data.quotations;
+          this.imageCatogory.push(res.data.imageUploadInfo);
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          this.onlinestatus = res.data.onlineCategory;
+          this.userFlow.setUserFlowDetails(
+            "onlineCountry",
+            JSON.stringify(res.data.onlineCategory)
+          );
+
+          this.MyQuotation.forEach((element) => {
+            if (element.purpose == "Business") {
+              this.businessArr.push(element);
+              this.isBusiness = true;
+            } else if (element.purpose == "Tourist") {
+              this.touristArr.push(element);
+              this.isTourist = true;
+            } else if (element.purpose == "Transit") {
+              this.transitArr.push(element);
+              this.isTransit = true;
+            }
+          });
+
+          let purposeMain = this.selectedVisaType;
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+          } else {
+            this.router.navigate(["visa/"]);
+          }
+
+          this.userFlow.setUserFlowDetails(
+            "imageUploads",
+            JSON.stringify(this.imageCatogoryTemp)
+          );
+
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error("Country Not Found");
         }
       });
-
-      this.preloaderService.showPreloader(true);
-
-      if (this.userFlow.getCookie("selectedVisaPurpose")) {
-        this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
-      } else {
-        this.selectedVisaType = "Tourist";
-      }
-  
-      let tempPurpose = this.selectedVisaType;
-      this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-  
-      this.purposeChooseForm = new FormGroup({
-        purposeSelected: new FormControl(tempPurpose),
-      });
-      this.requireQuotation
-        .getRequireQuotation(this.selectedCountrytype)
-        .subscribe((res: any) => {
-          if (res.code == 0) {
-            this.MyQuotation = res.data.quotations;
-            this.imageCatogory.push(res.data.imageUploadInfo);
-            this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-            this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-            this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-            this.onlinestatus = res.data.onlineCategory;
-            this.userFlow.setUserFlowDetails(
-              "onlineCountry",
-              JSON.stringify(res.data.onlineCategory)
-            );
-  
-            this.MyQuotation.forEach((element) => {
-              if (element.purpose == "Business") {
-                this.businessArr.push(element);
-                this.isBusiness = true;
-              } else if (element.purpose == "Tourist") {
-                this.touristArr.push(element);
-                this.isTourist = true;
-              } else if (element.purpose == "Transit") {
-                this.transitArr.push(element);
-                this.isTransit = true;
-              }
-            });
-  
-            let purposeMain = this.selectedVisaType;
-            let purposeUrl =
-              purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-            if (purposeUrl == "Business") {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            } else if (purposeUrl == "Tourist") {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            } else if (purposeUrl == "Transit") {
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            } else {
-              this.router.navigate(["visa/"]);
-            }
-  
-            this.userFlow.setUserFlowDetails(
-              "imageUploads",
-              JSON.stringify(this.imageCatogoryTemp)
-            );
-  
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-            }, 500);
-          } else {
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-              this.router.navigate(["/"]);
-            }, 2000);
-            this.toastr.error("Country Not Found");
-          }
-        });
   }
 
   ngOnInit() {
 
     this.titleService.setTitle("USA Visa | Apply For USA Visa Online for Indians- Visa2Fly");
-    
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -203,7 +203,7 @@ isTransit: boolean = false;
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/usa-visa-online",
+      content: "https://visa2fly.com/usa-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -252,7 +252,7 @@ isTransit: boolean = false;
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/usa-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/usa-visa-online");
   }
 
   purposeChanged() {

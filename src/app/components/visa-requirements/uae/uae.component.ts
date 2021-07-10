@@ -108,7 +108,7 @@ export class UAEComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','uae-visa-online']);
+        this.router.navigate(['visa', 'uae-visa-online']);
       }
     });
 
@@ -215,7 +215,7 @@ export class UAEComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/uae-visa-online",
+      content: "https://visa2fly.com/uae-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -266,7 +266,7 @@ export class UAEComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/uae-visa-online"
+      "https://visa2fly.com/uae-visa-online"
     );
   }
 

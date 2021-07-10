@@ -12,7 +12,6 @@ export class AustraliaResolver implements Resolve<any> {
   constructor(private requireQuotation: VisaRequirementService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    console.log("Fuck you");
     return this.requireQuotation.getRequireQuotation(this.selectedCountry);
   }
 

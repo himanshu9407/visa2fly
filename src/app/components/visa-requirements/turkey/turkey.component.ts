@@ -48,7 +48,7 @@ export class TurkeyComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -93,7 +93,7 @@ export class TurkeyComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','turkey-visa-online']);
+        this.router.navigate(['visa', 'turkey-visa-online']);
       }
     });
 
@@ -174,7 +174,7 @@ export class TurkeyComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     this.titleService.setTitle("Turkey Visa | Apply For Turkey Visa Online for Indians- Visa2Fly");
 
     this.meta.updateTag({
@@ -201,7 +201,7 @@ export class TurkeyComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/turkey-visa-online",
+      content: "https://visa2fly.com/turkey-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -251,7 +251,7 @@ export class TurkeyComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/turkey-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/turkey-visa-online");
   }
 
 

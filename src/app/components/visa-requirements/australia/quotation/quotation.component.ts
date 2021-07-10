@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, AfterContentInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserFlowDetails } from 'src/app/shared/user-flow-details.service';
 import { ToastrService } from 'ngx-toastr';
@@ -13,13 +13,9 @@ import { RequirementsService } from 'src/app/components/requirements/requirement
   templateUrl: './quotation.component.html',
   styleUrls: ['./quotation.component.css']
 })
-export class QuotationComponent implements OnInit, AfterContentInit {
+export class QuotationComponent implements OnInit {
 
-  @Input() businessQuotes: any[];
-  @Input() touristQuotes: any[];
-  @Input() transitQuotes: any[];
-  @Input() currentVisa: string;
-  @Output() visaTypeVal = new EventEmitter<string>();
+  @Input() quotation;
 
   constructor(
     private router: Router,
@@ -34,27 +30,6 @@ export class QuotationComponent implements OnInit, AfterContentInit {
   }
 
   ngOnInit(): void {
-  }
-
-  ngAfterContentInit(): void {
-    let initTabset: string;
-    let initIndex: number;
-    let initVal: string;
-    if (this.currentVisa == 'Tourist') {
-      initTabset = 'touristTab';
-      initIndex = 0;
-      initVal = 'Tourist';
-    } else if (this.currentVisa == 'Business') {
-      initTabset = 'businessTab';
-      initIndex = 1;
-      initVal = 'Business';
-    } else if (this.currentVisa == 'Transit') {
-      initTabset = 'transitTab';
-      initIndex = 2;
-      initVal = 'Transit';
-    }
-    this.onChangeTabset(initTabset, initIndex, initVal);
-    console.log(this.currentVisa);
   }
 
   navigate(
@@ -112,69 +87,6 @@ export class QuotationComponent implements OnInit, AfterContentInit {
         this.preloaderService.showPreloader(false);
       }
     });
-  }
-
-  slideConfig = {
-    "slidesToShow": 3,
-    "slidesToScroll": 1,
-    "variableWidth": true,
-    // "centerMode": true,
-    // "infinite": true,
-    // "centerPadding": '30px',
-    "prevArrow": '<div class="slick-prev"> <img src="http://startupangelsnetwork.com/wp-content/uploads/2021/05/Group-110.png" alt="san m-prev"></div>',
-    "nextArrow": '<div class="slick-next"><img src="http://startupangelsnetwork.com/wp-content/uploads/2021/05/Group-111.png" alt="san m-prev"></div>',
-    "responsive": [
-      {
-        breakpoint: 1024,
-        settings: {
-          "slidesToShow": 3,
-          "slidesToScroll": 3,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          "slidesToShow": 1,
-          "slidesToScroll": 1,
-          "arrows": false,
-          "variableWidth": true,
-          "centerMode": true,
-        }
-      }
-    ],
-  };
-
-  slickInit(e) {
-    console.log('slick initialized');
-  }
-
-  breakpoint(e) {
-    console.log('breakpoint');
-  }
-
-  afterChange(e) {
-    console.log('afterChange');
-  }
-
-  beforeChange(e) {
-    console.log('beforeChange');
-  }
-
-  onChangeTabset(tabset: string, index: number, value: string) {
-    $(".navigation-tab-item").removeClass("active");
-    $("#" + tabset).addClass("active");
-
-    this.visaTypeVal.emit(value);
-
-    if (window.innerWidth > 600) {
-      $(".navigation-tab-overlay").css({
-        left: index * 160 + "px"
-      });
-    } else {
-      $(".navigation-tab-overlay").css({
-        left: index * 100 + "px"
-      });
-    }
   }
 
 }

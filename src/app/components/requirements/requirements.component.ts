@@ -125,145 +125,145 @@ export class RequirementsComponent implements OnInit {
 
       switch (this.selectedCountrytype) {
         case "Armenia":
-          this.router.navigate(["/visa", "armenia-visa-online"]);
+          this.router.navigate(["/armenia-visa-online"]);
           break;
         case "Australia":
-          this.router.navigate(["/visa", "australia-visa-online"]);
+          this.router.navigate(["/australia-visa-online"]);
           break;
         // case "Austria":
-        //   this.router.navigate(["/visa", "austria-visa-online"]);
+        //   this.router.navigate(["/austria-visa-online"]);
         //   break;
         case "Antigua & Barbuda":
-          this.router.navigate(["/visa", "antigua & barbuda-visa-online"]);
+          this.router.navigate(["/antigua & barbuda-visa-online"]);
           break;
         case "Azerbaijan":
-          this.router.navigate(["/visa", "azerbaijan-visa-online"]);
+          this.router.navigate(["/azerbaijan-visa-online"]);
           break;
         // case "Brazil":
-        //   this.router.navigate(["/visa", "brazil-visa-online"]);
+        //   this.router.navigate(["/brazil-visa-online"]);
         //   break;
         case "Canada":
-          this.router.navigate(["/visa", "canada-visa-online"]);
+          this.router.navigate(["/canada-visa-online"]);
           break;
         case "Bahrain":
-          this.router.navigate(["/visa", "bahrain-visa-online"]);
+          this.router.navigate(["/bahrain-visa-online"]);
           break;
         case "Belgium":
-          this.router.navigate(["/visa", "belgium-visa-online"]);
+          this.router.navigate(["/belgium-visa-online"]);
           break;
         // case "Bhutan":
-        //   this.router.navigate(["/visa", "bhutan-visa-online"]);
+        //   this.router.navigate(["/bhutan-visa-online"]);
         //   break;
         case "China":
-          this.router.navigate(["/visa", "china-visa-online"]);
+          this.router.navigate(["/china-visa-online"]);
           break;
         case "Cambodia":
-          this.router.navigate(["/visa", "Cambodia-visa-online"]);
+          this.router.navigate(["/Cambodia-visa-online"]);
           break;
         case "Dubai":
-          this.router.navigate(["/visa", "dubai-visa-online"]);
+          this.router.navigate(["/dubai-visa-online"]);
           break;
         case "Denmark":
-          this.router.navigate(["/visa", "denmark-visa-online"]);
+          this.router.navigate(["/denmark-visa-online"]);
           break;
         case "Egypt":
-          this.router.navigate(["/visa", "egypt-visa-online"]);
+          this.router.navigate(["/egypt-visa-online"]);
           break;
         case "Estonia":
-          this.router.navigate(["/visa", "estonia-visa-online"]);
+          this.router.navigate(["/estonia-visa-online"]);
           break;
         case "Ethiopia":
-          this.router.navigate(["/visa", "ethiopia-visa-online"]);
+          this.router.navigate(["/ethiopia-visa-online"]);
           break;
         case "Finland":
-          this.router.navigate(["/visa", "finland-visa-online"]);
+          this.router.navigate(["/finland-visa-online"]);
           break;
         case "France":
-          this.router.navigate(["/visa", "france-visa-online"]);
+          this.router.navigate(["/france-visa-online"]);
           break;
         case "Georgia":
-          this.router.navigate(["/visa", "georgia-visa-online"]);
+          this.router.navigate(["/georgia-visa-online"]);
           break;
         // case "Germany":
-        //   this.router.navigate(["/visa", "germany-visa-online"]);
+        //   this.router.navigate(["/germany-visa-online"]);
         //   break;
         // case "Iraq":
-        //   this.router.navigate(["/visa", "iraq-visa-online"]);
+        //   this.router.navigate(["/iraq-visa-online"]);
         //   break;
         case "Japan":
-          this.router.navigate(["/visa", "japan-visa-online"]);
+          this.router.navigate(["/japan-visa-online"]);
           break;
         case "Kenya":
-          this.router.navigate(["/visa", "Kenya-visa-online"]);
+          this.router.navigate(["/Kenya-visa-online"]);
           break;
         case "Malaysia":
-          this.router.navigate(["/visa", "malaysia-visa-online"]);
+          this.router.navigate(["/malaysia-visa-online"]);
           break;
         case "Maldives":
-          this.router.navigate(["/visa", "maldives-visa-online"]);
+          this.router.navigate(["/maldives-visa-online"]);
           break;
         case "Malta":
-          this.router.navigate(["/visa", "malta-visa-online"]);
+          this.router.navigate(["/malta-visa-online"]);
           break;
         case "New Zealand":
-          this.router.navigate(["/visa", "new-zealand-visa-online"]);
+          this.router.navigate(["/new-zealand-visa-online"]);
           break;
         case "South Africa":
-          this.router.navigate(["/visa", "south-africa-visa-online"]);
+          this.router.navigate(["/south-africa-visa-online"]);
           break;
         case "Netherlands":
-          this.router.navigate(["/visa", "netherlands-visa-online"]);
+          this.router.navigate(["/netherlands-visa-online"]);
           break;
         // case "Russia":
-        //   this.router.navigate(["/visa", "russia-visa-online"]);
+        //   this.router.navigate(["/russia-visa-online"]);
         //   break;
         // case "Rwanda":
-        //   this.router.navigate(["/visa", "rwanda-visa-online"]);
+        //   this.router.navigate(["/rwanda-visa-online"]);
         //   break;
         case "Singapore":
-          this.router.navigate(["/visa", "singapore-visa-online"]);
+          this.router.navigate(["/singapore-visa-online"]);
           break;
         case "Spain":
-          this.router.navigate(["/visa", "spain-visa-online"]);
+          this.router.navigate(["/spain-visa-online"]);
           break;
         case "Sri-Lanka":
-          this.router.navigate(["/visa", "sri-lanka-visa-online"]);
+          this.router.navigate(["/sri-lanka-visa-online"]);
           break;
         case "Swiss":
-          this.router.navigate(["/visa", "swiss-visa-online"]);
+          this.router.navigate(["/swiss-visa-online"]);
           break;
         case "Taiwan":
-          this.router.navigate(["/visa", "taiwan-visa-online"]);
+          this.router.navigate(["/taiwan-visa-online"]);
           break;
         // case "Tajikistan":
-        //   this.router.navigate(["/visa", "tajikistan-visa-online"]);
+        //   this.router.navigate(["/tajikistan-visa-online"]);
         //   break;
         case "Thailand":
-          this.router.navigate(["/visa", "thailand-visa-online"]);
+          this.router.navigate(["/thailand-visa-online"]);
           break;
         case "Turkey":
-          this.router.navigate(["/visa", "turkey-visa-online"]);
+          this.router.navigate(["/turkey-visa-online"]);
           break;
         case "Ukraine":
-          this.router.navigate(["/visa", "ukraine-visa-online"]);
+          this.router.navigate(["/ukraine-visa-online"]);
           break;
         case "UAE":
-          this.router.navigate(["/visa", "uae-visa-online"]);
+          this.router.navigate(["/uae-visa-online"]);
           break;
         case "UK":
-          this.router.navigate(["/visa", "uk-visa-online"]);
+          this.router.navigate(["/uk-visa-online"]);
           break;
         case "USA":
-          this.router.navigate(["/visa", "usa-visa-online"]);
+          this.router.navigate(["/usa-visa-online"]);
           break;
         case "Uzbekistan":
-          this.router.navigate(["/visa", "uzbekistan-visa-online"]);
+          this.router.navigate(["/uzbekistan-visa-online"]);
           break;
         case "Vietnam":
-          this.router.navigate(["/visa", "vietnam-visa-online"]);
+          this.router.navigate(["/vietnam-visa-online"]);
           break;
         case "Zambia":
-          this.router.navigate(["/visa", "zambia-visa-online"]);
+          this.router.navigate(["/zambia-visa-online"]);
           break;
       }
 

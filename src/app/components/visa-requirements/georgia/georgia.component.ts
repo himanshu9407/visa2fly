@@ -32,7 +32,7 @@ export class GeorgiaComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -77,7 +77,7 @@ export class GeorgiaComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','georgia-visa-online']);
+        this.router.navigate(['visa', 'georgia-visa-online']);
       }
     });
 
@@ -159,7 +159,7 @@ export class GeorgiaComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Georgia Visa | Apply For Georgia Visa Online for Indians- Visa2Fly");
-    
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -184,7 +184,7 @@ export class GeorgiaComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/georgia-visa-online",
+      content: "https://visa2fly.com/georgia-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -235,7 +235,7 @@ export class GeorgiaComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/georgia-visa-online"
+      "https://visa2fly.com/georgia-visa-online"
     );
   }
 

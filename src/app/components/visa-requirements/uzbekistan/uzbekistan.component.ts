@@ -25,7 +25,7 @@ export class UzbekistanComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -53,8 +53,8 @@ export class UzbekistanComponent implements OnInit {
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
   isBusiness: boolean = false;
-isTourist: boolean = false;
-isTransit: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
 
   constructor(private router: Router,
     private requireQuotation: VisaRequirementService,
@@ -67,13 +67,13 @@ isTransit: boolean = false;
     @Inject(DOCUMENT) private doc,
     @Inject(PLATFORM_ID) private platformId: Object) {
 
-      this.activatedRoute.params.subscribe((params) => {
-        if (params["purpose"]) {
-          this.router.navigate(['visa','uzbekistan-visa-online']);
-        }
-      });
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(['visa', 'uzbekistan-visa-online']);
+      }
+    });
 
-      this.userControlDetail = this.userFlow.getUserFlowDetails();
+    this.userControlDetail = this.userFlow.getUserFlowDetails();
     // console.log(this.userControlDetail.purpose);
 
     this.preloaderService.showPreloader(true);
@@ -154,7 +154,7 @@ isTransit: boolean = false;
 
   ngOnInit() {
     this.titleService.setTitle("Uzbekistan Visa | Apply For Uzbekistan Visa Online for Indians- Visa2Fly");
-    
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -179,7 +179,7 @@ isTransit: boolean = false;
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/uzbekistan-visa-online",
+      content: "https://visa2fly.com/uzbekistan-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -229,7 +229,7 @@ isTransit: boolean = false;
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/uzbekistan-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/uzbekistan-visa-online");
   }
 
   purposeChanged() {

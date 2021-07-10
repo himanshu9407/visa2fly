@@ -49,7 +49,7 @@ export class TaiwanComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -92,13 +92,13 @@ export class TaiwanComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object) {
 
 
-      this.activatedRoute.params.subscribe((params) => {
-        if (params["purpose"]) {
-          this.router.navigate(['visa','taiwan-visa-online']);
-        }
-      });
-  
-      this.preloaderService.showPreloader(true);
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(['visa', 'taiwan-visa-online']);
+      }
+    });
+
+    this.preloaderService.showPreloader(true);
 
     if (this.userFlow.getCookie("selectedVisaPurpose")) {
       this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
@@ -176,7 +176,7 @@ export class TaiwanComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Taiwan Visa | Apply For Taiwan Visa Online for Indians- Visa2Fly");
-      
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -201,7 +201,7 @@ export class TaiwanComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/taiwan-visa-online",
+      content: "https://visa2fly.com/taiwan-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -250,7 +250,7 @@ export class TaiwanComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/taiwan-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/taiwan-visa-online");
   }
 
 

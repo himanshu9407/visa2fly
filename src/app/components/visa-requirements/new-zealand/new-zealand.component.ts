@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject, PLATFORM_ID, } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
@@ -43,7 +43,7 @@ export class NewZealandComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -62,7 +62,7 @@ export class NewZealandComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
-  public selectedCountrytype="New Zealand";
+  public selectedCountrytype = "New Zealand";
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -167,7 +167,7 @@ export class NewZealandComponent implements OnInit {
           this.toastr.error("Country Not Found");
         }
       });
-   }
+  }
 
   ngOnInit() {
     this.titleService.setTitle(
@@ -197,7 +197,7 @@ export class NewZealandComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/new-zealand-visa-online",
+      content: "https://visa2fly.com/new-zealand-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -248,7 +248,7 @@ export class NewZealandComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/new-zealand-visa-online"
+      "https://visa2fly.com/new-zealand-visa-online"
     );
   }
 

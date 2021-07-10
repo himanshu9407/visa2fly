@@ -53,7 +53,7 @@ export class SwitzerlandComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -72,7 +72,7 @@ export class SwitzerlandComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
-  public selectedCountrytype="Switzerland";
+  public selectedCountrytype = "Switzerland";
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -180,7 +180,7 @@ export class SwitzerlandComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Switzerland Visa | Apply For Switerland Visa Online for Indians- Visa2Fly");
-     
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -205,7 +205,7 @@ export class SwitzerlandComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/swiss-visa-online",
+      content: "https://visa2fly.com/swiss-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -256,7 +256,7 @@ export class SwitzerlandComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/swiss-visa-online"
+      "https://visa2fly.com/swiss-visa-online"
     );
   }
 

@@ -53,7 +53,7 @@ export class UkraineComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -96,16 +96,16 @@ export class UkraineComponent implements OnInit {
     @Inject(DOCUMENT) private doc,
     @Inject(PLATFORM_ID) private platformId: Object) {
 
-      this.activatedRoute.params.subscribe((params) => {
-        if (params["purpose"]) {
-          this.router.navigate(['visa','ukraine-visa-online']);
-        }
-      });
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(['visa', 'ukraine-visa-online']);
+      }
+    });
 
-      this.userControlDetail = this.userFlow.getUserFlowDetails();
-      // console.log(this.userControlDetail.purpose);
-  
-      this.preloaderService.showPreloader(true);
+    this.userControlDetail = this.userFlow.getUserFlowDetails();
+    // console.log(this.userControlDetail.purpose);
+
+    this.preloaderService.showPreloader(true);
 
     if (this.userFlow.getCookie("selectedVisaPurpose")) {
       this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
@@ -180,146 +180,146 @@ export class UkraineComponent implements OnInit {
         }
       });
 
-     }
+  }
 
-     ngOnInit() {
-      this.titleService.setTitle(
-        "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly"
-      );
-      this.meta.updateTag({
-        name: "keywords",
-        content:
-          "apply for ukraine e-visa, ukraine tourist visa application, ukraine tourist visa for indian, apply for ukraine e visa, ukraine e-visa for indians",
-      });
-      this.meta.updateTag({
-        name: "description",
-        content:
-          "Visa2fly offers Ukraine visa for Indians. Indian passport holders can easily apply for a Ukraine visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Ukraine visa online with Visa2Fly here.",
-      });
-  
-      // facebook and linkedin
-      this.meta.updateTag({
-        property: "og:title",
-        content:
-          "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
-      });
-      this.meta.updateTag({ property: "type", content: "website" });
-      this.meta.updateTag({
-        property: "og:image",
-        content: "https://static.visa2fly.com/country/Ukraine.jpg",
-      });
-      this.meta.updateTag({
-        property: "og:url",
-        content: "https://visa2fly.com/visa/ukraine-visa-online",
-      });
-      this.meta.updateTag({
-        property: "og:image:alt",
-        content:
-          "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
-      });
-      this.meta.updateTag({
-        property: "og:description",
-        content:
-          "Visa2fly offers Ukraine visa for Indians. Indian passport holders can easily apply for a Ukraine visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Ukraine visa online with Visa2Fly here.",
-      });
-  
-      // twitter
-      this.meta.updateTag({
-        property: "twitter:card",
-        content: "summary",
-      });
-      this.meta.updateTag({
-        property: "twitter:title",
-        content:
-          "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
-      });
-      this.meta.updateTag({
-        property: "twitter:image",
-        content: "https://static.visa2fly.com/country/Ukraine.jpg",
-      });
-      this.meta.updateTag({
-        property: "twitter:image:alt",
-        content:
-          "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
-      });
-      this.meta.updateTag({
-        property: "twitter:description",
-        content:
-          "Visa2fly offers Ukraine visa for Indians. Indian passport holders can easily apply for a Ukraine visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Ukraine visa online with Visa2Fly here.",
-      });
-      this.meta.updateTag({
-        property: "twitter:site",
-        content: "@visa2fly",
-      });
-      this.meta.updateTag({
-        property: "twitter:creator",
-        content: "@visa2fly",
-      });
-  
-      let link: HTMLLinkElement = this.doc.createElement("link");
-      link.setAttribute("rel", "canonical");
-      this.doc.head.appendChild(link);
-      link.setAttribute(
-        "href",
-        "https://visa2fly.com/visa/ukraine-visa-online"
-      );
+  ngOnInit() {
+    this.titleService.setTitle(
+      "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly"
+    );
+    this.meta.updateTag({
+      name: "keywords",
+      content:
+        "apply for ukraine e-visa, ukraine tourist visa application, ukraine tourist visa for indian, apply for ukraine e visa, ukraine e-visa for indians",
+    });
+    this.meta.updateTag({
+      name: "description",
+      content:
+        "Visa2fly offers Ukraine visa for Indians. Indian passport holders can easily apply for a Ukraine visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Ukraine visa online with Visa2Fly here.",
+    });
+
+    // facebook and linkedin
+    this.meta.updateTag({
+      property: "og:title",
+      content:
+        "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({ property: "type", content: "website" });
+    this.meta.updateTag({
+      property: "og:image",
+      content: "https://static.visa2fly.com/country/Ukraine.jpg",
+    });
+    this.meta.updateTag({
+      property: "og:url",
+      content: "https://visa2fly.com/ukraine-visa-online",
+    });
+    this.meta.updateTag({
+      property: "og:image:alt",
+      content:
+        "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content:
+        "Visa2fly offers Ukraine visa for Indians. Indian passport holders can easily apply for a Ukraine visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Ukraine visa online with Visa2Fly here.",
+    });
+
+    // twitter
+    this.meta.updateTag({
+      property: "twitter:card",
+      content: "summary",
+    });
+    this.meta.updateTag({
+      property: "twitter:title",
+      content:
+        "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:image",
+      content: "https://static.visa2fly.com/country/Ukraine.jpg",
+    });
+    this.meta.updateTag({
+      property: "twitter:image:alt",
+      content:
+        "Ukraine Visa | Apply For Ukraine Visa Online for Indians- Visa2Fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:description",
+      content:
+        "Visa2fly offers Ukraine visa for Indians. Indian passport holders can easily apply for a Ukraine visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Ukraine visa online with Visa2Fly here.",
+    });
+    this.meta.updateTag({
+      property: "twitter:site",
+      content: "@visa2fly",
+    });
+    this.meta.updateTag({
+      property: "twitter:creator",
+      content: "@visa2fly",
+    });
+
+    let link: HTMLLinkElement = this.doc.createElement("link");
+    link.setAttribute("rel", "canonical");
+    this.doc.head.appendChild(link);
+    link.setAttribute(
+      "href",
+      "https://visa2fly.com/ukraine-visa-online"
+    );
+  }
+
+  purposeChanged() {
+    var purpose = this.purposeChooseForm.get("purposeSelected").value;
+    this.userFlow.setCookie("selectedVisaPurpose", purpose);
+
+    if (purpose == "Tourist") {
+      this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+      this.selectedPurpose.next(purpose);
+    } else if (purpose == "Business") {
+      this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+      this.selectedPurpose.next(purpose);
+    } else {
+      this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+      this.selectedPurpose.next(purpose);
     }
-  
-    purposeChanged() {
-      var purpose = this.purposeChooseForm.get("purposeSelected").value;
-      this.userFlow.setCookie("selectedVisaPurpose", purpose);
-  
-      if (purpose == "Tourist") {
-        this.MyQuotation1 = this.touristArr;
-        this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-        this.selectedPurpose.next(purpose);
-      } else if (purpose == "Business") {
-        this.MyQuotation1 = this.businessArr;
-        this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-        this.selectedPurpose.next(purpose);
-      } else {
-        this.MyQuotation1 = this.transitArr;
-        this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-        this.selectedPurpose.next(purpose);
-      }
-  
-      this.userFlow.setUserFlowDetails(
-        "imageUploads",
-        JSON.stringify(this.imageCatogoryTemp)
-      );
+
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imageCatogoryTemp)
+    );
+  }
+
+  navigateTo(purpose: any) {
+    let purposeString: string = purpose.nextId;
+    let purposeUrl =
+      purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
+    this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
+    if (purposeString == "Tourist") {
+      this.MyQuotation1 = this.touristArr;
+      this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+      this.selectedVisaType = "Tourist";
+      this.selectedTourist = 1;
+      this.selectedMobileTourist = 1;
+    } else if (purposeString == "Business") {
+      this.MyQuotation1 = this.businessArr;
+      this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+      this.selectedVisaType = "Business";
+      this.selectedBusiness = 1;
+      this.selectedMobileBusiness = 1;
+    } else {
+      this.MyQuotation1 = this.transitArr;
+      this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
+      this.selectedVisaType = "Transit";
+      this.selectedTransit = 1;
+      this.selectedMobileTransit = 1;
     }
-  
-    navigateTo(purpose: any) {
-      let purposeString: string = purpose.nextId;
-      let purposeUrl =
-        purposeString.charAt(0).toUpperCase() + purposeString.slice(1);
-      this.purposeChooseForm.get("purposeSelected").setValue(purposeString);
-      if (purposeString == "Tourist") {
-        this.MyQuotation1 = this.touristArr;
-        this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-        this.selectedVisaType = "Tourist";
-        this.selectedTourist = 1;
-        this.selectedMobileTourist = 1;
-      } else if (purposeString == "Business") {
-        this.MyQuotation1 = this.businessArr;
-        this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-        this.selectedVisaType = "Business";
-        this.selectedBusiness = 1;
-        this.selectedMobileBusiness = 1;
-      } else {
-        this.MyQuotation1 = this.transitArr;
-        this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-        this.selectedVisaType = "Transit";
-        this.selectedTransit = 1;
-        this.selectedMobileTransit = 1;
-      }
-  
-      this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
-  
-      this.userFlow.setUserFlowDetails(
-        "imageUploads",
-        JSON.stringify(this.imageCatogoryTemp)
-      );
-    }
+
+    this.userFlow.setCookie("selectedVisaPurpose", purposeUrl);
+
+    this.userFlow.setUserFlowDetails(
+      "imageUploads",
+      JSON.stringify(this.imageCatogoryTemp)
+    );
+  }
 
 }

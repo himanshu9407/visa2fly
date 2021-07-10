@@ -179,7 +179,7 @@ export class DubaiComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/dubai-visa-online",
+      content: "https://visa2fly.com/dubai-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -230,7 +230,7 @@ export class DubaiComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/dubai-visa-online"
+      "https://visa2fly.com/dubai-visa-online"
     );
   }
 

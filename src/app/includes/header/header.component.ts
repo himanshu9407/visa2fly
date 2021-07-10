@@ -65,53 +65,53 @@ export class HeaderComponent implements OnInit {
           arr[1] == "About-Us" ||
           arr[1] == "offers" ||
           arr[1] == "insurance" ||
-          arr[2] == "australia-visa-online" ||
-          arr[2] == "austria-visa-online" ||
-          arr[2] == "antigua & barbuda-visa-online" ||
-          arr[2] == "armenia-visa-online" ||
-          arr[2] == "bahrain-visa-online" ||
-          arr[2] == "bhutan-visa-online" ||
-          arr[2] == "belgium-visa-online" ||
-          arr[2] == "azerbaijan-visa-online" ||
-          arr[2] == "brazil-visa-online" ||
-          arr[2] == "ukraine-visa-online" ||
-          arr[2] == "china-visa-online" ||
-          arr[2] == "canada-visa-online" ||
-          arr[2] == "cambodia-visa-online" ||
-          arr[2] == "denmark-visa-online" ||
-          arr[2] == "dubai-visa-online" ||
-          arr[2] == "egypt-visa-online" ||
-          arr[2] == "ethiopia-visa-online" ||
-          arr[2] == "estonia-visa-online" ||
-          arr[2] == "finland-visa-online" ||
-          arr[2] == "france-visa-online" ||
-          arr[2] == "georgia-visa-online" ||
-          arr[2] == "germany-visa-online" ||
-          arr[2] == "iraq-visa-online" ||
-          arr[2] == "japan-visa-online" ||
-          arr[2] == "kenya-visa-online" ||
-          arr[2] == "malaysia-visa-online" ||
-          arr[2] == "maldives-visa-online" ||
-          arr[2] == "malta-visa-online" ||
-          arr[2] == "new-zealand-visa-online" ||
-          arr[2] == "south-africa-visa-online" ||
-          arr[2] == "netherlands-visa-online" ||
-          arr[2] == "russia-visa-online" ||
-          arr[2] == "rwanda-visa-online" ||
-          arr[2] == "singapore-visa-online" ||
-          arr[2] == "spain-visa-online" ||
-          arr[2] == "sri-lanka-visa-online" ||
-          arr[2] == "swiss-visa-online" ||
-          arr[2] == "taiwan-visa-online" ||
-          arr[2] == "tajikistan-visa-online" ||
-          arr[2] == "thailand-visa-online" ||
-          arr[2] == "turkey-visa-online" ||
-          arr[2] == "uae-visa-online" ||
-          arr[2] == "uk-visa-online" ||
-          arr[2] == "usa-visa-online" ||
-          arr[2] == "uzbekistan-visa-online" ||
-          arr[2] == "vietnam-visa-online" ||
-          arr[2] == "zambia-visa-online"
+          arr[1] == "australia-visa-online" ||
+          arr[1] == "austria-visa-online" ||
+          arr[1] == "antigua & barbuda-visa-online" ||
+          arr[1] == "armenia-visa-online" ||
+          arr[1] == "bahrain-visa-online" ||
+          arr[1] == "bhutan-visa-online" ||
+          arr[1] == "belgium-visa-online" ||
+          arr[1] == "azerbaijan-visa-online" ||
+          arr[1] == "brazil-visa-online" ||
+          arr[1] == "ukraine-visa-online" ||
+          arr[1] == "china-visa-online" ||
+          arr[1] == "canada-visa-online" ||
+          arr[1] == "cambodia-visa-online" ||
+          arr[1] == "denmark-visa-online" ||
+          arr[1] == "dubai-visa-online" ||
+          arr[1] == "egypt-visa-online" ||
+          arr[1] == "ethiopia-visa-online" ||
+          arr[1] == "estonia-visa-online" ||
+          arr[1] == "finland-visa-online" ||
+          arr[1] == "france-visa-online" ||
+          arr[1] == "georgia-visa-online" ||
+          arr[1] == "germany-visa-online" ||
+          arr[1] == "iraq-visa-online" ||
+          arr[1] == "japan-visa-online" ||
+          arr[1] == "kenya-visa-online" ||
+          arr[1] == "malaysia-visa-online" ||
+          arr[1] == "maldives-visa-online" ||
+          arr[1] == "malta-visa-online" ||
+          arr[1] == "new-zealand-visa-online" ||
+          arr[1] == "south-africa-visa-online" ||
+          arr[1] == "netherlands-visa-online" ||
+          arr[1] == "russia-visa-online" ||
+          arr[1] == "rwanda-visa-online" ||
+          arr[1] == "singapore-visa-online" ||
+          arr[1] == "spain-visa-online" ||
+          arr[1] == "sri-lanka-visa-online" ||
+          arr[1] == "swiss-visa-online" ||
+          arr[1] == "taiwan-visa-online" ||
+          arr[1] == "tajikistan-visa-online" ||
+          arr[1] == "thailand-visa-online" ||
+          arr[1] == "turkey-visa-online" ||
+          arr[1] == "uae-visa-online" ||
+          arr[1] == "uk-visa-online" ||
+          arr[1] == "usa-visa-online" ||
+          arr[1] == "uzbekistan-visa-online" ||
+          arr[1] == "vietnam-visa-online" ||
+          arr[1] == "zambia-visa-online"
         ) {
           this.showTransparentNavbar = false;
         } else {

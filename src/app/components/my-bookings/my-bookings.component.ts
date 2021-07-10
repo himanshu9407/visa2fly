@@ -78,7 +78,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
   toDate: boolean = false;
   errorDisplayedByDeskstop: boolean = false;
   errorDisplayedByMobile: boolean = false;
-  display='none'; //default Variable
+  display = 'none'; //default Variable
 
   constructor(
     private router: Router,
@@ -93,15 +93,15 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
   ) {
     this.myBookings = [];
 
-      if (screen.width >= 767) {
-        this.currentPageSize = 6;
-        this.errorDisplayedByDeskstop = true;
-        this.errorDisplayedByMobile = false;
-      } else {
-        this.currentPageSize = 4;
-        this.errorDisplayedByMobile = true;
-        this.errorDisplayedByDeskstop = false;
-      }
+    if (screen.width >= 767) {
+      this.currentPageSize = 6;
+      this.errorDisplayedByDeskstop = true;
+      this.errorDisplayedByMobile = false;
+    } else {
+      this.currentPageSize = 4;
+      this.errorDisplayedByMobile = true;
+      this.errorDisplayedByDeskstop = false;
+    }
 
     this.feedbackForm = new FormGroup({
       "f3-rating": new FormControl(null, Validators.required),
@@ -120,7 +120,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
     this.bookingSearchForm = new FormGroup({
       searchBy: new FormControl("byDate"),
       fromDate: new FormControl('', [Validators.required]),
-      toDate: new FormControl({value : '' , disabled: true}, Validators.required),
+      toDate: new FormControl({ value: '', disabled: true }, Validators.required),
       bookingId: new FormControl('', [Validators.required]),
     });
 
@@ -138,45 +138,45 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
       this.bookings = [...this.bookingService.allBookings];
       this.bookingsForLoop = [...this.bookingService.allBookings];
       // console.log(this.bookingService.searchBy);
-      if(this.bookingService.searchBy === null && this.bookingService.searchBy === undefined) {
+      if (this.bookingService.searchBy === null && this.bookingService.searchBy === undefined) {
         this.bookingSearchForm.get('searchBy').setValue('byDate');
       } else {
         this.bookingSearchForm.get('searchBy').setValue(this.bookingService.searchBy);
       }
 
-      if(this.bookingService.fromDate === null || this.bookingService.fromDate === undefined) {
+      if (this.bookingService.fromDate === null || this.bookingService.fromDate === undefined) {
         this.bookingSearchForm.get('fromDate').setValue('');
         this.bookingSearchForm.get('toDate').disable();
       } else {
         this.bookingSearchForm.get('fromDate').setValue(bookingService.fromDate);
       }
 
-      if(this.bookingService.toDate === null || this.bookingService.toDate === undefined) {
+      if (this.bookingService.toDate === null || this.bookingService.toDate === undefined) {
         this.bookingSearchForm.get('toDate').setValue('');
       } else {
         this.bookingSearchForm.get('toDate').enable();
         this.bookingSearchForm.get('toDate').setValue(bookingService.toDate);
       }
 
-      if(this.bookingService.bookingID === null || this.bookingService.bookingID === undefined) {
+      if (this.bookingService.bookingID === null || this.bookingService.bookingID === undefined) {
         this.bookingSearchForm.get('bookingId').setValue('');
       } else {
         this.bookingSearchForm.get('bookingId').setValue(this.bookingService.bookingID);
       }
 
-      if(this.bookingService.visa === null || this.bookingService.visa === undefined) {
+      if (this.bookingService.visa === null || this.bookingService.visa === undefined) {
         this.bookingFilterForm.get('visa').setValue(false);
       } else {
         this.bookingFilterForm.get('visa').setValue(true);
       }
 
-      if(this.bookingService.sim === null || this.bookingService.sim === undefined) {
+      if (this.bookingService.sim === null || this.bookingService.sim === undefined) {
         this.bookingFilterForm.get('sim').setValue(false);
       } else {
         this.bookingFilterForm.get('sim').setValue(true);
       }
 
-      if(this.bookingService.insurance === null || this.bookingService.insurance === undefined) {
+      if (this.bookingService.insurance === null || this.bookingService.insurance === undefined) {
         this.bookingFilterForm.get('insurance').setValue(false);
       } else {
         this.bookingFilterForm.get('insurance').setValue(true);
@@ -200,8 +200,8 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
     // console.log(this.currentPage1);
     this.bookingService.currentPage1 = this.currentPage1;
     let pageSize = 6;
-    if(this.bookingSearchForm.get('fromDate').pristine && this.bookingSearchForm.get('fromDate').invalid
-    || this.bookingSearchForm.get('toDate').pristine && this.bookingSearchForm.get('toDate').invalid) {
+    if (this.bookingSearchForm.get('fromDate').pristine && this.bookingSearchForm.get('fromDate').invalid
+      || this.bookingSearchForm.get('toDate').pristine && this.bookingSearchForm.get('toDate').invalid) {
       this.getAllBookings(this.currentPage1, pageSize);
       let topPicker: number;
       if (window.innerWidth > 600) {
@@ -235,93 +235,92 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
       let sim = this.bookingFilterForm.get("sim").value;
       let insurance = this.bookingFilterForm.get("insurance").value;
 
-      if(visa === true) {
+      if (visa === true) {
         this.bookingFindByFilter.push('Visa');
         this.bookingService.visa = 'visa';
       }
 
-      if(sim === true) {
+      if (sim === true) {
         this.bookingFindByFilter.push('Sim');
         this.bookingService.sim = 'sim';
       }
 
-      if(insurance === true) {
+      if (insurance === true) {
         this.bookingFindByFilter.push('Insurance');
         this.bookingService.insurance = 'insurance'
       }
 
-      if(this.bookingFindByFilter.length > 0) {
+      if (this.bookingFindByFilter.length > 0) {
         this.bookingService.
-        postBookingFindByFilter(fromDate, toDate, this.currentPage1,
-        pageSize, this.bookingFindByFilter).subscribe(data => {
-          if(data.code === "0") {
-            this.allBooking = data;
-            this.bookingsForLoop = [...data.data.bookings];
-            this.bookingService.allBookings = data.data.bookings;
-            this.totalItems = data.data.totalNumberOfBookings;
-            this.bookingService.totalItems = this.totalItems;
-            this.display = 'none';
-            this.filteredBookingsEmpty = false;
-            // console.log(this.bookingsForLoop);
-            this.allBooking.data.bookings.forEach((element) => {
-              if (
-                element.booking.bookingStatus == "Sim order confirmed" ||
-                element.booking.bookingStatus == "Payment completed" ||
-                element.booking.bookingStatus == "Visa application approved" ||
-                element.booking.bookingStatus == "Insurance policy generated"
-              ) {
-                element.booking.statusColor = "g";
-              } else if (
-                element.booking.bookingStatus == "Payment failed" ||
-                element.booking.bookingStatus == "Visa application rejected"
-              ) {
-                element.booking.statusColor = "r";
-              } else {
-                element.booking.statusColor = "y";
-              }
+          postBookingFindByFilter(fromDate, toDate, this.currentPage1,
+            pageSize, this.bookingFindByFilter).subscribe(data => {
+              if (data.code === "0") {
+                this.allBooking = data;
+                this.bookingsForLoop = [...data.data.bookings];
+                this.bookingService.allBookings = data.data.bookings;
+                this.totalItems = data.data.totalNumberOfBookings;
+                this.bookingService.totalItems = this.totalItems;
+                this.display = 'none';
+                this.filteredBookingsEmpty = false;
+                // console.log(this.bookingsForLoop);
+                this.allBooking.data.bookings.forEach((element) => {
+                  if (
+                    element.booking.bookingStatus == "Sim order confirmed" ||
+                    element.booking.bookingStatus == "Payment completed" ||
+                    element.booking.bookingStatus == "Visa application approved" ||
+                    element.booking.bookingStatus == "Insurance policy generated"
+                  ) {
+                    element.booking.statusColor = "g";
+                  } else if (
+                    element.booking.bookingStatus == "Payment failed" ||
+                    element.booking.bookingStatus == "Visa application rejected"
+                  ) {
+                    element.booking.statusColor = "r";
+                  } else {
+                    element.booking.statusColor = "y";
+                  }
 
-              if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
+                  if (element.booking.paymentStatus == "Payment completed") {
+                    element.booking.paymentColor = "g";
+                  } else {
+                    element.booking.paymentColor = "y";
+                  }
+                });
+                let topPicker: number;
+                if (window.innerWidth > 600) {
+                  topPicker = 250;
+                } else {
+                  topPicker = 550;
+                }
+                window.scrollTo({
+                  top: topPicker + this.scrollBy,
+                  left: 0,
+                  behavior: "smooth",
+                });
               } else {
-                element.booking.paymentColor = "y";
+                // this.totalCount = 0;
+                let topPicker: number;
+                if (window.innerWidth > 600) {
+                  topPicker = 250;
+                } else {
+                  topPicker = 550;
+                }
+                window.scrollTo({
+                  top: topPicker + this.scrollBy,
+                  left: 0,
+                  behavior: "smooth",
+                });
+                this.display = 'none';
+                this.totalItems = 0;
+                this.bookingsForLoop = [];
+                this.filteredBookingsEmpty = true;
+                this.toastr.error(data.message);
               }
             });
-            let topPicker: number;
-            if (window.innerWidth > 600) {
-              topPicker = 250;
-            } else {
-              topPicker = 550;
-            }
-            window.scrollTo({
-              top: topPicker + this.scrollBy,
-              left: 0,
-              behavior: "smooth",
-            });
-          } else {
-            // this.totalCount = 0;
-            let topPicker: number;
-            if (window.innerWidth > 600) {
-              topPicker = 250;
-            } else {
-              topPicker = 550;
-            }
-            window.scrollTo({
-              top: topPicker + this.scrollBy,
-              left: 0,
-              behavior: "smooth",
-            });
-            this.display = 'none';
-            this.totalItems = 0;
-            this.bookingsForLoop = [];
-            this.filteredBookingsEmpty = true;
-            this.toastr.error(data.message);
-          }
-        });
         this.bookingFindByFilter = [];
       } else {
         this.bookingService.postBookingsByDateFromServer(fromDate, toDate, this.currentPage1, pageSize).subscribe(res => {
-          if(res.code === '0')
-          {
+          if (res.code === '0') {
             this.allBooking = res;
             this.bookingsForLoop = this.allBooking.data.bookings;
             this.bookingService.allBookings = this.allBooking.data.bookings;
@@ -399,9 +398,8 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
     this.currentPage2 = event;
     let pageSize = 4;
     this.bookingService.currentPage2 = this.currentPage2;
-    if(this.bookingSearchForm.get('fromDate').pristine && this.bookingSearchForm.get('fromDate').invalid
-    || this.bookingSearchForm.get('toDate').pristine && this.bookingSearchForm.get('toDate').invalid)
-    {
+    if (this.bookingSearchForm.get('fromDate').pristine && this.bookingSearchForm.get('fromDate').invalid
+      || this.bookingSearchForm.get('toDate').pristine && this.bookingSearchForm.get('toDate').invalid) {
       this.getAllBookings(this.currentPage2, pageSize);
     } else {
       let toDate = this.bookingSearchForm.get("toDate").value;
@@ -424,93 +422,92 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
       let sim = this.bookingFilterForm.get("sim").value;
       let insurance = this.bookingFilterForm.get("insurance").value;
 
-      if(visa === true) {
-      this.bookingFindByFilter.push('Visa');
-      this.bookingService.visa = 'visa';
+      if (visa === true) {
+        this.bookingFindByFilter.push('Visa');
+        this.bookingService.visa = 'visa';
       }
 
-      if(sim === true) {
+      if (sim === true) {
         this.bookingFindByFilter.push('Sim');
         this.bookingService.sim = 'sim';
       }
 
-      if(insurance === true) {
+      if (insurance === true) {
         this.bookingFindByFilter.push('Insurance');
         this.bookingService.insurance = 'insurance'
       }
 
-      if(this.bookingFindByFilter.length > 0) {
+      if (this.bookingFindByFilter.length > 0) {
         this.bookingService.
-        postBookingFindByFilter(fromDate, toDate, this.currentPage2,
-        pageSize, this.bookingFindByFilter).subscribe(data => {
-          if(data.code === "0") {
-            this.allBooking = data;
-            this.bookingsForLoop = [...data.data.bookings];
-            this.bookingService.allBookings = data.data.bookings;
-            this.totalItems = data.data.totalNumberOfBookings;
-            this.bookingService.totalItems = this.totalItems;
-            this.display = 'none';
-            this.filteredBookingsEmpty = false;
-            // console.log(this.bookingsForLoop);
-            this.allBooking.data.bookings.forEach((element) => {
-              if (
-                element.booking.bookingStatus == "Sim order confirmed" ||
-                element.booking.bookingStatus == "Payment completed" ||
-                element.booking.bookingStatus == "Visa application approved" ||
-                element.booking.bookingStatus == "Insurance policy generated"
-              ) {
-                element.booking.statusColor = "g";
-              } else if (
-                element.booking.bookingStatus == "Payment failed" ||
-                element.booking.bookingStatus == "Visa application rejected"
-              ) {
-                element.booking.statusColor = "r";
-              } else {
-                element.booking.statusColor = "y";
-              }
+          postBookingFindByFilter(fromDate, toDate, this.currentPage2,
+            pageSize, this.bookingFindByFilter).subscribe(data => {
+              if (data.code === "0") {
+                this.allBooking = data;
+                this.bookingsForLoop = [...data.data.bookings];
+                this.bookingService.allBookings = data.data.bookings;
+                this.totalItems = data.data.totalNumberOfBookings;
+                this.bookingService.totalItems = this.totalItems;
+                this.display = 'none';
+                this.filteredBookingsEmpty = false;
+                // console.log(this.bookingsForLoop);
+                this.allBooking.data.bookings.forEach((element) => {
+                  if (
+                    element.booking.bookingStatus == "Sim order confirmed" ||
+                    element.booking.bookingStatus == "Payment completed" ||
+                    element.booking.bookingStatus == "Visa application approved" ||
+                    element.booking.bookingStatus == "Insurance policy generated"
+                  ) {
+                    element.booking.statusColor = "g";
+                  } else if (
+                    element.booking.bookingStatus == "Payment failed" ||
+                    element.booking.bookingStatus == "Visa application rejected"
+                  ) {
+                    element.booking.statusColor = "r";
+                  } else {
+                    element.booking.statusColor = "y";
+                  }
 
-              if (element.booking.paymentStatus == "Payment completed") {
-                element.booking.paymentColor = "g";
+                  if (element.booking.paymentStatus == "Payment completed") {
+                    element.booking.paymentColor = "g";
+                  } else {
+                    element.booking.paymentColor = "y";
+                  }
+                });
+                let topPicker: number;
+                if (window.innerWidth > 600) {
+                  topPicker = 150;
+                } else {
+                  topPicker = 450;
+                }
+                window.scrollTo({
+                  top: topPicker + this.scrollBy,
+                  left: 0,
+                  behavior: "smooth",
+                });
               } else {
-                element.booking.paymentColor = "y";
+                // this.totalCount = 0;
+                let topPicker: number;
+                if (window.innerWidth > 600) {
+                  topPicker = 150;
+                } else {
+                  topPicker = 450;
+                }
+                window.scrollTo({
+                  top: topPicker + this.scrollBy,
+                  left: 0,
+                  behavior: "smooth",
+                });
+                this.display = 'none';
+                this.totalItems = 0;
+                this.bookingsForLoop = [];
+                this.filteredBookingsEmpty = true;
+                this.toastr.error(data.message);
               }
             });
-            let topPicker: number;
-            if (window.innerWidth > 600) {
-              topPicker = 150;
-            } else {
-              topPicker = 450;
-            }
-            window.scrollTo({
-              top: topPicker + this.scrollBy,
-              left: 0,
-              behavior: "smooth",
-            });
-          } else {
-            // this.totalCount = 0;
-            let topPicker: number;
-            if (window.innerWidth > 600) {
-              topPicker = 150;
-            } else {
-              topPicker = 450;
-            }
-            window.scrollTo({
-              top: topPicker + this.scrollBy,
-              left: 0,
-              behavior: "smooth",
-            });
-            this.display = 'none';
-            this.totalItems = 0;
-            this.bookingsForLoop = [];
-            this.filteredBookingsEmpty = true;
-            this.toastr.error(data.message);
-          }
-        });
         this.bookingFindByFilter = [];
       } else {
         this.bookingService.postBookingsByDateFromServer(fromDate, toDate, this.currentPage2, pageSize).subscribe(res => {
-          if(res.code === '0')
-          {
+          if (res.code === '0') {
             this.allBooking = res;
             this.bookingsForLoop = this.allBooking.data.bookings;
             this.bookingService.allBookings = this.allBooking.data.bookings;
@@ -565,17 +562,17 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
             this.totalCount = 0;
             this.toastr.error(res.message);
             let topPicker: number;
-              if (window.innerWidth > 600) {
-                topPicker = 150;
-              } else {
-                topPicker = 450;
-              }
-              window.scrollTo({
-                top: topPicker + this.scrollBy,
-                left: 0,
-                behavior: "smooth",
-              });
+            if (window.innerWidth > 600) {
+              topPicker = 150;
+            } else {
+              topPicker = 450;
             }
+            window.scrollTo({
+              top: topPicker + this.scrollBy,
+              left: 0,
+              behavior: "smooth",
+            });
+          }
         })
       }
 
@@ -663,7 +660,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
           this.totalCount = 0;
         }
       } else if (res.code == 301) {
-        this.router.navigate(["/visa"]);
+        this.router.navigate(["/"]);
       }
     });
   }
@@ -687,24 +684,24 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
   downloadInvoice(bookingId: string, bookingStatus: string) {
     if (bookingStatus == "g") {
       this.downloadImageService.createDownloadInvoice(bookingId).subscribe((res: any) => {
-        if(res.code === "0") {
+        if (res.code === "0") {
           this.downloadImageService
-          .downloadInvoice(bookingId)
-          .subscribe((response: any) => {
-            let dataType = response.type;
-            let binaryData = [];
-            binaryData.push(response);
-            var a = document.createElement("a");
-            document.body.appendChild(a);
-            a.style.display = "none";
-            let url = window.URL.createObjectURL(
-              new Blob(binaryData, { type: dataType })
-            );
-            a.href = url;
-            a.download = "Invoice" + bookingId;
-            a.click();
-            window.URL.revokeObjectURL(url);
-          });
+            .downloadInvoice(bookingId)
+            .subscribe((response: any) => {
+              let dataType = response.type;
+              let binaryData = [];
+              binaryData.push(response);
+              var a = document.createElement("a");
+              document.body.appendChild(a);
+              a.style.display = "none";
+              let url = window.URL.createObjectURL(
+                new Blob(binaryData, { type: dataType })
+              );
+              a.href = url;
+              a.download = "Invoice" + bookingId;
+              a.click();
+              window.URL.revokeObjectURL(url);
+            });
         }
       })
     } else {
@@ -841,8 +838,8 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
     this.bookingFilterForm.get('sim').setValue('');
     this.bookingFilterForm.get('insurance').setValue('');
     this.bookingService.searchBy = searchBy;
-    if(this.bookingSearchForm.get('fromDate').invalid && this.bookingSearchForm.get('fromDate').pristine
-    || this.bookingSearchForm.get('toDate').invalid && this.bookingSearchForm.get('toDate').pristine) {
+    if (this.bookingSearchForm.get('fromDate').invalid && this.bookingSearchForm.get('fromDate').pristine
+      || this.bookingSearchForm.get('toDate').invalid && this.bookingSearchForm.get('toDate').pristine) {
       if (screen.width >= 767) {
         this.errorDisplayedByDeskstop = true;
         this.errorDisplayedByMobile = false;
@@ -853,84 +850,83 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
       this.fromDate = true;
       this.toDate = true;
       console.log("Himanshu");
-    } else if(this.bookingSearchForm.get('fromDate').value != null && this.bookingSearchForm.get('toDate').value != null) {
-    let toDate = this.bookingSearchForm.get("toDate").value;
-    this.bookingService.toDate = toDate;
-    toDate = [
-      toDate.year,
-      toDate.month < 10 ? "0" + toDate.month : toDate.month,
-      toDate.day < 10 ? "0" + toDate.day : toDate.day,
-    ].join("-");
+    } else if (this.bookingSearchForm.get('fromDate').value != null && this.bookingSearchForm.get('toDate').value != null) {
+      let toDate = this.bookingSearchForm.get("toDate").value;
+      this.bookingService.toDate = toDate;
+      toDate = [
+        toDate.year,
+        toDate.month < 10 ? "0" + toDate.month : toDate.month,
+        toDate.day < 10 ? "0" + toDate.day : toDate.day,
+      ].join("-");
 
-    let fromDate = this.bookingSearchForm.get("fromDate").value;
-    this.bookingService.fromDate = fromDate;
-    fromDate = [
-      fromDate.year,
-      fromDate.month < 10 ? "0" + fromDate.month : fromDate.month,
-      fromDate.day < 10 ? "0" + fromDate.day : fromDate.day,
-    ].join("-");
+      let fromDate = this.bookingSearchForm.get("fromDate").value;
+      this.bookingService.fromDate = fromDate;
+      fromDate = [
+        fromDate.year,
+        fromDate.month < 10 ? "0" + fromDate.month : fromDate.month,
+        fromDate.day < 10 ? "0" + fromDate.day : fromDate.day,
+      ].join("-");
 
-    if (screen.width >= 767) {
-      this.currentPageSize = 6;
-    } else {
-      this.currentPageSize = 4;
-    }
-    this.currentPage1 = 1;
-    this.currentPage2 = 1;
-    this.bookingService.currentPage1 = this.currentPage1;
-    this.bookingService.currentPage2 = this.currentPage2;
-    // this.currentPageSize = 6;
-
-    this.bookingService.postBookingsByDateFromServer(fromDate, toDate, this.currentPage1, this.currentPageSize).subscribe(res => {
-      if(res.code === '0')
-      {
-        this.allBooking = res;
-        this.bookingsForLoop = this.allBooking.data.bookings;
-        this.bookingService.allBookings = this.allBooking.data.bookings;
-        this.totalItems = this.allBooking.data.totalNumberOfBookings;
-        this.bookingService.totalItems = this.totalItems;
-        this.filteredBookingsEmpty = false;
-
-        if (this.allBooking != null) {
-          this.totalCount = this.allBooking.data.bookings.length;
-        }
-
-        this.allBooking.data.bookings.forEach((element) => {
-          if (
-            element.booking.bookingStatus == "Sim order confirmed" ||
-            element.booking.bookingStatus == "Payment completed" ||
-            element.booking.bookingStatus == "Visa application approved" ||
-            element.booking.bookingStatus == "Insurance policy generated"
-          ) {
-            element.booking.statusColor = "g";
-          } else if (
-            element.booking.bookingStatus == "Payment failed" ||
-            element.booking.bookingStatus == "Visa application rejected"
-          ) {
-            element.booking.statusColor = "r";
-          } else {
-            element.booking.statusColor = "y";
-          }
-
-          if (element.booking.paymentStatus == "Payment completed") {
-            element.booking.paymentColor = "g";
-          } else {
-            element.booking.paymentColor = "y";
-          }
-
-          // console.log('  ');
-          // console.log(element.booking.paymentStatus)
-          // console.log(element.booking.paymentColor)
-        });
-        this.toastr.success("Booking find by Date !");
-        // console.log(res);
+      if (screen.width >= 767) {
+        this.currentPageSize = 6;
       } else {
-        this.totalCount = 0;
-        this.totalItems = 0;
-        this.filteredBookingsEmpty = true;
-        this.toastr.error(res.message);
+        this.currentPageSize = 4;
       }
-    });
+      this.currentPage1 = 1;
+      this.currentPage2 = 1;
+      this.bookingService.currentPage1 = this.currentPage1;
+      this.bookingService.currentPage2 = this.currentPage2;
+      // this.currentPageSize = 6;
+
+      this.bookingService.postBookingsByDateFromServer(fromDate, toDate, this.currentPage1, this.currentPageSize).subscribe(res => {
+        if (res.code === '0') {
+          this.allBooking = res;
+          this.bookingsForLoop = this.allBooking.data.bookings;
+          this.bookingService.allBookings = this.allBooking.data.bookings;
+          this.totalItems = this.allBooking.data.totalNumberOfBookings;
+          this.bookingService.totalItems = this.totalItems;
+          this.filteredBookingsEmpty = false;
+
+          if (this.allBooking != null) {
+            this.totalCount = this.allBooking.data.bookings.length;
+          }
+
+          this.allBooking.data.bookings.forEach((element) => {
+            if (
+              element.booking.bookingStatus == "Sim order confirmed" ||
+              element.booking.bookingStatus == "Payment completed" ||
+              element.booking.bookingStatus == "Visa application approved" ||
+              element.booking.bookingStatus == "Insurance policy generated"
+            ) {
+              element.booking.statusColor = "g";
+            } else if (
+              element.booking.bookingStatus == "Payment failed" ||
+              element.booking.bookingStatus == "Visa application rejected"
+            ) {
+              element.booking.statusColor = "r";
+            } else {
+              element.booking.statusColor = "y";
+            }
+
+            if (element.booking.paymentStatus == "Payment completed") {
+              element.booking.paymentColor = "g";
+            } else {
+              element.booking.paymentColor = "y";
+            }
+
+            // console.log('  ');
+            // console.log(element.booking.paymentStatus)
+            // console.log(element.booking.paymentColor)
+          });
+          this.toastr.success("Booking find by Date !");
+          // console.log(res);
+        } else {
+          this.totalCount = 0;
+          this.totalItems = 0;
+          this.filteredBookingsEmpty = true;
+          this.toastr.error(res.message);
+        }
+      });
     }
 
     // let toDateCmp = new Date(toDate);
@@ -980,16 +976,15 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
     this.bookingService.currentPage2 = this.currentPageIndex;
     let arr = [];
 
-    if(bookingId === '') {
+    if (bookingId === '') {
       this.filteredBookingsEmpty = false;
       this.bookingIdInputError = true;
-    } else if(bookingId.length < 18) {
+    } else if (bookingId.length < 18) {
       this.filteredBookingsEmpty = false;
       this.bookingIdInputError = true;
     } else {
       this.bookingService.postFindBookingById(bookingId).subscribe(res => {
-        if(res.code === '0')
-        {
+        if (res.code === '0') {
           // arr.push(res.data.bookings)
           this.allBooking = res.data.bookings;
           this.bookingService.allBookings = this.allBooking;
@@ -1112,7 +1107,7 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
   // }
 
   filterByDate() {
-    if(this.bookingSearchForm.get('fromDate').invalid || this.bookingSearchForm.get('toDate').invalid) {
+    if (this.bookingSearchForm.get('fromDate').invalid || this.bookingSearchForm.get('toDate').invalid) {
       this.fromDate = true;
       this.toDate = true;
       this.display = 'none';
@@ -1156,65 +1151,65 @@ export class MyBookingsComponent implements OnInit, OnDestroy {
     let sim = this.bookingFilterForm.get("sim").value;
     let insurance = this.bookingFilterForm.get("insurance").value;
 
-    if(visa === true) {
+    if (visa === true) {
       this.bookingFindByFilter.push('Visa');
       this.bookingService.visa = 'visa';
     }
 
-    if(sim === true) {
+    if (sim === true) {
       this.bookingFindByFilter.push('Sim');
       this.bookingService.sim = 'sim';
     }
 
-    if(insurance === true) {
+    if (insurance === true) {
       this.bookingFindByFilter.push('Insurance');
       this.bookingService.insurance = 'insurance'
     }
 
     this.bookingService.
-    postBookingFindByFilter(fromDate, toDate, this.currentPage1,
-    this.currentPageSize, this.bookingFindByFilter).subscribe(data => {
-      if(data.code === "0") {
-        this.allBooking = data;
-        this.bookingsForLoop = [...data.data.bookings];
-        this.bookingService.allBookings = data.data.bookings;
-        this.totalItems = data.data.totalNumberOfBookings;
-        this.bookingService.totalItems = this.totalItems;
-        this.display = 'none';
-        this.filteredBookingsEmpty = false;
-        // console.log(this.bookingsForLoop);
-        this.allBooking.data.bookings.forEach((element) => {
-          if (
-            element.booking.bookingStatus == "Sim order confirmed" ||
-            element.booking.bookingStatus == "Payment completed" ||
-            element.booking.bookingStatus == "Visa application approved" ||
-            element.booking.bookingStatus == "Insurance policy generated"
-          ) {
-            element.booking.statusColor = "g";
-          } else if (
-            element.booking.bookingStatus == "Payment failed" ||
-            element.booking.bookingStatus == "Visa application rejected"
-          ) {
-            element.booking.statusColor = "r";
-          } else {
-            element.booking.statusColor = "y";
-          }
+      postBookingFindByFilter(fromDate, toDate, this.currentPage1,
+        this.currentPageSize, this.bookingFindByFilter).subscribe(data => {
+          if (data.code === "0") {
+            this.allBooking = data;
+            this.bookingsForLoop = [...data.data.bookings];
+            this.bookingService.allBookings = data.data.bookings;
+            this.totalItems = data.data.totalNumberOfBookings;
+            this.bookingService.totalItems = this.totalItems;
+            this.display = 'none';
+            this.filteredBookingsEmpty = false;
+            // console.log(this.bookingsForLoop);
+            this.allBooking.data.bookings.forEach((element) => {
+              if (
+                element.booking.bookingStatus == "Sim order confirmed" ||
+                element.booking.bookingStatus == "Payment completed" ||
+                element.booking.bookingStatus == "Visa application approved" ||
+                element.booking.bookingStatus == "Insurance policy generated"
+              ) {
+                element.booking.statusColor = "g";
+              } else if (
+                element.booking.bookingStatus == "Payment failed" ||
+                element.booking.bookingStatus == "Visa application rejected"
+              ) {
+                element.booking.statusColor = "r";
+              } else {
+                element.booking.statusColor = "y";
+              }
 
-          if (element.booking.paymentStatus == "Payment completed") {
-            element.booking.paymentColor = "g";
+              if (element.booking.paymentStatus == "Payment completed") {
+                element.booking.paymentColor = "g";
+              } else {
+                element.booking.paymentColor = "y";
+              }
+            });
           } else {
-            element.booking.paymentColor = "y";
+            // this.totalCount = 0;
+            this.display = 'none';
+            this.totalItems = 0;
+            this.bookingsForLoop = [];
+            this.filteredBookingsEmpty = true;
+            this.toastr.error(data.message);
           }
         });
-      } else {
-        // this.totalCount = 0;
-        this.display = 'none';
-        this.totalItems = 0;
-        this.bookingsForLoop = [];
-        this.filteredBookingsEmpty = true;
-        this.toastr.error(data.message);
-      }
-    });
     this.bookingFindByFilter = [];
 
   }
