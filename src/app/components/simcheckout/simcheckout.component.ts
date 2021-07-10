@@ -83,10 +83,10 @@ export class SimcheckoutComponent implements OnInit {
     private userFlow: UserFlowDetails
   ) {
     this.simCart = JSON.parse(this.userFlow.getLocalStorage("simCart"));
-    // console.log(this.simCart);
     this.updateTotal();
     this.totalQuantity();
     this.selectedCountry = this.userFlow.getCookie("simSelectedCountry");
+    console.log(this.selectedCountry);
   }
 
   ngOnInit() {
@@ -320,7 +320,7 @@ export class SimcheckoutComponent implements OnInit {
       this.stateError = false;
     }
 
-    console.log(this.simCheckoutForm);
+    // console.log(this.simCheckoutForm);
   }
 
   submitForm() {

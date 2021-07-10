@@ -1,5 +1,5 @@
 section.testimonial {
-  background-image: url(./../../../../assets/testimonial_bg.png);
+  background-image: url("https://static.visa2fly.com/assets/testimonial_bg.png");
   background-size: contain;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -117,10 +117,15 @@ section.testimonial .testimonial_author_box {
 
 @media screen and (max-width: 600px) {
 
+  section.testimonial .testimonial_container,
+  section.testimonial .testimonial_slick_col {
+    padding: 0px;
+  }
+
   section.testimonial .testimonial_box {
     padding: 25px 20px;
     height: 240px;
-    width: 290px;
+    width: 260px;
   }
 
   section.testimonial .slick-center .testimonial_box {

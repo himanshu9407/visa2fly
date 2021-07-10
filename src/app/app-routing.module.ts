@@ -807,22 +807,22 @@ const routes: Routes = [
     data: { preload: true },
   },
 
-  // Sim Plans Page
-  {
-    path: "sim/:simCountry",
-    loadChildren: () =>
-      import("./components/simplans/simplans.module").then(
-        (m) => m.SimplansModule
-      ),
-    data: { preload: true },
-  },
-
   // Sim Checkout Page
   {
     path: "sim/checkout",
     loadChildren: () =>
       import("./components/simcheckout/simcheckout.module").then(
         (m) => m.SimCheckoutModule
+      ),
+    data: { preload: true },
+  },
+
+  // Sim Plans Page
+  {
+    path: "sim/:simCountry",
+    loadChildren: () =>
+      import("./components/simplans/simplans.module").then(
+        (m) => m.SimplansModule
       ),
     data: { preload: true },
   },

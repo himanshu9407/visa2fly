@@ -70,14 +70,14 @@ export class SimComponent implements OnInit, AfterViewInit {
     if (this.selectedSimCountry === "" || this.selectedSimCountry === null || this.selectedSimCountry === undefined) {
       this.toastr.error("Please select a country.");
     } else {
-      this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
-      this.router.navigate(["sim/simplans"]);
+      // this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
+      this.router.navigate(['/sim', this.selectedSimCountry]);
     }
   }
 
   proceedToPlans(country: string) {
-    this.userFlow.setCookie("simSelectedCountry", country);
-    this.router.navigate(["sim/simplans"]);
+    // this.userFlow.setCookie("simSelectedCountry", country);
+    this.router.navigate(["/sim", country]);
   }
 
   @ViewChild('countryInput') countryInput: ElementRef;
