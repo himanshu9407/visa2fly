@@ -47,19 +47,19 @@ export class TestimonialComponent implements OnInit {
   };
 
   slickInit(e) {
-    console.log('slick initialized');
+    // console.log('slick initialized');
   }
 
   breakpoint(e) {
-    console.log('breakpoint');
+    // console.log('breakpoint');
   }
 
   afterChange(e) {
-    console.log('afterChange');
+    // console.log('afterChange');
   }
 
   beforeChange(e) {
-    console.log('beforeChange');
+    // console.log('beforeChange');
   }
 
   ngOnInit() {
@@ -67,7 +67,6 @@ export class TestimonialComponent implements OnInit {
     this.testimonialService.getTestimonials().subscribe(
       (res: TestimonialModel) => {
         if (!res) {
-          // assign dummy res
         } else if (res.code == "0") {
           this.testimonialArr = res.data;
         }

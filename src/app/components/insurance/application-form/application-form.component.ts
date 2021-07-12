@@ -16,6 +16,12 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
   insurer: FormArray;
   birthDtError: boolean;
   count: number = 1;
+  relatedSelfTrue_0: boolean = false;
+  relatedSelfTrue_1: boolean = false;
+  relatedSelfTrue_2: boolean = false;
+  relatedSelfTrue_3: boolean = false;
+  relatedSelfTrue_4: boolean = false;
+  relatedSelfTrue_5: boolean = false;
   dataSource = [
     { id: "Member", dataToggle: "toogle1", dataToggleHash: "#toogle1" },
   ];
@@ -40,10 +46,7 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     },
     anyMedicalCondition: boolean
   };
-  insurancePlan: {
-    coverage: string,
-    planType: string,
-  };
+  insurancePlan: any
 
   residenceProofError: boolean;
   setResposeArr: Array<any> = [];
@@ -158,6 +161,9 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
   maxDateDob_4: { year: number; month: number; day: number; };
   maxDateDob_5: { year: number; month: number; day: number; };
 
+  selectedCoverage: number;
+  selectedPlan: string;
+
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private preloaderService: PreloaderService,
@@ -165,31 +171,38 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     private insuranceService: InsuranceService, private userflowDetails: UserFlowDetails) {
     this.insuranceDetails = this.userflowDetails.getInsuranceDetails();
     this.insurancePlan = this.userflowDetails.getInsurancePlanDetails();
-    this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
+
+    console.log(this.insuranceDetails);
+    console.log(this.insurancePlan);
   }
 
   ngOnInit(): void {
     this.preloaderService.showPreloader(false);
 
     this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-    this.premiumDetails.premiumAsPerPlan.forEach(element => {
-      // console.log(element);
-      if (element.planType == 'Basic') {
-        this.basicPremiumCalculated = element.premiumCalculated;
-        this.basicPremiumGSTCalculated = element.gst;
-      } else if (element.planType == 'Gold') {
-        this.goldPremiumCalculated = element.premiumCalculated;
-        this.goldPremiumGSTCalculated = element.gst;
-      }
-    });
+    this.selectedCoverage = JSON.parse(this.insurancePlan.premiumCovered);
+    this.selectedPlan = this.insurancePlan.planType;
+    this.premiumCalculated = JSON.parse(this.insurancePlan.premiumCalculated);
+    this.premiumGST = JSON.parse(this.insurancePlan.gst);
 
-    if (this.insurancePlan.planType == 'Basic') {
-      this.premiumCalculated = this.basicPremiumCalculated;
-      this.premiumGST = this.basicPremiumGSTCalculated;
-    } else if (this.insurancePlan.planType == 'Gold') {
-      this.premiumCalculated = this.goldPremiumCalculated;
-      this.premiumGST = this.goldPremiumGSTCalculated;
-    }
+    // this.premiumDetails.premiumAsPerPlan.forEach(element => {
+    //   // console.log(element);
+    //   if (element.planType == 'Basic') {
+    //     this.basicPremiumCalculated = element.premiumCalculated;
+    //     this.basicPremiumGSTCalculated = element.gst;
+    //   } else if (element.planType == 'Gold') {
+    //     this.goldPremiumCalculated = element.premiumCalculated;
+    //     this.goldPremiumGSTCalculated = element.gst;
+    //   }
+    // });
+
+    // if (this.insurancePlan.planType == 'Basic') {
+    //   this.premiumCalculated = this.basicPremiumCalculated;
+    //   this.premiumGST = this.basicPremiumGSTCalculated;
+    // } else if (this.insurancePlan.planType == 'Gold') {
+    //   this.premiumCalculated = this.goldPremiumCalculated;
+    //   this.premiumGST = this.goldPremiumGSTCalculated;
+    // }
 
     // insurance form
     this.insuranceForm = this.formBuilder.group({
@@ -198,10 +211,10 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     });
 
     // policydetails form
-    this.policyDetailForm = this.formBuilder.group({
-      planType: [{ value: '' }, [Validators.required]],
-      coverage: [{ value: '', disabled: true }, [Validators.required]]
-    });
+    // this.policyDetailForm = this.formBuilder.group({
+    //   planType: [{ value: '' }, [Validators.required]],
+    //   coverage: [{ value: '', disabled: true }, [Validators.required]]
+    // });
 
     // terms and condition form
     this.termsAndConditionForm = this.formBuilder.group({
@@ -209,8 +222,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     });
 
     // console.log(this.maxDateDob_ForProposal);
-    this.policyDetailForm.get('planType').setValue(this.insurancePlan.planType);
-    this.policyDetailForm.get('coverage').setValue(this.insurancePlan.coverage);
+    // this.policyDetailForm.get('planType').setValue(this.insurancePlan.planType);
+    // this.policyDetailForm.get('coverage').setValue(this.insurancePlan.coverage);
 
 
     this.titleService.setTitle(this.title);
@@ -691,171 +704,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     }
   }
 
-  // onChangePinCode(city: string, i: number) {
-  //   // console.log(city);
-
-  //   if (city.length > 6 || city.length < 1) {
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = true;
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = false;
-  //   } else if (city.length > 1 || city.length < 6) {
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = true;
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = false;
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = false;
-  //   } else {
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
-  //     this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = false;
-  //   }
-
-  //   if (this.getControls[i]['controls'].partyAddressDOList.controls[0].get('pinCode').valid) {
-  //     let reqBody = {
-  //       pinCode: this.getControls[i]['controls'].partyAddressDOList.controls[0].get('pinCode').value
-  //     }
-  //     this.insuranceService.pinCodeCityState(reqBody).subscribe((res: any) => {
-  //       // res.foreach((element: any) => {
-  //       // })
-
-  //       let cityList: string;
-  //       let stateList: string;
-
-  //       if (res.validValue == true) {
-
-  //         switch (i) {
-  //           case 0:
-  //             this.cityList_0 = res.city;
-  //             this.stateList_0 = res.state;
-
-  //             cityList = this.cityList_0[0];
-  //             stateList = this.stateList_0[0];
-
-  //             break;
-
-  //           case 1:
-  //             this.cityList_1 = res.city;
-  //             this.stateList_1 = res.state;
-
-  //             cityList = this.cityList_1[0];
-  //             stateList = this.stateList_1[0];
-
-  //             break;
-
-  //           case 2:
-  //             this.cityList_2 = res.city;
-  //             this.stateList_2 = res.state;
-
-  //             cityList = this.cityList_2[0];
-  //             stateList = this.stateList_2[0];
-
-  //             break;
-
-  //           case 3:
-  //             this.cityList_3 = res.city;
-  //             this.stateList_3 = res.state;
-
-  //             cityList = this.cityList_3[0];
-  //             stateList = this.stateList_3[0];
-
-  //             break;
-
-  //           case 4:
-  //             this.cityList_4 = res.city;
-  //             this.stateList_4 = res.state;
-
-  //             cityList = this.cityList_4[0];
-  //             stateList = this.stateList_4[0];
-
-  //             break;
-
-  //           case 5:
-  //             this.cityList_5 = res.city;
-  //             this.stateList_5 = res.state;
-
-  //             cityList = this.cityList_5[0];
-  //             stateList = this.stateList_5[0];
-
-  //             break;
-
-  //         }
-
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].get('cityCd').setValue(cityList);
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].get('stateCd').setValue(stateList);
-
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.pinCodeFetchError = false;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = true;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = false;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.cityCd.cityCdError = false;
-
-  //       } else {
-
-  //         switch (i) {
-  //           case 0:
-  //             this.cityList_0 = [];
-  //             this.stateList_0 = [];
-
-  //             cityList = this.cityList_0[0];
-  //             stateList = this.stateList_0[0];
-
-  //             break;
-
-  //           case 1:
-  //             this.cityList_1 = [];
-  //             this.stateList_1 = [];
-
-  //             cityList = this.cityList_1[0];
-  //             stateList = this.stateList_1[0];
-
-  //             break;
-
-  //           case 2:
-  //             this.cityList_2 = [];
-  //             this.stateList_2 = [];
-
-  //             cityList = this.cityList_2[0];
-  //             stateList = this.stateList_2[0];
-
-  //             break;
-
-  //           case 3:
-  //             this.cityList_3 = [];
-  //             this.stateList_3 = [];
-
-  //             cityList = this.cityList_3[0];
-  //             stateList = this.stateList_3[0];
-
-  //             break;
-
-  //           case 4:
-  //             this.cityList_4 = [];
-  //             this.stateList_4 = [];
-
-  //             cityList = this.cityList_4[0];
-  //             stateList = this.stateList_4[0];
-
-  //             break;
-
-  //           case 5:
-  //             this.cityList_5 = [];
-  //             this.stateList_5 = [];
-
-  //             cityList = this.cityList_5[0];
-  //             stateList = this.stateList_5[0];
-
-  //             break;
-
-  //         }
-
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].get('cityCd').setValue('');
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].get('stateCd').setValue('');
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.pinCodeFetchError = true;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.fetchPinCodeForProposal = false;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.validPinCodeForProposal = false;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.pinCode.invalidPinCodeForProposal = true;
-  //         this.getControls[i]['controls'].partyAddressDOList.controls[0].controls.cityCd.cityCdError = true;
-  //       }
-  //     });
-  //   }
-  // }
 
   submitForm() {
     this.loaderOnProceed = true;
@@ -872,8 +720,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
 
         this.loaderOnProceed = false;
       } else {
-        // this.preloaderService.showPreloader(true);
-
         let birthDtVar: { year: number; month: number; day: number } = this.insuranceForm.controls.proposer['controls'].birthDtCopy.value;
 
         let tempBirthDt = "";
@@ -888,7 +734,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
           tempBirthDt = birthDtVar.day + "/" + birthDtVar.month + "/" + birthDtVar.year;
         }
 
-        // console.log(tempBirthDt);
         this.insuranceForm.controls.proposer['controls'].birthDt.setValue(tempBirthDt);
         this.insuranceForm.controls.proposer['controls'].birthDt.updateValueAndValidity();
 
@@ -927,38 +772,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
         tempArr.forEach((form: FormGroup, index) => {
           form.get("citizenshipCd").setValue('INDIAN');
 
-          // let eliminateEnter1 = form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").value.replace(/[\r\n]+/g, " ");
-          // let eliminateEnter2 = form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").value.replace(/[\r\n]+/g, " ");
-
-          // form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").setValue(eliminateEnter1);
-          // form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").updateValueAndValidity();
-
-          // form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").setValue(eliminateEnter2);
-          // form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").updateValueAndValidity();
-
-          // let addressLine1Lang1 = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.addressLine1Lang1.value.replace(/[\r\n]+/g, " ");
-          // let addressLine2Lang1 = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.addressLine2Lang1.value.replace(/[\r\n]+/g, " ");
-          // let addressTypeCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.addressTypeCd.value;
-          // let areaCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.areaCd.value;
-          // let cityCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.cityCd.value;
-          // let pinCode = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.pinCode.value;
-          // let stateCd = (<FormArray>(this.insuranceForm.get("insurer"))).controls[0]["controls"].partyAddressDOList.controls[0].controls.stateCd.value;
-
-          // let same = form.get("addressForPickupSame").value;
-
-          // if (same) {
-          //   form.controls.partyAddressDOList["controls"][0].get("addressLine1Lang1").setValue(addressLine1Lang1);
-          //   form.controls.partyAddressDOList["controls"][0].get("addressLine2Lang1").setValue(addressLine2Lang1);
-          //   form.controls.partyAddressDOList["controls"][0].get("addressTypeCd").setValue(addressTypeCd);
-          //   form.controls.partyAddressDOList["controls"][0].get("areaCd").setValue(areaCd);
-          //   form.controls.partyAddressDOList["controls"][0].get("cityCd").setValue(cityCd);
-          //   form.controls.partyAddressDOList["controls"][0].get("pinCode").setValue(pinCode);
-          //   form.controls.partyAddressDOList["controls"][0].get("stateCd").setValue(stateCd);
-          //   form.controls.partyAddressDOList["controls"][0].get("countryCd").setValue("India");
-          // } else {
-          //   form.controls.partyAddressDOList["controls"][0].get("countryCd").setValue("India");
-          // }
-
           let birthDtVar: { year: number; month: number; day: number } = form.get(
             "birthDtCopy"
           ).value;
@@ -975,7 +788,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
             tempBirthDt = birthDtVar.day + "/" + birthDtVar.month + "/" + birthDtVar.year;
           }
 
-          // console.log(tempBirthDt);
           form.get("birthDt").setValue(tempBirthDt);
           form.get("birthDt").updateValueAndValidity();
 
@@ -1017,38 +829,23 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
           tempTripEndDate = tripEndDate.day + "/" + tripEndDate.month + "/" + tripEndDate.year;
         }
 
-        // let tripStartDate = tripStartDateDay + "/" + tripStartDateMonth + "/" + tripStartDateYear // 10/01/2021
-        // let tripEndDate = tripEndDateDay + "/" + tripEndDateMonth + "/" + tripEndDateYear // 10/01/2021
-
-        let country = this.insuranceDetails.country;
-        let planType = this.userflowDetails.getInsurancePlanDetails().planType;
-
-        // ptdata.forEach((element: {}, index) => {
-        //   element["id"] = this.dataSource[index].id;
-        // });
         fd["partyDOList"] = ptdata;
         fd["proposerDetail"] = proposerData;
         fd["policyCommencementDt"] = tempTripStartDate;
         fd["policyMaturityDt"] = tempTripEndDate;
-        fd["country"] = country;
-        fd["planType"] = planType;
-        // fd["maxTripPeriod"] = "45",
-        // fd["tripTypeCd"] = "SINGLE"
+        fd["country"] = this.insuranceDetails.country;
+        fd["planType"] = this.userflowDetails.getInsurancePlanDetails().planType;
+        fd["premiumCovered"] = this.insurancePlan.premiumCovered;
+        fd["premiumCurrency"] = this.insurancePlan.premiumCurrency;
 
-        // this.formData.set("data", JSON.stringify(fd));
-
-        // console.log(fd);
-
+        console.log(JSON.stringify(fd));
 
         this.insuranceService.createPolicy(fd).subscribe((res: any) => {
           if (res.code === "0") {
             this.createPolicyBookingId = res.data.bookingId;
             this.premiumDetails = JSON.parse(this.userflowDetails.getLocalStorage('premiumDetails'));
-            // console.log(res.data.amount);
-            // console.log(this.premiumCalculated);
             this.newPremium = res.data.amount;
             this.oldPremium = this.premiumCalculated + this.premiumGST;
-
 
             if (this.newPremium != this.oldPremium) {
               this.loaderOnProceed = false;
@@ -1097,24 +894,11 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
   }
 
   checkValidateForm() {
-    // let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
-    // let startedWith: number;
-
-    // if (same) {
-    //   startedWith = 1;
-    // } else {
-    //   startedWith = 0;
-    // }
-
     for (
-      // let index = startedWith;
       let index = 0;
       index < this.getControls.length;
       index++
     ) {
-      // console.log(index);
-      // console.log(this.getControls.length);
-
       let birthDt = this.getControls[index]['controls'].birthDtCopy.value;
       birthDt == "" || birthDt == null || birthDt == undefined ?
         this.getControls[index]['controls'].birthDt.birthDtError = true :
@@ -1372,9 +1156,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
 
   sameAsPermanentAddress(value: any, index: number) {
     let same = this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][index].get('sameAsPermanentAddress').value;
-    // console.log(same);
-    // console.log(value);
-    // console.log(index);
     if (!same) {
       this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][index].controls.addressLine1Lang1.setValidators(null);
       this.insuranceForm.controls.proposer['controls'].partyAddressDOList['controls'][index].controls.addressLine2Lang1.setValidators(null);
@@ -1419,130 +1200,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     // console.log(this.getControls[index]['controls'].partyAddressDOList.controls[0].controls)
   }
 
-  // setPrimaryAsProposer() {
-  //   let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
-  //   // let firstCollapse = document.querySelector('.no-collapsable');
-
-  //   // console.log(same);
-  //   if (same) {
-
-  //     this.getControls[0]['controls'].firstName.setValidators(null);
-  //     this.getControls[0]['controls'].lastName.setValidators(null);
-  //     this.getControls[0]['controls'].birthDtCopy.setValidators(null);
-  //     this.getControls[0]['controls'].genderCd.setValidators(null);
-  //     this.getControls[0]['controls'].relationCd.setValidators(null);
-  //     this.getControls[0]['controls'].titleCd.setValidators(null);
-  //     this.getControls[0]['controls'].citizenshipCd.setValidators(null);
-
-  //     // partyContactDOList
-  //     this.getControls[0]['controls'].partyContactDOList['controls'][0].controls.contactNum.setValidators(null);
-  //     this.getControls[0]['controls'].partyContactDOList['controls'][0].controls.stdCode.setValidators(null);
-
-  //     // partyEmailDOList
-  //     this.getControls[0]['controls'].partyEmailDOList['controls'][0].controls.emailAddress.setValidators(null);
-
-  //     // partyIdentityDOList
-  //     this.getControls[0]['controls'].partyIdentityDOList['controls'][0].controls.identityNum.setValidators(null);
-
-  //     this.getControls[0]['controls'].partyIdentityDOList['controls'][0].controls.identityTypeCd.setValidators(null);
-
-  //     // partyAddressDOList
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.setValidators(null);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.setValidators(null);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.setValidators(null);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.areaCd.setValidators(null);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.cityCd.setValidators(null);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.pinCode.setValidators(null);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.stateCd.setValidators(null);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.countryCd.setValidators(null);
-
-  //     let collapse = document.querySelectorAll('#accordionInsurer .collapse')
-  //     collapse.forEach((element) => {
-  //       element.classList.remove('show');
-  //     });
-  //     this.selectedTravellerForm = null;
-
-  //     // firstCollapse.addEventListener("click", this.stopIt);
-
-  //   } else {
-
-  //     // this.selectedTravellerForm = 0;
-
-  //     this.getControls[0]['controls'].firstName.setValidators([Validators.required, Validators.pattern('^[A-Za-z]{3,32}$')]);
-  //     this.getControls[0]['controls'].lastName.setValidators([Validators.required, Validators.pattern('^[A-Za-z]{3,32}$')]);
-  //     this.getControls[0]['controls'].birthDtCopy.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].genderCd.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].relationCd.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].titleCd.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].citizenshipCd.setValidators(Validators.required);
-
-  //     // partyContactDOList
-  //     this.getControls[0]['controls'].partyContactDOList['controls'][0].controls.contactNum.setValidators([Validators.required, Validators.pattern("^[6-9][0-9]{9}$")]);
-  //     this.getControls[0]['controls'].partyContactDOList['controls'][0].controls.stdCode.setValidators(Validators.required);
-
-  //     // partyEmailDOList
-  //     this.getControls[0]['controls'].partyEmailDOList['controls'][0].controls.emailAddress.setValidators([Validators.required, Validators.pattern("^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$")]);
-
-  //     // partyIdentityDOList
-  //     this.getControls[0]['controls'].partyIdentityDOList['controls'][0].controls.identityNum.setValidators([Validators.required, Validators.pattern(
-  //       this.getControls[0]['controls'].partyIdentityDOList.controls[0].controls.identityTypeCd.value === 'PAN' ?
-  //         '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$' : '^[A-Za-z]{1}[0-9]{7}$')]);
-
-  //     this.getControls[0]['controls'].partyIdentityDOList['controls'][0].controls.identityTypeCd.setValidators(Validators.required);
-
-  //     // partyAddressDOList
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.setValidators([
-  //       Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
-  //     ]);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.setValidators([
-  //       Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
-  //     ]);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.areaCd.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.cityCd.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.pinCode.setValidators([Validators.required, Validators.pattern("^[1-9][0-9]{5}$")]);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.stateCd.setValidators(Validators.required);
-  //     this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.countryCd.setValidators(Validators.required);
-
-  //     // firstCollapse.removeEventListener("click", this.stopIt);
-
-  //   }
-
-  //   this.getControls[0]['controls'].firstName.updateValueAndValidity();
-  //   this.getControls[0]['controls'].lastName.updateValueAndValidity();
-  //   this.getControls[0]['controls'].birthDtCopy.updateValueAndValidity();
-  //   this.getControls[0]['controls'].genderCd.updateValueAndValidity();
-  //   this.getControls[0]['controls'].relationCd.updateValueAndValidity();
-  //   this.getControls[0]['controls'].titleCd.updateValueAndValidity();
-  //   this.getControls[0]['controls'].citizenshipCd.updateValueAndValidity();
-
-  //   // partyContactDOList
-  //   this.getControls[0]['controls'].partyContactDOList['controls'][0].controls.contactNum.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyContactDOList['controls'][0].controls.stdCode.updateValueAndValidity();
-
-  //   // partyEmailDOList
-  //   this.getControls[0]['controls'].partyEmailDOList['controls'][0].controls.emailAddress.updateValueAndValidity();
-
-  //   // partyIdentityDOList
-  //   this.getControls[0]['controls'].partyIdentityDOList['controls'][0].controls.identityNum.updateValueAndValidity();
-
-  //   this.getControls[0]['controls'].partyIdentityDOList['controls'][0].controls.identityTypeCd.updateValueAndValidity();
-
-  //   // partyAddressDOList
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.areaCd.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.cityCd.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.pinCode.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.stateCd.updateValueAndValidity();
-  //   this.getControls[0]['controls'].partyAddressDOList['controls'][0].controls.countryCd.updateValueAndValidity();
-
-  //   this.getControls[0].updateValueAndValidity();
-
-  //   // console.log(this.getControls[0]['controls']);
-  // }
-
   stopIt(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -1554,42 +1211,27 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     }, 500);
   }
 
-  onChangePlan() {
-    let planType = this.policyDetailForm.get('planType').value;
+  // onChangePlan() {
+  //   let planType = this.policyDetailForm.get('planType').value;
 
-    if (planType === "Basic") {
-      this.premiumCalculated = this.basicPremiumCalculated;
-      this.premiumGST = this.basicPremiumGSTCalculated;
-      this.policyDetailForm.get('coverage').setValue("US $ 50,000");
-      this.userflowDetails.setInsurancePlan("coverage", "US $ 50,000");
-    } else if (planType === "Gold") {
-      this.premiumCalculated = this.goldPremiumCalculated;
-      this.premiumGST = this.goldPremiumGSTCalculated;
-      this.policyDetailForm.get('coverage').setValue("US $ 100,000");
-      this.userflowDetails.setInsurancePlan("coverage", "US $ 100,000");
-    }
-    this.userflowDetails.setInsurancePlan("planType", planType);
-  }
+  //   if (planType === "Basic") {
+  //     this.premiumCalculated = this.basicPremiumCalculated;
+  //     this.premiumGST = this.basicPremiumGSTCalculated;
+  //     this.policyDetailForm.get('coverage').setValue("US $ 50,000");
+  //     this.userflowDetails.setInsurancePlan("coverage", "US $ 50,000");
+  //   } else if (planType === "Gold") {
+  //     this.premiumCalculated = this.goldPremiumCalculated;
+  //     this.premiumGST = this.goldPremiumGSTCalculated;
+  //     this.policyDetailForm.get('coverage').setValue("US $ 100,000");
+  //     this.userflowDetails.setInsurancePlan("coverage", "US $ 100,000");
+  //   }
+  //   this.userflowDetails.setInsurancePlan("planType", planType);
+  // }
 
   onRelationValueChange(event, i: number, section: string) {
-    // console.log(event)
     let relationArr: Array<string> = [];
     let duplicates: Array<string> = [];
     let startWith: number = 0;
-
-    // console.log(this.getControls[i].get("titleCd").value);
-    // console.log(i);
-    // console.log(this.getControls[i].get("genderCd").value);
-
-    // let same = this.insuranceForm.controls.proposer.get('ensureYourSelf').value;
-
-    // if (same) {
-    //   relationArr = ["SELF"];
-    //   startWith = 1;
-    // } else {
-    //   relationArr = [];
-    //   startWith = 0;
-    // }
 
     this.getControls[i]['controls'].birthDt.setValue('');
     this.getControls[i]['controls'].birthDt.setValidators([Validators.nullValidator]);
@@ -1606,7 +1248,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     ) {
       let relationCd = this.getControls[index]['controls'].relationCd.value;
       if (relationCd == "SPOUSE" || relationCd == "SELF") {
-        // this.relationOptionArr =  this.relationOptionArr.filter(function (e) { return e !== value });
 
         relationArr.push(relationCd);
 
@@ -1620,30 +1261,14 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
           return a
         }, {});
 
-        // console.log(uniq);
-
         duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1);
-
-        // console.log(duplicates);
-
-
       }
-      // relationArr = [];
       if (duplicates[0] == "SPOUSE" || duplicates[0] == "SELF") {
         this.getControls[index]['controls'].relationCd.duplicatesError = true
       } else {
         this.getControls[index]['controls'].relationCd.duplicatesError = false;
       }
-
-      // console.log(index);
-      // console.log(i);
-
     }
-
-    // console.log(typeof this.getControls[i]['controls'].relationCd.value + '  ' + this.getControls[i]['controls'].relationCd.value);
-    // console.log(this.getControls[i]['controls'].relationCd.duplicatesError = false);
-    // console.log(this.getControls[i]['controls'].relationCd.value == 'SELF');
-    // console.log(this.getControls[i]['controls'].relationCd.duplicatesError = false && this.getControls[i]['controls'].relationCd.value == 'SELF');
 
     if (!this.getControls[i]['controls'].relationCd.duplicatesError && this.getControls[i]['controls'].relationCd.value == 'SELF') {
       let birthDtCopy = this.insuranceForm.controls.proposer.get('birthDtCopy').value;
@@ -1662,9 +1287,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityNum").setValue(identityNum);
       this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityTypeCd").setValue(identityTypeCd);
 
-      // console.log(this.getControls[i]['controls'].birthDtCopy);
-      // console.log(this.getControls[i]['controls'].birthDt);
-
       this.getControls[i]['controls'].firstName.firstNameError = false;
       this.getControls[i]['controls'].lastName.lastNameError = false;
       this.getControls[i]['controls'].titleCd.titleCdError = false;
@@ -1674,65 +1296,42 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
 
       this.getControls[i]['controls'].partyIdentityDOList.controls[0].controls.identityNum.identityNumError = false;
 
+      if (i === 0) {
+        this.relatedSelfTrue_0 = true;
+      } else if (i === 1) {
+        this.relatedSelfTrue_1 = true;
+      } else if (i === 2) {
+        this.relatedSelfTrue_2 = true;
+      } else if (i === 3) {
+        this.relatedSelfTrue_3 = true;
+      } else if (i === 4) {
+        this.relatedSelfTrue_4 = true;
+      } else if (i === 5) {
+        this.relatedSelfTrue_5 = true;
+      }
 
-      // this.getControls[i].get('birthDtCopy').setValidators(null);
-      // this.getControls[i].get('genderCd').setValidators(null);
-      // this.getControls[i].get('lastName').setValidators([null]);
-      // this.getControls[i]['controls'].lastName.lastNameError = false;
+    } else {
+      if (i === 0) {
+        this.relatedSelfTrue_0 = false;
+      } else if (i === 1) {
+        this.relatedSelfTrue_1 = false;
+      } else if (i === 2) {
+        this.relatedSelfTrue_2 = false;
+      } else if (i === 3) {
+        this.relatedSelfTrue_3 = false;
+      } else if (i === 4) {
+        this.relatedSelfTrue_4 = false;
+      } else if (i === 5) {
+        this.relatedSelfTrue_5 = false;
+      }
 
-      // this.getControls[i].get('titleCd').setValidators(null);
-
-      // // partyIdentityDOList
-      // this.getControls[i].get('partyIdentityDOList')['controls'][0].controls.identityNum.setValidators([null]);
-
-      // this.getControls[i].get('partyIdentityDOList')['controls'][0].controls.identityTypeCd.setValidators(null);
-
-      //   // partyAddressDOList
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.setValidators([
-      //   //   Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
-      //   // ]);
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.setValidators([
-      //   //   Validators.required, Validators.pattern("^[ A-Za-z0-9-:./\n,]*$"), Validators.minLength(10), Validators.maxLength(400)
-      //   // ]);
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.setValidators(Validators.required);
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.areaCd.setValidators(Validators.required);
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.cityCd.setValidators(Validators.required);
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.pinCode.setValidators([Validators.required, Validators.pattern("^[1-9][0-9]{5}$")]);
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.stateCd.setValidators(Validators.required);
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.countryCd.setValidators(Validators.required);
-
-
-      //   this.getControls[i]['controls'].firstName.updateValueAndValidity();
-      //   this.getControls[i]['controls'].lastName.updateValueAndValidity();
-      //   this.getControls[i]['controls'].birthDtCopy.updateValueAndValidity();
-      //   this.getControls[i]['controls'].genderCd.updateValueAndValidity();
-      //   this.getControls[i]['controls'].relationCd.updateValueAndValidity();
-      //   this.getControls[i]['controls'].titleCd.updateValueAndValidity();
-      //   this.getControls[i]['controls'].citizenshipCd.updateValueAndValidity();
-
-      //   // partyContactDOList
-      //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.contactNum.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyContactDOList['controls'][0].controls.stdCode.updateValueAndValidity();
-
-      //   // partyEmailDOList
-      //   // this.getControls[i]['controls'].partyEmailDOList['controls'][0].controls.emailAddress.updateValueAndValidity();
-
-      //   // partyIdentityDOList
-      //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityNum.updateValueAndValidity();
-
-      //   this.getControls[i]['controls'].partyIdentityDOList['controls'][0].controls.identityTypeCd.updateValueAndValidity();
-
-      //   // partyAddressDOList
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine1Lang1.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressLine2Lang1.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.addressTypeCd.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.areaCd.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.cityCd.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.pinCode.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.stateCd.updateValueAndValidity();
-      //   // this.getControls[i]['controls'].partyAddressDOList['controls'][0].controls.countryCd.updateValueAndValidity();
-
-      //   this.getControls[i].updateValueAndValidity();
+      this.getControls[i].get('birthDtCopy').setValue("");
+      this.getControls[i].get('firstName').setValue("");
+      this.getControls[i].get("genderCd").setValue("");
+      this.getControls[i].get('lastName').setValue("");
+      this.getControls[i].get("titleCd").setValue('Mr');
+      this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityNum").setValue("");
+      this.getControls[i]['controls'].partyIdentityDOList['controls'][0].get("identityTypeCd").setValue('PASSPORT');
     }
 
     if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
@@ -1746,7 +1345,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     let yesterday = new Date();
 
     if (this.getControls[i].get("relationCd").value === "SON" || this.getControls[i].get("relationCd").value === "DAUGHTER") {
-      // console.log(typeof i);
       switch (i) {
 
         case 0:
@@ -1830,10 +1428,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
           };
           break;
       }
-      // console.log(this.maxDateDob_0);
       console.log(this.minDate_0);
     } else if (this.getControls[i].get("relationCd").value === "SPOUSE" || this.getControls[i].get("relationCd").value === "SELF") {
-      // console.log("relatedCd 1");
       switch (i) {
         case 0:
           yesterday.setFullYear(yesterday.getFullYear() - 18);
@@ -1915,15 +1511,9 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
           break;
       }
     }
-
-
-
   }
 
   validatingGender(event: string, i: number, section: string) {
-    // console.log(event);
-    // console.log(i);
-
     if (section == 'partyDoList') {
       if (event == 'MALE') {
         this.getControls[i].get("titleCd").setValue('MR');
@@ -1941,9 +1531,6 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
   }
 
   validatingTitle(event: string, i: number, section: string) {
-    // console.log(event);
-    // console.log(i);
-
     if (section == 'partyDoList') {
       if (event == 'MS') {
         this.getControls[i].get("genderCd").setValue('FEMALE');
@@ -1961,18 +1548,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
 
   }
 
-  // validatingRelation(event: string, i: number, section: string) {
-
-  // }
-
   handleQuestions(event: string, i: number, j: number, inputType: string) {
-    // let question = this.getControls[i]['controls'].partyQuestionDOList.controls[i].get('response_' + i).value;
     this.getControls[i]['controls'].partyQuestionDOList.controls[j].get('response').setValue(event);
-
-    // console.log(this.getControls[i]['controls'].partyQuestionDOList.controls[j].get('response').value);
-    // console.log(i);
-    // console.log(j);
-    // console.log(event);
 
     if ((j == 6 || j == 8 || j == 10) && event == 'YES') {
       document.getElementById("question_" + (j + 1) + "_" + i).style.display = 'block';
@@ -1987,17 +1564,8 @@ export class ApplicationFormComponent implements OnInit, AfterContentInit, OnDes
     $('#characterInfo_' + id + '_' + i).text(length + " characters remaining");
   }
 
-  setkjnkj() {
-    this.scrollToInvalid('proposerForm');
-    document.getElementById('identityProposer_1').style.display = 'block';
-    this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.setValidators([Validators.required]);
-    this.insuranceForm.controls.proposer['controls'].partyIdentityDOList['controls'][1].controls.identityNum.updateValueAndValidity();
-  }
-
   avoidSpace(event: any) {
     var k = event ? event.which : event.keyCode;
-    console.log(k);
-
     if (k == 32) return false;
   }
 

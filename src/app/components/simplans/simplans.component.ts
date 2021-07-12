@@ -31,11 +31,9 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   simCartEmpty: boolean = true;
   totalPrice: number = 0;
   displayTotal: number = 0;
-  // simResp : any ;
   showMobileCart: boolean = false;
   buttonLabel: string = "View Cart";
   title: string = "Visa2fly | Sim Plans";
-  //selectedSimCountry : any = "";
   plan_list_length = 0;
 
   constructor(
@@ -55,39 +53,55 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     this.preloaderService.showPreloader(true);
     this.activateRoute.params.subscribe((params: any) => {
       console.log(params.simCountry);
-      this.selectedCountry = params.simCountry;
-
-      switch (this.selectedCountry) {
-        case "Czech Republic":
-          this.userFlow.setCookie("simSelectedCountry", 'Czech Republic');
-          break;
-        case "Hong Kong":
-          this.userFlow.setCookie("simSelectedCountry", 'Hong Kong');
-          break;
-        case "New Zealand":
-          this.userFlow.setCookie("simSelectedCountry", 'New Zealand');
-          break;
-        case "Saudi Arabia":
-          this.userFlow.setCookie("simSelectedCountry", 'Saudi Arabia');
-          break;
-        case "South Korea":
-          this.userFlow.setCookie("simSelectedCountry", 'South Korea');
-          break;
-        case "Sri Lanka":
-          this.userFlow.setCookie("simSelectedCountry", 'Sri Lanka');
-          break;
-        case "United Kingdom":
-          this.userFlow.setCookie("simSelectedCountry", 'United Kingdom');
-          break;
-        case "USA":
-          this.userFlow.setCookie("simSelectedCountry", 'USA');
-          break;
-        case "UAE":
-          this.userFlow.setCookie("simSelectedCountry", 'UAE');
-          break;
-        default:
-          this.userFlow.setCookie("simSelectedCountry", params.simCountry);
+      let joinSplit = [];
+      if (params.simCountry == 'uae' || params.simCountry == 'usa') {
+        this.selectedCountry = params.simCountry.toUpperCase();
+      } else if (params.simCountry.split(' ').length > 1) {
+        for (let split of params.simCountry.split(' ')) {
+          const splitWord: string = split[0].toUpperCase() + split.slice(1);
+          console.log(typeof splitWord);
+          joinSplit.push(splitWord);
+          this.selectedCountry = joinSplit.join(' ');
+        }
+      } else {
+        this.selectedCountry = params.simCountry[0].toUpperCase() + params.simCountry.slice(1);
       }
+
+      this.userFlow.setCookie("simSelectedCountry", this.selectedCountry);
+
+      // console.log(this.selectedCountry)
+
+      // switch (this.selectedCountry) {
+      //   case "Czech Republic":
+      //     this.userFlow.setCookie("simSelectedCountry", 'Czech Republic');
+      //     break;
+      //   case "Hong Kong":
+      //     this.userFlow.setCookie("simSelectedCountry", 'Hong Kong');
+      //     break;
+      //   case "New Zealand":
+      //     this.userFlow.setCookie("simSelectedCountry", 'New Zealand');
+      //     break;
+      //   case "Saudi Arabia":
+      //     this.userFlow.setCookie("simSelectedCountry", 'Saudi Arabia');
+      //     break;
+      //   case "South Korea":
+      //     this.userFlow.setCookie("simSelectedCountry", 'South Korea');
+      //     break;
+      //   case "Sri Lanka":
+      //     this.userFlow.setCookie("simSelectedCountry", 'Sri Lanka');
+      //     break;
+      //   case "United Kingdom":
+      //     this.userFlow.setCookie("simSelectedCountry", 'United Kingdom');
+      //     break;
+      //   case "USA":
+      //     this.userFlow.setCookie("simSelectedCountry", 'USA');
+      //     break;
+      //   case "UAE":
+      //     this.userFlow.setCookie("simSelectedCountry", 'UAE');
+      //     break;
+      //   default:
+      //     this.userFlow.setCookie("simSelectedCountry", params.simCountry);
+      // }
     });
     this.revertCountry.push(this.selectedCountry);
   }
@@ -156,7 +170,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     this.onBackButton();
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
     // this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
-    this.router.navigate(["/sim", this.selectedSimCountry]);
+    this.router.navigate(["/sim", this.selectedSimCountry.toLowerCase()]);
     this.preloaderService.showPreloader(true);
 
     if (

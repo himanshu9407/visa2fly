@@ -3,8 +3,6 @@ import { RouterModule, Routes, PreloadAllModules } from "@angular/router";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  // { path: "", redirectTo: "/", pathMatch: "full" },
-
   // HomeContainer Page
   {
     path: "",
@@ -17,7 +15,7 @@ const routes: Routes = [
 
   // About Us Page
   {
-    path: "about-us",
+    path: "About-Us",
     loadChildren: () =>
       import("./components/static/about-us/about-us.module").then(
         (m) => m.AboutUsModule
@@ -27,7 +25,7 @@ const routes: Routes = [
 
   // Cancellation Page
   {
-    path: "cancellation-policy",
+    path: "cancellation-Policy",
     loadChildren: () =>
       import(
         "./components/static/cancellations-and-return/cancellations-and-return.module"
@@ -37,7 +35,7 @@ const routes: Routes = [
 
   // Cookie Policy Page
   {
-    path: "cookie-policy",
+    path: "cookie-Policy",
     loadChildren: () =>
       import("./components/static/cookie-policy/cookie-policy.module").then(
         (m) => m.CookiePolicyModule
@@ -47,7 +45,7 @@ const routes: Routes = [
 
   // Privacy Policy
   {
-    path: "privacy-policy",
+    path: "Privacy-Policy",
     loadChildren: () =>
       import("./components/static/privacy-policy/privacy-policy.module").then(
         (m) => m.PrivacyPolicyModule
@@ -57,7 +55,7 @@ const routes: Routes = [
 
   // Terms And condition  Page
   {
-    path: "terms&conditions",
+    path: "Terms&Conditions",
     loadChildren: () =>
       import(
         "./components/static/termsand-conditions/termsand-conditions.module"
