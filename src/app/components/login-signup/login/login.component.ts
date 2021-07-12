@@ -33,6 +33,11 @@ export class LoginComponent implements OnInit {
   showAlert: boolean = false;
   prevRoute = "";
   changeNumber: boolean = false;
+  credentialError:boolean = false;
+  showOtpBox: boolean = false;
+  // showSendOtpButton: boolean = true;
+  showSignUpButton: boolean = false;
+  showRotatingLoader: boolean = false;
 
   constructor(
     private loginService: LoginService,
@@ -167,11 +172,13 @@ export class LoginComponent implements OnInit {
         } else {
           this.toastr.error(data.message);
           this.showLoader = false;
+          this.credentialError = true;
           //this.setFormFresh();
           this.showSendOtp = true;
         }
       }, (err) => {
         this.toastr.error("Something went wrong.");
+        this.credentialError = true;
         this.showLoader = false;
         this.showSendOtp = true;
       });

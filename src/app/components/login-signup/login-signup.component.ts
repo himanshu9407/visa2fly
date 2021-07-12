@@ -17,6 +17,8 @@ export class LoginSignupComponent implements OnInit {
   ) {}
   public show_login: boolean = false;
   public show_signup: boolean = false;
+  public login = "";
+  public signUp = "";
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -32,24 +34,26 @@ export class LoginSignupComponent implements OnInit {
     if (this.show_signup == false) {
       this.show_signup = true;
     }
+    // this.signUp = ""
+    this.login = "Login";
     this.show_login = false;
-    if (isPlatformBrowser(this.platformId)) {
-      $("#signUp").addClass("active");
-      $("#signIn").removeClass("active");
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   $("#signUp").addClass("active");
+    //   $("#signIn").removeClass("active");
+    // }
   }
 
   showLogin() {
     if (this.show_login == false) {
       this.show_login = true;
+      // this.login = "";
+      this.signUp = "SignUp"
     }
     this.show_signup = false;
-    if (isPlatformBrowser(this.platformId)) {
-      $("#signIn").addClass("active");
-      $("#signUp").removeClass("active");
-      // $(".blurred-box").css("height", "426px");
-      // 426px
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   $("#signIn").addClass("active");
+    //   $("#signUp").removeClass("active");
+    // }
   }
 
   navigateToLogin() {

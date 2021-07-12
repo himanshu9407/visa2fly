@@ -288,9 +288,11 @@ export class SignupComponent implements OnInit {
       this.signupForm.get("email").invalid
     ) {
       this.toastr.error("Kindly Enter Valid Details");
-    } else if (this.signupForm.get("tnc").value == false) {
-      this.toastr.error("Please accept terms and condition.");
-    } else {
+    }
+    // else if (this.signupForm.get("tnc").value == false) {
+    //   this.toastr.error("Please accept terms and condition.");
+    // }
+    else {
       let enteredMobile = this.signupForm.get("mobile").value;
       this.showSignUpButton = false;
       this.showSendOtpButton = false;

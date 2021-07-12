@@ -6,27 +6,28 @@
 
 
 /* CSS which you need for blurred box */
-.auth_section {
+/* .auth_section {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+  background-color: #fff;
   background-image: linear-gradient(
     to left,
     rgba(104, 183, 235, 0),
     rgba(0, 0, 0, 0.3)
   ), url(https://static.visa2fly.com/login/auth-bg.jpg);
-  /* background-image: url(https://static.visa2fly.com/login/auth-bg.jpg); */
+
   width: 100%;
   height: 100vh;
   -webkit-font-smoothing: antialiased;
-}
+} */
 
-.auth_container {
+/* .auth_container {
   position: absolute;
-  top: 50%;
+  top: 20%;
   margin-top: 15px;
   margin-bottom: 15px;
-  left: 50%;
+  left: 20%;
   background: inherit;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -38,18 +39,17 @@
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
-}
+} */
 
-.blurred-box {
+/* .blurred-box {
   position: relative;
   width: 400px;
   height: 100%;
-  /* background: inherit; */
   background-color: #fff;
   overflow: hidden;
   border-radius: 10px;
   padding: 15px 20px;
-}
+} */
 
 /* .blurred-box:after {
   content: "";
@@ -65,7 +65,7 @@
   filter: blur(10px);
 } */
 
-.form-header {
+/* .form-header {
   position: relative;
   z-index: 1;
 }
@@ -74,8 +74,8 @@
   list-style: none;
   padding: 0;
   margin: 0 0 10px 0;
-}
-.form-header .tab-group:after {
+} */
+/* .form-header .tab-group:after {
   content: "";
   display: table;
   clear: both;
@@ -162,6 +162,214 @@
 
   .form-header .tab-group li a {
     padding: 8px;
+  }
+
+} */
+
+.login_signup_section {
+  min-height: 100vh;
+  background-color: #fff;
+  padding-top: 10px;
+}
+
+.desktopView.login_decoration .visaImage {
+  height: 420px;
+  position: absolute;
+  top: 220px;
+  left: 171px;
+}
+
+.right-side {
+  padding-top: 75px;
+}
+
+.blurred-box {
+  position: relative;
+  width: 527px;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin-left: 200px;
+  /* margin-top:-60px */
+}
+
+.form-header {
+  position: relative;
+  z-index: 1;
+}
+
+.form-header .tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.form-header .tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.form-header .tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 6px 10px;
+  background: rgba(19, 6, 84, 0.3);
+  background: transparent;
+  color: #6F6796;
+  font-size: 18px;
+  float: left;
+  /* width: 50%; */
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+/* .form-header .tab-group li a:hover {
+  background:;
+  color: #ffffff;
+} */
+
+.form-header .tab-group li a {
+  /* background: rgba(19, 6, 84, 0.6); */
+  border-bottom: 3px solid #407BFF;
+  /* border-radius: 8px; */
+  font-size: 18px;
+  color: black;
+}
+
+.form-footer {
+  padding-top: 40px;
+}
+
+.other_option {
+  text-align: center;
+}
+
+.other_option h4 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 0.7px solid #ADADAD;
+  line-height: 0.2em;
+  margin: 10px 0 20px;
+}
+
+.other_option h4 span {
+   background:#fff;
+   font-size: 14px;
+   color: #707070;
+   padding:0 10px;
+}
+
+.login_with_other {
+  text-align: center;
+  padding:20px;
+}
+
+.login_with_other .facebook {
+  margin-left: 10px;
+}
+
+.option_for_login_signup {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.option_for_login_signup p {
+  font-size: 14px;
+  color: #707070;
+}
+
+.option_for_login_signup p span {
+  font-size: 16px;
+  color: #407BFF;
+  cursor: pointer;
+}
+
+.desktopView {
+  display: block;
+}
+
+.mobileView {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .login_signup_section {
+    height: 100vh;
+  }
+
+  .desktopView {
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  /* .desktopView.login_decoration .visaImage {
+    width: 260px;
+    height: 247px;
+    position: absolute;
+    top: 136px;
+    left: 51px;
+  } */
+
+  .right-side {
+    padding-top: 95px;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: 330px;
+    /* height: 100%; */
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-left: 15px;
+    /* margin-top:-60px */
+  }
+
+  .mobileHeading .welcomeMessageheading {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .mobileHeading .welcomeMessage {
+    font-size: 14px;
+    color: #939393;
+  }
+
+  .form-footer {
+    padding-top: 0px;
+  }
+
+  .login_with_other {
+    text-align: center;
+    padding: 0px;
+  }
+
+  .option_for_login_signup {
+    padding-top: 0px;
+    text-align: center;
+  }
+
+  .option_for_login_signup p {
+    font-size: 12px;
+    color: #707070;
+  }
+
+  .option_for_login_signup p span {
+    font-size: 14px;
+    color: #407BFF;
+    cursor: pointer;
   }
 
 }

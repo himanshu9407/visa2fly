@@ -1,6 +1,6 @@
 <form class="form-body" [formGroup]="signupForm">
   <div class="row" [ngClass]="{ hide: showOtpBox, show: !showOtpBox }">
-    <div class="col-6 input-group pr-1">
+    <div class="col-6 input-group deskstopView pt-3 pb-3">
       <!-- <label for="firstName">First Name <span class="astrisk">*</span></label> -->
       <input
         pattern="[A-Za-z]{3,32}"
@@ -21,11 +21,11 @@
               signupForm.get('firstName').dirty
             ) && !signupForm.get('firstName').pristine
         }"
-        placeholder="First Name"
       />
+      <label class="label">First Name</label>
     </div>
 
-    <div class="col-6 input-group pl-1">
+    <div class="col-6 input-group deskstopView pt-3 pb-3">
       <!-- <label for="lastName">Last Name <span class="astrisk">*</span></label> -->
       <input
         pattern="[A-Za-z]{3,32}"
@@ -46,11 +46,11 @@
               signupForm.get('lastName').dirty
             ) && !signupForm.get('lastName').pristine
         }"
-        placeholder="Last Name"
       />
+      <label class="label">Last Name</label>
     </div>
 
-    <div class="col-6">
+    <div class="col-6 deskstopView">
       <div class="invalid-feedback pr-1" style="display: block">
         <div
           *ngIf="
@@ -63,7 +63,7 @@
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-6 deskstopView">
       <div class="invalid-feedback pl-1" style="display: block">
         <div
           *ngIf="
@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="col-12 input-group">
+    <div class="col-12 deskstopView input-group pt-3 pb-3">
       <!-- <label for="email">Email <span class="astrisk">*</span></label> -->
       <input
         pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
@@ -95,8 +95,8 @@
               signupForm.get('email').invalid && signupForm.get('email').dirty
             ) && !signupForm.get('email').pristine
         }"
-        placeholder="Email Id"
       />
+      <label class="label_main">Enter Email Id</label>
       <div class="invalid-feedback" style="display: block">
         <div
           *ngIf="
@@ -108,7 +108,7 @@
       </div>
     </div>
 
-    <div class="col-12 input-group">
+    <div class="col-12 deskstopView input-group pt-3 pb-3">
       <!-- <label for="cellNo">Cell Number <span class="astrisk">*</span></label> -->
       <input
         [ngClass]="{
@@ -127,8 +127,8 @@
         name="cellNo"
         id="cellNo"
         class="form-control"
-        placeholder="Mobile"
       />
+      <label class="label_main">Enter mobile number</label>
       <div
         *ngIf="
           signupForm.get('mobile').invalid && signupForm.get('mobile').dirty
@@ -140,15 +140,138 @@
       </div>
     </div>
 
-    <div class="col-12 mt-3 agreeBox">
-      <div class="form-group mb-0 tnc">
-        <input type="checkbox" formControlName="tnc" id="tnc" />
-        <label for="tnc"
-          >I Agree to
-          <a [routerLink]="['/tnc']" style="text-decoration: none"
-            >Terms and Conditions</a
-          ></label
+    <div class="col-12 input-group mobileView pt-1 pb-1">
+      <!-- <label for="firstName">First Name <span class="astrisk">*</span></label> -->
+      <input
+        pattern="[A-Za-z]{3,32}"
+        formControlName="firstName"
+        autocomplete="off"
+        class="form-control"
+        type="text"
+        name="firstName"
+        id="firstName"
+        (keydown.enter)="signUpDetail($event)"
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('firstName').invalid &&
+            signupForm.get('firstName').dirty,
+          'is-valid':
+            !(
+              signupForm.get('firstName').invalid &&
+              signupForm.get('firstName').dirty
+            ) && !signupForm.get('firstName').pristine
+        }"
+      />
+      <label class="label_main">First Name</label>
+      <div class="invalid-feedback pr-1" style="display: block">
+        <div
+          *ngIf="
+            signupForm.get('firstName').invalid &&
+            signupForm.get('firstName').dirty
+          "
         >
+          Enter a valid First Name*
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 input-group mobileView pt-1 pb-1">
+      <!-- <label for="lastName">Last Name <span class="astrisk">*</span></label> -->
+      <input
+        pattern="[A-Za-z]{3,32}"
+        formControlName="lastName"
+        autocomplete="off"
+        type="text"
+        name="lastName"
+        id="lastName"
+        class="form-control"
+        (keydown.enter)="signUpDetail($event)"
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('lastName').invalid &&
+            signupForm.get('lastName').dirty,
+          'is-valid':
+            !(
+              signupForm.get('lastName').invalid &&
+              signupForm.get('lastName').dirty
+            ) && !signupForm.get('lastName').pristine
+        }"
+      />
+      <label class="label_main">Last Name</label>
+
+      <div class="invalid-feedback pl-1" style="display: block">
+        <div
+          *ngIf="
+            signupForm.get('lastName').invalid &&
+            signupForm.get('lastName').dirty
+          "
+        >
+          Enter a valid Last Name*
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mobileView input-group pt-1 pb-1">
+      <!-- <label for="email">Email <span class="astrisk">*</span></label> -->
+      <input
+        pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
+        autocomplete="off"
+        formControlName="email"
+        class="form-control"
+        type="email"
+        name="email"
+        id="email"
+        (keydown.enter)="signUpDetail($event)"
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('email').invalid && signupForm.get('email').dirty,
+          'is-valid':
+            !(
+              signupForm.get('email').invalid && signupForm.get('email').dirty
+            ) && !signupForm.get('email').pristine
+        }"
+      />
+      <label class="label_main">Enter Email Id</label>
+      <div class="invalid-feedback" style="display: block">
+        <div
+          *ngIf="
+            signupForm.get('email').invalid && signupForm.get('email').dirty
+          "
+        >
+          Enter a valid email address*
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mobileView input-group pt-1 pb-1">
+      <!-- <label for="cellNo">Cell Number <span class="astrisk">*</span></label> -->
+      <input
+        [ngClass]="{
+          'is-invalid':
+            signupForm.get('mobile').invalid && signupForm.get('mobile').dirty,
+          'is-valid':
+            !(
+              signupForm.get('mobile').invalid && signupForm.get('mobile').dirty
+            ) && !signupForm.get('mobile').pristine
+        }"
+        (keydown.enter)="signUpDetail($event)"
+        formControlName="mobile"
+        pattern="^[4-9][0-9]{9}$"
+        type="tel"
+        autocomplete="off"
+        name="cellNo"
+        id="cellNo"
+        class="form-control"
+      />
+      <label class="label_main">Enter mobile number</label>
+      <div
+        *ngIf="
+          signupForm.get('mobile').invalid && signupForm.get('mobile').dirty
+        "
+        class="invalid-feedback"
+        style="display: block"
+      >
+        <div>Invalid Mobile Number*</div>
       </div>
     </div>
 
@@ -164,8 +287,21 @@
         Send OTP
       </button>
     </div>
-
-    <div class="col-12 button-group loading py-1" *ngIf="showRotatingLoader">
+    <div class="col-12 mt-3 agreeBox">
+      <div class="form-group mb-0 tnc">
+        <!-- <input type="checkbox" formControlName="tnc" id="tnc" /> -->
+        <label for="tnc"
+          >By click this button you agree with our
+          <a [routerLink]="['/tnc']" style="text-decoration: none"
+            >Terms and Conditions</a>
+            and with our
+            <a [routerLink]="['/privacyPolicy']" style="text-decoration: none"
+            >Privacy Policy</a>
+            </label
+        >
+      </div>
+    </div>
+    <!-- <div class="col-12 button-group loading py-1" *ngIf="showRotatingLoader">
       <svg
         version="1.1"
         id="Layer_1"
@@ -236,15 +372,14 @@
         <g></g>
         <g></g>
       </svg>
-    </div>
+    </div> -->
   </div>
 
   <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }">
-    <!-- *ngIf="showOtpFields" -->
     <div class="form-group w-100">
       <div
         class="col-12"
-        style="text-align: center; height: 110px; padding-top: 25px"
+        style="height: 110px; padding-top: 25px; font-weight: 600;"
       >
         <label for="digit1">Enter OTP</label>
         <div class="otp-box">
@@ -403,8 +538,8 @@
     </div>
 
     <!-- *ngIf="changeNumber" -->
-    <div class="col-12 mt-3 change-group">
-      <div class="resendBtn changeBtn">
+    <div class="col-12 change-group">
+      <div class="resendBtn text-left changeBtn">
         <button (click)="onSubmit()" [disabled]="disableResend">
           <span class="agree">
             <svg
@@ -424,7 +559,7 @@
           </span>
         </button>
       </div>
-      <div class="resendBtn">
+      <div class="resendBtn text-right">
         <button (click)="changeUserNumber()">
           <span class="agree">
             <svg
