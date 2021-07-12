@@ -30,7 +30,7 @@ export class ZambiaComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -49,7 +49,7 @@ export class ZambiaComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
-  public selectedCountrytype="Zambia";
+  public selectedCountrytype = "Zambia";
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -78,7 +78,7 @@ export class ZambiaComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','zambia-visa-online']);
+        this.router.navigate(['visa', 'zambia-visa-online']);
       }
     });
     this.preloaderService.showPreloader(true);
@@ -186,7 +186,7 @@ export class ZambiaComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/zambia-visa-online",
+      content: "https://visa2fly.com/zambia-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -233,7 +233,7 @@ export class ZambiaComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/zambia-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/zambia-visa-online");
   }
 
   purposeChanged() {

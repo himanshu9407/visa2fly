@@ -17,6 +17,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { OfferBannerComponent } from './offer-banner/offer-banner.component';
 import { ShortVideoComponent } from './short-video/short-video.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 const routes: Routes = [
   { path: "", component: HomeContainerComponent, resolve: { homeFormData: HomeFormResolver } }
@@ -44,6 +45,7 @@ const routes: Routes = [
     FormsModule,
     NgSelectModule,
     AutocompleteLibModule,
+    SlickCarouselModule,
     RouterModule.forChild(routes)
   ]
 })

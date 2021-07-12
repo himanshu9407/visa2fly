@@ -97,7 +97,7 @@ export class UnitedKingdomComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','uk-visa-online']);
+        this.router.navigate(['visa', 'uk-visa-online']);
       }
     });
 
@@ -175,7 +175,7 @@ export class UnitedKingdomComponent implements OnInit {
           this.toastr.error("Country Not Found");
         }
       });
-    }
+  }
   ngOnInit() {
 
     this.titleService.setTitle("UK Visa | Apply For UK Visa Online for Indians- Visa2Fly");
@@ -204,7 +204,7 @@ export class UnitedKingdomComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/uk-visa-online",
+      content: "https://visa2fly.com/uk-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -253,7 +253,7 @@ export class UnitedKingdomComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/uk-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/uk-visa-online");
   }
 
   purposeChanged() {

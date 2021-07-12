@@ -12,10 +12,7 @@ body {
   overflow: hidden;
 }
 
-.ng-select.ng-select-multiple
-  .ng-select-container
-  .ng-value-container
-  .ng-placeholder {
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
   z-index: 1;
   font-size: 14px;
 }
@@ -882,6 +879,7 @@ button:hover {
 .vr-InvestmentVisa {
   background-position: -1845px -530px !important;
 }
+
 .vr-invitationLetterChina,
 .vr-InvitationLetterfromChina {
   background-position: 0px -575px !important;
@@ -1521,6 +1519,7 @@ ngb-carousel:focus {
 .slide-content .carousel-indicators li.active {
   background-color: #f4b938 !important;
 }
+
 .slide-content .carousel-control-prev,
 .slide-content .carousel-control-next {
   display: none;
@@ -1642,10 +1641,7 @@ ngb-carousel {
   color: #5b6167 !important;
 }
 
-.home-form
-  .ng-select.ng-select-single
-  .ng-select-container
-  .ng-value-container {
+.home-form .ng-select.ng-select-single .ng-select-container .ng-value-container {
   padding: 0 !important;
 }
 
@@ -1653,26 +1649,15 @@ ngb-carousel {
   box-shadow: 0 1px 6px 0 rgb(0 0 0 / 20%);
 }
 
-.home-form
-  .ng-select.ng-select-opened
-  .ng-select-container
-  .ng-value-container {
+.home-form .ng-select.ng-select-opened .ng-select-container .ng-value-container {
   padding: 5px 10px !important;
 }
 
-.home-form
-  .ng-select.ng-select-opened
-  .ng-select-container
-  .ng-value-container
-  .ng-input {
+.home-form .ng-select.ng-select-opened .ng-select-container .ng-value-container .ng-input {
   padding: 3px 10px !important;
 }
 
-.home-form
-  .ng-select.ng-select-opened
-  .ng-select-container
-  .ng-value-container
-  .ng-value {
+.home-form .ng-select.ng-select-opened .ng-select-container .ng-value-container .ng-value {
   color: #aaa !important;
 }
 
@@ -1756,7 +1741,7 @@ ngb-carousel {
   display: none !important;
 } */
 
-#sim ng-select .ng-select-container .ng-value-container .ng-input > input {
+#sim ng-select .ng-select-container .ng-value-container .ng-input>input {
   color: #fff;
 }
 
@@ -1788,20 +1773,16 @@ ngb-carousel {
 }
 
 ng-select:focus,
-ng-select > *:focus {
+ng-select>*:focus {
   outline: none !important;
   box-shadow: none !important;
 }
 
-.home-form
-  .ng-select.ng-select-single
-  .ng-select-container
-  .ng-value-container
-  .ng-input {
+.home-form .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
   padding: 0;
 }
 
-.ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
   border-color: none !important;
   box-shadow: none !important;
 }
@@ -1811,4 +1792,88 @@ ng-select > *:focus {
     padding-left: 0px;
   }
 
+}
+
+section#quotation .quotation_outer_box .slick-next:before,
+section#quotation .quotation_outer_box .slick-prev:before {
+  content: '';
+}
+
+section#quotation .quotation_outer_box .slick-next {
+  right: 10px;
+}
+
+section#quotation .quotation_outer_box .slick-prev {
+  z-index: 1;
+}
+
+/* .slick-slider .slick-track,
+.slick-slider .slick-list {
+  transform: translate3d(0, 0, 0);
+} */
+
+section.testimonial .testimonial_slick .slick-slider .slick-list {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+section.testimonial .testimonial_slick .slick-dots {
+  top: -120px !important;
+  bottom: unset !important;
+  text-align: right;
+}
+
+section.testimonial .testimonial_slick .slick-dots li {
+  height: 5px !important;
+  width: 15px !important;
+  margin: 0 3px !important;
+}
+
+section.testimonial .testimonial_slick .slick-dots li,
+section.testimonial .testimonial_slick .slick-dots li>* {
+  transition: all .5s ease !important;
+  -webkit-transition: width .5s ease !important;
+  -moz-transition: width .5s ease !important;
+  -ms-transition: width .5s ease !important;
+  -o-transition: width .5s ease !important;
+}
+
+section.testimonial .testimonial_slick .slick-dots li button {
+  height: 5px !important;
+  width: 15px !important;
+  padding: 0px !important;
+}
+
+section.testimonial .testimonial_slick .slick-dots li button:before {
+  content: '';
+  border-radius: 90px !important;
+  height: 5px !important;
+  width: 15px !important;
+  background: #C4C4C4 !important;
+  opacity: 1 !important;
+}
+
+section.testimonial .testimonial_slick .slick-dots li.slick-active button:before {
+  background: #407BFF !important;
+  opacity: 1 !important;
+  width: 8px !important;
+}
+
+section.testimonial .testimonial_slick .slick-dots li.slick-active,
+section.testimonial .testimonial_slick .slick-dots li.slick-active button,
+section.testimonial .testimonial_slick .slick-dots li.slick-active button:before {
+  width: 8px !important;
+}
+
+@media screen and (max-width: 600px) {
+  section.testimonial .testimonial_slick .slick-dots {
+ top: unset !important;
+    bottom: -25px !important;
+    text-align: center !important;
+}
+
+section.testimonial .testimonial_slick .slick-slider .slick-list {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
 }

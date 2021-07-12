@@ -30,7 +30,7 @@ export class MaldivesComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -49,7 +49,7 @@ export class MaldivesComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
-  public selectedCountrytype="Maldives";
+  public selectedCountrytype = "Maldives";
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -82,18 +82,18 @@ export class MaldivesComponent implements OnInit {
 
     this.preloaderService.showPreloader(true);
 
-      if (this.userFlow.getCookie("selectedVisaPurpose")) {
-        this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
-      } else {
-        this.selectedVisaType = "Tourist";
-      }
-  
-      let tempPurpose = this.selectedVisaType;
-      this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
-  
-      this.purposeChooseForm = new FormGroup({
-        purposeSelected: new FormControl(tempPurpose),
-      });
+    if (this.userFlow.getCookie("selectedVisaPurpose")) {
+      this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
+    } else {
+      this.selectedVisaType = "Tourist";
+    }
+
+    let tempPurpose = this.selectedVisaType;
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+
+    this.purposeChooseForm = new FormGroup({
+      purposeSelected: new FormControl(tempPurpose),
+    });
 
     setTimeout(() => {
       this.preloaderService.showPreloader(false);
@@ -129,7 +129,7 @@ export class MaldivesComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/maldives-visa-online",
+      content: "https://visa2fly.com/maldives-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -178,7 +178,7 @@ export class MaldivesComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/maldives-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/maldives-visa-online");
   }
 
   purposeChanged() {
@@ -238,5 +238,5 @@ export class MaldivesComponent implements OnInit {
     );
   }
 
-  
+
 }

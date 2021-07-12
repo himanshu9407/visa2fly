@@ -424,134 +424,134 @@ export class AddTravellerComponent implements OnInit, OnDestroy {
 
     switch (this.userFlowDetails.country) {
       case "Armenia":
-        this.breadcrumRouting = "/visa/armenia-visa-online";
+        this.breadcrumRouting = "/armenia-visa-online";
         break;
       case "Australia":
-        this.breadcrumRouting = "/visa/australia-visa-online";
+        this.breadcrumRouting = "/australia-visa-online";
         break;
       case "Austria":
-        this.breadcrumRouting = "/visa/austria-visa-online";
+        this.breadcrumRouting = "/austria-visa-online";
         break;
       case "Azerbaijan":
-        this.breadcrumRouting = "/visa/azerbaijan-visa-online";
+        this.breadcrumRouting = "/azerbaijan-visa-online";
         break;
       // case "Brazil":
-      //   this.breadcrumRouting = "/visa/brazil-visa-online";
+      //   this.breadcrumRouting = "/brazil-visa-online";
       //   break;
       case "Canada":
-        this.breadcrumRouting = "/visa/canada-visa-online";
+        this.breadcrumRouting = "/canada-visa-online";
         break;
       case "Bahrain":
-        this.breadcrumRouting = "/visa/bahrain-visa-online";
+        this.breadcrumRouting = "/bahrain-visa-online";
         break;
       case "Belgium":
-        this.breadcrumRouting = "/visa/belgium-visa-online";
+        this.breadcrumRouting = "/belgium-visa-online";
         break;
       case "Bhutan":
-        this.breadcrumRouting = "/visa/bhutan-visa-online";
+        this.breadcrumRouting = "/bhutan-visa-online";
         break;
       case "China":
-        this.breadcrumRouting = "/visa/china-visa-online";
+        this.breadcrumRouting = "/china-visa-online";
         break;
       case "Cambodia":
-        this.breadcrumRouting = "/visa/cambodia-visa-online";
+        this.breadcrumRouting = "/cambodia-visa-online";
         break;
       case "Denmark":
-        this.breadcrumRouting = "/visa/denmark-visa-online";
+        this.breadcrumRouting = "/denmark-visa-online";
         break;
       case "Dubai":
-        this.breadcrumRouting = "/visa/dubai-visa-online";
+        this.breadcrumRouting = "/dubai-visa-online";
         break;
       case "Egypt":
-        this.breadcrumRouting = "/visa/egypt-visa-online";
+        this.breadcrumRouting = "/egypt-visa-online";
         break;
       case "Estonia":
-        this.breadcrumRouting = "/visa/estonia-visa-online";
+        this.breadcrumRouting = "/estonia-visa-online";
         break;
       case "Ethiopia":
-        this.breadcrumRouting = "/visa/ethiopia-visa-online";
+        this.breadcrumRouting = "/ethiopia-visa-online";
         break;
       case "Finland":
-        this.breadcrumRouting = "/visa/finland-visa-online";
+        this.breadcrumRouting = "/finland-visa-online";
         break;
       case "France":
-        this.breadcrumRouting = "/visa/france-visa-online";
+        this.breadcrumRouting = "/france-visa-online";
         break;
       case "Georgia":
-        this.breadcrumRouting = "/visa/georgia-visa-online";
+        this.breadcrumRouting = "/georgia-visa-online";
         break;
       case "Japan":
-        this.breadcrumRouting = "/visa/japan-visa-online";
+        this.breadcrumRouting = "/japan-visa-online";
         break;
       case "Kenya":
-        this.breadcrumRouting = "/visa/kenya-visa-online";
+        this.breadcrumRouting = "/kenya-visa-online";
         break;
       case "Malaysia":
-        this.breadcrumRouting = "/visa/malaysia-visa-online";
+        this.breadcrumRouting = "/malaysia-visa-online";
         break;
       case "Maldives":
-        this.breadcrumRouting = "/visa/maldives-visa-online";
+        this.breadcrumRouting = "/maldives-visa-online";
         break;
       case "Malta":
-        this.breadcrumRouting = "/visa/malta-visa-online";
+        this.breadcrumRouting = "/malta-visa-online";
         break;
       case "New Zealand":
-        this.breadcrumRouting = "/visa/new-zealand-visa-online";
+        this.breadcrumRouting = "/new-zealand-visa-online";
         break;
       case "Netherlands":
-        this.breadcrumRouting = "/visa/netherlands-visa-online";
+        this.breadcrumRouting = "/netherlands-visa-online";
         break;
       // case "Russia":
-      //   this.breadcrumRouting = "/visa/russia-visa-online";
+      //   this.breadcrumRouting = "/russia-visa-online";
       //   break;
       // case "Rwanda":
-      //   this.breadcrumRouting = "/visa/rwanda-visa-online";
+      //   this.breadcrumRouting = "/rwanda-visa-online";
       //   break;
       case "Singapore":
-        this.breadcrumRouting = "/visa/singapore-visa-online";
+        this.breadcrumRouting = "/singapore-visa-online";
         break;
       case "South Africa":
-        this.breadcrumRouting = "/visa/south-africa-visa-online";
+        this.breadcrumRouting = "/south-africa-visa-online";
         break;
       case "Spain":
-        this.breadcrumRouting = "/visa/spain-visa-online";
+        this.breadcrumRouting = "/spain-visa-online";
         break;
       case "Sri Lanka":
-        this.breadcrumRouting = "/visa/sri-lanka-visa-online";
+        this.breadcrumRouting = "/sri-lanka-visa-online";
         break;
       case "Switzerland":
-        this.breadcrumRouting = "/visa/swiss-visa-online";
+        this.breadcrumRouting = "/swiss-visa-online";
         break;
       case "Taiwan":
-        this.breadcrumRouting = "/visa/taiwan-visa-online";
+        this.breadcrumRouting = "/taiwan-visa-online";
         break;
       // case "Tajikistan":
-      //   this.breadcrumRouting = "/visa/tajikistan-visa-online";
+      //   this.breadcrumRouting = "/tajikistan-visa-online";
       //   break;
       case "Thailand":
-        this.breadcrumRouting = "/visa/thailand-visa-online";
+        this.breadcrumRouting = "/thailand-visa-online";
         break;
       case "Turkey":
-        this.breadcrumRouting = "/visa/turkey-visa-online";
+        this.breadcrumRouting = "/turkey-visa-online";
         break;
 
       case "Ukraine":
-        this.breadcrumRouting = "/visa/ukraine-visa-online";
+        this.breadcrumRouting = "/ukraine-visa-online";
         break;
       case "United Kingdom":
-        this.breadcrumRouting = "/visa/uk-visa-online";
+        this.breadcrumRouting = "/uk-visa-online";
         break;
       case "USA":
-        this.breadcrumRouting = "/visa/usa-visa-online";
+        this.breadcrumRouting = "/usa-visa-online";
         break;
       case "Uzbekistan":
-        this.breadcrumRouting = "/visa/uzbekistan-visa-online";
+        this.breadcrumRouting = "/uzbekistan-visa-online";
         break;
       case "Vietnam":
-        this.breadcrumRouting = "/visa/vietnam-visa-online";
+        this.breadcrumRouting = "/vietnam-visa-online";
         break;
       case "Zambia":
-        this.breadcrumRouting = "/visa/zambia-visa-online";
+        this.breadcrumRouting = "/zambia-visa-online";
         break;
 
       default:

@@ -30,7 +30,7 @@ export class OtherCountryService {
       if (isPlatformBrowser(this.platformId)) {
         this.userFlow.setCookie("activeCountry", country);
       }
-      this.router.navigate(["/visa"]);
+      this.router.navigate(["/"]);
       // window.location.reload();
     }
   }

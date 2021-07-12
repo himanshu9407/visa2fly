@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID} from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
@@ -28,7 +28,7 @@ export class JapanComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -72,13 +72,13 @@ export class JapanComponent implements OnInit {
     @Inject(DOCUMENT) private doc,
     @Inject(PLATFORM_ID) private platformId: Object) {
 
-      this.activatedRoute.params.subscribe((params) => {
-        if (params["purpose"]) {
-          this.router.navigate(["visa", "japan-visa-online"]);
-        }
-      });
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["purpose"]) {
+        this.router.navigate(["visa", "japan-visa-online"]);
+      }
+    });
 
-      this.preloaderService.showPreloader(true);
+    this.preloaderService.showPreloader(true);
 
     if (this.userFlow.getCookie("selectedVisaPurpose")) {
       this.selectedVisaType = this.userFlow.getCookie("selectedVisaPurpose");
@@ -183,7 +183,7 @@ export class JapanComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/japan-visa-online",
+      content: "https://visa2fly.com/japan-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -234,7 +234,7 @@ export class JapanComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/japan-visa-online"
+      "https://visa2fly.com/japan-visa-online"
     );
   }
 

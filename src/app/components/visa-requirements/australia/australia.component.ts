@@ -181,7 +181,7 @@ export class AustraliaComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/australia-visa-online",
+      content: "https://visa2fly.com/australia-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -232,7 +232,7 @@ export class AustraliaComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/australia-visa-online"
+      "https://visa2fly.com/australia-visa-online"
     );
   }
 

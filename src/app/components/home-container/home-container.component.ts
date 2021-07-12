@@ -79,7 +79,7 @@ export class HomeContainerComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa",
+      content: "https://visa2fly.com/",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -129,7 +129,7 @@ export class HomeContainerComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa"
+      "https://visa2fly.com/"
     );
 
     this.homeFormService.visaTypeList.subscribe((list: string[]) => {

@@ -53,7 +53,7 @@ export class AzerbaijanComponent implements OnInit {
   selectedMobileTourist: number = 1;
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
-  
+
   public selectedCountrytype = "Azerbaijan";
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -186,7 +186,7 @@ export class AzerbaijanComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/azerbaijan-visa-online",
+      content: "https://visa2fly.com/azerbaijan-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -237,7 +237,7 @@ export class AzerbaijanComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/azerbaijan-visa-online"
+      "https://visa2fly.com/azerbaijan-visa-online"
     );
   }
 

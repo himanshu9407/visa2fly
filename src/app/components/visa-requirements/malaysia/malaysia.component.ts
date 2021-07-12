@@ -23,7 +23,7 @@ export class MalaysiaComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -42,7 +42,7 @@ export class MalaysiaComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
-  public selectedCountrytype="Malaysia";
+  public selectedCountrytype = "Malaysia";
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -69,7 +69,7 @@ export class MalaysiaComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','malaysia-visa-online']);
+        this.router.navigate(['visa', 'malaysia-visa-online']);
       }
     });
 
@@ -176,7 +176,7 @@ export class MalaysiaComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/malaysia-visa-online",
+      content: "https://visa2fly.com/malaysia-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -225,7 +225,7 @@ export class MalaysiaComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/malaysia-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/malaysia-visa-online");
   }
 
   purposeChanged() {

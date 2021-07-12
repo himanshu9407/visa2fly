@@ -226,273 +226,273 @@ export class HomeFormComponent {
 
       switch (country) {
         case "United Kingdom": {
-          this.router.navigate(["visa/uk-visa-online"]);
+          this.router.navigate(["/uk-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "South Africa": {
-          this.router.navigate(["visa/south-africa-visa-online"]);
+          this.router.navigate(["/south-africa-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "New Zealand": {
-          this.router.navigate(["visa/new-zealand-visa-online"]);
+          this.router.navigate(["/new-zealand-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Ukraine": {
-          this.router.navigate(["visa/ukraine-visa-online"]);
+          this.router.navigate(["/ukraine-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Bahrain": {
-          this.router.navigate(["visa/bahrain-visa-online"]);
+          this.router.navigate(["/bahrain-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         // case "Taiwan": {
-        //   this.router.navigate(["visa/taiwan-visa-online"]);
+        //   this.router.navigate(["/taiwan-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
         //   break;
         // }
 
         // case "Rwanda": {
-        //   this.router.navigate(["visa/rwanda-visa-online"]);
+        //   this.router.navigate(["/rwanda-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
         //   break;
         // }
 
         case "Armenia": {
-          this.router.navigate(["visa/armenia-visa-online"]);
+          this.router.navigate(["/armenia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Japan": {
-          this.router.navigate(["visa/japan-visa-online"]);
+          this.router.navigate(["/japan-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Kenya": {
-          this.router.navigate(["visa/kenya-visa-online"]);
+          this.router.navigate(["/kenya-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         // case "Brazil": {
-        //   this.router.navigate(["visa/brazil-visa-online"]);
+        //   this.router.navigate(["/brazil-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
         //   break;
         // }
 
         // case "Tajikistan": {
-        //   this.router.navigate(["visa/uk-visa-online"]);
+        //   this.router.navigate(["/uk-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
         //   break;
         // }
 
         case "Zambia": {
-          this.router.navigate(["visa/zambia-visa-online"]);
+          this.router.navigate(["/zambia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Russia": {
-          this.router.navigate(["visa/russia-visa-online"]);
+          this.router.navigate(["/russia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Uzbekistan": {
-          this.router.navigate(["visa/uzbekistan-visa-online"]);
+          this.router.navigate(["/uzbekistan-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Switzerland": {
-          this.router.navigate(["visa/swiss-visa-online"]);
+          this.router.navigate(["/swiss-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "UAE": {
-          this.router.navigate(["visa/uae-visa-online"]);
+          this.router.navigate(["/uae-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "France": {
-          this.router.navigate(["visa/france-visa-online/"]);
+          this.router.navigate(["/france-visa-online/"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "China": {
-          this.router.navigate(["visa/china-visa-online/"]);
+          this.router.navigate(["/china-visa-online/"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Ethiopia": {
-          this.router.navigate(["visa/ethiopia-visa-online"]);
+          this.router.navigate(["/ethiopia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Finland": {
-          this.router.navigate(["visa/finland-visa-online"]);
+          this.router.navigate(["/finland-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Belgium": {
-          this.router.navigate(["visa/belgium-visa-online"]);
+          this.router.navigate(["/belgium-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Canada": {
-          this.router.navigate(["visa/canada-visa-online"]);
+          this.router.navigate(["/canada-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         // case "Austria": {
-        //   this.router.navigate(["visa/austria-visa-online"]);
+        //   this.router.navigate(["/austria-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
         //   break;
         // }
 
         // case "Bhutan": {
-        //   this.router.navigate(["visa/bhutan-visa-online"]);
+        //   this.router.navigate(["/bhutan-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
         //   break;
         // }
 
         case "Estonia": {
-          this.router.navigate(["visa/estonia-visa-online"]);
+          this.router.navigate(["/estonia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
 
         case "Denmark": {
-          this.router.navigate(["visa/denmark-visa-online"]);
+          this.router.navigate(["/denmark-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Georgia": {
-          this.router.navigate(["visa/georgia-visa-online"]);
+          this.router.navigate(["/georgia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Germany": {
-          this.router.navigate(["visa/germany-visa-online"]);
+          this.router.navigate(["/germany-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         // case "Iraq": {
-        //   this.router.navigate(["visa/iraq-visa-online"]);
+        //   this.router.navigate(["/iraq-visa-online"]);
         //   this.userFlow.setCookie("selectedVisaPurpose", purpose);
         //   break;
         // }
 
         case "Malta": {
-          this.router.navigate(["visa/malta-visa-online"]);
+          this.router.navigate(["/malta-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Malaysia": {
-          this.router.navigate(["visa/malaysia-visa-online"]);
+          this.router.navigate(["/malaysia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Dubai": {
-          this.router.navigate(["visa/dubai-visa-online"]);
+          this.router.navigate(["/dubai-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Egypt": {
-          this.router.navigate(["visa/egypt-visa-online"]);
+          this.router.navigate(["/egypt-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Maldives": {
-          this.router.navigate(["visa/maldives-visa-online"]);
+          this.router.navigate(["/maldives-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Sri Lanka": {
-          this.router.navigate(["visa/sri-lanka-visa-online"]);
+          this.router.navigate(["/sri-lanka-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Spain": {
-          this.router.navigate(["visa/spain-visa-online"]);
+          this.router.navigate(["/spain-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Singapore": {
-          this.router.navigate(["visa/singapore-visa-online"]);
+          this.router.navigate(["/singapore-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Cambodia": {
-          this.router.navigate(["visa/cambodia-visa-online"]);
+          this.router.navigate(["/cambodia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Turkey": {
-          this.router.navigate(["visa/turkey-visa-online"]);
+          this.router.navigate(["/turkey-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Azerbaijan": {
-          this.router.navigate(["visa/azerbaijan-visa-online"]);
+          this.router.navigate(["/azerbaijan-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Thailand": {
-          this.router.navigate(["visa/thailand-visa-online"]);
+          this.router.navigate(["/thailand-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Vietnam": {
-          this.router.navigate(["visa/vietnam-visa-online"]);
+          this.router.navigate(["/vietnam-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Australia": {
-          this.router.navigate(["visa/australia-visa-online"]);
+          this.router.navigate(["/australia-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "USA": {
-          this.router.navigate(["visa/usa-visa-online"]);
+          this.router.navigate(["/usa-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
         case "Netherlands": {
-          this.router.navigate(["visa/netherlands-visa-online"]);
+          this.router.navigate(["/netherlands-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }
 
         case "Antigua & Barbuda": {
-          this.router.navigate(["visa/antigua & barbuda-visa-online"]);
+          this.router.navigate(["/antigua & barbuda-visa-online"]);
           this.userFlow.setCookie("selectedVisaPurpose", purpose);
           break;
         }

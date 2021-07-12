@@ -72,7 +72,7 @@ export class RussiaComponent implements OnInit {
   selectedMobileBusiness: number = 1;
   selectedMobileTransit: number = 1;
 
-  public selectedCountrytype="Russia";
+  public selectedCountrytype = "Russia";
 
   public imageCatogory: Array<any> = [];
   public imageCatogoryBusinessTemp: Array<any> = [];
@@ -105,71 +105,71 @@ export class RussiaComponent implements OnInit {
     }
 
     let tempPurpose = this.selectedVisaType;
-      this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
+    this.userFlow.setUserFlowDetails("country", this.selectedCountrytype);
 
-      this.purposeChooseForm = new FormGroup({
-        purposeSelected: new FormControl(tempPurpose),
-      });
-      this.requireQuotation
-        .getRequireQuotation(this.selectedCountrytype)
-        .subscribe((res: any) => {
-          if (res.code == 0) {
-            this.MyQuotation = res.data.quotations;
-            this.imageCatogory.push(res.data.imageUploadInfo);
-            this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
-            this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
-            this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
-            this.onlinestatus = res.data.onlineCategory;
-            this.userFlow.setUserFlowDetails(
-              "onlineCountry",
-              JSON.stringify(res.data.onlineCategory)
-            );
+    this.purposeChooseForm = new FormGroup({
+      purposeSelected: new FormControl(tempPurpose),
+    });
+    this.requireQuotation
+      .getRequireQuotation(this.selectedCountrytype)
+      .subscribe((res: any) => {
+        if (res.code == 0) {
+          this.MyQuotation = res.data.quotations;
+          this.imageCatogory.push(res.data.imageUploadInfo);
+          this.imageCatogoryBusinessTemp = this.imageCatogory[0]["BUSINESS"];
+          this.imageCatogoryTouristTemp = this.imageCatogory[0]["TOURIST"];
+          this.imageCatogoryTransitTemp = this.imageCatogory[0]["TRANSIT"];
+          this.onlinestatus = res.data.onlineCategory;
+          this.userFlow.setUserFlowDetails(
+            "onlineCountry",
+            JSON.stringify(res.data.onlineCategory)
+          );
 
-            this.MyQuotation.forEach((element) => {
-              if (element.purpose == "Business") {
-                this.businessArr.push(element);
-                this.isBusiness = true;
-              } else if (element.purpose == "Tourist") {
-                this.touristArr.push(element);
-                this.isTourist = true;
-              } else if (element.purpose == "Transit") {
-                this.transitArr.push(element);
-                this.isTransit = true;
-              }
-            });
-
-            let purposeMain = this.selectedVisaType;
-            let purposeUrl =
-              purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
-            if (purposeUrl == "Business") {
-              this.MyQuotation1 = this.businessArr;
-              this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
-            } else if (purposeUrl == "Tourist") {
-              this.MyQuotation1 = this.touristArr;
-              this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
-            } else if (purposeUrl == "Transit") {
-              this.MyQuotation1 = this.transitArr;
-              this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
-            } else {
-              this.router.navigate(["visa/"]);
+          this.MyQuotation.forEach((element) => {
+            if (element.purpose == "Business") {
+              this.businessArr.push(element);
+              this.isBusiness = true;
+            } else if (element.purpose == "Tourist") {
+              this.touristArr.push(element);
+              this.isTourist = true;
+            } else if (element.purpose == "Transit") {
+              this.transitArr.push(element);
+              this.isTransit = true;
             }
+          });
 
-            this.userFlow.setUserFlowDetails(
-              "imageUploads",
-              JSON.stringify(this.imageCatogoryTemp)
-            );
-
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-            }, 500);
+          let purposeMain = this.selectedVisaType;
+          let purposeUrl =
+            purposeMain.charAt(0).toUpperCase() + purposeMain.slice(1);
+          if (purposeUrl == "Business") {
+            this.MyQuotation1 = this.businessArr;
+            this.imageCatogoryTemp = this.imageCatogoryBusinessTemp;
+          } else if (purposeUrl == "Tourist") {
+            this.MyQuotation1 = this.touristArr;
+            this.imageCatogoryTemp = this.imageCatogoryTouristTemp;
+          } else if (purposeUrl == "Transit") {
+            this.MyQuotation1 = this.transitArr;
+            this.imageCatogoryTemp = this.imageCatogoryTransitTemp;
           } else {
-            setTimeout(() => {
-              this.preloaderService.showPreloader(false);
-              this.router.navigate(["/"]);
-            }, 2000);
-            this.toastr.error("Country Not Found");
+            this.router.navigate(["visa/"]);
           }
-        });
+
+          this.userFlow.setUserFlowDetails(
+            "imageUploads",
+            JSON.stringify(this.imageCatogoryTemp)
+          );
+
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+          }, 500);
+        } else {
+          setTimeout(() => {
+            this.preloaderService.showPreloader(false);
+            this.router.navigate(["/"]);
+          }, 2000);
+          this.toastr.error("Country Not Found");
+        }
+      });
   }
 
   ngOnInit() {
@@ -201,7 +201,7 @@ export class RussiaComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/russia-visa-online",
+      content: "https://visa2fly.com/russia-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -248,7 +248,7 @@ export class RussiaComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/russia-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/russia-visa-online");
   }
 
   purposeChanged() {

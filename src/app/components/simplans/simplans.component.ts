@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from "@angular/core";
 import { SimService } from "../sim/sim.service";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { PreloaderService } from "src/app/shared/preloader.service";
 // import { ToastService } from 'src/app/shared/toast.service';
 import { LoginService } from "../login-signup/login/login.service";
@@ -49,14 +49,47 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     private titleService: Title,
     private meta: Meta,
     private userFlow: UserFlowDetails,
+    private activateRoute: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    // this.simCart = JSON.parse(this.userFlow.getCookie('simCart')) || [];
     this.preloaderService.showPreloader(true);
-    // this.simResp = JSON.parse(this.userFlow.getCookie('simResp')) || [];
-    this.selectedCountry = this.userFlow.getCookie("simSelectedCountry") || "";
+    this.activateRoute.params.subscribe((params: any) => {
+      console.log(params.simCountry);
+      this.selectedCountry = params.simCountry;
+
+      switch (this.selectedCountry) {
+        case "Czech Republic":
+          this.userFlow.setCookie("simSelectedCountry", 'Czech Republic');
+          break;
+        case "Hong Kong":
+          this.userFlow.setCookie("simSelectedCountry", 'Hong Kong');
+          break;
+        case "New Zealand":
+          this.userFlow.setCookie("simSelectedCountry", 'New Zealand');
+          break;
+        case "Saudi Arabia":
+          this.userFlow.setCookie("simSelectedCountry", 'Saudi Arabia');
+          break;
+        case "South Korea":
+          this.userFlow.setCookie("simSelectedCountry", 'South Korea');
+          break;
+        case "Sri Lanka":
+          this.userFlow.setCookie("simSelectedCountry", 'Sri Lanka');
+          break;
+        case "United Kingdom":
+          this.userFlow.setCookie("simSelectedCountry", 'United Kingdom');
+          break;
+        case "USA":
+          this.userFlow.setCookie("simSelectedCountry", 'USA');
+          break;
+        case "UAE":
+          this.userFlow.setCookie("simSelectedCountry", 'UAE');
+          break;
+        default:
+          this.userFlow.setCookie("simSelectedCountry", params.simCountry);
+      }
+    });
     this.revertCountry.push(this.selectedCountry);
-    // console.log(this.selectedCountry)
   }
 
   ngOnInit() {
@@ -87,7 +120,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
       this.selectedCountry == null
     ) {
       this.preloaderService.showPreloader(false);
-      this.router.navigate(["sim"]);
+      this.router.navigate(["/sim"]);
     } else {
       this.simService
         .getSimPlans(this.selectedCountry)
@@ -122,7 +155,8 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   onClickSelect() {
     this.onBackButton();
     this.selectedSimCountry = this.simHomeForm.get("simSelect").value;
-    this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
+    // this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
+    this.router.navigate(["/sim", this.selectedSimCountry]);
     this.preloaderService.showPreloader(true);
 
     if (
@@ -130,7 +164,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
       this.selectedCountry == undefined ||
       this.selectedCountry == null
     ) {
-      this.router.navigate(["sim"]);
+      this.router.navigate(["/sim"]);
     } else {
       this.selectedCountry = this.simHomeForm.get("simSelect").value;
       this.simService
@@ -288,11 +322,11 @@ export class SimplansComponent implements OnInit, AfterViewInit {
     this.loginStatus.verifyAuthToken(token).subscribe((data: any) => {
       if (data.code == "0") {
         //do payment post
-        this.router.navigate(["/sim/checkout"]);
+        this.router.navigate(["/sim", "checkout"]);
         this.preloaderService.showPreloader(false);
       } else {
         this.routerHistory.pushHistory("fail-login-sim");
-        this.router.navigate(["slcontainer/login"]);
+        this.router.navigate(["/slcontainer", "login"]);
         this.preloaderService.showPreloader(false);
       }
     });
@@ -335,7 +369,7 @@ export class SimplansComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-  if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId)) {
       let country_input_simplan = document.getElementById('country_input_simplan');
       let simplan_home_heading = document.getElementById('simplan_home_heading');
 

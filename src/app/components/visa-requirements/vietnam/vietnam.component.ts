@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit, ViewChild, Inject, PLATFORM_ID} from "@angular/core";
+import { Component, OnInit, AfterViewInit, ViewChild, Inject, PLATFORM_ID } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
@@ -25,7 +25,7 @@ export class VietnamComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -51,9 +51,9 @@ export class VietnamComponent implements OnInit {
   public imageCatogoryTransitTemp: Array<any> = [];
   public imageCatogoryTemp: Array<any> = [];
   activeTouristArr: Array<any> = [];
- isBusiness: boolean = false;
-isTourist: boolean = false;
-isTransit: boolean = false;
+  isBusiness: boolean = false;
+  isTourist: boolean = false;
+  isTransit: boolean = false;
   // public imageUpload1: Array<any> = []
 
   constructor(
@@ -70,7 +70,7 @@ isTransit: boolean = false;
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','vietnam-visa-online']);
+        this.router.navigate(['visa', 'vietnam-visa-online']);
       }
     });
 
@@ -152,7 +152,7 @@ isTransit: boolean = false;
 
   ngOnInit() {
     this.titleService.setTitle("Vietnam Visa | Apply For Vietnam Visa Online for Indians- Visa2Fly");
-     
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -177,7 +177,7 @@ isTransit: boolean = false;
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/vietnam-visa-online",
+      content: "https://visa2fly.com/vietnam-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -228,7 +228,7 @@ isTransit: boolean = false;
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/vietnam-visa-online"
+      "https://visa2fly.com/vietnam-visa-online"
     );
   }
 

@@ -11,7 +11,7 @@ import { OfflineProcessStepsComponent } from './offline-process-steps/offline-pr
     OnlineProcessStepsComponent,
     OfflineProcessStepsComponent,
   ],
-  
+
   imports: [
     RouterModule,
     CommonModule

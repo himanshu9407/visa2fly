@@ -26,7 +26,7 @@ export class QuotationComponent implements OnInit {
     private preloaderService: PreloaderService,
     private routerHistory: RouterHistory,
     private reqService: RequirementsService,
-  ) { 
+  ) {
   }
 
   ngOnInit(): void {

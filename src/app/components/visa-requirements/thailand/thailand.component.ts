@@ -55,7 +55,7 @@ export class ThailandComponent implements OnInit {
   selectedRequirement: boolean = false;
   // selectedRequirement: boolean = false;
   selectedPurpose: Subject<any> = new Subject();
-  
+
   public selectedVisaType = "Tourist";
   userControlDetail: any;
   public MyQuotation: Array<any> = [];
@@ -100,7 +100,7 @@ export class ThailandComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if (params["purpose"]) {
-        this.router.navigate(['visa','thailand-visa-online']);
+        this.router.navigate(['visa', 'thailand-visa-online']);
       }
     });
 
@@ -182,7 +182,7 @@ export class ThailandComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Thailand Visa | Apply For Thailand Visa Online for Indians- Visa2Fly");
-    
+
     this.meta.updateTag({
       name: "keywords",
       content:
@@ -207,7 +207,7 @@ export class ThailandComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/thailand-visa-online",
+      content: "https://visa2fly.com/thailand-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -258,7 +258,7 @@ export class ThailandComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/thailand-visa-online"
+      "https://visa2fly.com/thailand-visa-online"
     );
   }
 

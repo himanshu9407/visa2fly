@@ -28,11 +28,9 @@ li {
 }
 
 .imageContainer {
-  background-image: linear-gradient(
-      to left,
+  background-image: linear-gradient(to left,
       rgba(0, 0, 0, 0.65),
-      rgba(0, 0, 0, 0.65)
-    ),
+      rgba(0, 0, 0, 0.65)),
     url(https://static.visa2fly.com/country/v2/Australia.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -182,18 +180,22 @@ li {
   cursor: pointer;
   outline: none;
 }
-.select-box__current:focus + .select-box__list {
+
+.select-box__current:focus+.select-box__list {
   opacity: 1;
   -webkit-animation-name: none;
   animation-name: none;
 }
-.select-box__current:focus + .select-box__list .select-box__option {
+
+.select-box__current:focus+.select-box__list .select-box__option {
   cursor: pointer;
 }
+
 .select-box__current:focus .select-box__icon {
   -webkit-transform: translateY(-50%) rotate(180deg);
   transform: translateY(-50%) rotate(180deg);
 }
+
 .select-box__icon {
   position: absolute;
   top: 50%;
@@ -205,16 +207,20 @@ li {
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
 }
+
 .select-box__value {
   display: -webkit-box;
   display: flex;
 }
+
 .select-box__input {
   display: none;
 }
-.select-box__input:checked + .select-box__input-text {
+
+.select-box__input:checked+.select-box__input-text {
   display: block;
 }
+
 .select-box__input-text {
   display: none;
   width: 100%;
@@ -229,6 +235,7 @@ li {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
+
 .select-box__list {
   position: absolute;
   width: 100%;
@@ -270,6 +277,7 @@ li {
     -webkit-transform: scaleY(1);
     transform: scaleY(1);
   }
+
   to {
     -webkit-transform: scaleY(0);
     transform: scaleY(0);

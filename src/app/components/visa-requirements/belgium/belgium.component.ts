@@ -192,7 +192,7 @@ export class BelgiumComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/belgium-visa-online",
+      content: "https://visa2fly.com/belgium-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -241,7 +241,7 @@ export class BelgiumComponent implements OnInit {
     let link: HTMLLinkElement = this.doc.createElement("link");
     link.setAttribute("rel", "canonical");
     this.doc.head.appendChild(link);
-    link.setAttribute("href", "https://visa2fly.com/visa/finland-visa-online");
+    link.setAttribute("href", "https://visa2fly.com/finland-visa-online");
   }
 
   purposeChanged() {

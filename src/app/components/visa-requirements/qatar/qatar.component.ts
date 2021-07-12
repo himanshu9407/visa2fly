@@ -170,9 +170,9 @@ export class QatarComponent implements OnInit {
           this.toastr.error("Country Not Found");
         }
       });
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.titleService.setTitle(
       "Qatar Visa | Apply For Qatar Visa Online for Indians- Visa2Fly"
     );
@@ -200,7 +200,7 @@ export class QatarComponent implements OnInit {
     });
     this.meta.updateTag({
       property: "og:url",
-      content: "https://visa2fly.com/visa/qatar-visa-online",
+      content: "https://visa2fly.com/qatar-visa-online",
     });
     this.meta.updateTag({
       property: "og:image:alt",
@@ -251,7 +251,7 @@ export class QatarComponent implements OnInit {
     this.doc.head.appendChild(link);
     link.setAttribute(
       "href",
-      "https://visa2fly.com/visa/qatar-visa-online"
+      "https://visa2fly.com/qatar-visa-online"
     );
   }
 
