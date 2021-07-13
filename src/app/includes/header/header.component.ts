@@ -21,7 +21,8 @@ export class HeaderComponent implements OnInit {
   userLoggedIn: boolean = false;
   showDropDown: boolean = false;
   showTransparentNavbar: boolean = true;
-
+  visa2FlyForAll: boolean = false;
+  visa2FlyForLogin:boolean = false;
   userDetails: any;
   constructor(
     private loginService: LoginService,
@@ -46,6 +47,8 @@ export class HeaderComponent implements OnInit {
         arr[arr.length - 1] = arr[arr.length - 1].split("?")[0];
 
         if (
+          // arr[1] == "slcontainer/signup" ||
+          // arr[1] == "slcontainer/login" ||
           arr[1] == "visa-requirement" ||
           arr[1] == "freeVisa" ||
           arr[1] == "visaOnArrival" ||
@@ -56,7 +59,7 @@ export class HeaderComponent implements OnInit {
           arr[1] == "visa-requirements" ||
           arr[1] == "addTraveller" ||
           event.url == "/sim/checkout" ||
-          arr[1] == "slcontainer" ||
+          // arr[1] == "slcontainer" ||
           arr[1] == "tnc" ||
           arr[1] == "privacyPolicy" ||
           arr[1] == "cookiePolicy" ||
@@ -114,7 +117,25 @@ export class HeaderComponent implements OnInit {
           arr[1] == "zambia-visa-online"
         ) {
           this.showTransparentNavbar = false;
+          this.visa2FlyForAll = true;
+          this.visa2FlyForLogin = false;
+          $("a").removeClass("content").addClass("login");
+          $("button").addClass("btn-outline-light");
+          $("a").removeClass("content").addClass("navlink");
+        } else if(arr[1] == "slcontainer") {
+          this.showTransparentNavbar = true;
+          this.visa2FlyForLogin = true;
+          this.visa2FlyForAll = false;
+          $("a").removeClass("login").addClass("content");
+          $("a").removeClass("navlink").addClass("content");
+          $("button").removeClass("btn-outline-light").css({"border":"1px solid black","font-weight":"600"});
         } else {
+          this.visa2FlyForAll = true;
+          this.visa2FlyForLogin = false;
+          $("a").removeClass("content").addClass("login");
+          $("button").addClass("btn-outline-light");
+          $("a").removeClass("content").addClass("navlink");
+          // $("#visa").removeClass("content");
           this.showTransparentNavbar = true;
         }
       }
@@ -145,13 +166,13 @@ export class HeaderComponent implements OnInit {
         (data: SignupResponseModel) => {
           if (!data) {
             this.toastr.error("Something went wrong! Please try again later");
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.preloaderService.showPreloader(false);
           } else if (data.code == "0") {
             this.loginService.setAuthToken("");
             this.loginStatus.setUserStatus(false);
             this.loginStatus.setUserLoggedIn(false);
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.userFlow.setCookie("profile", JSON.stringify({}));
             this.userFlow.removeAll();
             this.preloaderService.showPreloader(false);
@@ -159,13 +180,13 @@ export class HeaderComponent implements OnInit {
             this.loginService.setAuthToken("");
             this.loginStatus.setUserStatus(false);
             this.loginStatus.setUserLoggedIn(false);
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.preloaderService.showPreloader(false);
             this.userFlow.setCookie("profile", JSON.stringify({}));
             this.toastr.error("" + data.message);
           } else {
             this.toastr.error(data.message.toString());
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.preloaderService.showPreloader(false);
           }
         },
