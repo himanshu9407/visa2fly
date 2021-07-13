@@ -24,7 +24,11 @@ export class LoginSignupComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       if (params["form"] == "login") {
         this.showLogin();
+        this.login = "Login";
+        this.signUp = "Sign Up";
       } else if (params["form"] == "signup") {
+        this.signUp = "Login";
+        this.login = "Sign Up";
         this.showSignup();
       }
     });
@@ -34,8 +38,8 @@ export class LoginSignupComponent implements OnInit {
     if (this.show_signup == false) {
       this.show_signup = true;
     }
-    // this.signUp = ""
-    this.login = "Login";
+    this.signUp = "Login"
+    this.login = "Sign Up";
     this.show_login = false;
     // if (isPlatformBrowser(this.platformId)) {
     //   $("#signUp").addClass("active");
@@ -46,9 +50,9 @@ export class LoginSignupComponent implements OnInit {
   showLogin() {
     if (this.show_login == false) {
       this.show_login = true;
-      // this.login = "";
-      this.signUp = "SignUp"
     }
+    this.signUp = "Sign Up";
+    this.login = "Login";
     this.show_signup = false;
     // if (isPlatformBrowser(this.platformId)) {
     //   $("#signIn").addClass("active");
@@ -56,10 +60,20 @@ export class LoginSignupComponent implements OnInit {
     // }
   }
 
-  navigateToLogin() {
-    this.router.navigate(["slcontainer", "login"]);
+  NavigateToLoginAndSignup() {
+    if(this.signUp === 'Sign Up'){
+      // console.log("working");
+      this.router.navigate(["slcontainer", "signup"]);
+    } else {
+      // console.log("not working");
+      this.router.navigate(["slcontainer", "login"]);
+    }
   }
-  navigateToSignup() {
-    this.router.navigate(["slcontainer", "signup"]);
-  }
+
+  // navigateToLogin() {
+  //   this.router.navigate(["slcontainer", "login"]);
+  // }
+  // navigateToSignup() {
+  //   this.router.navigate(["slcontainer", "signup"]);
+  // }
 }

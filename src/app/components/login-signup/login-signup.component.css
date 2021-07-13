@@ -175,17 +175,18 @@
 .desktopView.login_decoration .visaImage {
   height: 420px;
   position: absolute;
-  top: 220px;
+  top: 150px;
   left: 171px;
 }
 
 .right-side {
-  padding-top: 75px;
+  margin-top: 95px;
+  height: calc(100vh - 150px);
 }
 
 .blurred-box {
   position: relative;
-  width: 527px;
+  width: 490px;
   height: 100%;
   background-color: #fff;
   overflow: hidden;
@@ -216,7 +217,7 @@
 .form-header .tab-group li a {
   display: block;
   text-decoration: none;
-  padding: 6px 10px;
+  padding: 6px 0px;
   background: rgba(19, 6, 84, 0.3);
   background: transparent;
   color: #6F6796;
@@ -230,21 +231,14 @@
   transition: 0.5s ease;
 }
 
-/* .form-header .tab-group li a:hover {
-  background:;
-  color: #ffffff;
-} */
-
 .form-header .tab-group li a {
-  /* background: rgba(19, 6, 84, 0.6); */
   border-bottom: 3px solid #407BFF;
-  /* border-radius: 8px; */
   font-size: 18px;
   color: black;
 }
 
 .form-footer {
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .other_option {
@@ -268,7 +262,7 @@
 
 .login_with_other {
   text-align: center;
-  padding:20px;
+  padding: 10px;
 }
 
 .login_with_other .facebook {
@@ -276,7 +270,7 @@
 }
 
 .option_for_login_signup {
-  padding-top: 20px;
+  padding-top: 15px;
   text-align: center;
 }
 
@@ -321,20 +315,41 @@
   } */
 
   .right-side {
-    padding-top: 95px;
+    margin-top: 80px;
+    height: 100vh;
   }
 
   .blurred-box {
     position: relative;
-    width: 330px;
+    width: auto;
     /* height: 100%; */
     background-color: #fff;
     overflow: hidden;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
     border-radius: 15px;
     padding: 15px 20px;
-    margin-left: 15px;
+    margin-left: 0px;
     /* margin-top:-60px */
+  }
+
+  .img-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .passport_verification_image {
+    height: 200px;
+    width: 260px;
+  }
+
+  .mobileHeadingSignIn .welcomeMessageheading {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .mobileHeadingSignIn .welcomeMessage {
+    font-size: 13px;
+    color: #939393;
   }
 
   .mobileHeading .welcomeMessageheading {
@@ -372,4 +387,81 @@
     cursor: pointer;
   }
 
+}
+
+@media all and (min-width: 767px) and (max-width: 1024px)
+{
+  .login_signup_section {
+    height: 100vh;
+  }
+
+  .desktopView {
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  /* .right-side {
+    padding-top: 95px;
+  } */
+
+  .blurred-box {
+    position: relative;
+    width: auto;
+    /* height: 100%; */
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-left: 55px;
+    /* margin-top:-60px */
+  }
+
+  .img-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .passport_verification_image {
+    height: 247px;
+    width: 260px;
+  }
+
+  .mobileHeading .welcomeMessageheading {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .mobileHeading .welcomeMessage {
+    font-size: 14px;
+    color: #939393;
+  }
+
+  .form-footer {
+    padding-top: 30px;
+  }
+
+  .login_with_other {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .option_for_login_signup {
+    padding-top: 15px;
+    text-align: center;
+  }
+
+  .option_for_login_signup p {
+    font-size: 12px;
+    color: #707070;
+  }
+
+  .option_for_login_signup p span {
+    font-size: 14px;
+    color: #407BFF;
+    cursor: pointer;
+  }
 }

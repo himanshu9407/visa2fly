@@ -28,7 +28,8 @@
   /* border-box */
 }
 
-.form-body .input-group input:focus + .label {
+.form-body .input-group input:focus + .label,
+.form-body .input-group input:valid + .label {
   /* outline: 0; */
   margin-top: -25px;
   color: #407BFF;
@@ -52,7 +53,8 @@
   /* border-box */
 }
 
-.form-body .input-group input:focus + .label_main {
+.form-body .input-group input:focus + .label_main,
+.form-body .input-group input:valid + .label_main {
   /* outline: 0; */
   margin-top: -25px;
   color: #407BFF;
@@ -160,51 +162,6 @@
   transform: rotate(45deg);
 } */
 
-.deskstopView {
-  display: block;
-}
-
-.mobileView {
-  display: none;
-}
-
-
-@media screen and (max-width: 600px) {
-  .deskstopView {
-    display: none;
-  }
-
-  .mobileView {
-    display: block;
-  }
-
-  .form-body .label_main {
-    font-size: 12px;
-  }
-  .form-body .input-group {
-    padding: 0px;
-  }
-
-  .agreeBox {
-    padding-left: 0px;
-  }
-
-  .form-group.tnc input:checked + label:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 3px;
-    height: 8px;
-    border: solid #0079bf;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-
-
-}
-
 /* .change-group {
   display: flex;
   justify-content: space-evenly;
@@ -212,13 +169,17 @@
 
 .change-group .resendBtn button,
 .change-group .resendBtn button:disabled {
-  color: navy;
+  color: #407BFF;
   border: none;
   background: #fff;
   /* padding: 2px 5px; */
-  font-size: 14px;
+  font-size: 12px;
   /* border-radius: 4px; */
 }
+
+.changeDetailsButton {
+  margin-top: -24px;
+} 
 
 .loading svg {
   animation: rotatingLoader 1.5s linear infinite;
@@ -249,6 +210,7 @@
   width: auto;
   padding-top: 15px;
   margin: 0 auto;
+  margin-left: 15px;
 }
 
 .otp-box .box {
@@ -260,10 +222,19 @@
   border: 1px solid gray;
   /* border-radius: 5px; */
   background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.opt-box .box:valid {
   border: 1px solid #407BFF;
   box-sizing: border-box;
   box-shadow: inset 0px 0px 14px rgba(64, 123, 255, 0.13);
-  border-radius: 10px;
+}
+
+.opt-box .box:invalid {
+  border: 1px solid #FF0000;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 14px rgba(255, 0, 0, 0.13);
 }
 
 .show {
@@ -272,4 +243,129 @@
 
 .hide {
   display: none;
+}
+
+.deskstopView {
+  display: block;
+}
+
+.mobileView {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .show {
+    display: flex;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .deskstopView {
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .form-body .label_main {
+    font-size: 12px;
+  }
+  .form-body .input-group {
+    padding: 0px;
+  }
+
+  .form-body .input-group input {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    padding: 0px 5px;
+    font-size: 12px;
+  }
+
+  .form-body .label_main {
+    font-size: 12px;
+    color: #808080;
+    font-weight: 500;
+    margin-bottom: 3px;
+    position: absolute;
+    top: 25%;
+    left: 0%;
+    transition: transLateY(-50%);
+    transition: all 0.3s ease-out;
+  }
+
+  .form-body .input-group input:focus + .label,
+  .form-body .input-group input:valid + .label {
+    /* outline: 0; */
+    margin-top: -20px;
+    color: #407BFF;
+    /* border-box */
+  }
+
+  .form-body .input-group input:focus + .label_main,
+  .form-body .input-group input:valid + .label_main {
+  /* outline: 0; */
+  margin-top: -20px;
+  color: #407BFF;
+  /* border-box */
+}
+
+  .agreeBox {
+    padding-left: 0px;
+  }
+
+  .form-group.tnc input:checked + label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 3px;
+    height: 8px;
+    border: solid #0079bf;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .otp-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding-top: 15px;
+    margin: 0 auto;
+    margin-left: 0px;
+  }
+
+  .otp-box .box {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin-right: 12px;
+    text-align: center;
+    border: 1px solid gray;
+    /* border-radius: 5px; */
+    background: #FFFFFF;
+    border-radius: 10px;
+  }
+  
+  .opt-box .box:valid {
+    border: 1px solid #407BFF;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 14px rgba(64, 123, 255, 0.13);
+  }
+  
+  .opt-box .box:invalid {
+    border: 1px solid #FF0000;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 14px rgba(255, 0, 0, 0.13);
+  }
 }

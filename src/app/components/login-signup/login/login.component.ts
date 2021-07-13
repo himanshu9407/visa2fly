@@ -16,6 +16,7 @@ import { UserFlowDetails } from "src/app/shared/user-flow-details.service";
 import { RouterHistory } from "src/app/shared/router-history.service";
 import { RequirementsService } from "../../requirements/requirements.service";
 import { Meta, Title } from "@angular/platform-browser";
+import { Subscriber, Subscription, timer } from "rxjs";
 
 @Component({
   selector: "app-login",
@@ -38,6 +39,15 @@ export class LoginComponent implements OnInit {
   // showSendOtpButton: boolean = true;
   showSignUpButton: boolean = false;
   showRotatingLoader: boolean = false;
+  disableResend: boolean = true;
+
+  countDown: Subscription;
+  counter = 60;
+  tick = 1000;
+  resendBtnText: string = "Resend OTP";
+
+  deskstopField: boolean = false;
+  mobileField: boolean = false;
 
   constructor(
     private loginService: LoginService,
@@ -80,20 +90,44 @@ export class LoginComponent implements OnInit {
 
     this.loginForm = new FormGroup({
       userId: new FormControl(null, [Validators.required]),
-      otp: new FormControl({ value: null, disabled: !this.showOtpField }, [
+      digit1: new FormControl("", [
         Validators.required,
+        Validators.maxLength(1),
       ]),
-      rememberMe: new FormControl(false),
+      digit2: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit3: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit4: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit5: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      digit6: new FormControl("", [
+        Validators.required,
+        Validators.maxLength(1),
+      ]),
+      // otp: new FormControl({ value: null, disabled: !this.showOtpField }, [
+      //   Validators.required,
+      // ]),
+      // rememberMe: new FormControl(false),
     });
 
-    if (
-      this.loginForm.get("userId").valid ||
-      this.loginForm.get("userId").value !== null
-    ) {
-      this.loginForm.get("otp").enable();
-    } else {
-      this.loginForm.get("otp").disable();
-    }
+    // if (
+    //   this.loginForm.get("userId").valid ||
+    //   this.loginForm.get("userId").value !== null
+    // ) {
+    //   this.loginForm.get("otp").enable();
+    // } else {
+    //   this.loginForm.get("otp").disable();
+    // }
   }
 
   checkUserId() {
@@ -120,29 +154,82 @@ export class LoginComponent implements OnInit {
     this.loginForm.markAsPristine();
     this.loginForm.markAsUntouched();
     this.loginForm.enable();
-    this.loginForm.setValue({ userId: "", otp: "", rememberMe: false });
+    this.loginForm.setValue(
+      { userId: "", 
+        digit1: "", 
+        digit2: "",
+        digit3: "",
+        digit4: "",
+        digit5:"",
+        digit6:"" }
+      );
     this.showLoader = false;
     this.showLoginButton = false;
   }
 
-  setFormForUser() {
-    this.showOtpField = false;
-    // this.loginForm.enable();
-    this.showLoader = false;
-    this.loginForm.get('userId').enable();
-    this.loginForm.get('otp').disable();
+  resendDetails () {
     this.loginForm.markAsPristine();
     this.loginForm.markAsUntouched();
-    this.loginForm.setValue({ userId: "", otp: "", rememberMe: false });
+    this.loginForm.enable();
+    this.loginForm.setValue(
+      { userId: "", 
+        digit1: "", 
+        digit2: "",
+        digit3: "",
+        digit4: "",
+        digit5:"",
+        digit6:"" }
+      );
+     this.showSendOtp = true;
+     this.showLoginButton = false; 
+  }
+
+  setFormForUser() {
+    this.showOtpField = false;
+    this.loginForm.enable();
+    this.showLoader = false;
+    // this.loginForm.get('userId').enable();
+    // this.loginForm.get('otp').disable();
+    this.loginForm.markAsPristine();
+    this.loginForm.markAsUntouched();
+    this.loginForm.setValue(
+      { userId: "", 
+        digit1: "", 
+        digit2: "",
+        digit3: "",
+        digit4: "",
+        digit5:"",
+        digit6:"" }
+      );
     this.showLoginButton = true;
     this.showSendOtp = true;
     this.showLoginButton = false;
   }
 
-  // bringBack(){
-  //   this.showLoader = true;
-  //   this.showSendOtp = false;
-  // }
+  afterSuccessfullOtpSend() {
+    this.loginForm.get('userId').disable();
+    this.otpSentCount++;
+    this.showLoginButton = true;
+    this.showRotatingLoader = false;
+    this.showSendOtp = false;
+    this.changeNumber = true;
+    this.showOtpBox = true;
+  }
+
+  counterFunc() {
+    this.countDown = timer(0, this.tick).subscribe(() => {
+      if (this.counter === 0) {
+        this.countDown.unsubscribe();
+        this.resendBtnText = "Resend OTP";
+        this.disableResend = false;
+        return;
+      } else {
+        this.resendBtnText = "Resend in " + this.counter + "s";
+        --this.counter;
+      }
+    });
+  }
+
 
   sendOtp() {
     if (
@@ -154,42 +241,50 @@ export class LoginComponent implements OnInit {
     } else {
       this.showLoader = true;
       this.showSendOtp = false;
-      this.loginForm.get("otp").enable();
-      // this.showOtpField  =true;
       let userId = this.loginForm.get("userId").value;
       this.loginService.sendLoginOtp(userId).subscribe((data) => {
         if (!data) {
           this.toastr.error("Something Went wrong! Please try again later.");
           this.setFormFresh();
         } else if (data.code == "0") {
-          this.showLoader = false;
-          this.showLoginButton = true;
-          this.showAlertMessage();
-          this.loginForm.get("userId").disable();
-          this.showOtpField = true;
-          this.changeNumber = true;
-          this.otpSentCount = this.otpSentCount + 1;
+          this.afterSuccessfullOtpSend();
+          this.disableResend = true;
+          this.counter = 60;
+          this.counterFunc();
+        } else if(data.code === '309') {
+          this.toastr.error(data.message.toString());
+          this.showLoginButton = false;
+          this.showRotatingLoader = false;
+          this.showSendOtp = true;
+          this.changeNumber = false;
+        } else if(data.code === '312') {
+          this.toastr.error(data.message.toString());
+          this.resendDetails();
+          this.showOtpBox = false;
         } else {
-          this.toastr.error(data.message);
-          this.showLoader = false;
-          this.credentialError = true;
-          //this.setFormFresh();
+          this.toastr.error(data.message.toString());
+          this.showLoginButton = false;
+          this.showRotatingLoader = false;
           this.showSendOtp = true;
         }
       }, (err) => {
         this.toastr.error("Something went wrong.");
-        this.credentialError = true;
-        this.showLoader = false;
+        this.showLoginButton = false;
         this.showSendOtp = true;
+        this.showRotatingLoader = false;
+        this.setFormFresh();
       });
     }
   }
 
   changeUserNumber() {
-    this.setFormForUser();
-    // this.bringBack();
-    this.changeNumber = false;
-    this.showAlert = false;
+    this.resendDetails();
+    this.showSendOtp = true;
+    this.showLoginButton = false;
+    this.showRotatingLoader = false;
+    this.showOtpField = false;
+    this.showOtpBox = false;
+    this.loginForm.enable();
   }
 
   showAlertMessage() {
@@ -201,13 +296,40 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.loginForm.valid) {
-      this.toastr.error("Kindly Enter Valid Credentials");
+      let digit1 = this.loginForm.get("digit1").value;
+      let digit2 = this.loginForm.get("digit2").value;
+      let digit3 = this.loginForm.get("digit3").value;
+      let digit4 = this.loginForm.get("digit4").value;
+      let digit5 = this.loginForm.get("digit5").value;
+      let digit6 = this.loginForm.get("digit6").value;
+    if (this.loginForm.get("digit1").invalid ||
+        this.loginForm.get("digit2").invalid ||
+        this.loginForm.get("digit3").invalid ||
+        this.loginForm.get("digit4").invalid ||
+        this.loginForm.get("digit5").invalid ||
+        this.loginForm.get("digit6").invalid ) {
+      this.toastr.error("Enter valid OTP");
     } else {
+
+        let reqBody = {
+          userId: "",
+          otp: "",
+          rememberMe: ""
+        };
+
+        let digit1 = this.loginForm.get("digit1").value;
+        let digit2 = this.loginForm.get("digit2").value;
+        let digit3 = this.loginForm.get("digit3").value;
+        let digit4 = this.loginForm.get("digit4").value;
+        let digit5 = this.loginForm.get("digit5").value;
+        let digit6 = this.loginForm.get("digit6").value;
+
         this.showLoader = true;
         this.showLoginButton = false;
-        let userId = this.loginForm.get("userId").value;
-        let otp = this.loginForm.get("otp").value;
+        reqBody.userId = this.loginForm.get("userId").value;
+        reqBody.otp = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+        // let otp = this.loginForm.get("otp").value;
+
         let rememberMe = this.loginForm.get("rememberMe").value;
         let temp = this.checkUserId();
 
@@ -217,7 +339,7 @@ export class LoginComponent implements OnInit {
           (data1: { ip: string }) => {
             this.ipAddress = data1.ip;
             this.loginService
-              .loginUser(userId, otp, rememberMe, this.ipAddress, temp)
+              .loginUser(reqBody, this.ipAddress, temp)
               .subscribe(
                 (data: LoginResponseModel) => {
 
@@ -285,5 +407,5 @@ export class LoginComponent implements OnInit {
           }
         );
       }
-    }
+  }
 }
