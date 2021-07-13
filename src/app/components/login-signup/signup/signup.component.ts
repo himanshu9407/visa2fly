@@ -149,7 +149,7 @@ export class SignupComponent implements OnInit {
         lastName: "",
         cell: "",
         otp: "",
-        acceptedTOC: "",
+        acceptedTOC: "true",
       };
 
       let digit1 = this.signupForm.get("digit1").value;
@@ -165,7 +165,7 @@ export class SignupComponent implements OnInit {
       reqBody.lastName = this.signupForm.get("lastName").value;
       reqBody.cell = this.signupForm.get("mobile").value;
       reqBody.otp = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
-      reqBody.acceptedTOC = this.signupForm.get("tnc").value;
+      // reqBody.acceptedTOC = true;
 
       this.singUpService.createUser(reqBody).subscribe((data: any) => {
         if (!data) {

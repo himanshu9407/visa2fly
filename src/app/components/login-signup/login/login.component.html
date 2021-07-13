@@ -1,9 +1,9 @@
 <section>
   <form class="form-body" [formGroup]="loginForm">
     <div class="row" [ngClass]="{ hide: showOtpBox, show: !showOtpBox }">
-      <div class="col-12 pb-2 desktopView">
+      <div class="col-12 desktopView">
         <div class="invalid-feedback" style="display: block">
-          <div *ngIf="credentialError">
+          <div class="credentialError" *ngIf="credentialError">
             You entered wrong credential.please enter valid data
           </div>
         </div>
@@ -72,6 +72,15 @@
             <path d="M11.435 11.4212C11.3334 11.5224 11.2231 11.6077 11.1071 11.682L3.34575 19.433C2.58858 20.1889 1.36016 20.1892 0.60263 19.4327C-0.154898 18.6765 -0.154898 17.45 0.60263 16.6931L7.28676 10.0175L0.568148 3.30712C-0.18938 2.55092 -0.18938 1.32479 0.568148 0.567514C0.947091 0.188697 1.44385 7.62939e-06 1.93953 7.62939e-06C2.43521 7.62939e-06 2.93232 0.188697 3.31091 0.567514L11.1071 8.35443C11.2231 8.42868 11.3341 8.51406 11.435 8.61522C11.8222 9.00193 12.009 9.51133 11.9997 10.0182C12.009 10.5251 11.8222 11.0341 11.435 11.4212Z" fill="white"/>
           </svg>
           </button>
+        </div>
+        <div class="invalid-feedback" style="display: block">
+          <div
+            *ngIf="
+              loginForm.get('userId').invalid && loginForm.get('userId').dirty
+            "
+          >
+            Enter a valid email address or mobile number *
+          </div>
         </div>
         </div>
       </div>
@@ -249,7 +258,7 @@
         </div>
       </div> -->
     </div>
-
+    <!--  -->
     <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }">
       <div class="form-group w-100 otpContainer">
         <div
@@ -268,6 +277,7 @@
               formControlName="digit1"
               maxlength="1"
               autocomplete="off"
+              required
             />
             <input
               id="digit2"
@@ -279,6 +289,7 @@
               formControlName="digit2"
               maxlength="1"
               autocomplete="off"
+              required
             />
             <input
               id="digit3"
@@ -290,6 +301,7 @@
               formControlName="digit3"
               maxlength="1"
               autocomplete="off"
+              required
             />
             <input
               id="digit4"
@@ -301,6 +313,7 @@
               formControlName="digit4"
               maxlength="1"
               autocomplete="off"
+              required
             />
             <input
               id="digit5"
@@ -312,6 +325,7 @@
               formControlName="digit5"
               maxlength="1"
               autocomplete="off"
+              required
             />
             <input
               id="digit6"
@@ -323,7 +337,11 @@
               formControlName="digit6"
               maxlength="1"
               autocomplete="off"
+              required
             />
+          </div>
+          <div class="invalid-feedback" *ngIf="deskstopField">
+            Otp you entered is incorrect please try again
           </div>
         </div>
       </div>

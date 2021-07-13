@@ -120,6 +120,19 @@ export class LoginComponent implements OnInit {
       // rememberMe: new FormControl(false),
     });
 
+    $(function () {
+      $(".box").on("keyup", function (e) {
+        var $input = $(this);
+        if ((<any>$input.val()).length == 0 && e.which == 8) {
+          $input.toggleClass("productkey2 productkey1").prev(".box").focus();
+        } else if (
+          (<any>$input.val()).length >= parseInt($input.attr("maxlength"), 10)
+        ) {
+          $input.toggleClass("productkey1 productkey2").next(".box").focus();
+        }
+      });
+    });
+
     // if (
     //   this.loginForm.get("userId").valid ||
     //   this.loginForm.get("userId").value !== null
@@ -237,6 +250,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.get("userId").dirty) ||
       this.loginForm.get("userId").pristine
     ) {
+      this.credentialError = true;
       this.toastr.error("Kindly Enter Your Email/Mobile Number");
     } else {
       this.showLoader = true;
@@ -254,16 +268,19 @@ export class LoginComponent implements OnInit {
         } else if(data.code === '309') {
           this.toastr.error(data.message.toString());
           this.showLoginButton = false;
+          this.credentialError = true;
           this.showRotatingLoader = false;
           this.showSendOtp = true;
           this.changeNumber = false;
         } else if(data.code === '312') {
           this.toastr.error(data.message.toString());
+          this.credentialError = true;
           this.resendDetails();
           this.showOtpBox = false;
         } else {
           this.toastr.error(data.message.toString());
           this.showLoginButton = false;
+          this.credentialError = true;
           this.showRotatingLoader = false;
           this.showSendOtp = true;
         }
@@ -308,14 +325,15 @@ export class LoginComponent implements OnInit {
         this.loginForm.get("digit4").invalid ||
         this.loginForm.get("digit5").invalid ||
         this.loginForm.get("digit6").invalid ) {
+        this.deskstopField = true;
       this.toastr.error("Enter valid OTP");
     } else {
 
-        let reqBody = {
-          userId: "",
-          otp: "",
-          rememberMe: ""
-        };
+        // let reqBody = {
+        //   userId: "",
+        //   otp: "",
+        //   rememberMe: "true"
+        // };
 
         let digit1 = this.loginForm.get("digit1").value;
         let digit2 = this.loginForm.get("digit2").value;
@@ -326,20 +344,21 @@ export class LoginComponent implements OnInit {
 
         this.showLoader = true;
         this.showLoginButton = false;
-        reqBody.userId = this.loginForm.get("userId").value;
-        reqBody.otp = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+        let userId = this.loginForm.get("userId").value;
+        let otp = digit1 + digit2 + digit3 + digit4 + digit5 + digit6;
+        let rememberMe = true;
         // let otp = this.loginForm.get("otp").value;
 
-        let rememberMe = this.loginForm.get("rememberMe").value;
+        // let rememberMe = this.loginForm.get("rememberMe").value;
         let temp = this.checkUserId();
 
-        this.userFlowService.setExpiry(rememberMe);
+        this.userFlowService.setExpiry(true);
 
         this.getIP.getClientIP().subscribe(
           (data1: { ip: string }) => {
             this.ipAddress = data1.ip;
             this.loginService
-              .loginUser(reqBody, this.ipAddress, temp)
+              .loginUser(userId, otp, rememberMe, this.ipAddress, temp)
               .subscribe(
                 (data: LoginResponseModel) => {
 
@@ -389,7 +408,7 @@ export class LoginComponent implements OnInit {
                       this.toastr.error(data.message);
                       this.showLoader = false;
                       // console.log('kjh');
-
+                      this.deskstopField = true;
                       this.showLoginButton = true;
                       // this.showOtpField = false;
                       this.otpSentCount = 0;

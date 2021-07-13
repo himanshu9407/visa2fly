@@ -60,7 +60,9 @@ export class LoginService {
   }
 
   loginUser(
-    reqBody,
+    userId: string,
+    otp: string,
+    rememberMe: boolean,
     ip: string,
     temp: { email: boolean; mobile: boolean }
   ): Observable<any> {
@@ -68,26 +70,26 @@ export class LoginService {
       "Content-Type": "application/json",
       "visa-client": "0",
     });
-    // let reqBody = {};
-    // if (temp.email) {
-    //   reqBody = {
-    //     emailId: userId,
-    //     cell: "",
-    //     otp: otp,
-    //     remember: rememberMe,
-    //     ipAddress: ip,
-    //     loginAttemptMethod: "0",
-    //   };
-    // } else if (temp.mobile) {
-    //   reqBody = {
-    //     emailId: "",
-    //     cell: userId,
-    //     otp: otp,
-    //     remember: rememberMe,
-    //     ipAddress: ip,
-    //     loginAttemptMethod: "0",
-    //   };
-    // }
+    let reqBody = {};
+    if (temp.email) {
+      reqBody = {
+        emailId: userId,
+        cell: "",
+        otp: otp,
+        remember: rememberMe,
+        ipAddress: ip,
+        loginAttemptMethod: "0",
+      };
+    } else if (temp.mobile) {
+      reqBody = {
+        emailId: "",
+        cell: userId,
+        otp: otp,
+        remember: rememberMe,
+        ipAddress: ip,
+        loginAttemptMethod: "0",
+      };
+    }
 
     let reqBodyFinal = JSON.stringify(reqBody);
 
