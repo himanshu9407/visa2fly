@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
   tick = 1000;
   disableResend: boolean = true;
   resendBtnText: string = "Resend OTP";
+  deskstopField: boolean = false;
 
   constructor(
     private singUpService: SignupService,
@@ -112,10 +113,32 @@ export class SignupComponent implements OnInit {
         var $input = $(this);
         if ((<any>$input.val()).length == 0 && e.which == 8) {
           $input.toggleClass("productkey2 productkey1").prev(".box").focus();
+          $("#digit1").removeClass("errorForOtp");
+          // this.loginForm.get("digit2").reset();
+          $("#digit2").removeClass("errorForOtp");
+          // this.loginForm.get("digit3").reset();
+          $("#digit3").removeClass("errorForOtp");
+          // this.loginForm.get("digit4").reset();
+          $("#digit4").removeClass("errorForOtp");
+          // this.loginForm.get("digit5").reset();
+          $("#digit5").removeClass("errorForOtp");
+          // this.loginForm.get("digit6").reset();
+          $("#digit6").removeClass("errorForOtp");
         } else if (
           (<any>$input.val()).length >= parseInt($input.attr("maxlength"), 10)
         ) {
           $input.toggleClass("productkey1 productkey2").next(".box").focus();
+          $("#digit1").removeClass("errorForOtp");
+          // this.loginForm.get("digit2").reset();
+          $("#digit2").removeClass("errorForOtp");
+          // this.loginForm.get("digit3").reset();
+          $("#digit3").removeClass("errorForOtp");
+          // this.loginForm.get("digit4").reset();
+          $("#digit4").removeClass("errorForOtp");
+          // this.loginForm.get("digit5").reset();
+          $("#digit5").removeClass("errorForOtp");
+          // this.loginForm.get("digit6").reset();
+          $("#digit6").removeClass("errorForOtp");
         }
       });
     });
@@ -170,7 +193,19 @@ export class SignupComponent implements OnInit {
       this.singUpService.createUser(reqBody).subscribe((data: any) => {
         if (!data) {
           this.toastr.error("Something Went wrong");
-          this.setFormFresh();
+          this.signupForm.get("digit1").reset();
+          $("#digit1").addClass("errorForOtp");
+          this.signupForm.get("digit2").reset();
+          $("#digit2").addClass("errorForOtp");
+          this.signupForm.get("digit3").reset();
+          $("#digit3").addClass("errorForOtp");
+          this.signupForm.get("digit4").reset();
+          $("#digit4").addClass("errorForOtp");
+          this.signupForm.get("digit5").reset();
+          $("#digit5").addClass("errorForOtp");
+          this.signupForm.get("digit6").reset();
+          $("#digit6").addClass("errorForOtp");
+          // this.setFormFresh();
         } else if (data.code == "0") {
           this.loginService.setAuthToken(data.data.authentication.token);
           this.loginService.setUserStatus(true);
@@ -201,7 +236,20 @@ export class SignupComponent implements OnInit {
         } else {
           this.toastr.error(data.message.toString());
           this.showRotatingLoader = false;
+          this.signupForm.get("digit1").reset();
+          $("#digit1").addClass("errorForOtp");
+          this.signupForm.get("digit2").reset();
+          $("#digit2").addClass("errorForOtp");
+          this.signupForm.get("digit3").reset();
+          $("#digit3").addClass("errorForOtp");
+          this.signupForm.get("digit4").reset();
+          $("#digit4").addClass("errorForOtp");
+          this.signupForm.get("digit5").reset();
+          $("#digit5").addClass("errorForOtp");
+          this.signupForm.get("digit6").reset();
+          $("#digit6").addClass("errorForOtp");
           this.showLoader = false;
+          this.deskstopField = true;
           this.showSignUpButton = true;
         }
       });
@@ -385,6 +433,20 @@ export class SignupComponent implements OnInit {
         --this.counter;
       }
     });
+  }
+
+  validateNumber(event) {
+    const keyCode = event.keyCode;
+    this.deskstopField = false;
+    const excludedKeys = [8, 37, 39, 46];
+
+    if (!((keyCode >= 48 && keyCode <= 57) ||
+      (keyCode >= 96 && keyCode <= 105) ||
+      (excludedKeys.includes(keyCode)))) {
+      event.preventDefault();
+      // this.loginForm.get("digit1").reset();
+
+    }
   }
 
   ngOnDestroy() {

@@ -383,6 +383,7 @@
             formControlName="digit1"
             maxlength="1"
             autocomplete="off"
+            (keydown)="validateNumber($event)"
             [ngClass]="{
               'is-invalid-new':
                 signupForm.get('digit1').invalid &&
@@ -405,6 +406,7 @@
             formControlName="digit2"
             maxlength="1"
             autocomplete="off"
+            (keydown)="validateNumber($event)"
             [ngClass]="{
               'is-invalid-new':
                 signupForm.get('digit2').invalid &&
@@ -427,6 +429,7 @@
             formControlName="digit3"
             maxlength="1"
             autocomplete="off"
+            (keydown)="validateNumber($event)"
             [ngClass]="{
               'is-invalid-new':
                 signupForm.get('digit3').invalid &&
@@ -449,6 +452,7 @@
             formControlName="digit4"
             maxlength="1"
             autocomplete="off"
+            (keydown)="validateNumber($event)"
             [ngClass]="{
               'is-invalid-new':
                 signupForm.get('digit4').invalid &&
@@ -471,6 +475,7 @@
             formControlName="digit5"
             maxlength="1"
             autocomplete="off"
+            (keydown)="validateNumber($event)"
             [ngClass]="{
               'is-invalid-new':
                 signupForm.get('digit5').invalid &&
@@ -493,6 +498,7 @@
             formControlName="digit6"
             maxlength="1"
             autocomplete="off"
+            (keydown)="validateNumber($event)"
             [ngClass]="{
               'is-invalid-new':
                 signupForm.get('digit6').invalid &&
@@ -506,10 +512,14 @@
             required
           />
         </div>
+        <div class="invalid-feedback" style="display: block; margin-top: 10px; background: rgba(255, 0, 0, 0.07); border-radius: 15px;
+        text-align: center;" *ngIf="deskstopField">
+          Otp you entered is incorrect please try again
+        </div>
       </div>
     </div>
     <!-- *ngIf="showSignUpButton" -->
-    <div class="col-12 button-group" *ngIf="showSignUpButton">
+    <div class="col-12 button-group loginButton" *ngIf="showSignUpButton">
       <button
         (click)="createUser()"
         [type]="showOtpBox ? 'submit' : 'button'"

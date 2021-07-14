@@ -30,7 +30,6 @@
         />
         <label>Enter Email/Cell Number</label>
       </div>
-      <!--  -->
       <div class="col-12 desktopView sendOtp_deskstopButton" *ngIf="showSendOtp">
         <button class="btn onlyForDeskstop" type="button" (click)="sendOtp()">Get OTP</button>
       </div>
@@ -249,7 +248,6 @@
         </div>
       </div> -->
     </div>
-    <!-- -->
     <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }" >
       <div class="form-group w-100 otpContainer">
         <div
@@ -268,6 +266,7 @@
               formControlName="digit1"
               maxlength="1"
               autocomplete="off"
+              (keydown)="validateNumber($event)"
               [ngClass]="{
                 'is-invalid-new':
                   loginForm.get('digit1').invalid && loginForm.get('digit1').dirty,
@@ -288,6 +287,7 @@
               formControlName="digit2"
               maxlength="1"
               autocomplete="off"
+              (keydown)="validateNumber($event)"
               [ngClass]="{
                 'is-invalid-new':
                   loginForm.get('digit2').invalid && loginForm.get('digit2').dirty,
@@ -308,6 +308,7 @@
               formControlName="digit3"
               maxlength="1"
               autocomplete="off"
+              (keydown)="validateNumber($event)"
               [ngClass]="{
                 'is-invalid-new':
                   loginForm.get('digit3').invalid && loginForm.get('digit3').dirty,
@@ -328,6 +329,7 @@
               formControlName="digit4"
               maxlength="1"
               autocomplete="off"
+              (keydown)="validateNumber($event)"
               [ngClass]="{
                 'is-invalid-new':
                   loginForm.get('digit4').invalid && loginForm.get('digit4').dirty,
@@ -348,6 +350,7 @@
               formControlName="digit5"
               maxlength="1"
               autocomplete="off"
+              (keydown)="validateNumber($event)"
               [ngClass]="{
                 'is-invalid-new':
                   loginForm.get('digit5').invalid && loginForm.get('digit5').dirty,
@@ -368,6 +371,7 @@
               formControlName="digit6"
               maxlength="1"
               autocomplete="off"
+              (keydown)="validateNumber($event)"
               [ngClass]="{
                 'is-invalid-new':
                   loginForm.get('digit6').invalid && loginForm.get('digit6').dirty,
@@ -384,7 +388,7 @@
           </div>
         </div>
       </div>
-      <!-- " -->
+      <!--  -->
       <div class="col-12 button-group loginButton" *ngIf="showLoginButton">
         <button
           (click)="onSubmit()"

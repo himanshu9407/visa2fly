@@ -125,10 +125,32 @@ export class LoginComponent implements OnInit {
         var $input = $(this);
         if ((<any>$input.val()).length == 0 && e.which == 8) {
           $input.toggleClass("productkey2 productkey1").prev(".box").focus();
+          $("#digit1").removeClass("errorForOtp");
+          // this.loginForm.get("digit2").reset();
+          $("#digit2").removeClass("errorForOtp");
+          // this.loginForm.get("digit3").reset();
+          $("#digit3").removeClass("errorForOtp");
+          // this.loginForm.get("digit4").reset();
+          $("#digit4").removeClass("errorForOtp");
+          // this.loginForm.get("digit5").reset();
+          $("#digit5").removeClass("errorForOtp");
+          // this.loginForm.get("digit6").reset();
+          $("#digit6").removeClass("errorForOtp");
         } else if (
           (<any>$input.val()).length >= parseInt($input.attr("maxlength"), 10)
         ) {
           $input.toggleClass("productkey1 productkey2").next(".box").focus();
+          $("#digit1").removeClass("errorForOtp");
+          // this.loginForm.get("digit2").reset();
+          $("#digit2").removeClass("errorForOtp");
+          // this.loginForm.get("digit3").reset();
+          $("#digit3").removeClass("errorForOtp");
+          // this.loginForm.get("digit4").reset();
+          $("#digit4").removeClass("errorForOtp");
+          // this.loginForm.get("digit5").reset();
+          $("#digit5").removeClass("errorForOtp");
+          // this.loginForm.get("digit6").reset();
+          $("#digit6").removeClass("errorForOtp");
         }
       });
     });
@@ -312,6 +334,38 @@ export class LoginComponent implements OnInit {
     }, 5000);
   }
 
+  validateNumber(event) {
+    const keyCode = event.keyCode;
+    this.deskstopField = false;
+    const excludedKeys = [8, 37, 39, 46];
+
+    if (!((keyCode >= 48 && keyCode <= 57) ||
+      (keyCode >= 96 && keyCode <= 105) ||
+      (excludedKeys.includes(keyCode)))) {
+      event.preventDefault();
+      // this.loginForm.get("digit1").reset();
+
+    }
+  }
+
+  // otpFieldFunction(){
+  //   this.loginForm.get("digit1").invalid;
+  //   this.loginForm.get("digit2").invalid;
+  //   this.loginForm.get("digit3").invalid;
+  //   this.loginForm.get("digit4").invalid;
+  //   this.loginForm.get("digit5").invalid;
+  //   this.loginForm.get("digit6").invalid;
+  //   this.loginForm.setValue(
+  //     { userId: "",
+  //       digit1: "",
+  //       digit2: "",
+  //       digit3: "",
+  //       digit4: "",
+  //       digit5:"",
+  //       digit6:"" }
+  //     );
+  // }
+
   onSubmit() {
       let digit1 = this.loginForm.get("digit1").value;
       let digit2 = this.loginForm.get("digit2").value;
@@ -326,15 +380,9 @@ export class LoginComponent implements OnInit {
         this.loginForm.get("digit5").invalid ||
         this.loginForm.get("digit6").invalid ) {
         this.deskstopField = true;
+        // this.otpFieldFunction();
         this.toastr.error("Enter valid OTP");
     } else {
-
-        // let reqBody = {
-        //   userId: "",
-        //   otp: "",
-        //   rememberMe: "true"
-        // };
-
         let digit1 = this.loginForm.get("digit1").value;
         let digit2 = this.loginForm.get("digit2").value;
         let digit3 = this.loginForm.get("digit3").value;
@@ -366,7 +414,18 @@ export class LoginComponent implements OnInit {
                     this.toastr.error(
                       "Something Went wrong! Please try again later."
                     );
-                    this.setFormFresh();
+                      this.loginForm.get("digit1").reset();
+                      $("#digit1").addClass("errorForOtp");
+                      this.loginForm.get("digit2").reset();
+                      $("#digit2").addClass("errorForOtp");
+                      this.loginForm.get("digit3").reset();
+                      $("#digit3").addClass("errorForOtp");
+                      this.loginForm.get("digit4").reset();
+                      $("#digit4").addClass("errorForOtp");
+                      this.loginForm.get("digit5").reset();
+                      $("#digit5").addClass("errorForOtp");
+                      this.loginForm.get("digit6").reset();
+                      $("#digit6").addClass("errorForOtp");
                   } else {
                     if (data.code == "0") {
                       this.loginService.setAuthToken(
@@ -409,6 +468,18 @@ export class LoginComponent implements OnInit {
                       this.showLoader = false;
                       // console.log('kjh');
                       this.deskstopField = true;
+                      this.loginForm.get("digit1").reset();
+                      $("#digit1").addClass("errorForOtp");
+                      this.loginForm.get("digit2").reset();
+                      $("#digit2").addClass("errorForOtp");
+                      this.loginForm.get("digit3").reset();
+                      $("#digit3").addClass("errorForOtp");
+                      this.loginForm.get("digit4").reset();
+                      $("#digit4").addClass("errorForOtp");
+                      this.loginForm.get("digit5").reset();
+                      $("#digit5").addClass("errorForOtp");
+                      this.loginForm.get("digit6").reset();
+                      $("#digit6").addClass("errorForOtp");
                       this.showLoginButton = true;
                       // this.showOtpField = false;
                       this.otpSentCount = 0;
