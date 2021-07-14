@@ -275,7 +275,7 @@ export class LoginComponent implements OnInit {
       this.credentialError = true;
       this.toastr.error("Kindly Enter Your Email/Mobile Number");
     } else {
-      this.showLoader = true;
+      this.showRotatingLoader = true;
       this.showSendOtp = false;
       let userId = this.loginForm.get("userId").value;
       this.loginService.sendLoginOtp(userId).subscribe((data) => {
