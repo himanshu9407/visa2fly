@@ -19,6 +19,7 @@
   position: absolute;
   top: 25%;
   left: 6%;
+  pointer-events: none;
   transition: transLateY(-50%);
   transition: all 0.3s ease-out;
 }
@@ -29,7 +30,7 @@
 }
 
 .form-body .input-group input:focus + .label,
-.form-body .input-group input:valid + .label {
+.form-body .input-group input:valid + .label,.form-body .input-group input.is-invalid ~ .label {
   /* outline: 0; */
   margin-top: -25px;
   color: #407BFF;
@@ -44,6 +45,7 @@
   position: absolute;
   top: 25%;
   left: 3%;
+  pointer-events: none;
   transition: transLateY(-50%);
   transition: all 0.3s ease-out;
 }
@@ -54,7 +56,7 @@
 }
 
 .form-body .input-group input:focus + .label_main,
-.form-body .input-group input:valid + .label_main {
+.form-body .input-group input:valid + .label_main,.form-body .input-group input.is-invalid ~ .label_main {
   /* outline: 0; */
   margin-top: -25px;
   color: #407BFF;
@@ -179,7 +181,7 @@
 
 .changeDetailsButton {
   margin-top: -24px;
-} 
+}
 
 .loading svg {
   animation: rotatingLoader 1.5s linear infinite;
@@ -225,16 +227,16 @@
   border-radius: 10px;
 }
 
-.opt-box .box:valid {
+.is-valid-new {
   border: 1px solid #407BFF;
   box-sizing: border-box;
   box-shadow: inset 0px 0px 14px rgba(64, 123, 255, 0.13);
 }
 
-.opt-box .box:invalid {
-  border: 1px solid #FF0000;
-  box-sizing: border-box;
-  box-shadow: inset 0px 0px 14px rgba(255, 0, 0, 0.13);
+ .is-invalid-new {
+  border: 1px solid #FF0000 !important;
+  box-sizing: border-box !important;
+  box-shadow: inset 0px 0px 14px rgba(255, 0, 0, 0.13) !important;
 }
 
 .show {
@@ -253,15 +255,15 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .show {
     display: flex;
   }
-  
+
   .hide {
     display: none;
   }
-  
+
   .deskstopView {
     display: none;
   }
@@ -298,6 +300,7 @@
     position: absolute;
     top: 25%;
     left: 0%;
+    pointer-events: none;
     transition: transLateY(-50%);
     transition: all 0.3s ease-out;
   }
@@ -356,16 +359,16 @@
     background: #FFFFFF;
     border-radius: 10px;
   }
-  
-  .opt-box .box:valid {
+
+  .is-valid-new {
     border: 1px solid #407BFF;
     box-sizing: border-box;
     box-shadow: inset 0px 0px 14px rgba(64, 123, 255, 0.13);
   }
-  
-  .opt-box .box:invalid {
-    border: 1px solid #FF0000;
-    box-sizing: border-box;
-    box-shadow: inset 0px 0px 14px rgba(255, 0, 0, 0.13);
+
+   .is-invalid-new {
+    border: 1px solid #FF0000 !important;
+    box-sizing: border-box !important;
+    box-shadow: inset 0px 0px 14px rgba(255, 0, 0, 0.13) !important;
   }
 }

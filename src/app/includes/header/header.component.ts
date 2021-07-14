@@ -119,21 +119,24 @@ export class HeaderComponent implements OnInit {
           this.showTransparentNavbar = false;
           this.visa2FlyForAll = true;
           this.visa2FlyForLogin = false;
-          $("a").removeClass("content").addClass("login");
-          $("button").addClass("btn-outline-light");
+          // $("#loginBUtton").removeClass("content").addClass("login");
+          $("#loginButton").addClass("login").css({"display": "block"});
+          $("#signupButton").addClass("btn-outline-light").css({"display": "block"});
+          // $("button").addClass("btn-outline-light");
           $("a").removeClass("content").addClass("navlink");
         } else if(arr[1] == "slcontainer") {
           this.showTransparentNavbar = true;
           this.visa2FlyForLogin = true;
           this.visa2FlyForAll = false;
-          $("a").removeClass("login").addClass("content");
+          $("#loginButton").removeClass("login").css({"display": "none"});
           $("a").removeClass("navlink").addClass("content");
-          $("button").removeClass("btn-outline-light").css({"border":"1px solid black","font-weight":"600"});
+          $("#signupButton").removeClass("btn-outline-light").css({"display":"none"});
         } else {
           this.visa2FlyForAll = true;
           this.visa2FlyForLogin = false;
-          $("a").removeClass("content").addClass("login");
-          $("button").addClass("btn-outline-light");
+          $("#loginButton").addClass("login").css({"display": "block"});
+          $("#signupButton").addClass("btn-outline-light").css({"display": "block"});
+          // $("button").addClass("btn-outline-light");
           $("a").removeClass("content").addClass("navlink");
           // $("#visa").removeClass("content");
           this.showTransparentNavbar = true;

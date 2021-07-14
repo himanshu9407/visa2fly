@@ -167,20 +167,21 @@
 } */
 
 .login_signup_section {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: #fff;
   padding-top: 10px;
+  padding-bottom: 30px;
 }
 
 .desktopView.login_decoration .visaImage {
-  height: 420px;
+  height: 400px;
   position: absolute;
-  top: 150px;
+  top: 120px;
   left: 171px;
 }
 
 .right-side {
-  margin-top: 95px;
+  margin-top: 45px;
   height: calc(100vh - 150px);
 }
 
@@ -238,7 +239,7 @@
 }
 
 .form-footer {
-  padding-top: 10px;
+  padding-top: 25px;
 }
 
 .other_option {
@@ -262,7 +263,7 @@
 
 .login_with_other {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
 }
 
 .login_with_other .facebook {
@@ -270,7 +271,7 @@
 }
 
 .option_for_login_signup {
-  padding-top: 15px;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -293,7 +294,7 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .login_signup_section {
     height: 100vh;
   }
@@ -306,28 +307,20 @@
     display: block;
   }
 
-  /* .desktopView.login_decoration .visaImage {
-    width: 260px;
-    height: 247px;
-    position: absolute;
-    top: 136px;
-    left: 51px;
-  } */
-
   .right-side {
-    margin-top: 80px;
-    height: 100vh;
+    margin-top: 15px;
+    /* height: 100vh; */
   }
 
   .blurred-box {
     position: relative;
     width: auto;
-    /* height: 100%; */
+    height: auto;
     background-color: #fff;
     overflow: hidden;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    box-shadow: none;
     border-radius: 15px;
-    padding: 15px 20px;
+    padding: 0px 15px;
     margin-left: 0px;
     /* margin-top:-60px */
   }
@@ -335,6 +328,7 @@
   .img-box {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
   }
 
   .passport_verification_image {
@@ -342,14 +336,22 @@
     width: 260px;
   }
 
+  .mobileHeadingSignIn {
+    margin-top: 20px;
+  }
+
   .mobileHeadingSignIn .welcomeMessageheading {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
   }
 
   .mobileHeadingSignIn .welcomeMessage {
     font-size: 13px;
     color: #939393;
+  }
+
+  .mobileHeading {
+    margin-top: 20px;
   }
 
   .mobileHeading .welcomeMessageheading {
@@ -368,11 +370,12 @@
 
   .login_with_other {
     text-align: center;
-    padding: 0px;
+    padding: 10px;
   }
 
   .option_for_login_signup {
-    padding-top: 0px;
+    padding-top: 15px;
+    padding-bottom: 10px;
     text-align: center;
   }
 
@@ -389,7 +392,7 @@
 
 }
 
-@media all and (min-width: 767px) and (max-width: 1024px) {
+@media all and (min-width: 768px) and (max-width: 1024px) {
   .login_signup_section {
     height: 100vh;
   }

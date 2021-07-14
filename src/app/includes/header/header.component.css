@@ -99,9 +99,9 @@ svg {
 .content {
   color: #111;
   display: block;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  padding: 0.5rem 2rem;
 }
 
 .navlink:hover {
@@ -145,6 +145,17 @@ li {
   align-items: center;
 }
 
+.desktopView {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .desktopView {
+    display: none;
+  }
+
+}
+
 @media (width: 768px) {
   /* .navbar-brand {
         margin-top: 7px;
@@ -153,6 +164,7 @@ li {
   .transparentBg {
     padding-right: 20px;
   }
+
 
   .colorBg {
     padding-right: 20px;

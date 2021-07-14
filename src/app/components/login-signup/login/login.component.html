@@ -8,7 +8,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 input-group pt-2 desktopView">
+      <div class="col-12 input-group email_mobile_input desktopView">
         <input
           minlength="6"
           id="username"
@@ -29,22 +29,13 @@
           }" required
         />
         <label>Enter Email/Cell Number</label>
-        <!-- <div class="invalid-feedback" style="display: block">
-          <div
-            *ngIf="
-              loginForm.get('userId').invalid && loginForm.get('userId').dirty
-            "
-          >
-            Enter a valid email address or mobile number *
-          </div>
-        </div> -->
       </div>
       <!--  -->
-      <div class="col-12 desktopView" *ngIf="showSendOtp">
+      <div class="col-12 desktopView sendOtp_deskstopButton" *ngIf="showSendOtp">
         <button class="btn onlyForDeskstop" type="button" (click)="sendOtp()">Get OTP</button>
       </div>
 
-      <div class="col-12 mobileView">
+      <div class="col-12 email_mobile_checker mobileView">
         <div class="input-group">
         <input
           minlength="6"
@@ -67,7 +58,7 @@
           }"
         />
         <div class="input-group-append">
-          <button class="btn send_otpButton" type="button" *ngIf="showSendOtp" (click)="sendOtp()">   
+          <button class="btn send_otpButton" type="button" *ngIf="showSendOtp" (click)="sendOtp()">
           <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.435 11.4212C11.3334 11.5224 11.2231 11.6077 11.1071 11.682L3.34575 19.433C2.58858 20.1889 1.36016 20.1892 0.60263 19.4327C-0.154898 18.6765 -0.154898 17.45 0.60263 16.6931L7.28676 10.0175L0.568148 3.30712C-0.18938 2.55092 -0.18938 1.32479 0.568148 0.567514C0.947091 0.188697 1.44385 7.62939e-06 1.93953 7.62939e-06C2.43521 7.62939e-06 2.93232 0.188697 3.31091 0.567514L11.1071 8.35443C11.2231 8.42868 11.3341 8.51406 11.435 8.61522C11.8222 9.00193 12.009 9.51133 11.9997 10.0182C12.009 10.5251 11.8222 11.0341 11.435 11.4212Z" fill="white"/>
           </svg>
@@ -140,7 +131,7 @@
               ) && !loginForm.get('userId').pristine
           }"
         />
-        
+
         <button class="btn" type="button" *ngIf="showSendOtp" (click)="sendOtp()">g</button>
       </div> -->
       <!-- <div class="col-12 button-group loading py-1" *ngIf="showLoader">
@@ -258,8 +249,8 @@
         </div>
       </div> -->
     </div>
-    <!--  -->
-    <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }">
+    <!-- -->
+    <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }" >
       <div class="form-group w-100 otpContainer">
         <div
           class="col-12"
@@ -270,13 +261,21 @@
             <input
               id="digit1"
               type="tel"
-              class="box productkey1"
+              class="form-control box productkey1"
               pattern="^[0-9]*$"
               size="1"
               max="9"
               formControlName="digit1"
               maxlength="1"
               autocomplete="off"
+              [ngClass]="{
+                'is-invalid-new':
+                  loginForm.get('digit1').invalid && loginForm.get('digit1').dirty,
+                'is-valid-new':
+                  !(
+                    loginForm.get('digit1').invalid && loginForm.get('digit1').dirty
+                  ) && !loginForm.get('digit1').pristine
+              }"
               required
             />
             <input
@@ -289,6 +288,14 @@
               formControlName="digit2"
               maxlength="1"
               autocomplete="off"
+              [ngClass]="{
+                'is-invalid-new':
+                  loginForm.get('digit2').invalid && loginForm.get('digit2').dirty,
+                'is-valid-new':
+                  !(
+                    loginForm.get('digit2').invalid && loginForm.get('digit2').dirty
+                  ) && !loginForm.get('digit2').pristine
+              }"
               required
             />
             <input
@@ -301,6 +308,14 @@
               formControlName="digit3"
               maxlength="1"
               autocomplete="off"
+              [ngClass]="{
+                'is-invalid-new':
+                  loginForm.get('digit3').invalid && loginForm.get('digit3').dirty,
+                'is-valid-new':
+                  !(
+                    loginForm.get('digit3').invalid && loginForm.get('digit3').dirty
+                  ) && !loginForm.get('digit3').pristine
+              }"
               required
             />
             <input
@@ -313,6 +328,14 @@
               formControlName="digit4"
               maxlength="1"
               autocomplete="off"
+              [ngClass]="{
+                'is-invalid-new':
+                  loginForm.get('digit4').invalid && loginForm.get('digit4').dirty,
+                'is-valid-new':
+                  !(
+                    loginForm.get('digit4').invalid && loginForm.get('digit4').dirty
+                  ) && !loginForm.get('digit4').pristine
+              }"
               required
             />
             <input
@@ -325,6 +348,14 @@
               formControlName="digit5"
               maxlength="1"
               autocomplete="off"
+              [ngClass]="{
+                'is-invalid-new':
+                  loginForm.get('digit5').invalid && loginForm.get('digit5').dirty,
+                'is-valid-new':
+                  !(
+                    loginForm.get('digit5').invalid && loginForm.get('digit5').dirty
+                  ) && !loginForm.get('digit5').pristine
+              }"
               required
             />
             <input
@@ -337,16 +368,24 @@
               formControlName="digit6"
               maxlength="1"
               autocomplete="off"
+              [ngClass]="{
+                'is-invalid-new':
+                  loginForm.get('digit6').invalid && loginForm.get('digit6').dirty,
+                'is-valid-new':
+                  !(
+                    loginForm.get('digit6').invalid && loginForm.get('digit6').dirty
+                  ) && !loginForm.get('digit6').pristine
+              }"
               required
             />
           </div>
-          <div class="invalid-feedback" *ngIf="deskstopField">
+          <div class="invalid-feedback" style="display: block; margin-top: 10px;" *ngIf="deskstopField">
             Otp you entered is incorrect please try again
           </div>
         </div>
       </div>
-      <!-- showloginButton" -->
-      <div class="col-12 button-group" *ngIf="showLoginButton">
+      <!-- " -->
+      <div class="col-12 button-group loginButton" *ngIf="showLoginButton">
         <button
           (click)="onSubmit()"
           [type]="showOtpBox ? 'submit' : 'button'"
@@ -356,7 +395,7 @@
           Login
         </button>
       </div>
-  
+
       <div class="col-12 button-group loading py-1" *ngIf="showRotatingLoader">
         <svg
           version="1.1"
@@ -429,8 +468,7 @@
           <g></g>
         </svg>
       </div>
-  
-      <!-- *ngIf="changeNumber" -->
+
       <div class="col-12" *ngIf="changeNumber">
         <div class="resendBtn text-left changeBtn">
           <button (click)="sendOtp()" [disabled]="disableResend">

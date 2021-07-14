@@ -168,8 +168,8 @@ export class LoginComponent implements OnInit {
     this.loginForm.markAsUntouched();
     this.loginForm.enable();
     this.loginForm.setValue(
-      { userId: "", 
-        digit1: "", 
+      { userId: "",
+        digit1: "",
         digit2: "",
         digit3: "",
         digit4: "",
@@ -185,8 +185,8 @@ export class LoginComponent implements OnInit {
     this.loginForm.markAsUntouched();
     this.loginForm.enable();
     this.loginForm.setValue(
-      { userId: "", 
-        digit1: "", 
+      { userId: "",
+        digit1: "",
         digit2: "",
         digit3: "",
         digit4: "",
@@ -194,7 +194,7 @@ export class LoginComponent implements OnInit {
         digit6:"" }
       );
      this.showSendOtp = true;
-     this.showLoginButton = false; 
+     this.showLoginButton = false;
   }
 
   setFormForUser() {
@@ -206,8 +206,8 @@ export class LoginComponent implements OnInit {
     this.loginForm.markAsPristine();
     this.loginForm.markAsUntouched();
     this.loginForm.setValue(
-      { userId: "", 
-        digit1: "", 
+      { userId: "",
+        digit1: "",
         digit2: "",
         digit3: "",
         digit4: "",
@@ -326,7 +326,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.get("digit5").invalid ||
         this.loginForm.get("digit6").invalid ) {
         this.deskstopField = true;
-      this.toastr.error("Enter valid OTP");
+        this.toastr.error("Enter valid OTP");
     } else {
 
         // let reqBody = {

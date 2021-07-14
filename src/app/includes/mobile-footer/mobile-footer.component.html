@@ -1,4 +1,4 @@
-<div style="background-color: whitesmoke; height: 150px; padding-top: 10px">
+<div *ngIf="footerForAll" style="background-color: whitesmoke; height: 150px; padding-top: 10px">
   <div class="row d-flex align-items-center">
     <!-- Grid column -->
     <div class="col-md-12 text-center">
@@ -290,7 +290,7 @@
     <!-- Grid column -->
   </div>
 </div>
-<div class="bottomNavContainer">
+<div *ngIf="footerForAll" class="bottomNavContainer">
   <div class="container-fluid1">
     <div class="row noMargin">
       <div

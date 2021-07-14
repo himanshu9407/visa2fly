@@ -19,10 +19,11 @@
     <app-chatbox></app-chatbox>
     <app-mobile-footer class="mobileOnly"></app-mobile-footer>
   </div>
+  <!-- this.activeRoute !== 'slcontainer' && -->
   <app-footer
-    class="pcOnly"
+    class="pcOnlyNew"
     *ngIf="
-      this.activeRoute !== 'slcontainer' && !showB2BHeader && !showB2BSimHeader
+       !showB2BHeader && !showB2BSimHeader
     "
   ></app-footer>
   <app-b2b-footer class="pcOnly" *ngIf="showB2BHeader"></app-b2b-footer>
