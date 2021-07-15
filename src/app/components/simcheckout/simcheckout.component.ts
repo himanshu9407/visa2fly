@@ -86,7 +86,6 @@ export class SimcheckoutComponent implements OnInit {
     this.updateTotal();
     this.totalQuantity();
     this.selectedCountry = this.userFlow.getCookie("simSelectedCountry");
-    console.log(this.selectedCountry);
   }
 
   ngOnInit() {
@@ -96,7 +95,6 @@ export class SimcheckoutComponent implements OnInit {
       month: current.getMonth() + 1,
       day: current.getDate()
     };
-    //console.log(this.simCart);
 
     let yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -115,8 +113,6 @@ export class SimcheckoutComponent implements OnInit {
       month: today.getMonth() + 1,
       day: today.getDate()
     };
-
-    // console.log(this.simCart);
 
     this.gstOption = new FormGroup({
       gstOptionResult: new FormControl(false, [Validators.required])
@@ -141,8 +137,6 @@ export class SimcheckoutComponent implements OnInit {
       country: new FormControl("India")
     });
 
-    // console.log(this.gstOption.get('gstOptionResult').value);
-
     this.titleService.setTitle(this.title);
     this.meta.addTags([
       { name: "keywords", content: "" },
@@ -150,28 +144,10 @@ export class SimcheckoutComponent implements OnInit {
         name: "description",
         content: ""
       }
-      // { name: "author", content: "rsgitech" },
-      // { name: "robots", content: "index, follow" }
     ]);
   }
 
-
-
-  // onlyNumberAllowed(event):boolean {
-  //   const charCode = (event.which)?event.which: event.keyCode;
-
-  //   if(charCode > 31 && (charCode < 48 || charCode > 57))
-  //   {
-  //     this.numberValidationName = "Special character and spaces are not allowed";
-  //     console.log('charCode restricted is ' + charCode);
-  //     return false;
-  //   }
-  //   this.numberValidationName = "";
-  //   return true;
-  // }
-
   onlyForError(value) {
-    // console.log(value);
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const newValue = value;
     if (/\s/.test(newValue)) {
@@ -257,7 +233,6 @@ export class SimcheckoutComponent implements OnInit {
     var format = /[$&+,:;=?@#|'<>.^*()%!-]/;
     const newValue = value;
     if (format.test(newValue)) {
-      // console.log("bshvadhg");
       this.errorMessageTextCity = "Special character are not allowed"
     } else if (isNaN(newValue)) {
       this.errorMessageTextCity = "Number are not allowed"
@@ -294,23 +269,19 @@ export class SimcheckoutComponent implements OnInit {
   }
 
   updateTotal() {
-    // console.log(this.simCart);
     this.simCart.forEach((item: any) => {
       let temp =
         item.quantity *
         (item.price + item.convenienceFee + item.convenienceFeeTAX);
       this.totalPrice = this.totalPrice + temp;
     });
-    // console.log(this.totalPrice);
   }
 
   totalQuantity() {
     this.simCart.forEach((item: any) => {
       let qty = item.quantity;
-      // console.log(qty)
       this.totalQty = this.totalQty + qty;
     });
-    // return this.totalQty;
   }
 
   stateChanged(event: string) {
@@ -320,7 +291,6 @@ export class SimcheckoutComponent implements OnInit {
       this.stateError = false;
     }
 
-    // console.log(this.simCheckoutForm);
   }
 
   submitForm() {
@@ -337,7 +307,6 @@ export class SimcheckoutComponent implements OnInit {
       this.errorMessageGST = true;
     } else {
       let formValueObj = this.simCheckoutForm.value;
-      // console.log(formValueObj);
       let tempDob = "";
       let dob = this.simCheckoutForm.get("dateOfBirth").value;
       if (dob.month < 10 && dob.day < 10) {
@@ -362,25 +331,11 @@ export class SimcheckoutComponent implements OnInit {
         tempActivation = doa.year + "-" + doa.month + "-" + doa.day;
       }
 
-      // let tempdod = "";
-      // let dod = this.simCheckoutForm.get("departureDate").value;
-      // if (dod.month < 10 && dod.day < 10) {
-      //   tempdod = dod.year + "-0" + dod.month + "-0" + dod.day;
-      // } else if (dod.day < 10) {
-      //   tempdod = dod.year + "-" + dod.month + "-0" + dod.day;
-      // } else if (dod.month < 10) {
-      //   tempdod = dod.year + "-0" + dod.month + "-" + dod.day;
-      // } else {
-      //   tempdod = dod.year + "-" + dod.month + "-" + dod.day;
-      // }
-
       formValueObj.simActivationDate = tempActivation;
       formValueObj.dateOfBirth = tempDob;
-      // formValueObj.departureDate = tempdod;
       formValueObj.simPlanForCountry = this.selectedCountry;
 
       formValueObj.totalPayableAmount = this.totalPrice.toFixed(2);
-      // console.log(formValueObj.totalPayableAmount);
       this.simCart.forEach(element => {
         element.totalAmount =
           element.quantity *
@@ -390,16 +345,12 @@ export class SimcheckoutComponent implements OnInit {
       });
 
       formValueObj.plansSelected = this.simCart;
-      // console.log(formValueObj);
       this.preloaderService.showPreloader(true);
       this.simCheckoutService
         .proceedToPayment(formValueObj)
         .subscribe((data: any) => {
-          // console.log(data);
           if (data.code == "0") {
-            // console.log(data);
             this.simCheckoutService.hitPaymentApi().subscribe((data1: any) => {
-              // console.log(data1);
               this.buyerEmail = data1.buyerEmail;
               this.orderId = data1.orderId;
               this.amount = data1.amount;

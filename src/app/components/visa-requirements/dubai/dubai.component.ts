@@ -153,24 +153,24 @@ export class DubaiComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("Dubai Visa | Apply For Dubai Visa Online for Indians- Visa2Fly");
+    this.titleService.setTitle("Online Dubai visa applications! Dubai Tourist Visas! Dubai Visas COVID-19");
 
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for dubai e-visa, dubai tourist visa application, dubai tourist visa for indian, apply for dubai e visa, dubai e-visa for indians",
+        "Tourist visa Dubai from India | Dubai Tourist visa | Online visa application Dubai | Tourist visa for Dubai from India COVID-19",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Visa2fly offers Dubai visa for Indians visiting UAE. Indian passport holders can easily apply for a Dubai visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Dubai visa online with Visa2Fly here.",
+        "At Visa2fly you can easily obtain a Dubai visa online. We assist with different visas like Dubai Tourists visas, Dubai Business visas, and Dubai Transit Visas!",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "Dubai Visa | Apply For Dubai Visa Online for Indians- Visa2Fly",
+        "Online Dubai visa applications! Dubai Tourist Visas! Dubai Visas COVID-19",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
@@ -184,12 +184,12 @@ export class DubaiComponent implements OnInit {
     this.meta.updateTag({
       property: "og:image:alt",
       content:
-        "Dubai Visa | Apply For Dubai Visa Online for Indians- Visa2Fly",
+        "Online Dubai visa applications! Dubai Tourist Visas! Dubai Visas COVID-19",
     });
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Visa2fly offers Dubai visa for Indians visiting UAE. Indian passport holders can easily apply for a Dubai visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Dubai visa online with Visa2Fly here.",
+        "At Visa2fly you can easily obtain a Dubai visa online. We assist with different visas like Dubai Tourists visas, Dubai Business visas, and Dubai Transit Visas!",
     });
 
     // twitter
@@ -200,7 +200,7 @@ export class DubaiComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "Dubai Visa | Apply For Dubai Visa Online for Indians- Visa2Fly",
+        "Online Dubai visa applications! Dubai Tourist Visas! Dubai Visas COVID-19",
     });
     this.meta.updateTag({
       property: "twitter:image",
@@ -209,12 +209,12 @@ export class DubaiComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:image:alt",
       content:
-        "Dubai Visa | Apply For Dubai Visa Online for Indians- Visa2Fly",
+        "Online Dubai visa applications! Dubai Tourist Visas! Dubai Visas COVID-19",
     });
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Visa2fly offers Dubai visa for Indians visiting UAE. Indian passport holders can easily apply for a Dubai visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their Dubai visa online with Visa2Fly here.",
+        "At Visa2fly you can easily obtain a Dubai visa online. We assist with different visas like Dubai Tourists visas, Dubai Business visas, and Dubai Transit Visas!",
     });
     this.meta.updateTag({
       property: "twitter:site",

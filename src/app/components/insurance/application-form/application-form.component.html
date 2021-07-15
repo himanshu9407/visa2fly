@@ -5,22 +5,21 @@
   </div>
 
   <div class="container insurance_application-container">
-    <form
-      [formGroup]="policyDetailForm"
-      autocomplete="off"
-      class="policyDetailForm"
-    >
+    <form autocomplete="off" class="policyDetailForm">
       <div class="form-row form-group">
         <div
-          class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+          class="
+            col-lg-12 col-md-12 col-sm-12 col-12
+            insurance_application-subheader_box
+          "
         >
           <h5 class="insurance_application-subheading">Policy Details :</h5>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
           <div class="insurance-input_box">
             <label for="planType" class="insurance-label">Plan Type</label>
-            <div class="styleSelectPlan">
-              <select
+            <span class="styleSelectPlan">
+              <!-- <select
                 name="planType"
                 (change)="onChangePlan()"
                 class="form-control form-control-sm"
@@ -29,19 +28,21 @@
               >
                 <option value="Basic">Basic</option>
                 <option value="Gold">Gold</option>
-              </select>
-            </div>
+              </select> -->
+              {{ selectedPlan }}
+            </span>
           </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box">
           <div class="insurance-input_box">
             <label for="coverage" class="insurance-label">Coverage</label>
-            <input
+            <!-- <input
               type="text"
               id="coverage"
               formControlName="coverage"
               class="form-control-sm form-control insurance-input"
-            />
+            /> -->
+            <span class="styleSelectPlan">$ {{ selectedCoverage }}</span>
           </div>
         </div>
         <div class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box">
@@ -77,7 +78,10 @@
             >
               <div class="form-row">
                 <div
-                  class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                  class="
+                    col-lg-12 col-md-12 col-sm-12 col-12
+                    insurance_application-subheader_box
+                  "
                 >
                   <h5 class="insurance_application-subheading">
                     Customer Details :
@@ -93,7 +97,11 @@
                         <select
                           name="titleCd"
                           id="proposerTitle"
-                          class="form-control form-control-sm insurance-select titleSelect"
+                          class="
+                            form-control form-control-sm
+                            insurance-select
+                            titleSelect
+                          "
                           formControlName="titleCd"
                           (change)="
                             validatingTitle(
@@ -339,7 +347,12 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-2">
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        d-flex
+                        align-items-center
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         Contact Details :
@@ -395,7 +408,11 @@
                                   .partyContactDOList['controls'][j].controls
                                   .contactNum.pristine
                             }"
-                            class="form-control-sm form-control insurance-input iti"
+                            class="
+                              form-control-sm form-control
+                              insurance-input
+                              iti
+                            "
                           />
                         </div>
                         <div
@@ -503,7 +520,12 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-2">
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        d-flex
+                        align-items-center
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         Nominee Details :
@@ -576,7 +598,12 @@
                         <select
                           formControlName="nomineeRelation"
                           id="nomineeRelation"
-                          class="form-control col form-control-sm insurance-select"
+                          class="
+                            form-control
+                            col
+                            form-control-sm
+                            insurance-select
+                          "
                         >
                           <option value="">Select</option>
                           <option
@@ -616,7 +643,12 @@
               </div>
               <div class="form-row mt-2">
                 <div
-                  class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                  class="
+                    col-lg-12 col-md-12 col-sm-12 col-12
+                    insurance_application-subheader_box
+                    d-flex
+                    align-items-center
+                  "
                 >
                   <h5 class="insurance_application-subheading mr-auto">
                     Identity Details :
@@ -786,7 +818,11 @@
                 >
                   <div class="form-row mt-2" [formGroupName]="j">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box address_heading_box"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        address_heading_box
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         {{
@@ -799,7 +835,12 @@
                       </h5>
 
                       <div
-                        class="sameAsPrimary d-flex align-items-center address_heading-checkbox"
+                        class="
+                          sameAsPrimary
+                          d-flex
+                          align-items-center
+                          address_heading-checkbox
+                        "
                         *ngIf="!first"
                       >
                         <input
@@ -823,7 +864,10 @@
                     <div class="col-12" id="proposalAddressForm_{{ j }}">
                       <div class="form-row">
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerLine1" class="insurance-label"
@@ -861,7 +905,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .addressLine1Lang1.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             ></textarea>
                             <div
                               *ngIf="
@@ -889,7 +936,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerLine2" class="insurance-label"
@@ -927,7 +977,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .addressLine2Lang1.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             ></textarea>
                             <div
                               *ngIf="
@@ -977,7 +1030,10 @@
                           </div>
                         </div> -->
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerArea" class="insurance-label"
@@ -1012,7 +1068,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .areaCd.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             />
                             <div
                               *ngIf="
@@ -1040,7 +1099,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerPinCode" class="insurance-label"
@@ -1073,7 +1135,11 @@
                                       'controls'
                                     ].pinCode.validPinCodeForProposal
                                 }"
-                                class="insurance-input form-control-sm form-control pinCodeAutoComplete"
+                                class="
+                                  insurance-input
+                                  form-control-sm form-control
+                                  pinCodeAutoComplete
+                                "
                               />
                               <span
                                 class="loading pinCodeLoader"
@@ -1126,7 +1192,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerCity" class="insurance-label"
@@ -1139,7 +1208,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'cityCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1157,7 +1231,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'cityCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1191,7 +1270,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerState" class="insurance-label"
@@ -1204,7 +1286,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'stateCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1223,7 +1310,12 @@
                                 (ngModelChange)="
                                   onChangeProposal($event, 'stateCd')
                                 "
-                                class="form-control col form-control-sm insurance-select"
+                                class="
+                                  form-control
+                                  col
+                                  form-control-sm
+                                  insurance-select
+                                "
                               >
                                 <option value="">Select</option>
                                 <option
@@ -1237,7 +1329,10 @@
                           </div>
                         </div>
                         <div
-                          class="col-lg-3 col-md-4 col-sm-12 col-12 insurance-box"
+                          class="
+                            col-lg-3 col-md-4 col-sm-12 col-12
+                            insurance-box
+                          "
                         >
                           <div class="insurance-input_box">
                             <label for="proposerCountry" class="insurance-label"
@@ -1272,7 +1367,10 @@
                                     .partyAddressDOList['controls'][j].controls
                                     .countryCd.pristine
                               }"
-                              class="insurance-input form-control-sm form-control"
+                              class="
+                                insurance-input
+                                form-control-sm form-control
+                              "
                             />
                             <div
                               *ngIf="
@@ -1398,7 +1496,12 @@
                 <div class="card-body card_body--application_form">
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                        d-flex
+                        align-items-center
+                      "
                     >
                       <h5 class="insurance_application-subheading mr-auto">
                         Customer Details :
@@ -1407,7 +1510,10 @@
                   </div>
                   <div class="form-row">
                     <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box"
+                      class="
+                        col-lg-12 col-md-12 col-sm-12 col-12
+                        insurance_application-subheader_box
+                      "
                     >
                       <h5 class="insurance_application-subheading"></h5>
                     </div>
@@ -1420,47 +1526,435 @@
                         >
                         <div class="input-group">
                           <div class="input-group-prepend" style="width: 60px">
-                            <select
-                              name="titleCd"
-                              id="titleCd{{ i }}"
-                              (change)="
-                                validatingTitle(
-                                  $event.target.value,
-                                  i,
-                                  'partyDoList'
-                                )
-                              "
-                              class="form-control form-control-sm insurance-select titleSelect"
-                              formControlName="titleCd"
-                            >
-                              <option selected value="MR">Mr</option>
-                              <option value="MS">Ms</option>
-                            </select>
+                            <div *ngIf="i == 0">
+                              <select
+                                name="titleCd"
+                                id="titleCd{{ i }}"
+                                [readonly]="relatedSelfTrue_0"
+                                (change)="
+                                  validatingTitle(
+                                    $event.target.value,
+                                    i,
+                                    'partyDoList'
+                                  )
+                                "
+                                class="
+                                  form-control form-control-sm
+                                  insurance-select
+                                  titleSelect
+                                "
+                                formControlName="titleCd"
+                              >
+                                <option
+                                  [disabled]="relatedSelfTrue_0"
+                                  selected
+                                  value="MR"
+                                >
+                                  Mr
+                                </option>
+                                <option
+                                  [disabled]="relatedSelfTrue_0"
+                                  value="MS"
+                                >
+                                  Ms
+                                </option>
+                              </select>
+                            </div>
+                            <div *ngIf="i == 1">
+                              <select
+                                name="titleCd"
+                                id="titleCd{{ i }}"
+                                [readonly]="relatedSelfTrue_1"
+                                (change)="
+                                  validatingTitle(
+                                    $event.target.value,
+                                    i,
+                                    'partyDoList'
+                                  )
+                                "
+                                class="
+                                  form-control form-control-sm
+                                  insurance-select
+                                  titleSelect
+                                "
+                                formControlName="titleCd"
+                              >
+                                <option
+                                  [disabled]="relatedSelfTrue_1"
+                                  selected
+                                  value="MR"
+                                >
+                                  Mr
+                                </option>
+                                <option
+                                  [disabled]="relatedSelfTrue_1"
+                                  value="MS"
+                                >
+                                  Ms
+                                </option>
+                              </select>
+                            </div>
+                            <div *ngIf="i == 2">
+                              <select
+                                name="titleCd"
+                                id="titleCd{{ i }}"
+                                [readonly]="relatedSelfTrue_2"
+                                (change)="
+                                  validatingTitle(
+                                    $event.target.value,
+                                    i,
+                                    'partyDoList'
+                                  )
+                                "
+                                class="
+                                  form-control form-control-sm
+                                  insurance-select
+                                  titleSelect
+                                "
+                                formControlName="titleCd"
+                              >
+                                <option
+                                  [disabled]="relatedSelfTrue_2"
+                                  selected
+                                  value="MR"
+                                >
+                                  Mr
+                                </option>
+                                <option
+                                  [disabled]="relatedSelfTrue_2"
+                                  value="MS"
+                                >
+                                  Ms
+                                </option>
+                              </select>
+                            </div>
+                            <div *ngIf="i == 3">
+                              <select
+                                name="titleCd"
+                                id="titleCd{{ i }}"
+                                [readonly]="relatedSelfTrue_3"
+                                (change)="
+                                  validatingTitle(
+                                    $event.target.value,
+                                    i,
+                                    'partyDoList'
+                                  )
+                                "
+                                class="
+                                  form-control form-control-sm
+                                  insurance-select
+                                  titleSelect
+                                "
+                                formControlName="titleCd"
+                              >
+                                <option
+                                  [disabled]="relatedSelfTrue_3"
+                                  selected
+                                  value="MR"
+                                >
+                                  Mr
+                                </option>
+                                <option
+                                  [disabled]="relatedSelfTrue_3"
+                                  value="MS"
+                                >
+                                  Ms
+                                </option>
+                              </select>
+                            </div>
+                            <div *ngIf="i == 4">
+                              <select
+                                name="titleCd"
+                                id="titleCd{{ i }}"
+                                [readonly]="relatedSelfTrue_4"
+                                (change)="
+                                  validatingTitle(
+                                    $event.target.value,
+                                    i,
+                                    'partyDoList'
+                                  )
+                                "
+                                class="
+                                  form-control form-control-sm
+                                  insurance-select
+                                  titleSelect
+                                "
+                                formControlName="titleCd"
+                              >
+                                <option
+                                  [disabled]="relatedSelfTrue_4"
+                                  selected
+                                  value="MR"
+                                >
+                                  Mr
+                                </option>
+                                <option
+                                  [disabled]="relatedSelfTrue_4"
+                                  value="MS"
+                                >
+                                  Ms
+                                </option>
+                              </select>
+                            </div>
+                            <div *ngIf="i == 5">
+                              <select
+                                name="titleCd"
+                                id="titleCd{{ i }}"
+                                [readonly]="relatedSelfTrue_5"
+                                (change)="
+                                  validatingTitle(
+                                    $event.target.value,
+                                    i,
+                                    'partyDoList'
+                                  )
+                                "
+                                class="
+                                  form-control form-control-sm
+                                  insurance-select
+                                  titleSelect
+                                "
+                                formControlName="titleCd"
+                              >
+                                <option
+                                  [disabled]="relatedSelfTrue_5"
+                                  selected
+                                  value="MR"
+                                >
+                                  Mr
+                                </option>
+                                <option
+                                  [disabled]="relatedSelfTrue_5"
+                                  value="MS"
+                                >
+                                  Ms
+                                </option>
+                              </select>
+                            </div>
                           </div>
-                          <input
-                            type="text"
-                            id="firstName"
-                            formControlName="firstName"
-                            (keydown)="allowAlphabetOnly($event)"
-                            autocomplete="off"
-                            pattern="[A-Za-z]{3,32}"
-                            [ngClass]="{
-                              'is-invalid':
-                                getControls[i]['controls'].firstName.invalid &&
-                                getControls[i]['controls'].firstName.dirty,
-                              'is-valid':
-                                !(
+                          <div
+                            *ngIf="i == 0"
+                            style="
+                              position: relative;
+                              flex: 1 1 auto;
+                              width: 1%;
+                              min-width: 0;
+                              margin-bottom: 0;
+                            "
+                          >
+                            <input
+                              type="text"
+                              id="firstName"
+                              formControlName="firstName"
+                              [readonly]="relatedSelfTrue_0"
+                              (keydown)="allowAlphabetOnly($event)"
+                              autocomplete="off"
+                              pattern="[A-Za-z]{3,32}"
+                              [ngClass]="{
+                                'is-invalid':
                                   getControls[i]['controls'].firstName
                                     .invalid &&
-                                  getControls[i]['controls'].firstName.dirty
-                                ) &&
-                                !getControls[i]['controls'].firstName.pristine
-                            }"
-                            class="form-control-sm form-control insurance-input"
-                          />
+                                  getControls[i]['controls'].firstName.dirty,
+                                'is-valid':
+                                  !(
+                                    getControls[i]['controls'].firstName
+                                      .invalid &&
+                                    getControls[i]['controls'].firstName.dirty
+                                  ) &&
+                                  !getControls[i]['controls'].firstName.pristine
+                              }"
+                              class="
+                                form-control-sm form-control
+                                insurance-input
+                              "
+                            />
+                          </div>
+                          <div
+                            *ngIf="i == 1"
+                            style="
+                              position: relative;
+                              flex: 1 1 auto;
+                              width: 1%;
+                              min-width: 0;
+                              margin-bottom: 0;
+                            "
+                          >
+                            <input
+                              type="text"
+                              id="firstName"
+                              formControlName="firstName"
+                              [readonly]="relatedSelfTrue_1"
+                              (keydown)="allowAlphabetOnly($event)"
+                              autocomplete="off"
+                              pattern="[A-Za-z]{3,32}"
+                              [ngClass]="{
+                                'is-invalid':
+                                  getControls[i]['controls'].firstName
+                                    .invalid &&
+                                  getControls[i]['controls'].firstName.dirty,
+                                'is-valid':
+                                  !(
+                                    getControls[i]['controls'].firstName
+                                      .invalid &&
+                                    getControls[i]['controls'].firstName.dirty
+                                  ) &&
+                                  !getControls[i]['controls'].firstName.pristine
+                              }"
+                              class="
+                                form-control-sm form-control
+                                insurance-input
+                              "
+                            />
+                          </div>
+                          <div
+                            *ngIf="i == 2"
+                            style="
+                              position: relative;
+                              flex: 1 1 auto;
+                              width: 1%;
+                              min-width: 0;
+                              margin-bottom: 0;
+                            "
+                          >
+                            <input
+                              type="text"
+                              id="firstName"
+                              formControlName="firstName"
+                              [readonly]="relatedSelfTrue_2"
+                              (keydown)="allowAlphabetOnly($event)"
+                              autocomplete="off"
+                              pattern="[A-Za-z]{3,32}"
+                              [ngClass]="{
+                                'is-invalid':
+                                  getControls[i]['controls'].firstName
+                                    .invalid &&
+                                  getControls[i]['controls'].firstName.dirty,
+                                'is-valid':
+                                  !(
+                                    getControls[i]['controls'].firstName
+                                      .invalid &&
+                                    getControls[i]['controls'].firstName.dirty
+                                  ) &&
+                                  !getControls[i]['controls'].firstName.pristine
+                              }"
+                              class="
+                                form-control-sm form-control
+                                insurance-input
+                              "
+                            />
+                          </div>
+                          <div
+                            *ngIf="i == 3"
+                            style="
+                              position: relative;
+                              flex: 1 1 auto;
+                              width: 1%;
+                              min-width: 0;
+                              margin-bottom: 0;
+                            "
+                          >
+                            <input
+                              type="text"
+                              id="firstName"
+                              formControlName="firstName"
+                              [readonly]="relatedSelfTrue_3"
+                              (keydown)="allowAlphabetOnly($event)"
+                              autocomplete="off"
+                              pattern="[A-Za-z]{3,32}"
+                              [ngClass]="{
+                                'is-invalid':
+                                  getControls[i]['controls'].firstName
+                                    .invalid &&
+                                  getControls[i]['controls'].firstName.dirty,
+                                'is-valid':
+                                  !(
+                                    getControls[i]['controls'].firstName
+                                      .invalid &&
+                                    getControls[i]['controls'].firstName.dirty
+                                  ) &&
+                                  !getControls[i]['controls'].firstName.pristine
+                              }"
+                              class="
+                                form-control-sm form-control
+                                insurance-input
+                              "
+                            />
+                          </div>
+                          <div
+                            *ngIf="i == 4"
+                            style="
+                              position: relative;
+                              flex: 1 1 auto;
+                              width: 1%;
+                              min-width: 0;
+                              margin-bottom: 0;
+                            "
+                          >
+                            <input
+                              type="text"
+                              id="firstName"
+                              formControlName="firstName"
+                              [readonly]="relatedSelfTrue_4"
+                              (keydown)="allowAlphabetOnly($event)"
+                              autocomplete="off"
+                              pattern="[A-Za-z]{3,32}"
+                              [ngClass]="{
+                                'is-invalid':
+                                  getControls[i]['controls'].firstName
+                                    .invalid &&
+                                  getControls[i]['controls'].firstName.dirty,
+                                'is-valid':
+                                  !(
+                                    getControls[i]['controls'].firstName
+                                      .invalid &&
+                                    getControls[i]['controls'].firstName.dirty
+                                  ) &&
+                                  !getControls[i]['controls'].firstName.pristine
+                              }"
+                              class="
+                                form-control-sm form-control
+                                insurance-input
+                              "
+                            />
+                          </div>
+                          <div
+                            *ngIf="i == 5"
+                            style="
+                              position: relative;
+                              flex: 1 1 auto;
+                              width: 1%;
+                              min-width: 0;
+                              margin-bottom: 0;
+                            "
+                          >
+                            <input
+                              type="text"
+                              id="firstName"
+                              formControlName="firstName"
+                              [readonly]="relatedSelfTrue_5"
+                              (keydown)="allowAlphabetOnly($event)"
+                              autocomplete="off"
+                              pattern="[A-Za-z]{3,32}"
+                              [ngClass]="{
+                                'is-invalid':
+                                  getControls[i]['controls'].firstName
+                                    .invalid &&
+                                  getControls[i]['controls'].firstName.dirty,
+                                'is-valid':
+                                  !(
+                                    getControls[i]['controls'].firstName
+                                      .invalid &&
+                                    getControls[i]['controls'].firstName.dirty
+                                  ) &&
+                                  !getControls[i]['controls'].firstName.pristine
+                              }"
+                              class="
+                                form-control-sm form-control
+                                insurance-input
+                              "
+                            />
+                          </div>
                         </div>
 
-                        <!-- {{  getControls[i]['controls'].firstName.value }} -->
                         <div
                           *ngIf="
                             (getControls[i]['controls'].firstName.invalid &&
@@ -1485,25 +1979,144 @@
                         <label for="lastName{{ i }}" class="insurance-label"
                           >Last Name<span class="astrisk">*</span></label
                         >
-                        <input
-                          type="text"
-                          id="lastName{{ i }}"
-                          formControlName="lastName"
-                          (keydown)="allowAlphabetOnly($event)"
-                          autocomplete="new-lastName"
-                          pattern="[A-Za-z]{3,32}"
-                          [ngClass]="{
-                            'is-invalid':
-                              getControls[i]['controls'].lastName.invalid &&
-                              getControls[i]['controls'].lastName.dirty,
-                            'is-valid':
-                              !(
+                        <div *ngIf="i == 0">
+                          <input
+                            type="text"
+                            id="lastName{{ i }}"
+                            [readonly]="relatedSelfTrue_0"
+                            formControlName="lastName"
+                            (keydown)="allowAlphabetOnly($event)"
+                            autocomplete="new-lastName"
+                            pattern="[A-Za-z]{3,32}"
+                            [ngClass]="{
+                              'is-invalid':
                                 getControls[i]['controls'].lastName.invalid &&
-                                getControls[i]['controls'].lastName.dirty
-                              ) && !getControls[i]['controls'].lastName.pristine
-                          }"
-                          class="form-control-sm form-control insurance-input"
-                        />
+                                getControls[i]['controls'].lastName.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].lastName.invalid &&
+                                  getControls[i]['controls'].lastName.dirty
+                                ) &&
+                                !getControls[i]['controls'].lastName.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                        </div>
+                        <div *ngIf="i == 1">
+                          <input
+                            type="text"
+                            id="lastName{{ i }}"
+                            [readonly]="relatedSelfTrue_1"
+                            formControlName="lastName"
+                            (keydown)="allowAlphabetOnly($event)"
+                            autocomplete="new-lastName"
+                            pattern="[A-Za-z]{3,32}"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].lastName.invalid &&
+                                getControls[i]['controls'].lastName.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].lastName.invalid &&
+                                  getControls[i]['controls'].lastName.dirty
+                                ) &&
+                                !getControls[i]['controls'].lastName.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                        </div>
+                        <div *ngIf="i == 2">
+                          <input
+                            type="text"
+                            id="lastName{{ i }}"
+                            [readonly]="relatedSelfTrue_2"
+                            formControlName="lastName"
+                            (keydown)="allowAlphabetOnly($event)"
+                            autocomplete="new-lastName"
+                            pattern="[A-Za-z]{3,32}"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].lastName.invalid &&
+                                getControls[i]['controls'].lastName.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].lastName.invalid &&
+                                  getControls[i]['controls'].lastName.dirty
+                                ) &&
+                                !getControls[i]['controls'].lastName.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                        </div>
+                        <div *ngIf="i == 3">
+                          <input
+                            type="text"
+                            id="lastName{{ i }}"
+                            [readonly]="relatedSelfTrue_3"
+                            formControlName="lastName"
+                            (keydown)="allowAlphabetOnly($event)"
+                            autocomplete="new-lastName"
+                            pattern="[A-Za-z]{3,32}"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].lastName.invalid &&
+                                getControls[i]['controls'].lastName.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].lastName.invalid &&
+                                  getControls[i]['controls'].lastName.dirty
+                                ) &&
+                                !getControls[i]['controls'].lastName.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                        </div>
+                        <div *ngIf="i == 4">
+                          <input
+                            type="text"
+                            id="lastName{{ i }}"
+                            [readonly]="relatedSelfTrue_4"
+                            formControlName="lastName"
+                            (keydown)="allowAlphabetOnly($event)"
+                            autocomplete="new-lastName"
+                            pattern="[A-Za-z]{3,32}"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].lastName.invalid &&
+                                getControls[i]['controls'].lastName.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].lastName.invalid &&
+                                  getControls[i]['controls'].lastName.dirty
+                                ) &&
+                                !getControls[i]['controls'].lastName.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                        </div>
+                        <div *ngIf="i == 5">
+                          <input
+                            type="text"
+                            id="lastName{{ i }}"
+                            [readonly]="relatedSelfTrue_5"
+                            formControlName="lastName"
+                            (keydown)="allowAlphabetOnly($event)"
+                            autocomplete="new-lastName"
+                            pattern="[A-Za-z]{3,32}"
+                            [ngClass]="{
+                              'is-invalid':
+                                getControls[i]['controls'].lastName.invalid &&
+                                getControls[i]['controls'].lastName.dirty,
+                              'is-valid':
+                                !(
+                                  getControls[i]['controls'].lastName.invalid &&
+                                  getControls[i]['controls'].lastName.dirty
+                                ) &&
+                                !getControls[i]['controls'].lastName.pristine
+                            }"
+                            class="form-control-sm form-control insurance-input"
+                          />
+                        </div>
                         <div
                           *ngIf="
                             (getControls[i]['controls'].lastName.invalid &&
@@ -1575,17 +2188,6 @@
                         >
                           Details already exists
                         </div>
-
-                        <!-- {{getControls[i]['controls'].relationCd
-                      .duplicatesError}}
-
-                      {{                      getControls[i]['controls'].relationCd.value != ''}}
-
-                      {{ getControls[i]['controls'].relationCd
-                      .duplicatesError &&
-                    getControls[i]['controls'].relationCd.value != ''}}
-
-                    {{getControls[i]['controls'].relationCd.value}} -->
                       </div>
                     </div>
                     <div
@@ -1595,23 +2197,210 @@
                         <label for="gender" class="insurance-label"
                           >Gender<span class="astrisk">*</span></label
                         >
-                        <select
-                          name="genderCd{{ i }}"
-                          id="genderCd{{ i }}"
-                          formControlName="genderCd"
-                          (change)="
-                            validatingGender(
-                              $event.target.value,
-                              i,
-                              'partyDoList'
-                            )
-                          "
-                          autocomplete="new-genderCd"
-                          class="form-control form-control-sm insurance-select"
-                        >
-                          <option selected value="MALE">Male</option>
-                          <option value="FEMALE">Female</option>
-                        </select>
+                        <div *ngIf="i === 0">
+                          <select
+                            name="genderCd{{ i }}"
+                            id="genderCd{{ i }}"
+                            [readonly]="relatedSelfTrue_0"
+                            formControlName="genderCd"
+                            (change)="
+                              validatingGender(
+                                $event.target.value,
+                                i,
+                                'partyDoList'
+                              )
+                            "
+                            autocomplete="new-genderCd"
+                            class="
+                              form-control form-control-sm
+                              insurance-select
+                            "
+                          >
+                            <option
+                              [disabled]="relatedSelfTrue_0"
+                              selected
+                              value="MALE"
+                            >
+                              Male
+                            </option>
+                            <option
+                              [disabled]="relatedSelfTrue_0"
+                              value="FEMALE"
+                            >
+                              Female
+                            </option>
+                          </select>
+                        </div>
+                        <div *ngIf="i === 1">
+                          <select
+                            name="genderCd{{ i }}"
+                            id="genderCd{{ i }}"
+                            [readonly]="relatedSelfTrue_1"
+                            formControlName="genderCd"
+                            (change)="
+                              validatingGender(
+                                $event.target.value,
+                                i,
+                                'partyDoList'
+                              )
+                            "
+                            autocomplete="new-genderCd"
+                            class="
+                              form-control form-control-sm
+                              insurance-select
+                            "
+                          >
+                            <option
+                              [disabled]="relatedSelfTrue_1"
+                              selected
+                              value="MALE"
+                            >
+                              Male
+                            </option>
+                            <option
+                              [disabled]="relatedSelfTrue_1"
+                              value="FEMALE"
+                            >
+                              Female
+                            </option>
+                          </select>
+                        </div>
+                        <div *ngIf="i === 2">
+                          <select
+                            name="genderCd{{ i }}"
+                            id="genderCd{{ i }}"
+                            [readonly]="relatedSelfTrue_2"
+                            formControlName="genderCd"
+                            (change)="
+                              validatingGender(
+                                $event.target.value,
+                                i,
+                                'partyDoList'
+                              )
+                            "
+                            autocomplete="new-genderCd"
+                            class="
+                              form-control form-control-sm
+                              insurance-select
+                            "
+                          >
+                            <option
+                              [disabled]="relatedSelfTrue_2"
+                              selected
+                              value="MALE"
+                            >
+                              Male
+                            </option>
+                            <option
+                              [disabled]="relatedSelfTrue_2"
+                              value="FEMALE"
+                            >
+                              Female
+                            </option>
+                          </select>
+                        </div>
+                        <div *ngIf="i === 3">
+                          <select
+                            name="genderCd{{ i }}"
+                            id="genderCd{{ i }}"
+                            [readonly]="relatedSelfTrue_3"
+                            formControlName="genderCd"
+                            (change)="
+                              validatingGender(
+                                $event.target.value,
+                                i,
+                                'partyDoList'
+                              )
+                            "
+                            autocomplete="new-genderCd"
+                            class="
+                              form-control form-control-sm
+                              insurance-select
+                            "
+                          >
+                            <option
+                              [disabled]="relatedSelfTrue_3"
+                              selected
+                              value="MALE"
+                            >
+                              Male
+                            </option>
+                            <option
+                              [disabled]="relatedSelfTrue_3"
+                              value="FEMALE"
+                            >
+                              Female
+                            </option>
+                          </select>
+                        </div>
+                        <div *ngIf="i === 4">
+                          <select
+                            name="genderCd{{ i }}"
+                            id="genderCd{{ i }}"
+                            [readonly]="relatedSelfTrue_4"
+                            formControlName="genderCd"
+                            (change)="
+                              validatingGender(
+                                $event.target.value,
+                                i,
+                                'partyDoList'
+                              )
+                            "
+                            autocomplete="new-genderCd"
+                            class="
+                              form-control form-control-sm
+                              insurance-select
+                            "
+                          >
+                            <option
+                              [disabled]="relatedSelfTrue_4"
+                              selected
+                              value="MALE"
+                            >
+                              Male
+                            </option>
+                            <option
+                              [disabled]="relatedSelfTrue_4"
+                              value="FEMALE"
+                            >
+                              Female
+                            </option>
+                          </select>
+                        </div>
+                        <div *ngIf="i === 5">
+                          <select
+                            name="genderCd{{ i }}"
+                            id="genderCd{{ i }}"
+                            [readonly]="relatedSelfTrue_5"
+                            formControlName="genderCd"
+                            (change)="
+                              validatingGender(
+                                $event.target.value,
+                                i,
+                                'partyDoList'
+                              )
+                            "
+                            autocomplete="new-genderCd"
+                            class="
+                              form-control form-control-sm
+                              insurance-select
+                            "
+                          >
+                            <option
+                              [disabled]="relatedSelfTrue_5"
+                              selected
+                              value="MALE"
+                            >
+                              Male
+                            </option>
+                            <option
+                              [disabled]="relatedSelfTrue_5"
+                              value="FEMALE"
+                            >
+                              Female
+                            </option>
+                          </select>
+                        </div>
                       </div>
                     </div>
                     <div
@@ -1677,6 +2466,7 @@
                             <input
                               [minDate]="minDate_0"
                               [maxDate]="maxDateDob_0"
+                              [disabled]="relatedSelfTrue_0"
                               formControlName="birthDtCopy"
                               (click)="dob.toggle()"
                               readonly="readonly"
@@ -1698,6 +2488,7 @@
                                 class="btn btn-sm calendar"
                                 (click)="dob.toggle()"
                                 type="button"
+                                [disabled]="relatedSelfTrue_0"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -1741,6 +2532,7 @@
                             <input
                               [minDate]="minDate_1"
                               [maxDate]="maxDateDob_1"
+                              [disabled]="relatedSelfTrue_1"
                               formControlName="birthDtCopy"
                               (click)="dob.toggle()"
                               readonly="readonly"
@@ -1762,6 +2554,7 @@
                                 class="btn btn-sm calendar"
                                 (click)="dob.toggle()"
                                 type="button"
+                                [disabled]="relatedSelfTrue_1"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -1805,6 +2598,7 @@
                             <input
                               [minDate]="minDate_2"
                               [maxDate]="maxDateDob_2"
+                              [disabled]="relatedSelfTrue_2"
                               formControlName="birthDtCopy"
                               (click)="dob.toggle()"
                               readonly="readonly"
@@ -1826,6 +2620,7 @@
                                 class="btn btn-sm calendar"
                                 (click)="dob.toggle()"
                                 type="button"
+                                [disabled]="relatedSelfTrue_2"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -1869,6 +2664,7 @@
                             <input
                               [minDate]="minDate_3"
                               [maxDate]="maxDateDob_3"
+                              [disabled]="relatedSelfTrue_3"
                               formControlName="birthDtCopy"
                               (click)="dob.toggle()"
                               readonly="readonly"
@@ -1890,6 +2686,7 @@
                                 class="btn btn-sm calendar"
                                 (click)="dob.toggle()"
                                 type="button"
+                                [disabled]="relatedSelfTrue_3"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -1933,6 +2730,7 @@
                             <input
                               [minDate]="minDate_4"
                               [maxDate]="maxDateDob_4"
+                              [disabled]="relatedSelfTrue_4"
                               formControlName="birthDtCopy"
                               (click)="dob.toggle()"
                               readonly="readonly"
@@ -1954,6 +2752,7 @@
                                 class="btn btn-sm calendar"
                                 (click)="dob.toggle()"
                                 type="button"
+                                [disabled]="relatedSelfTrue_4"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -1997,6 +2796,7 @@
                             <input
                               [minDate]="minDate_5"
                               [maxDate]="maxDateDob_5"
+                              [disabled]="relatedSelfTrue_5"
                               formControlName="birthDtCopy"
                               (click)="dob.toggle()"
                               readonly="readonly"
@@ -2018,6 +2818,7 @@
                                 class="btn btn-sm calendar"
                                 (click)="dob.toggle()"
                                 type="button"
+                                [disabled]="relatedSelfTrue_5"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -2055,157 +2856,15 @@
                   </div>
 
                   <div class="form-row mt-2">
-                    <!-- <div class="col-6">
-                      <div class="form-row">
-                        <div
-                          class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
-                        >
-                          <h5 class="insurance_application-subheading mr-auto">
-                            Contact Details :
-                          </h5>
-                        </div>
-                        <div
-                          class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
-                          formArrayName="partyContactDOList"
-                          *ngFor="
-                            let contact of getControls[i]['controls']
-                              .partyContactDOList.controls;
-                            let j = index
-                          "
-                        >
-                          <div class="insurance-input_box" [formGroupName]="j">
-                            <label
-                              class="insurance-label"
-                              for="contactNum{{ i }}"
-                              >Contact No.<span class="astrisk">*</span></label
-                            >
-                            <div class="input-group input-group-sm">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">+91</span>
-                              </div>
-                              <input
-                                type="tel"
-                                id="contactNum{{ i }}"
-                                formControlName="contactNum"
-                                autocomplete="new-contactNum"
-                                pattern="^[6-9][0-9]{9}$"
-                                [ngClass]="{
-                                  'is-invalid':
-                                    getControls[i]['controls']
-                                      .partyContactDOList.controls[0].controls
-                                      .contactNum.invalid &&
-                                    getControls[i]['controls']
-                                      .partyContactDOList.controls[0].controls
-                                      .contactNum.dirty,
-                                  'is-valid':
-                                    !(
-                                      getControls[i]['controls']
-                                        .partyContactDOList.controls[0].controls
-                                        .contactNum.invalid &&
-                                      getControls[i]['controls']
-                                        .partyContactDOList.controls[0].controls
-                                        .contactNum.dirty
-                                    ) &&
-                                    !getControls[i]['controls']
-                                      .partyContactDOList.controls[0].controls
-                                      .contactNum.pristine
-                                }"
-                                class="form-control-sm form-control insurance-input iti"
-                              />
-                            </div>
-                            <div
-                              *ngIf="
-                                (getControls[i]['controls'].partyContactDOList
-                                  .controls[0].controls.contactNum.invalid &&
-                                  getControls[i]['controls'].partyContactDOList
-                                    .controls[0].controls.contactNum.dirty) ||
-                                getControls[i]['controls'].partyContactDOList
-                                  .controls[0].controls.contactNum.errors
-                                  ?.valueErr ||
-                                (getControls[i]['controls'].partyContactDOList
-                                  .controls[0].controls.contactNum.pristine &&
-                                  getControls[i]['controls'].partyContactDOList
-                                    .controls[0].controls.contactNum
-                                    .contactNumError)
-                              "
-                              class="invalid-feedback"
-                              style="display: block"
-                            >
-                              Enter a valid contact number*
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
-                          formArrayName="partyEmailDOList"
-                          *ngFor="
-                            let email of getControls[i]['controls']
-                              .partyEmailDOList.controls;
-                            let j = index
-                          "
-                        >
-                          <div class="insurance-input_box" [formGroupName]="j">
-                            <label
-                              for="emailAddress{{ i }}"
-                              class="insurance-label"
-                              >Email Address<span class="astrisk"
-                                >*</span
-                              ></label
-                            >
-                            <input
-                              type="email"
-                              id="emailAddress{{ i }}"
-                              formControlName="emailAddress"
-                              autocomplete="new-emailAddress"
-                              pattern="^([A-Za-z0-9._%\+\-]+@[a-z0-9.\-]+\.[a-z]{2,3})$"
-                              [ngClass]="{
-                                'is-invalid':
-                                  getControls[i]['controls'].partyEmailDOList
-                                    .controls[0].controls.emailAddress
-                                    .invalid &&
-                                  getControls[i]['controls'].partyEmailDOList
-                                    .controls[0].controls.emailAddress.dirty,
-                                'is-valid':
-                                  !(
-                                    getControls[i]['controls'].partyEmailDOList
-                                      .controls[0].controls.emailAddress
-                                      .invalid &&
-                                    getControls[i]['controls'].partyEmailDOList
-                                      .controls[0].controls.emailAddress.dirty
-                                  ) &&
-                                  !getControls[i]['controls'].partyEmailDOList
-                                    .controls[0].controls.emailAddress.pristine
-                              }"
-                              class="form-control-sm form-control insurance-input"
-                            />
-                            <div
-                              *ngIf="
-                                (getControls[i]['controls'].partyEmailDOList
-                                  .controls[0].controls.emailAddress.invalid &&
-                                  getControls[i]['controls'].partyEmailDOList
-                                    .controls[0].controls.emailAddress.dirty) ||
-                                getControls[i]['controls'].partyEmailDOList
-                                  .controls[0].controls.emailAddress.errors
-                                  ?.valueErr ||
-                                (getControls[i]['controls'].partyEmailDOList
-                                  .controls[0].controls.emailAddress.pristine &&
-                                  getControls[i]['controls'].partyEmailDOList
-                                    .controls[0].controls.emailAddress
-                                    .emailAddressError)
-                              "
-                              class="invalid-feedback"
-                              style="display: block"
-                            >
-                              Enter a valid email address*
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
                     <div class="col-6">
                       <div class="form-row">
                         <div
-                          class="col-lg-12 col-md-12 col-sm-12 col-12 insurance_application-subheader_box d-flex align-items-center"
+                          class="
+                            col-lg-12 col-md-12 col-sm-12 col-12
+                            insurance_application-subheader_box
+                            d-flex
+                            align-items-center
+                          "
                         >
                           <h5 class="insurance_application-subheading mr-auto">
                             Identity Details :
@@ -2221,31 +2880,11 @@
                           "
                         >
                           <div class="form-row" [formGroupName]="j">
-                            <!-- <div
-                              class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
-                            >
-                              <div class="insurance-input_box">
-                                <label
-                                  for="proposerIdentityType"
-                                  class="insurance-label"
-                                  >Identity Type<span class="astrisk"
-                                    >*</span
-                                  ></label
-                                >
-                                <select
-                                  name="identityTypeCd{{ i }}"
-                                  id="identityTypeCd{{ i }}"
-                                  formControlName="identityTypeCd"
-                                  autocomplete="new-identityTypeCd"
-                                  class="form-control form-control-sm insurance-select"
-                                >
-                                  <option selected value="PAN">PAN</option>
-                                  <option value="PASSPORT">PASSPORT</option>
-                                </select>
-                              </div>
-                            </div> -->
                             <div
-                              class="col-lg-6 col-md-4 col-sm-12 col-12 insurance-box"
+                              class="
+                                col-lg-6 col-md-4 col-sm-12 col-12
+                                insurance-box
+                              "
                             >
                               <div class="insurance-input_box">
                                 <label
@@ -2255,52 +2894,324 @@
                                     >*</span
                                   ></label
                                 >
-                                <input
-                                  type="text"
-                                  (keydown)="
-                                    validateIdentityType(
-                                      $event,
-                                      identityNum,
-                                      'PASSPORT'
-                                    )
-                                  "
-                                  id="identityNumber{{ i }}"
-                                  formControlName="identityNum"
-                                  autocomplete="new-identityNum"
-                                  [pattern]="
-                                    getControls[i]['controls']
-                                      .partyIdentityDOList.controls[0].controls
-                                      .identityTypeCd.value === 'PAN'
-                                      ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
-                                      : '^[A-Za-z]{1}[0-9]{7}$'
-                                  "
-                                  #identityNum
-                                  (input)="
-                                    identityNum.value = $event.target.value.toUpperCase()
-                                  "
-                                  [ngClass]="{
-                                    'is-invalid':
+                                <div *ngIf="i == 0">
+                                  <input
+                                    type="text"
+                                    [readonly]="relatedSelfTrue_0"
+                                    (keydown)="
+                                      validateIdentityType(
+                                        $event,
+                                        identityNum,
+                                        'PASSPORT'
+                                      )
+                                    "
+                                    id="identityNumber{{ i }}"
+                                    formControlName="identityNum"
+                                    autocomplete="new-identityNum"
+                                    [pattern]="
                                       getControls[i]['controls']
                                         .partyIdentityDOList.controls[0]
-                                        .controls.identityNum.invalid &&
-                                      getControls[i]['controls']
-                                        .partyIdentityDOList.controls[0]
-                                        .controls.identityNum.dirty,
-                                    'is-valid':
-                                      !(
+                                        .controls.identityTypeCd.value === 'PAN'
+                                        ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                                        : '^[A-Za-z]{1}[0-9]{7}$'
+                                    "
+                                    #identityNum
+                                    (input)="
+                                      identityNum.value =
+                                        $event.target.value.toUpperCase()
+                                    "
+                                    [ngClass]="{
+                                      'is-invalid':
                                         getControls[i]['controls']
                                           .partyIdentityDOList.controls[0]
                                           .controls.identityNum.invalid &&
                                         getControls[i]['controls']
                                           .partyIdentityDOList.controls[0]
-                                          .controls.identityNum.dirty
-                                      ) &&
-                                      !getControls[i]['controls']
+                                          .controls.identityNum.dirty,
+                                      'is-valid':
+                                        !(
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.invalid &&
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.dirty
+                                        ) &&
+                                        !getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.pristine
+                                    }"
+                                    class="
+                                      form-control-sm form-control
+                                      insurance-input
+                                    "
+                                  />
+                                </div>
+                                <div *ngIf="i == 1">
+                                  <input
+                                    type="text"
+                                    [readonly]="relatedSelfTrue_1"
+                                    (keydown)="
+                                      validateIdentityType(
+                                        $event,
+                                        identityNum,
+                                        'PASSPORT'
+                                      )
+                                    "
+                                    id="identityNumber{{ i }}"
+                                    formControlName="identityNum"
+                                    autocomplete="new-identityNum"
+                                    [pattern]="
+                                      getControls[i]['controls']
                                         .partyIdentityDOList.controls[0]
-                                        .controls.identityNum.pristine
-                                  }"
-                                  class="form-control-sm form-control insurance-input"
-                                />
+                                        .controls.identityTypeCd.value === 'PAN'
+                                        ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                                        : '^[A-Za-z]{1}[0-9]{7}$'
+                                    "
+                                    #identityNum
+                                    (input)="
+                                      identityNum.value =
+                                        $event.target.value.toUpperCase()
+                                    "
+                                    [ngClass]="{
+                                      'is-invalid':
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.invalid &&
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.dirty,
+                                      'is-valid':
+                                        !(
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.invalid &&
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.dirty
+                                        ) &&
+                                        !getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.pristine
+                                    }"
+                                    class="
+                                      form-control-sm form-control
+                                      insurance-input
+                                    "
+                                  />
+                                </div>
+                                <div *ngIf="i == 2">
+                                  <input
+                                    type="text"
+                                    [readonly]="relatedSelfTrue_2"
+                                    (keydown)="
+                                      validateIdentityType(
+                                        $event,
+                                        identityNum,
+                                        'PASSPORT'
+                                      )
+                                    "
+                                    id="identityNumber{{ i }}"
+                                    formControlName="identityNum"
+                                    autocomplete="new-identityNum"
+                                    [pattern]="
+                                      getControls[i]['controls']
+                                        .partyIdentityDOList.controls[0]
+                                        .controls.identityTypeCd.value === 'PAN'
+                                        ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                                        : '^[A-Za-z]{1}[0-9]{7}$'
+                                    "
+                                    #identityNum
+                                    (input)="
+                                      identityNum.value =
+                                        $event.target.value.toUpperCase()
+                                    "
+                                    [ngClass]="{
+                                      'is-invalid':
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.invalid &&
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.dirty,
+                                      'is-valid':
+                                        !(
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.invalid &&
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.dirty
+                                        ) &&
+                                        !getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.pristine
+                                    }"
+                                    class="
+                                      form-control-sm form-control
+                                      insurance-input
+                                    "
+                                  />
+                                </div>
+                                <div *ngIf="i == 3">
+                                  <input
+                                    type="text"
+                                    [readonly]="relatedSelfTrue_3"
+                                    (keydown)="
+                                      validateIdentityType(
+                                        $event,
+                                        identityNum,
+                                        'PASSPORT'
+                                      )
+                                    "
+                                    id="identityNumber{{ i }}"
+                                    formControlName="identityNum"
+                                    autocomplete="new-identityNum"
+                                    [pattern]="
+                                      getControls[i]['controls']
+                                        .partyIdentityDOList.controls[0]
+                                        .controls.identityTypeCd.value === 'PAN'
+                                        ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                                        : '^[A-Za-z]{1}[0-9]{7}$'
+                                    "
+                                    #identityNum
+                                    (input)="
+                                      identityNum.value =
+                                        $event.target.value.toUpperCase()
+                                    "
+                                    [ngClass]="{
+                                      'is-invalid':
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.invalid &&
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.dirty,
+                                      'is-valid':
+                                        !(
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.invalid &&
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.dirty
+                                        ) &&
+                                        !getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.pristine
+                                    }"
+                                    class="
+                                      form-control-sm form-control
+                                      insurance-input
+                                    "
+                                  />
+                                </div>
+                                <div *ngIf="i == 4">
+                                  <input
+                                    type="text"
+                                    [readonly]="relatedSelfTrue_4"
+                                    (keydown)="
+                                      validateIdentityType(
+                                        $event,
+                                        identityNum,
+                                        'PASSPORT'
+                                      )
+                                    "
+                                    id="identityNumber{{ i }}"
+                                    formControlName="identityNum"
+                                    autocomplete="new-identityNum"
+                                    [pattern]="
+                                      getControls[i]['controls']
+                                        .partyIdentityDOList.controls[0]
+                                        .controls.identityTypeCd.value === 'PAN'
+                                        ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                                        : '^[A-Za-z]{1}[0-9]{7}$'
+                                    "
+                                    #identityNum
+                                    (input)="
+                                      identityNum.value =
+                                        $event.target.value.toUpperCase()
+                                    "
+                                    [ngClass]="{
+                                      'is-invalid':
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.invalid &&
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.dirty,
+                                      'is-valid':
+                                        !(
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.invalid &&
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.dirty
+                                        ) &&
+                                        !getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.pristine
+                                    }"
+                                    class="
+                                      form-control-sm form-control
+                                      insurance-input
+                                    "
+                                  />
+                                </div>
+                                <div *ngIf="i == 5">
+                                  <input
+                                    type="text"
+                                    [readonly]="relatedSelfTrue_5"
+                                    (keydown)="
+                                      validateIdentityType(
+                                        $event,
+                                        identityNum,
+                                        'PASSPORT'
+                                      )
+                                    "
+                                    id="identityNumber{{ i }}"
+                                    formControlName="identityNum"
+                                    autocomplete="new-identityNum"
+                                    [pattern]="
+                                      getControls[i]['controls']
+                                        .partyIdentityDOList.controls[0]
+                                        .controls.identityTypeCd.value === 'PAN'
+                                        ? '^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$'
+                                        : '^[A-Za-z]{1}[0-9]{7}$'
+                                    "
+                                    #identityNum
+                                    (input)="
+                                      identityNum.value =
+                                        $event.target.value.toUpperCase()
+                                    "
+                                    [ngClass]="{
+                                      'is-invalid':
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.invalid &&
+                                        getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.dirty,
+                                      'is-valid':
+                                        !(
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.invalid &&
+                                          getControls[i]['controls']
+                                            .partyIdentityDOList.controls[0]
+                                            .controls.identityNum.dirty
+                                        ) &&
+                                        !getControls[i]['controls']
+                                          .partyIdentityDOList.controls[0]
+                                          .controls.identityNum.pristine
+                                    }"
+                                    class="
+                                      form-control-sm form-control
+                                      insurance-input
+                                    "
+                                  />
+                                </div>
                                 <div
                                   *ngIf="
                                     (getControls[i]['controls']
@@ -2398,7 +3309,11 @@
                           </div>
 
                           <div
-                            class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex ques_ans_option_box"
+                            class="
+                              col-lg-2 col-md-2 col-sm-12 col-12
+                              d-flex
+                              ques_ans_option_box
+                            "
                             *ngIf="
                               getControls[i]['controls'].partyQuestionDOList
                                 .controls[j].controls.questionType.value ==
@@ -2425,13 +3340,19 @@
                                 class="custom-control-input"
                               />
                               <label
-                                class="custom-control-label insurance-radio-label"
+                                class="
+                                  custom-control-label
+                                  insurance-radio-label
+                                "
                                 for="question_{{ j }}_1_{{ i }}"
                                 >Yes</label
                               >
                             </div>
                             <div
-                              class="custom-control custom-radio ques_ans_right_option"
+                              class="
+                                custom-control custom-radio
+                                ques_ans_right_option
+                              "
                             >
                               <input
                                 type="radio"
@@ -2452,7 +3373,10 @@
                                 class="custom-control-input"
                               />
                               <label
-                                class="custom-control-label insurance-radio-label"
+                                class="
+                                  custom-control-label
+                                  insurance-radio-label
+                                "
                                 for="question_{{ j }}_2_{{ i }}"
                                 >No</label
                               >
@@ -3261,14 +4185,14 @@
                     style="cursor: pointer"
                     >I agree with the
                     <a
-                      [routerLink]="['/tnc']"
+                      [routerLink]="['/Terms&Conditions']"
                       target="_blank"
                       routerLinkActive="router-link-active"
                       >Terms &amp; Conditions</a
                     >
                     and
                     <a
-                      [routerLink]="['/cancellationPolicy']"
+                      [routerLink]="['/cancellation-Policy']"
                       target="_blank"
                       routerLinkActive="router-link-active"
                       >Cancellation Policy</a

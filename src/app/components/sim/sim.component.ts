@@ -71,13 +71,13 @@ export class SimComponent implements OnInit, AfterViewInit {
       this.toastr.error("Please select a country.");
     } else {
       // this.userFlow.setCookie("simSelectedCountry", this.selectedSimCountry);
-      this.router.navigate(['/sim', this.selectedSimCountry]);
+      this.router.navigate(['/sim', this.selectedSimCountry.toLowerCase()]);
     }
   }
 
   proceedToPlans(country: string) {
     // this.userFlow.setCookie("simSelectedCountry", country);
-    this.router.navigate(["/sim", country]);
+    this.router.navigate(["/sim", country.toLowerCase()]);
   }
 
   @ViewChild('countryInput') countryInput: ElementRef;

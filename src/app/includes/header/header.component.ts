@@ -60,10 +60,10 @@ export class HeaderComponent implements OnInit {
           arr[1] == "addTraveller" ||
           event.url == "/sim/checkout" ||
           // arr[1] == "slcontainer" ||
-          arr[1] == "tnc" ||
-          arr[1] == "privacyPolicy" ||
-          arr[1] == "cookiePolicy" ||
-          arr[1] == "cancellationPolicy" ||
+          arr[1] == "Terms&Conditions" ||
+          arr[1] == "Privacy-Policy" ||
+          arr[1] == "cookie-Policy" ||
+          arr[1] == "cancellation-Policy" ||
           arr[1] == "404" ||
           arr[1] == "About-Us" ||
           arr[1] == "offers" ||

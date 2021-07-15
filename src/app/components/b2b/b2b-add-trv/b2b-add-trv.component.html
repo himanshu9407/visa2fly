@@ -902,7 +902,10 @@
                   <br />
                   <div
                     *ngIf="!first"
-                    class="custom-control-lg custom-control custom-checkbox col-sm-4 col-md-3"
+                    class="
+                      custom-control-lg custom-control custom-checkbox
+                      col-sm-4 col-md-3
+                    "
                   >
                     <input
                       (click)="setAddressSame(i)"
@@ -1312,14 +1315,14 @@
           style="cursor: pointer"
           >I agree with the
           <a
-            [routerLink]="['/tnc']"
+            [routerLink]="['/Terms&Conditions']"
             target="_blank"
             routerLinkActive="router-link-active"
             >Terms &amp; Conditions</a
           >
           and
           <a
-            [routerLink]="['/cancellationPolicy']"
+            [routerLink]="['/cancellation-Policy']"
             target="_blank"
             routerLinkActive="router-link-active"
             >Cancellation Policy</a

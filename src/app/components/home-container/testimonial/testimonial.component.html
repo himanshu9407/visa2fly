@@ -6,8 +6,8 @@
           What People Says <span>About Us</span>
         </h3>
         <p class="testimonial_desc">
-          We allways try to do best for our coustemers and we able to satisfy by
-          our best services
+          Our travel experts are committed to providing you with a seamless
+          online visa application service from comfort of your home.
         </p>
       </div>
     </div>
@@ -26,7 +26,7 @@
             <div
               ngxSlickItem
               class="slide"
-              *ngFor="let testimonial of testimonialArr"
+              *ngFor="let testimonial of testimonialArr; let i = index"
             >
               <div class="testimonial_box">
                 <div class="testimonial_icon_box">
@@ -70,72 +70,7 @@
                     </span>
                   </span>
                 </div>
-                <p class="testimonial_review">
-                  “ The services was too good and i enjoy journey so much.
-                  Visa2fly providing best services and easy paper work’ as
-                  comapnre to others.The services was too good and i enjoy
-                  journey. “
-                </p>
-                <div class="testimonial_author_box">
-                  <p class="testimonial_author">
-                    {{ testimonial.fullName }}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              ngxSlickItem
-              class="slide"
-              *ngFor="let testimonial of testimonialArr"
-            >
-              <div class="testimonial_box">
-                <div class="testimonial_icon_box">
-                  <span class="testimonial_quote_box">
-                    <svg
-                      width="146"
-                      height="96"
-                      viewBox="0 0 146 96"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M54.7499 0L77.2809 14.7386C60.4579 33.3278 50.0183 51.5188 45.9629 69.3111L40.5555 96H0L4.05555 73.693C9.46296 44.2156 26.3611 19.6514 54.7499 0ZM123.469 0L146 14.7386C129.177 33.3278 118.738 51.5188 114.682 69.3111L109.275 96H68.7191L72.7746 73.693C78.182 44.2156 95.0803 19.6514 123.469 0Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </span>
-                  <span class="testimonial_star_box">
-                    <svg
-                      *ngFor="let star of createStarArray(testimonial.stars)"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                    >
-                      <g data-name="Layer 2">
-                        <g data-name="star">
-                          <rect
-                            width="24"
-                            height="24"
-                            transform="rotate(90 12 12)"
-                            opacity="0"
-                          />
-                          <path
-                            d="M17.56 21a1 1 0 0 1-.46-.11L12 18.22l-5.1 2.67a1 1 0 0 1-1.45-1.06l1-5.63-4.12-4a1 1 0 0 1-.25-1 1 1 0 0 1 .81-.68l5.7-.83 2.51-5.13a1 1 0 0 1 1.8 0l2.54 5.12 5.7.83a1 1 0 0 1 .81.68 1 1 0 0 1-.25 1l-4.12 4 1 5.63a1 1 0 0 1-.4 1 1 1 0 0 1-.62.18z"
-                          />
-                        </g>
-                      </g>
-                    </svg>
-
-                    <span class="testimonial_star_count">
-                      {{ testimonial.stars }}/ <span>5</span>
-                    </span>
-                  </span>
-                </div>
-                <p class="testimonial_review">
-                  “ The services was too good and i enjoy journey so much.
-                  Visa2fly providing best services and easy paper work’ as
-                  comapnre to others.The services was too good and i enjoy
-                  journey. “
-                </p>
+                <p class="testimonial_review">“ {{ testimonial.review }} “</p>
                 <div class="testimonial_author_box">
                   <p class="testimonial_author">
                     {{ testimonial.fullName }}

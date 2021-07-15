@@ -189,24 +189,24 @@ export class UAEComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle("UAE Visa | Apply For UAE Visa Online for Indians- Visa2Fly");
+    this.titleService.setTitle("Apply for Online Visa applications for UAE! Online Visa India to UAE!");
 
     this.meta.updateTag({
       name: "keywords",
       content:
-        "apply for UAE e-visa, UAE tourist visa application, UAE tourist visa for indian, apply for UAE e visa, UAE e-visa for indians",
+        "Online visa application UAE | Tourist visa UAE | Business visa UAE | Online visa India to UAE",
     });
     this.meta.updateTag({
       name: "description",
       content:
-        "Visa2fly offers UAE visa for Indians visiting UAE. Indian passport holders can easily apply for a UAE visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their UAE visa online with Visa2Fly here.",
+        "At Visa2fly you can easily obtain a UAE visa online. You can easily apply for a UAE Transit Visa for UAE Tourist visa online right from your home with Visa2fly.",
     });
 
     // facebook and linkedin
     this.meta.updateTag({
       property: "og:title",
       content:
-        "UAE Visa | Apply For UAE Visa Online for Indians- Visa2Fly",
+        "Apply for Online Visa applications for UAE! Online Visa India to UAE!",
     });
     this.meta.updateTag({ property: "type", content: "website" });
     this.meta.updateTag({
@@ -220,12 +220,12 @@ export class UAEComponent implements OnInit {
     this.meta.updateTag({
       property: "og:image:alt",
       content:
-        "UAE Visa | Apply For UAE Visa Online for Indians- Visa2Fly",
+        "Apply for Online Visa applications for UAE! Online Visa India to UAE!",
     });
     this.meta.updateTag({
       property: "og:description",
       content:
-        "Visa2fly offers UAE visa for Indians visiting UAE. Indian passport holders can easily apply for a UAE visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their UAE visa online with Visa2Fly here.",
+        "At Visa2fly you can easily obtain a UAE visa online. You can easily apply for a UAE Transit Visa for UAE Tourist visa online right from your home with Visa2fly.",
     });
 
     // twitter
@@ -236,7 +236,7 @@ export class UAEComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:title",
       content:
-        "UAE Visa | Apply For UAE Visa Online for Indians- Visa2Fly",
+        "Apply for Online Visa applications for UAE! Online Visa India to UAE!",
     });
     this.meta.updateTag({
       property: "twitter:image",
@@ -245,12 +245,12 @@ export class UAEComponent implements OnInit {
     this.meta.updateTag({
       property: "twitter:image:alt",
       content:
-        "UAE Visa | Apply For UAE Visa Online for Indians- Visa2Fly",
+        "Apply for Online Visa applications for UAE! Online Visa India to UAE!",
     });
     this.meta.updateTag({
       property: "twitter:description",
       content:
-        "Visa2fly offers UAE visa for Indians visiting UAE. Indian passport holders can easily apply for a UAE visa online at Visa2Fly. Visa2fly offers doorstep visa services making it convenient for Indian nationals. Indian nationals can fill their UAE visa online with Visa2Fly here.",
+        "At Visa2fly you can easily obtain a UAE visa online. You can easily apply for a UAE Transit Visa for UAE Tourist visa online right from your home with Visa2fly.",
     });
     this.meta.updateTag({
       property: "twitter:site",
