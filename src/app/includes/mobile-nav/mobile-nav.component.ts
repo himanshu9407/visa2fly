@@ -154,13 +154,13 @@ export class MobileNavComponent implements OnInit {
         (data: SignupResponseModel) => {
           if (!data) {
             this.toastr.error("Something went wrong! Please try again later");
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.preloaderService.showPreloader(false);
           } else if (data.code == "0") {
             this.loginService.setAuthToken("");
             this.loginStatus.setUserStatus(false);
             this.loginStatus.setUserLoggedIn(false);
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.preloaderService.showPreloader(false);
             this.userFlow.setCookie("profile", JSON.stringify({}));
             this.userFlow.removeAll();
@@ -168,13 +168,13 @@ export class MobileNavComponent implements OnInit {
             this.loginService.setAuthToken("");
             this.loginStatus.setUserStatus(false);
             this.loginStatus.setUserLoggedIn(false);
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.preloaderService.showPreloader(false);
             this.userFlow.setCookie("profile", JSON.stringify({}));
             this.toastr.error("" + data.message);
           } else {
             this.toastr.error(data.message.toString());
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
             this.preloaderService.showPreloader(false);
           }
         },
