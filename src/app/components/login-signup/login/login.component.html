@@ -33,7 +33,17 @@
       <div class="col-12 desktopView sendOtp_deskstopButton" *ngIf="showSendOtp">
         <button class="btn onlyForDeskstop" type="button" (click)="sendOtp()">Get OTP</button>
       </div>
-
+      <div class="col-12 mobileView">
+        <div class="mobileHeadingSignIn">
+          <h3 class="welcomeMessageheading">WELCOME!</h3>
+          <p class="welcomeMessage">login to your account</p>
+        </div>
+      </div>
+      <div class="col-12 mobileView">
+        <div class="img-box">
+          <img src="../../../assets/passport_login.png" alt="login_image" class="img-fluid passport_verification_image">
+        </div>
+      </div>
       <div class="col-12 email_mobile_checker mobileView">
         <div class="input-group">
         <input
@@ -252,9 +262,12 @@
       <div class="form-group w-100 otpContainer">
         <div
           class="col-12"
-          style="height: 110px; padding-top: 40px; font-weight: 600;"
+          style="font-weight: 600;"
         >
           <label for="digit1">Enter OTP</label>
+          <div class="otpImage mobileView">
+            <img src="../../../../assets/Two factor authentication-rafiki 1.png" alt="otpImage" class="img-fluid otp_image_for_Signup">
+          </div>
           <div class="otp-box">
             <input
               id="digit1"

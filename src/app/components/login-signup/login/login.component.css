@@ -261,6 +261,12 @@
   box-shadow: inset 0px 0px 14px rgba(255, 0, 0, 0.13);
 } */
 
+.form-body .button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
  .resendBtn button,
  .resendBtn button:disabled {
   color: #407BFF;
@@ -333,38 +339,9 @@
     margin-bottom: 15px;
   }
 
-  .form-body .input-group input {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-top-left-radius: 10px;
-    -moz-border-bottom-left-radius: 10px;
-    -ms-border-top-left-radius: 10px;
-    -ms-border-bottom-left-radius: 10px;
-    -o-border-top-left-radius: 10px;
-    -o-border-bottom-left-radius: 10px;
-    border: none;
-    background: #FBFBFB;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.13);
-    border: 1px solid #808080;
-    width: 80%;
-    height: 40px;
-    padding: 0px 5px;
-    font-size: 12px;
-  }
 
-  .btn {
-    background-color: #407BFF;
-    color: #fff;
-    /* width: 15%; */
-    padding: 12px 17px !important;
-    margin-top: -5px;
-    border-top-left-radius: 15px !important;
-    border-bottom-left-radius: 15px !important;
-    border-top-right-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
-  }
+
+
 
   .otpContainer {
     margin-top: -10px;
@@ -432,4 +409,299 @@
       transform: translate3d(4px, 0, 0);
     }
   }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px) and (max-width: 640px) {
+
+  .otpContainer {
+    margin-top: -70px;
+  }
+
+
+  .mobileHeadingSignIn {
+    margin-top: 30px;
+  }
+
+  .mobileHeadingSignIn .welcomeMessageheading {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .mobileHeadingSignIn .welcomeMessage {
+    font-size: 12px;
+    margin-left: 5px;
+    color: #939393;
+  }
+
+  .img-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .passport_verification_image {
+    height: 260px;
+    width: 260px;
+  }
+
+  .form-body .input-group input {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -ms-border-top-left-radius: 10px;
+    -ms-border-bottom-left-radius: 10px;
+    -o-border-top-left-radius: 10px;
+    -o-border-bottom-left-radius: 10px;
+    border: none;
+    background: #FBFBFB;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.13);
+    border: 1px solid #808080;
+    width: 80%;
+    z-index: 1;
+    height: 50px;
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+
+  .input-group-append {
+    margin-left: -12px;
+  }
+
+  .btn {
+    background-color: #407BFF;
+    color: #fff;
+    /* width: 15%; */
+    padding: 18px 21px !important;
+    margin-top: -7px;
+    z-index: 4;
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+
+  .form-body label {
+    font-size: 17px;
+    text-align: center;
+    margin-top: -12px;
+  }
+
+  .form-body label {
+    font-size: 17px;
+    text-align: center;
+  }
+
+  .otpImage {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 0px; */
+  }
+
+  .otp_image_for_Signup {
+    width: 240px;
+    height: 286px;
+    margin-top: 116px;
+  }
+}
+
+
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:641px) and (max-width: 1024px) {
+  .show {
+    display: flex;
+  }
+
+   .hide {
+    display: none;
+  }
+
+  .desktopView {
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .mobileHeadingSignIn {
+    margin-top: 30px;
+  }
+
+  .mobileHeadingSignIn .welcomeMessageheading {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .mobileHeadingSignIn .welcomeMessage {
+    font-size: 12px;
+    margin-left: 5px;
+    color: #939393;
+  }
+
+  .img-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .passport_verification_image {
+    height: 360px;
+    width: 415px;
+  }
+
+  .form-body .input-group input {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -ms-border-top-left-radius: 10px;
+    -ms-border-bottom-left-radius: 10px;
+    -o-border-top-left-radius: 10px;
+    -o-border-bottom-left-radius: 10px;
+    border: none;
+    background: #FBFBFB;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.13);
+    border: 1px solid #808080;
+    width: 80%;
+    z-index: 1;
+    height: 50px;
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+
+  .input-group-append {
+    margin-left: -12px;
+  }
+
+  .btn {
+    background-color: #407BFF;
+    color: #fff;
+    /* width: 15%; */
+    padding: 18px 21px !important;
+    margin-top: -7px;
+    z-index: 4;
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+
+  .form-body label {
+    font-size: 17px;
+    text-align: center;
+  }
+
+  .otpImage {
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+  }
+
+  .otp_image_for_Signup {
+    width: 400px;
+    height: 330px;
+  }
+
+  .form-body label {
+    font-size: 17px;
+    text-align: center;
+  }
+}
+
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+  .show {
+    display: flex;
+  }
+
+   .hide {
+    display: none;
+  }
+
+  .desktopView {
+    display: block;
+  }
+
+  .mobileView {
+    display: none;
+  }
+
+  .form-body .input-group input {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    padding: 0px 5px;
+    font-size: 14px;
+  }
+
+  .btn {
+    background-color: #407BFF;
+    color: #fff;
+    /* width: 15%; */
+    padding: 13px 23px !important;
+    margin-top: -7px;
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+ }
+
+/* hi-res laptops and desktops */
+@media (min-width:1281px) {
+  .show {
+    display: flex;
+  }
+
+   .hide {
+    display: none;
+  }
+
+  .desktopView {
+    display: block;
+  }
+
+  .mobileView {
+    display: none;
+  }
+
+  .form-body .input-group input {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    padding: 0px 5px;
+    font-size: 14px;
+  }
+
+  .btn {
+    background-color: #407BFF;
+    color: #fff;
+    /* width: 15%; */
+    padding: 13px 23px !important;
+    margin-top: -7px;
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+
 }

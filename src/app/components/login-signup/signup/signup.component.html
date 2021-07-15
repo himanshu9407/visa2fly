@@ -352,7 +352,6 @@
     </div>
     <div class="col-12 mt-3 agreeBox">
       <div class="form-group mb-0 tnc">
-        <!-- <input type="checkbox" formControlName="tnc" id="tnc" /> -->
         <label for="tnc"
           >By click this button you agree with our
           <a [routerLink]="['/tnc']" style="text-decoration: none"
@@ -366,13 +365,17 @@
     </div>
 
   </div>
-  <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }" >
+
+  <div class="row" [ngClass]="{ show: showOtpBox, hide: !showOtpBox }">
     <div class="form-group w-100">
       <div
         class="col-12"
-        style="height: 110px; padding-top: 25px; font-weight: 600;"
+        style="padding-top: 25px; font-weight: 600;"
       >
         <label for="digit1">Enter OTP</label>
+        <div class="otpImage mobileView">
+          <img src="../../../../assets/Two factor authentication-rafiki 1.png" alt="otpImage" class="img-fluid otp_image_for_Signup">
+        </div>
         <div class="otp-box">
           <input
             id="digit1"

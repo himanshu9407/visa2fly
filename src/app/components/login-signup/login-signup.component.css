@@ -176,25 +176,25 @@
 .desktopView.login_decoration .visaImage {
   height: 400px;
   position: absolute;
-  top: 120px;
-  left: 171px;
+  top: 200px;
+  left: 250px;
 }
 
 .right-side {
-  margin-top: 45px;
+  margin-top: 110px;
   height: calc(100vh - 150px);
 }
 
 .blurred-box {
   position: relative;
-  width: 490px;
+  width: 529px;
   height: 100%;
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
   border-radius: 15px;
   padding: 15px 20px;
-  margin-left: 200px;
+  margin-left: 130px;
   /* margin-top:-60px */
 }
 
@@ -307,62 +307,7 @@
     display: block;
   }
 
-  .right-side {
-    margin-top: 15px;
-    /* height: 100vh; */
-  }
 
-  .blurred-box {
-    position: relative;
-    width: auto;
-    height: auto;
-    background-color: #fff;
-    overflow: hidden;
-    box-shadow: none;
-    border-radius: 15px;
-    padding: 0px 15px;
-    margin-left: 0px;
-    /* margin-top:-60px */
-  }
-
-  .img-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .passport_verification_image {
-    height: 200px;
-    width: 260px;
-  }
-
-  .mobileHeadingSignIn {
-    margin-top: 20px;
-  }
-
-  .mobileHeadingSignIn .welcomeMessageheading {
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  .mobileHeadingSignIn .welcomeMessage {
-    font-size: 13px;
-    color: #939393;
-  }
-
-  .mobileHeading {
-    margin-top: 20px;
-  }
-
-  .mobileHeading .welcomeMessageheading {
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .mobileHeading .welcomeMessage {
-    font-size: 14px;
-    color: #939393;
-  }
 
   .form-footer {
     padding-top: 0px;
@@ -392,7 +337,7 @@
 
 }
 
-@media all and (min-width: 768px) and (max-width: 1024px) {
+/* @media all and (min-width: 768px) and (max-width: 1024px) {
   .login_signup_section {
     height: 100vh;
   }
@@ -405,21 +350,15 @@
     display: block;
   }
 
-  /* .right-side {
-    padding-top: 95px;
-  } */
-
   .blurred-box {
     position: relative;
     width: auto;
-    /* height: 100%; */
     background-color: #fff;
     overflow: hidden;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
     border-radius: 15px;
     padding: 15px 20px;
     margin-left: 55px;
-    /* margin-top:-60px */
   }
 
   .img-box {
@@ -466,9 +405,9 @@
     color: #407BFF;
     cursor: pointer;
   }
-}
+} */
 
-@media all and (min-width: 1024px) and (max-width: 1340px) {
+/* @media all and (min-width: 1024px) and (max-width: 1340px) {
   .blurred-box {
     position: relative;
     width: 400px;
@@ -479,6 +418,305 @@
     border-radius: 15px;
     padding: 15px 20px;
     margin-left: 110px;
+  }
+} */
+
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px)  {
+  .right-side {
+    margin-top: 15px;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: none;
+    border-radius: 15px;
+    padding: 0px 15px;
+    margin-left: 0px;
+  }
+
+
+  .mobileHeading {
+    margin-top: 25px;
+  }
+
+  .mobileHeading .welcomeMessageheading {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .mobileHeading .welcomeMessage {
+    font-size: 12px;
+    color: #939393;
+  }
+
+
+}
+
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width:481px)  {
+
+}
+
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:641px)  {
+  .login_signup_section {
+    height: 100vh;
+  }
+
+  .desktopView {
+    display: none;
+  }
+
+  .mobileView {
+    display: block;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: auto;
+    background-color: #fff;
+    overflow: hidden;
+    /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07); */
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-left: 55px;
+  }
+
+
+
+  .mobileHeading .welcomeMessageheading {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .mobileHeading .welcomeMessage {
+    font-size: 14px;
+    color: #939393;
+  }
+
+  .form-footer {
+    padding-top: 30px;
+  }
+
+  .login_with_other {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .option_for_login_signup {
+    padding-top: 15px;
+    text-align: center;
+  }
+
+  .option_for_login_signup p {
+    font-size: 12px;
+    color: #707070;
+  }
+
+  .option_for_login_signup p span {
+    font-size: 14px;
+    color: #407BFF;
+    cursor: pointer;
+  }
+}
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* @media (min-width:961px)  {
+  .blurred-box {
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: none;
+    border-radius: 15px;
+    padding: 0px 15px;
+    margin-left: 0px;
+  }
+
+  .img-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .passport_verification_image {
+    height: 260px;
+    width: 260px;
+  }
+
+  .mobileHeadingSignIn {
+    margin-top: 30px;
+  }
+
+  .mobileHeadingSignIn .welcomeMessageheading {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .mobileHeadingSignIn .welcomeMessage {
+    font-size: 12px;
+    margin-left: 5px;
+    color: #939393;
+  }
+
+  .mobileHeading {
+    margin-top: 25px;
+  }
+
+  .mobileHeading .welcomeMessageheading {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .mobileHeading .welcomeMessage {
+    font-size: 12px;
+    color: #939393;
+  }
+
+} */
+
+
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+  .desktopView {
+    display: block;
+  }
+
+  .mobileView {
+    display: none;
+  }
+
+  .right-side {
+      margin-top: 110px;
+    }
+
+  .desktopView.login_decoration .visaImage {
+    height: 400px;
+    position: absolute;
+    top: 160px;
+    left: 150px;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-left: 83px;
+  }
+}
+
+@media (min-width:1200px) {
+  .desktopView {
+    display: block;
+  }
+
+  .mobileView {
+    display: none;
+  }
+
+  .right-side {
+    margin-top: 110px;
+  }
+
+
+  .desktopView.login_decoration .visaImage {
+    height: 400px;
+    position: absolute;
+    top: 160px;
+    left: 150px;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-left: 40px;
+  }
+}
+
+/* hi-res laptops and desktops */
+@media (min-width:1281px) {
+  .desktopView {
+    display: block;
+  }
+
+  .mobileView {
+    display: none;
+  }
+
+  .right-side {
+    margin-top: 110px;
+  }
+
+  .desktopView.login_decoration .visaImage {
+    height: 400px;
+    position: absolute;
+    top: 200px;
+    left: 250px;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: 490px;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-left: 130px;
+  }
+
+}
+
+@media (min-width:1350px) {
+  .desktopView {
+    display: block;
+  }
+
+  .mobileView {
+    display: none;
+  }
+
+  .right-side {
+    margin-top: 110px;
+  }
+
+  .desktopView.login_decoration .visaImage {
+    height: 400px;
+    position: absolute;
+    top: 200px;
+    left: 250px;
+  }
+
+  .blurred-box {
+    position: relative;
+    width: 529px;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-left: 130px;
     /* margin-top:-60px */
   }
+
 }

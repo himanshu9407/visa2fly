@@ -225,13 +225,13 @@ export class SignupComponent implements OnInit {
               if (data.code == "0") {
                 this.router.navigate(["addTraveller"]);
               } else {
-                this.router.navigate(["visa"]);
+                this.router.navigate(["/"]);
               }
             });
           } else if (this.prevRoute == "fail-login-sim") {
             this.router.navigate(["/sim/checkout"]);
           } else {
-            this.router.navigate(["visa"]);
+            this.router.navigate(["/"]);
           }
         } else {
           this.toastr.error(data.message.toString());

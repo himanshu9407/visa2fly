@@ -124,11 +124,13 @@ export class HeaderComponent implements OnInit {
           $("#signupButton").addClass("btn-outline-light").css({"display": "block"});
           // $("button").addClass("btn-outline-light");
           $("a").removeClass("content").addClass("navlink");
+          $("#navbarDropdown").removeClass("dropDownMenu");
         } else if(arr[1] == "slcontainer") {
           this.showTransparentNavbar = true;
           this.visa2FlyForLogin = true;
           this.visa2FlyForAll = false;
           $("#loginButton").removeClass("login").css({"display": "none"});
+          $("#navbarDropdown").addClass("dropDownMenu");
           $("a").removeClass("navlink").addClass("content");
           $("#signupButton").removeClass("btn-outline-light").css({"display":"none"});
         } else {
@@ -138,6 +140,7 @@ export class HeaderComponent implements OnInit {
           $("#signupButton").addClass("btn-outline-light").css({"display": "block"});
           // $("button").addClass("btn-outline-light");
           $("a").removeClass("content").addClass("navlink");
+          $("#navbarDropdown").removeClass("dropDownMenu");
           // $("#visa").removeClass("content");
           this.showTransparentNavbar = true;
         }
