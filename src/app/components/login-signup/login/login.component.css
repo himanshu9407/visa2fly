@@ -183,6 +183,10 @@
   text-align: center;
 }
 
+.otpMessageForDeskstop {
+  display: block;
+}
+
 .staySignedIn {
   font-size: 13px !important;
   margin-bottom: 0px !important;
@@ -249,6 +253,11 @@
   margin-bottom: 15px;
 }
 
+.credentialErrorForMObile {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 /* .opt-box input:valid {
   border: 1px solid #407BFF;
   box-sizing: border-box;
@@ -304,6 +313,8 @@
 .loginButton {
   margin-top: 30px;
 }
+
+
 
 @media screen and (max-width: 767px) {
   .form-body .button-group {
@@ -413,11 +424,13 @@
 
 /* smartphones, iPhone, portrait 480x320 phones */
 @media (min-width:320px) and (max-width: 640px) {
-
-  .otpContainer {
-    margin-top: -70px;
+.otpContainer {
+    margin-top: 50px;
   }
 
+  .otpMessageForDeskstop {
+    display: none;
+  }
 
   .mobileHeadingSignIn {
     margin-top: 30px;
@@ -437,7 +450,7 @@
   .img-box {
     display: flex;
     justify-content: center;
-    /* margin-top: 20px; */
+    margin-top: 0px;
   }
 
   .passport_verification_image {
@@ -475,7 +488,20 @@
     background-color: #407BFF;
     color: #fff;
     /* width: 15%; */
-    padding: 18px 21px !important;
+    padding: 12px 15px !important;
+    margin-top: 10px;
+    z-index: 4;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+
+  .send_otpButton {
+    background-color: #407BFF;
+    color: #fff;
+    /* width: 15%; */
+    padding: 18px 25px !important;
     margin-top: -7px;
     z-index: 4;
     border-top-left-radius: 15px !important;
@@ -487,12 +513,7 @@
   .form-body label {
     font-size: 17px;
     text-align: center;
-    margin-top: -12px;
-  }
-
-  .form-body label {
-    font-size: 17px;
-    text-align: center;
+    margin-top: -84px;
   }
 
   .otpImage {
@@ -525,6 +546,10 @@
 
   .mobileView {
     display: block;
+  }
+
+  .otpMessageForDeskstop {
+    display: none;
   }
 
   .mobileHeadingSignIn {
@@ -582,7 +607,20 @@
     background-color: #407BFF;
     color: #fff;
     /* width: 15%; */
-    padding: 18px 21px !important;
+    padding: 12px 15px !important;
+    margin-top: 8px;
+    z-index: 4;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+
+  .send_otpButton {
+    background-color: #407BFF;
+    color: #fff;
+    /* width: 15%; */
+    padding: 18px 25px !important;
     margin-top: -7px;
     z-index: 4;
     border-top-left-radius: 15px !important;
@@ -599,7 +637,7 @@
   .otpImage {
     display: flex;
     justify-content: center;
-    margin-top: -20px;
+    margin-top: 0px;
   }
 
   .otp_image_for_Signup {
@@ -610,7 +648,34 @@
   .form-body label {
     font-size: 17px;
     text-align: center;
+    margin-top: -70px
   }
+
+  .otp-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding-top: 15px;
+    margin: 0 auto;
+    margin-left: 35px;
+  }
+
+  .otp-box .box {
+    width: 65px;
+    height: 55px;
+    padding: 0;
+    margin-right: 50px;
+    text-align: center;
+    border: 1px solid gray;
+    /* border-radius: 5px; */
+    background: #FFFFFF;
+    border-radius: 10px;
+    /* border: 1px solid #407BFF;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 14px rgba(64, 123, 255, 0.13); */
+  }
+
 }
 
 /* big landscape tablets, laptops, and desktops */
@@ -631,6 +696,10 @@
     display: none;
   }
 
+  .loginField {
+    padding: 0px 20px;
+  }
+
   .form-body .input-group input {
     border-radius: 0px;
     -webkit-border-radius: 0px;
@@ -649,14 +718,45 @@
   .btn {
     background-color: #407BFF;
     color: #fff;
-    /* width: 15%; */
-    padding: 13px 23px !important;
+    width: 95%;
+    padding: 0px !important;
     margin-top: -7px;
-    border-top-left-radius: 15px !important;
-    border-bottom-left-radius: 15px !important;
-    border-top-right-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
   }
+
+  .form-body .enterOtpLabel {
+    display: block;
+    margin-top: -40px;
+  }
+
+  .otp-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding-top: 15px;
+    margin: 0 auto;
+    margin-left: 25px;
+  }
+
+  .otp-box .box {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    margin-right: 28px;
+    text-align: center;
+    border: 1px solid gray;
+    /* border-radius: 5px; */
+    background: #FFFFFF;
+    border-radius: 10px;
+    /* border: 1px solid #407BFF;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 14px rgba(64, 123, 255, 0.13); */
+  }
+
  }
 
 /* hi-res laptops and desktops */
@@ -677,6 +777,10 @@
     display: none;
   }
 
+  .loginField {
+    padding: 0px 20px;
+  }
+
   .form-body .input-group input {
     border-radius: 0px;
     -webkit-border-radius: 0px;
@@ -695,13 +799,43 @@
   .btn {
     background-color: #407BFF;
     color: #fff;
-    /* width: 15%; */
-    padding: 13px 23px !important;
-    margin-top: -7px;
-    border-top-left-radius: 15px !important;
-    border-bottom-left-radius: 15px !important;
-    border-top-right-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
+    width: 100%;
+    padding: 10px !important;
+    margin-top: 0px;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+
+  .form-body .enterOtpLabel {
+    display: block;
+    margin-top: -40px;
+  }
+
+  .otp-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding-top: 15px;
+    margin: 0 auto;
+    margin-left: 25px;
+  }
+
+  .otp-box .box {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    margin-right: 28px;
+    text-align: center;
+    border: 1px solid gray;
+    /* border-radius: 5px; */
+    background: #FFFFFF;
+    border-radius: 10px;
+    /* border: 1px solid #407BFF;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 14px rgba(64, 123, 255, 0.13); */
   }
 
 }

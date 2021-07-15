@@ -39,6 +39,9 @@ export class SignupComponent implements OnInit {
   disableResend: boolean = true;
   resendBtnText: string = "Resend OTP";
   deskstopField: boolean = false;
+  credentialError: boolean;
+  allErrorDisplayValue: any;
+  allOtpRelatedError: any;
 
   constructor(
     private singUpService: SignupService,
@@ -114,31 +117,43 @@ export class SignupComponent implements OnInit {
         if ((<any>$input.val()).length == 0 && e.which == 8) {
           $input.toggleClass("productkey2 productkey1").prev(".box").focus();
           $("#digit1").removeClass("errorForOtp");
+          $("#digit1").removeClass("is-invalid-new");
           // this.loginForm.get("digit2").reset();
           $("#digit2").removeClass("errorForOtp");
+          $("#digit2").removeClass("is-invalid-new");
           // this.loginForm.get("digit3").reset();
           $("#digit3").removeClass("errorForOtp");
+          $("#digit3").removeClass("is-invalid-new");
           // this.loginForm.get("digit4").reset();
           $("#digit4").removeClass("errorForOtp");
+          $("#digit4").removeClass("is-invalid-new");
           // this.loginForm.get("digit5").reset();
           $("#digit5").removeClass("errorForOtp");
+          $("#digit5").removeClass("is-invalid-new");
           // this.loginForm.get("digit6").reset();
           $("#digit6").removeClass("errorForOtp");
+          $("#digit6").removeClass("is-invalid-new");
         } else if (
           (<any>$input.val()).length >= parseInt($input.attr("maxlength"), 10)
         ) {
           $input.toggleClass("productkey1 productkey2").next(".box").focus();
           $("#digit1").removeClass("errorForOtp");
+          $("#digit1").removeClass("is-invalid-new");
           // this.loginForm.get("digit2").reset();
           $("#digit2").removeClass("errorForOtp");
+          $("#digit2").removeClass("is-invalid-new");
           // this.loginForm.get("digit3").reset();
           $("#digit3").removeClass("errorForOtp");
+          $("#digit3").removeClass("is-invalid-new");
           // this.loginForm.get("digit4").reset();
           $("#digit4").removeClass("errorForOtp");
+          $("#digit4").removeClass("is-invalid-new");
           // this.loginForm.get("digit5").reset();
           $("#digit5").removeClass("errorForOtp");
+          $("#digit5").removeClass("is-invalid-new");
           // this.loginForm.get("digit6").reset();
           $("#digit6").removeClass("errorForOtp");
+          $("#digit6").removeClass("is-invalid-new");
         }
       });
     });
@@ -160,7 +175,9 @@ export class SignupComponent implements OnInit {
       this.signupForm.get("digit5").invalid ||
       this.signupForm.get("digit6").invalid
     ) {
-      this.toastr.error("Enter valid OTP");
+      this.deskstopField = true;
+      this.allOtpRelatedError = "Enter valid OTP";
+      // this.toastr.error("Enter valid OTP");
     } else {
       this.showSignUpButton = false;
       this.showSendOtpButton = false;
@@ -234,7 +251,9 @@ export class SignupComponent implements OnInit {
             this.router.navigate(["/"]);
           }
         } else {
-          this.toastr.error(data.message.toString());
+          // this.toastr.error();
+          this.deskstopField = true;
+          this.allOtpRelatedError = data.message.toString();
           this.showRotatingLoader = false;
           this.signupForm.get("digit1").reset();
           $("#digit1").addClass("errorForOtp");
@@ -335,7 +354,9 @@ export class SignupComponent implements OnInit {
       this.signupForm.get("mobile").invalid ||
       this.signupForm.get("email").invalid
     ) {
-      this.toastr.error("Kindly Enter Valid Details");
+      // this.toastr.error(");
+      this.credentialError = true;
+      this. allErrorDisplayValue = "Kindly Enter Valid Details";
     }
     // else if (this.signupForm.get("tnc").value == false) {
     //   this.toastr.error("Please accept terms and condition.");
@@ -349,7 +370,10 @@ export class SignupComponent implements OnInit {
       this.singUpService.getOtp(enteredMobile).subscribe(
         (data: SignupResponseModel) => {
           if (!data) {
-            this.toastr.error("Something Went wrong");
+            // this.toastr.error("Something Went wrong");
+            this.credentialError = true;
+            this.allErrorDisplayValue = "Something Went wrong";
+            // this.allOtpRelatedError = "";
             this.setFormFresh();
           } else {
             if (data.code == "0") {
@@ -358,20 +382,27 @@ export class SignupComponent implements OnInit {
               this.counter = 60;
               this.counterFunc();
             } else if (data.code == "309") {
-              this.toastr.error(data.message.toString());
+              // this.toastr.error(data.message.toString());
+              this.credentialError = true;
+              this.allErrorDisplayValue = data.message.toString();
+              // this.allOtpRelatedError = data.message.toString();
               this.showSignUpButton = false;
               this.showRotatingLoader = false;
               this.showSendOtpButton = true;
               this.changeNumber = false;
             } else if (data.code == "312") {
-              this.toastr.error(data.message.toString());
+              // this.toastr.error(data.message.toString());
+              this.credentialError = true;
+              this.allErrorDisplayValue = data.message.toString();
               this.resetDetails();
               this.showOtpBox = false;
             } else {
               this.showSignUpButton = false;
               this.showRotatingLoader = false;
+              this.credentialError = true;
+              this.allErrorDisplayValue = data.message.toString();
               this.showSendOtpButton = true;
-              this.toastr.error(data.message.toString());
+              // this.toastr.error(data.message.toString());
             }
           }
         },
@@ -392,6 +423,14 @@ export class SignupComponent implements OnInit {
     this.resetDetails();
     this.showSendOtpButton = true;
     this.showSignUpButton = false;
+    this.credentialError = false;
+    this.deskstopField = false;
+    $("#digit1").removeClass("errorForOtp");
+    $("#digit2").removeClass("errorForOtp");
+    $("#digit3").removeClass("errorForOtp");
+    $("#digit4").removeClass("errorForOtp");
+    $("#digit5").removeClass("errorForOtp");
+    $("#digit6").removeClass("errorForOtp");
     this.showOtpFields = false;
     this.showOtpBox = false;
     this.signupForm.enable();

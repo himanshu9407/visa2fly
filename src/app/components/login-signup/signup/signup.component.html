@@ -1,5 +1,19 @@
 <form class="form-body" [formGroup]="signupForm">
   <div class="row" [ngClass]="{ hide: showOtpBox, show: !showOtpBox }">
+    <div class="mobileHeading mobileView">
+      <h3 class="welcomeMessageheading">Hello!</h3>
+      <p class="welcomeMessage">Go head and get your visa</p>
+      <!-- <img src="../../../assets/Health passport-bro (2) 1.png" alt="visa2fly" class="img-fluid"> -->
+    </div>
+    <div class="col-12" *ngIf="credentialError">
+      <div class="invalid-feedback text-center" style="display: block; background: rgba(255, 0, 0, 0.07); border-radius: 15px;">
+        <div class="credentialError">
+          {{ this.allErrorDisplayValue }}
+          <!-- You entered wrong credential.please enter valid data -->
+        </div>
+      </div>
+    </div>
+
     <div class="col-6 input-group deskstopView pt-2 pb-2">
       <input
         pattern="[A-Za-z]{3,32}"
@@ -376,6 +390,10 @@
         <div class="otpImage mobileView">
           <img src="../../../../assets/Two factor authentication-rafiki 1.png" alt="otpImage" class="img-fluid otp_image_for_Signup">
         </div>
+        <div class="invalid-feedback mobileView" style="margin-top: 10px; background: rgba(255, 0, 0, 0.07); border-radius: 15px;
+        text-align: center;" *ngIf="deskstopField">
+         {{ this.allOtpRelatedError }}
+        </div>
         <div class="otp-box">
           <input
             id="digit1"
@@ -516,9 +534,9 @@
             required
           />
         </div>
-        <div class="invalid-feedback" style="display: block; margin-top: 10px; background: rgba(255, 0, 0, 0.07); border-radius: 15px;
+        <div class="invalid-feedback otpFieldForDeskStop" style="margin-top: 10px; background: rgba(255, 0, 0, 0.07); border-radius: 15px;
         text-align: center;" *ngIf="deskstopField">
-          Otp you entered is incorrect please try again
+         {{ this.allOtpRelatedError }}
         </div>
       </div>
     </div>

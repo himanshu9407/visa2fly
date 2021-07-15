@@ -48,6 +48,8 @@ export class LoginComponent implements OnInit {
 
   deskstopField: boolean = false;
   mobileField: boolean = false;
+  allErrorDisplayValue: any;
+  allOtpRelatedError: any;
 
   constructor(
     private loginService: LoginService,
@@ -126,16 +128,22 @@ export class LoginComponent implements OnInit {
         if ((<any>$input.val()).length == 0 && e.which == 8) {
           $input.toggleClass("productkey2 productkey1").prev(".box").focus();
           $("#digit1").removeClass("errorForOtp");
+          $("#digit1").removeClass("is-invalid-new");
           // this.loginForm.get("digit2").reset();
           $("#digit2").removeClass("errorForOtp");
+          $("#digit2").removeClass("is-invalid-new");
           // this.loginForm.get("digit3").reset();
           $("#digit3").removeClass("errorForOtp");
+          $("#digit3").removeClass("is-invalid-new");
           // this.loginForm.get("digit4").reset();
           $("#digit4").removeClass("errorForOtp");
+          $("#digit4").removeClass("is-invalid-new");
           // this.loginForm.get("digit5").reset();
           $("#digit5").removeClass("errorForOtp");
+          $("#digit5").removeClass("is-invalid-new");
           // this.loginForm.get("digit6").reset();
           $("#digit6").removeClass("errorForOtp");
+          $("#digit6").removeClass("is-invalid-new");
         } else if (
           (<any>$input.val()).length >= parseInt($input.attr("maxlength"), 10)
         ) {
@@ -267,47 +275,60 @@ export class LoginComponent implements OnInit {
 
 
   sendOtp() {
-    if (
+    if(this.loginForm.get("userId").value === null || this.loginForm.get("userId").value === undefined)
+    {
+      this.credentialError = true;
+      this.allErrorDisplayValue = "Kindly Enter Your Email/Mobile Number";
+    } else if (
       (this.loginForm.get("userId").invalid &&
         this.loginForm.get("userId").dirty) ||
-      this.loginForm.get("userId").pristine
+        this.loginForm.get("userId").pristine
     ) {
+      // console.log("Himanshu");
       this.credentialError = true;
-      this.toastr.error("Kindly Enter Your Email/Mobile Number");
+      this.allErrorDisplayValue = "Kindly Enter Your Email/Mobile Number";
+      // this.toastr.error("");
     } else {
       this.showRotatingLoader = true;
       this.showSendOtp = false;
       let userId = this.loginForm.get("userId").value;
       this.loginService.sendLoginOtp(userId).subscribe((data) => {
         if (!data) {
-          this.toastr.error("Something Went wrong! Please try again later.");
+          // this.toastr.error("Something Went wrong! Please try again later.");
           this.setFormFresh();
         } else if (data.code == "0") {
           this.afterSuccessfullOtpSend();
           this.disableResend = true;
+          this.allErrorDisplayValue = false;
           this.counter = 60;
           this.counterFunc();
         } else if(data.code === '309') {
-          this.toastr.error(data.message.toString());
-          this.showLoginButton = false;
+          // this.toastr.error(data.message.toString());
           this.credentialError = true;
+          this.allErrorDisplayValue = data.message;
+          this.showLoginButton = false;
           this.showRotatingLoader = false;
           this.showSendOtp = true;
           this.changeNumber = false;
         } else if(data.code === '312') {
-          this.toastr.error(data.message.toString());
+          // this.toastr.error(data.message.toString());
           this.credentialError = true;
+          this.showRotatingLoader = false;
+          this.allErrorDisplayValue = data.message;
           this.resendDetails();
           this.showOtpBox = false;
         } else {
-          this.toastr.error(data.message.toString());
-          this.showLoginButton = false;
+          // this.toastr.error(data.message.toString());
           this.credentialError = true;
+          this.allErrorDisplayValue = data.message;
+          this.showLoginButton = false;
           this.showRotatingLoader = false;
           this.showSendOtp = true;
         }
       }, (err) => {
-        this.toastr.error("Something went wrong.");
+        // this.toastr.error("Something went wrong.");
+        this.credentialError = true;
+        this.allErrorDisplayValue = err.message.toString();
         this.showLoginButton = false;
         this.showSendOtp = true;
         this.showRotatingLoader = false;
@@ -321,7 +342,15 @@ export class LoginComponent implements OnInit {
     this.showSendOtp = true;
     this.showLoginButton = false;
     this.showRotatingLoader = false;
+    $("#digit1").removeClass("errorForOtp");
+    $("#digit2").removeClass("errorForOtp");
+    $("#digit3").removeClass("errorForOtp");
+    $("#digit4").removeClass("errorForOtp");
+    $("#digit5").removeClass("errorForOtp");
+    $("#digit6").removeClass("errorForOtp");
+    this.credentialError = false
     this.showOtpField = false;
+    this.deskstopField = false;
     this.showOtpBox = false;
     this.loginForm.enable();
   }
@@ -380,8 +409,9 @@ export class LoginComponent implements OnInit {
         this.loginForm.get("digit5").invalid ||
         this.loginForm.get("digit6").invalid ) {
         this.deskstopField = true;
+        this.allOtpRelatedError = "Enter valid OTP";
         // this.otpFieldFunction();
-        this.toastr.error("Enter valid OTP");
+        // this.toastr.error("");
     } else {
         let digit1 = this.loginForm.get("digit1").value;
         let digit2 = this.loginForm.get("digit2").value;
@@ -411,9 +441,10 @@ export class LoginComponent implements OnInit {
                 (data: LoginResponseModel) => {
 
                   if (!data) {
-                    this.toastr.error(
-                      "Something Went wrong! Please try again later."
-                    );
+                    // this.toastr.error(
+                    //   ""
+                    // );
+                      this.allOtpRelatedError = "Something Went wrong! Please try again later.";
                       this.loginForm.get("digit1").reset();
                       $("#digit1").addClass("errorForOtp");
                       this.loginForm.get("digit2").reset();
@@ -464,10 +495,11 @@ export class LoginComponent implements OnInit {
                         this.router.navigate([""]);
                       }
                     } else {
-                      this.toastr.error(data.message);
+                      // this.toastr.error(data.message);
                       this.showLoader = false;
                       // console.log('kjh');
                       this.deskstopField = true;
+                      this.allOtpRelatedError = data.message;
                       this.loginForm.get("digit1").reset();
                       $("#digit1").addClass("errorForOtp");
                       this.loginForm.get("digit2").reset();
