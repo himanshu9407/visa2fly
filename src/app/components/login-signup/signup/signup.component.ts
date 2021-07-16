@@ -378,6 +378,18 @@ export class SignupComponent implements OnInit {
           } else {
             if (data.code == "0") {
               this.afterSuccessfullOtpSent();
+              $("#digit1").removeClass("errorForOtp");
+                // this.loginForm.get("digit2").reset();
+              $("#digit2").removeClass("errorForOtp");
+              // this.loginForm.get("digit3").reset();
+              $("#digit3").removeClass("errorForOtp");
+              // this.loginForm.get("digit4").reset();
+              $("#digit4").removeClass("errorForOtp");
+              // this.loginForm.get("digit5").reset();
+              $("#digit5").removeClass("errorForOtp");
+              // this.loginForm.get("digit6").reset();
+              $("#digit6").removeClass("errorForOtp");
+              this.deskstopField = false;
               this.disableResend = true;
               this.counter = 60;
               this.counterFunc();

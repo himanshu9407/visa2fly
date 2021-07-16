@@ -22,6 +22,8 @@ export class MobileNavComponent implements OnInit {
   headerForAll: boolean = false;
   visa2FlyLogoForAll: boolean = false;
   visa2FlyLogoForlogin: boolean = false;
+  menu:boolean = false;
+  back:boolean = true;
 
   constructor(
     private loginService: LoginService,
@@ -35,6 +37,10 @@ export class MobileNavComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    // function changeImage(){
+    //   document.querySelector('#navigation img').src = "../";
+    // }
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {

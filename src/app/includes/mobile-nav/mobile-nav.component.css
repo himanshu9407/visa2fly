@@ -37,13 +37,17 @@
 } */
 
 .form-inline {
-  /* padding-left: 0px; */
-  float: right;
-  padding-right: 10px;
+  display: flex;
+  justify-content: space-around;
+  /* padding-right: 10px; */
 }
 
 .nav-item a {
   font-size: 14px;
+}
+
+.signUpButton {
+  background-color: #0F9D58;
 }
 
 .noMargin {
@@ -106,16 +110,22 @@
   position: absolute;
   left: 0% !important;
   /* margin-top: 10px; */
-  padding-right: 5px;
-  padding-left: 10px;
-  text-align: left;
+  padding-right: 35px;
+  padding-left: 35px;
+  width: 100%;
+  text-align: center;
   /* min-width: 50px !important; */
   /* right: 10px !important; */
   /* left: 57%; */
 }
 
+.menu {
+  background-image: url('../../../assets/menu.svg');
+}
+
 .dropdown-item {
   font-size: 14px;
+  padding: 10px;
 }
 
 .dropdown-item:not(:last-child) {
@@ -154,16 +164,12 @@
   /* transform: translate(-50%, -50%); */
 }
 
+
 .navbar-light .navbar-toggler-icon {
   width: 25px;
   height: 25px;
   margin-bottom: 15px;
 }
-
-/* .dropdown-menu { */
-/* left: 39%; */
-/* width: 70%; */
-/* } */
 
 .dropdown-menu .btn img {
   display: inline-block;
@@ -178,7 +184,7 @@
     position: absolute;
     /* left: 0% !important; */
     /* margin-top: 10px; */
-    text-align: left;
+    /* text-align: left; */
     /* min-width: 50px !important; */
     /* right: 0px !important; */
     /* left: 57%; */

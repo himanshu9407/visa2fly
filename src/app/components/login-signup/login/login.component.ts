@@ -307,6 +307,18 @@ export class LoginComponent implements OnInit {
           this.afterSuccessfullOtpSend();
           $(".send_otpButton").removeClass("activateOnError");
           this.disableResend = true;
+          $("#digit1").removeClass("errorForOtp");
+          // this.loginForm.get("digit2").reset();
+          $("#digit2").removeClass("errorForOtp");
+          // this.loginForm.get("digit3").reset();
+          $("#digit3").removeClass("errorForOtp");
+          // this.loginForm.get("digit4").reset();
+          $("#digit4").removeClass("errorForOtp");
+          // this.loginForm.get("digit5").reset();
+          $("#digit5").removeClass("errorForOtp");
+          // this.loginForm.get("digit6").reset();
+          $("#digit6").removeClass("errorForOtp");
+          this.deskstopField = false;
           this.inputFieldError = false;
           this.allErrorDisplayValue = false;
           this.counter = 60;
