@@ -24,6 +24,7 @@ export class MobileNavComponent implements OnInit {
   visa2FlyLogoForlogin: boolean = false;
   menu:boolean = false;
   back:boolean = true;
+  newForDemo: any;
 
   constructor(
     private loginService: LoginService,
@@ -150,7 +151,27 @@ export class MobileNavComponent implements OnInit {
     this.loginStatus.getProfileData().subscribe((profile) => {
       this.userDetails = profile;
     });
+    $(".imgClass").addClass("menu");
+    $(".imgClass").addClass("forMenu");
   }
+
+  menuChangeFunction() {
+    console.log($("#dropDown-menu-new").hasClass("show"));
+    this.newForDemo = $(".dropdown-menu").hasClass("show");
+    if (this.newForDemo) {
+      $(".imgClass").addClass("menu");
+      $(".imgClass").addClass("ForMenu");
+      $(".imgClass").removeClass("back");
+      $(".imgClass").removeClass("forBack");
+    } else {
+      $(".imgClass").addClass("back");
+      $(".imgClass").addClass("forBack");
+      $(".imgClass").removeClass("menu");
+      $(".imgClass").removeClass("forMenu");
+    }
+  }
+
+
   logoutUser() {
     this.preloaderService.showPreloader(true);
     // console.log("logout called");
