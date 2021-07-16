@@ -284,8 +284,11 @@
               ) && !loginForm.get('userId').pristine
           }"
         />
+        <!-- radial-gradient(280.6% 280.6% at 50% 50%, #FF0000 0%, rgba(255, 0, 0, 0) 100%)
+        [style.background-color]="loginForm.get('userId').dirty  ? '#407BFF' : '#407BFF'" -->
         <div class="input-group-append">
-          <button class="btn send_otpButton" type="button" [style.background-color]="loginForm.get('userId').invalid && loginForm.get('userId').dirty  ? 'red' : '#407BFF'" *ngIf="showSendOtp" (click)="sendOtp()">
+          <button class="btn send_otpButton" type="button" [ngstyle]="inputFieldError && {'background-image':'radial-gradient(280.6% 280.6% at 50% 50%, #FF0000 0%, rgba(255, 0, 0, 0) 100%)'} || loginForm.get('userId').valid && {'background-color': '#407BFF'} "
+          *ngIf="showSendOtp" (click)="sendOtp()">
           <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.435 11.4212C11.3334 11.5224 11.2231 11.6077 11.1071 11.682L3.34575 19.433C2.58858 20.1889 1.36016 20.1892 0.60263 19.4327C-0.154898 18.6765 -0.154898 17.45 0.60263 16.6931L7.28676 10.0175L0.568148 3.30712C-0.18938 2.55092 -0.18938 1.32479 0.568148 0.567514C0.947091 0.188697 1.44385 7.62939e-06 1.93953 7.62939e-06C2.43521 7.62939e-06 2.93232 0.188697 3.31091 0.567514L11.1071 8.35443C11.2231 8.42868 11.3341 8.51406 11.435 8.61522C11.8222 9.00193 12.009 9.51133 11.9997 10.0182C12.009 10.5251 11.8222 11.0341 11.435 11.4212Z" fill="white"/>
           </svg>
@@ -295,7 +298,7 @@
           <!--  -->
           <div
             *ngIf="
-              (loginForm.get('userId').invalid && loginForm.get('userId').dirty)
+            inputFieldError
             "
           >
             Enter a valid email address or mobile number

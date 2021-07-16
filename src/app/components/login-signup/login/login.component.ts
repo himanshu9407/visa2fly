@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
   mobileField: boolean = false;
   allErrorDisplayValue: any;
   allOtpRelatedError: any;
+  inputFieldError: boolean = false;
 
   constructor(
     private loginService: LoginService,
@@ -67,6 +68,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   onUserPress() {
+    $(".send_otpButton").addClass("activateOnError");
     if (this.loginForm.get("userId").valid) {
       this.sendOtp();
     }
@@ -224,6 +226,7 @@ export class LoginComponent implements OnInit {
         digit6:"" }
       );
      this.showSendOtp = true;
+    //  this.inputFieldError = false;
      this.showLoginButton = false;
   }
 
@@ -279,18 +282,22 @@ export class LoginComponent implements OnInit {
     {
       this.credentialError = true;
       this.allErrorDisplayValue = "Kindly Enter Your Email/Mobile Number";
+      $(".send_otpButton").removeClass("activateOnError");
     } else if (
       (this.loginForm.get("userId").invalid &&
         this.loginForm.get("userId").dirty) ||
         this.loginForm.get("userId").pristine
     ) {
       // console.log("Himanshu");
-      this.credentialError = true;
-      this.allErrorDisplayValue = "Kindly Enter Your Email/Mobile Number";
+      this.inputFieldError = true;
+      this.credentialError = false;
+      $(".send_otpButton").addClass("activateOnError");
+      // this.allErrorDisplayValue = "Kindly Enter Your Email/Mobile Number";
       // this.toastr.error("");
     } else {
       this.showRotatingLoader = true;
       this.showSendOtp = false;
+      this.inputFieldError = false;
       let userId = this.loginForm.get("userId").value;
       this.loginService.sendLoginOtp(userId).subscribe((data) => {
         if (!data) {
@@ -298,7 +305,9 @@ export class LoginComponent implements OnInit {
           this.setFormFresh();
         } else if (data.code == "0") {
           this.afterSuccessfullOtpSend();
+          $(".send_otpButton").removeClass("activateOnError");
           this.disableResend = true;
+          this.inputFieldError = false;
           this.allErrorDisplayValue = false;
           this.counter = 60;
           this.counterFunc();
@@ -308,18 +317,23 @@ export class LoginComponent implements OnInit {
           this.allErrorDisplayValue = data.message;
           this.showLoginButton = false;
           this.showRotatingLoader = false;
+          this.inputFieldError = false;
+          $(".send_otpButton").addClass("activateOnError");
           this.showSendOtp = true;
           this.changeNumber = false;
         } else if(data.code === '312') {
           // this.toastr.error(data.message.toString());
           this.credentialError = true;
+          this.inputFieldError = false;
           this.showRotatingLoader = false;
+          $(".send_otpButton").addClass("activateOnError");
           this.allErrorDisplayValue = data.message;
           this.resendDetails();
           this.showOtpBox = false;
         } else {
           // this.toastr.error(data.message.toString());
           this.credentialError = true;
+          $(".send_otpButton").addClass("activateOnError");
           this.allErrorDisplayValue = data.message;
           this.showLoginButton = false;
           this.showRotatingLoader = false;
@@ -348,7 +362,8 @@ export class LoginComponent implements OnInit {
     $("#digit4").removeClass("errorForOtp");
     $("#digit5").removeClass("errorForOtp");
     $("#digit6").removeClass("errorForOtp");
-    this.credentialError = false
+    this.credentialError = false;
+    this.inputFieldError = false;
     this.showOtpField = false;
     this.deskstopField = false;
     this.showOtpBox = false;
