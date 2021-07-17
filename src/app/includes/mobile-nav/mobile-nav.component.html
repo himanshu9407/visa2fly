@@ -17,36 +17,27 @@
   <!-- *ngIf="visa2FlyLogoForlogin" -->
 
   <!-- Collapse button -->
-  <button
+  <!-- <button
     class="navbar-toggler"
-    id="navigation"
     type="button"
+    id="dropdownMenuButton1"
     data-toggle="dropdown"
     aria-haspopup="true"
     aria-expanded="false"
     aria-controls="dropDown-menu-new"
     aria-expanded="false"
     aria-label="Toggle navigation"
-    (click)="menuChangeFunction()"
   >
-
-    <span class="imgClass"></span>
-    <!-- <svg  width="30" height="20" viewBox="0 0 38 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 2C0 0.895431 0.895431 0 2 0H36C37.1046 0 38 0.895431 38 2C38 3.10457 37.1046 4 36 4H2C0.89543 4 0 3.10457 0 2Z" fill="#1A096D"/>
-      <path d="M0 11C0 9.89543 0.895431 9 2 9H19C20.1046 9 21 9.89543 21 11C21 12.1046 20.1046 13 19 13H2C0.89543 13 0 12.1046 0 11Z" fill="#1A096D"/>
-      <path d="M0 20C0 18.8954 0.895431 18 2 18H31C32.1046 18 33 18.8954 33 20C33 21.1046 32.1046 22 31 22H2C0.895431 22 0 21.1046 0 20Z" fill="#1A096D"/>
-    </svg> -->
-
-
-  <!-- <svg *ngIf="back" width="20" height="29" viewBox="0 0 20 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0.473938" y="13.7263" width="20.4527" height="4" rx="2" transform="rotate(-39.27 0.473938 13.7263)" fill="#1A096D"/>
-    <rect x="2.62091" y="11.5142" width="21.179" height="4" rx="2" transform="rotate(39.2692 2.62091 11.5142)" fill="#1A096D"/>
-  </svg> -->
+    <div id="menubar">
+      <svg  width="30" height="20" viewBox="0 0 38 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 2C0 0.895431 0.895431 0 2 0H36C37.1046 0 38 0.895431 38 2C38 3.10457 37.1046 4 36 4H2C0.89543 4 0 3.10457 0 2Z" fill="#1A096D"/>
+        <path d="M0 11C0 9.89543 0.895431 9 2 9H19C20.1046 9 21 9.89543 21 11C21 12.1046 20.1046 13 19 13H2C0.89543 13 0 12.1046 0 11Z" fill="#1A096D"/>
+        <path d="M0 20C0 18.8954 0.895431 18 2 18H31C32.1046 18 33 18.8954 33 20C33 21.1046 32.1046 22 31 22H2C0.895431 22 0 21.1046 0 20Z" fill="#1A096D"/>
+      </svg>
+    </div>
   </button>
 
-  <!-- Collapsible content -->
-
-  <div class="dropdown-menu" id="dropDown-menu-new" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu" id="dropDown-menu-new" aria-labelledby="dropdownMenuButton1">
     <form *ngIf="userLoggedIn" class="form-inline">
       <li class="nav-item dropdown">
         <div class="btn-group">
@@ -109,12 +100,8 @@
       style="color: navy"
       >Logout</a
     >
-    <!-- <button (click)="logoutUser()" class="dropdown-item">Logout</button> -->
 
     <form *ngIf="!userLoggedIn" class="form-inline">
-      <!-- <li class="nav-item">
-        <a class="login" [routerLink]="['slcontainer', 'login']">Login</a>
-      </li> -->
       <button
         class="btn btn-primary signUpButton my-2 my-sm-0 ml-3 btn-sm"
         type="submit" style="border-radius: 5px;"
@@ -130,7 +117,101 @@
         Login
       </button>
     </form>
-  </div>
+  </div> -->
+
+  <input id="nav-toggle" type="checkbox">
+	<!-- <div class="logo"></div> -->
+	<ul class="links">
+    <li *ngIf="userLoggedIn">
+      <form class="form-inline">
+        <li class="nav-item dropdown">
+          <div class="btn-group">
+            <button
+              [routerLink]="['profile']"
+              class="btn btn-sm ml-3 user-dropdown user-name"
+              type="button"
+            >
+              <img
+                data-src="https://static.visa2fly.com/assets/download.png"
+                class="lazyload"
+                alt="apply visa online"
+                style="width: 25px; border-radius: 50px"
+              />
+              {{ userDetails.firstName }}
+            </button>
+          </div>
+        </li>
+      </form>
+    </li>
+    <li *ngIf="userLoggedIn"><a
+
+    class="dropdown-item"
+    [routerLink]="['profile']"
+    style="color: navy"
+    >My Profile</a
+    ></li>
+    <li><a
+      target="_blank"
+      class="dropdown-item"
+      href="https://blog.visa2fly.com"
+      style="color: navy"
+      >Blog</a
+    ></li>
+    <li><a class="dropdown-item" [routerLink]="['freeVisa']" style="color: navy"
+      >Free Visas</a
+    ></li>
+    <li><a
+      class="dropdown-item"
+      [routerLink]="['visaOnArrival']"
+      style="color: navy"
+      >Visa On Arrival</a
+    ></li>
+    <li><a class="dropdown-item" [routerLink]="['/offers']" style="color: navy"
+      >Offers</a
+    ></li>
+    <li *ngIf="!userLoggedIn">
+      <form class="form-inline">
+        <button
+          class="btn btn-primary signUpButton my-2 my-sm-0 ml-3 btn-sm"
+          type="submit" style="border-radius: 5px;"
+          [routerLink]="['slcontainer', 'signup']"
+        >
+          Signup
+        </button>
+        <button
+          class="btn btn-primary my-2 my-sm-0 ml-3 btn-sm"
+          type="submit" style="border-radius: 5px;"
+          [routerLink]="['slcontainer', 'login']"
+        >
+          Login
+        </button>
+      </form>
+    </li>
+    <li *ngIf="userLoggedIn">
+      <button
+      [routerLink]="['myBookings']"
+      class="dropdown-item"
+      style="color: navy; font-weight: 650;"
+    >
+      My Bookings
+    </button>
+    </li>
+    <li *ngIf="userLoggedIn">
+      <a
+        class="dropdown-item"
+
+        (click)="logoutUser()"
+        style="color: navy"
+        >Logout</a
+      >
+    </li>
+	</ul>
+	<label for="nav-toggle" class="icon-burger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</label>
+
 </nav>
 
 <div class="topNavContainer" *ngIf="headerForAll">

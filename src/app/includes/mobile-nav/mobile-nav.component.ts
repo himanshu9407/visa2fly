@@ -151,8 +151,37 @@ export class MobileNavComponent implements OnInit {
     this.loginStatus.getProfileData().subscribe((profile) => {
       this.userDetails = profile;
     });
-    $(".imgClass").addClass("menu");
-    $(".imgClass").addClass("forMenu");
+
+    // $(".navbar-toggler").click(function(){
+    //   $(".dropdown-menu").dropdown('show')
+    // })
+
+    // $(function() {
+    //   $('#navigation').click(function() {
+    //     $('#menubar').toggleClass('hidden');
+    //     $('#closeBar').toggleClass('hidden');
+    //   });
+    // });
+
+    // var myDropdown = document.getElementById('myDropdown')
+    // myDropdown.addEventListener('show.bs.dropdown', function () {
+    //   $('#menubar').addClass('hidden');
+    //   $('#closeBar').removeClass('hidden');
+    // })
+
+    // $(function() {
+    //   $('#dropdownMenuButton1')
+    //     .on('show.bs.dropdown', function() {
+    //       $('#menubar').addClass('hidden');
+    //       $('#closeBar').removeClass('hidden');
+    //     })
+    //     .on('hide.bs.dropdown', function() {
+    //       $('#menubar').removeClass('hidden');
+    //       $('#closeBar').addClass('hidden');
+    //     });
+    //   })
+    // $(".imgClass").addClass("menu");
+    // $(".imgClass").addClass("forMenu");
   }
 
   menuChangeFunction() {
